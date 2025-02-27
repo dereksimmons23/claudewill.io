@@ -1,0 +1,10 @@
+Type,Host,Answer,TTL,Priority
+A,claudewill.io,185.199.108.153,3600,
+A,claudewill.io,185.199.109.153,3600,
+A,claudewill.io,185.199.110.153,3600,
+A,claudewill.io,185.199.111.153,3600,
+MX,claudewill.io,mx1.titan.email,3600,10
+MX,claudewill.io,mx2.titan.email,3600,20
+TXT,claudewill.io,"v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDqe2wE+llcxbvd7/Ku4YlxE00v/k/PSv4Ux9jtXdlnodBEBQXZpfSFNCL26Q9Wj0Js6fzLLVqHsrLhjFC/vlMGRI650wa5acC8UNh6x+Fp3at5HpMYBCmtsYZT7+YTMELSGN54ESgRFpEYgyDhqCrsRjoiOWbAz4iwjaJWrYpcyQIDAQAB",3600,
+TXT,claudewill.io,"v=spf1 include:spf.titan.email ~all",3600,
+CNAME,www.claudewill.io,dereksimmons23.github.io,3600,

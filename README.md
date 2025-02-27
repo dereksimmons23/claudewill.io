@@ -11,6 +11,7 @@ The CW Standard is a philosophy built on three decades in media, a lifetime in a
 - `index.html` - Main homepage
 - `images/` - Directory containing site images
 - `DEPLOYMENT-GUIDE.md` - Instructions for deploying the website
+- `newsletter.html` - Page for the Standard Correspondence newsletter
 
 ## Related Projects
 

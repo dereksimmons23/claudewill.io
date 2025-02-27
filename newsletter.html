@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter | The CW Standard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-white shadow">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div>
+                    <a href="/" class="text-2xl font-bold text-blue-700">The CW Standard</a>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="/" class="text-gray-700 hover:text-blue-700 transition duration-300">Home</a>
+                    <a href="/framework.html" class="text-gray-700 hover:text-blue-700 transition duration-300">Framework</a>
+                    <a href="/newsletter.html" class="text-blue-700 font-medium">Newsletter</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-700 transition duration-300">About</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-700 transition duration-300">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Newsletter Posts -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold mb-6 text-center">Latest Posts from Standard Correspondence</h2>
+            <div id="rss-feed" class="space-y-4"></div>
+        </div>
+    </section>
+
+    <script>
+        fetch('https://derek4thecws.substack.com/feed')
+            .then(response => response.text())
+            .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+            .then(data => {
+                const items = data.querySelectorAll("item");
+                let html = "";
+                items.forEach(el => {
+                    html += `
+                        <div>
+                            <a href="${el.querySelector("link").innerHTML}" class="text-blue-700 hover:underline">
+                                ${el.querySelector("title").innerHTML}
+                            </a>
+                            <p class="text-gray-700">${el.querySelector("description").innerHTML}</p>
+                        </div>
+                    `;
+                });
+                document.getElementById("rss-feed").innerHTML = html;
+            });
+    </script>
+</body>
+</html>
