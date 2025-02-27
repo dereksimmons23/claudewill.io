@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newsletter | The CW Standard</title>
+    <title>Standard Correspondence | The CW Standard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/KansasWave.png');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
     <!-- Navigation -->
@@ -17,41 +24,174 @@
                 <div class="flex space-x-6">
                     <a href="/" class="text-gray-700 hover:text-blue-700 transition duration-300">Home</a>
                     <a href="/framework.html" class="text-gray-700 hover:text-blue-700 transition duration-300">Framework</a>
+                    <a href="/about.html" class="text-gray-700 hover:text-blue-700 transition duration-300">About</a>
+                    <a href="/contact.html" class="text-gray-700 hover:text-blue-700 transition duration-300">Contact</a>
                     <a href="/newsletter.html" class="text-blue-700 font-medium">Newsletter</a>
-                    <a href="#" class="text-gray-700 hover:text-blue-700 transition duration-300">About</a>
-                    <a href="#" class="text-gray-700 hover:text-blue-700 transition duration-300">Contact</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Newsletter Posts -->
-    <section class="py-16 px-4 bg-white">
-        <div class="container mx-auto max-w-4xl">
-            <h2 class="text-3xl font-bold mb-6 text-center">Latest Posts from Standard Correspondence</h2>
-            <div id="rss-feed" class="space-y-4"></div>
+    <!-- Hero Section -->
+    <section class="hero-section text-white py-20 px-4">
+        <div class="container mx-auto max-w-5xl">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Standard Correspondence</h1>
+            <p class="text-xl max-w-3xl leading-relaxed">
+                Weekly insights on pattern recognition, natural development, authentic relationships, and integrated experience.
+            </p>
         </div>
     </section>
 
-    <script>
-        fetch('https://derek4thecws.substack.com/feed')
-            .then(response => response.text())
-            .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-            .then(data => {
-                const items = data.querySelectorAll("item");
-                let html = "";
-                items.forEach(el => {
-                    html += `
-                        <div>
-                            <a href="${el.querySelector("link").innerHTML}" class="text-blue-700 hover:underline">
-                                ${el.querySelector("title").innerHTML}
-                            </a>
-                            <p class="text-gray-700">${el.querySelector("description").innerHTML}</p>
+    <!-- Subscription Section -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-6">Join the Conversation</h2>
+            <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+                Subscribe to receive regular updates on The CW Standard framework, case studies, and practical applications that help make complicated transitions less painful.
+            </p>
+            <div class="bg-gray-100 p-8 rounded-lg mb-12 max-w-xl mx-auto">
+                <form action="https://derek4thecws.substack.com/subscribe" method="post" target="_blank" class="space-y-4">
+                    <input type="email" name="email" placeholder="Your email address" required
+                        class="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button type="submit" 
+                        class="w-full px-6 py-3 bg-blue-700 text-white rounded-md hover:bg-blue-800 transition duration-300 font-medium">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Articles -->
+    <section class="py-16 px-4 bg-gray-100">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold mb-12 text-center">Featured Articles</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Featured Article 1 -->
+                <a href="https://derek4thecws.substack.com" target="_blank" class="block group">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 group-hover:shadow-xl h-full">
+                        <div class="h-2 bg-blue-600"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 group-hover:text-blue-700 transition duration-300">Pattern Recognition in Practice</h3>
+                            <p class="text-gray-700 mb-4">
+                                Exploring how to develop and apply pattern recognition skills across different domains, from athletics to organizational transformation.
+                            </p>
+                            <p class="text-blue-700 font-medium flex items-center">
+                                Read on Substack
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </p>
                         </div>
-                    `;
-                });
-                document.getElementById("rss-feed").innerHTML = html;
-            });
-    </script>
+                    </div>
+                </a>
+                
+                <!-- Featured Article 2 -->
+                <a href="https://derek4thecws.substack.com" target="_blank" class="block group">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 group-hover:shadow-xl h-full">
+                        <div class="h-2 bg-green-600"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 group-hover:text-green-700 transition duration-300">Natural Development in Leadership</h3>
+                            <p class="text-gray-700 mb-4">
+                                How leaders can foster environments that support authentic growth rather than imposing artificial metrics and timelines.
+                            </p>
+                            <p class="text-green-700 font-medium flex items-center">
+                                Read on Substack
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="text-center">
+                <a href="https://derek4thecws.substack.com" target="_blank" class="px-8 py-3 bg-blue-700 text-white hover:bg-blue-800 rounded-lg text-lg font-medium transition duration-300 inline-block">
+                    View All Articles
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What to Expect -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold mb-12 text-center">What to Expect</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Weekly Insights</h3>
+                    <p class="text-gray-700">
+                        Practical applications of The CW Standard framework delivered every week.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Case Studies</h3>
+                    <p class="text-gray-700">
+                        Real-world examples of how the framework has been applied across various contexts.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Exclusive Content</h3>
+                    <p class="text-gray-700">
+                        Insights and reflections not available anywhere else in The CW Standard ecosystem.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 bg-gray-900 text-gray-400">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <h2 class="text-2xl font-bold text-white">The CW Standard</h2>
+                    <p class="mt-2">Making connections that matter.</p>
+                </div>
+                <div class="flex gap-8">
+                    <div>
+                        <h3 class="text-white font-medium mb-3">Connect</h3>
+                        <ul class="space-y-2">
+                            <li><a href="mailto:derek@flinthills.io" class="hover:text-white transition duration-300">Contact</a></li>
+                            <li><a href="https://derek4thecws.substack.com" class="hover:text-white transition duration-300">Substack</a></li>
+                            <li><a href="https://linkedin.com/in/dereksimm" class="hover:text-white transition duration-300">LinkedIn</a></li>
+                            <li><a href="https://dcs.bio" class="hover:text-white transition duration-300">dcs.bio</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-medium mb-3">Explore</h3>
+                        <ul class="space-y-2">
+                            <li><a href="/framework.html" class="hover:text-white transition duration-300">Framework</a></li>
+                            <li><a href="/about.html" class="hover:text-white transition duration-300">About</a></li>
+                            <li><a href="/contact.html" class="hover:text-white transition duration-300">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+                <p>&copy; 2025 The CW Standard. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

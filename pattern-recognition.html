@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
     <style>
         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/placeholder.svg');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/KansasWave.png');
             background-size: cover;
             background-position: center;
         }
@@ -24,8 +24,9 @@
                 <div class="flex space-x-6">
                     <a href="/" class="text-gray-700 hover:text-blue-700 transition duration-300">Home</a>
                     <a href="/framework.html" class="text-blue-700 font-medium">Framework</a>
-                    <a href="#" class="text-gray-700 hover:text-blue-700 transition duration-300">About</a>
-                    <a href="#" class="text-gray-700 hover:text-blue-700 transition duration-300">Contact</a>
+                    <a href="/about.html" class="text-gray-700 hover:text-blue-700 transition duration-300">About</a>
+                    <a href="/contact.html" class="text-gray-700 hover:text-blue-700 transition duration-300">Contact</a>
+                    <a href="/newsletter.html" class="text-gray-700 hover:text-blue-700 transition duration-300">Newsletter</a>
                 </div>
             </div>
         </div>
@@ -59,5 +60,36 @@
             </ul>
         </div>
     </section>
-</body>
-</html>
+    <!-- Footer -->
+    <footer class="py-12 px-4 bg-gray-900 text-gray-400">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <h2 class="text-2xl font-bold text-white">The CW Standard</h2>
+                    <p class="mt-2">Making connections that matter.</p>
+                </div>
+                <div class="flex gap-8">
+                    <div>
+                        <h3 class="text-white font-medium mb-3">Connect</h3>
+                        <ul class="space-y-2">
+                            <li><a href="mailto:derek@flinthills.io" class="hover:text-white transition duration-300">Contact</a></li>
+                            <li><a href="https://derek4thecws.substack.com" class="hover:text-white transition duration-300">Substack</a></li>
+                            <li><a href="https://linkedin.com/in/dereksimm" class="hover:text-white transition duration-300">LinkedIn</a></li>
+                            <li><a href="https://dcs.bio" class="hover:text-white transition duration-300">dcs.bio</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-medium mb-3">Explore</h3>
+                        <ul class="space-y-2">
+                            <li><a href="/framework.html" class="hover:text-white transition duration-300">Framework</a></li>
+                            <li><a href="https://derek4thecws.substack.com" class="hover:text-white transition duration-300">Stories</a></li>
+                            <li><a href="/contact.html" class="hover:text-white transition duration-300">Services</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+                <p>&copy; 2025 The CW Standard. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
