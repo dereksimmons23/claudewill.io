@@ -34,26 +34,17 @@ claude.io/
 - **AI Research** - Explorations at the intersection of human creativity and artificial intelligence
 - **Interactive Examples** - Demonstrations of pattern recognition principles
 
-## Local Development
+## Development Information
+
+This repository houses the code for my personal professional platform. While the repository is public for transparency and portfolio demonstration purposes, it is not intended for public cloning or contribution.
+
+If you're a collaborator who has been granted access:
 
 ### Prerequisites
 
 - Node.js (v16+)
 - npm or yarn
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/claude.io.git
-cd claude.io
-
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
-```
+- Access credentials to the repository
 
 ## Deployment
 
@@ -73,9 +64,9 @@ npm run deploy
 
 Content for the framework documentation, project descriptions, and blog posts is managed through Markdown files located in the `content/` directory. Updates to these files will be reflected on the site after deployment.
 
-## Contributing
+## Collaboration & Feedback
 
-This is a personal project repository but suggestions and feedback are welcome. Please reach out directly rather than submitting pull requests.
+This is a personal professional repository and is not open for public contributions. If you have feedback or suggestions about the content or presentation on claudewill.io, please reach out through the contact information below.
 
 ## About the Author
 
@@ -87,6 +78,19 @@ Derek Simmons is a pattern recognition specialist and transformation leader with
 - LinkedIn: [linkedin.com/in/dereksimm](https://linkedin.com/in/dereksimm)
 - Website: [claudewill.io](https://claudewill.io)
 
-## License
+## Legal Information
 
-© 2025 Claude Wisdom LLC. All rights reserved.
+### Copyright & Intellectual Property
+© 2025 Claude Wisdom LLC. All rights reserved. All content, frameworks, methodologies, and visual assets contained in this repository and displayed on claudewill.io are the exclusive intellectual property of Claude Wisdom LLC and Derek Simmons.
+
+### Usage Restrictions
+- **Content Usage**: The text, images, frameworks, and methodologies presented on claudewill.io may not be reproduced, distributed, or used in any form without prior written permission.
+- **Brand Elements**: The names "Claude Wisdom," "The CW Standard," "FloState," and "LIGHTNING/BUG" along with associated logos and visual identities are proprietary and may not be used in any context without express written permission.
+
+### Terms of Use
+Visitors to claudewill.io are permitted to view content for personal, non-commercial purposes. The site and its contents are provided "as is" without warranty of any kind.
+
+### Privacy Statement
+The claudewill.io website may collect basic analytics data to improve user experience. No personally identifiable information is collected from visitors unless explicitly provided through contact forms.
+
+For any legal inquiries or permission requests, please contact derek@flinthills.io.
