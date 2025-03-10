@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derek Simmons | Executive Brand Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-light: #eff6ff;
+            --secondary: #4f46e5;
+            --gray: #64748b;
+            --dark-gray: #1e293b;
+            --light-gray: #f1f5f9;
+            --white: #ffffff;
+            --green: #10b981;
+            --purple: #8b5cf6;
+            --red: #ef4444;
+            --border-radius: 0.5rem;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--light-gray);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(to bottom right, #1e40af, #4f46e5);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 0.75rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 1.5rem;
+        }
+
+        nav a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 2rem 1rem 3rem;
+            background-color: var(--white);
+        }
+
+        .profile-img {
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 1.5rem;
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subtitle {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #1e3a8a;
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary);
+            border: 1px solid #e5e7eb;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-light);
+        }
+
+        /* Focus Areas */
+        .focus-areas {
+            padding: 2rem 1rem;
+            background-color: var(--light-gray);
+        }
+
+        .section-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .area-card {
+            background-color: white;
+            padding: 1.25rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid #e5e7eb;
+        }
+
+        .area-icon {
+            width: 3rem;
+            height: 3rem;
+            margin: 0 auto 0.75rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .area-icon.blue {
+            background-color: #dbeafe;
+            color: var(--primary);
+        }
+
+        .area-icon.purple {
+            background-color: #ede9fe;
+            color: var(--purple);
+        }
+
+        .area-icon.green {
+            background-color: #d1fae5;
+            color: var(--green);
+        }
+
+        .area-icon.indigo {
+            background-color: #e0e7ff;
+            color: var(--secondary);
+        }
+
+        .area-card h3 {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 2rem 1rem;
+            background-color: white;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .view-all {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .view-all i {
+            margin-left: 0.25rem;
+            font-size: 0.75rem;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #e5e7eb;
+        }
+
+        .project-img {
+            height: 160px;
+            background: linear-gradient(to right, #1e40af, #4f46e5);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .project-img.purple {
+            background: linear-gradient(to right, #8b5cf6, #d946ef);
+        }
+
+        .project-img .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            color: white;
+            font-weight: 500;
+        }
+
+        .project-content {
+            padding: 1rem;
+        }
+
+        .project-content p {
+            color: var(--gray);
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .project-link i {
+            margin-left: 0.25rem;
+            font-size: 0.75rem;
+        }
+
+        /* Experience Section */
+        .experience {
+            padding: 2rem 1rem;
+            background-color: var(--light-gray);
+        }
+
+        .experience-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #e5e7eb;
+        }
+
+        .experience-header {
+            display: flex;
+            margin-bottom: 0.75rem;
+        }
+
+        .experience-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .experience-icon.blue {
+            background-color: #dbeafe;
+            color: var(--primary);
+        }
+
+        .experience-icon.purple {
+            background-color: #ede9fe;
+            color: var(--purple);
+        }
+
+        .experience-details h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .experience-details .company {
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        .experience-description {
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        /* Resources Section */
+        .resources {
+            padding: 2rem 1rem;
+            background-color: white;
+        }
+
+        .resource-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #e5e7eb;
+        }
+
+        .resource-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .resource-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .resource-icon.blue {
+            background-color: #dbeafe;
+            color: var(--primary);
+        }
+
+        .resource-icon.green {
+            background-color: #d1fae5;
+            color: var(--green);
+        }
+
+        .resource-icon.purple {
+            background-color: #ede9fe;
+            color: var(--purple);
+        }
+
+        .resource-details h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .resource-details .date {
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+
+        .download-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f1f5f9;
+            color: var(--gray);
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .download-btn:hover {
+            background-color: #e2e8f0;
+        }
+
+        /* Footer Nav */
+        .footer-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border-top: 1px solid #e5e7eb;
+            padding: 0.5rem;
+            z-index: 100;
+        }
+
+        .nav-buttons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.25rem;
+        }
+
+        .nav-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.25rem;
+            border-radius: 0.25rem;
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .nav-btn.active {
+            color: var(--primary);
+        }
+
+        .nav-btn i {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .nav-btn:hover {
+            background-color: #f1f5f9;
+            color: var(--dark-gray);
+        }
+
+        /* Section content */
+        .section-content {
+            display: none;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .areas-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .projects-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .project-card {
+                margin-bottom: 0;
+            }
+
+            .resources-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .resource-card {
+                margin-bottom: 0;
+            }
+
+            .footer-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">DS</div>
+                <span>Derek Simmons</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+                    <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+                    <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+                    <li><a href="#franchises" class="nav-link" data-section="franchises">Media Franchises</a></li>
+                    <li><a href="#resources" class="nav-link" data-section="resources">Resources</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section-content active">
+            <div class="hero">
+                <img src="profile.jpg" alt="Derek Simmons" class="profile-img">
+                <h1>Derek Simmons</h1>
+                <p class="subtitle">Pattern Recognition Specialist & Transformation Leader</p>
+                <p>Transformation leader bridging human wisdom with AI innovation. With 20+ years of experience as a media executive and AI integration specialist, I've developed frameworks that generated $10M+ in new revenue while maintaining ethical implementation.</p>
+                <div class="btn-container">
+                    <a href="#resources" class="btn btn-primary">Download CV</a>
+                    <a href="mailto:derek@flinthills.io" class="btn btn-secondary">Connect</a>
+                </div>
+            </div>
+
+            <div class="focus-areas">
+                <div class="container">
+                    <h2 class="section-title">Areas of Focus</h2>
+                    <div class="areas-grid">
+                        <div class="area-card">
+                            <div class="area-icon blue">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>AI Ethics & Implementation</h3>
+                        </div>
+                        <div class="area-card">
+                            <div class="area-icon indigo">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3>Transformation Leadership</h3>
+                        </div>
+                        <div class="area-card">
+                            <div class="area-icon purple">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Pattern Recognition</h3>
+                        </div>
+                        <div class="area-card">
+                            <div class="area-icon green">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Team Development</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Key Projects</h2>
+                        <a href="#projects" class="view-all show-section" data-section="projects">View All <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-img">
+                                <span>CW</span>
+                                <div class="overlay">The CW Standard</div>
+                            </div>
+                            <div class="project-content">
+                                <p>Framework for AI implementation that balances technological advancement with human wisdom.</p>
+                                <a href="#projects" class="project-link show-section" data-section="projects">Explore Project <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-img purple">
+                                <span>FS</span>
+                                <div class="overlay">FloState</div>
+                            </div>
+                            <div class="project-content">
+                                <p>Comprehensive performance optimization system designed to help athletes, creatives, and professionals achieve flow state.</p>
+                                <a href="#projects" class="project-link show-section" data-section="projects">Learn More <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Experience Highlights</h2>
+                        <a href="#experience" class="view-all show-section" data-section="experience">Full CV <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="experience-cards">
+                        <div class="experience-card">
+                            <div class="experience-header">
+                                <div class="experience-icon blue">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <div class="experience-details">
+                                    <h3>Chief Creative Officer & VP</h3>
+                                    <p class="company">Star Tribune Media • 2017-2024</p>
+                                </div>
+                            </div>
+                            <p class="experience-description">
+                                Led AI Task Force and enterprise-wide digital transformation initiatives generating $10M+ in new revenue.
+                            </p>
+                        </div>
+                        <div class="experience-card">
+                            <div class="experience-header">
+                                <div class="experience-icon purple">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="experience-details">
+                                    <h3>Executive Director, Digital Strategy</h3>
+                                    <p class="company">Star Tribune Media • 2023-2024</p>
+                                </div>
+                            </div>
+                            <p class="experience-description">
+                                Directed transformation efforts with a focus on innovative revenue frameworks and subscription growth.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resources">
+                <div class="container">
+                    <h2 class="section-title">Resources</h2>
+                    <div class="resource-cards">
+                        <div class="resource-card">
+                            <div class="resource-info">
+                                <div class="resource-icon blue">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="resource-details">
+                                    <h3>Executive CV</h3>
+                                    <p class="date">Updated March 2025</p>
+                                </div>
+                            </div>
+                            <button class="download-btn">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                        <div class="resource-card">
+                            <div class="resource-info">
+                                <div class="resource-icon green">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="resource-details">
+                                    <h3>Professional Bio</h3>
+                                    <p class="date">Updated March 2025</p>
+                                </div>
+                            </div>
+                            <button class="download-btn">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                        <div class="resource-card">
+                            <div class="resource-info">
+                                <div class="resource-icon purple">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="resource-details">
+                                    <h3>Media Franchise Framework</h3>
+                                    <p class="date">Updated March 2025</p>
+                                </div>
+                            </div>
+                            <button class="download-btn">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section-content">
+            <div class="container" style="padding: 2rem 1rem;">
+                <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">Professional Experience</h2>
+                
+                <div style="background-color: white; border-radius: 0.5rem; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="font-size: 1.25rem; font-weight: 600;">Founder & Chief Architect</h3>
+                            <p style="color: var(--gray);">The CW Standard • 2024-Present</p>
+                        </div>
+                        <span style="background-color: #dbeafe; color: var(--primary); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Current</span>
+                    </div>
+                    <p style="margin-bottom: 1rem;">
+                        Developing a comprehensive framework integrating human pattern recognition with AI capabilities.
+                    </p>
+                    <div>
+                        <h4 style="font-weight: 500; margin-bottom: 0.5rem;">Key Responsibilities & Achievements</h4>
+                        <ul style="list-style-type: disc; padding-left: 1.25rem;">
+                            <li style="color: var(--gray); margin-bottom: 0.25rem;">Developing framework integrating human pattern recognition with emerging technologies</li>
+                            <li style="color: var(--gray); margin-bottom: 0.25rem;">Creating ethical AI implementation guidelines for human-centered technology</li>
+                            <li style="color: var(--gray); margin-bottom: 0.25rem;">Building strategic partnerships for framework application across industries</li>
+                            <li style="color: var(--gray);">Exploring visual intelligence applications through AI-generated creative projects</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div style="background-color: white; border-radius: 0.5rem; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+                    <div style="margin-bottom: 1rem;">
+                        <h3 style="font-size: 1.25rem; font-weight: 600;">Chief Creative Officer & VP, Innovation</h3>
+                        <p style="color: var(--gray);">Star Tribune Media • 2017-2023</p>
+                    </div>
+                    <p style="margin-bottom: 1rem;">
+                        Led enterprise-wide strategic initiatives across editorial and business departments while spearheading digital transformation efforts.
+                    </p>
+                    <div>
+                        <h4 style="font-weight: 500; margin-bottom: 0.5rem;">Key Responsibilities & Achievements</h4>
+                        <ul style="list-style-type: disc; padding-left: 1.25rem;">
+                            <li style="color: var(--gray); margin-bottom: 0.25rem;">Led AI Task Force, establishing ethical frameworks for implementation</li>
+                            <li style="color: var(--gray); margin-bottom: 0.25rem;">Directed Ad Standards & Policy development for emerging technologies</li>
+                            <li style="color: var(--gray); margin-bottom: 0.25rem;">Created pattern recognition systems for content and technology integration</li>
+                            <li style="color: var(--gray); margin-bottom: 0.25rem;">Achieved top 6 national ranking in digital subscriptions through AI-enhanced strategies</li>
+                            <li style="color: var(--gray);">Pioneered "franchise" model generating new revenue streams through AI-optimized content</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div style="background-color: white; border-radius: 0.5rem; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+                    <div style="margin-bottom: 1rem;">
+                        <h3 style="font-size: 1.25rem; font-weight: 600;">Executive Director, Digital Strategy</h3>
+                        <p style="color: var(--gray);">Star Tribune Media • 2023-2024</p>
+                    </div>
+                    <p style="margin-bottom: 1rem;">
+                        Directed omnichannel media strategy across paid, earned, social and display channels.
+                    </p>
+                    <div>
+                        <h4 style="font-weight: 500; margin-bottom: 0.5rem;">Key Responsibilities & Achievements</h4>
+                        <ul style="list-style-type: disc; padding-left: 1.25rem;">
+                            <li style="color: var(--gray); margin-bottom: 0.25rem;">Drove digital subscription growth to 100,000+, achieving top 6 ranking nationally</li>
+                            <li style="color: var(--gray); margin-bottom: 0.25rem;">Created innovative revenue frameworks through product development</li>
+                            <li style="color: var(--gray); margin-bottom: 0.25rem;">Led cross-functional teams in AI technology adoption and transformation</li>
+                            <li style="color: var(--gray);">Established performance metrics and analytics frameworks</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div style="background-color: white; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+                    <div style="margin-bottom: 1rem;">
+                        <h3 style="font-size: 1.25rem; font-weight: 600;">Assistant Managing Editor, Visuals</h3>
+                        <p style="color: var(--gray);">Star Tribune Media • 2013-2020</p>
+                    </div>
+                    <p style="margin-bottom: 1rem;">
+                        Led department of 50+ visual journalists, designers, and production staff.
+                    </p>
+                    <div>
+                        <h4 style="font-weight: 500; margin-bottom: 0.5rem;">Key Responsibilities & Achievements</h4>
+                        <ul style="list-style-type: disc; padding-left: 1.25rem;">
+                            <li style="color: var(--gray); margin-bottom: 0.25rem;">Managed $2M+ annual operating budget with consistent fiscal responsibility</li>
+                            <li style="color: var(--gray); margin-bottom: 0.25rem;">Elevated visual journalism from unranked to Top 10 in international competitions</li>
+                            <li style="color: var(--gray); margin-bottom: 0.25rem;">Implemented strategic planning processes improving operational efficiency</li>
+                            <li style="color: var(--gray);">Collaborated with editorial and business leadership on organizational direction</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section-content">
+            <div class="container" style="padding: 2rem 1rem;">
+                <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">Featured Projects</h2>
+                
+                <div style="margin-bottom: 2rem;">
+                    <div style="background-color: white; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+                        <div style="display: flex; flex-direction: column; overflow: hidden;">
+                            <div style="background: linear-gradient(to bottom right, #1e40af, #4f46e5); padding: 1.5rem; color: white; text-align: center;">
+                                <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">The CW Standard</h3>
+                                <p style="color: #dbeafe;">EST. 2025</p>
+                            </div>
+                            <div style="padding: 1.5rem;">
+                                <div style="text-transform: uppercase; font-size: 0.75rem; font-weight: 600; color: var(--secondary); margin-bottom: 0.25rem;">Framework Development</div>
+                                <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Pattern Recognition & Human Development</h3>
+                                <p style="color: var(--gray); margin-bottom: 1rem;">
+                                    A comprehensive framework integrating human pattern recognition with AI capabilities. The CW Standard balances technological advancement with human wisdom, providing ethical implementation guidelines across domains.
+                                </p>
+                                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+                                    <span style="background-color: #dbeafe; color: var(--primary); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">AI Ethics</span>
+                                    <span style="background-color: #dbeafe; color: var(--primary); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Pattern Recognition</span>
+                                    <span style="background-color: #dbeafe; color: var(--primary); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Human Development</span>
+                                </div>
+                                <a href="#" style="color: var(--primary); text-decoration: none; font-size: 0.875rem; font-weight: 500; display: inline-flex; align-items: center;">
+                                    Download Framework Overview <i class="fas fa-arrow-right" style="margin-left: 0.25rem; font-size: 0.75rem;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <div style="background-color: white; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+                        <div style="display: flex; flex-direction: column; overflow: hidden;">
+                            <div style="background: linear-gradient(to bottom right, #8b5cf6, #d946ef); padding: 1.5rem; color: white; text-align: center;">
+                                <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">FloState</h3>
+                                <p style="color: #ede9fe;">Peak Performance System</p>
+                            </div>
+                            <div style="padding: 1.5rem;">
+                                <div style="text-transform: uppercase; font-size: 0.75rem; font-weight: 600; color: var(--purple); margin-bottom: 0.25rem;">Performance Optimization</div>
+                                <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">The Science of Peak Performance</h3>
+                                <p style="color: var(--gray); margin-bottom: 1rem;">
+                                    A comprehensive performance optimization system designed to help athletes, creatives, and professionals achieve and maintain flow state. FloState integrates physical, mental, emotional, and spiritual components into a structured methodology.
+                                </p>
+                                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+                                    <span style="background-color: #ede9fe; color: var(--purple); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Flow State</span>
+                                    <span style="background-color: #ede9fe; color: var(--purple); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Performance Optimization</span>
+                                    <span style="background-color: #ede9fe; color: var(--purple); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Human Potential</span>
+                                </div>
+                                <a href="#" style="color: var(--purple); text-decoration: none; font-size: 0.875rem; font-weight: 500; display: inline-flex; align-items: center;">
+                                    View FloState Overview <i class="fas fa-arrow-right" style="margin-left: 0.25rem; font-size: 0.75rem;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <div style="background-color: white; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+                        <div style="display: flex; flex-direction: column; overflow: hidden;">
+                            <div style="background: linear-gradient(to bottom right, #4b5563, #1f2937); padding: 1.5rem; color: white; text-align: center;">
+                                <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">LIGHTNING/BUG</h3>
+                                <p style="color: #d1d5db;">AI Film Exploration</p>
+                            </div>
+                            <div style="padding: 1.5rem;">
+                                <div style="text-transform: uppercase; font-size: 0.75rem; font-weight: 600; color: var(--gray); margin-bottom: 0.25rem;">AI Creative Development</div>
+                                <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Exploring Technological Transformation</h3>
+                                <p style="color: var(--gray); margin-bottom: 1rem;">
+                                    An AI-generated film exploring the tension between natural illumination and technological evolution. LIGHTNING/BUG uses visual metaphors to examine the relationship between elegance and utility in human-AI interactions.
+                                </p>
+                                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+                                    <span style="background-color: #f3f4f6; color: var(--dark-gray); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">AI Film</span>
+                                    <span style="background-color: #f3f4f6; color: var(--dark-gray); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Generative Art</span>
+                                    <span style="background-color: #f3f4f6; color: var(--dark-gray); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Visual Metaphor</span>
+                                </div>
+                                <a href="#" style="color: var(--gray); text-decoration: none; font-size: 0.875rem; font-weight: 500; display: inline-flex; align-items: center;">
+                                    Film Release: March 2025 <i class="fas fa-arrow-right" style="margin-left: 0.25rem; font-size: 0.75rem;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div style="background-color: white; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+                        <div style="display: flex; flex-direction: column; overflow: hidden;">
+                            <div style="background: linear-gradient(to bottom right, #10b981, #0d9488); padding: 1.5rem; color: white; text-align: center;">
+                                <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">Standard Collection</h3>
+                                <p style="color: #d1fae5;">Brand Merchandise</p>
+                            </div>
+                            <div style="padding: 1.5rem;">
+                                <div style="text-transform: uppercase; font-size: 0.75rem; font-weight: 600; color: var(--green); margin-bottom: 0.25rem;">Brand Extension</div>
+                                <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Physical Embodiments of Digital Principles</h3>
+                                <p style="color: var(--gray); margin-bottom: 1rem;">
+                                    A thoughtfully designed merchandise collection that embodies the values of pattern recognition, authentic transformation, and human wisdom. Each item serves as both a practical tool and a physical reminder of our frameworks.
+                                </p>
+                                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+                                    <span style="background-color: #d1fae5; color: var(--green); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Brand Extension</span>
+                                    <span style="background-color: #d1fae5; color: var(--green); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Physical Products</span>
+                                    <span style="background-color: #d1fae5; color: var(--green); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Design Concepts</span>
+                                </div>
+                                <a href="#" style="color: var(--green); text-decoration: none; font-size: 0.875rem; font-weight: 500; display: inline-flex; align-items: center;">
+                                    View Collection Concepts <i class="fas fa-arrow-right" style="margin-left: 0.25rem; font-size: 0.75rem;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Media Franchises Section -->
+        <section id="franchises" class="section-content">
+            <div class="container" style="padding: 2rem 1rem;">
+                <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">Media Franchise Model</h2>
+                
+                <div style="background-color: white; border-radius: 0.5rem; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Transforming Traditional Verticals</h3>
+                    <p style="color: var(--gray); margin-bottom: 1rem;">
+                        The Media Franchise Model reimagines content as IP-driven franchises rather than platform-specific verticals. This innovative approach treats content brands as valuable intellectual property to be developed across platforms, creating unified audience strategies regardless of delivery mechanism.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+                        <span style="background-color: #ede9fe; color: var(--purple); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">$10M+ Revenue Growth</span>
+                        <span style="background-color: #ede9fe; color: var(--purple); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">100,000+ Subscribers</span>
+                        <span style="background-color: #ede9fe; color: var(--purple); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Cross-Platform Strategy</span>
+                    </div>
+                    <a href="#" style="color: var(--purple); text-decoration: none; font-size: 0.875rem; font-weight: 500; display: inline-flex; align-items: center;">
+                        Download Complete Framework <i class="fas fa-arrow-right" style="margin-left: 0.25rem; font-size: 0.75rem;"></i>
+                    </a>
+                </div>
+                
+                <div style="background-color: white; border-radius: 0.5rem; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+                    <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem;">The Minnesota Star Tribune</h3>
+                    <p style="color: var(--gray); margin-bottom: 1rem;">
+                        Transformed "Star Tribune" into "The Minnesota Star Tribune" – a cohesive content franchise that unified local identity across all platforms. Created consistent branding elements reflecting Minnesota heritage and values while developing cross-platform content strategy emphasizing Minnesota-centric storytelling.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <span style="background-color: #dbeafe; color: var(--primary); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Regional Identity</span>
+                        <span style="background-color: #dbeafe; color: var(--primary); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Brand Cohesion</span>
+                        <span style="background-color: #dbeafe; color: var(--primary); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Digital Transformation</span>
+                    </div>
+                </div>
+                
+                <div style="background-color: white; border-radius: 0.5rem; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+                    <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem;">Sports Betting</h3>
+                    <p style="color: var(--gray); margin-bottom: 1rem;">
+                        Developed comprehensive sports betting franchise integrating content, data, partnerships, and audience engagement. Created dedicated content vertical with clear separation from traditional sports coverage while establishing partnerships with betting data providers and platforms.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <span style="background-color: #d1fae5; color: var(--green); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Revenue Growth</span>
+                        <span style="background-color: #d1fae5; color: var(--green); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">New Audience Segments</span>
+                        <span style="background-color: #d1fae5; color: var(--green); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Strategic Partnerships</span>
+                    </div>
+                </div>
+                
+                <div style="background-color: white; border-radius: 0.5rem; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+                    <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem;">Minnesota Travels</h3>
+                    <p style="color: var(--gray); margin-bottom: 1rem;">
+                        Developed the Minnesota Travels franchise connecting audiences with local destinations, experiences, and planning resources. Curated existing content into organized destination guides and created seasonal content calendars aligned with regional travel patterns.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <span style="background-color: #fef3c7; color: #92400e; font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Sponsored Content</span>
+                        <span style="background-color: #fef3c7; color: #92400e; font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Tourism Partnerships</span>
+                        <span style="background-color: #fef3c7; color: #92400e; font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Audience Engagement</span>
+                    </div>
+                </div>
+                
+                <div style="background-color: white; border-radius: 0.5rem; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+                    <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem;">Going Out (Minnesota Entertainment)</h3>
+                    <p style="color: var(--gray); margin-bottom: 1rem;">
+                        Created the Going Out franchise focused on Minnesota's entertainment scene with integrated content, commerce, and community components. Built searchable events database with ticketing integration and developed critic and audience review platforms.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <span style="background-color: #fee2e2; color: var(--red); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Affiliate Revenue</span>
+                        <span style="background-color: #fee2e2; color: var(--red); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Entertainment Community</span>
+                        <span style="background-color: #fee2e2; color: var(--red); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Ticketing Integration</span>
+                    </div>
+                </div>
+                
+                <div style="background-color: white; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+                    <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem;">Additional Franchise Models</h3>
+                    <ul style="list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1rem;">
+                        <li style="color: var(--gray); margin-bottom: 0.5rem;"><strong>Sponsored Content:</strong> Comprehensive sponsored content franchise with consistent quality standards, audience targeting, and measurement frameworks.</li>
+                        <li style="color: var(--gray); margin-bottom: 0.5rem;"><strong>Cause Marketing:</strong> Connecting nonprofits with targeted audience segments through content, events, and brand integration.</li>
+                        <li style="color: var(--gray); margin-bottom: 0.5rem;"><strong>Affiliate Marketing:</strong> Sustainable affiliate revenue framework with transparent standards and audience-focused recommendations.</li>
+                    </ul>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <span style="background-color: #ede9fe; color: var(--purple); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Revenue Diversification</span>
+                        <span style="background-color: #ede9fe; color: var(--purple); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Audience Engagement</span>
+                        <span style="background-color: #ede9fe; color: var(--purple); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">Cross-Platform Strategy</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources" class="section-content">
+            <div class="container" style="padding: 2rem 1rem;">
+                <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">Downloadable Resources</h2>
+                
+                <div style="display: grid; gap: 1.5rem;">
+                    <div style="background-color: white; border-radius: 0.5rem; overflow: hidden; border: 1px solid #e5e7eb; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        <div style="padding: 1rem; background-color: #dbeafe; border-bottom: 1px solid #e5e7eb;">
+                            <div style="display: flex; align-items: center;">
+                                <div style="width: 2.5rem; height: 2.5rem; background-color: #dbeafe; border-radius: 0.25rem; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem;">
+                                    <i class="fas fa-file-alt" style="color: var(--primary);"></i>
+                                </div>
+                                <div>
+                                    <h3 style="font-weight: 500;">Executive CV</h3>
+                                    <p style="font-size: 0.75rem; color: var(--gray);">Updated March 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding: 1rem;">
+                            <p style="font-size: 0.875rem; color: var(--gray); margin-bottom: 1rem;">
+                                Comprehensive overview of leadership experience in digital transformation, AI integration, and pattern recognition across multiple domains.
+                            </p>
+                            <button class="btn btn-primary" style="width: 100%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-download" style="margin-right: 0.5rem;"></i> Download CV
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div style="background-color: white; border-radius: 0.5rem; overflow: hidden; border: 1px solid #e5e7eb; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        <div style="padding: 1rem; background-color: #d1fae5; border-bottom: 1px solid #e5e7eb;">
+                            <div style="display: flex; align-items: center;">
+                                <div style="width: 2.5rem; height: 2.5rem; background-color: #d1fae5; border-radius: 0.25rem; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem;">
+                                    <i class="fas fa-file-alt" style="color: var(--green);"></i>
+                                </div>
+                                <div>
+                                    <h3 style="font-weight: 500;">Professional Bio</h3>
+                                    <p style="font-size: 0.75rem; color: var(--gray);">Updated March 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding: 1rem;">
+                            <p style="font-size: 0.875rem; color: var(--gray); margin-bottom: 1rem;">
+                                Narrative overview of professional journey focusing on transformation leadership, pattern recognition expertise, and AI ethics implementation.
+                            </p>
+                            <button class="btn" style="width: 100%; display: flex; align-items: center; justify-content: center; background-color: var(--green); color: white;">
+                                <i class="fas fa-download" style="margin-right: 0.5rem;"></i> Download Bio
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div style="background-color: white; border-radius: 0.5rem; overflow: hidden; border: 1px solid #e5e7eb; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        <div style="padding: 1rem; background-color: #ede9fe; border-bottom: 1px solid #e5e7eb;">
+                            <div style="display: flex; align-items: center;">
+                                <div style="width: 2.5rem; height: 2.5rem; background-color: #ede9fe; border-radius: 0.25rem; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem;">
+                                    <i class="fas fa-file-alt" style="color: var(--purple);"></i>
+                                </div>
+                                <div>
+                                    <h3 style="font-weight: 500;">Media Franchise Framework</h3>
+                                    <p style="font-size: 0.75rem; color: var(--gray);">Updated March 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding: 1rem;">
+                            <p style="font-size: 0.875rem; color: var(--gray); margin-bottom: 1rem;">
+                                Detailed overview of the Media Franchise Model methodology, including implementation strategies, success metrics, and case studies from seven successful franchise implementations.
+                            </p>
+                            <button class="btn" style="width: 100%; display: flex; align-items: center; justify-content: center; background-color: var(--purple); color: white;">
+                                <i class="fas fa-download" style="margin-right: 0.5rem;"></i> Download Framework
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div style="background-color: white; border-radius: 0.5rem; overflow: hidden; border: 1px solid #e5e7eb; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        <div style="padding: 1rem; background-color: #e0e7ff; border-bottom: 1px solid #e5e7eb;">
+                            <div style="display: flex; align-items: center;">
+                                <div style="width: 2.5rem; height: 2.5rem; background-color: #e0e7ff; border-radius: 0.25rem; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem;">
+                                    <i class="fas fa-file-alt" style="color: var(--secondary);"></i>
+                                </div>
+                                <div>
+                                    <h3 style="font-weight: 500;">FloState Overview</h3>
+                                    <p style="font-size: 0.75rem; color: var(--gray);">Updated March 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding: 1rem;">
+                            <p style="font-size: 0.875rem; color: var(--gray); margin-bottom: 1rem;">
+                                Comprehensive overview of the FloState performance optimization system, including methodology, implementation strategies, and success metrics from athletic and professional applications.
+                            </p>
+                            <button class="btn" style="width: 100%; display: flex; align-items: center; justify-content: center; background-color: var(--secondary); color: white;">
+                                <i class="fas fa-download" style="margin-right: 0.5rem;"></i> Download Overview
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Navigation -->
+    <div class="footer-nav">
+        <div class="nav-buttons">
+            <button class="nav-btn active" data-section="home">
+                <i class="fas fa-globe"></i>
+                <span>Home</span>
+            </button>
+            <button class="nav-btn" data-section="experience">
+                <i class="fas fa-award"></i>
+                <span>Experience</span>
+            </button>
+            <button class="nav-btn" data-section="projects">
+                <i class="fas fa-lightbulb"></i>
+                <span>Projects</span>
+            </button>
+            <button class="nav-btn" data-section="franchises">
+                <i class="fas fa-users"></i>
+                <span>Franchises</span>
+            </button>
+            <button class="nav-btn" data-section="resources">
+                <i class="fas fa-file-alt"></i>
+                <span>Resources</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Section navigation
+        const navLinks = document.querySelectorAll('.nav-link, .show-section, .nav-btn');
+        const sections = document.querySelectorAll('.section-content');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sectionId = link.getAttribute('data-section');
+                
+                // Update active section
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === sectionId) {
+                        section.classList.add('active');
+                    }
+                });
+                
+                // Update active nav link
+                navLinks.forEach(navLink => {
+                    navLink.classList.remove('active');
+                    if (navLink.getAttribute('data-section') === sectionId) {
+                        navLink.classList.add('active');
+                    }
+                });
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.createElement('div');
+        mobileMenu.classList.add('mobile-menu');
+        mobileMenu.style.position = 'fixed';
+        mobileMenu.style.top = '0';
+        mobileMenu.style.left = '0';
+        mobileMenu.style.right = '0';
+        mobileMenu.style.bottom = '0';
+        mobileMenu.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+        mobileMenu.style.zIndex = '50';
+        mobileMenu.style.display = 'none';
+        
+        const mobileMenuContent = document.createElement('div');
+        mobileMenuContent.style.position = 'absolute';
+        mobileMenuContent.style.top = '0';
+        mobileMenuContent.style.right = '0';
+        mobileMenuContent.style.bottom = '0';
+        mobileMenuContent.style.width = '250px';
+        mobileMenuContent.style.backgroundColor = 'white';
+        mobileMenuContent.style.boxShadow = '-2px 0 5px rgba(0, 0, 0, 0.1)';
+        mobileMenuContent.style.padding = '1rem';
+        
+        const mobileMenuHeader = document.createElement('div');
+        mobileMenuHeader.style.display = 'flex';
+        mobileMenuHeader.style.alignItems = 'center';
+        mobileMenuHeader.style.marginBottom = '1rem';
+        mobileMenuHeader.style.padding = '0.5rem 0';
+        mobileMenuHeader.style.borderBottom = '1px solid #e5e7eb';
+        
+        const mobileMenuLogo = document.createElement('div');
+        mobileMenuLogo.className = 'logo-icon';
+        mobileMenuLogo.textContent = 'DS';
+        mobileMenuLogo.style.marginRight = '0.75rem';
+        
+        const mobileMenuName = document.createElement('div');
+        mobileMenuName.innerHTML = '<div style="font-weight: 600;">Derek Simmons</div><div style="font-size: 0.75rem; color: var(--gray);">Pattern Recognition Specialist</div>';
+        
+        mobileMenuHeader.appendChild(mobileMenuLogo);
+        mobileMenuHeader.appendChild(mobileMenuName);
+        
+        const mobileMenuNav = document.createElement('nav');
+        mobileMenuNav.innerHTML = `
+            <ul style="list-style: none; margin-bottom: 1rem;">
+                <li style="margin-bottom: 0.5rem;"><a href="#home" class="nav-link" data-section="home" style="display: flex; align-items: center; padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--gray);"><i class="fas fa-globe" style="margin-right: 0.75rem; width: 1rem;"></i> Home</a></li>
+                <li style="margin-bottom: 0.5rem;"><a href="#experience" class="nav-link" data-section="experience" style="display: flex; align-items: center; padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--gray);"><i class="fas fa-award" style="margin-right: 0.75rem; width: 1rem;"></i> Experience</a></li>
+                <li style="margin-bottom: 0.5rem;"><a href="#projects" class="nav-link" data-section="projects" style="display: flex; align-items: center; padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--gray);"><i class="fas fa-lightbulb" style="margin-right: 0.75rem; width: 1rem;"></i> Projects</a></li>
+                <li style="margin-bottom: 0.5rem;"><a href="#franchises" class="nav-link" data-section="franchises" style="display: flex; align-items: center; padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--gray);"><i class="fas fa-users" style="margin-right: 0.75rem; width: 1rem;"></i> Media Franchises</a></li>
+                <li><a href="#resources" class="nav-link" data-section="resources" style="display: flex; align-items: center; padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--gray);"><i class="fas fa-file-alt" style="margin-right: 0.75rem; width: 1rem;"></i> Resources</a></li>
+            </ul>
+        `;
+        
+        const mobileMenuConnect = document.createElement('a');
+        mobileMenuConnect.href = 'mailto:derek@flinthills.io';
+        mobileMenuConnect.className = 'btn btn-primary';
+        mobileMenuConnect.textContent = 'Connect with Derek';
+        mobileMenuConnect.style.display = 'block';
+        mobileMenuConnect.style.marginTop = '1rem';
+        mobileMenuConnect.style.textAlign = 'center';
+        
+        mobileMenuContent.appendChild(mobileMenuHeader);
+        mobileMenuContent.appendChild(mobileMenuNav);
+        mobileMenuContent.appendChild(mobileMenuConnect);
+        
+        mobileMenu.appendChild(mobileMenuContent);
+        document.body.appendChild(mobileMenu);
+        
+        let mobileMenuOpen = false;
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuOpen = !mobileMenuOpen;
+            if (mobileMenuOpen) {
+                mobileMenu.style.display = 'block';
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileMenu.style.display = 'none';
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+        
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenuOpen = false;
+                mobileMenu.style.display = 'none';
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+        
+        // Add event listeners to mobile menu links
+        const mobileNavLinks = mobileMenuNav.querySelectorAll('.nav-link');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuOpen = false;
+                mobileMenu.style.display = 'none';
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+    </script>
+</body>
+</html>
