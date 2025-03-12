@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Franchise Model | CW Strategies</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .phase {
+            margin-bottom: 30px;
+        }
+        
+        .phase:last-child {
+            margin-bottom: 0;
+        }
+        
+        .phase h3 {
+            margin-top: 0;
+            color: #2563eb;
+        }
+        
+        .phase ul {
+            padding-left: 20px;
+        }
+        
+        .phase li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .component-card {
+            padding: 25px;
+            border-radius: 8px;
+            background: #f9fafb;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #2563eb;
+            margin-bottom: 30px;
+        }
+        
+        .component-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .component-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #2563eb;
+        }
+        
+        .component-card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .case-study {
+            background: #f9fafb;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .case-study h4 {
+            color: #2563eb;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .case-study-meta {
+            display: flex;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            margin-right: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .meta-item strong {
+            color: #333;
+        }
+        
+        .case-study-results {
+            background: #edf4ff;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+        
+        .case-study-results h5 {
+            color: #2563eb;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        
+        .case-study-results ul {
+            padding-left: 20px;
+            color: #555;
+        }
+        
+        .model-visual {
+            height: 300px;
+            background: #f0f7ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2563eb;
+            font-weight: 500;
+            margin: 30px 0;
+        }
+        
+        .cta-section {
+            background: #2563eb;
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #2563eb;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">CW Strategies</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="frameworks.html">Frameworks</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>Media Franchise Model</h1>
+        
+        <div class="intro">
+            <p>A transformative approach to content strategy that reimagines traditional content verticals as intellectual property-driven franchises to be developed across platforms, creating unified audience strategies and sustainable revenue streams.</p>
+        </div>
+        
+        <p>The Media Franchise Model represents a paradigm shift in how media organizations conceptualize, develop, and monetize content in an increasingly fractured digital landscape. Rather than treating content as disposable or platform-specific, this model approaches valuable content as intellectual property to be thoughtfully developed across platforms and formats while maintaining authentic voice and strategic coherence.</p>
+        
+        <div class="model-visual">
+            Media Franchise Model Visualization
+            <!-- Replace with actual visualization image when available -->
+        </div>
+        
+        <h2>Core Concepts</h2>
+        
+        <div class="research-components">
+            <div class="component-card">
+                <h4>Intellectual Property Identification</h4>
+                <p>Systematic approach to recognizing content with franchise potential across an organization's portfolio.</p>
+                <ul>
+                    <li>Content performance analysis across metrics and platforms</li>
+                    <li>Cultural relevance and trend alignment assessment</li>
+                    <li>Unique content positioning identification</li>
+                    <li>IP development potential evaluation</li>
+                </ul>
+            </div>
+            
+            <div class="component-card">
+                <h4>Audience Ecosystem Mapping</h4>
+                <p>Framework for understanding audience segments across platforms and their relationship to franchise components.</p>
+                <ul>
+                    <li>Multi-platform audience analysis</li>
+                    <li>Engagement pathway mapping</li>
+                    <li>Cross-platform behavior patterns</li>
+                    <li>Audience value assessment</li>
+                </ul>
+            </div>
+            
+            <div class="component-card">
+                <h4>Platform Translation Strategy</h4>
+                <p>Methodology for adapting content across platforms while maintaining integrity and maximizing platform-specific advantages.</p>
+                <ul>
+                    <li>Platform-specific format optimization</li>
+                    <li>Core message preservation techniques</li>
+                    <li>Adaptation vs. recreation guidelines</li>
+                    <li>Platform-native enhancement opportunities</li>
+                </ul>
+            </div>
+            
+            <div class="component-card">
+                <h4>Integrated Revenue Architecture</h4>
+                <p>Unified approach to monetization that leverages franchise strength across subscription, advertising, licensing, and product models.</p>
+                <ul>
+                    <li>Multi-platform revenue integration</li>
+                    <li>Franchise-specific product development</li>
+                    <li>Cross-platform sponsorship opportunities</li>
+                    <li>Audience value maximization</li>
+                </ul>
+            </div>
+            
+            <div class="component-card">
+                <h4>Authentic Development Framework</h4>
+                <p>System for ensuring franchise growth maintains core values and authentic voice through expansion and adaptation.</p>
+                <ul>
+                    <li>Value and voice preservation methods</li>
+                    <li>Audience trust maintenance protocols</li>
+                    <li>Authentic growth pathways</li>
+                    <li>Franchise integrity assessment</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2>Implementation Process</h2>
+        
+        <div class="methodology">
+            <div class="phase">
+                <h3>Phase 1: Franchise Identification</h3>
+                <ul>
+                    <li>Content portfolio analysis</li>
+                    <li>Performance data assessment</li>
+                    <li>Audience engagement evaluation</li>
+                    <li>Development potential scoring</li>
+                </ul>
+            </div>
+            
+            <div class="phase">
+                <h3>Phase 2: Strategy Development</h3>
+                <ul>
+                    <li>Cross-platform expansion planning</li>
+                    <li>Audience journey mapping</li>
+                    <li>Core narrative architecture</li>
+                    <li>Integrated revenue modeling</li>
+                </ul>
+            </div>
+            
+            <div class="phase">
+                <h3>Phase 3: Organizational Alignment</h3>
+                <ul>
+                    <li>Cross-functional team formation</li>
+                    <li>Workflow adaptation</li>
+                    <li>Metrics and goals alignment</li>
+                    <li>Incentive structure adjustment</li>
+                </ul>
+            </div>
+            
+            <div class="phase">
+                <h3>Phase 4: Platform Execution</h3>
+                <ul>
+                    <li>Core platform development</li>
+                    <li>Extension platform adaptation</li>
+                    <li>Cross-platform narrative coordination</li>
+                    <li>Integrated promotion strategy</li>
+                </ul>
+            </div>
+            
+            <div class="phase">
+                <h3>Phase 5: Evolution & Optimization</h3>
+                <ul>
+                    <li>Performance analysis</li>
+                    <li>Audience feedback integration</li>
+                    <li>Franchise extension opportunities</li>
+                    <li>Revenue diversification</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2>Case Studies</h2>
+        
+        <div class="case-studies">
+            <div class="case-study">
+                <h4>Regional Media Brand Transformation</h4>
+                <div class="case-study-meta">
+                    <span class="meta-item"><strong>Industry:</strong> News Media</span>
+                    <span class="meta-item"><strong>Organization Type:</strong> Regional Media Company</span>
+                    <span class="meta-item"><strong>Implementation Period:</strong> 24 Months</span>
+                </div>
+                <p>Implementation of the Media Franchise Model for a major regional media organization facing digital transformation challenges. The process began with comprehensive analysis of content performance across platforms, identifying several high-potential franchise opportunities in specific content categories that demonstrated strong audience engagement and development potential.</p>
+                <p>The strategic implementation included reorganizing newsroom structures around franchise teams rather than traditional departments, developing integrated audience journeys across platforms, and creating revenue diversification opportunities through franchise-specific products and experiences.</p>
+                <div class="case-study-results">
+                    <h5>Key Results:</h5>
+                    <ul>
+                        <li>Generated $10M+ in new revenue through franchise-based initiatives</li>
+                        <li>Increased digital subscriber retention by 38%</li>
+                        <li>Created 4 distinct content franchises with cross-platform presence</li>
+                        <li>Developed 6 new revenue streams derived from franchise extensions</li>
+                        <li>Improved newsroom collaboration across traditional department boundaries</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="case-study">
+                <h4>Specialized Content Franchise Development</h4>
+                <div class="case-study-meta">
+                    <span class="meta-item"><strong>Industry:</strong> Specialty Media</span>
+                    <span class="meta-item"><strong>Content Focus:</strong> Sports Coverage</span>
+                    <span class="meta-item"><strong>Implementation Period:</strong> 18 Months</span>
+                </div>
+                <p>Application of the Media Franchise Model to develop a specialized sports content vertical into a multi-platform franchise. The implementation focused on translating deeply reported sports coverage into various formats including podcasts, newsletters, events, and merchandise while maintaining authentic voice and journalistic integrity.</p>
+                <p>The strategy included developing platform-specific content adaptations that served different segments of the audience journey while maintaining core narrative cohesion and brand values. Revenue integration across subscription, advertising, events, and merchandise created a diversified and sustainable model.</p>
+                <div class="case-study-results">
+                    <h5>Key Results:</h5>
+                    <ul>
+                        <li>Expanded audience reach by 215% across platforms</li>
+                        <li>Increased revenue per engaged user by 42%</li>
+                        <li>Developed successful merchandise line with 6-figure annual revenue</li>
+                        <li>Created sold-out event series with 95% attendee satisfaction</li>
+                        <li>Established industry leadership position in specialized coverage area</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2>Transform Your Content Strategy</h2>
+            <p>The Media Franchise Model can be adapted for media organizations of all sizes, from major publishers to specialized content creators. We provide consulting, workshops, and implementation support to help organizations develop sustainable, audience-centered content strategies.</p>
+            <a href="contact.html" class="cta-button">Discuss Your Content Strategy</a>
+        </div>
+        
+        <h2>Connection to The CW Standard</h2>
+        <p>The Media Franchise Model applies The CW Standard principles to content strategy and media transformation. It demonstrates:</p>
+        
+        <ol>
+            <li><strong>Pattern Recognition</strong> - Identifying cross-platform audience behaviors and content performance patterns</li>
+            <li><strong>Cross-Domain Translation</strong> - Applying franchise development concepts from entertainment to news and information content</li>
+            <li><strong>Authentic Integration</strong> - Ensuring growth and adaptation maintain core values and voice</li>
+        </ol>
+        
+        <p>The model represents a practical application of The CW Standard's approach to balancing innovation with authenticity, creating systems that enhance rather than compromise quality while enabling sustainable business models for important content.</p>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Claude Wisdom LLC | <a href="https://claudewill.io">CW Strategies</a></p>
+    </footer>
+</body>
+</html>
