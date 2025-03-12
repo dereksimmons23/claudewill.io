@@ -1,0 +1,155 @@
+/* Main stylesheet for claudewill.io */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    padding: 40px 0 30px;
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 30px;
+}
+
+nav {
+    display: flex;
+    margin-top: 20px;
+}
+
+nav a {
+    color: #2563eb;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: #1d4ed8;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #666;
+}
+
+h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 30px 0 15px;
+    color: #333;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #2563eb;
+}
+
+.intro {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin-bottom: 40px;
+}
+
+.contact-info {
+    margin-bottom: 40px;
+}
+
+.contact-info a {
+    color: #2563eb;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.project-card {
+    padding: 25px;
+    border-radius: 8px;
+    background: #f9fafb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.coming-soon {
+    border-left: 4px solid #2563eb;
+}
+
+.project-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+footer {
+    padding: 30px 0;
+    border-top: 1px solid #eaeaea;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 50px;
+}
+
+footer a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.2rem;
+    }
+    
+    .intro {
+        font-size: 1rem;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    nav {
+        flex-wrap: wrap;
+    }
+    
+    nav a {
+        margin-bottom: 10px;
+    }
+}
