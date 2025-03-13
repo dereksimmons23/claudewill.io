@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | CW Strategies</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .intro {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 40px;
+            color: #555;
+        }
+        
+        .founder-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        
+        .founder-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .founder-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .approach-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .approach-card {
+            padding: 25px;
+            border-radius: 8px;
+            background: #f9fafb;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #2563eb;
+        }
+        
+        .approach-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .approach-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .approach-card p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+        
+        .journey-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto;
+            padding-left: 30px;
+        }
+        
+        .journey-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #dbeafe;
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #2563eb;
+            border: 4px solid #dbeafe;
+        }
+        
+        .timeline-date {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #2563eb;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .mission-statement {
+            background: #f0f7ff;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        .mission-statement h2 {
+            margin-top: 0;
+        }
+        
+        .mission-statement p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 20px auto;
+            color: #555;
+        }
+        
+        .expertise-section {
+            margin: 40px 0;
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .expertise-item {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 3px solid #2563eb;
+        }
+        
+        .expertise-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .expertise-item ul {
+            padding-left: 20px;
+            color: #666;
+        }
+        
+        .expertise-item li {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .cta-section {
+            background: #2563eb;
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #2563eb;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .founder-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .approach-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .mission-statement {
+                padding: 30px 20px;
+            }
+            
+            .mission-statement p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">CW Strategies</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="frameworks.html">Frameworks</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>About CW Strategies</h1>
+        
+        <div class="intro">
+            <p>At CW Strategies, we develop frameworks and methodologies that make complicated transitions less painful through authentic development. Our approach bridges human wisdom with technological advancement, creating solutions that enhance human potential rather than replacing it.</p>
+        </div>
+        
+        <div class="founder-section">
+            <div class="founder-image">
+                <img src="/api/placeholder/400/400" alt="Derek Simmons">
+                <!-- Replace with actual image when available -->
+            </div>
+            <div>
+                <h2>Founder & Vision</h2>
+                <p>Derek Simmons is a pattern recognition specialist and transformation leader with 20+ years of experience bridging human wisdom with technological advancement. As a former Chief Creative Officer & VP of Innovation at a major media company, Derek developed a unique perspective on organizational change, technological integration, and human development.</p>
+                <p>Through his cross-domain experience in media, sports coaching, and technology leadership, Derek recognized a consistent pattern: the most successful transformations maintain balance between innovation and authenticity, between technological advancement and human wisdom.</p>
+                <p>This insight led to the development of The CW Standard framework and the founding of CW Strategies with a mission to make complicated transitions less painful through authentic development approaches that honor both technological potential and human wisdom.</p>
+            </div>
+        </div>
+        
+        <div class="mission-statement">
+            <h2>Our Mission</h2>
+            <p>"We believe the most powerful technological advancements enhance human potential rather than replacing it. Our mission is to develop frameworks, tools, and methodologies that bring wisdom to innovation, ensuring transformative changes serve authentic human development."</p>
+        </div>
+        
+        <h2>Our Approach</h2>
+        
+        <div class="approach-cards">
+            <div class="approach-card">
+                <h4>Pattern Recognition</h4>
+                <p>We identify underlying patterns across seemingly disparate domains – from media transformation to sports coaching, from technological integration to human development – revealing connections that lead to more effective frameworks and solutions.</p>
+            </div>
+            
+            <div class="approach-card">
+                <h4>Cross-Domain Translation</h4>
+                <p>We translate insights and methodologies between domains, applying the wisdom of athletic development to organizational change, the precision of technical frameworks to human coaching, and the creativity of artistic processes to business innovation.</p>
+            </div>
+            
+            <div class="approach-card">
+                <h4>Human-Centered Technology</h4>
+                <p>We design approaches that ensure technological systems serve human needs rather than the reverse. This leads to more sustainable, authentic integration of powerful tools like AI while maintaining focus on human development and potential.</p>
+            </div>
+        </div>
+        
+        <h2>Professional Journey</h2>
+        
+        <div class="journey-timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">2024-Present</div>
+                <div class="timeline-title">Claude Wisdom LLC (CW Strategies)</div>
+                <p>Founded CW Strategies to develop and implement The CW Standard framework across industries, with a focus on human-centered technological advancement. Key initiatives include the ATS Decoder Project, LIGHTNING/BUG visual exploration, and developing The CW Standard framework.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">2017-2024</div>
+                <div class="timeline-title">Chief Creative Officer & VP, Innovation</div>
+                <p>Led AI Task Force and enterprise-wide digital transformation initiatives at Star Tribune Media. Created pattern recognition systems for content and technology integration while establishing ethical frameworks for AI implementation. Generated $10M+ in new revenue through innovative frameworks.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">2020-Present</div>
+                <div class="timeline-title">Athletic Program Development</div>
+                <p>Applied pattern recognition methodologies to youth sports development, creating natural development frameworks that transformed player performance and accelerated skill acquisition. Developed six players to collegiate level, implementing The CW Standard principles in a practical sports context.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">2013-2020</div>
+                <div class="timeline-title">Assistant Managing Editor, Visuals</div>
+                <p>Led a department of 50+ visual journalists at Star Tribune Media, elevating the organization to a Top 10 global ranking for visual journalism. Implemented strategic planning processes and established frameworks for data visualization that later informed The CW Standard approach to pattern recognition.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">2007-2013</div>
+                <div class="timeline-title">Deputy Design Director</div>
+                <p>Managed key strategic partnerships and major projects at the Los Angeles Times, contributing to multiple Pulitzer Prize-winning projects. Began developing cross-domain methodologies that would later evolve into the pattern recognition systems behind The CW Standard.</p>
+            </div>
+        </div>
+        
+        <h2>Areas of Expertise</h2>
+        
+        <div class="expertise-section">
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <h4>AI Ethics & Implementation</h4>
+                    <ul>
+                        <li>Ethical framework development</li>
+                        <li>Task force leadership</li>
+                        <li>Integration strategy</li>
+                        <li>Human-AI collaboration models</li>
+                    </ul>
+                </div>
+                
+                <div class="expertise-item">
+                    <h4>Pattern Recognition</h4>
+                    <ul>
+                        <li>Cross-domain analysis</li>
+                        <li>Signal identification</li>
+                        <li>Predictive frameworks</li>
+                        <li>Systemic mapping</li>
+                    </ul>
+                </div>
+                
+                <div class="expertise-item">
+                    <h4>Digital Transformation</h4>
+                    <ul>
+                        <li>Change management</li>
+                        <li>Framework creation</li>
+                        <li>Revenue innovation</li>
+                        <li>Cultural evolution</li>
+                    </ul>
+                </div>
+                
+                <div class="expertise-item">
+                    <h4>Human Development</h4>
+                    <ul>
+                        <li>Performance coaching</li>
+                        <li>Natural growth models</li>
+                        <li>Flow state optimization</li>
+                        <li>Talent identification</li>
+                    </ul>
+                </div>
+                
+                <div class="expertise-item">
+                    <h4>Media Strategy</h4>
+                    <ul>
+                        <li>Franchise model development</li>
+                        <li>Content monetization</li>
+                        <li>Visual storytelling</li>
+                        <li>Audience engagement</li>
+                    </ul>
+                </div>
+                
+                <div class="expertise-item">
+                    <h4>Team Leadership</h4>
+                    <ul>
+                        <li>Cross-functional team building</li>
+                        <li>Crisis navigation</li>
+                        <li>Culture development</li>
+                        <li>Organizational transformation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Education & Development</h2>
+        <ul>
+            <li>MIT AI & Data Science Program (2025 Cohort)</li>
+            <li>USC Annenberg School - MCM Program (Admitted 2025)</li>
+            <li>Harvard School of Continuing Education - Philosophy (2025)</li>
+            <li>Yale School of Management Executive Education (2023)</li>
+            <li>Kansas State University - BS, Mass Communications</li>
+        </ul>
+        
+        <div class="cta-section">
+            <h2>Work With Us</h2>
+            <p>We partner with organizations and individuals navigating complex transitions, providing frameworks, methodologies, and strategic guidance that balance technological advancement with authentic human development.</p>
+            <a href="contact.html" class="cta-button">Start a Conversation</a>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Claude Wisdom LLC | <a href="https://claudewill.io">CW Strategies</a></p>
+    </footer>
+</body>
+</html>
