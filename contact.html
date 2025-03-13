@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | CW Strategies</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .intro {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 40px;
+            color: #555;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        
+        .contact-form {
+            background: #f9fafb;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            font-size: 1rem;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23666666'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        .btn:hover {
+            background: #1d4ed8;
+        }
+        
+        .contact-info {
+            padding: 30px;
+            border-radius: 8px;
+            background: #f0f7ff;
+        }
+        
+        .contact-info h3 {
+            margin-top: 0;
+            color: #2563eb;
+        }
+        
+        .contact-method {
+            margin-bottom: 30px;
+        }
+        
+        .contact-method:last-child {
+            margin-bottom: 0;
+        }
+        
+        .contact-method h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            color: #2563eb;
+            text-decoration: none;
+            margin-bottom: 5px;
+        }
+        
+        .contact-link svg {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+        }
+        
+        .engagement-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .engagement-card {
+            background: #f9fafb;
+            padding: 25px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #2563eb;
+        }
+        
+        .engagement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .engagement-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .engagement-card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .engagement-card ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .engagement-card li {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .engagement-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">CW Strategies</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="frameworks.html">Frameworks</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>Contact Us</h1>
+        
+        <div class="intro">
+            <p>We partner with organizations and individuals navigating complex transitions, providing frameworks, methodologies, and strategic guidance that balance technological advancement with authentic human development.</p>
+        </div>
+        
+        <div class="contact-grid">
+            <div class="contact-form">
+                <h3>Start a Conversation</h3>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="organization">Organization (Optional)</label>
+                        <input type="text" id="organization" name="organization" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interest">Primary Interest</label>
+                        <select id="interest" name="interest" class="form-select" required>
+                            <option value="">Select an option</option>
+                            <option value="framework">The CW Standard Framework</option>
+                            <option value="ats">ATS Decoder Project</option>
+                            <option value="media">Media Franchise Model</option>
+                            <option value="lightning">LIGHTNING/BUG</option>
+                            <option value="flostate">FloState</option>
+                            <option value="speaking">Speaking Engagement</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" class="form-control" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Connect With Us</h3>
+                
+                <div class="contact-method">
+                    <h4>Email</h4>
+                    <a href="mailto:info@claudewill.io" class="contact-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        info@claudewill.io
+                    </a>
+                </div>
+                
+                <div class="contact-method">
+                    <h4>LinkedIn</h4>
+                    <a href="https://linkedin.com/in/dereksimm" target="_blank" class="contact-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        linkedin.com/in/dereksimm
+                    </a>
+                </div>
+                
+                <div class="contact-method">
+                    <h4>Website</h4>
+                    <a href="https://claudewill.io" class="contact-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                        </svg>
+                        claudewill.io
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Engagement Options</h2>
+        
+        <div class="engagement-options">
+            <div class="engagement-card">
+                <h4>Strategic Consulting</h4>
+                <p>Customized implementation of The CW Standard framework to address specific organizational challenges and opportunities.</p>
+                <ul>
+                    <li>Digital transformation strategy</li>
+                    <li>AI ethics and implementation</li>
+                    <li>Media franchise development</li>
+                    <li>Flow state optimization systems</li>
+                </ul>
+            </div>
+            
+            <div class="engagement-card">
+                <h4>Workshop & Training</h4>
+                <p>Interactive sessions introducing key concepts from The CW Standard and providing practical tools for implementation.</p>
+                <ul>
+                    <li>Pattern recognition across domains</li>
+                    <li>AI integration frameworks</li>
+                    <li>Cross-domain translation methodologies</li>
+                    <li>Authentic development approaches</li>
+                </ul>
+            </div>
+            
+            <div class="engagement-card">
+                <h4>Speaking Engagements</h4>
+                <p>Keynotes and presentations on topics ranging from pattern recognition to AI ethics, from media transformation to human development.</p>
+                <ul>
+                    <li>Industry conferences</li>
+                    <li>Corporate events</li>
+                    <li>University lectures</li>
+                    <li>Professional association gatherings</li>
+                </ul>
+            </div>
+            
+            <div class="engagement-card">
+                <h4>Project Collaboration</h4>
+                <p>Partnership on specific initiatives that demonstrate The CW Standard principles in action through practical implementation.</p>
+                <ul>
+                    <li>Research initiatives</li>
+                    <li>Creative projects</li>
+                    <li>Framework development</li>
+                    <li>AI implementation</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2>Research Participation</h2>
+        <p>We welcome collaboration from professionals interested in participating in our research initiatives, particularly the ATS Decoder Project. If you're an HR professional, job seeker, ATS developer, or researcher studying the intersection of AI and careers, we'd be interested in connecting.</p>
+        <p>For inquiries about research participation, please email <a href="mailto:info@claudewill.io">info@claudewill.io</a> with the subject line "Research Collaboration".</p>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Claude Wisdom LLC | <a href="https://claudewill.io">CW Strategies</a></p>
+    </footer>
+</body>
+</html>
