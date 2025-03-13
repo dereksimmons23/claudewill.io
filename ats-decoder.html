@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The ATS Decoder Project | CW Strategies</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .intro {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 40px;
+            color: #555;
+        }
+        
+        .research-components {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .component-card {
+            padding: 25px;
+            border-radius: 8px;
+            background: #f9fafb;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .component-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .component-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #2563eb;
+        }
+        
+        .component-card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .component-card ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .component-card li {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .methodology {
+            background: #f0f7ff;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+        
+        .phase {
+            margin-bottom: 30px;
+        }
+        
+        .phase:last-child {
+            margin-bottom: 0;
+        }
+        
+        .phase h3 {
+            margin-top: 0;
+            color: #2563eb;
+        }
+        
+        .phase ul {
+            padding-left: 20px;
+        }
+        
+        .phase li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .cta-section {
+            background: #2563eb;
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #2563eb;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .experiment-results {
+            background: #f9fafb;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+        
+        .result-entry {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .result-entry:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .result-meta {
+            display: flex;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            margin-right: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .meta-item strong {
+            color: #333;
+        }
+        
+        @media (max-width: 768px) {
+            .research-components {
+                grid-template-columns: 1fr;
+            }
+            
+            .result-meta {
+                flex-direction: column;
+            }
+            
+            .meta-item {
+                margin-bottom: 5px;
+            }
+            
+            .cta-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">CW Strategies</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="frameworks.html">Frameworks</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>The ATS Decoder Project</h1>
+        
+        <div class="intro">
+            <p>A systematic exploration of Applicant Tracking Systems (ATS) and the evolving AI-driven hiring ecosystem. Through structured experimentation, pattern recognition, and framework development, this research initiative aims to decode the increasingly complex relationship between human professionals and algorithmic gatekeepers.</p>
+        </div>
+        
+        <p>More than simply "beating the ATS," this research examines the larger systemic challenges of career transition in an AI-augmented world, seeking to develop frameworks that help both job seekers and organizations create more authentic, effective hiring processes.</p>
+        
+        <h2>Core Research Questions</h2>
+        <ol>
+            <li>How do different ATS systems evaluate and filter candidates across various industries?</li>
+            <li>What patterns emerge across successful versus unsuccessful applications?</li>
+            <li>How can professionals maintain authenticity while optimizing for algorithmic visibility?</li>
+            <li>What ethical considerations should guide both job seekers and organizations?</li>
+            <li>How can we develop frameworks that serve humans rather than technologies?</li>
+        </ol>
+        
+        <h2>Research Components</h2>
+        
+        <div class="research-components">
+            <div class="component-card">
+                <h4>The ATS Observatory</h4>
+                <p>Methodically document and analyze ATS behavior across platforms and industries.</p>
+                <ul>
+                    <li>Taxonomies of current ATS systems</li>
+                    <li>Industry-specific ATS patterns</li>
+                    <li>Evolution timeline of hiring technology</li>
+                    <li>Real-time observations from application experiences</li>
+                </ul>
+                <p><strong>Deliverable:</strong> Interactive database of ATS patterns with regular updates</p>
+            </div>
+            
+            <div class="component-card">
+                <h4>The Application Laboratory</h4>
+                <p>Conduct structured experiments to test hypotheses about ATS optimization.</p>
+                <ul>
+                    <li>Controlled variations of applications (A/B testing)</li>
+                    <li>Targeted keyword analysis across job descriptions</li>
+                    <li>Resume format testing (PDF vs. DOCX vs. Text)</li>
+                    <li>Section organization testing</li>
+                </ul>
+                <p><strong>Deliverable:</strong> Evidence-based optimization framework</p>
+            </div>
+            
+            <div class="component-card">
+                <h4>The Pattern Recognition Framework</h4>
+                <p>Identify cross-domain patterns that influence application success.</p>
+                <ul>
+                    <li>Language patterns in job descriptions</li>
+                    <li>Industry-specific terminology hierarchies</li>
+                    <li>Keyword density thresholds</li>
+                    <li>Temporal patterns in application cycles</li>
+                </ul>
+                <p><strong>Deliverable:</strong> Pattern recognition guide with industry-specific indices</p>
+            </div>
+            
+            <div class="component-card">
+                <h4>The Human-AI Translation System</h4>
+                <p>Develop frameworks for authentic self-presentation that resonates with both algorithms and humans.</p>
+                <ul>
+                    <li>ATS-friendly templates maintaining personal voice</li>
+                    <li>Language transformation tools</li>
+                    <li>Domain expertise translation guidelines</li>
+                    <li>"Signal amplification" techniques</li>
+                </ul>
+                <p><strong>Deliverable:</strong> Translation toolkit with customizable templates</p>
+            </div>
+            
+            <div class="component-card">
+                <h4>The Ethical Navigator</h4>
+                <p>Establish ethical guidelines for navigating AI-augmented hiring systems.</p>
+                <ul>
+                    <li>Optimization vs. misrepresentation boundaries</li>
+                    <li>Integrity maintenance in algorithmic systems</li>
+                    <li>Organizational responsibilities</li>
+                    <li>Approaches to potentially biased systems</li>
+                </ul>
+                <p><strong>Deliverable:</strong> Ethical framework and decision-making guide</p>
+            </div>
+        </div>
+        
+        <h2>Implementation Methodology</h2>
+        
+        <div class="methodology">
+            <div class="phase">
+                <h3>Phase 1: Foundation Building</h3>
+                <ul>
+                    <li>Initial ATS research and taxonomy development</li>
+                    <li>Baseline application templates established</li>
+                    <li>First round of controlled experiments</li>
+                    <li>Development of tracking methodology</li>
+                </ul>
+            </div>
+            
+            <div class="phase">
+                <h3>Phase 2: Pattern Identification</h3>
+                <ul>
+                    <li>Analysis of initial application outcomes</li>
+                    <li>Identification of preliminary patterns</li>
+                    <li>Cross-reference with industry research</li>
+                    <li>Development of hypotheses for testing</li>
+                </ul>
+            </div>
+            
+            <div class="phase">
+                <h3>Phase 3: Framework Development</h3>
+                <ul>
+                    <li>Creation of pattern recognition framework</li>
+                    <li>Development of translation methodologies</li>
+                    <li>Initial ethical guidelines established</li>
+                    <li>Beta version of tools and templates</li>
+                </ul>
+            </div>
+            
+            <div class="phase">
+                <h3>Phase 4: Testing & Refinement</h3>
+                <ul>
+                    <li>Application of frameworks to new applications</li>
+                    <li>Comparative analysis of outcomes</li>
+                    <li>Refinement based on results</li>
+                    <li>Documentation of case studies</li>
+                </ul>
+            </div>
+            
+            <div class="phase">
+                <h3>Phase 5: Publication & Sharing</h3>
+                <ul>
+                    <li>Development of public-facing resources</li>
+                    <li>Creation of interactive tools</li>
+                    <li>Publication of findings</li>
+                    <li>Community feedback integration</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2>Current Experiment Results</h2>
+        
+        <div class="experiment-results">
+            <div class="result-entry">
+                <h3>The Keyword Density Test</h3>
+                <div class="result-meta">
+                    <span class="meta-item"><strong>Industry:</strong> Media Technology</span>
+                    <span class="meta-item"><strong>ATS Used:</strong> Workday</span>
+                    <span class="meta-item"><strong>Status:</strong> In Progress</span>
+                </div>
+                <p>This experiment compares identical applications with varying keyword densities to determine optimal saturation levels. Three different versions of the same resume with keyword densities of 2%, 5%, and 8% have been submitted to positions with similar requirements.</p>
+                <p><strong>Preliminary Results:</strong> Initial data suggests that the 5% density resume is performing better than both the 2% (too low visibility) and 8% (potential keyword stuffing flags) versions, with a 40% higher callback rate.</p>
+            </div>
+            
+            <div class="result-entry">
+                <h3>The Format Comparison</h3>
+                <div class="result-meta">
+                    <span class="meta-item"><strong>Industry:</strong> Technology</span>
+                    <span class="meta-item"><strong>ATS Used:</strong> Lever</span>
+                    <span class="meta-item"><strong>Status:</strong> Completed</span>
+                </div>
+                <p>Testing identical content across different file formats (PDF, DOCX, and plain text) to determine which formats are most effectively parsed by modern ATS systems.</p>
+                <p><strong>Key Finding:</strong> While conventional wisdom favored .docx formats, our research shows that modern ATS systems now effectively parse well-structured PDFs with proper text layering. Plain text remains the most reliably parsed but sacrifices visual presentation for human reviewers.</p>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2>Participate in the Research</h2>
+            <p>The ATS Decoder Project welcomes collaboration from HR professionals, job seekers, ATS developers, and researchers studying the intersection of AI and careers.</p>
+            <a href="contact.html" class="cta-button">Get Involved</a>
+        </div>
+        
+        <h2>Connection to The CW Standard</h2>
+        <p>This project represents a practical application of The CW Standard framework, demonstrating how pattern recognition across domains can create new understanding and more effective approaches to complex transitions.</p>
+        
+        <p>The project embodies three core principles:</p>
+        <ol>
+            <li><strong>Pattern Recognition</strong> - Identifying the underlying systems that govern modern hiring</li>
+            <li><strong>Cross-Domain Translation</strong> - Applying insights from media, sports, and technology</li>
+            <li><strong>Human-Centered Technology</strong> - Ensuring systems serve human needs rather than the reverse</li>
+        </ol>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Claude Wisdom LLC | <a href="https://claudewill.io">CW Strategies</a></p>
+    </footer>
+</body>
+</html>
