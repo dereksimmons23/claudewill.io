@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects & Frameworks | Claude Will</title>
+    <meta name="description" content="Explore Derek Simmons' projects and frameworks bridging human wisdom with technological advancement">
+    
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* Page specific styles */
+        .projects-hero {
+            padding: var(--space-8) 0;
+            text-align: center;
+        }
+        
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+            border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-2);
+        }
+        
+        .tab-button {
+            padding: var(--space-2) var(--space-4);
+            background: none;
+            border: none;
+            font-family: var(--font-primary);
+            font-weight: var(--weight-medium);
+            color: var(--color-text);
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+        }
+        
+        .tab-button:hover {
+            opacity: 1;
+        }
+        
+        .tab-button.active {
+            border-bottom: 2px solid var(--color-accent);
+            opacity: 1;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .project-card {
+            padding: var(--space-4);
+            border-radius: 8px;
+            background-color: rgba(56, 96, 110, 0.1);
+            border-left: 4px solid var(--color-primary);
+            margin-bottom: var(--space-4);
+        }
+        
+        .project-card h3 {
+            margin-bottom: var(--space-2);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .project-card .material-icons {
+            color: var(--color-primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with wordmark and theme toggle -->
+    <header class="site-header">
+        <a href="index.html" class="wordmark">claudewill</a>
+        <button id="theme-toggle" aria-label="Toggle theme">
+            <span class="material-icons theme-toggle-icon">light_mode</span>
+        </button>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="projects-hero">
+                <h1>Projects & Frameworks</h1>
+                <p>Explorations in bridging human wisdom with technological advancement across multiple domains</p>
+            </section>
+            
+            <div class="tabs">
+                <button class="tab-button active" data-tab="frameworks">Frameworks</button>
+                <button class="tab-button" data-tab="media">Media</button>
+                <button class="tab-button" data-tab="technology">Technology</button>
+                <button class="tab-button" data-tab="coaching">Coaching</button>
+            </div>
+            
+            <div class="tab-content active" id="frameworks-tab">
+                <h2>Strategic Frameworks</h2>
+                <p>These frameworks help organizations navigate complex transitions by connecting human wisdom with technological advancement.</p>
+                
+                <div class="project-card">
+                    <h3>
+                        <span class="material-icons">integration_instructions</span>
+                        The CW Standard
+                    </h3>
+                    <p>A comprehensive framework for navigating complex transitions that bridges human wisdom with technological advancement. The CW Standard emerged from observing how my grandfather's practical wisdom created patterns of success across seemingly unrelated areas despite having only a 6th grade education.</p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>
+                        <span class="material-icons">newspaper</span>
+                        Media Franchise Model
+                    </h3>
+                    <p>A revolutionary approach to content development that treats traditional verticals as entrepreneurial business units with their own identity and development pathway. The Media Franchise Model applies basketball team development thinking to content organization.</p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>
+                        <span class="material-icons">smart_toy</span>
+                        AI Implementation Framework
+                    </h3>
+                    <p>A structured approach to implementing AI within organizations that ensures technology enhances rather than replaces human judgment. This framework applies coaching principles to technological implementation, creating systems where AI amplifies human capability.</p>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="media-tab">
+                <h2>Media Projects</h2>
+                <p>Projects focused on media transformation and content strategy.</p>
+                
+                <div class="project-card">
+                    <h3>
+                        <span class="material-icons">newspaper</span>
+                        Star Tribune Transformation
+                    </h3>
+                    <p>Led digital transformation at Star Tribune Media, implementing the Media Franchise Model to generate $15M+ in new revenue through innovative content structures and sponsorship models.</p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>
+                        <span class="material-icons">sports</span>
+                        Sports Vertical Development
+                    </h3>
+                    <p>Created high school sports vertical generating $750K annually through innovative sponsorship and content strategies that bridged digital and print platforms.</p>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="technology-tab">
+                <h2>Technology Projects</h2>
+                <p>Projects focused on technological implementation and digital transformation.</p>
+                
+                <div class="project-card">
+                    <h3>
+                        <span class="material-icons">chat</span>
+                        Claude Will
+                    </h3>
+                    <p>Conversational interface demonstrating cross-domain pattern recognition principles. Claude Will showcases connections between coaching philosophy, media transformation, and technological implementation.</p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>
+                        <span class="material-icons">smart_toy</span>
+                        AI Task Force
+                    </h3>
+                    <p>Led enterprise-wide AI strategy development resulting in task force creation and implementation roadmap for ethical AI adoption across the organization.</p>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="coaching-tab">
+                <h2>Coaching Projects</h2>
+                <p>Projects applying coaching philosophy to organizational development and technological implementation.</p>
+                
+                <div class="project-card">
+                    <h3>
+                        <span class="material-icons">sports_basketball</span>
+                        Basketball Development Program
+                    </h3>
+                    <p>Created comprehensive player development program focusing on fundamental skill building and team success, resulting in 75% college scholarship success rate.</p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>
+                        <span class="material-icons">groups</span>
+                        Leadership Development Framework
+                    </h3>
+                    <p>Implemented coaching methodologies from sports contexts to professional development, creating framework for identifying and nurturing high-potential team members.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2025 Derek Simmons
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Simple tab functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and content
+                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

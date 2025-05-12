@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Will | Strategic Builder</title>
+    <meta name="description" content="Explore connections between coaching philosophy, media transformation, and technological advancement with Claude Will.">
+    
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Claude Will | Strategic Builder">
+    <meta property="og:description" content="Explore connections between coaching philosophy, media transformation, and technological advancement.">
+    <meta property="og:url" content="https://claudewill.io">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-animation">
+            <div class="spinner"></div>
+        </div>
+        <p class="loading-message">i/o, i/o, it's off to work I go!</p>
+    </div>
+
+    <!-- Header with wordmark and theme toggle -->
+    <header class="site-header">
+        <a href="index.html" class="wordmark">claudewill</a>
+        <button id="theme-toggle" aria-label="Toggle theme">
+            <span class="material-icons theme-toggle-icon">light_mode</span>
+        </button>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="chat-container">
+                <div class="message-container" id="message-container">
+                    <!-- Messages will be added via JavaScript -->
+                </div>
+                
+                <div class="input-area">
+                    <input type="text" id="user-input" placeholder="Type your message...">
+                    <button id="send-button">
+                        <span class="material-icons">send</span>
+                        Send
+                    </button>
+                </div>
+                
+                <div class="links-section">
+                    <div class="link-category">
+                        <h3>Try asking about:</h3>
+                        <div class="suggestion-buttons">
+                            <button class="suggestion-button" data-query="Tell me about The CW Standard">The CW Standard</button>
+                            <button class="suggestion-button" data-query="How does coaching connect to AI ethics?">Coaching & AI Ethics</button>
+                            <button class="suggestion-button" data-query="What is the Media Franchise Model?">Media Franchise Model</button>
+                            <button class="suggestion-button" data-query="Tell me about pattern recognition">Pattern Recognition</button>
+                            <button class="suggestion-button" data-query="Who is Claude Will?">About Claude Will</button>
+                        </div>
+                    </div>
+                    
+                    <div class="link-category">
+                        <h3>Explore Derek's work:</h3>
+                        <div class="site-links">
+                            <a href="about.html" class="site-link">About Derek</a>
+                            <a href="resume.html" class="site-link">Resume</a>
+                            <a href="projects.html" class="site-link">Projects</a>
+                            <a href="how-we-built.html" class="site-link">How We Built This</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2025 Derek Simmons
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>

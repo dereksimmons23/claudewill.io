@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How We Built This Site | Claude Will</title>
+    <meta name="description" content="A look behind the scenes at the development of claudewill.io">
+    
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* Page specific styles */
+        .build-section {
+            padding: var(--space-8) 0;
+        }
+        
+        .build-section h1 {
+            text-align: center;
+            margin-bottom: var(--space-2);
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: var(--color-primary);
+            margin-bottom: var(--space-8);
+        }
+        
+        .color-swatches {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-4);
+            margin-bottom: var(--space-6);
+        }
+        
+        .color-swatch {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: var(--weight-bold);
+            font-size: var(--text-xs);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .build-card {
+            padding: var(--space-4);
+            border-radius: 8px;
+            background-color: rgba(56, 96, 110, 0.1);
+            margin-bottom: var(--space-6);
+        }
+        
+        .build-card h3 {
+            margin-bottom: var(--space-2);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .build-card .material-icons {
+            color: var(--color-primary);
+        }
+        
+        .process-timeline {
+            margin-bottom: var(--space-8);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: var(--space-4);
+            padding-left: var(--space-4);
+            border-left: 2px solid var(--color-primary);
+        }
+        
+        .timeline-content {
+            padding-left: var(--space-4);
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: var(--space-2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with wordmark and theme toggle -->
+    <header class="site-header">
+        <a href="index.html" class="wordmark">claudewill</a>
+        <button id="theme-toggle" aria-label="Toggle theme">
+            <span class="material-icons theme-toggle-icon">light_mode</span>
+        </button>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="build-section">
+                <h1>How We Built This Site</h1>
+                <p class="subtitle">A look behind the scenes at the development of claudewill.io</p>
+                
+                <div class="build-card">
+                    <h3>
+                        <span class="material-icons">palette</span>
+                        Design Philosophy
+                    </h3>
+                    <p>The design of claudewill.io embodies the principles of The CW Standard - bridging human wisdom with technological advancement. Our approach focused on simplicity, clarity, and meaningful connections.</p>
+                    
+                    <h4>Key design principles:</h4>
+                    <ul>
+                        <li>Clean, readable typography using Noto Sans/Serif for global language support</li>
+                        <li>A personal color palette with meaningful connections to Derek's life journey</li>
+                        <li>Responsive design that works well across all devices</li>
+                        <li>Accessible light/dark mode toggle respecting user preferences</li>
+                    </ul>
+                </div>
+                
+                <h2>Color Palette</h2>
+                <p>Each color in the palette connects to a meaningful story or concept:</p>
+                
+                <div class="color-swatches">
+                    <div class="color-swatch" style="background-color: #f8f5f2; color: #2f3133;">
+                        Cottonwood
+                    </div>
+                    <div class="color-swatch" style="background-color: #2f3133;">
+                        Gunmetal Firebird
+                    </div>
+                    <div class="color-swatch" style="background-color: #38606e;">
+                        Prairie Dusk
+                    </div>
+                    <div class="color-swatch" style="background-color: #2d6883;">
+                        North Pond
+                    </div>
+                    <div class="color-swatch" style="background-color: #a33e10;">
+                        Iron Range
+                    </div>
+                    <div class="color-swatch" style="background-color: #512888;">
+                        Willie
+                    </div>
+                </div>
+                
+                <h2>Development Process</h2>
+                <div class="process-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Design System Creation</h3>
+                            <p>We began by establishing a comprehensive design system including color palette, typography, and component styles to ensure a consistent visual language throughout the site.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Conversational Interface Development</h3>
+                            <p>The Claude Will conversational interface was developed to demonstrate the concept of cross-domain pattern recognition, helping users explore connections between seemingly unrelated areas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Content Organization</h3>
+                            <p>Content was organized to highlight cross-domain connections - a core principle of The CW Standard. We structured information to reveal patterns between coaching philosophy, media transformation, and technological implementation.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="build-card">
+                    <h3>
+                        <span class="material-icons">code</span>
+                        Technology Stack
+                    </h3>
+                    <p>claudewill.io was built with simplicity and performance in mind:</p>
+                    <ul>
+                        <li>HTML5 for semantic structure</li>
+                        <li>CSS3 with custom properties for theming</li>
+                        <li>Vanilla JavaScript for interactivity</li>
+                        <li>No frameworks or build tools</li>
+                    </ul>
+                    <p>This approach keeps the site lightweight, fast-loading, and easy to maintain while still providing a modern, responsive experience.</p>
+                </div>
+                
+                <div class="build-card">
+                    <h3>
+                        <span class="material-icons">chat</span>
+                        Claude Will Development
+                    </h3>
+                    <p>The conversational interface was designed to embody the principles it discusses:</p>
+                    <ul>
+                        <li>Responses showcase connections between coaching philosophy, media transformation, and technological implementation</li>
+                        <li>Interface design enhances human capability rather than replacing it</li>
+                        <li>Pattern recognition across domains is demonstrated through conversational exploration</li>
+                    </ul>
+                    <p>The "i/o, i/o, it's off to work I go!" loading message is an Easter egg that blends technical terminology (Input/Output) with cultural references (Snow White's dwarfs) - another example of cross-domain connection.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2025 Derek Simmons
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

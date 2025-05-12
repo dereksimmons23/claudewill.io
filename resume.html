@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Derek Simmons</title>
+    <meta name="description" content="Professional resume of Derek Simmons, Strategic Builder">
+    
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* Page specific styles */
+        .resume-header {
+            padding: var(--space-8) 0 var(--space-4);
+            border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+            margin-bottom: var(--space-4);
+        }
+        
+        .resume-header h1 {
+            text-align: center;
+            margin-bottom: var(--space-2);
+        }
+        
+        .resume-header .tagline {
+            text-align: center;
+            color: var(--color-primary);
+            margin-bottom: var(--space-4);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-4);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .contact-item .material-icons {
+            color: var(--color-primary);
+            font-size: 1rem;
+        }
+        
+        .section-heading {
+            font-size: var(--text-xl);
+            font-weight: var(--weight-bold);
+            margin: var(--space-6) 0 var(--space-4);
+            border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+            padding-bottom: var(--space-2);
+        }
+        
+        .job {
+            margin-bottom: var(--space-6);
+        }
+        
+        .job-title {
+            font-weight: var(--weight-bold);
+            margin-bottom: var(--space-1);
+        }
+        
+        .company-date {
+            color: var(--color-primary);
+            margin-bottom: var(--space-2);
+            font-style: italic;
+        }
+        
+        .job-duties {
+            margin-left: var(--space-4);
+            margin-bottom: var(--space-4);
+        }
+        
+        .print-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            margin: var(--space-4) auto;
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with wordmark and theme toggle -->
+    <header class="site-header">
+        <a href="index.html" class="wordmark">claudewill</a>
+        <button id="theme-toggle" aria-label="Toggle theme">
+            <span class="material-icons theme-toggle-icon">light_mode</span>
+        </button>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="resume-header">
+                <h1>Derek Simmons</h1>
+                <p class="tagline">Strategic Builder Bridging Human Wisdom with Technological Advancement</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="material-icons">location_on</span>
+                        <span>Woodbury, MN</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="material-icons">email</span>
+                        <span>simmons.derek@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="material-icons">public</span>
+                        <a href="https://dcs.bio" target="_blank">dcs.bio</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="material-icons">business</span>
+                        <a href="https://linkedin.com/in/dereksimm" target="_blank">linkedin.com/in/dereksimm</a>
+                    </div>
+                </div>
+                
+                <p>Executive leader with 15+ years of experience generating $20M+ in revenue through innovative frameworks. Specialized expertise in AI ethics, pattern recognition systems, and digital transformation strategy.</p>
+                
+                <button class="site-link print-button" onclick="window.print()">
+                    <span class="material-icons">print</span>
+                    Print Resume
+                </button>
+            </section>
+            
+            <h2 class="section-heading">PROFESSIONAL EXPERIENCE</h2>
+            
+            <div class="job">
+                <h3 class="job-title">Founder & Chief Architect</h3>
+                <p class="company-date">Claude Wisdom Strategies | 2024-Present</p>
+                <ul class="job-duties">
+                    <li>Developing conversational agents bridging human wisdom with machine learning to enhance decision-making capabilities</li>
+                    <li>Creating methodologies for organizational strategy tailored to modern technological environments</li>
+                    <li>Designing frameworks using pattern recognition for knowledge management and creative flow that optimize productivity</li>
+                    <li>Building systems where technology is an extension of humankind, not a substitute</li>
+                </ul>
+            </div>
+            
+            <div class="job">
+                <h3 class="job-title">Executive Director, New Products</h3>
+                <p class="company-date">Star Tribune Media | 2022-2024</p>
+                <ul class="job-duties">
+                    <li>Presented AI strategic plan after extensive research and collaboration leading to AI Task Force development</li>
+                    <li>Designed SalesGPT solution with Krista.ai to reclaim 2.5 work-years annually for sales team</li>
+                    <li>Explored learning framework strategy and evaluated potential partners for enterprise-wide AI platforms</li>
+                    <li>Developed approaches that maintain human judgment while leveraging machin<li>Developed approaches that maintain human judgment while leveraging machine learning capabilities</li>
+                </ul>
+            </div>
+            
+            <div class="job">
+                <h3 class="job-title">Chief Creative Officer, Vice President</h3>
+                <p class="company-date">Star Tribune Media | 2013-2022</p>
+                <ul class="job-duties">
+                    <li>Pioneered the Media Franchise Model generating $15M+ in revenue through innovative content structures</li>
+                    <li>Led revenue turnaround achieving first advertising budget target in 16 years</li>
+                    <li>Built and led high-performing teams through organizational change</li>
+                    <li>Developed entrepreneurial approach to content verticals, resulting in significant revenue growth</li>
+                </ul>
+            </div>
+            
+            <h2 class="section-heading">CORE COMPETENCIES</h2>
+            
+            <div class="expertise-section" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-8);">
+                <div class="expertise-card">
+                    <h3>
+                        <span class="material-icons">psychology</span>
+                        Pattern Recognition
+                    </h3>
+                    <p>Design of frameworks that identify connections between seemingly unrelated fields to create innovative solutions</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>
+                        <span class="material-icons">newspaper</span>
+                        Media Transformation
+                    </h3>
+                    <p>Implementation of innovative content structures and sponsorship models that transcend traditional platform boundaries</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>
+                        <span class="material-icons">smart_toy</span>
+                        AI Ethics & Implementation
+                    </h3>
+                    <p>Development of frameworks ensuring technology enhances rather than replaces human capability, with focus on ethical implementation</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>
+                        <span class="material-icons">sports_basketball</span>
+                        Coaching & Leadership
+                    </h3>
+                    <p>Application of coaching principles to organizational leadership with focus on fundamental understanding rather than specific procedures</p>
+                </div>
+            </div>
+            
+            <h2 class="section-heading">EDUCATION & PROFESSIONAL DEVELOPMENT</h2>
+            
+            <div class="job">
+                <h3 class="job-title">MIT, Artificial Intelligence & Data Science Program</h3>
+                <p class="company-date">Admitted, 2025 cohort</p>
+            </div>
+            
+            <div class="job">
+                <h3 class="job-title">University of Southern California, Master of Communication Management</h3>
+                <p class="company-date">Admitted, 2022</p>
+            </div>
+            
+            <div class="job">
+                <h3 class="job-title">Kansas State University, Bachelor of Science in Mass Communications</h3>
+                <p class="company-date">Graduated 2006</p>
+            </div>
+            
+            <a href="index.html" class="site-link print-button">
+                <span class="material-icons">arrow_back</span>
+                Back to Claude Will
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2025 Derek Simmons
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
