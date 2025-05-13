@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Check each topic for matching triggers
-        for (const [topicKey, topicData] of Object.entries(responsesData.topics)) {
+        for (const topicData of Object.values(responsesData.topics)) {
             if (topicData.triggers && topicData.triggers.some(trigger => lowerText.includes(trigger))) {
                 return topicData.response;
             }
