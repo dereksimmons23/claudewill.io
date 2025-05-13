@@ -11,11 +11,13 @@
     "lighthouse": "lighthouse-ci autorun --collect.settings.onlyCategories=performance,accessibility,best-practices,seo"
   },
   "devDependencies": {
-    "htmlhint": "^1.1.4",
-    "stylelint": "^15.10.3",
+    "@lhci/cli": "^0.14.0",
     "eslint": "^8.57.0",
-    "pa11y-ci": "^3.1.0",
-    "lychee": "^0.2.12",
-    "@lhci/cli": "^0.13.0"
+    "htmlhint": "^1.1.4",
+    "pa11y-ci": "^2.4.2",
+    "stylelint": "^15.10.3"
+  },
+  "dependencies": {
+    "lighthouse": "^12.6.0"
   }
 }
