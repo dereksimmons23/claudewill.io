@@ -1,24 +1,117 @@
 // chat.js - Claude Will conversational interface functionality
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("Chat script loaded");
+    console.log("DOM loaded, initializing chat");
     
-    // Get DOM elements
+    // Get DOM elements with better error checking
     const messageContainer = document.getElementById('message-container');
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
     const suggestionButtons = document.querySelectorAll('.suggestion-button');
     
-    // Make sure elements exist before proceeding
-    if (!messageContainer || !userInput || !sendButton) {
-        console.error("Required DOM elements are missing");
-        return;
+    // Debug info
+    console.log("Elements found:", {
+        messageContainer: !!messageContainer,
+        userInput: !!userInput,
+        sendButton: !!sendButton,
+        suggestionButtons: suggestionButtons.length
+    });
+    
+    // Add welcome message if container exists
+    if (messageContainer) {
+        const welcomeMessage = document.createElement('div');
+        welcomeMessage.className = 'message claude-message';
+        welcomeMessage.innerHTML = "Hello! 👋 I'm Claude Will, a conversational interface inspired by Derek's grandfather, Claude William Simmons. I'm here to help you explore connections between coaching philosophy, media transformation, and technological implementation. What would you like to discuss?";
+        messageContainer.appendChild(welcomeMessage);
     }
     
-    console.log("Chat elements found");
+    // Define the handleUserInput function
+    function handleUserInput() {
+        console.log("handleUserInput called");
+        
+        if (!userInput || !messageContainer) {
+            console.error("Required elements not found");
+            return;
+        }
+        
+        const text = userInput.value.trim();
+        if (!text) {
+            console.log("Empty input, ignoring");
+            return;
+        }
+        
+        console.log("Processing input:", text);
+        
+        // Add user message
+        const userMessage = document.createElement('div');
+        userMessage.className = 'message user-message';
+        userMessage.textContent = text;
+        messageContainer.appendChild(userMessage);
+        
+        // Clear input
+        userInput.value = '';
+        
+        // Show thinking indicator
+        const thinkingMessage = document.createElement('div');
+        thinkingMessage.className = 'message claude-message thinking';
+        thinkingMessage.textContent = 'Thinking...';
+        messageContainer.appendChild(thinkingMessage);
+        
+        // Scroll to bottom
+        messageContainer.scrollTop = messageContainer.scrollHeight;
+        
+        // Process after delay
+        setTimeout(function() {
+            try {
+                // Remove thinking message
+                messageContainer.removeChild(thinkingMessage);
+                
+                // Add Claude's response
+                const responseMessage = document.createElement('div');
+                responseMessage.className = 'message claude-message';
+                responseMessage.innerHTML = getResponse(text);
+                messageContainer.appendChild(responseMessage);
+                
+                // Scroll to bottom again
+                messageContainer.scrollTop = messageContainer.scrollHeight;
+            } catch (error) {
+                console.error("Error generating response:", error);
+                // Fallback error message
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'message claude-message';
+                errorMessage.textContent = "I'm sorry, I encountered an error processing your request.";
+                messageContainer.appendChild(errorMessage);
+            }
+        }, 1000);
+    }
     
-    // Add welcome message immediately
-    addMessage("Hello! 👋 I'm Claude Will, a conversational interface inspired by Derek's grandfather, Claude William Simmons. I'm here to help you explore connections between coaching philosophy, media transformation, and technological implementation. What would you like to discuss?", 'claude');
+    // Add event listeners with error handling
+    if (sendButton) {
+        sendButton.addEventListener('click', handleUserInput);
+        console.log("Added send button click listener");
+    }
+    
+    if (userInput) {
+        userInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleUserInput();
+            }
+        });
+        console.log("Added input keypress listener");
+    }
+    
+    // Add suggestion button listeners with error handling
+    if (suggestionButtons.length > 0) {
+        suggestionButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                if (userInput) {
+                    userInput.value = button.getAttribute('data-query') || '';
+                    handleUserInput();
+                }
+            });
+        });
+        console.log("Added suggestion button listeners");
+    }
     
     // Responses data
     const responsesData = {
@@ -69,74 +162,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
-    // Add event listeners
-    sendButton.addEventListener('click', handleUserInput);
-    userInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') handleUserInput();
-    });
-    
-    // Add event listeners for suggestion buttons
-    suggestionButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            const query = button.getAttribute('data-query');
-            userInput.value = query;
-            handleUserInput();
-        });
-    });
-    
-    function handleUserInput() {
-        const text = userInput.value.trim();
-        if (!text) return;
-        
-        console.log("Handling user input:", text);
-        
-        // Track the chat interaction with Google Analytics
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'chat_message_sent', {
-                'message_length': text.length,
-                'contains_question': text.includes('?')
-            });
-        }
-        
-        // Add user message
-        addMessage(text, 'user');
-        userInput.value = '';
-        
-        // Show thinking indicator
-        const thinkingMsg = addMessage("Thinking...", 'claude thinking');
-        
-        // Process response (with delay to simulate thinking)
-        setTimeout(function() {
-            // Remove thinking indicator
-            thinkingMsg.remove();
-            
-            // Add Claude's response
-            const response = getResponse(text);
-            addMessage(response, 'claude');
-            
-            // Track response with Google Analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'chat_response_generated', {
-                    'response_type': determineResponseType(text),
-                    'contained_follow_up': response.includes('?')
-                });
-            }
-        }, 1000);
-    }
-    
-    function addMessage(text, sender) {
-        console.log("Adding message:", text, sender);
-        
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('message');
-        // Add each class in sender (split by space)
-        sender.split(' ').forEach(cls => messageDiv.classList.add(cls));
-        messageDiv.innerHTML = text; // Using innerHTML to allow links and emojis
-        messageContainer.appendChild(messageDiv);
-        messageContainer.scrollTop = messageContainer.scrollHeight;
-        return messageDiv;
-    }
-    
     function getResponse(text) {
         console.log("Getting response for:", text);
         
@@ -161,26 +186,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // If no match found, return default response
         return responsesData.topics.default_response.response;
-    }
-    
-    function determineResponseType(text) {
-        // Determine what type of query this was for analytics
-        const lowerText = text.toLowerCase();
-        
-        if (lowerText.match(/^(hi|hello|hey|greetings|howdy|good morning|good afternoon|good evening)(\s|$)/) || 
-            lowerText.includes("how are you") || 
-            lowerText.includes("what's up") || 
-            lowerText.includes("how's it going")) {
-            return 'greeting';
-        }
-        
-        for (const [topicKey, topicData] of Object.entries(responsesData.topics)) {
-            if (topicData.triggers && topicData.triggers.some(trigger => lowerText.includes(trigger))) {
-                return topicKey;
-            }
-        }
-        
-        return 'default';
     }
     
     console.log("Chat script initialization complete");
