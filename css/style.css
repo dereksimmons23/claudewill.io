@@ -196,8 +196,7 @@ footer {
     border-radius: 8px;
     border: 1px solid rgba(128, 128, 128, 0.2);
     padding: var(--space-4);
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-primary) transparent;
+    /* scrollbar-width: thin; */
 }
 
 .message-container::-webkit-scrollbar {
@@ -381,4 +380,36 @@ footer {
     #send-button {
         justify-content: center;
     }
+}
+
+.expertise-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+}
+
+.color-swatch.color-cottonwood {
+    background-color: #f8f5f2;
+    color: #2f3133;
+}
+.color-swatch.color-gunmetal {
+    background-color: #2f3133;
+    color: #fff;
+}
+.color-swatch.color-prairie {
+    background-color: #38606e;
+    color: #fff;
+}
+.color-swatch.color-northpond {
+    background-color: #2d6883;
+    color: #fff;
+}
+.color-swatch.color-ironrange {
+    background-color: #a33e10;
+    color: #fff;
+}
+.color-swatch.color-willie {
+    background-color: #512888;
+    color: #fff;
 }
