@@ -2,20 +2,10 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
-
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+This project is under active development. The `main` branch is supported and receives security updates. If you are using a fork or an older version, please update to the latest code for security patches.
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+If you discover a security vulnerability, please report it by emailing simmons.derek@gmail.com or by opening a [GitHub Security Advisory](https://github.com/dereksimmons23/claudewill.io/security/advisories).
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+We will respond as soon as possible and coordinate a fix. Please do not disclose security issues publicly until they have been addressed.
