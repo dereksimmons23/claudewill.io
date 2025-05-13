@@ -128,7 +128,9 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("Adding message:", text, sender);
         
         const messageDiv = document.createElement('div');
-        messageDiv.classList.add('message', `${sender}-message`);
+        messageDiv.classList.add('message');
+        // Support multiple classes in sender (split by space)
+        sender.split(' ').forEach(cls => messageDiv.classList.add(`${cls}-message`));
         messageDiv.innerHTML = text; // Using innerHTML to allow links and emojis
         messageContainer.appendChild(messageDiv);
         messageContainer.scrollTop = messageContainer.scrollHeight;
