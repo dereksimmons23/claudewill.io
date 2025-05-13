@@ -15,7 +15,8 @@
     "eslint": "^8.57.0",
     "htmlhint": "^1.1.4",
     "pa11y-ci": "^2.4.2",
-    "stylelint": "^15.10.3"
+    "stylelint": "^16.19.1",
+    "stylelint-config-standard": "^38.0.0"
   },
   "dependencies": {
     "lighthouse": "^12.6.0"
