@@ -62,7 +62,15 @@ jobs:
         with:
           node-version: 20
       - run: npm install
-      - run: npm run links
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+      - name: Install lychee
+        run: cargo install lychee
+      - name: Run Broken Link Check
+        run: npm run links
 
   lighthouse:
     name: Lighthouse Performance
