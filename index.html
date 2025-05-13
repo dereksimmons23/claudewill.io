@@ -40,7 +40,7 @@
     <!-- Header with wordmark and theme toggle -->
     <header class="site-header">
         <a href="index.html" class="wordmark">claudewill</a>
-        <button id="theme-toggle" aria-label="Toggle theme">
+        <button id="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
             <span class="material-icons theme-toggle-icon">light_mode</span>
         </button>
     </header>
@@ -93,6 +93,6 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/chat.js"></script>
+    <script src="js/chat.js" onerror="alert('Chat functionality failed to load. Please refresh or try again later.');"></script>
 </body>
 </html>
