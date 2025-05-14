@@ -28,6 +28,7 @@ A revolutionary approach to content development that treats traditional vertical
 ## Technology
 
 Built with:
+
 - HTML5
 - CSS3 with custom properties
 - Vanilla JavaScript
@@ -50,3 +51,22 @@ Built with:
 ## License
 
 © 2025 Derek Simmons. All rights reserved.
+
+## Credits
+
+This project was developed using a collaborative, multi-AI workflow:
+
+- Content development and strategic guidance: Claude 3.7 Sonnet (Anthropic) for Desktop
+- Code implementation and review: OpenAI GPT-4 (via Cursor AI)
+- Code suggestions: GitHub Copilot
+- Project author and direction: Derek Simmons
+
+See [CREDITS.md](CREDITS.md) for full details.
+
+## Handoff & Onboarding
+
+For detailed project state, recent changes, and onboarding notes, see [BATON_HANDOFF.md](BATON_HANDOFF.md).
+
+---
+
+*This workflow exemplifies the project's core philosophy: bridging human wisdom with technological advancement through effective collaboration and tool orchestration.*
