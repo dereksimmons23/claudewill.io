@@ -1,2 +1,21 @@
 node_modules/
 .local-chromium/
+
+# Ignore temporary and upload files
+.tmp.driveupload/
+*.tmp
+*.log
+
+# Node and build artifacts
+dist/
+build/
+.cache/
+coverage/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+.idea/
+.vscode/
+*.swp
