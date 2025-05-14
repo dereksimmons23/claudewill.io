@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Show thinking indicator
         const thinkingMessage = document.createElement('div');
-        thinkingMessage.classList.add('message', 'claude-message', 'thinking');
+        thinkingMessage.classList.add('message', 'claude-message', 'thinking', 'thinking-message');
         thinkingMessage.textContent = 'Thinking...';
         messageContainer.appendChild(thinkingMessage);
         
