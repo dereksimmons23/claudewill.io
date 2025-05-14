@@ -1,0 +1,24 @@
+{
+  "name": "claudewill-mvp",
+  "version": "1.0.0",
+  "description": "Static site for Claude Will with CI/CD linting and checks",
+  "scripts": {
+    "lint:html": "htmlhint '**/*.html'",
+    "lint:css": "stylelint 'css/**/*.css'",
+    "lint:js": "eslint 'js/**/*.js'",
+    "a11y": "pa11y-ci --chrome-flags=\"--no-sandbox\" 'index.html' 'about.html' 'projects.html' 'how-we-built.html' 'resume.html'",
+    "links": "lychee --no-progress --exclude-mail --exclude 'https://fonts.googleapis.com' --exclude 'https://fonts.gstatic.com' --exclude 'https://derek4thecws.substack.com/' --exclude 'https://linkedin.com/in/dereksimm' --exclude 'https://www.linkedin.com/in/dereksimm' --exclude-path 'node_modules' '**/*.html'",
+    "lighthouse": "lighthouse-ci autorun --collect.settings.onlyCategories=performance,accessibility,best-practices,seo"
+  },
+  "devDependencies": {
+    "@lhci/cli": "^0.14.0",
+    "eslint": "^8.57.0",
+    "htmlhint": "^1.1.4",
+    "pa11y-ci": "^2.4.2",
+    "stylelint": "^16.19.1",
+    "stylelint-config-standard": "^38.0.0"
+  },
+  "dependencies": {
+    "lighthouse": "^12.6.0"
+  }
+}
