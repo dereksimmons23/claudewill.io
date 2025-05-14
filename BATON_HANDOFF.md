@@ -89,3 +89,20 @@ This workflow exemplifies the project's core philosophy: bridging human wisdom w
 ---
 
 *Prepared by Cursor AI, session date: 2025-05-13*
+
+## 🚧 June 13, 2024 Update: Push/PR Blockers and Privacy Policy
+
+- **Privacy Policy:** Added a standard privacy policy to PRIVACY.md and updated contact info to point to the GitHub profile.
+- **Push/PR Issues:**
+  - Multiple attempts to push changes to main were blocked by GitHub branch protection rules (require PRs, signed commits, and no force-pushes).
+  - Large file history issues (from .tmp.driveupload/408291) required history rewriting, but force-pushes are not allowed on main.
+  - The only way to update main is now via a signed commit in a pull request.
+- **.gitignore:** Updated to ignore temp/upload files, build artifacts, and editor/OS files to prevent future large file issues.
+- **Current State:**
+  - All local changes are committed, but not yet merged to main due to repo rules.
+  - Next step: create a new branch, push, and open a PR with signed commits to merge changes.
+- **Meta:**
+  - Significant time was spent resolving git/GitHub workflow blockers rather than feature work or deployment.
+  - Recommend reviewing branch protection rules and large file handling for future contributors.
+
+*Session ended without successful push to main due to repository rules. Prepared by Cursor AI, session date: 2024-06-13.*
