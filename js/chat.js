@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add welcome message if container exists
     if (messageContainer) {
         const welcomeMessage = document.createElement('div');
-        welcomeMessage.className = 'message claude-message';
+        welcomeMessage.classList.add('message', 'claude-message');
         welcomeMessage.innerHTML = "Hello! 👋 I'm Claude Will, a conversational interface inspired by Derek's grandfather, Claude William Simmons. I'm here to help you explore connections between coaching philosophy, media transformation, and technological implementation. What would you like to discuss?";
         messageContainer.appendChild(welcomeMessage);
     }
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Add user message
         const userMessage = document.createElement('div');
-        userMessage.className = 'message user-message';
+        userMessage.classList.add('message', 'user-message');
         userMessage.textContent = text;
         messageContainer.appendChild(userMessage);
         
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Show thinking indicator
         const thinkingMessage = document.createElement('div');
-        thinkingMessage.className = 'message claude-message thinking';
+        thinkingMessage.classList.add('message', 'claude-message', 'thinking');
         thinkingMessage.textContent = 'Thinking...';
         messageContainer.appendChild(thinkingMessage);
         
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Add Claude's response
                 const responseMessage = document.createElement('div');
-                responseMessage.className = 'message claude-message';
+                responseMessage.classList.add('message', 'claude-message');
                 responseMessage.innerHTML = getResponse(text);
                 messageContainer.appendChild(responseMessage);
                 
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error("Error generating response:", error);
                 // Fallback error message
                 const errorMessage = document.createElement('div');
-                errorMessage.className = 'message claude-message';
+                errorMessage.classList.add('message', 'claude-message');
                 errorMessage.textContent = "I'm sorry, I encountered an error processing your request.";
                 messageContainer.appendChild(errorMessage);
             }
