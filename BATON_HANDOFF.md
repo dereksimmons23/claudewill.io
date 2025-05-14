@@ -80,4 +80,35 @@ This workflow exemplifies the project's core philosophy: bridging human wisdom w
 
 ---
 
+## Security Best Practices
+
+- When setting cookies based on user input, always sanitize the cookie name and encode the value to prevent XSS and cookie injection attacks.
+- Example:
+
+```js
+// Example sanitization functions
+function sanitizeCookieName(name) {
+  // Only allow alphanumeric and a few safe characters
+  return name.replace(/[^a-zA-Z0-9_\-]/g, '');
+}
+
+function encodeCookieValue(value) {
+  return encodeURIComponent(value);
+}
+
+// Usage
+const name = sanitizeCookieName(userInputName);
+const value = encodeCookieValue(userInputValue);
+
+const serializedCookie = cookie.serialize(name, value, {
+  maxAge: 2592000,
+  httpOnly: true,
+  secure: true
+});
+```
+
+- See [OWASP Cookie Security](https://owasp.org/www-community/controls/SecureCookieAttribute) for more details.
+
+---
+
 *Prepared by Cursor AI, session date: 2025-05-13*
