@@ -217,7 +217,7 @@ footer {
     box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
 }
 
-.user.message {
+.user-message {
     background-color: rgb(163 62 16 / 15%);
     margin-left: auto;
     margin-right: 0;
@@ -225,7 +225,7 @@ footer {
     border-left: 3px solid var(--color-accent);
 }
 
-.claude.message {
+.claude-message {
     background-color: rgb(56 96 110 / 15%);
     margin-right: auto;
     margin-left: 0;
