@@ -76,4 +76,16 @@
 
 ---
 
+### Meta: Human-AI Collaboration
+
+This project was built using a "baton handoff" approach between multiple AI tools:
+- Claude 3.7 Sonnet (Anthropic) for Desktop: content development, strategic planning, and problem diagnosis
+- Cursor AI (OpenAI GPT-4): direct code implementation and review
+- GitHub Copilot: code suggestions and completions
+- GitHub Actions: automated testing and deployment
+
+This workflow exemplifies the project's core philosophy: bridging human wisdom with technological advancement through effective collaboration and tool orchestration.
+
+---
+
 *Prepared by Cursor AI, session date: 2025-05-13*
