@@ -451,91 +451,48 @@ footer {
 
 /* Print styles */
 @media print {
-    @page {
-        margin: 1cm;
-    }
-    
+    @page { margin: 0.5in; }
+
     body {
+        background: #fff !important;
+        color: #000 !important;
+        font-size: initial;
+        line-height: initial;
         padding-top: 0;
-        background-color: white !important;
-        color: black !important;
     }
-    
-    .site-header, 
-    .print-button, 
-    .back-button,
-    .resume-navigation,
-    #theme-toggle,
-    footer,
-    .tab-buttons {
+
+    .site-header, .print-button, .back-button, .resume-navigation, #theme-toggle, footer, .tab-buttons {
         display: none !important;
     }
-    
-    .resume-header {
-        padding-top: 0;
-    }
-    
-    .resume-header h1 {
-        color: #38606e !important;
-    }
-    
-    .container {
-        max-width: 100%;
-        padding: 0;
-    }
-    
-    a {
-        text-decoration: none;
-        color: #38606e !important;
-    }
-    
-    .section-heading {
-        break-after: avoid;
-        color: #38606e !important;
-    }
-    .education-title {
-        color: #38606e !important;
-    }
-    
-    .job {
-        break-inside: avoid;
-    }
-    
-    .job-title, .company-date {
-        break-after: avoid;
-    }
-    
-    .job-duties {
-        break-before: avoid;
-    }
-    
-    .expertise-section {
-        break-inside: avoid;
-    }
-    
-    .expertise-card {
-        break-inside: avoid;
-        border-left-color: #38606e !important;
-        background-color: rgba(0, 0, 0, 0.03) !important;
-    }
-    
-    .expertise-card h3 {
-        color: #38606e !important;
-    }
-    
-    .expertise-card .material-icons,
-    .contact-item .material-icons {
-        color: #38606e !important;
-    }
-    
-    .company-date,
-    .education-details {
-        color: #a33e10 !important;
-    }
-    
-    /* Show all tab content when printing */
+
+    /* Show all tab content for print */
     .tab-content {
         display: block !important;
+        opacity: 1 !important;
+    }
+
+    /* Remove all print-specific header/contact/summary styling */
+    .resume-header, .resume-header h1, .contact-info, .contact-item, .summary {
+        all: unset !important;
+        display: revert !important;
+        color: revert !important;
+        background: revert !important;
+        border: revert !important;
+        margin: revert !important;
+        padding: revert !important;
+        font-size: revert !important;
+        text-align: revert !important;
+        box-shadow: revert !important;
+        width: revert !important;
+        max-width: revert !important;
+        position: revert !important;
+        left: revert !important;
+        right: revert !important;
+        letter-spacing: revert !important;
+        text-transform: revert !important;
+        font-weight: revert !important;
+        line-height: revert !important;
+        white-space: revert !important;
     }
 }
 
