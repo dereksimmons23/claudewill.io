@@ -37,4 +37,14 @@ We may update this Privacy Policy from time to time. Changes will be posted on t
 
 If you have any questions about this Privacy Policy, please contact Derek Simmons via [GitHub](https://github.com/dereksimmons23).
 
+## Analytics
+
+We use Google Analytics 4 (GA4) to help us understand how visitors interact with our website. GA4 collects non-personal information such as device type, browser, pages visited, and general location (city, country). GA4 does **not** log or store individual IP addresses.
+
+Google Analytics may use cookies or similar technologies to collect this data. You can learn more about how Google collects and processes data by visiting [Google's Privacy Policy](https://policies.google.com/privacy).
+
+If you wish to opt out of Google Analytics tracking, you can use the [Google Analytics Opt-out Browser Add-on](https://tools.google.com/dlpage/gaoptout).
+
+We use this information solely to improve the website and user experience.
+
 _Last updated: 2025-05-13_

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Documentation | Claude Will</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .toc {
+      background: #f7f7f7;
+      border-radius: 8px;
+      padding: 1.5em 1em;
+      margin-bottom: 2em;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5em;
+    }
+    .toc li {
+      font-weight: 500;
+    }
+    .section-divider {
+      border-top: 1px solid #e0e0e0;
+      margin: 2.5em 0 2em 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Project Documentation &amp; How We Built This</h1>
+    <nav class="toc">
+      <ul>
+        <li><a href="#how-we-built">How We Built This</a></li>
+        <li><a href="#privacy">Privacy Policy</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#terms">Terms of Service</a></li>
+        <li><a href="#punch-list">Punch List</a></li>
+        <li><a href="#baton-handoff">Baton Handoff</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="how-we-built">
+      <h2>How We Built This Site</h2>
+      <p class="subtitle">A look behind the scenes at the development of claudewill.io</p>
+      <div class="build-card">
+        <h3>Design Philosophy</h3>
+        <p>The design of claudewill.io embodies the principles of The CW Standard—bridging human wisdom with technological advancement. Our approach focused on simplicity, clarity, and meaningful connections.</p>
+        <h4>Key design principles:</h4>
+        <ul>
+          <li>Clean, readable typography using Noto Sans/Serif for global language support</li>
+          <li>A personal color palette with meaningful connections to Derek's life journey</li>
+          <li>Responsive design that works well across all devices</li>
+          <li>Accessible light/dark mode toggle respecting user preferences</li>
+        </ul>
+      </div>
+      <h3>Color Palette</h3>
+      <p>Each color in the palette connects to a meaningful story or concept:</p>
+      <ul style="display:flex;flex-wrap:wrap;gap:1em;list-style:none;padding:0;">
+        <li style="background:#e6e2d3;padding:0.5em 1em;border-radius:6px;">Cottonwood</li>
+        <li style="background:#2d3a3a;color:#fff;padding:0.5em 1em;border-radius:6px;">Gunmetal Firebird</li>
+        <li style="background:#bfae9e;padding:0.5em 1em;border-radius:6px;">Prairie Dusk</li>
+        <li style="background:#4a6d7c;color:#fff;padding:0.5em 1em;border-radius:6px;">North Pond</li>
+        <li style="background:#7c6c5c;padding:0.5em 1em;border-radius:6px;">Iron Range</li>
+        <li style="background:#f7c873;padding:0.5em 1em;border-radius:6px;">Willie</li>
+      </ul>
+      <div class="section-divider"></div>
+      <h3>Development Process</h3>
+      <ul>
+        <li><strong>Design System Creation:</strong> Established a comprehensive design system including color palette, typography, and component styles for consistency.</li>
+        <li><strong>Conversational Interface Development:</strong> Built the Claude Will conversational interface to demonstrate cross-domain pattern recognition.</li>
+        <li><strong>Content Organization:</strong> Structured information to highlight connections between coaching philosophy, media transformation, and technology.</li>
+      </ul>
+      <div class="section-divider"></div>
+      <h3>Technology Stack</h3>
+      <ul>
+        <li>HTML5 for semantic structure</li>
+        <li>CSS3 with custom properties for theming</li>
+        <li>Vanilla JavaScript for interactivity</li>
+        <li>No frameworks or build tools</li>
+      </ul>
+      <p>This approach keeps the site lightweight, fast-loading, and easy to maintain while still providing a modern, responsive experience.</p>
+      <div class="section-divider"></div>
+      <h3>Claude Will Development</h3>
+      <ul>
+        <li>Responses showcase connections between coaching philosophy, media transformation, and technological implementation</li>
+        <li>Interface design enhances human capability rather than replacing it</li>
+        <li>Pattern recognition across domains is demonstrated through conversational exploration</li>
+      </ul>
+      <p>The "i/o, i/o, it's off to work I go!" loading message is an Easter egg that blends technical terminology (Input/Output) with cultural references (Snow White's dwarfs)—another example of cross-domain connection.</p>
+    </section>
+    <div class="section-divider"></div>
+    <section id="privacy">
+      <h2>Privacy Policy</h2>
+      <p><strong>Summary:</strong> We do not collect personal information unless you provide it. Usage data (like IP, browser, pages visited) is collected via Google Analytics 4 (GA4), which does not log or store individual IP addresses. Cookies may be used for a better experience. Third-party analytics providers have their own privacy policies. We take reasonable security measures, but no method is 100% secure. For details, see <a href="PRIVACY.md" target="_blank">PRIVACY.md</a>.</p>
+      <ul>
+        <li><strong>Personal Information:</strong> Only collected if you contact us directly.</li>
+        <li><strong>Usage Data:</strong> Collected via GA4 for site improvement; no individual IPs stored.</li>
+        <li><strong>Cookies:</strong> Used for user experience; can be disabled in your browser.</li>
+        <li><strong>Third-Party Services:</strong> Analytics providers may collect data; see their policies.</li>
+        <li><strong>Contact:</strong> Questions? <a href="https://github.com/dereksimmons23">Contact Derek Simmons on GitHub</a>.</li>
+      </ul>
+    </section>
+    <section id="security">
+      <h2>Security</h2>
+      <p><strong>Summary:</strong> The <code>main</code> branch is supported and receives security updates. If you discover a vulnerability, email <a href="mailto:simmons.derek@gmail.com">simmons.derek@gmail.com</a> or open a <a href="https://github.com/dereksimmons23/claudewill.io/security/advisories">GitHub Security Advisory</a>. Please do not disclose issues publicly until resolved. For details, see <a href="SECURITY.md" target="_blank">SECURITY.md</a>.</p>
+    </section>
+    <section id="terms">
+      <h2>Terms of Service</h2>
+      <p><strong>Summary:</strong> Use of this site is subject to the following terms:</p>
+      <ul>
+        <li>No unlawful, abusive, or malicious use.</li>
+        <li>Content and chat are for informational/conversational purposes only; no guarantees of accuracy or fitness for purpose.</li>
+        <li>All original content © Derek Simmons unless otherwise noted.</li>
+        <li>Site owner is not liable for damages from use.</li>
+        <li>Contact via <a href="https://github.com/dereksimmons23">GitHub</a> for questions.</li>
+      </ul>
+    </section>
+    <section id="punch-list">
+      <h2>Punch List</h2>
+      <p><strong>Summary:</strong> The punch list tracks immediate action items, ongoing improvements, and future enhancements for Claude Will. Recent focus: analytics, chat improvements, resume workflow, and strategic planning. See <a href="PUNCH_LIST.md" target="_blank">PUNCH_LIST.md</a> for full details.</p>
+      <ul>
+        <li>Critical fixes: analytics, chat, CI/CD, deployment</li>
+        <li>Content/design: knowledge base, response quality, case studies</li>
+        <li>Performance: speed, caching, minification, image optimization</li>
+        <li>Future: advanced chat, AI, session persistence, analytics</li>
+        <li>Strategic: Talent Agent, Leadership/Relationship Intelligence, Match.com for Employment</li>
+      </ul>
+    </section>
+    <section id="baton-handoff">
+      <h2>Baton Handoff</h2>
+      <p><strong>Summary:</strong> Baton Handoff documents technical and strategic handoffs, including chat fixes, CI/CD, repo cleanup, and workflow best practices. It also covers the "baton handoff" approach between AI tools and humans. See <a href="BATON_HANDOFF.md" target="_blank">BATON_HANDOFF.md</a> for full details.</p>
+      <ul>
+        <li>Recent: chat bug fixes, deployment, security audits, repo cleanup</li>
+        <li>Best practices: CSS refactoring, class naming, CI/CD, documentation</li>
+        <li>Meta: Human-AI collaboration, multi-AI tool workflow</li>
+        <li>Strategic direction: modular personal assistant, future agency/product options</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Derek Simmons. All rights reserved. | <a href="/documentation.html">Documentation</a></p>
+  </footer>
+</body>
+</html>
