@@ -1,7 +1,7 @@
 // Claude Will Chat Prompts Artifact
 // Generated summary of all suggested and random prompts as discussed
-export const suggestedPrompts = [ ... ];
-export const randomPrompts = [ ... ];
+export const suggestedPrompts = [];
+export const randomPrompts = [];
 
 const chatResponses = {
   suggested: {
@@ -39,4 +39,4 @@ const chatResponses = {
   }
 };
 
-export { suggestedPrompts, randomPrompts, chatResponses };
+export { chatResponses };
