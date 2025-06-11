@@ -1,0 +1,71 @@
+% Custom LaTeX template for resume
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{fontspec}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+
+% Page geometry
+\geometry{a4paper, margin=1in}
+
+% Font settings
+\setmainfont{Helvetica}
+\setsansfont{Helvetica}
+\newfontfamily\headerfont{Times New Roman}
+
+% Hyperlink styling
+\hypersetup{
+  colorlinks=true,
+  urlcolor=black,
+  linkcolor=black
+}
+
+% Header styling
+\titleformat{\section}
+  {\Large\bfseries\headerfont}
+  {}
+  {0em}
+  {}
+  [\titlerule]
+
+\titleformat{\subsection}
+  {\normalsize\bfseries\sffamily}
+  {}
+  {0em}
+  {}
+
+% List styling
+\setlist[itemize]{itemsep=4pt, parsep=0pt, topsep=4pt, partopsep=0pt, leftmargin=*}
+\setlist[enumerate]{itemsep=4pt, parsep=0pt, topsep=4pt, partopsep=0pt, leftmargin=*}
+
+% Custom bullet points
+\renewcommand{\labelitemi}{--}
+
+% Fix for Pandoc tightlist
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{4pt}\setlength{\parskip}{0pt}}
+
+% Disable section numbering
+\setcounter{secnumdepth}{0}
+
+% Document start
+\begin{document}
+
+$if(title)$
+{\huge\bfseries $title$}
+\vspace{0.5em}
+$endif$
+
+$if(author)$
+$for(author)$
+$author$
+$endfor$
+$endif$
+
+$body$
+
+\end{document} 

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Derek Simmons | Claude Will</title>
+    <meta name="description" content="Strategic builder bridging human wisdom with technological advancement across media, sports, tech, and AI">
+    
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* Page-specific styles */
+        .about-hero {
+            padding: var(--space-8) 0;
+            text-align: center;
+        }
+        
+        .about-hero h1 {
+            margin-bottom: var(--space-2);
+        }
+        
+        .profile-section {
+            max-width: 800px;
+            margin: 0 auto var(--space-8);
+        }
+        
+        .profile-content h2 {
+            border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+            padding-bottom: var(--space-2);
+            margin-bottom: var(--space-4);
+        }
+        
+        .expertise-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-4);
+            margin-bottom: var(--space-8);
+        }
+        
+        .expertise-card {
+            padding: var(--space-4);
+            border-radius: 8px;
+            background-color: rgba(56, 96, 110, 0.1);
+            border-left: 4px solid var(--color-primary);
+        }
+        
+        .expertise-card h3 {
+            margin-bottom: var(--space-2);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .expertise-card .material-icons {
+            color: var(--color-primary);
+        }
+        
+        .connect-section {
+            margin-bottom: var(--space-8);
+        }
+        
+        .connect-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+        }
+        
+        .connect-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-4);
+            background-color: transparent;
+            border: 1px solid var(--color-primary);
+            border-radius: 20px;
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+        }
+        
+        .connect-link:hover {
+            background-color: rgba(56, 96, 110, 0.1);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .expertise-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .connect-links {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-991ML96NJ3');
+    </script>
+</head>
+<body>
+    <!-- Header with wordmark and theme toggle -->
+    <header class="site-header">
+        <a href="index.html" class="wordmark">
+          <span class="wordmark-full">ClaudeWill</span>
+          <span class="wordmark-short">CW</span>
+        </a>
+        <!-- Navigation removed for minimalist header -->
+        <button id="theme-toggle" aria-label="Toggle theme">
+            <span class="material-icons theme-toggle-icon">light_mode</span>
+        </button>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="about-hero">
+                <h1>Derek Simmons</h1>
+                <p>Strategic Builder bridging human wisdom with technological advancement</p>
+            </section>
+            
+            <section class="profile-section">
+                <div class="profile-content">
+                    <h2>Professional Summary</h2>
+                    <p>Executive leader with 15+ years of experience generating $20M+ in revenue through innovative frameworks. Specialized expertise in AI strategy, revenue generation, and executive leadership transformation.</p>
+                    <p>I build frameworks that bridge human wisdom with technological advancement across media, sports, tech, and AI. My cross-domain expertise helps organizations implement technology in ways that drive measurable business outcomes.</p>
+                </div>
+            </section>
+            
+            <!-- Add metrics grid -->
+            <section class="metrics-section" style="margin: 2rem 0;">
+              <div class="metrics-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem;">
+                <div class="metric-card" style="text-align: center;">
+                  <h3 style="color: var(--color-accent); font-size: 2rem;">$20M+</h3>
+                  <p>Revenue Generated</p>
+                </div>
+                <div class="metric-card" style="text-align: center;">
+                  <h3 style="color: var(--color-accent); font-size: 2rem;">15+</h3>
+                  <p>Years Leadership</p>
+                </div>
+                <div class="metric-card" style="text-align: center;">
+                  <h3 style="color: var(--color-accent); font-size: 2rem;">1,000+</h3>
+                  <p>Awards</p>
+                </div>
+                <div class="metric-card" style="text-align: center;">
+                  <h3 style="color: var(--color-accent); font-size: 2rem;">50+</h3>
+                  <p>Speaking Events</p>
+                </div>
+              </div>
+            </section>
+            
+            <h2>Areas of Expertise</h2>
+            <section class="expertise-section">
+                <div class="expertise-card">
+                    <h3>
+                        <span class="material-icons">trending_up</span>
+                        Revenue Growth & Frameworks
+                    </h3>
+                    <p>Architected and implemented frameworks that have generated $20M+ in new business revenue for clients and employers.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>
+                        <span class="material-icons">psychology</span>
+                        AI Strategy & Enterprise Implementation
+                    </h3>
+                    <p>Guided organizations through successful enterprise AI adoption, ensuring measurable ROI and ethical alignment.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>
+                        <span class="material-icons">groups</span>
+                        Executive Leadership Transformation
+                    </h3>
+                    <p>Transformed leadership teams and cultures to drive innovation, resilience, and sustainable growth.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>
+                        <span class="material-icons">account_tree</span>
+                        Strategic Framework Development
+                    </h3>
+                    <p>Designed and deployed strategic frameworks that align technology, people, and process for maximum business impact.</p>
+                </div>
+            </section>
+            
+            <section class="connect-section">
+                <h2>Connect With Me</h2>
+                <div class="connect-links">
+                    <a href="https://www.linkedin.com/in/dereksimm" target="_blank" rel="noopener" class="connect-link">
+                        <span class="material-icons">business</span>
+                        LinkedIn
+                    </a>
+                    <a href="https://bsky.app/profile/derek4thecws.bsky.social" target="_blank" rel="noopener" class="connect-link">
+                        <span class="material-icons">cloud</span>
+                        Bluesky
+                    </a>
+                    <a href="https://derek4thecws.substack.com/" target="_blank" rel="noopener" class="connect-link">
+                        <span class="material-icons">article</span>
+                        Substack
+                    </a>
+                    <a href="https://dcs.bio" target="_blank" rel="noopener" class="connect-link">
+                        <span class="material-icons">person</span>
+                        dcs.bio
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2025 Derek Simmons |
+            <a href="/documentation.html">Documentation</a> |
+            <a href="/about.html">About Derek</a> |
+            <a href="/documentation.html#privacy">Privacy Policy</a> |
+            <a href="/documentation.html#terms">Terms of Use</a>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

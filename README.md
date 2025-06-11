@@ -3,14 +3,16 @@
 Claude Will is a conversational interface and framework testbed that explores connections between coaching philosophy, media transformation, and technological advancement—where pattern recognition reveals insights others miss.
 
 ## Table of Contents
+
 - [About the Project](#about-the-project)
 - [Features](#features)
 - [Key Frameworks](#key-frameworks)
 - [Project Structure](#project-structure)
-- [Installation & Usage](#installation--usage)
+- [Installation &amp; Usage](#installation--usage)
 - [Documentation](#documentation)
 - [Development Philosophy](#development-philosophy)
 - [Contact](#contact)
+- [Contributing](#contributing)
 - [License](#license)
 
 ## About the Project
@@ -29,12 +31,15 @@ Claude Will is named in honor of Claude William Simmons, whose practical wisdom 
 ## Key Frameworks
 
 ### The CW Standard
+
 A comprehensive framework for navigating complex transitions that bridges human wisdom with technological advancement. The CW Standard emerged from observing how practical wisdom creates patterns of success across seemingly unrelated areas.
 
 ### Media Franchise Model
+
 A revolutionary approach to content development that treats traditional verticals as entrepreneurial business units with their own identity and development pathway. This approach generated over $10M in new revenue by creating sponsorship opportunities that transcended traditional platform boundaries.
 
 ### Baton Handoff & Pattern Recognition
+
 Frameworks for managing transitions and identifying cross-domain patterns, with detailed documentation in the [Documentation Hub](./documentation.html).
 
 ## Project Structure
@@ -43,7 +48,6 @@ Frameworks for managing transitions and identifying cross-domain patterns, with 
 - **js/**: JavaScript for chat and interactivity ([see js/README.md](js/README.md))
 - **css/**: Stylesheets
 - **documentation.html**: Centralized documentation hub (includes summaries and links to all key docs)
-- **BATON_HANDOFF.md**: Technical and strategic handoff notes
 - **PUNCH_LIST.md**: Ongoing punch list, roadmap, and enhancement tracker
 - **resume.md, resume.html**: Resume in Markdown and HTML formats
 - **krista.html**: Documentation for Krista.ai research and related work
@@ -63,6 +67,9 @@ open index.html
 - [documentation.html](./documentation.html): Centralized hub for all project, policy, and technical docs
 - [js/README.md](js/README.md): JavaScript codebase overview
 - [resume.md](./resume.md): Resume in Markdown format
+- [docs/mission_vision_strategy.md](docs/mission_vision_strategy.md): Mission, vision, values, strategic pillars, success metrics, and key risks
+  > *Note: The full Baton Handoff framework and its historical context are now archived for reference.*
+  >
 
 ## Development Philosophy
 
@@ -77,6 +84,18 @@ open index.html
 - [Bluesky](https://bsky.app/profile/derek4thecws.bsky.social)
 - [Substack](https://derek4thecws.substack.com/)
 - [Personal Site](https://dcs.bio)
+
+## Contributing
+
+Contributions are welcome! To help keep this project high-quality and focused, please follow these guidelines:
+
+- **Open an issue** to propose a feature, report a bug, or ask a question before submitting a pull request for major changes.
+- **Fork the repo** and create a new branch for your contribution.
+- **Submit a pull request** with a clear description of your changes and why they improve the project.
+- **Follow the documentation and code style** as seen in `/docs`, `/js`, and `/css`.
+- **Be respectful and constructive** in all discussions and code reviews.
+
+All contributions are reviewed for clarity, quality, and alignment with the project's mission and documentation structure.
 
 ## License
 

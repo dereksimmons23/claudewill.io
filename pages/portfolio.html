@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Derek Simmons | Strategic Builder</title>
+    <meta name="description" content="Published work, thought leadership, and professional portfolio of Derek Simmons - spanning media innovation, AI ethics, and strategic frameworks.">
+    
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Portfolio | Derek Simmons | Strategic Builder">
+    <meta property="og:description" content="Published work, thought leadership, and professional portfolio spanning media innovation, AI ethics, and strategic frameworks.">
+    <meta property="og:url" content="https://claudewill.io/portfolio">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link href="../css/style.css" rel="stylesheet">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-991ML96NJ3');
+    </script>
+
+    <style>
+        .portfolio-section {
+            margin-bottom: var(--space-8);
+        }
+        
+        .portfolio-section h2 {
+            color: var(--color-primary);
+            font-family: var(--font-secondary);
+            font-size: var(--text-2xl);
+            font-weight: var(--weight-bold);
+            margin-bottom: var(--space-6);
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: var(--space-2);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--space-6);
+            margin-bottom: var(--space-6);
+        }
+        
+        .portfolio-item {
+            border: 1px solid rgb(128 128 128 / 20%);
+            border-radius: 8px;
+            padding: var(--space-4);
+            background-color: var(--color-background);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+        }
+        
+        .portfolio-item h3 {
+            color: var(--color-primary);
+            font-family: var(--font-secondary);
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-2);
+        }
+        
+        .portfolio-meta {
+            font-size: var(--text-sm);
+            color: var(--color-accent);
+            font-weight: var(--weight-medium);
+            margin-bottom: var(--space-3);
+        }
+        
+        .portfolio-description {
+            margin-bottom: var(--space-4);
+            line-height: 1.6;
+        }
+        
+        .portfolio-links {
+            display: flex;
+            gap: var(--space-3);
+            flex-wrap: wrap;
+        }
+        
+        .portfolio-link {
+            padding: var(--space-2) var(--space-3);
+            background-color: var(--color-accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: var(--text-sm);
+            font-weight: var(--weight-medium);
+            transition: opacity 0.2s ease;
+        }
+        
+        .portfolio-link:hover {
+            opacity: 0.9;
+            text-decoration: none;
+        }
+        
+        .portfolio-link.secondary {
+            background-color: transparent;
+            color: var(--color-primary);
+            border: 1px solid var(--color-primary);
+        }
+        
+        .intro-section {
+            margin-bottom: var(--space-8);
+            text-align: center;
+        }
+        
+        .intro-section h1 {
+            font-family: var(--font-secondary);
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: var(--space-4);
+        }
+        
+        .intro-section p {
+            font-size: var(--text-lg);
+            max-width: 600px;
+            margin: 0 auto var(--space-6);
+            line-height: 1.6;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-4);
+            margin: var(--space-6) 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: var(--space-4);
+            border: 1px solid rgb(128 128 128 / 20%);
+            border-radius: 8px;
+        }
+        
+        .stat-number {
+            font-size: var(--text-2xl);
+            font-weight: var(--weight-bold);
+            color: var(--color-accent);
+            font-family: var(--font-secondary);
+        }
+        
+        .stat-label {
+            font-size: var(--text-sm);
+            color: var(--color-text);
+            margin-top: var(--space-1);
+        }
+        
+        .back-nav {
+            margin-bottom: var(--space-6);
+        }
+        
+        .back-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: var(--weight-medium);
+        }
+        
+        .back-nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with wordmark and theme toggle -->
+    <header class="site-header">
+        <a href="../index.html" class="wordmark">
+          <span class="wordmark-full">ClaudeWill</span>
+          <span class="wordmark-short">CW</span>
+        </a>
+        <button id="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+            <span class="material-icons theme-toggle-icon">light_mode</span>
+        </button>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="back-nav">
+                <a href="../index.html">
+                    <span class="material-icons">arrow_back</span>
+                    Back to Claude Will
+                </a>
+            </div>
+
+            <div class="intro-section">
+                <h1>Portfolio & Published Work</h1>
+                <p>A collection of thought leadership, published articles, speaking engagements, and frameworks spanning media innovation, AI ethics, and strategic transformation.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">1,000+</div>
+                        <div class="stat-label">Awards & Recognition</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Years Leadership</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">$20M+</div>
+                        <div class="stat-label">Revenue Generated</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Speaking Events</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Published Articles -->
+            <section class="portfolio-section">
+                <h2>Published Articles & Features</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <h3>"Goodest and Bestest Intentions"</h3>
+                        <div class="portfolio-meta">Substack • Personal Essays • December 2024</div>
+                        <div class="portfolio-description">
+                            A reflection on navigating personal and professional transitions, exploring themes of identity, growth, and adaptation. Part of an ongoing series of personal essays that push boundaries in digital storytelling and demonstrate authentic voice in emerging media platforms.
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://derek4thecws.substack.com/p/goodest-and-bestest-intentions" class="portfolio-link" target="_blank" rel="noopener">Read Essay</a>
+                            <a href="https://derek4thecws.substack.com" class="portfolio-link secondary" target="_blank" rel="noopener">View Substack</a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <h3>"Local Edition: Does the business side have to be a separate side?"</h3>
+                        <div class="portfolio-meta">Poynter Institute • Media Innovation • November 2017</div>
+                        <div class="portfolio-description">
+                            Featured analysis exploring the integration of editorial and business functions in modern media organizations. Published by the prestigious Poynter Institute, demonstrating expertise in media strategy and organizational design.
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://www.poynter.org/tech-tools/2017/local-edition-does-the-business-side-have-to-be-a-separate-side/" class="portfolio-link" target="_blank" rel="noopener">Read Article</a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <h3>"Minnesota State of Wonders" - Book Contribution</h3>
+                        <div class="portfolio-meta">Published Book • Photography & Design • Brian Peterson</div>
+                        <div class="portfolio-description">
+                            Contributing photographer and designer for published book celebrating Minnesota. Showcases visual storytelling capabilities and collaborative creative work beyond traditional media contexts.
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://www.amazon.com/Minnesota-State-Wonders-Brian-Peterson/dp/099652570X" class="portfolio-link" target="_blank" rel="noopener">View on Amazon</a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <h3>"A Matter of Dignity" - Pulitzer Center Award Entry</h3>
+                        <div class="portfolio-meta">Pulitzer Center • Design Excellence • 2018</div>
+                        <div class="portfolio-description">
+                            Award-winning visual storytelling project recognized by the Pulitzer Center. Demonstrates excellence in design, narrative structure, and impactful journalism through innovative visual presentation.
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://awards.journalists.org/entries/a-matter-of-dignity/" class="portfolio-link" target="_blank" rel="noopener">View Entry</a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <h3>"Meet Derek Simmons, Star Tribune's First Chief Creative Officer" - Industry Interview</h3>
+                        <div class="portfolio-meta">News Media Alliance • Executive Profile • 2024</div>
+                        <div class="portfolio-description">
+                            Featured interview discussing strategic leadership, creative innovation, and digital transformation in media. Covers the Media Franchise Model and approaches to sustainable revenue growth in evolving media landscape.
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://www.newsmediaalliance.org/derek-simmons-cro-star-tribune/" class="portfolio-link" target="_blank" rel="noopener">Read Interview</a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <h3>Strategic Foresight: 2019 Media Evolution Prediction</h3>
+                        <div class="portfolio-meta">Industry Analysis • Strategic Prediction • 2019</div>
+                        <div class="portfolio-description">
+                            Demonstrated exceptional pattern recognition in predicting media industry transformation: "Print as luxury item/status symbol... escape from technology... curated and delivered especially for you... It's tangible, highly personal and doesn't come with constant notifications, distractions or interruptions." This prediction proved remarkably accurate, anticipating the premium newsletter boom, digital detox trends, and print-as-luxury positioning that defined media strategy 2020-2025.
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="mailto:simmons.derek@gmail.com?subject=Media Prediction Analysis Request" class="portfolio-link secondary">Request Full Analysis</a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <h3>"You have to love newspaper errors"</h3>
+                        <div class="portfolio-meta">Los Angeles Times • L.A. Affairs Column • June 22, 2013</div>
+                        <div class="portfolio-description">
+                            Personal essay about how a newspaper typo in a high school reunion notice led to meeting his future wife. A charming story of unexpected connections that demonstrates the power of serendipity and communication across borders. <strong>This story became the foundation for 'Mistake Proof,' a Netflix series in development exploring how apparent errors often catalyze growth and innovation.</strong>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://www.latimes.com/style/laaffairs/la-hm-affairs-20130622-story.html" class="portfolio-link" target="_blank" rel="noopener">Read Article</a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <h3>Los Angeles Times Design Features</h3>
+                        <div class="portfolio-meta">Los Angeles Times • Design & Innovation • 2007-2013</div>
+                        <div class="portfolio-description">
+                            Additional published features covering design innovation, cultural trends, and creative leadership during tenure as Deputy Design Director.
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="mailto:simmons.derek@gmail.com?subject=LA Times Portfolio Request" class="portfolio-link secondary">Request Samples</a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <h3>AI Ethics & Implementation Strategy</h3>
+                        <div class="portfolio-meta">LinkedIn • Thought Leadership • 2024-2025</div>
+                        <div class="portfolio-description">
+                            Series of articles on responsible AI implementation, ethical frameworks, and human-AI collaboration. Focuses on practical approaches to AI adoption in enterprise environments.
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://linkedin.com/in/dereksimm" class="portfolio-link" target="_blank" rel="noopener">View on LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Frameworks & Research -->
+            <section class="portfolio-section">
+                <h2>Frameworks & Strategic Research</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <h3>The CW Standard Framework</h3>
+                        <div class="portfolio-meta">Strategic Framework • AI Ethics • 2024-Present</div>
+                        <div class="portfolio-description">
+                            Comprehensive methodology for ethical AI integration that prioritizes human values, continuous learning, and transparent leadership. Provides clear, adaptable guidelines for leveraging AI while maintaining human agency.
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="../pages/projects.html" class="portfolio-link">Learn More</a>
+                            <a href="mailto:simmons.derek@gmail.com?subject=CW Standard Framework Request" class="portfolio-link secondary">Request Documentation</a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <h3>Media Franchise Model</h3>
+                        <div class="portfolio-meta">Business Strategy • Revenue Generation • 2020-2024</div>
+                        <div class="portfolio-description">
+                            Innovative content strategy framework that reimagines traditional media verticals as entrepreneurial business units. Generated $15M+ in new revenue through systematic implementation.
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="../pages/projects.html" class="portfolio-link">Case Study</a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <h3>FloShake Methodology</h3>
+                        <div class="portfolio-meta">Performance Framework • Cross-Domain Application • 2023-Present</div>
+                        <div class="portfolio-description">
+                            Systematic approach to optimizing creative flow and performance across domains. Applied in sports coaching, content creation, and strategic planning with measurable results.
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://floshake.io" class="portfolio-link" target="_blank" rel="noopener">Explore FloShake</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Speaking & Conferences -->
+            <section class="portfolio-section">
+                <h2>Speaking & Professional Development</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <h3>Society for News Design (SND) Conferences</h3>
+                        <div class="portfolio-meta">Conference Speaking • Design Innovation • 2008-2024</div>
+                        <div class="portfolio-description">
+                            Regular speaker at SND's annual international conferences, presenting on visual innovation, digital transformation, and cross-platform design strategies. Recognized as thought leader in news design community.
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://www.snd.org" class="portfolio-link secondary" target="_blank" rel="noopener">SND Organization</a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <h3>Educational Workshops & Training</h3>
+                        <div class="portfolio-meta">Workshop Instruction • Skill Development • 2010-Present</div>
+                        <div class="portfolio-description">
+                            Led workshops for high school and collegiate students on digital innovation, leadership development, and creative problem-solving. Focus on practical skills and cross-domain thinking.
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="mailto:simmons.derek@gmail.com?subject=Workshop Portfolio Request" class="portfolio-link secondary">Request Details</a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <h3>ADPList Mentoring</h3>
+                        <div class="portfolio-meta">Professional Mentoring • Career Development • 2024-Present</div>
+                        <div class="portfolio-description">
+                            Active mentor on ADPList platform, providing guidance on career transitions, strategic thinking, and leadership development. Focus on helping professionals navigate complex career decisions.
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://adplist.org" class="portfolio-link" target="_blank" rel="noopener">ADPList Platform</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Professional Recognition -->
+            <section class="portfolio-section">
+                <h2>Professional Recognition & Credentials</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <h3>Award-Winning Design Leadership</h3>
+                        <div class="portfolio-meta">Industry Recognition • Global Rankings • 2007-2024</div>
+                        <div class="portfolio-description">
+                            Recipient of 1,000+ awards for excellence in design, innovation, and leadership. Led organizations to perennial Top 5 global rankings by Society for News Design. Contributed to Pulitzer Prize-winning projects.
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="../pages/resume.html" class="portfolio-link secondary">View Resume</a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <h3>Security Research & Development</h3>
+                        <div class="portfolio-meta">HackerOne • AI Security • 2024-Present</div>
+                        <div class="portfolio-description">
+                            Active participant in HackerOne bounty programs, identifying vulnerabilities in large language models and AI systems. Contributes to advancing AI security and responsible deployment practices.
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://hackerone.com" class="portfolio-link secondary" target="_blank" rel="noopener">HackerOne Platform</a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <h3>Academic & Research Profiles</h3>
+                        <div class="portfolio-meta">ORCiD • Academic Credentials • 2024-Present</div>
+                        <div class="portfolio-description">
+                            Maintaining academic research profile through ORCiD. MIT AI & Data Science Program (admitted 2025 cohort). USC Master of Communication Management (admitted 2022).
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://orcid.org" class="portfolio-link secondary" target="_blank" rel="noopener">ORCiD Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="portfolio-section">
+                <h2>Connect & Collaborate</h2>
+                <div class="portfolio-item" style="max-width: 600px; margin: 0 auto;">
+                    <h3>Available for Speaking, Consulting & Collaboration</h3>
+                    <div class="portfolio-description">
+                        Interested in discussing AI ethics, strategic frameworks, or media innovation? Available for keynote presentations, strategic consulting, and collaborative projects.
+                    </div>
+                    <div class="portfolio-links">
+                        <a href="mailto:simmons.derek@gmail.com?subject=Portfolio Inquiry" class="portfolio-link">Contact Derek</a>
+                        <a href="https://linkedin.com/in/dereksimm" class="portfolio-link secondary" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="https://calendly.com/simmonsd" class="portfolio-link secondary" target="_blank" rel="noopener">Schedule Meeting</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2025 Derek Simmons |
+            <a href="../documentation.html">Documentation</a> |
+            <a href="../pages/about.html">About Derek</a> |
+            <a href="../documentation.html#privacy">Privacy Policy</a> |
+            <a href="../documentation.html#terms">Terms of Use</a>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
