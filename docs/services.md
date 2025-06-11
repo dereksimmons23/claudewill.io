@@ -1,48 +1,48 @@
 # Services
 
-## Build Authentic Relationships. Transform Results.
+## Strategic Business Transformation
 
-I help leaders, teams, and organizations unlock their potential through authentic relationships. My services blend coaching, speaking, and hands-on facilitation, grounded in the CW Standard.
+I help organizations achieve measurable business impact through proven frameworks and strategic implementation. My services combine AI strategy, revenue generation, and executive leadership transformation.
 
 ---
 
 ## What I Offer
 
-### Leadership Development
-Move beyond transactional management to transformational leadership. I help leaders create cultures of vulnerability, trust, and high performance.
+### AI Strategy & Implementation
+Guide organizations through successful enterprise AI adoption, ensuring measurable ROI and ethical alignment. The CW Standard provides a systematic methodology for evaluating, implementing, and optimizing AI solutions.
 
-### Team Building
-Design collaboration processes that build real connection and psychological safety, fostering innovation and resilience.
+### Revenue Generation Frameworks
+Architect and implement frameworks that have generated $20M+ in new business revenue. Systematic approaches to identifying and capitalizing on growth opportunities across multiple industries.
 
-### Digital Transformation
-Balance algorithmic efficiency with human connection. I guide organizations to design tech and digital spaces that enhance, not replace, authentic relationships.
+### Executive Leadership Transformation
+Transform leadership teams and cultures to drive innovation, resilience, and sustainable growth. Combines proven coaching principles with modern business strategy.
 
-### Personal Growth
-Cultivate connections that support and challenge you. Develop the capacity for vulnerability, boundaries, and meaningful feedback.
-
----
-
-## Coaching & Speaking
-
-- **1:1 Coaching:** For executives, founders, and individuals seeking personal transformation.
-- **Group/Team Coaching:** For teams and organizations wanting to build trust, improve communication, or navigate change.
-- **Workshops & Retreats:** Custom sessions on authentic leadership, team chemistry, and more.
-- **Keynotes & Speaking:** Inspirational talks on authentic relationships, the CW Standard, and the future of work.
+### Strategic Framework Development
+Design and deploy strategic frameworks that align technology, people, and process for maximum business impact. Cross-domain expertise helps organizations implement technology in ways that drive measurable outcomes.
 
 ---
 
-> "The depth of your relationships determines the height of your potential."
+## Consulting & Speaking
+
+- **Strategic Consulting:** For organizations seeking AI implementation, revenue growth, or leadership transformation
+- **Executive Advising:** For leaders navigating technological change and organizational evolution
+- **Workshops & Training:** Custom sessions on AI strategy, revenue frameworks, and leadership development
+- **Keynotes & Speaking:** Expert insights on AI implementation, strategic innovation, and cross-domain pattern recognition
 
 ---
 
-**Ready to get started? [Contact me](mailto:simmons.derek@gmail.com) to book a session or learn more.**
+> "The depth of your strategic framework determines the height of your business impact."
+
+---
+
+**Ready to transform your organization? [Contact me](mailto:simmons.derek@gmail.com) to discuss your strategic needs.**
 
 ---
 
 ## HTML/Design Notes
-- Use a card or grid layout for the four main service areas (Leadership, Team Building, Digital Transformation, Personal Growth) for clarity and visual appeal.
-- Each card could include a short description, icon, and a "Learn more" or "Book a session" button.
-- Coaching & Speaking offerings can be listed as a bulleted list or in a two-column layout.
-- Use pull quotes or testimonials as callouts between sections.
-- Add a prominent CTA (Contact/Book) at the bottom and/or in a sticky sidebar.
-- Consider a visual diagram or framework map to show how these services connect to the CW Standard philosophy. 
+- Use a card or grid layout for the four main service areas (AI Strategy, Revenue Generation, Executive Leadership, Strategic Frameworks) for clarity and visual appeal
+- Each card should include a short description, icon, and a "Learn more" or "Schedule Consultation" button
+- Consulting & Speaking offerings can be listed as a bulleted list or in a two-column layout
+- Use pull quotes or testimonials as callouts between sections
+- Add a prominent CTA (Contact/Schedule) at the bottom and/or in a sticky sidebar
+- Consider a visual diagram or framework map to show how these services connect to business outcomes 

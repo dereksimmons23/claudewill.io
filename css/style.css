@@ -130,14 +130,16 @@ a:hover {
 .wordmark-short {
     display: none;
 }
+
 .wordmark-full {
     display: inline;
 }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
     .wordmark-full {
         display: none;
     }
+
     .wordmark-short {
         display: inline;
     }
