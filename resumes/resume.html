@@ -29,7 +29,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <!-- CSS will be in a separate file -->
-    <link href="css/resume-styles.css" rel="stylesheet">
+    <link href="../css/resume-styles.css" rel="stylesheet">
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
@@ -396,6 +396,15 @@
             });
             document.body.classList.add('js-enabled');
         });
+    </script>
+
+    <!-- Claude Will Widget -->
+    <link rel="stylesheet" href="/css/claude-will-widget.css">
+    <script src="/js/claude-will-widget.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        new ClaudeWillWidget();
+      });
     </script>
 </body>
 </html>
