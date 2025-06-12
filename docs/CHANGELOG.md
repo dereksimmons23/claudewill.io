@@ -8,6 +8,7 @@
 - .lycheerc configuration to exclude problematic external URLs from link checking
 - README and documentation references to project handoff and current status files
 - User-friendly navigation page for /pages/index.html
+- Claude Will Widget included and initialized on all major pages
 
 ### Changed
 - Archived legacy resumes, dev artifacts, and duplicate docs for a cleaner project structure
@@ -21,5 +22,6 @@
 - Fixed HTML, CSS, and JS lint errors across the codebase
 - Resolved Broken Link Check workflow failures
 - Restored and verified consistent styling and accessibility across all major pages
+- Fixed resume.html CSS path and ensured widget loads everywhere
 
 ---
