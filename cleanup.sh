@@ -1,68 +1,113 @@
 #!/bin/bash
 
-# claudewill.io Cleanup Script
+# claudewill.io Enhanced Cleanup Script
 # Organizes project structure while preserving active work
+# Adds safety, dry-run, logging, and parameterization for concurrent environments
 
-echo "🧹 Starting claudewill.io cleanup..."
-echo "📁 Current directory: $(pwd)"
+set -e
 
-# Navigate to the claudewill.io directory
-cd /Users/dereksimmons/Desktop/claudewill.io
+LOCKFILE="/tmp/claudewill_cleanup.lock"
+LOGFILE="cleanup.log"
+BASE_DIR="${1:-$(pwd)}"
+DRY_RUN=false
 
-# Create organized archive structure
-echo "📁 Creating archive directories..."
-mkdir -p archived/resume-engine-dev
-mkdir -p archived/legacy-resumes
-mkdir -p archived/old-cover-letters
-mkdir -p archived/duplicate-docs
+# Parse arguments
+for arg in "$@"; do
+  case $arg in
+    --dry-run)
+      DRY_RUN=true
+      ;;
+    --base-dir=*)
+      BASE_DIR="${arg#*=}"
+      ;;
+  esac
+done
 
-# Move Resume Engine development artifacts
-echo "📦 Archiving resume engine development docs..."
-mv resume-engine/FAILURE_CASE_STUDY.md archived/resume-engine-dev/ 2>/dev/null
-mv resume-engine/V2_ARCHITECTURE.md archived/resume-engine-dev/ 2>/dev/null
-mv resume-engine/V2_DEVELOPMENT_SUMMARY.md archived/resume-engine-dev/ 2>/dev/null
-mv resume-engine/V2_SPRINT_PLAN.md archived/resume-engine-dev/ 2>/dev/null
-mv resume-engine/V2_TRACKING_TEMPLATE.md archived/resume-engine-dev/ 2>/dev/null
-mv resume-engine/week1_tracking_template.md archived/resume-engine-dev/ 2>/dev/null
+exec 200>$LOCKFILE
+flock -n 200 || { echo "Another cleanup is running. Exiting."; exit 1; }
 
-# Move legacy resume files
-echo "📦 Archiving legacy resume files..."
-mv resumes/derek_3m_resume.html archived/legacy-resumes/ 2>/dev/null
-mv resumes/derek_3m_resume.md archived/legacy-resumes/ 2>/dev/null
-mv resumes/derek_macalester_resume.html archived/legacy-resumes/ 2>/dev/null
-mv resumes/derek_simmons_3m_resume.html archived/legacy-resumes/ 2>/dev/null
-mv resumes/generator.py archived/legacy-resumes/ 2>/dev/null
-mv resumes/quick_generate.py archived/legacy-resumes/ 2>/dev/null
-mv resumes/resume_generator_v2.py archived/legacy-resumes/ 2>/dev/null
-mv resumes/test_system.py archived/legacy-resumes/ 2>/dev/null
-mv resumes/requirements.txt archived/legacy-resumes/ 2>/dev/null
+cd "$BASE_DIR" || { echo "Could not cd to $BASE_DIR"; exit 1; }
 
-# Move old cover letters to organized structure
-echo "📦 Organizing cover letters..."
-mv "resumes/cover letters/Cover-Letter-Deloitte-2025-05-25.pdf" archived/old-cover-letters/ 2>/dev/null
-mv "resumes/cover letters/Cover-Letter-Deloitte-2025-05-25.txt" archived/old-cover-letters/ 2>/dev/null
-mv "resumes/cover letters/derek_macalester_cover_letter.md" archived/old-cover-letters/ 2>/dev/null
-mv "resumes/cover letters/derek_macalester_cover_letter.pdf" archived/old-cover-letters/ 2>/dev/null
-mv "resumes/cover letters/better-collective-cover-letter.md" archived/old-cover-letters/ 2>/dev/null
-mv "resumes/cover letters/sports-background-cover-letter.md" archived/old-cover-letters/ 2>/dev/null
+echo "🧹 Starting claudewill.io cleanup..." | tee -a "$LOGFILE"
+echo "📁 Current directory: $(pwd)" | tee -a "$LOGFILE"
+if $DRY_RUN; then
+  echo "🔎 Running in dry-run mode. No files will be moved or deleted." | tee -a "$LOGFILE"
+fi
 
-# Move duplicate documentation
-echo "📦 Archiving duplicate documentation..."
-mv resumes/resume_project_handoff.md archived/duplicate-docs/ 2>/dev/null
-mv resumes/README_v2.md archived/duplicate-docs/ 2>/dev/null
-mv resumes/week1_tracking_template.md archived/duplicate-docs/ 2>/dev/null
+# Helper function for dry-run and logging
+move_file() {
+  SRC="$1"
+  DEST="$2"
+  if [ -f "$SRC" ]; then
+    if $DRY_RUN; then
+      echo "Would move $SRC to $DEST" | tee -a "$LOGFILE"
+    else
+      mv "$SRC" "$DEST" && echo "Moved $SRC to $DEST" | tee -a "$LOGFILE"
+    fi
+  fi
+}
+
+mkdir -p archived/resume-engine-dev archived/legacy-resumes archived/old-cover-letters archived/duplicate-docs
+
+# Resume Engine dev artifacts
+move_file resume-engine/FAILURE_CASE_STUDY.md archived/resume-engine-dev/
+move_file resume-engine/V2_ARCHITECTURE.md archived/resume-engine-dev/
+move_file resume-engine/V2_DEVELOPMENT_SUMMARY.md archived/resume-engine-dev/
+move_file resume-engine/V2_SPRINT_PLAN.md archived/resume-engine-dev/
+move_file resume-engine/V2_TRACKING_TEMPLATE.md archived/resume-engine-dev/
+move_file resume-engine/week1_tracking_template.md archived/resume-engine-dev/
+
+# Legacy resumes
+move_file resumes/derek_3m_resume.html archived/legacy-resumes/
+move_file resumes/derek_3m_resume.md archived/legacy-resumes/
+move_file resumes/derek_macalester_resume.html archived/legacy-resumes/
+move_file resumes/derek_simmons_3m_resume.html archived/legacy-resumes/
+move_file resumes/generator.py archived/legacy-resumes/
+move_file resumes/quick_generate.py archived/legacy-resumes/
+move_file resumes/resume_generator_v2.py archived/legacy-resumes/
+move_file resumes/test_system.py archived/legacy-resumes/
+move_file resumes/requirements.txt archived/legacy-resumes/
+
+# Old cover letters
+move_file "resumes/cover letters/Cover-Letter-Deloitte-2025-05-25.pdf" archived/old-cover-letters/
+move_file "resumes/cover letters/Cover-Letter-Deloitte-2025-05-25.txt" archived/old-cover-letters/
+move_file "resumes/cover letters/derek_macalester_cover_letter.md" archived/old-cover-letters/
+move_file "resumes/cover letters/derek_macalester_cover_letter.pdf" archived/old-cover-letters/
+move_file "resumes/cover letters/better-collective-cover-letter.md" archived/old-cover-letters/
+move_file "resumes/cover letters/sports-background-cover-letter.md" archived/old-cover-letters/
+
+# Duplicate docs
+move_file resumes/resume_project_handoff.md archived/duplicate-docs/
+move_file resumes/README_v2.md archived/duplicate-docs/
+move_file resumes/week1_tracking_template.md archived/duplicate-docs/
 
 # Remove empty temp directories
-echo "🗑️  Removing empty temp directories..."
-rmdir .tmp.driveupload 2>/dev/null
-rmdir .tmp.drivedownload 2>/dev/null
+for d in .tmp.driveupload .tmp.drivedownload; do
+  if [ -d "$d" ]; then
+    if $DRY_RUN; then
+      echo "Would remove empty directory $d" | tee -a "$LOGFILE"
+    else
+      rmdir "$d" 2>/dev/null && echo "Removed empty directory $d" | tee -a "$LOGFILE"
+    fi
+  fi
+
+done
 
 # Remove system files
-echo "🗑️  Removing system files..."
-find . -name ".DS_Store" -delete 2>/dev/null
+if $DRY_RUN; then
+  echo "Would delete .DS_Store files" | tee -a "$LOGFILE"
+else
+  find . -name ".DS_Store" -delete 2>/dev/null && echo "Deleted .DS_Store files" | tee -a "$LOGFILE"
+fi
 
-# Create summary of current active structure
-echo "📋 Creating structure summary..."
+# Backup option (uncomment to enable)
+# if ! $DRY_RUN; then
+#   tar -czf backup_$(date +%Y%m%d_%H%M%S).tar.gz .
+#   echo "Backup created." | tee -a "$LOGFILE"
+# fi
+
+# Create structure summary
+if ! $DRY_RUN; then
 cat > CURRENT_STRUCTURE.md << 'EOF'
 # claudewill.io Current Structure
 
@@ -99,24 +144,26 @@ cat > CURRENT_STRUCTURE.md << 'EOF'
 - Current resume assets are deployment ready
 - Archive contains development history for reference
 EOF
+fi
 
 # Display cleanup summary
-echo ""
-echo "✅ Cleanup Complete!"
-echo ""
-echo "📊 Summary:"
-echo "  📁 Created organized archive structure"
-echo "  📦 Moved $(find archived/ -type f | wc -l | xargs) files to archive"
-echo "  🗑️  Removed temp directories and system files"
-echo "  📋 Created CURRENT_STRUCTURE.md guide"
-echo ""
-echo "🎯 Active Structure:"
-echo "  ✅ Website: pages/, css/, js/"
-echo "  ✅ Resume Engine: resume-engine/src/"
-echo "  ✅ Current Resumes: resumes/derek-simmons-resume.txt"
-echo "  ✅ Active Cover Letters: resumes/cover letters/"
-echo "  ✅ Documentation: resume_project_handoff_updated.md"
-echo ""
-echo "🗃️  Archived: $(find archived/ -type f | wc -l | xargs) development files preserved in /archived/"
-echo ""
-echo "🚀 Your project is now clean and organized!"
+ARCHIVED_COUNT=$(find archived/ -type f | wc -l | xargs)
+echo "" | tee -a "$LOGFILE"
+echo "✅ Cleanup Complete!" | tee -a "$LOGFILE"
+echo "" | tee -a "$LOGFILE"
+echo "📊 Summary:" | tee -a "$LOGFILE"
+echo "  📁 Created organized archive structure" | tee -a "$LOGFILE"
+echo "  📦 Moved $ARCHIVED_COUNT files to archive" | tee -a "$LOGFILE"
+echo "  🗑️  Removed temp directories and system files" | tee -a "$LOGFILE"
+echo "  📋 Created CURRENT_STRUCTURE.md guide" | tee -a "$LOGFILE"
+echo "" | tee -a "$LOGFILE"
+echo "🎯 Active Structure:" | tee -a "$LOGFILE"
+echo "  ✅ Website: pages/, css/, js/" | tee -a "$LOGFILE"
+echo "  ✅ Resume Engine: resume-engine/src/" | tee -a "$LOGFILE"
+echo "  ✅ Current Resumes: resumes/derek-simmons-resume.txt" | tee -a "$LOGFILE"
+echo "  ✅ Active Cover Letters: resumes/cover letters/" | tee -a "$LOGFILE"
+echo "  ✅ Documentation: resume_project_handoff_updated.md" | tee -a "$LOGFILE"
+echo "" | tee -a "$LOGFILE"
+echo "🗃️  Archived: $ARCHIVED_COUNT development files preserved in /archived/" | tee -a "$LOGFILE"
+echo "" | tee -a "$LOGFILE"
+echo "🚀 Your project is now clean and organized!" | tee -a "$LOGFILE"

@@ -68,6 +68,7 @@ open index.html
 - [js/README.md](js/README.md): JavaScript codebase overview
 - [resume.md](./resume.md): Resume in Markdown format
 - [docs/mission_vision_strategy.md](docs/mission_vision_strategy.md): Mission, vision, values, strategic pillars, success metrics, and key risks
+- [docs/resume_project_handoff_updated.md](docs/resume_project_handoff_updated.md): Current project status, outcomes, and next steps
   > *Note: The full Baton Handoff framework and its historical context are now archived for reference.*
   >
 
