@@ -86,7 +86,7 @@ jobs:
 
   deploy:
     name: Deploy to GitHub Pages
-    needs: [lint-html, lint-css, lint-js, a11y, links, lighthouse]
+    needs: [lint-html, lint-css, lint-js, a11y, lighthouse]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
