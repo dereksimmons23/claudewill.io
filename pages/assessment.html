@@ -142,7 +142,7 @@
         }
         .recommendations {
             background: var(--color-primary);
-            color: #fff;
+            color: var(--color-background);
             padding: 1.5rem;
             border-radius: 12px;
             margin-top: 1.2rem;
@@ -150,16 +150,16 @@
         }
         .cta {
             background: var(--color-accent);
-            color: #fff;
+            color: var(--color-background);
             padding: 2rem;
             border-radius: 12px;
             margin-top: 2rem;
             text-align: center;
             box-shadow: 0 2px 8px rgba(163,62,16,0.08);
         }
-        .cta h3 { margin-bottom: 1rem; }
-        .cta a { color: #fff; text-decoration: underline; font-weight: bold; border-bottom: 2px solid rgba(255,255,255,0.3); transition: border-color 0.3s; }
-        .cta a:hover { border-color: #fff; }
+        .cta h3 { margin-bottom: 1rem; color: var(--color-background); }
+        .cta a { color: var(--color-background); text-decoration: underline; font-weight: bold; border-bottom: 2px solid rgba(255,255,255,0.3); transition: border-color 0.3s; }
+        .cta a:hover { border-color: var(--color-background); }
         @media (max-width: 600px) {
             .assessment-question, .result-content, .recommendations, .cta { padding: 1rem; }
             .content { padding: 1.2rem 0.5rem !important; }
