@@ -449,11 +449,23 @@
         const progressBar = document.getElementById('progressBar');
         
         let answers = {};
+        let assessmentStarted = false;
         const totalQuestions = 5;
         
         // Handle option selection
         document.querySelectorAll('.option').forEach(option => {
             option.addEventListener('click', function() {
+                // Track assessment start on first interaction
+                if (!assessmentStarted) {
+                    assessmentStarted = true;
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'assessment_started', {
+                            'event_category': 'engagement',
+                            'event_label': 'CW_Standard_Assessment'
+                        });
+                    }
+                }
+                
                 const question = this.getAttribute('data-question');
                 const value = this.getAttribute('data-value');
                 
@@ -571,7 +583,8 @@
                 gtag('event', 'assessment_completed', {
                     'profile': profile,
                     'score_percentage': percentage,
-                    'total_score': totalScore
+                    'total_score': totalScore,
+                    'answers': JSON.stringify(answers)
                 });
             }
             
