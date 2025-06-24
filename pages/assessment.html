@@ -358,40 +358,64 @@
     <script src="../js/main.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Assessment functionality
+        console.log('Assessment script loaded');
+        
+        const form = document.getElementById('assessment-form');
+        const resultsDiv = document.getElementById('results');
+        const getResultsBtn = document.getElementById('getResults');
+        const progressBar = document.getElementById('progressBar');
+        
         let answers = {};
         const totalQuestions = 5;
-
+        
         // Handle option selection
-        // (All questions visible at once)
         document.querySelectorAll('.option').forEach(option => {
             option.addEventListener('click', function() {
-                const questionNum = this.closest('[data-question]').dataset.question;
-                // Remove previous selection for this question
-                this.closest('[data-question]').querySelectorAll('.option').forEach(opt => 
-                    opt.classList.remove('selected')
-                );
-                // Add selection to clicked option
+                const question = this.getAttribute('data-question');
+                const value = this.getAttribute('data-value');
+                
+                // Remove selection from other options in same question
+                document.querySelectorAll(`.option[data-question="${question}"]`).forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Select this option
                 this.classList.add('selected');
+                
                 // Store answer
-                answers[questionNum] = parseInt(this.dataset.value);
-                // Enable results button if all questions answered
-                if (Object.keys(answers).length === totalQuestions) {
-                    document.getElementById('getResults').disabled = false;
+                answers[question] = parseInt(value);
+                
+                // Update progress
+                const answered = Object.keys(answers).length;
+                const progress = (answered / totalQuestions) * 100;
+                progressBar.style.width = `${progress}%`;
+                
+                // Enable submit button if all questions answered
+                if (answered === totalQuestions) {
+                    getResultsBtn.disabled = false;
                 }
+                
+                console.log('Answers so far:', answers);
             });
         });
-
-        document.getElementById('getResults').addEventListener('click', showResults);
-
-        function showResults() {
-            // Calculate total score
-            const totalScore = Object.values(answers).reduce((sum, value) => sum + value, 0);
-            const maxScore = totalQuestions * 4;
+        
+        // Handle form submission
+        getResultsBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Get Results clicked');
+            console.log('Final answers:', answers);
+            
+            // Calculate score
+            let totalScore = 0;
+            const maxScore = totalQuestions * 4; // Max 4 points per question
+            
+            for (let question in answers) {
+                totalScore += answers[question];
+            }
+            
             const percentage = Math.round((totalScore / maxScore) * 100);
-            // Hide questions, show results
-            document.getElementById('assessment-form').style.display = 'none';
-            document.getElementById('results').classList.add('show');
+            console.log('Total score:', totalScore, 'Max score:', maxScore, 'Percentage:', percentage);
+            
             // Determine profile and recommendations
             let profile, description, recommendations, scoreClass;
             if (percentage >= 85) {
@@ -435,19 +459,17 @@
                     "Consider formal AI literacy training or coaching"
                 ];
             }
-            // Track completion in Google Analytics
-            gtag('event', 'assessment_completed', {
-                'profile': profile,
-                'score_percentage': percentage,
-                'total_score': totalScore
-            });
-            // Submit results to Netlify for email notification
-            submitToNetlify(profile, totalScore, percentage, answers);
+            
+            // Hide questions, show results
+            form.style.display = 'none';
+            resultsDiv.classList.add('show');
+            
             // Display results
             document.getElementById('scoreDisplay').innerHTML = `
                 <div class="score-circle ${scoreClass}">${percentage}%</div>
                 <h2>Your AI Collaboration Profile: ${profile}</h2>
             `;
+            
             document.getElementById('resultContent').innerHTML = `
                 <div class="result-content">
                     <h3>What This Means</h3>
@@ -460,7 +482,19 @@
                     </div>
                 </div>
             `;
-        }
+            
+            // Track completion in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'assessment_completed', {
+                    'profile': profile,
+                    'score_percentage': percentage,
+                    'total_score': totalScore
+                });
+            }
+            
+            // Submit results to Netlify
+            submitToNetlify(profile, totalScore, percentage, answers);
+        });
 
         function submitToNetlify(profile, totalScore, percentage, answers) {
             const netlifyForm = document.querySelector('form[name="assessment-results"]');
