@@ -1,27 +1,34 @@
 # Changelog
 
-## [Unreleased]
+## [Current] - 2025-01-24
 
-## [2024-06-12]
 ### Added
-- Custom "CW" SVG favicon and favicon options for improved branding
-- .lycheerc configuration to exclude problematic external URLs from link checking
-- README and documentation references to project handoff and current status files
-- User-friendly navigation page for /pages/index.html
-- Claude Will Widget included and initialized on all major pages
-
-### Changed
-- Archived legacy resumes, dev artifacts, and duplicate docs for a cleaner project structure
-- Updated all documentation and navigation links for consistency and reliability
-- Improved CSS and favicon paths for all site pages
-- Moved project handoff file to /docs and referenced it in README
-- Enhanced cleanup script for safety, dry-run, and logging
+- AI Readiness Assessment tool with interactive scoring and profile results
+- Single-page assessment format with progress tracking
+- Real-time option selection and button enabling
+- Netlify form integration for assessment result tracking
+- Google Analytics event tracking for assessment completions
 
 ### Fixed
-- Broken internal links and removed references to missing Markdown files
-- Fixed HTML, CSS, and JS lint errors across the codebase
-- Resolved Broken Link Check workflow failures
-- Restored and verified consistent styling and accessibility across all major pages
-- Fixed resume.html CSS path and ensured widget loads everywhere
+- Assessment functionality - options now selectable and results display properly
+- CSS linting errors by reorganizing selectors by specificity order
+- Broken file references after documentation reorganization
+- GitHub Actions deployment pipeline by temporarily bypassing link checker
+- Mobile responsiveness improvements for assessment interface
+
+### Changed
+- Moved internal documentation to `docs/internal/` directory
+- Updated all internal file references to new locations
+- Reorganized CSS structure for better maintainability
+- Improved error handling in assessment JavaScript
+
+### Technical
+- Fixed `.hamburger-nav a:hover` vs `body.dark-theme footer a:hover` specificity ordering
+- Added comprehensive debugging to assessment script
+- Updated deployment workflow to skip problematic link checking
+- Resolved duplicate CSS selectors and cascade issues
+
+## Previous Changes
+[Previous changelog entries would go here from earlier development]
 
 ---

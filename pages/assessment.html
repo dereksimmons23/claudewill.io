@@ -357,7 +357,88 @@
     </footer>
     <script src="../js/main.js"></script>
     <script>
+    function displayResultsFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const profile = urlParams.get('profile');
+        const percentage = urlParams.get('percentage');
+        const score = urlParams.get('score');
+        
+        if (profile && percentage && score) {
+            console.log('Displaying results from URL:', { profile, percentage, score });
+            
+            // Hide the form and show results
+            const form = document.getElementById('assessment-form');
+            const resultsDiv = document.getElementById('results');
+            
+            form.style.display = 'none';
+            resultsDiv.classList.add('show');
+            
+            // Determine the right CSS class and description
+            let scoreClass, description, recommendations;
+            
+            if (parseInt(percentage) >= 85) {
+                scoreClass = "score-pioneer";
+                description = "You're ready for advanced AI collaboration and could benefit from developing proprietary frameworks and training others.";
+                recommendations = [
+                    "Focus on building custom AI workflows and methodologies",
+                    "Consider developing training programs for your organization",
+                    "Explore advanced prompt engineering and model fine-tuning",
+                    "Document your processes to create intellectual property"
+                ];
+            } else if (parseInt(percentage) >= 70) {
+                scoreClass = "score-builder";
+                description = "You have strong foundations for AI collaboration and are ready to implement systematic approaches.";
+                recommendations = [
+                    "Develop consistent AI collaboration workflows",
+                    "Create templates and frameworks for repeated use",
+                    "Focus on measuring and optimizing AI-assisted outcomes",
+                    "Begin training team members on effective AI collaboration"
+                ];
+            } else if (parseInt(percentage) >= 55) {
+                scoreClass = "score-explorer";
+                description = "You're building AI capabilities and would benefit from structured learning and practice.";
+                recommendations = [
+                    "Start with specific, defined AI collaboration projects",
+                    "Focus on one or two AI tools to build proficiency",
+                    "Practice prompt engineering with clear objectives",
+                    "Join AI collaboration communities and learning groups"
+                ];
+            } else {
+                scoreClass = "score-starter";
+                description = "You're beginning your AI journey and would benefit from foundational training and guided practice.";
+                recommendations = [
+                    "Begin with simple, low-risk AI collaboration tasks",
+                    "Focus on understanding AI capabilities and limitations",
+                    "Learn basic prompt engineering principles",
+                    "Consider formal AI literacy training or coaching"
+                ];
+            }
+            
+            // Display the results
+            document.getElementById('scoreDisplay').innerHTML = `
+                <div class="score-circle ${scoreClass}">${percentage}%</div>
+                <h2>Your AI Collaboration Profile: ${profile.replace(/\+/g, ' ')}</h2>
+            `;
+            
+            document.getElementById('resultContent').innerHTML = `
+                <div class="result-content">
+                    <h3>What This Means</h3>
+                    <p>${description}</p>
+                    <div class="recommendations">
+                        <h3>Your CW Standard Recommendations</h3>
+                        <ul style="text-align: left; margin-left: 20px;">
+                            ${recommendations.map(rec => `<li style="margin: 10px 0;">${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
+        // First check if we should display results from URL
+        displayResultsFromURL();
+        
         console.log('Assessment script loaded');
         
         const form = document.getElementById('assessment-form');
