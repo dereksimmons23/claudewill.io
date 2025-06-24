@@ -15,7 +15,7 @@
     "quick-deploy": "npm run precommit && git add . && git commit -m 'auto-fix and deploy' && git push origin main"
   },
   "devDependencies": {
-    "@lhci/cli": "^0.14.0",
+    "@lhci/cli": "^0.15.0",
     "eslint": "^8.57.0",
     "htmlhint": "^1.5.1",
     "pa11y-ci": "^2.4.2",
