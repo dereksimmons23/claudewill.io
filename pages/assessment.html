@@ -332,6 +332,7 @@
             <!-- Results Section -->
             <!-- Hidden Netlify Form for Results -->
             <form name="assessment-results" netlify netlify-honeypot="bot-field" hidden>
+                <input type="text" name="bot-field" />
                 <input type="text" name="profile" />
                 <input type="text" name="score" />
                 <input type="text" name="percentage" />
@@ -593,13 +594,30 @@
         });
 
         function submitToNetlify(profile, totalScore, percentage, answers) {
-            const netlifyForm = document.querySelector('form[name="assessment-results"]');
-            netlifyForm.querySelector('input[name="profile"]').value = profile;
-            netlifyForm.querySelector('input[name="score"]').value = totalScore;
-            netlifyForm.querySelector('input[name="percentage"]').value = percentage;
-            netlifyForm.querySelector('input[name="timestamp"]').value = new Date().toISOString();
-            netlifyForm.querySelector('input[name="answers"]').value = JSON.stringify(answers);
-            netlifyForm.submit();
+            try {
+                console.log('Submitting to Netlify:', { profile, totalScore, percentage, answers });
+                
+                const netlifyForm = document.querySelector('form[name="assessment-results"]');
+                if (!netlifyForm) {
+                    console.error('Netlify form not found!');
+                    return;
+                }
+                
+                // Clear honeypot field (important for spam protection)
+                netlifyForm.querySelector('input[name="bot-field"]').value = '';
+                netlifyForm.querySelector('input[name="profile"]').value = profile;
+                netlifyForm.querySelector('input[name="score"]').value = totalScore;
+                netlifyForm.querySelector('input[name="percentage"]').value = percentage;
+                netlifyForm.querySelector('input[name="timestamp"]').value = new Date().toISOString();
+                netlifyForm.querySelector('input[name="answers"]').value = JSON.stringify(answers);
+                
+                console.log('Form data set, submitting...');
+                netlifyForm.submit();
+                console.log('Netlify form submitted successfully');
+                
+            } catch (error) {
+                console.error('Error submitting to Netlify:', error);
+            }
         }
     });
     </script>
