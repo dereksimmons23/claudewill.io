@@ -201,21 +201,26 @@ footer {
     opacity: 1;
     color: #222; /* Dark gray for light mode */
 }
+
 footer a {
     color: #222;
     text-decoration: underline;
     transition: color 0.2s;
 }
+
 footer a:hover {
     color: #000;
     text-decoration: none;
 }
+
 body.dark-theme footer, .dark-theme footer {
     color: #e0e0e0;
 }
+
 body.dark-theme footer a, .dark-theme footer a {
     color: #e0e0e0;
 }
+
 body.dark-theme footer a:hover, .dark-theme footer a:hover {
     color: #fff;
 }
@@ -351,11 +356,13 @@ body.dark-theme footer a:hover, .dark-theme footer a:hover {
 .suggestion-button:hover {
     background-color: rgb(163 62 16 / 10%);
 }
+
 body.dark-theme .suggestion-button, .dark-theme .suggestion-button {
     background-color: var(--color-accent);
     color: #fff;
     border: 1px solid var(--color-accent);
 }
+
 body.dark-theme .suggestion-button:hover, .dark-theme .suggestion-button:hover {
     background-color: #8e340d;
     color: #fff;
@@ -494,7 +501,7 @@ body.dark-theme .suggestion-button:hover, .dark-theme .suggestion-button:hover {
 #hamburger-toggle .hamburger-bar {
   width: 22px;
   height: 2.5px;
-  background: currentColor;
+  background: currentcolor;
   margin: 3px 0;
   border-radius: 2px;
   transition: all 0.3s;
@@ -512,30 +519,36 @@ body.dark-theme .suggestion-button:hover, .dark-theme .suggestion-button:hover {
   right: 20px;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 8px 32px rgba(44,62,80,0.15);
+  box-shadow: 0 8px 32px rgb(44 62 80 / 15%);
   padding: 1em 2em;
   z-index: 1000;
 }
+
 .hamburger-nav.open {
   display: block;
 }
+
 .hamburger-nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 .hamburger-nav li {
   margin: 1em 0;
 }
+
 .hamburger-nav a {
   color: #2c3e50;
   text-decoration: none;
   font-size: 1.1em;
   font-weight: 500;
 }
+
 .hamburger-nav a:hover {
   color: #3498db;
 }
+
 /*
 @media (min-width: 900px) {
   #hamburger-toggle, .hamburger-nav {
@@ -556,6 +569,7 @@ body.dark-theme .suggestion-button:hover, .dark-theme .suggestion-button:hover {
 .dark-theme .site-header .wordmark {
   color: #fff;
 }
+
 .dark-theme .site-header #hamburger-toggle .hamburger-bar {
   background: #fff;
 }

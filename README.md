@@ -69,7 +69,7 @@ open index.html
 - [resume.md](./resume.md): Resume in Markdown format
 - [docs/mission_vision_strategy.md](docs/mission_vision_strategy.md): Mission, vision, values, strategic pillars, success metrics, and key risks
 - [docs/resume_project_handoff_updated.md](docs/resume_project_handoff_updated.md): Current project status, outcomes, and next steps
-- [docs/roadmap_and_project_plan.md](docs/roadmap_and_project_plan.md): Platform roadmap, implementation plan, technical guide, and CI/CD analysis
+- [docs/internal/roadmap_and_project_plan.md](docs/internal/roadmap_and_project_plan.md): Platform roadmap, implementation plan, technical guide, and CI/CD analysis
   > *Note: The full Baton Handoff framework and its historical context are now archived for reference.*
   >
 
