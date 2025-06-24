@@ -1,101 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Derek Simmons | Claude Will</title>
-    <meta name="description" content="Strategic builder bridging human wisdom with technological advancement across media, sports, tech, and AI">
+    <title>About Claude Will & Derek Simmons</title>
+    <meta name="description" content="The story and philosophy behind Claude Will, a project bridging human wisdom with technological advancement.">
     
-    <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="httpss://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
-    <!-- Styles -->
     <link href="../css/style.css" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
     <style>
-        /* Page-specific styles */
         .about-hero {
-            padding: var(--space-8) 0;
+            text-align: center;
+            padding: 3rem 0;
+        }
+        .about-hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--color-text-secondary);
+        }
+        .narrative-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-bottom: 4rem;
+        }
+        .narrative-content h2 {
+            font-family: 'Noto Serif', serif;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .narrative-content h3 {
+            color: var(--color-primary);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .narrative-content blockquote {
+            border-left: 4px solid var(--color-primary);
+            margin: 1.5rem 0;
+            padding: 0.5rem 1.5rem;
+            font-style: italic;
+            background-color: var(--color-background-alt);
+        }
+        .legacy-section {
+            background-color: var(--color-background-alt);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border: 1px solid var(--color-border);
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .skills-grid ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .skills-grid li {
+            padding: 0.25rem 0;
+        }
+        .mermaid-diagram-container {
+            margin-top: 2rem;
+            padding: 2rem;
+            background-color: var(--color-background-alt);
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
             text-align: center;
         }
-        
-        .about-hero h1 {
-            margin-bottom: var(--space-2);
-        }
-        
-        .profile-section {
-            max-width: 800px;
-            margin: 0 auto var(--space-8);
-        }
-        
-        .profile-content h2 {
-            border-bottom: 1px solid rgba(128, 128, 128, 0.2);
-            padding-bottom: var(--space-2);
-            margin-bottom: var(--space-4);
-        }
-        
-        .expertise-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: var(--space-4);
-            margin-bottom: var(--space-8);
-        }
-        
-        .expertise-card {
-            padding: var(--space-4);
-            border-radius: 8px;
-            background-color: rgba(56, 96, 110, 0.1);
-            border-left: 4px solid var(--color-primary);
-        }
-        
-        .expertise-card h3 {
-            margin-bottom: var(--space-2);
-            display: flex;
-            align-items: center;
-            gap: var(--space-2);
-        }
-        
-        .expertise-card .material-icons {
-            color: var(--color-primary);
-        }
-        
-        .connect-section {
-            margin-bottom: var(--space-8);
-        }
-        
-        .connect-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-2);
-        }
-        
-        .connect-link {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-2);
-            padding: var(--space-2) var(--space-4);
-            background-color: transparent;
-            border: 1px solid var(--color-primary);
-            border-radius: 20px;
-            color: var(--color-primary);
-            text-decoration: none;
-            transition: background-color 0.2s ease;
-        }
-        
-        .connect-link:hover {
-            background-color: rgba(56, 96, 110, 0.1);
-            text-decoration: none;
-        }
-
-        @media (max-width: 768px) {
-            .expertise-section {
-                grid-template-columns: 1fr;
-            }
-            
-            .connect-links {
-                flex-direction: column;
-            }
+        .mermaid {
+            margin-bottom: 0 !important;
         }
     </style>
     <!-- Google tag (gtag.js) -->
@@ -108,13 +84,17 @@
     </script>
 </head>
 <body>
-    <!-- Header with wordmark and theme toggle -->
     <header class="site-header">
-        <a href="index.html" class="wordmark">
+        <a href="../index.html" class="wordmark">
           <span class="wordmark-full">ClaudeWill</span>
           <span class="wordmark-short">CW</span>
         </a>
-        <!-- Navigation removed for minimalist header -->
+        <nav>
+            <a href="about.html" class="active">About</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
         <button id="theme-toggle" aria-label="Toggle theme">
             <span class="material-icons theme-toggle-icon">light_mode</span>
         </button>
@@ -123,93 +103,110 @@
     <main>
         <div class="container">
             <section class="about-hero">
-                <h1>Derek Simmons</h1>
-                <p>Strategic Builder bridging human wisdom with technological advancement</p>
+                <h1>About Claude Will &amp; Derek Simmons</h1>
+                <p class="subtitle">Bridging human wisdom with technological advancement.</p>
             </section>
             
-            <section class="profile-section">
-                <div class="profile-content">
-                    <h2>Professional Summary</h2>
-                    <p>Executive leader with 15+ years of experience generating $20M+ in revenue through innovative frameworks. Specialized expertise in AI strategy, revenue generation, and executive leadership transformation.</p>
-                    <p>I build frameworks that bridge human wisdom with technological advancement across media, sports, tech, and AI. My cross-domain expertise helps organizations implement technology in ways that drive measurable business outcomes.</p>
-                </div>
-            </section>
-            
-            <!-- Add metrics grid -->
-            <section class="metrics-section" style="margin: 2rem 0;">
-              <div class="metrics-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem;">
-                <div class="metric-card" style="text-align: center;">
-                  <h3 style="color: var(--color-accent); font-size: 2rem;">$20M+</h3>
-                  <p>Revenue Generated</p>
-                </div>
-                <div class="metric-card" style="text-align: center;">
-                  <h3 style="color: var(--color-accent); font-size: 2rem;">15+</h3>
-                  <p>Years Leadership</p>
-                </div>
-                <div class="metric-card" style="text-align: center;">
-                  <h3 style="color: var(--color-accent); font-size: 2rem;">1,000+</h3>
-                  <p>Awards</p>
-                </div>
-                <div class="metric-card" style="text-align: center;">
-                  <h3 style="color: var(--color-accent); font-size: 2rem;">50+</h3>
-                  <p>Speaking Events</p>
-                </div>
-              </div>
-            </section>
-            
-            <h2>Areas of Expertise</h2>
-            <section class="expertise-section">
-                <div class="expertise-card">
-                    <h3>
-                        <span class="material-icons">trending_up</span>
-                        Revenue Growth & Frameworks
-                    </h3>
-                    <p>Architected and implemented frameworks that have generated $20M+ in new business revenue for clients and employers.</p>
-                </div>
-                <div class="expertise-card">
-                    <h3>
-                        <span class="material-icons">psychology</span>
-                        AI Strategy & Enterprise Implementation
-                    </h3>
-                    <p>Guided organizations through successful enterprise AI adoption, ensuring measurable ROI and ethical alignment.</p>
-                </div>
-                <div class="expertise-card">
-                    <h3>
-                        <span class="material-icons">groups</span>
-                        Executive Leadership Transformation
-                    </h3>
-                    <p>Transformed leadership teams and cultures to drive innovation, resilience, and sustainable growth.</p>
-                </div>
-                <div class="expertise-card">
-                    <h3>
-                        <span class="material-icons">account_tree</span>
-                        Strategic Framework Development
-                    </h3>
-                    <p>Designed and deployed strategic frameworks that align technology, people, and process for maximum business impact.</p>
-                </div>
-            </section>
-            
-            <section class="connect-section">
-                <h2>Connect With Me</h2>
-                <div class="connect-links">
-                    <a href="https://www.linkedin.com/in/dereksimm" target="_blank" rel="noopener" class="connect-link">
-                        <span class="material-icons">business</span>
-                        LinkedIn
-                    </a>
-                    <a href="https://bsky.app/profile/derek4thecws.bsky.social" target="_blank" rel="noopener" class="connect-link">
-                        <span class="material-icons">cloud</span>
-                        Bluesky
-                    </a>
-                    <a href="https://derek4thecws.substack.com/" target="_blank" rel="noopener" class="connect-link">
-                        <span class="material-icons">article</span>
-                        Substack
-                    </a>
-                    <a href="https://dcs.bio" target="_blank" rel="noopener" class="connect-link">
-                        <span class="material-icons">person</span>
-                        dcs.bio
-                    </a>
-                </div>
-            </section>
+            <article class="narrative-content">
+                <section id="project-story">
+                    <h2>The Claude Will Project</h2>
+                    <p><strong>Claude Will</strong> is a human-centered AI agent and knowledge platform, built by Derek Simmons. It is designed to empower creative doers, leaders, and teams to unlock insight, resilience, and authentic impact by connecting knowledge, values, and action—one meaningful project at a time.</p>
+                    <p>Claude Will is inspired by the legacy of Claude William Simmons and the "RWTFYA" philosophy, blending human wisdom with advanced AI capabilities.</p>
+                    <blockquote>
+                        <strong>Note:</strong> Claude Will is an independent project and is not affiliated with Anthropic, PBC. All trademarks and rights to "Claude" as an AI model belong to Anthropic.
+                    </blockquote>
+                </section>
+                
+                <section id="founder-story">
+                    <h2>The Founder's Journey</h2>
+                    <blockquote>"Everything I do, I want to leave better than I found it."</blockquote>
+                    <p>Derek Simmons is a transformational leader and coach with 20+ years of experience bridging human wisdom with technological advancement. He specializes in ethical AI, digital transformation, and pattern recognition. He loves to convert coaching philosophies into business strategies and team development.</p>
+
+                    <div class="legacy-section">
+                        <h3>Finding Claude: Identity Across Generations</h3>
+                        <p>
+                            Names carry more than identification—they encode heritage, embody aspiration, and create connections across time. My journey with the name <strong>Claude</strong> is a convergence of family legacy, professional identity, and technological transformation.
+                        </p>
+                        <p>
+                            My grandfather Claude never met me, passing six years before my birth. Yet his name continues through me as Derek Claude Simmons, through my son as Jackson Claude Simmons, and now through Claude Wisdom Strategies. This transmission is more than inheritance—it's a philosophy of versatility and resilience.
+                        </p>
+                        <blockquote>
+                            "Do you know how many good choices my ancestors had to make just for me to be here?"<br>
+                            <span class="attribution">— Teegan Simmons, age 13</span>
+                        </blockquote>
+                        <p>
+                            For years, I minimized my middle name, using just the initial 'C.' The transition from slight embarrassment to pride happened gradually but definitively, crystallizing before my first son's birth in 2005 when I decided to pass this legacy forward.
+                        </p>
+                        <p>
+                            Now Claude stands at the center of my professional identity—not merely as a name but as a framework for understanding versatility, adaptability, and resilience. Like Claude Shannon, the polymathic father of information theory, the name has come to represent the ability to thrive across multiple domains.
+                        </p>
+                        <h4>Technological Resonance</h4>
+                        <p>
+                            In a strange twist of synchronicity, my exploration of artificial intelligence led me to develop a particular connection with Anthropic's Claude. "I worked with a lot of LLMs in 2023, but I kept coming back to Claude as if we had this familial connection. Funny how names can do that."
+                        </p>
+                        <p>
+                            This resonance creates a bridge between heartland roots and technological frontiers—between the Claude who traded racehorses for workhorses and the Claude helping navigate information ecosystems.
+                        </p>
+                        <h4>Integration Framework</h4>
+                        <ul>
+                            <li><strong>Family heritage</strong> through generational naming patterns</li>
+                            <li><strong>Professional identity</strong> through Claude Wisdom Strategies</li>
+                            <li><strong>Technological engagement</strong> through AI exploration</li>
+                            <li><strong>Historical context</strong> through Claude Shannon's legacy</li>
+                        </ul>
+                        <p>
+                            This integration creates a distinctive lens for viewing the relationship between natural wisdom and artificial intelligence—between the elegant bioluminescence of lightning bugs and the powerful infrastructure of electrical systems.
+                        </p>
+                        <h4>Forward Vision</h4>
+                        <p>
+                            As technological transformation accelerates, the Claude framework offers something increasingly valuable—a perspective that honors both tradition and innovation, that recognizes both the elegance of natural systems and the utility of technological advancement.
+                        </p>
+                        <blockquote>
+                            "Perhaps finding Claude means discovering how to navigate these polarities—to honor where we've come from while creating what comes next, to value both natural and artificial illumination, to recognize that the most profound wisdom often emerges from the spaces between established categories."
+                        </blockquote>
+                    </div>
+
+                    <h3>Philosophy &amp; Vision</h3>
+                    <p>Derek believes in the connective value of "standard intelligence"—the ability to see and synthesize patterns across domains. His work focuses on making complicated transitions less painful through frameworks that combine classical wisdom with technological advancement.</p>
+
+                    <div class="mermaid-diagram-container">
+                        <h4>My Approach in Action</h4>
+                        <div class="mermaid">
+                            graph TD
+                                A[Visual Journalism Skills] --> B[Complex AI Concepts]
+                                B --> C[Clear Architectural Diagrams]
+                                C --> D[Executive Understanding]
+                                D --> E[Implementation Success]
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="expertise">
+                    <h2>Skills &amp; Expertise</h2>
+                    <div class="skills-grid">
+                        <div>
+                            <h3>Leadership & Strategy</h3>
+                            <ul>
+                                <li>Strategic Leadership</li>
+                                <li>Change Management</li>
+                                <li>Cross-functional Team Building</li>
+                                <li>Revenue Generation</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Technology & Innovation</h3>
+                            <ul>
+                                <li>AI Ethics & Governance</li>
+                                <li>Digital Transformation</li>
+                                <li>Human-centered Technology</li>
+                                <li>Pattern Recognition</li>
+                                <li>Framework Development</li>
+                                <li>Visual Intelligence</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </article>
         </div>
     </main>
 
@@ -217,13 +214,11 @@
         <div class="container">
             © 2025 Derek Simmons |
             <a href="documentation.html">Documentation</a> |
-            <a href="about.html">About Derek</a> |
-            <a href="documentation.html#privacy">Privacy Policy</a> |
-            <a href="documentation.html#terms">Terms of Use</a>
+            <a href="about.html">About</a>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
     <!-- Claude Will Widget -->
     <link rel="stylesheet" href="/css/claude-will-widget.css">
     <script src="/js/claude-will-widget.js"></script>
@@ -231,6 +226,37 @@
       document.addEventListener('DOMContentLoaded', function() {
         new ClaudeWillWidget();
       });
+    </script>
+    
+    <!-- Mermaid.js for Diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        function initializeMermaid() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: currentTheme === 'dark' ? 'dark' : 'default',
+                securityLevel: 'loose',
+                fontFamily: "'Noto Sans', sans-serif"
+            });
+        }
+
+        initializeMermaid();
+
+        const themeObserver = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+                    // This is a bit of a hack. Mermaid doesn't have a clean "re-render with new theme" API.
+                    // So we clear the rendered SVG and re-initialize.
+                    const mermaidDiv = document.querySelector('.mermaid');
+                    mermaidDiv.removeAttribute('data-processed');
+                    mermaidDiv.innerHTML = mermaidDiv.textContent.trim();
+                    initializeMermaid();
+                }
+            });
+        });
+
+        themeObserver.observe(document.documentElement, { attributes: true });
     </script>
 </body>
 </html>

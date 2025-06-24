@@ -34,12 +34,9 @@ The system is built on three core engines:
 2. **Experience Translation Engine**: Reframes accomplishments for different contexts
 3. **Tone Adaptation Engine**: Adjusts language patterns for organizational culture
 
-For detailed architecture documentation, see [ARCHITECTURE.md](./docs/ARCHITECTURE.md)
-
 ## 📚 Documentation
 
 - [Getting Started Guide](./docs/GETTING_STARTED.md)
-- [Architecture Overview](./docs/ARCHITECTURE.md)
 - [API Reference](./docs/API.md)
 - [Contributing Guidelines](./docs/CONTRIBUTING.md)
 
