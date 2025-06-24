@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <!-- Styles -->
-    <link href="../css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
@@ -177,16 +177,34 @@
     </style>
 </head>
 <body>
-    <!-- Header with wordmark and theme toggle -->
-    <header class="site-header">
-        <a href="../index.html" class="wordmark">
+    <header class="site-header" aria-label="Site header">
+        <a href="/index.html" class="wordmark">
           <span class="wordmark-full">ClaudeWill</span>
           <span class="wordmark-short">CW</span>
         </a>
-        <button id="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
-            <span class="material-icons theme-toggle-icon">light_mode</span>
-        </button>
+        <div class="header-actions">
+            <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <button id="theme-toggle" aria-label="Toggle theme" tabindex="0">
+                <span class="material-icons theme-toggle-icon">light_mode</span>
+            </button>
+        </div>
     </header>
+    <nav id="main-nav" class="hamburger-nav" aria-label="Main navigation">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="assessment.html">Assessment</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
     <main>
         <div class="container">
@@ -466,10 +484,9 @@
     <footer>
         <div class="container">
             © 2025 Derek Simmons |
-            <a href="/pages/documentation.html">Documentation</a> |
-            <a href="../pages/about.html">About Derek</a> |
-            <a href="/pages/documentation.html#privacy">Privacy Policy</a> |
-            <a href="/pages/documentation.html#terms">Terms of Use</a>
+            <a href="site-index.html">Site Index</a> |
+            <a href="../docs/PRIVACY.md" target="_blank" rel="noopener">Privacy Policy</a> |
+            <a href="../docs/TERMS.md" target="_blank" rel="noopener">Terms of Use</a>
         </div>
     </footer>
 

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The CW Standard: AI Readiness Assessment</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-489087353"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-489087353');
+    </script>
+    <style>
+        .assessment-question {
+            background: var(--color-background-alt, #f8f9fa);
+            padding: 2rem 1.5rem;
+            border-radius: 16px;
+            border-left: 6px solid var(--color-accent);
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 16px rgba(56,96,110,0.07);
+            transition: background 0.3s, color 0.3s;
+        }
+        .assessment-question h3 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        .assessment-question p {
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+        .options {
+            display: grid;
+            gap: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .option {
+            padding: 1.2rem 1rem;
+            border: 2px solid var(--color-border, #e9ecef);
+            border-radius: 12px;
+            cursor: pointer;
+            background: var(--color-background);
+            color: var(--color-text);
+            font-size: 1em;
+            box-shadow: 0 2px 8px rgba(56,96,110,0.04);
+            transition: border 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+        }
+        .option:hover {
+            border-color: var(--color-accent);
+            background: var(--color-background-alt, #f8f9fa);
+            box-shadow: 0 4px 16px rgba(163,62,16,0.08);
+        }
+        .option.selected {
+            border-color: var(--color-primary);
+            background: var(--color-primary);
+            color: var(--color-background);
+            box-shadow: 0 4px 16px rgba(56,96,110,0.12);
+        }
+        .option .option-title {
+            font-weight: bold;
+            margin-bottom: 0.2em;
+        }
+        .option .option-desc {
+            font-size: 0.97em;
+            opacity: 0.85;
+        }
+        .progress-bar {
+            height: 8px;
+            background: var(--color-border, #ecf0f1);
+            border-radius: 4px;
+            margin-bottom: 2.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(56,96,110,0.04);
+        }
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+            border-radius: 4px;
+            transition: width 0.5s;
+        }
+        .btn.btn-primary {
+            background: var(--color-accent);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            padding: 1rem 2.2rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 2px 8px rgba(163,62,16,0.08);
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .btn.btn-primary:hover:enabled {
+            background: #8e340d;
+            box-shadow: 0 4px 16px rgba(163,62,16,0.12);
+        }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .results {
+            display: none;
+            text-align: center;
+            margin-top: 2.5rem;
+        }
+        .results.show {
+            display: block;
+            animation: fadeIn 0.8s ease-in;
+        }
+        .score-circle {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 2.5em;
+            font-weight: bold;
+            position: relative;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        .score-pioneer { background: linear-gradient(135deg, #27ae60, #2ecc71); }
+        .score-builder { background: linear-gradient(135deg, var(--color-accent), var(--color-primary)); }
+        .score-explorer { background: linear-gradient(135deg, #f39c12, #f7dc6f); color: #222; }
+        .score-starter { background: linear-gradient(135deg, #e74c3c, #ec7063); }
+        .result-content {
+            background: var(--color-background-alt, #f8f9fa);
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            text-align: left;
+            box-shadow: 0 2px 8px rgba(56,96,110,0.04);
+        }
+        .recommendations {
+            background: var(--color-primary);
+            color: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.2rem;
+            box-shadow: 0 2px 8px rgba(56,96,110,0.04);
+        }
+        .cta {
+            background: var(--color-accent);
+            color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(163,62,16,0.08);
+        }
+        .cta h3 { margin-bottom: 1rem; }
+        .cta a { color: #fff; text-decoration: underline; font-weight: bold; border-bottom: 2px solid rgba(255,255,255,0.3); transition: border-color 0.3s; }
+        .cta a:hover { border-color: #fff; }
+        @media (max-width: 600px) {
+            .assessment-question, .result-content, .recommendations, .cta { padding: 1rem; }
+            .content { padding: 1.2rem 0.5rem !important; }
+            .score-circle { width: 120px; height: 120px; font-size: 1.5em; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header" aria-label="Site header">
+        <a href="/index.html" class="wordmark">
+            <span class="wordmark-full">ClaudeWill</span>
+            <span class="wordmark-short">CW</span>
+        </a>
+        <div class="header-actions">
+            <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <button id="theme-toggle" aria-label="Toggle theme" tabindex="0">
+                <span class="material-icons theme-toggle-icon">light_mode</span>
+            </button>
+        </div>
+    </header>
+    <nav id="main-nav" class="hamburger-nav" aria-label="Main navigation">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="assessment.html">Assessment</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main class="container" style="max-width: 800px; margin: 2rem auto;">
+        <div class="header" style="background: var(--color-primary); color: var(--color-background); padding: 2.5rem 1rem; text-align: center; border-radius: 16px 16px 0 0;">
+            <h1 style="font-size: 2.2em; font-weight: 700; margin-bottom: 0.5em;">The CW Standard</h1>
+            <div class="subtitle" style="font-size: 1.2em; opacity: 0.9; font-style: italic;">AI Readiness Assessment</div>
+        </div>
+        <div class="content" style="padding: 2.5rem 1.5rem; background: var(--color-background); border-radius: 0 0 16px 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.07);">
+            <!-- Netlify spam protection -->
+            <p hidden>
+                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </p>
+            <div class="intro" style="text-align: center; margin-bottom: 2.5rem; font-size: 1.1em; color: var(--color-text);">
+                <p><strong>Making complicated transitions less painful.</strong></p>
+                <p>This assessment evaluates your readiness for authentic AI collaboration based on The CW Standard framework. Take 5 minutes to discover your AI collaboration profile and get personalized recommendations.</p>
+            </div>
+            <div class="progress-bar" style="height: 6px; background: var(--color-border, #ecf0f1); border-radius: 3px; margin-bottom: 2rem; overflow: hidden;">
+                <div class="progress" id="progressBar" style="height: 100%; background: linear-gradient(90deg, var(--color-accent), var(--color-primary)); border-radius: 3px; transition: width 0.5s ease; width: 0;"></div>
+            </div>
+            <form id="assessment-form">
+                <!-- All questions visible at once -->
+                <div class="assessment-question" data-question="1">
+                    <h3>How do you currently approach AI tools?</h3>
+                    <p>Understanding your starting mindset helps identify the best collaboration pathway.</p>
+                    <div class="options">
+                        <div class="option" data-value="4" data-question="1">
+                            <div class="option-title">Strategic Partner</div>
+                            <div class="option-desc">I use AI as a thinking partner for complex problems and creative challenges</div>
+                        </div>
+                        <div class="option" data-value="3" data-question="1">
+                            <div class="option-title">Practical Tool</div>
+                            <div class="option-desc">I use AI for specific tasks like writing, research, and productivity</div>
+                        </div>
+                        <div class="option" data-value="2" data-question="1">
+                            <div class="option-title">Curious Observer</div>
+                            <div class="option-desc">I'm interested but haven't found consistent value yet</div>
+                        </div>
+                        <div class="option" data-value="1" data-question="1">
+                            <div class="option-title">Skeptical Newcomer</div>
+                            <div class="option-desc">I'm new to AI or have concerns about its reliability</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="assessment-question" data-question="2">
+                    <h3>When facing a complex decision, what's your natural approach?</h3>
+                    <p>The CW Standard emphasizes authentic decision-making that aligns with your values.</p>
+                    <div class="options">
+                        <div class="option" data-value="4" data-question="2">
+                            <div class="option-title">Systems Thinking</div>
+                            <div class="option-desc">I map out multiple perspectives, potential outcomes, and underlying patterns</div>
+                        </div>
+                        <div class="option" data-value="3" data-question="2">
+                            <div class="option-title">Collaborative Analysis</div>
+                            <div class="option-desc">I gather input from multiple sources and stakeholders before deciding</div>
+                        </div>
+                        <div class="option" data-value="2" data-question="2">
+                            <div class="option-title">Intuitive Processing</div>
+                            <div class="option-desc">I reflect internally and trust my experience and gut instincts</div>
+                        </div>
+                        <div class="option" data-value="1" data-question="2">
+                            <div class="option-title">Quick Decision</div>
+                            <div class="option-desc">I prefer to decide quickly and adjust as needed</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="assessment-question" data-question="3">
+                    <h3>How comfortable are you with uncertainty and experimentation?</h3>
+                    <p>AI collaboration often involves exploring unknown territory and iterating on approaches.</p>
+                    <div class="options">
+                        <div class="option" data-value="4" data-question="3">
+                            <div class="option-title">Thrive in Ambiguity</div>
+                            <div class="option-desc">I'm energized by exploring undefined problems and creating new solutions</div>
+                        </div>
+                        <div class="option" data-value="3" data-question="3">
+                            <div class="option-title">Comfortable Experimenting</div>
+                            <div class="option-desc">I'm willing to try new approaches if there's potential value</div>
+                        </div>
+                        <div class="option" data-value="2" data-question="3">
+                            <div class="option-title">Cautious Explorer</div>
+                            <div class="option-desc">I prefer some structure but can adapt when necessary</div>
+                        </div>
+                        <div class="option" data-value="1" data-question="3">
+                            <div class="option-title">Need Clear Direction</div>
+                            <div class="option-desc">I work best with clear guidelines and proven approaches</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="assessment-question" data-question="4">
+                    <h3>What's your biggest challenge with current workflows?</h3>
+                    <p>Understanding your pain points helps identify where AI collaboration can add the most value.</p>
+                    <div class="options">
+                        <div class="option" data-value="4" data-question="4">
+                            <div class="option-title">Strategic Thinking Time</div>
+                            <div class="option-desc">Too much administrative work prevents focus on high-value strategic thinking</div>
+                        </div>
+                        <div class="option" data-value="3" data-question="4">
+                            <div class="option-title">Information Overload</div>
+                            <div class="option-desc">Difficulty processing and synthesizing large amounts of information quickly</div>
+                        </div>
+                        <div class="option" data-value="2" data-question="4">
+                            <div class="option-title">Collaboration Friction</div>
+                            <div class="option-desc">Challenges coordinating with teams and managing different perspectives</div>
+                        </div>
+                        <div class="option" data-value="1" data-question="4">
+                            <div class="option-title">Task Management</div>
+                            <div class="option-desc">Staying organized and keeping track of multiple projects and deadlines</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="assessment-question" data-question="5">
+                    <h3>How do you prefer to learn new skills or approaches?</h3>
+                    <p>The CW Standard methodology adapts to different learning and development styles.</p>
+                    <div class="options">
+                        <div class="option" data-value="4" data-question="5">
+                            <div class="option-title">Active Experimentation</div>
+                            <div class="option-desc">I learn best by diving in, testing approaches, and iterating based on results</div>
+                        </div>
+                        <div class="option" data-value="3" data-question="5">
+                            <div class="option-title">Guided Practice</div>
+                            <div class="option-desc">I like frameworks and examples, then practice with feedback</div>
+                        </div>
+                        <div class="option" data-value="2" data-question="5">
+                            <div class="option-title">Structured Learning</div>
+                            <div class="option-desc">I prefer step-by-step instruction and clear documentation</div>
+                        </div>
+                        <div class="option" data-value="1" data-question="5">
+                            <div class="option-title">Observation First</div>
+                            <div class="option-desc">I like to watch others demonstrate before trying myself</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 2.5rem;">
+                    <button class="btn btn-primary" id="getResults" type="button" disabled>Get My Results</button>
+                </div>
+            </form>
+            <!-- Results Section -->
+            <!-- Hidden Netlify Form for Results -->
+            <form name="assessment-results" netlify netlify-honeypot="bot-field" hidden>
+                <input type="text" name="profile" />
+                <input type="text" name="score" />
+                <input type="text" name="percentage" />
+                <input type="text" name="timestamp" />
+                <input type="text" name="answers" />
+            </form>
+            <div class="results" id="results">
+                <div id="scoreDisplay"></div>
+                <div id="resultContent"></div>
+                <div class="cta">
+                    <h3>Ready to Implement The CW Standard?</h3>
+                    <p>Connect with Derek Claude Simmons to develop your personalized AI collaboration strategy.</p>
+                    <p><a href="https://claudewill.io" target="_blank" rel="noopener">Learn More at claudewill.io</a> | <a href="https://derek4thecws.substack.com" target="_blank" rel="noopener">Subscribe to Standard Correspondence</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            © 2025 Derek Simmons |
+            <a href="site-index.html">Site Index</a> |
+            <a href="../docs/PRIVACY.md" target="_blank" rel="noopener">Privacy Policy</a> |
+            <a href="../docs/TERMS.md" target="_blank" rel="noopener">Terms of Use</a>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Assessment functionality
+        let answers = {};
+        const totalQuestions = 5;
+
+        // Handle option selection
+        // (All questions visible at once)
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                const questionNum = this.closest('[data-question]').dataset.question;
+                // Remove previous selection for this question
+                this.closest('[data-question]').querySelectorAll('.option').forEach(opt => 
+                    opt.classList.remove('selected')
+                );
+                // Add selection to clicked option
+                this.classList.add('selected');
+                // Store answer
+                answers[questionNum] = parseInt(this.dataset.value);
+                // Enable results button if all questions answered
+                if (Object.keys(answers).length === totalQuestions) {
+                    document.getElementById('getResults').disabled = false;
+                }
+            });
+        });
+
+        document.getElementById('getResults').addEventListener('click', showResults);
+
+        function showResults() {
+            // Calculate total score
+            const totalScore = Object.values(answers).reduce((sum, value) => sum + value, 0);
+            const maxScore = totalQuestions * 4;
+            const percentage = Math.round((totalScore / maxScore) * 100);
+            // Hide questions, show results
+            document.getElementById('assessment-form').style.display = 'none';
+            document.getElementById('results').classList.add('show');
+            // Determine profile and recommendations
+            let profile, description, recommendations, scoreClass;
+            if (percentage >= 85) {
+                profile = "AI Pioneer";
+                scoreClass = "score-pioneer";
+                description = "You're ready for advanced AI collaboration and could benefit from developing proprietary frameworks and training others.";
+                recommendations = [
+                    "Focus on building custom AI workflows and methodologies",
+                    "Consider developing training programs for your organization",
+                    "Explore advanced prompt engineering and model fine-tuning",
+                    "Document your processes to create intellectual property"
+                ];
+            } else if (percentage >= 70) {
+                profile = "Strategic Builder";
+                scoreClass = "score-builder";
+                description = "You have strong foundations for AI collaboration and are ready to implement systematic approaches.";
+                recommendations = [
+                    "Develop consistent AI collaboration workflows",
+                    "Create templates and frameworks for repeated use",
+                    "Focus on measuring and optimizing AI-assisted outcomes",
+                    "Begin training team members on effective AI collaboration"
+                ];
+            } else if (percentage >= 55) {
+                profile = "Thoughtful Explorer";
+                scoreClass = "score-explorer";
+                description = "You're building AI capabilities and would benefit from structured learning and practice.";
+                recommendations = [
+                    "Start with specific, defined AI collaboration projects",
+                    "Focus on one or two AI tools to build proficiency",
+                    "Practice prompt engineering with clear objectives",
+                    "Join AI collaboration communities and learning groups"
+                ];
+            } else {
+                profile = "Smart Starter";
+                scoreClass = "score-starter";
+                description = "You're beginning your AI journey and would benefit from foundational training and guided practice.";
+                recommendations = [
+                    "Begin with simple, low-risk AI collaboration tasks",
+                    "Focus on understanding AI capabilities and limitations",
+                    "Learn basic prompt engineering principles",
+                    "Consider formal AI literacy training or coaching"
+                ];
+            }
+            // Track completion in Google Analytics
+            gtag('event', 'assessment_completed', {
+                'profile': profile,
+                'score_percentage': percentage,
+                'total_score': totalScore
+            });
+            // Submit results to Netlify for email notification
+            submitToNetlify(profile, totalScore, percentage, answers);
+            // Display results
+            document.getElementById('scoreDisplay').innerHTML = `
+                <div class="score-circle ${scoreClass}">${percentage}%</div>
+                <h2>Your AI Collaboration Profile: ${profile}</h2>
+            `;
+            document.getElementById('resultContent').innerHTML = `
+                <div class="result-content">
+                    <h3>What This Means</h3>
+                    <p>${description}</p>
+                    <div class="recommendations">
+                        <h3>Your CW Standard Recommendations</h3>
+                        <ul style="text-align: left; margin-left: 20px;">
+                            ${recommendations.map(rec => `<li style="margin: 10px 0;">${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+
+        function submitToNetlify(profile, totalScore, percentage, answers) {
+            const netlifyForm = document.querySelector('form[name="assessment-results"]');
+            netlifyForm.querySelector('input[name="profile"]').value = profile;
+            netlifyForm.querySelector('input[name="score"]').value = totalScore;
+            netlifyForm.querySelector('input[name="percentage"]').value = percentage;
+            netlifyForm.querySelector('input[name="timestamp"]').value = new Date().toISOString();
+            netlifyForm.querySelector('input[name="answers"]').value = JSON.stringify(answers);
+            netlifyForm.submit();
+        }
+    });
+    </script>
+</body>
+</html>

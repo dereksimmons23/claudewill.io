@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Strategic business transformation services based on The CW Standard: AI strategy, transition management, and executive framework development.">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
-    <link href="httpss://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
     <style>
@@ -100,21 +100,34 @@
     </style>
 </head>
 <body>
-    <header class="site-header">
-        <a href="../index.html" class="wordmark">
+    <header class="site-header" aria-label="Site header">
+        <a href="/index.html" class="wordmark">
             <span class="wordmark-full">ClaudeWill</span>
             <span class="wordmark-short">CW</span>
         </a>
-        <nav>
-            <a href="about.html">About</a>
-            <a href="services.html" class="active">Services</a>
-            <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-        <button id="theme-toggle" aria-label="Toggle dark mode">
-            <span class="material-icons theme-toggle-icon">light_mode</span>
-        </button>
+        <div class="header-actions">
+            <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <button id="theme-toggle" aria-label="Toggle theme" tabindex="0">
+                <span class="material-icons theme-toggle-icon">light_mode</span>
+            </button>
+        </div>
     </header>
+    <nav id="main-nav" class="hamburger-nav" aria-label="Main navigation">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="assessment.html">Assessment</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
     <main>
         <div class="container">
             <section class="services-hero">
@@ -220,8 +233,9 @@
     <footer>
         <div class="container">
             © 2025 Derek Simmons |
-            <a href="documentation.html">Documentation</a> |
-            <a href="about.html">About</a>
+            <a href="site-index.html">Site Index</a> |
+            <a href="../docs/PRIVACY.md" target="_blank" rel="noopener">Privacy Policy</a> |
+            <a href="../docs/TERMS.md" target="_blank" rel="noopener">Terms of Use</a>
         </div>
     </footer>
     <script src="../js/main.js"></script>

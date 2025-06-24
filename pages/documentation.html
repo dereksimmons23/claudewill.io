@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Documentation | Claude Will</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
   <style>
     .section-divider {
@@ -30,14 +30,35 @@
   </style>
 </head>
 <body>
+  <header class="site-header" aria-label="Site header">
+    <a href="/index.html" class="wordmark">
+      <span class="wordmark-full">ClaudeWill</span>
+      <span class="wordmark-short">CW</span>
+    </a>
+    <div class="header-actions">
+      <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+      <button id="theme-toggle" aria-label="Toggle theme" tabindex="0">
+        <span class="material-icons theme-toggle-icon">light_mode</span>
+      </button>
+    </div>
+  </header>
+  <nav id="main-nav" class="hamburger-nav" aria-label="Main navigation">
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="assessment.html">Assessment</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
   <div class="container">
-    <header>
-      <a href="index.html" class="wordmark">
-        <span class="wordmark-full">ClaudeWill</span>
-        <span class="wordmark-short">CW</span>
-      </a>
-      <h1>Project Documentation</h1>
-    </header>
     <main>
       <div class="doc-note">
         <strong>Note:</strong> The canonical, up-to-date documentation—including roadmap, technical specs, implementation plans, and design system—is now maintained in the main <a href="../README.md" target="_blank" rel="noopener">README.md</a> at the project root.
@@ -100,20 +121,15 @@
     <footer>
       <div class="container">
         © 2025 Derek Simmons |
-        <a href="documentation.html">Documentation</a> |
-        <a href="about.html">About Derek</a> |
-        <a href="documentation.html#privacy">Privacy Policy</a> |
-        <a href="documentation.html#terms">Terms of Use</a>
+        <a href="site-index.html">Site Index</a> |
+        <a href="../docs/PRIVACY.md" target="_blank" rel="noopener">Privacy Policy</a> |
+        <a href="../docs/TERMS.md" target="_blank" rel="noopener">Terms of Use</a>
       </div>
     </footer>
   </div>
   <!-- Claude Will Widget -->
   <link rel="stylesheet" href="/css/claude-will-widget.css">
   <script src="/js/claude-will-widget.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      new ClaudeWillWidget();
-    });
-  </script>
+  <script src="../js/main.js"></script>
 </body>
 </html>

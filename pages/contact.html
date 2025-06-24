@@ -54,7 +54,8 @@
       margin-top: 1rem;
     }
     .consultation-form input,
-    .consultation-form textarea {
+    .consultation-form textarea,
+    .consultation-form select {
       padding: 0.7rem;
       border: 1px solid #ccc;
       border-radius: 6px;
@@ -62,6 +63,24 @@
       font-family: inherit;
       background: #fff;
       color: var(--color-text);
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 0.7rem center;
+      background-size: 1em;
+    }
+    .consultation-form .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
     }
     .consultation-form button {
       background: var(--color-primary);
@@ -86,15 +105,34 @@
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <a href="../index.html" class="wordmark">
+  <header class="site-header" aria-label="Site header">
+    <a href="/index.html" class="wordmark">
       <span class="wordmark-full">ClaudeWill</span>
       <span class="wordmark-short">CW</span>
     </a>
-    <button id="theme-toggle" aria-label="Toggle dark mode">
-      <span class="material-icons theme-toggle-icon">light_mode</span>
-    </button>
+    <div class="header-actions">
+      <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+      <button id="theme-toggle" aria-label="Toggle theme" tabindex="0">
+        <span class="material-icons theme-toggle-icon">light_mode</span>
+      </button>
+    </div>
   </header>
+  <nav id="main-nav" class="hamburger-nav" aria-label="Main navigation">
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="assessment.html">Assessment</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
   <main>
     <div class="container">
       <section class="consultation-hero">
@@ -115,7 +153,16 @@
           <form class="consultation-form" action="https://formspree.io/f/xpwrpvkb" method="POST">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="5" placeholder="How can I help you?" required></textarea>
+            <label for="interest" class="sr-only">Primary Interest</label>
+            <select name="interest" id="interest" required>
+                <option value="" disabled selected>Select your primary interest...</option>
+                <option value="ai_strategy">AI Strategy &amp; Executive Education</option>
+                <option value="transition_management">Transition Management Consulting</option>
+                <option value="framework_development">Framework Development &amp; Strategic Planning</option>
+                <option value="speaking_engagement">Keynotes &amp; Speaking</option>
+                <option value="other">Other Inquiry</option>
+            </select>
+            <textarea name="message" rows="5" placeholder="Please provide some details about your project or inquiry..." required></textarea>
             <button type="submit">Send Message</button>
           </form>
         </div>
@@ -124,11 +171,10 @@
   </main>
   <footer>
     <div class="container">
-      © 2025 Derek Simmons |
-      <a href="documentation.html">Documentation</a> |
-      <a href="about.html">About Derek</a> |
-      <a href="documentation.html#privacy">Privacy Policy</a> |
-      <a href="documentation.html#terms">Terms of Use</a>
+        © 2025 Derek Simmons |
+        <a href="site-index.html">Site Index</a> |
+        <a href="../docs/PRIVACY.md" target="_blank" rel="noopener">Privacy Policy</a> |
+        <a href="../docs/TERMS.md" target="_blank" rel="noopener">Terms of Use</a>
     </div>
   </footer>
   <script src="../js/main.js"></script>

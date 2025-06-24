@@ -110,202 +110,66 @@ gantt
 
 ## Implementation Plan
 
-# Claude Will Widget Implementation Plan
+### Claude Will Widget: Plan & Technical Specification
 
-## Week 1: Foundation
+This section details the implementation plan, features, and technical specifications for the Claude Will intelligent widget.
 
-### Day 1-2: Setup
+#### Overview
+The widget is a cross-domain intelligent interface that makes Claude Will accessible across all pages of the site, enhancing user capability while maintaining context awareness.
 
-- [ ] Initialize project
-- [ ] Set up development environment
-- [ ] Configure build tools
-- [ ] Create basic structure
+#### Implementation Timeline
 
-### Day 3-4: Core Widget
+##### Week 1: Foundation
+- **Day 1-2: Setup:** Initialize project, set up dev environment, configure build tools.
+- **Day 3-4: Core Widget:** Implement basic UI, styling, and interactions.
+- **Day 5: Context Detection:** Implement initial context detection based on URL.
 
-- [ ] Implement basic widget
-- [ ] Add styling
-- [ ] Create animations
-- [ ] Add basic interactions
+##### Week 2: Features
+- **Day 1-2: Search:** Implement search interface, results, and history.
+- **Day 3-4: Chat:** Implement chat interface and message handling.
+- **Day 5: Integration:** Connect to Claude Will API, handle errors and loading states.
 
-### Day 5: Context Detection
+##### Week 3: Enhancement
+- **Day 1-2: Performance:** Optimize bundle size, implement lazy loading and caching.
+- **Day 3-4: Mobile:** Test and optimize for mobile devices, add touch support.
+- **Day 5: Analytics:** Implement basic tracking and performance monitoring.
 
-- [ ] Implement context detection
-- [ ] Add page analysis
-- [ ] Create context switching
-- [ ] Test context accuracy
+##### Week 4: Testing & Deployment
+- **Day 1-2: Testing:** Write unit, integration, and E2E tests.
+- **Day 3-4: Documentation:** Create technical docs, user guide, and API docs.
+- **Day 5: Deployment:** Prepare for production, run security scans, and deploy.
 
-## Week 2: Features
+#### Completed & Planned Features
 
-### Day 1-2: Search
+##### Core Features (Completed)
+- Floating chat interface
+- Context-aware responses
+- Real-time chat functionality
+- Search history and suggestions
+- Mobile-responsive and accessible design (ARIA, keyboard nav, high contrast)
 
-- [ ] Implement search interface
-- [ ] Add search results
-- [ ] Create search history
-- [ ] Add suggestions
+##### Next Steps: High Priority
+- **Analytics Integration:** Track usage patterns, queries, and engagement.
+- **Performance Optimization:** Lazy loading, service workers, asset optimization.
+- **Enhanced Context Awareness:** Improve page context detection, add domain-specific knowledge.
 
-### Day 3-4: Chat
+##### Next Steps: Medium Priority
+- **UX Improvements:** Typing indicators, message reactions, file attachments.
+- **Integration:** Widget state management, configuration options.
+- **Testing:** Comprehensive unit, E2E, and performance tests.
 
-- [ ] Implement chat interface
-- [ ] Add message handling
-- [ ] Create typing indicators
-- [ ] Add message reactions
+##### Next Steps: Low Priority
+- **Additional Features:** Voice input, message translation, theming.
+- **Documentation:** User guides, API documentation, and integration guides.
 
-### Day 5: Integration
+#### Technical Specification
 
-- [ ] Connect to Claude Will API
-- [ ] Implement error handling
-- [ ] Add loading states
-- [ ] Test integration
-
-## Week 3: Enhancement
-
-### Day 1-2: Performance
-
-- [ ] Optimize bundle size
-- [ ] Implement lazy loading
-- [ ] Add caching
-- [ ] Optimize animations
-
-### Day 3-4: Mobile
-
-- [ ] Test on mobile devices
-- [ ] Add touch support
-- [ ] Optimize for small screens
-- [ ] Test on various devices
-
-### Day 5: Analytics
-
-- [ ] Implement tracking
-- [ ] Add performance monitoring
-- [ ] Create dashboards
-- [ ] Test analytics
-
-## Week 4: Testing & Deployment
-
-### Day 1-2: Testing
-
-- [ ] Write unit tests
-- [ ] Add integration tests
-- [ ] Create E2E tests
-- [ ] Run performance tests
-
-### Day 3-4: Documentation
-
-- [ ] Write technical docs
-- [ ] Create user guide
-- [ ] Add API docs
-- [ ] Create troubleshooting guide
-
-### Day 5: Deployment
-
-- [ ] Prepare for production
-- [ ] Run security scan
-- [ ] Deploy to staging
-- [ ] Deploy to production
-
-## Success Metrics
-
-### Performance
-
-- Load time < 2s
-- Response time < 1s
-- Memory usage < 50MB
-- Error rate < 0.1%
-
-### User Experience
-
-- Session duration > 5min
-- Messages per session > 3
-- Search queries > 2
-- User satisfaction > 4.5/5
-
-### Technical
-
-- Test coverage > 80%
-- Zero critical bugs
-- All security checks passed
-- Documentation complete
-
-## Risk Management
-
-### Technical Risks
-
-1. API reliability
-2. Performance issues
-3. Browser compatibility
-4. Security vulnerabilities
-
-### Mitigation Strategies
-
-1. Implement fallbacks
-2. Add monitoring
-3. Regular testing
-4. Security audits
-
-## Communication Plan
-
-### Daily Updates
-
-- Stand-up meetings
-- Progress reports
-- Issue tracking
-- Code reviews
-
-### Weekly Reviews
-
-- Progress review
-- Risk assessment
-- Plan adjustment
-- Team feedback
-
-## Resource Allocation
-
-### Development
-
-- 2 Frontend developers
-- 1 Backend developer
-- 1 QA engineer
-- 1 Technical writer
-
-### Tools
-
-- Development environment
-- Testing tools
-- Monitoring systems
-- Documentation platform
-
-## Budget
-
-### Development
-
-- Developer hours
-- Testing costs
-- Tools and licenses
-- Infrastructure
-
-### Maintenance
-
-- Hosting costs
-- API usage
-- Monitoring
-- Support
-
-## Timeline
-
-### Milestones
-
-1. Week 1: Basic widget
-2. Week 2: Core features
-3. Week 3: Optimization
-4. Week 4: Launch
-
-### Deliverables
-
-1. Working widget
-2. Documentation
-3. Test reports
-4. Performance metrics
+- **Tech Stack:** React-based search interface, vanilla JS for widget wrapper, responsive CSS.
+- **Dependencies:** React, Material Icons, Local Storage API, Claude Will API.
+- **Browser Support:** Latest Chrome, Firefox, Safari, Edge, and mobile browsers (iOS 12+, Android 8+).
+- **Performance Targets:** Initial load < 2s, response time < 1s, memory usage < 50MB.
+- **Security:** Input sanitization, XSS/CSRF protection, rate limiting, data encryption.
+- **Monitoring:** Error tracking, performance metrics, usage statistics, user feedback.
 
 ---
 
@@ -576,7 +440,7 @@ Here is a detailed technical specification for the Claude Will Widget, ready to 
 
 ---
 
-Would you like this specification added to your unified document now? If so, I’ll insert it under the “Technical Specification” section.
+Would you like this specification added to your unified document now? If so, I'll insert it under the "Technical Specification" section.
 
 # Detailed CI/CD Analysis for Claude Will
 

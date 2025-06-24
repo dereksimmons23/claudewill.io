@@ -47,7 +47,7 @@
 }
 
 .widget-body {
-  flex: 1;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -106,6 +106,29 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.suggested-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0 1rem 0.5rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.suggested-actions button {
+  background-color: rgba(var(--color-primary-rgb), 0.1);
+  color: var(--color-primary);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.3);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.suggested-actions button:hover {
+  background-color: rgba(var(--color-primary-rgb), 0.2);
 }
 
 @media (width <= 768px) {
@@ -234,4 +257,40 @@
     border-color: #333;
     color: #fff;
   }
+}
+
+.claude-will-widget .widget-toggle {
+  /* ... existing styles ... */
+}
+
+.claude-will-widget .widget-toast {
+  position: absolute;
+  bottom: 80px; /* Position above the toggle button */
+  right: 1rem;
+  background-color: var(--color-background-alt);
+  color: var(--color-text);
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+  z-index: 9998;
+}
+
+.claude-will-widget .widget-toast.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.claude-will-widget .widget-toast p {
+  margin: 0;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+.widget-content {
+  /* ... existing styles ... */
 } 

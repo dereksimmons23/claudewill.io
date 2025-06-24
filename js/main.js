@@ -70,4 +70,23 @@ document.addEventListener('DOMContentLoaded', () => {
           }
       });
   }
+
+  // Hamburger menu functionality
+  // Ensure this runs after DOM is loaded
+
+  const toggle = document.getElementById('hamburger-toggle');
+  const nav = document.getElementById('main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function() {
+      const expanded = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', expanded);
+    });
+    // Optional: close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 });
