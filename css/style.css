@@ -90,10 +90,30 @@ footer {
     color: #222; /* Dark gray for light mode */
 }
 
+/* Element descendant selectors - ordered by specificity */
+footer a {
+    color: #222;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+/* Class descendant selectors before element pseudo-classes */
+.hamburger-nav a {
+    color: #2c3e50;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
 /* Element pseudo-classes */
 a:hover {
     opacity: 0.85;
     text-decoration: underline;
+}
+
+footer a:hover {
+    color: #000;
+    text-decoration: none;
 }
 
 /* Single class selectors */
@@ -297,7 +317,11 @@ a:hover {
     animation: pulse 1.5s infinite;
 }
 
-/* Color swatch classes */
+.theme-toggle-icon {
+    color: #2c3e50;
+}
+
+/* Multiple class selectors */
 .color-swatch.color-cottonwood {
     background-color: #f8f5f2;
     color: #2f3133;
@@ -328,7 +352,11 @@ a:hover {
     color: #fff;
 }
 
-/* Single class pseudo-classes */
+.hamburger-nav.open {
+    display: block;
+}
+
+/* Class pseudo-classes */
 .wordmark:hover {
     text-decoration: none;
     opacity: 0.9;
@@ -343,13 +371,40 @@ a:hover {
     text-decoration: none;
 }
 
-.hamburger-nav a {
-    color: #2c3e50;
-    text-decoration: none;
-    font-size: 1.1em;
-    font-weight: 500;
+/* Class descendant selectors - ordered by specificity */
+.hamburger-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
+.hamburger-nav li {
+    margin: 1em 0;
+}
+
+.site-header > *:last-child {
+    margin-left: auto;
+}
+
+.message-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.message-container::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border-radius: 6px;
+}
+
+/* Dark theme footer selectors before class descendant pseudo-classes */
+.dark-theme footer a {
+    color: #e0e0e0;
+}
+
+body.dark-theme footer a {
+    color: #e0e0e0;
+}
+
+/* Class descendant pseudo-classes */
 .hamburger-nav a:hover {
     color: #3498db;
 }
@@ -406,6 +461,16 @@ a:hover {
     color: #2c3e50;
 }
 
+/* ID descendant selectors */
+#hamburger-toggle .hamburger-bar {
+    width: 22px;
+    height: 2.5px;
+    background: currentcolor;
+    margin: 3px 0;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
 /* ID pseudo-classes */
 #user-input:focus {
     outline: none;
@@ -425,59 +490,7 @@ a:hover {
     background-color: rgb(128 128 128 / 10%);
 }
 
-/* Descendant selectors */
-.hamburger-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.hamburger-nav li {
-    margin: 1em 0;
-}
-
-.hamburger-nav.open {
-    display: block;
-}
-
-.site-header > *:last-child {
-    margin-left: auto;
-}
-
-.theme-toggle-icon {
-    color: #2c3e50;
-}
-
-.message-container::-webkit-scrollbar {
-    width: 6px;
-}
-
-.message-container::-webkit-scrollbar-thumb {
-    background-color: var(--color-primary);
-    border-radius: 6px;
-}
-
-#hamburger-toggle .hamburger-bar {
-    width: 22px;
-    height: 2.5px;
-    background: currentcolor;
-    margin: 3px 0;
-    border-radius: 2px;
-    transition: all 0.3s;
-}
-
-footer a {
-    color: #222;
-    text-decoration: underline;
-    transition: color 0.2s;
-}
-
-footer a:hover {
-    color: #000;
-    text-decoration: none;
-}
-
-/* Dark theme class combinations (most specific) */
+/* Complex selectors (most specific) - ordered by specificity */
 body.dark-theme {
     --color-background: var(--gunmetal-firebird);
     --color-text: var(--cottonwood);
@@ -486,25 +499,40 @@ body.dark-theme {
     --color-link: var(--iron-range);
 }
 
-body.dark-theme footer, .dark-theme footer {
+.dark-theme footer {
     color: #e0e0e0;
 }
 
-body.dark-theme footer a, .dark-theme footer a {
+body.dark-theme footer {
     color: #e0e0e0;
 }
 
-body.dark-theme footer a:hover, .dark-theme footer a:hover {
+.dark-theme footer a:hover {
     color: #fff;
 }
 
-body.dark-theme .suggestion-button, .dark-theme .suggestion-button {
+body.dark-theme footer a:hover {
+    color: #fff;
+}
+
+.dark-theme .suggestion-button {
     background-color: var(--color-accent);
     color: #fff;
     border: 1px solid var(--color-accent);
 }
 
-body.dark-theme .suggestion-button:hover, .dark-theme .suggestion-button:hover {
+body.dark-theme .suggestion-button {
+    background-color: var(--color-accent);
+    color: #fff;
+    border: 1px solid var(--color-accent);
+}
+
+.dark-theme .suggestion-button:hover {
+    background-color: #8e340d;
+    color: #fff;
+}
+
+body.dark-theme .suggestion-button:hover {
     background-color: #8e340d;
     color: #fff;
 }

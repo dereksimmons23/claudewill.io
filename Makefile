@@ -30,4 +30,47 @@ tex:
 clean:
 	rm -f $(RESUME_PDF) $(RESUME_HTML) $(RESUME_TEX)
 
-.PHONY: all pdf html tex clean
+.PHONY: deploy fix test quick status
+
+# Deploy with a custom message
+deploy:
+	@echo "🚀 Deploying with message: $(MSG)"
+	npm run precommit
+	git add .
+	git commit -m "$(MSG)"
+	git push origin main
+
+# Auto-fix linting issues
+fix:
+	@echo "🔧 Auto-fixing linting errors..."
+	npm run lint:css -- --fix
+	npm run lint:js -- --fix
+
+# Test locally with live reload
+test:
+	@echo "🧪 Starting local test server..."
+	npm run precommit
+	npm run dev
+
+# Quick deploy with auto-generated message
+quick:
+	@echo "⚡ Quick deploying with auto-fixes..."
+	npm run quick-deploy
+
+# Check git and linting status
+status:
+	@echo "📋 Git Status:"
+	git status --short
+	@echo "\n🔍 CSS Lint Status:"
+	npm run lint:css || echo "❌ CSS errors found"
+	@echo "\n📝 JS Lint Status:"
+	npm run lint:js || echo "❌ JS errors found"
+
+# Usage examples:
+# make deploy MSG="fix assessment tool"
+# make fix
+# make test  
+# make quick
+# make status
+
+.PHONY: all pdf html tex clean deploy fix test quick status

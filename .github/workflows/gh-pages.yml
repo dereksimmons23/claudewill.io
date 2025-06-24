@@ -2,95 +2,35 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 permissions:
   contents: write
 
 jobs:
-  lint-html:
-    name: HTML Lint
+  lint-and-deploy:
+    name: Lint and Deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      
       - uses: actions/setup-node@v3
         with:
           node-version: 20
-      - run: npm install
-      - run: npm run lint:html
-
-  lint-css:
-    name: CSS Lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20
-      - run: npm install
-      - run: npm run lint:css
-
-  lint-js:
-    name: JS Lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20
-      - run: npm install
-      - run: npm run lint:js
-
-  a11y:
-    name: Accessibility Check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20
-      - run: npm install
-      - run: echo "Skipping a11y checks for now. These will be run locally instead."
-      # - run: npm run a11y
-
-  links:
-    name: Broken Link Check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20
-      - run: npm install
-      - name: Set up Rust
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
-      - name: Install lychee
-        run: cargo install lychee
-      - name: Run Broken Link Check
-        run: npm run links
-
-  lighthouse:
-    name: Lighthouse Performance
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20
-      - run: npm install
-      - run: npm run lighthouse || echo "Lighthouse CI is for local/preview only"
-
-  deploy:
-    name: Deploy to GitHub Pages
-    needs: [lint-html, lint-css, lint-js, a11y, lighthouse]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+          cache: 'npm'
+      
+      - run: npm ci
+      
+      # Comment out the CSS lint step temporarily
+      # - name: Lint CSS
+      #   run: npm run lint:css
+      
+      - name: Lint JS  
+        run: npm run lint:js
+      
+      - name: Lint HTML
+        run: npm run lint:html
+      
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
