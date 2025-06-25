@@ -132,341 +132,398 @@ class ConsciousnessNavigation {
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.95);
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.95) 0%, 
+                rgba(15, 23, 42, 0.98) 50%, 
+                rgba(0, 0, 0, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             z-index: 9999;
-            cursor: none;
-            perspective: 1000px;
+            cursor: default;
+            overflow: hidden;
         `;
         
-        // Add consciousness field
-        const field = document.createElement('div');
-        field.style.cssText = `
+        // Add modern ambient background
+        const ambient = document.createElement('div');
+        ambient.style.cssText = `
             position: absolute;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 50% 50%, 
-                rgba(0,212,255,0.1) 0%, 
-                rgba(139,92,246,0.05) 30%, 
-                transparent 70%);
-            animation: consciousness-pulse 8s ease-in-out infinite;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 70%);
+            animation: ambient-flow 20s ease-in-out infinite;
         `;
-        overlay.appendChild(field);
+        overlay.appendChild(ambient);
         
-        // Add neural grid
+        // Add subtle grid overlay
         const grid = document.createElement('div');
         grid.style.cssText = `
             position: absolute;
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(0,212,255,0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,212,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: grid-flow 20s linear infinite;
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.3;
             pointer-events: none;
         `;
         overlay.appendChild(grid);
         
-        // Add service nodes
+        // Add service nodes with modern design
         Object.entries(this.nodeData).forEach(([key, data]) => {
-            const node = this.createServiceNode(key, data);
+            const node = this.createModernServiceNode(key, data);
             overlay.appendChild(node);
         });
         
-        // Add UI elements
-        this.createConsciousnessUI(overlay);
-        
-        // Add custom cursor
-        const cursor = document.createElement('div');
-        cursor.id = 'consciousness-cursor';
-        cursor.style.cssText = `
-            position: fixed;
-            width: 30px;
-            height: 30px;
-            background: conic-gradient(from 0deg, transparent, #00d4ff, transparent);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 10001;
-            animation: cursor-spin 2s linear infinite;
-        `;
-        overlay.appendChild(cursor);
-        
-        // Add animations
-        this.addConsciousnessAnimations();
+        // Add modern UI elements
+        this.createModernConsciousnessUI(overlay);
         
         document.body.appendChild(overlay);
         
-        // Setup consciousness event listeners
-        this.setupConsciousnessEvents(overlay);
+        // Add modern event listeners
+        this.setupModernConsciousnessEvents(overlay);
+        
+        // Add modern animations
+        this.addModernAnimations();
     }
     
-    createServiceNode(key, data) {
+    createModernServiceNode(key, data) {
         const node = document.createElement('div');
-        node.className = 'consciousness-service-node';
-        node.id = `consciousness-${key}`;
+        node.className = 'modern-consciousness-node';
+        node.dataset.service = key;
+        
+        const { x, y } = data.position;
         node.style.cssText = `
             position: absolute;
+            left: ${x}%;
+            top: ${y}%;
             width: 120px;
             height: 120px;
-            left: ${data.position.x}%;
-            top: ${data.position.y}%;
-            border-radius: 50%;
-            background: conic-gradient(from 0deg, ${data.color}, transparent, ${data.color});
+            transform: translate(-50%, -50%);
             cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        `;
+        
+        // Modern glassmorphism card
+        const card = document.createElement('div');
+        card.style.cssText = `
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            border: 2px solid rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            animation: node-float 6s ease-in-out infinite;
-            animation-delay: ${Object.keys(this.nodeData).indexOf(key) * 0.5}s;
-            transform: translateX(-50%) translateY(-50%);
+            gap: 8px;
+            padding: 16px;
+            position: relative;
+            overflow: hidden;
         `;
         
-        node.innerHTML = `
-            <div style="font-size: 36px; margin-bottom: 8px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));">
-                ${data.icon}
-            </div>
-            <div style="color: white; font-size: 12px; font-weight: 600; text-align: center; text-shadow: 0 0 10px rgba(0,0,0,0.8);">
-                ${key.charAt(0).toUpperCase() + key.slice(1)}
-            </div>
-        `;
-        
-        // Add progress ring
-        const ring = document.createElement('div');
-        ring.style.cssText = `
+        // Animated background glow
+        const glow = document.createElement('div');
+        glow.style.cssText = `
             position: absolute;
-            width: 140px;
-            height: 140px;
-            border: 3px solid rgba(255,255,255,0.1);
-            border-radius: 50%;
-            border-top-color: ${data.color};
-            animation: progress-spin 3s linear infinite;
+            inset: -2px;
+            background: linear-gradient(45deg, 
+                ${data.color}40, 
+                transparent, 
+                ${data.color}20);
+            border-radius: 22px;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
+            z-index: -1;
         `;
-        node.appendChild(ring);
+        card.appendChild(glow);
+        
+        // Modern icon with Lucide
+        const iconWrapper = document.createElement('div');
+        iconWrapper.style.cssText = `
+            width: 32px;
+            height: 32px;
+            color: ${data.color};
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        `;
+        
+        const icon = document.createElement('i');
+        icon.setAttribute('data-lucide', this.getModernIcon(key));
+        icon.style.cssText = `
+            width: 32px;
+            height: 32px;
+            stroke-width: 1.5;
+        `;
+        iconWrapper.appendChild(icon);
+        card.appendChild(iconWrapper);
+        
+        // Modern typography
+        const title = document.createElement('div');
+        title.textContent = data.title.split(' ')[0]; // First word only for cleaner look
+        title.style.cssText = `
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        `;
+        card.appendChild(title);
+        
+        // Experience indicator
+        const xpBadge = document.createElement('div');
+        xpBadge.textContent = `+${data.experience}`;
+        xpBadge.style.cssText = `
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: ${data.color};
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 12px;
+            transform: scale(0);
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        `;
+        card.appendChild(xpBadge);
+        
+        node.appendChild(card);
+        
+        // Modern hover effects
+        node.addEventListener('mouseenter', () => {
+            node.style.transform = 'translate(-50%, -50%) scale(1.1)';
+            glow.style.opacity = '1';
+            xpBadge.style.transform = 'scale(1)';
+        });
+        
+        node.addEventListener('mouseleave', () => {
+            node.style.transform = 'translate(-50%, -50%) scale(1)';
+            glow.style.opacity = '0';
+            xpBadge.style.transform = 'scale(0)';
+        });
         
         return node;
     }
     
-    createConsciousnessUI(overlay) {
-        // Experience bar
-        const expBar = document.createElement('div');
-        expBar.style.cssText = `
+    getModernIcon(service) {
+        const iconMap = {
+            assessment: 'brain',
+            resume: 'file-text',
+            portfolio: 'palette',
+            about: 'user',
+            projects: 'rocket',
+            services: 'zap'
+        };
+        return iconMap[service] || 'circle';
+    }
+    
+    createModernConsciousnessUI(overlay) {
+        // Modern minimal UI panel
+        const uiPanel = document.createElement('div');
+        uiPanel.style.cssText = `
             position: fixed;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            height: 4px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 2px;
-            z-index: 10000;
-        `;
-        
-        const expFill = document.createElement('div');
-        expFill.id = 'consciousness-exp-fill';
-        expFill.style.cssText = `
-            height: 100%;
-            background: linear-gradient(90deg, #00d4ff, #8b5cf6, #00ff88);
-            width: ${(this.experience / this.maxExperience) * 100}%;
-            transition: width 1s ease;
-            border-radius: 2px;
-        `;
-        expBar.appendChild(expFill);
-        overlay.appendChild(expBar);
-        
-        // Level indicator
-        const levelIndicator = document.createElement('div');
-        levelIndicator.style.cssText = `
-            position: fixed;
-            top: 35px;
-            left: 20px;
-            color: white;
-            font-size: 14px;
-            font-weight: 600;
-            z-index: 10000;
-        `;
-        levelIndicator.textContent = `Consciousness Level ${this.level}`;
-        overlay.appendChild(levelIndicator);
-        
-        // Instructions
-        const instructions = document.createElement('div');
-        instructions.style.cssText = `
-            position: fixed;
-            bottom: 20px;
+            top: 24px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0,212,255,0.2);
-            backdrop-filter: blur(10px);
-            border-radius: 25px;
-            padding: 15px 25px;
-            color: white;
-            font-size: 14px;
-            border: 1px solid rgba(0,212,255,0.3);
-            text-align: center;
-            z-index: 10000;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         `;
-        instructions.innerHTML = `
-            Click nodes to explore • Press ESC to exit • Gain experience through interaction<br>
-            <span style="opacity: 0.7;">Level ${this.level} • ${this.visitedNodes.size}/${Object.keys(this.nodeData).length} nodes explored</span>
-        `;
-        overlay.appendChild(instructions);
         
-        // Exit button
+        // Level indicator
+        const levelDisplay = document.createElement('div');
+        levelDisplay.innerHTML = `
+            <div style="font-size: 12px; color: rgba(255, 255, 255, 0.6); margin-bottom: 2px;">LEVEL</div>
+            <div style="font-size: 18px; font-weight: 700; color: white;">${this.level}</div>
+        `;
+        uiPanel.appendChild(levelDisplay);
+        
+        // Modern progress bar
+        const progressContainer = document.createElement('div');
+        progressContainer.style.cssText = `
+            width: 200px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        `;
+        
+        const progressBar = document.createElement('div');
+        progressBar.id = 'modern-progress-bar';
+        const progressPercent = (this.experience / this.maxExperience) * 100;
+        progressBar.style.cssText = `
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 4px;
+            width: ${progressPercent}%;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        `;
+        progressContainer.appendChild(progressBar);
+        uiPanel.appendChild(progressContainer);
+        
+        // XP display
+        const xpDisplay = document.createElement('div');
+        xpDisplay.innerHTML = `
+            <div style="font-size: 12px; color: rgba(255, 255, 255, 0.6); margin-bottom: 2px;">XP</div>
+            <div style="font-size: 14px; font-weight: 600; color: white;">${this.experience}/${this.maxExperience}</div>
+        `;
+        uiPanel.appendChild(xpDisplay);
+        
+        overlay.appendChild(uiPanel);
+        
+        // Modern exit button
         const exitButton = document.createElement('button');
         exitButton.style.cssText = `
             position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            border: none;
-            background: rgba(255,255,255,0.1);
+            top: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
             color: white;
-            border-radius: 50%;
             cursor: pointer;
-            font-size: 18px;
-            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all 0.3s ease;
         `;
-        exitButton.innerHTML = '×';
+        
+        const exitIcon = document.createElement('i');
+        exitIcon.setAttribute('data-lucide', 'x');
+        exitIcon.style.cssText = 'width: 20px; height: 20px;';
+        exitButton.appendChild(exitIcon);
+        
         exitButton.addEventListener('click', () => this.deactivateConsciousnessMode());
+        exitButton.addEventListener('mouseenter', () => {
+            exitButton.style.background = 'rgba(255, 255, 255, 0.15)';
+        });
+        exitButton.addEventListener('mouseleave', () => {
+            exitButton.style.background = 'rgba(255, 255, 255, 0.08)';
+        });
+        
         overlay.appendChild(exitButton);
+        
+        // Initialize Lucide icons
+        if (window.lucide) window.lucide.createIcons();
     }
     
-    setupConsciousnessEvents(overlay) {
-        // Custom cursor tracking
-        overlay.addEventListener('mousemove', (e) => {
-            const cursor = document.getElementById('consciousness-cursor');
-            if (cursor) {
-                cursor.style.left = e.clientX - 15 + 'px';
-                cursor.style.top = e.clientY - 15 + 'px';
+    setupModernConsciousnessEvents(overlay) {
+        // Modern click handling
+        overlay.addEventListener('click', (e) => {
+            const node = e.target.closest('.modern-consciousness-node');
+            if (node) {
+                this.activateModernConsciousnessNode(node);
             }
         });
         
-        // Node interactions
-        overlay.querySelectorAll('.consciousness-service-node').forEach(node => {
-            node.addEventListener('click', () => this.activateConsciousnessNode(node));
-            node.addEventListener('mouseenter', () => this.showNodeInfo(node));
-            node.addEventListener('mouseleave', () => this.hideNodeInfo());
-        });
-        
-        // Keyboard controls
+        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && this.isActive) {
+            if (!this.isActive) return;
+            
+            if (e.key === 'Escape') {
                 this.deactivateConsciousnessMode();
             }
+            
+            // Number keys for quick access
+            const numKey = parseInt(e.key);
+            if (numKey >= 1 && numKey <= 6) {
+                const services = Object.keys(this.nodeData);
+                const service = services[numKey - 1];
+                if (service) {
+                    const node = overlay.querySelector(`[data-service="${service}"]`);
+                    if (node) this.activateModernConsciousnessNode(node);
+                }
+            }
         });
     }
     
-    activateConsciousnessNode(node) {
-        const nodeKey = node.id.replace('consciousness-', '');
-        const data = this.nodeData[nodeKey];
+    activateModernConsciousnessNode(node) {
+        const service = node.dataset.service;
+        const data = this.nodeData[service];
         
-        // Visual feedback
-        node.style.transform = 'translateX(-50%) translateY(-50%) scale(1.5)';
-        node.style.boxShadow = `0 0 80px ${data.color}`;
+        // Modern activation effect
+        const card = node.querySelector('div');
+        card.style.transform = 'scale(0.95)';
+        card.style.background = `${data.color}20`;
         
-        // Gain experience
+        setTimeout(() => {
+            card.style.transform = 'scale(1)';
+            card.style.background = 'rgba(255, 255, 255, 0.08)';
+        }, 200);
+        
+        // Create modern ripple effect
+        const ripple = document.createElement('div');
+        ripple.style.cssText = `
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: radial-gradient(circle, ${data.color}40 0%, transparent 70%);
+            transform: scale(0);
+            animation: modern-ripple 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        `;
+        
+        card.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 800);
+        
+        // Add to visited and gain XP
+        this.visitedNodes.add(service);
         this.gainExperience(data.experience);
-        
-        // Mark as visited
-        this.visitedNodes.add(nodeKey);
-        this.saveProgress();
-        
-        // Create explosion effect
-        this.createExplosionEffect(node, data.color);
         
         // Navigate after delay
         setTimeout(() => {
-            this.deactivateConsciousnessMode();
-            if (data.url) {
-                window.location.href = data.url;
+            window.location.href = data.url;
+        }, 600);
+    }
+    
+    addModernAnimations() {
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ambient-flow {
+                0%, 100% { transform: rotate(0deg) scale(1); }
+                33% { transform: rotate(1deg) scale(1.02); }
+                66% { transform: rotate(-1deg) scale(0.98); }
             }
-        }, 1500);
-    }
-    
-    createExplosionEffect(node, color) {
-        const rect = node.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        
-        for (let i = 0; i < 20; i++) {
-            const particle = document.createElement('div');
-            particle.style.cssText = `
-                position: fixed;
-                width: 4px;
-                height: 4px;
-                background: ${color};
-                border-radius: 50%;
-                left: ${centerX}px;
-                top: ${centerY}px;
-                pointer-events: none;
-                z-index: 10002;
-            `;
             
-            const angle = (i / 20) * Math.PI * 2;
-            const distance = 100 + Math.random() * 100;
-            const dx = Math.cos(angle) * distance;
-            const dy = Math.sin(angle) * distance;
+            @keyframes modern-ripple {
+                0% { transform: scale(0); opacity: 1; }
+                100% { transform: scale(4); opacity: 0; }
+            }
             
-            particle.animate([
-                { transform: 'translate(0, 0) scale(1)', opacity: 1 },
-                { transform: `translate(${dx}px, ${dy}px) scale(0)`, opacity: 0 }
-            ], {
-                duration: 2000,
-                easing: 'ease-out'
-            });
+            .modern-consciousness-node {
+                animation: float-in 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
             
-            document.body.appendChild(particle);
-            setTimeout(() => particle.remove(), 2000);
-        }
-    }
-    
-    showNodeInfo(node) {
-        const nodeKey = node.id.replace('consciousness-', '');
-        const data = this.nodeData[nodeKey];
-        const rect = node.getBoundingClientRect();
-        
-        const info = document.createElement('div');
-        info.id = 'consciousness-node-info';
-        info.style.cssText = `
-            position: fixed;
-            left: ${rect.right + 20}px;
-            top: ${rect.top - 50}px;
-            background: rgba(0,0,0,0.9);
-            backdrop-filter: blur(20px);
-            border-radius: 15px;
-            padding: 20px;
-            color: white;
-            max-width: 250px;
-            z-index: 10003;
-            border: 1px solid ${data.color};
-            transform: scale(0);
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            @keyframes float-in {
+                to {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+            }
         `;
-        
-        info.innerHTML = `
-            <h3 style="color: ${data.color}; margin-bottom: 10px; font-size: 16px;">${data.title}</h3>
-            <p style="font-size: 14px; line-height: 1.4; margin-bottom: 15px;">${data.description}</p>
-            <div style="font-size: 12px; opacity: 0.7;">+${data.experience} XP</div>
-        `;
-        
-        document.body.appendChild(info);
-        requestAnimationFrame(() => {
-            info.style.transform = 'scale(1)';
-        });
-    }
-    
-    hideNodeInfo() {
-        const info = document.getElementById('consciousness-node-info');
-        if (info) {
-            info.style.transform = 'scale(0)';
-            setTimeout(() => info.remove(), 300);
-        }
+        document.head.appendChild(style);
     }
     
     gainExperience(amount) {
@@ -489,7 +546,7 @@ class ConsciousnessNavigation {
     }
     
     updateExperienceBar() {
-        const fill = document.getElementById('consciousness-exp-fill');
+        const fill = document.getElementById('modern-progress-bar');
         if (fill) {
             fill.style.width = `${(this.experience / this.maxExperience) * 100}%`;
         }
@@ -539,50 +596,6 @@ class ConsciousnessNavigation {
                 achievement.remove();
             }
         }, 5000);
-    }
-    
-    addConsciousnessAnimations() {
-        if (document.getElementById('consciousness-animations')) return;
-        
-        const style = document.createElement('style');
-        style.id = 'consciousness-animations';
-        style.textContent = `
-            @keyframes consciousness-pulse {
-                0%, 100% { opacity: 0.3; }
-                50% { opacity: 0.8; }
-            }
-            
-            @keyframes grid-flow {
-                0% { transform: translate(0, 0); }
-                100% { transform: translate(50px, 50px); }
-            }
-            
-            @keyframes node-float {
-                0%, 100% { transform: translateX(-50%) translateY(-50%) translateZ(0px) rotate(0deg); }
-                33% { transform: translateX(-50%) translateY(-50%) translateZ(-10px) rotate(120deg); }
-                66% { transform: translateX(-50%) translateY(-50%) translateZ(10px) rotate(240deg); }
-            }
-            
-            @keyframes progress-spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-            }
-            
-            @keyframes cursor-spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-            }
-            
-            .consciousness-service-node:hover {
-                transform: translateX(-50%) translateY(-50%) scale(1.2) rotateY(180deg) !important;
-                box-shadow: 0 0 60px var(--node-color) !important;
-            }
-            
-            .consciousness-service-node:hover > div:first-child {
-                opacity: 1 !important;
-            }
-        `;
-        document.head.appendChild(style);
     }
     
     saveProgress() {
