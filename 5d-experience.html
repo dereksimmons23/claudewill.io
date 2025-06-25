@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5D Experience | Beyond 2035</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #000;
+            overflow: hidden;
+            font-family: system-ui;
+            cursor: none;
+            perspective: 1000px;
+        }
+        
+        .dimension {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+        }
+        
+        .dimension-0 { z-index: 10; transform: translateZ(0px); }
+        .dimension-1 { z-index: 9; transform: translateZ(-100px) rotateY(45deg); opacity: 0.8; }
+        .dimension-2 { z-index: 8; transform: translateZ(-200px) rotateX(30deg); opacity: 0.6; }
+        .dimension-3 { z-index: 7; transform: translateZ(-300px) rotateY(-45deg); opacity: 0.4; }
+        .dimension-4 { z-index: 6; transform: translateZ(-400px) rotateX(-30deg); opacity: 0.2; }
+        
+        .art-node {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, #ff0080, #00d4ff, #00ff88, #ff6b35, #8b5cf6, #ff0080);
+            cursor: pointer;
+            animation: float 6s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            transition: all 0.5s ease;
+        }
+        
+        .art-node:hover {
+            transform: scale(1.5) rotateY(180deg);
+            box-shadow: 0 0 80px rgba(255, 255, 255, 0.8);
+        }
+        
+        .thought-particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particle-flow 8s linear infinite;
+        }
+        
+        .consciousness-wave {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 40%, rgba(0,212,255,0.1) 70%, transparent 100%);
+            animation: wave-pulse 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        .reality-fractal {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: fractal-spin 15s linear infinite;
+            pointer-events: none;
+        }
+        
+        .reality-fractal::before,
+        .reality-fractal::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60%;
+            height: 60%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .reality-fractal::after {
+            width: 30%;
+            height: 30%;
+            animation: fractal-spin 10s linear infinite reverse;
+        }
+        
+        .info-sphere {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(0,0,0,0.8) 0%, transparent 70%);
+            backdrop-filter: blur(20px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            text-align: center;
+            transform: scale(0);
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 100;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .info-sphere.active {
+            transform: scale(1) rotateY(360deg);
+        }
+        
+        .quantum-cursor {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            background: conic-gradient(from 0deg, transparent, #00d4ff, transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            animation: cursor-spin 2s linear infinite;
+        }
+        
+        .dimension-nav {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+        
+        .nav-orb {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-orb:hover, .nav-orb.active {
+            background: rgba(0, 212, 255, 0.3);
+            transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+        
+        .creation-trail {
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background: linear-gradient(to bottom, #00d4ff, transparent);
+            pointer-events: none;
+            animation: trail-fade 1s ease-out forwards;
+        }
+        
+        .neural-web {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+        
+        .web-connection {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: connection-pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(20px) rotate(240deg); }
+        }
+        
+        @keyframes particle-flow {
+            0% { opacity: 0; transform: translateY(100vh) translateX(0px); }
+            50% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(-100px) translateX(200px); }
+        }
+        
+        @keyframes wave-pulse {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.1; }
+            50% { transform: scale(1.5) rotate(180deg); opacity: 0.3; }
+        }
+        
+        @keyframes fractal-spin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        @keyframes cursor-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes trail-fade {
+            0% { opacity: 1; transform: scaleY(1); }
+            100% { opacity: 0; transform: scaleY(0); }
+        }
+        
+        @keyframes connection-pulse {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .art-explosion {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: conic-gradient(from 0deg, 
+                rgba(255,0,128,0.3), 
+                rgba(0,212,255,0.3), 
+                rgba(0,255,136,0.3), 
+                rgba(255,107,53,0.3), 
+                rgba(139,92,246,0.3),
+                rgba(255,0,128,0.3));
+            border-radius: 50%;
+            animation: art-explode 3s ease-out forwards;
+            pointer-events: none;
+        }
+        
+        @keyframes art-explode {
+            0% { transform: scale(0) rotate(0deg); opacity: 1; }
+            100% { transform: scale(3) rotate(720deg); opacity: 0; }
+        }
+        
+        .consciousness-text {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            font-weight: 300;
+            animation: consciousness-emerge 5s ease-out forwards;
+            pointer-events: none;
+        }
+        
+        @keyframes consciousness-emerge {
+            0% { opacity: 0; transform: translateY(50px) scale(0.5); }
+            50% { opacity: 1; transform: translateY(0px) scale(1); }
+            100% { opacity: 0; transform: translateY(-50px) scale(1.2); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Quantum Cursor -->
+    <div class="quantum-cursor" id="cursor"></div>
+    
+    <!-- Dimension Navigation -->
+    <div class="dimension-nav">
+        <div class="nav-orb active" onclick="switchDimension(0)">0</div>
+        <div class="nav-orb" onclick="switchDimension(1)">1</div>
+        <div class="nav-orb" onclick="switchDimension(2)">2</div>
+        <div class="nav-orb" onclick="switchDimension(3)">3</div>
+        <div class="nav-orb" onclick="switchDimension(4)">4</div>
+    </div>
+    
+    <!-- 5D Dimensions -->
+    <div class="dimension dimension-0" id="dim-0"></div>
+    <div class="dimension dimension-1" id="dim-1"></div>
+    <div class="dimension dimension-2" id="dim-2"></div>
+    <div class="dimension dimension-3" id="dim-3"></div>
+    <div class="dimension dimension-4" id="dim-4"></div>
+
+    <script>
+        class FiveDimensionalExperience {
+            constructor() {
+                this.currentDimension = 0;
+                this.dimensions = [];
+                this.cursor = document.getElementById('cursor');
+                this.mouseTrail = [];
+                this.artNodes = [];
+                this.init();
+            }
+            
+            init() {
+                this.setupDimensions();
+                this.setupEventListeners();
+                this.createParticleSystem();
+                this.animate();
+            }
+            
+            setupDimensions() {
+                const dimensionData = [
+                    { 
+                        name: 'Consciousness', 
+                        nodes: [
+                            { emoji: '🧠', concept: 'Pure\nThought', x: 0.5, y: 0.3 },
+                            { emoji: '💭', concept: 'Dream\nState', x: 0.2, y: 0.6 },
+                            { emoji: '🔮', concept: 'Future\nVision', x: 0.8, y: 0.7 }
+                        ]
+                    },
+                    { 
+                        name: 'Creativity', 
+                        nodes: [
+                            { emoji: '🎨', concept: 'Infinite\nCanvas', x: 0.3, y: 0.4 },
+                            { emoji: '🌈', concept: 'Color\nConsciousness', x: 0.7, y: 0.2 },
+                            { emoji: '✨', concept: 'Magic\nMoments', x: 0.6, y: 0.8 }
+                        ]
+                    },
+                    { 
+                        name: 'Time', 
+                        nodes: [
+                            { emoji: '⏰', concept: 'Now\nMoment', x: 0.5, y: 0.5 },
+                            { emoji: '🌀', concept: 'Time\nSpiral', x: 0.2, y: 0.3 },
+                            { emoji: '🔄', concept: 'Eternal\nReturn', x: 0.8, y: 0.6 }
+                        ]
+                    },
+                    { 
+                        name: 'Reality', 
+                        nodes: [
+                            { emoji: '🌌', concept: 'Infinite\nSpace', x: 0.4, y: 0.2 },
+                            { emoji: '⚛️', concept: 'Quantum\nField', x: 0.6, y: 0.7 },
+                            { emoji: '🕳️', concept: 'Void\nPotential', x: 0.3, y: 0.8 }
+                        ]
+                    },
+                    { 
+                        name: 'Unity', 
+                        nodes: [
+                            { emoji: '🕉️', concept: 'One\nness', x: 0.5, y: 0.5 },
+                            { emoji: '🌟', concept: 'Source\nLight', x: 0.3, y: 0.3 },
+                            { emoji: '💫', concept: 'Cosmic\nDance', x: 0.7, y: 0.7 }
+                        ]
+                    }
+                ];
+                
+                dimensionData.forEach((dimData, dimIndex) => {
+                    const dimension = document.getElementById(`dim-${dimIndex}`);
+                    
+                    // Add consciousness wave
+                    const wave = document.createElement('div');
+                    wave.className = 'consciousness-wave';
+                    wave.style.animationDelay = dimIndex * 0.5 + 's';
+                    dimension.appendChild(wave);
+                    
+                    // Add reality fractals
+                    for (let i = 0; i < 3; i++) {
+                        const fractal = document.createElement('div');
+                        fractal.className = 'reality-fractal';
+                        fractal.style.left = Math.random() * 80 + 10 + '%';
+                        fractal.style.top = Math.random() * 80 + 10 + '%';
+                        fractal.style.animationDelay = (dimIndex + i) * 2 + 's';
+                        dimension.appendChild(fractal);
+                    }
+                    
+                    // Add neural web
+                    const web = document.createElement('div');
+                    web.className = 'neural-web';
+                    dimension.appendChild(web);
+                    
+                    // Create art nodes
+                    dimData.nodes.forEach((nodeData, nodeIndex) => {
+                        const node = document.createElement('div');
+                        node.className = 'art-node';
+                        node.innerHTML = nodeData.emoji;
+                        node.style.left = nodeData.x * 100 + '%';
+                        node.style.top = nodeData.y * 100 + '%';
+                        node.style.animationDelay = nodeIndex * 0.5 + 's';
+                        
+                        node.addEventListener('click', () => this.activateArtNode(node, nodeData, dimIndex));
+                        node.addEventListener('mouseenter', () => this.showConcept(node, nodeData.concept));
+                        node.addEventListener('mouseleave', () => this.hideConcept());
+                        
+                        dimension.appendChild(node);
+                    });
+                    
+                    this.dimensions.push(dimension);
+                });
+            }
+            
+            activateArtNode(node, nodeData, dimIndex) {
+                // Create art explosion
+                const explosion = document.createElement('div');
+                explosion.className = 'art-explosion';
+                const rect = node.getBoundingClientRect();
+                explosion.style.left = (rect.left - 150) + 'px';
+                explosion.style.top = (rect.top - 150) + 'px';
+                document.body.appendChild(explosion);
+                setTimeout(() => explosion.remove(), 3000);
+                
+                // Generate consciousness text
+                const texts = [
+                    'Reality is consciousness experiencing itself',
+                    'Every thought creates a new universe',
+                    'Time is the canvas, consciousness the paint',
+                    'We are the universe becoming aware',
+                    'Creativity is the force that builds worlds'
+                ];
+                
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(() => {
+                        const text = document.createElement('div');
+                        text.className = 'consciousness-text';
+                        text.textContent = texts[Math.floor(Math.random() * texts.length)];
+                        text.style.left = Math.random() * window.innerWidth + 'px';
+                        text.style.top = Math.random() * window.innerHeight + 'px';
+                        document.body.appendChild(text);
+                        setTimeout(() => text.remove(), 5000);
+                    }, i * 200);
+                }
+                
+                // Connect to other dimensions
+                this.createInterdimensionalConnections(dimIndex);
+                
+                // Shift perspective
+                this.shiftPerspective();
+            }
+            
+            createInterdimensionalConnections(fromDim) {
+                for (let i = 0; i < 5; i++) {
+                    if (i !== fromDim) {
+                        const connection = document.createElement('div');
+                        connection.className = 'web-connection';
+                        connection.style.left = '0%';
+                        connection.style.top = Math.random() * 100 + '%';
+                        connection.style.width = '100%';
+                        connection.style.animationDelay = i * 0.2 + 's';
+                        this.dimensions[i].querySelector('.neural-web').appendChild(connection);
+                        setTimeout(() => connection.remove(), 3000);
+                    }
+                }
+            }
+            
+            shiftPerspective() {
+                document.body.style.transform = `perspective(2000px) rotateX(${Math.random() * 20 - 10}deg) rotateY(${Math.random() * 20 - 10}deg)`;
+                setTimeout(() => {
+                    document.body.style.transform = '';
+                }, 2000);
+            }
+            
+            showConcept(node, concept) {
+                const sphere = document.createElement('div');
+                sphere.className = 'info-sphere active';
+                sphere.innerHTML = concept;
+                
+                const rect = node.getBoundingClientRect();
+                sphere.style.left = (rect.left - 75) + 'px';
+                sphere.style.top = (rect.top - 200) + 'px';
+                
+                document.body.appendChild(sphere);
+                this.currentConcept = sphere;
+            }
+            
+            hideConcept() {
+                if (this.currentConcept) {
+                    this.currentConcept.classList.remove('active');
+                    setTimeout(() => this.currentConcept?.remove(), 800);
+                }
+            }
+            
+            createParticleSystem() {
+                setInterval(() => {
+                    for (let i = 0; i < 3; i++) {
+                        const particle = document.createElement('div');
+                        particle.className = 'thought-particle';
+                        particle.style.left = Math.random() * 100 + '%';
+                        particle.style.animationDelay = i * 0.5 + 's';
+                        particle.style.animationDuration = (5 + Math.random() * 3) + 's';
+                        document.body.appendChild(particle);
+                        setTimeout(() => particle.remove(), 8000);
+                    }
+                }, 1000);
+            }
+            
+            setupEventListeners() {
+                // Quantum cursor
+                document.addEventListener('mousemove', (e) => {
+                    this.cursor.style.left = e.clientX - 15 + 'px';
+                    this.cursor.style.top = e.clientY - 15 + 'px';
+                    
+                    // Create trail
+                    this.createTrail(e.clientX, e.clientY);
+                });
+                
+                // Click to create reality distortions
+                document.addEventListener('click', (e) => {
+                    if (e.target === document.body) {
+                        this.createRealityRipple(e.clientX, e.clientY);
+                    }
+                });
+                
+                // Keyboard controls
+                document.addEventListener('keydown', (e) => {
+                    if (e.key >= '0' && e.key <= '4') {
+                        switchDimension(parseInt(e.key));
+                    }
+                });
+            }
+            
+            createTrail(x, y) {
+                const trail = document.createElement('div');
+                trail.className = 'creation-trail';
+                trail.style.left = x + 'px';
+                trail.style.top = y + 'px';
+                document.body.appendChild(trail);
+                setTimeout(() => trail.remove(), 1000);
+            }
+            
+            createRealityRipple(x, y) {
+                const ripple = document.createElement('div');
+                ripple.style.cssText = `
+                    position: absolute;
+                    left: ${x - 50}px;
+                    top: ${y - 50}px;
+                    width: 100px;
+                    height: 100px;
+                    border: 2px solid rgba(255, 255, 255, 0.5);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    animation: ripple-expand 2s ease-out forwards;
+                `;
+                document.body.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 2000);
+                
+                // Add ripple animation
+                if (!document.querySelector('#ripple-styles')) {
+                    const style = document.createElement('style');
+                    style.id = 'ripple-styles';
+                    style.textContent = `
+                        @keyframes ripple-expand {
+                            0% { transform: scale(0); opacity: 1; }
+                            100% { transform: scale(10); opacity: 0; }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                }
+            }
+            
+            animate() {
+                // Continuous animation loop for dynamic effects
+                requestAnimationFrame(() => this.animate());
+            }
+        }
+        
+        // Global functions
+        function switchDimension(dimIndex) {
+            // Update nav
+            document.querySelectorAll('.nav-orb').forEach((orb, i) => {
+                orb.classList.toggle('active', i === dimIndex);
+            });
+            
+            // Shift dimensions
+            document.querySelectorAll('.dimension').forEach((dim, i) => {
+                const offset = i - dimIndex;
+                dim.style.transform = `translateZ(${offset * -100}px) rotateY(${offset * 45}deg) rotateX(${offset * 15}deg)`;
+                dim.style.opacity = Math.max(0.1, 1 - Math.abs(offset) * 0.2);
+                dim.style.zIndex = 10 - Math.abs(offset);
+            });
+            
+            window.experience.currentDimension = dimIndex;
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            window.experience = new FiveDimensionalExperience();
+        });
+    </script>
+</body>
+</html>
