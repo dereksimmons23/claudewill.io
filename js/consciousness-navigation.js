@@ -73,30 +73,10 @@ class ConsciousnessNavigation {
     }
     
     createConsciousnessToggle() {
-        // Add consciousness mode toggle to existing header
-        const headerActions = document.querySelector('.header-actions');
-        if (headerActions) {
-            const toggleButton = document.createElement('button');
-            toggleButton.id = 'consciousness-toggle';
-            toggleButton.className = 'neural-button';
-            toggleButton.innerHTML = '🧠';
-            toggleButton.title = 'Enter Consciousness Mode';
-            toggleButton.style.cssText = `
-                width: 2.5rem;
-                height: 2.5rem;
-                border: 1px solid var(--border);
-                background: var(--surface);
-                border-radius: var(--radius-lg);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                transition: all var(--transition-fast);
-                font-size: 1.2rem;
-            `;
-            
-            toggleButton.addEventListener('click', () => this.toggleConsciousnessMode());
-            headerActions.appendChild(toggleButton);
+        // Use existing consciousness toggle button in header
+        const existingToggle = document.getElementById('consciousness-toggle');
+        if (existingToggle) {
+            existingToggle.addEventListener('click', () => this.toggleConsciousnessMode());
         }
     }
     
@@ -117,10 +97,11 @@ class ConsciousnessNavigation {
         
         // Update toggle button
         const toggle = document.getElementById('consciousness-toggle');
-        toggle.innerHTML = '🌟';
+        const icon = toggle.querySelector('i');
+        icon.setAttribute('data-lucide', 'sparkles');
         toggle.title = 'Exit Consciousness Mode';
-        toggle.style.background = 'var(--accent)';
-        toggle.style.color = 'white';
+        toggle.classList.add('active');
+        if (window.lucide) window.lucide.createIcons();
     }
     
     deactivateConsciousnessMode() {
@@ -135,10 +116,11 @@ class ConsciousnessNavigation {
         
         // Reset toggle button
         const toggle = document.getElementById('consciousness-toggle');
-        toggle.innerHTML = '🧠';
+        const icon = toggle.querySelector('i');
+        icon.setAttribute('data-lucide', 'brain-circuit');
         toggle.title = 'Enter Consciousness Mode';
-        toggle.style.background = 'var(--surface)';
-        toggle.style.color = 'var(--text-primary)';
+        toggle.classList.remove('active');
+        if (window.lucide) window.lucide.createIcons();
     }
     
     createConsciousnessOverlay() {

@@ -15,6 +15,7 @@
     <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
     <!-- Styles -->
     <link href="css/modern.css" rel="stylesheet">
@@ -41,18 +42,18 @@
 
     <!-- Header with wordmark and theme toggle -->
     <header class="site-header" aria-label="Site header">
-        <a href="/index.html" class="wordmark">
+        <a href="index.html" class="wordmark">
           <span class="wordmark-full">ClaudeWill</span>
-          <span class="wordmark-short">CW</span>
         </a>
         <div class="header-actions">
-            <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
+            <button id="consciousness-toggle" aria-label="Enter consciousness mode" title="Enter Consciousness Mode">
+                <i data-lucide="brain-circuit"></i>
             </button>
-            <button id="theme-toggle" aria-label="Toggle theme" tabindex="0">
-                <span class="material-icons theme-toggle-icon">light_mode</span>
+            <button id="theme-toggle" aria-label="Toggle theme" title="Toggle Light/Dark Mode">
+                <i data-lucide="sun"></i>
+            </button>
+            <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
+                <i data-lucide="menu"></i>
             </button>
         </div>
         <nav id="main-nav" class="hamburger-nav" aria-label="Main navigation">
@@ -295,6 +296,11 @@
     <script src="js/consciousness-navigation.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Lucide icons
+        if (window.lucide) {
+          lucide.createIcons();
+        }
+        
         new ClaudeWillWidget();
         
         // Initialize Consciousness Navigation

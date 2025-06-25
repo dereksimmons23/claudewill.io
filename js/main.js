@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('theme-toggle');
   
   if (themeToggle) {
-      const themeIcon = themeToggle.querySelector('.theme-toggle-icon');
+      const themeIcon = themeToggle.querySelector('i');
       
       // Check for saved theme preference with error handling
       let savedTheme = 'light';
@@ -41,7 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (savedTheme === 'dark') {
           document.body.classList.add('dark-theme');
           if (themeIcon) {
-              themeIcon.textContent = 'light_mode';
+              themeIcon.setAttribute('data-lucide', 'sun');
+              if (window.lucide) window.lucide.createIcons();
           }
       }
       
@@ -51,7 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
           
           if (document.body.classList.contains('dark-theme')) {
               if (themeIcon) {
-                  themeIcon.textContent = 'light_mode';
+                  themeIcon.setAttribute('data-lucide', 'sun');
+                  if (window.lucide) window.lucide.createIcons();
               }
               try {
                   localStorage.setItem('theme', 'dark');
@@ -60,7 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
               }
           } else {
               if (themeIcon) {
-                  themeIcon.textContent = 'dark_mode';
+                  themeIcon.setAttribute('data-lucide', 'moon');
+                  if (window.lucide) window.lucide.createIcons();
               }
               try {
                   localStorage.setItem('theme', 'light');
@@ -77,15 +80,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('hamburger-toggle');
   const nav = document.getElementById('main-nav');
   if (toggle && nav) {
+    const menuIcon = toggle.querySelector('i');
+    
     toggle.addEventListener('click', function() {
       const expanded = nav.classList.toggle('open');
       toggle.setAttribute('aria-expanded', expanded);
+      
+      // Update icon
+      if (menuIcon) {
+        menuIcon.setAttribute('data-lucide', expanded ? 'x' : 'menu');
+        if (window.lucide) window.lucide.createIcons();
+      }
     });
+    
     // Optional: close menu when clicking outside
     document.addEventListener('click', function(e) {
       if (!nav.contains(e.target) && !toggle.contains(e.target)) {
         nav.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
+        
+        // Reset icon
+        if (menuIcon) {
+          menuIcon.setAttribute('data-lucide', 'menu');
+          if (window.lucide) window.lucide.createIcons();
+        }
       }
     });
   }
