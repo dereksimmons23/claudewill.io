@@ -5,9 +5,10 @@ class ClaudeWillWidget {
     this.pageContexts = {
       '/pages/services.html': {
         context: 'services',
-        proactiveMessage: "I see you're looking at my services. I can help you identify which offering best fits your needs. Would you like to start a quick assessment?",
+        proactiveMessage: "I see you're exploring our services. Right now, I'm coordinating with 4 other AI systems to optimize your experience. Want to see how human-AI orchestration can transform your organization?",
         suggestedActions: [
-          { text: "Yes, start the assessment", action: "start_assessment" },
+          { text: "Show me the orchestration approach", action: "show_orchestration" },
+          { text: "Start service assessment", action: "start_assessment" },
           { text: "Just browsing", action: "close" }
         ]
       },
@@ -29,8 +30,12 @@ class ClaudeWillWidget {
       },
       'default': {
         context: 'general',
-        proactiveMessage: "Welcome! I'm here to help you navigate the site. What can I assist you with today?",
-        suggestedActions: []
+        proactiveMessage: "Welcome! You're seeing live human-AI orchestration in action. I'm part of a 5-system AI orchestra managing this site in real-time. Want to see how this revolutionary approach could transform your organization?",
+        suggestedActions: [
+          { text: "Show me the AI orchestration", action: "show_orchestration" },
+          { text: "Take the AI Readiness Assessment", action: "go_to_assessment" },
+          { text: "Just exploring", action: "close" }
+        ]
       }
     };
     this.currentContext = this.pageContexts.default;
@@ -235,6 +240,35 @@ class ClaudeWillWidget {
     this.container.querySelector('.suggested-actions').style.display = 'none';
 
     switch (action) {
+        case 'show_orchestration':
+            this.addMessage('user', "Show me the orchestration approach.");
+            this.addMessage('claude', "🎼 **Live AI Orchestra Status:**\\n\\n• Claude Sonnet (Strategy) - ACTIVE ✅\\n• Cursor AI (Development) - ACTIVE ✅\\n• GitHub (Deployment) - ACTIVE ✅\\n• Analytics (Monitoring) - MONITORING 📊\\n• Claude Will (Engagement) - ACTIVE ✅\\n\\nThis is Stage 4-5 complexity management. Most organizations struggle with just 2 AI systems, but we've documented managing 5+ simultaneously. This creates coordination overhead of 45-60% but enables unprecedented capability when done correctly.");
+            this.currentContext.suggestedActions = [
+                { text: "How can this help my organization?", action: "orchestration_benefits" },
+                { text: "What's the CW Standard approach?", action: "ask_cw_standard" },
+                { text: "Start service assessment", action: "start_assessment" }
+            ];
+            this.displaySuggestedActions();
+            break;
+        case 'orchestration_benefits':
+            this.addMessage('user', "How can this help my organization?");
+            this.addMessage('claude', "Organizations implementing AI without orchestration methodology see 2x speed improvements but hit coordination bottlenecks. With systematic human-AI orchestration, we've documented 2.5x revenue amplification and 67% response rates vs 15% industry average. The key is treating humans as the API between AI systems that can't communicate directly.");
+            this.currentContext.suggestedActions = [
+                { text: "I want to learn more", action: "start_assessment" },
+                { text: "Show me case studies", action: "view_research" },
+                { text: "Schedule consultation", action: "go_to_contact" }
+            ];
+            this.displaySuggestedActions();
+            break;
+        case 'view_research':
+            this.addMessage('user', "Show me case studies.");
+            this.addMessage('claude', "Here are three live research examples:\\n\\n📊 **ATS Decoder Project**: 67% response rate through systematic methodology vs 15% industry average\\n\\n🎼 **8-Hour AI Orchestra Session**: Documented coordination of Claude, Cursor, GitHub, Netlify, Copilot, Analytics & Gemini\\n\\n💧 **CW Standard Framework**: 'Water in the glass' approach to cutting through complexity paralysis\\n\\nThese aren't theoretical - they're live research with measurable results.");
+            this.currentContext.suggestedActions = [
+                { text: "This is exactly what we need", action: "go_to_contact" },
+                { text: "Tell me about implementation", action: "start_assessment" }
+            ];
+            this.displaySuggestedActions();
+            break;
         case 'start_assessment':
             this.addMessage('user', "Let's start the assessment.");
             this.startAssessment();
@@ -292,6 +326,13 @@ class ClaudeWillWidget {
                 { text: "Look at other options", action: "start_assessment" }
             ];
             this.displaySuggestedActions();
+            break;
+        case 'go_to_assessment':
+            this.addMessage('user', "Take me to the AI Readiness Assessment.");
+            this.addMessage('claude', "Perfect! The AI Readiness Assessment will help identify where you are in your AI journey and what frameworks would be most valuable. Redirecting you now...");
+            setTimeout(() => {
+                window.location.href = '/pages/assessment.html';
+            }, 2000);
             break;
         case 'go_to_contact':
             this.addMessage('user', "Let's schedule a consultation.");
