@@ -57,7 +57,7 @@
   right: 0;
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
   padding: var(--space-4) var(--space-5);
@@ -92,7 +92,7 @@
   max-width: calc(100vw - var(--space-12));
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-2xl);
   box-shadow: var(--glass-shadow);
@@ -257,19 +257,15 @@
 }
 
 .suggested-actions button:hover {
-  background: var(--accent);
+  background: rgba(255, 255, 255, 0.1);
   color: white;
-  border-color: var(--accent);
-  transform: translateY(-1px);
 }
 
 /* Modern Chat Input */
 .chat-input {
-  padding: var(--space-4) var(--space-6);
-  border-top: 1px solid var(--border-subtle);
-  background: var(--surface);
   display: flex;
-  gap: var(--space-3);
+  gap: var(--space-2);
+  margin-top: var(--space-4);
 }
 
 .chat-input input {
@@ -277,17 +273,15 @@
   padding: var(--space-3) var(--space-4);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  background: var(--background);
+  background: var(--surface);
   color: var(--text-primary);
   font-size: 0.875rem;
-  font-family: var(--font-sans);
-  transition: all var(--transition-fast);
 }
 
 .chat-input input:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
+  box-shadow: 0 0 0 3px rgb(59 130 246 / 10%);
 }
 
 .chat-input input::placeholder {
@@ -296,18 +290,14 @@
 
 .chat-input button {
   padding: var(--space-3) var(--space-4);
-  border: none;
   background: var(--accent);
   color: white;
+  border: none;
   border-radius: var(--radius-lg);
+  cursor: pointer;
   font-size: 0.875rem;
   font-weight: 500;
-  cursor: pointer;
   transition: all var(--transition-fast);
-  display: flex;
-  align-items: center;
-  gap: var(--space-1);
-  white-space: nowrap;
 }
 
 .chat-input button:hover {
@@ -320,7 +310,7 @@
 }
 
 /* Mobile Responsive */
-@media (max-width: 640px) {
+@media (width <= 640px) {
   .claude-will-widget {
     bottom: var(--space-4);
     right: var(--space-4);
@@ -355,7 +345,7 @@
 
 /* Dark Theme Adjustments */
 .dark-theme .widget-toggle {
-  box-shadow: var(--shadow-xl), 0 0 20px rgb(59 130 246 / 0.3);
+  box-shadow: var(--shadow-xl), 0 0 20px rgb(59 130 246 / 30%);
 }
 
 .dark-theme .widget-content {
