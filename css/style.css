@@ -560,6 +560,47 @@ body.dark-theme .suggestion-button:hover {
     100% { transform: rotate(360deg); }
 }
 
+/* AI Orchestration Demo Styles */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.framework-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.dark-theme .framework-card:hover {
+    box-shadow: 0 8px 32px rgba(248,245,242,0.1);
+}
+
+/* Responsive adjustments for AI orchestra */
+@media (width <= 768px) {
+    .ai-systems-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    .hero-section h1 span {
+        font-size: 1.8rem !important;
+    }
+}
+
+@media (width <= 480px) {
+    .ai-systems-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .frameworks-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
 /* Media queries */
 @media (width <= 600px) {
     .wordmark-full {
