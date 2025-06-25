@@ -160,6 +160,70 @@
         .cta h3 { margin-bottom: 1rem; color: var(--color-background); }
         .cta a { color: var(--color-background); text-decoration: underline; font-weight: bold; border-bottom: 2px solid rgba(255,255,255,0.3); transition: border-color 0.3s; }
         .cta a:hover { border-color: var(--color-background); }
+        /* Dark theme styles */
+        .dark-theme .assessment-question {
+            background: rgba(248, 245, 242, 0.05);
+            border-left-color: var(--color-accent);
+        }
+        .dark-theme .assessment-question h3 {
+            color: var(--color-primary);
+        }
+        .dark-theme .assessment-question p {
+            color: var(--color-text);
+        }
+        .dark-theme .option {
+            background: rgba(248, 245, 242, 0.03);
+            border-color: rgba(248, 245, 242, 0.2);
+            color: var(--color-text);
+        }
+        .dark-theme .option:hover {
+            background: rgba(248, 245, 242, 0.08);
+            border-color: var(--color-accent);
+        }
+        .dark-theme .option.selected {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: var(--color-background);
+        }
+        .dark-theme .result-content {
+            background: rgba(248, 245, 242, 0.03);
+            border-color: rgba(248, 245, 242, 0.2);
+            color: var(--color-text);
+        }
+        .dark-theme .progress-bar {
+            background: rgba(248, 245, 242, 0.1);
+        }
+        body.dark-theme .assessment-question {
+            background: rgba(248, 245, 242, 0.05);
+        }
+        body.dark-theme .assessment-question h3 {
+            color: var(--color-primary);
+        }
+        body.dark-theme .assessment-question p {
+            color: var(--color-text);
+        }
+        body.dark-theme .option {
+            background: rgba(248, 245, 242, 0.03);
+            border-color: rgba(248, 245, 242, 0.2);
+            color: var(--color-text);
+        }
+        body.dark-theme .option:hover {
+            background: rgba(248, 245, 242, 0.08);
+            border-color: var(--color-accent);
+        }
+        body.dark-theme .option.selected {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: var(--color-background);
+        }
+        body.dark-theme .result-content {
+            background: rgba(248, 245, 242, 0.03);
+            border-color: rgba(248, 245, 242, 0.2);
+            color: var(--color-text);
+        }
+        body.dark-theme .progress-bar {
+            background: rgba(248, 245, 242, 0.1);
+        }
         @media (max-width: 600px) {
             .assessment-question, .result-content, .recommendations, .cta { padding: 1rem; }
             .content { padding: 1.2rem 0.5rem !important; }
