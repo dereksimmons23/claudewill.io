@@ -1,0 +1,421 @@
+/* Modern Claude Will Widget - 2025 Design */
+
+.claude-will-widget {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  z-index: 1000;
+  font-family: var(--font-sans);
+}
+
+/* Modern Widget Toggle */
+.widget-toggle {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-full);
+  border: none;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-xl);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.widget-toggle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent), var(--emerald-500));
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.widget-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-2xl);
+}
+
+.widget-toggle:hover::before {
+  opacity: 1;
+}
+
+.widget-toggle .material-icons {
+  position: relative;
+  z-index: 1;
+  font-size: 1.5rem;
+}
+
+/* Modern Toast */
+.widget-toast {
+  position: absolute;
+  bottom: 4.5rem;
+  right: 0;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4) var(--space-5);
+  max-width: 280px;
+  box-shadow: var(--glass-shadow);
+  transform: translateY(10px) scale(0.95);
+  opacity: 0;
+  transition: all var(--transition-normal);
+  pointer-events: none;
+}
+
+.widget-toast.visible {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.widget-toast p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Modern Widget Content */
+.widget-content {
+  position: absolute;
+  bottom: 4.5rem;
+  right: 0;
+  width: 400px;
+  max-width: calc(100vw - var(--space-12));
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--glass-shadow);
+  transform: translateY(20px) scale(0.95);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.claude-will-widget.open .widget-content {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modern Header */
+.widget-header {
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+}
+
+.widget-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.widget-header h3::before {
+  content: '🎼';
+  font-size: 1.125rem;
+}
+
+.close-button {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: var(--surface-elevated);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.close-button:hover {
+  background: var(--border);
+  color: var(--text-primary);
+}
+
+/* Modern Widget Body */
+.widget-body {
+  padding: 0;
+  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Modern Chat Messages */
+.chat-messages {
+  flex: 1;
+  padding: var(--space-4) var(--space-6);
+  max-height: 400px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 4px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: var(--radius-full);
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* Modern Messages */
+.message {
+  margin-bottom: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.message-content {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-xl);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  max-width: 85%;
+  word-wrap: break-word;
+}
+
+.user-message .message-content {
+  background: var(--accent);
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: var(--radius-md);
+}
+
+.claude-message .message-content {
+  background: var(--surface-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-bottom-left-radius: var(--radius-md);
+}
+
+.message-time {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin: 0 var(--space-2);
+  align-self: flex-end;
+}
+
+.user-message .message-time {
+  align-self: flex-end;
+}
+
+.claude-message .message-time {
+  align-self: flex-start;
+}
+
+/* Modern Suggested Actions */
+.suggested-actions {
+  padding: 0 var(--space-6) var(--space-4);
+  display: none;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.suggested-actions button {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  border-radius: var(--radius-lg);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.suggested-actions button:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* Modern Chat Input */
+.chat-input {
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--border-subtle);
+  background: var(--surface);
+  display: flex;
+  gap: var(--space-3);
+}
+
+.chat-input input {
+  flex: 1;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--background);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-family: var(--font-sans);
+  transition: all var(--transition-fast);
+}
+
+.chat-input input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
+}
+
+.chat-input input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.chat-input button {
+  padding: var(--space-3) var(--space-4);
+  border: none;
+  background: var(--accent);
+  color: white;
+  border-radius: var(--radius-lg);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  white-space: nowrap;
+}
+
+.chat-input button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.chat-input button:active {
+  transform: translateY(0);
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+  .claude-will-widget {
+    bottom: var(--space-4);
+    right: var(--space-4);
+  }
+  
+  .widget-content {
+    width: calc(100vw - var(--space-8));
+    max-width: none;
+  }
+  
+  .widget-toggle {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .widget-toggle .material-icons {
+    font-size: 1.25rem;
+  }
+  
+  .chat-messages {
+    max-height: 300px;
+  }
+  
+  .chat-input {
+    flex-direction: column;
+  }
+  
+  .chat-input button {
+    justify-content: center;
+  }
+}
+
+/* Dark Theme Adjustments */
+.dark-theme .widget-toggle {
+  box-shadow: var(--shadow-xl), 0 0 20px rgb(59 130 246 / 0.3);
+}
+
+.dark-theme .widget-content {
+  background: var(--glass-bg);
+  border-color: var(--glass-border);
+}
+
+.dark-theme .widget-header {
+  background: var(--surface);
+  border-bottom-color: var(--border);
+}
+
+.dark-theme .chat-input {
+  background: var(--surface);
+  border-top-color: var(--border);
+}
+
+/* Animation for typing indicator */
+@keyframes typing {
+  0%, 60%, 100% { opacity: 0.3; }
+  30% { opacity: 1; }
+}
+
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: var(--space-3) var(--space-4);
+}
+
+.typing-indicator span {
+  width: 6px;
+  height: 6px;
+  background: var(--text-tertiary);
+  border-radius: var(--radius-full);
+  animation: typing 1.4s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Status indicators for AI orchestra */
+.ai-status-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin: var(--space-2) 0;
+}
+
+.ai-status-mini::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--emerald-500);
+  animation: pulse 2s infinite;
+}
