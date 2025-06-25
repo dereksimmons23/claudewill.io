@@ -277,6 +277,12 @@
             <div class="progress-bar" style="height: 6px; background: var(--color-border, #ecf0f1); border-radius: 3px; margin-bottom: 2rem; overflow: hidden;">
                 <div class="progress" id="progressBar" style="height: 100%; background: linear-gradient(90deg, var(--color-accent), var(--color-primary)); border-radius: 3px; transition: width 0.5s ease; width: 0;"></div>
             </div>
+            <!-- Add progress indicator with question numbers -->
+            <div class="progress-indicator" style="text-align: center; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--color-text); opacity: 0.8;">
+                <span id="progressText">Question <span id="currentQuestion">0</span> of 5 completed</span>
+                <!-- Optional: Add estimated time remaining -->
+                <span style="margin-left: 1rem;" id="timeEstimate">Estimated time: 3-4 minutes</span>
+            </div>
             <form id="assessment-form">
                 <!-- All questions visible at once -->
                 <div class="assessment-question" data-question="1">
