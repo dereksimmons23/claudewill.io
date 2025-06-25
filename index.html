@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <!-- Styles -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/modern.css" rel="stylesheet">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
@@ -87,41 +87,51 @@
                     </div>
                     
                     <!-- Live Orchestration Visualization -->
-                    <div class="orchestration-demo" style="background: rgba(248,245,242,0.1); padding: 2rem; border-radius: 12px; margin-bottom: 2rem; border: 1px solid rgba(248,245,242,0.2);">
-                        <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--iron-range); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">Live AI Orchestra Status</h3>
+                    <div class="orchestration-demo">
+                        <h3 style="text-align: center; margin-bottom: var(--space-6); color: var(--accent); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Live AI Orchestra Status</h3>
                         <div class="ai-systems-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
-                            <div class="ai-system" style="text-align: center; padding: 1rem; background: rgba(248,245,242,0.05); border-radius: 8px; border: 1px solid rgba(248,245,242,0.15);">
-                                <div class="status-indicator" style="width: 8px; height: 8px; border-radius: 50%; background: #2ecc71; margin: 0 auto 0.5rem; animation: pulse 2s infinite;"></div>
+                            <div class="ai-system">
+                                <div class="status-indicator status-active"></div>
                                 <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">Claude Sonnet</div>
-                                <div style="font-size: 0.75rem; opacity: 0.8;">Strategy</div>
+                                <div style="font-size: 0.75rem; color: var(--text-tertiary);">Strategy</div>
                             </div>
-                            <div class="ai-system" style="text-align: center; padding: 1rem; background: rgba(248,245,242,0.05); border-radius: 8px; border: 1px solid rgba(248,245,242,0.15);">
-                                <div class="status-indicator" style="width: 8px; height: 8px; border-radius: 50%; background: #2ecc71; margin: 0 auto 0.5rem; animation: pulse 2s infinite;"></div>
+                            <div class="ai-system">
+                                <div class="status-indicator status-active"></div>
                                 <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">Cursor AI</div>
-                                <div style="font-size: 0.75rem; opacity: 0.8;">Development</div>
+                                <div style="font-size: 0.75rem; color: var(--text-tertiary);">Development</div>
                             </div>
-                            <div class="ai-system" style="text-align: center; padding: 1rem; background: rgba(248,245,242,0.05); border-radius: 8px; border: 1px solid rgba(248,245,242,0.15);">
-                                <div class="status-indicator" style="width: 8px; height: 8px; border-radius: 50%; background: #2ecc71; margin: 0 auto 0.5rem; animation: pulse 2s infinite;"></div>
+                            <div class="ai-system">
+                                <div class="status-indicator status-active"></div>
                                 <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">GitHub</div>
-                                <div style="font-size: 0.75rem; opacity: 0.8;">Deployment</div>
+                                <div style="font-size: 0.75rem; color: var(--text-tertiary);">Deployment</div>
                             </div>
-                            <div class="ai-system" style="text-align: center; padding: 1rem; background: rgba(248,245,242,0.05); border-radius: 8px; border: 1px solid rgba(248,245,242,0.15);">
-                                <div class="status-indicator" style="width: 8px; height: 8px; border-radius: 50%; background: #f39c12; margin: 0 auto 0.5rem; animation: pulse 2s infinite;"></div>
+                            <div class="ai-system">
+                                <div class="status-indicator status-monitoring"></div>
                                 <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">Analytics</div>
-                                <div style="font-size: 0.75rem; opacity: 0.8;">Monitoring</div>
+                                <div style="font-size: 0.75rem; color: var(--text-tertiary);">Monitoring</div>
                             </div>
-                            <div class="ai-system" style="text-align: center; padding: 1rem; background: rgba(248,245,242,0.05); border-radius: 8px; border: 1px solid rgba(248,245,242,0.15);">
-                                <div class="status-indicator" style="width: 8px; height: 8px; border-radius: 50%; background: #2ecc71; margin: 0 auto 0.5rem; animation: pulse 2s infinite;"></div>
+                            <div class="ai-system">
+                                <div class="status-indicator status-active"></div>
                                 <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">Claude Will</div>
-                                <div style="font-size: 0.75rem; opacity: 0.8;">Engagement</div>
+                                <div style="font-size: 0.75rem; color: var(--text-tertiary);">Engagement</div>
                             </div>
                         </div>
-                        <div style="text-align: center; font-size: 0.9rem; opacity: 0.9;">🎼 <strong>Human Conductor:</strong> Managing 5 AI systems building this site in real-time</div>
+                        <div style="text-align: center; font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">
+                            <span style="font-size: 1.25rem; margin-right: var(--space-2);">🎼</span>
+                            <strong>Human Conductor:</strong> Managing 5 AI systems building this site in real-time
+                        </div>
                     </div>
                     
-                    <div class="hero-actions" style="display: flex; gap: 1.5rem; justify-content: center; align-items: center; flex-wrap: wrap;">
-                        <a href="pages/assessment.html" class="btn btn-accent" style="padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600; background: var(--iron-range); color: white; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 16px rgba(163,62,16,0.3); transition: all 0.3s;">Experience the Assessment</a>
-                        <a href="#frameworks" class="btn btn-secondary" style="padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600; background: rgba(248,245,242,0.2); color: white; border: 2px solid rgba(248,245,242,0.4); border-radius: 8px; text-decoration: none; transition: all 0.3s;">See the Frameworks</a>
+                    <div class="hero-actions" style="display: flex; gap: var(--space-4); justify-content: center; align-items: center; flex-wrap: wrap; margin-top: var(--space-8);">
+                        <a href="pages/assessment.html" class="btn btn-primary" style="padding: var(--space-4) var(--space-8); font-size: 1rem;">
+                            <span>Experience the Assessment</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14m-7-7 7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="#frameworks" class="btn btn-secondary" style="padding: var(--space-4) var(--space-8); font-size: 1rem;">
+                            See the Frameworks
+                        </a>
                     </div>
                 </div>
             </div>
@@ -286,4 +296,5 @@
       });
     </script>
 </body>
+</html>
 </html>
