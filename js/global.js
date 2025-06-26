@@ -15,26 +15,32 @@ function initThemeToggle() {
 
   const themeIcon = themeToggle.querySelector('i');
   
-  // Check for saved theme preference
-  let savedTheme = 'light';
+  // Check for saved theme preference (default to dark mode)
+  let savedTheme = 'dark';
   try {
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme) {
       savedTheme = storedTheme;
     } else {
-      // Check for system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      savedTheme = prefersDark ? 'dark' : 'light';
+      // Default to dark mode since it's the most stable
+      savedTheme = 'dark';
     }
   } catch (error) {
-    console.log('Unable to access localStorage. Using default theme.');
+    console.log('Unable to access localStorage. Using default dark theme.');
   }
   
-  // Apply saved theme
+  // Apply theme (default to dark mode)
   if (savedTheme === 'dark') {
     document.body.classList.add('dark-theme');
     if (themeIcon) {
       themeIcon.setAttribute('data-lucide', 'sun');
+      if (window.lucide) window.lucide.createIcons();
+    }
+  } else {
+    // Light mode
+    document.body.classList.remove('dark-theme');
+    if (themeIcon) {
+      themeIcon.setAttribute('data-lucide', 'moon');
       if (window.lucide) window.lucide.createIcons();
     }
   }
