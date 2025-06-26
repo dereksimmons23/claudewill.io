@@ -84,11 +84,15 @@ class SpaceOrbGame {
         
         // Update toggle button
         const toggle = document.getElementById('consciousness-toggle');
-        const icon = toggle.querySelector('i');
-        icon.setAttribute('data-lucide', 'target');
-        toggle.title = 'Exit Space Game';
-        toggle.classList.add('active');
-        if (window.lucide) window.lucide.createIcons();
+        if (toggle) {
+            const icon = toggle.querySelector('i');
+            if (icon) {
+                icon.setAttribute('data-lucide', 'target');
+            }
+            toggle.title = 'Exit Space Game';
+            toggle.classList.add('active');
+            if (window.lucide) window.lucide.createIcons();
+        }
         
         this.createGameContainer();
         this.createCrosshair();
@@ -104,11 +108,15 @@ class SpaceOrbGame {
         
         // Reset toggle button
         const toggle = document.getElementById('consciousness-toggle');
-        const icon = toggle.querySelector('i');
-        icon.setAttribute('data-lucide', 'play');
-        toggle.title = 'Enter Space Game';
-        toggle.classList.remove('active');
-        if (window.lucide) window.lucide.createIcons();
+        if (toggle) {
+            const icon = toggle.querySelector('i');
+            if (icon) {
+                icon.setAttribute('data-lucide', 'play');
+            }
+            toggle.title = 'Enter Space Game';
+            toggle.classList.remove('active');
+            if (window.lucide) window.lucide.createIcons();
+        }
         
         if (this.gameContainer) {
             this.gameContainer.remove();

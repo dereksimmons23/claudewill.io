@@ -104,12 +104,8 @@ function initHamburgerMenu() {
 
 // Consciousness Toggle (for homepage only)
 function initConsciousnessToggle() {
-  const consciousnessToggle = document.getElementById('consciousness-toggle');
-  if (!consciousnessToggle) return;
-  
-  // Don't interfere with consciousness-navigation.js
-  // The SpaceOrbGame class handles its own initialization
-  // This function is kept for compatibility but does nothing
+  // Completely removed to avoid conflicts with consciousness-navigation.js
+  // The SpaceOrbGame class handles the consciousness toggle button entirely
 }
 
 // Loading Screen
