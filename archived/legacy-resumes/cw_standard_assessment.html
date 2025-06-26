@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The CW Standard: AI Readiness Assessment</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-489087353"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-489087353');
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        function submitToNetlify(profile, totalScore, percentage, answers) {
+            const formData = new FormData();
+            formData.append('form-name', 'assessment-results');
+            formData.append('profile', profile);
+            formData.append('score', totalScore);
+            formData.append('percentage', percentage + '%');
+            formData.append('timestamp', new Date().toLocaleString());
+            formData.append('answers', JSON.stringify(answers));
+            
+            fetch('/', {
+                method: 'POST',
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
+            }).catch(error => {
+                console.log('Form submission error:', error);
+                // Assessment still works even if notification fails
+            });
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+            color: #555;
+        }
+        
+        .question-container {
+            display: none;
+            margin-bottom: 30px;
+        }
+        
+        .question-container.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .question {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 20px;
+        }
+        
+        .question h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .question p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .options {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .option {
+            padding: 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .option:hover {
+            border-color: #3498db;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+        }
+        
+        .option.selected {
+            border-color: #2c3e50;
+            background: #2c3e50;
+            color: white;
+        }
+        
+        .option .option-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .option .option-desc {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background: #ecf0f1;
+            border-radius: 3px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2c3e50);
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+        
+        .results {
+            display: none;
+            text-align: center;
+        }
+        
+        .results.show {
+            display: block;
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        .score-circle {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3em;
+            font-weight: bold;
+            position: relative;
+        }
+        
+        .score-pioneer { background: linear-gradient(135deg, #27ae60, #2ecc71); }
+        .score-builder { background: linear-gradient(135deg, #3498db, #5dade2); }
+        .score-explorer { background: linear-gradient(135deg, #f39c12, #f7dc6f); }
+        .score-starter { background: linear-gradient(135deg, #e74c3c, #ec7063); }
+        
+        .result-content {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .recommendations {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        
+        .cta {
+            background: #3498db;
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .cta h3 {
+            margin-bottom: 15px;
+        }
+        
+        .cta a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            transition: border-color 0.3s ease;
+        }
+        
+        .cta a:hover {
+            border-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>The CW Standard</h1>
+            <div class="subtitle">AI Readiness Assessment</div>
+        </div>
+        
+        <div class="content">
+            <!-- Netlify spam protection -->
+            <p hidden>
+                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </p>
+            
+            <div class="intro">
+                <p><strong>Making complicated transitions less painful.</strong></p>
+                <p>This assessment evaluates your readiness for authentic AI collaboration based on The CW Standard framework. Take 5 minutes to discover your AI collaboration profile and get personalized recommendations.</p>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+            
+            <!-- Question 1 -->
+            <div class="question-container active" data-question="1">
+                <div class="question">
+                    <h3>How do you currently approach AI tools?</h3>
+                    <p>Understanding your starting mindset helps identify the best collaboration pathway.</p>
+                </div>
+                <div class="options">
+                    <div class="option" data-value="4">
+                        <div class="option-title">Strategic Partner</div>
+                        <div class="option-desc">I use AI as a thinking partner for complex problems and creative challenges</div>
+                    </div>
+                    <div class="option" data-value="3">
+                        <div class="option-title">Practical Tool</div>
+                        <div class="option-desc">I use AI for specific tasks like writing, research, and productivity</div>
+                    </div>
+                    <div class="option" data-value="2">
+                        <div class="option-title">Curious Observer</div>
+                        <div class="option-desc">I'm interested but haven't found consistent value yet</div>
+                    </div>
+                    <div class="option" data-value="1">
+                        <div class="option-title">Skeptical Newcomer</div>
+                        <div class="option-desc">I'm new to AI or have concerns about its reliability</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 2 -->
+            <div class="question-container" data-question="2">
+                <div class="question">
+                    <h3>When facing a complex decision, what's your natural approach?</h3>
+                    <p>The CW Standard emphasizes authentic decision-making that aligns with your values.</p>
+                </div>
+                <div class="options">
+                    <div class="option" data-value="4">
+                        <div class="option-title">Systems Thinking</div>
+                        <div class="option-desc">I map out multiple perspectives, potential outcomes, and underlying patterns</div>
+                    </div>
+                    <div class="option" data-value="3">
+                        <div class="option-title">Collaborative Analysis</div>
+                        <div class="option-desc">I gather input from multiple sources and stakeholders before deciding</div>
+                    </div>
+                    <div class="option" data-value="2">
+                        <div class="option-title">Intuitive Processing</div>
+                        <div class="option-desc">I reflect internally and trust my experience and gut instincts</div>
+                    </div>
+                    <div class="option" data-value="1">
+                        <div class="option-title">Quick Decision</div>
+                        <div class="option-desc">I prefer to decide quickly and adjust as needed</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 3 -->
+            <div class="question-container" data-question="3">
+                <div class="question">
+                    <h3>How comfortable are you with uncertainty and experimentation?</h3>
+                    <p>AI collaboration often involves exploring unknown territory and iterating on approaches.</p>
+                </div>
+                <div class="options">
+                    <div class="option" data-value="4">
+                        <div class="option-title">Thrive in Ambiguity</div>
+                        <div class="option-desc">I'm energized by exploring undefined problems and creating new solutions</div>
+                    </div>
+                    <div class="option" data-value="3">
+                        <div class="option-title">Comfortable Experimenting</div>
+                        <div class="option-desc">I'm willing to try new approaches if there's potential value</div>
+                    </div>
+                    <div class="option" data-value="2">
+                        <div class="option-title">Cautious Explorer</div>
+                        <div class="option-desc">I prefer some structure but can adapt when necessary</div>
+                    </div>
+                    <div class="option" data-value="1">
+                        <div class="option-title">Need Clear Direction</div>
+                        <div class="option-desc">I work best with clear guidelines and proven approaches</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 4 -->
+            <div class="question-container" data-question="4">
+                <div class="question">
+                    <h3>What's your biggest challenge with current workflows?</h3>
+                    <p>Understanding your pain points helps identify where AI collaboration can add the most value.</p>
+                </div>
+                <div class="options">
+                    <div class="option" data-value="4">
+                        <div class="option-title">Strategic Thinking Time</div>
+                        <div class="option-desc">Too much administrative work prevents focus on high-value strategic thinking</div>
+                    </div>
+                    <div class="option" data-value="3">
+                        <div class="option-title">Information Overload</div>
+                        <div class="option-desc">Difficulty processing and synthesizing large amounts of information quickly</div>
+                    </div>
+                    <div class="option" data-value="2">
+                        <div class="option-title">Collaboration Friction</div>
+                        <div class="option-desc">Challenges coordinating with teams and managing different perspectives</div>
+                    </div>
+                    <div class="option" data-value="1">
+                        <div class="option-title">Task Management</div>
+                        <div class="option-desc">Staying organized and keeping track of multiple projects and deadlines</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 5 -->
+            <div class="question-container" data-question="5">
+                <div class="question">
+                    <h3>How do you prefer to learn new skills or approaches?</h3>
+                    <p>The CW Standard methodology adapts to different learning and development styles.</p>
+                </div>
+                <div class="options">
+                    <div class="option" data-value="4">
+                        <div class="option-title">Active Experimentation</div>
+                        <div class="option-desc">I learn best by diving in, testing approaches, and iterating based on results</div>
+                    </div>
+                    <div class="option" data-value="3">
+                        <div class="option-title">Guided Practice</div>
+                        <div class="option-desc">I like frameworks and examples, then practice with feedback</div>
+                    </div>
+                    <div class="option" data-value="2">
+                        <div class="option-title">Structured Learning</div>
+                        <div class="option-desc">I prefer step-by-step instruction and clear documentation</div>
+                    </div>
+                    <div class="option" data-value="1">
+                        <div class="option-title">Observation First</div>
+                        <div class="option-desc">I like to watch others demonstrate before trying myself</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="btn btn-secondary" id="prevBtn" style="display: none;">Previous</button>
+                <button class="btn btn-primary" id="nextBtn" disabled>Next Question</button>
+                <button class="btn btn-primary" id="getResults" style="display: none;">Get My Results</button>
+            </div>
+            
+            <!-- Results Section -->
+            <!-- Hidden Netlify Form for Results -->
+            <form name="assessment-results" netlify netlify-honeypot="bot-field" hidden>
+                <input type="text" name="profile" />
+                <input type="text" name="score" />
+                <input type="text" name="percentage" />
+                <input type="text" name="timestamp" />
+                <input type="text" name="answers" />
+            </form>
+
+            <div class="results" id="results">
+                <div id="scoreDisplay"></div>
+                <div id="resultContent"></div>
+                
+                <div class="cta">
+                    <h3>Ready to Implement The CW Standard?</h3>
+                    <p>Connect with Derek Claude Simmons to develop your personalized AI collaboration strategy.</p>
+                    <p><a href="https://claudewill.io" target="_blank">Learn More at claudewill.io</a> | <a href="https://derek4thecws.substack.com" target="_blank">Subscribe to Standard Correspondence</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        let answers = {};
+        const totalQuestions = 5;
+        
+        // Question and option selection
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                const container = this.closest('.question-container');
+                const questionNum = container.dataset.question;
+                
+                // Remove previous selection
+                container.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selection to clicked option
+                this.classList.add('selected');
+                
+                // Store answer
+                answers[questionNum] = parseInt(this.dataset.value);
+                
+                // Enable next button
+                document.getElementById('nextBtn').disabled = false;
+                
+                if (currentQuestion === totalQuestions) {
+                    document.getElementById('getResults').style.display = 'inline-block';
+                    document.getElementById('nextBtn').style.display = 'none';
+                }
+            });
+        });
+        
+        // Navigation
+        document.getElementById('nextBtn').addEventListener('click', function() {
+            if (currentQuestion < totalQuestions) {
+                // Hide current question
+                document.querySelector(`[data-question="${currentQuestion}"]`).classList.remove('active');
+                
+                // Show next question
+                currentQuestion++;
+                document.querySelector(`[data-question="${currentQuestion}"]`).classList.add('active');
+                
+                // Update progress
+                updateProgress();
+                
+                // Update navigation
+                document.getElementById('prevBtn').style.display = 'inline-block';
+                this.disabled = !answers[currentQuestion];
+                
+                if (currentQuestion === totalQuestions && answers[currentQuestion]) {
+                    document.getElementById('getResults').style.display = 'inline-block';
+                    this.style.display = 'none';
+                }
+            }
+        });
+        
+        document.getElementById('prevBtn').addEventListener('click', function() {
+            if (currentQuestion > 1) {
+                // Hide current question
+                document.querySelector(`[data-question="${currentQuestion}"]`).classList.remove('active');
+                
+                // Show previous question
+                currentQuestion--;
+                document.querySelector(`[data-question="${currentQuestion}"]`).classList.add('active');
+                
+                // Update progress
+                updateProgress();
+                
+                // Update navigation
+                if (currentQuestion === 1) {
+                    this.style.display = 'none';
+                }
+                
+                document.getElementById('nextBtn').style.display = 'inline-block';
+                document.getElementById('nextBtn').disabled = false;
+                document.getElementById('getResults').style.display = 'none';
+            }
+        });
+        
+        document.getElementById('getResults').addEventListener('click', showResults);
+        
+        function updateProgress() {
+            const progress = (currentQuestion / totalQuestions) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+        
+        function showResults() {
+            // Calculate total score
+            const totalScore = Object.values(answers).reduce((sum, value) => sum + value, 0);
+            const maxScore = totalQuestions * 4;
+            const percentage = Math.round((totalScore / maxScore) * 100);
+            
+            // Hide questions, show results
+            document.querySelectorAll('.question-container').forEach(q => q.style.display = 'none');
+            document.querySelector('.navigation').style.display = 'none';
+            document.getElementById('results').classList.add('show');
+            
+            // Determine profile and recommendations
+            let profile, description, recommendations, scoreClass;
+            
+            if (percentage >= 85) {
+                profile = "AI Pioneer";
+                scoreClass = "score-pioneer";
+                description = "You're ready for advanced AI collaboration and could benefit from developing proprietary frameworks and training others.";
+                recommendations = [
+                    "Focus on building custom AI workflows and methodologies",
+                    "Consider developing training programs for your organization",
+                    "Explore advanced prompt engineering and model fine-tuning",
+                    "Document your processes to create intellectual property"
+                ];
+            } else if (percentage >= 70) {
+                profile = "Strategic Builder";
+                scoreClass = "score-builder";
+                description = "You have strong foundations for AI collaboration and are ready to implement systematic approaches.";
+                recommendations = [
+                    "Develop consistent AI collaboration workflows",
+                    "Create templates and frameworks for repeated use",
+                    "Focus on measuring and optimizing AI-assisted outcomes",
+                    "Begin training team members on effective AI collaboration"
+                ];
+            } else if (percentage >= 55) {
+                profile = "Thoughtful Explorer";
+                scoreClass = "score-explorer";
+                description = "You're building AI capabilities and would benefit from structured learning and practice.";
+                recommendations = [
+                    "Start with specific, defined AI collaboration projects",
+                    "Focus on one or two AI tools to build proficiency",
+                    "Practice prompt engineering with clear objectives",
+                    "Join AI collaboration communities and learning groups"
+                ];
+            } else {
+                profile = "Smart Starter";
+                scoreClass = "score-starter";
+                description = "You're beginning your AI journey and would benefit from foundational training and guided practice.";
+                recommendations = [
+                    "Begin with simple, low-risk AI collaboration tasks",
+                    "Focus on understanding AI capabilities and limitations",
+                    "Learn basic prompt engineering principles",
+                    "Consider formal AI literacy training or coaching"
+                ];
+            }
+            
+            // Track completion in Google Analytics
+            gtag('event', 'assessment_completed', {
+                'profile': profile,
+                'score_percentage': percentage,
+                'total_score': totalScore
+            });
+            
+            // Submit results to Netlify for email notification
+            submitToNetlify(profile, totalScore, percentage, answers);
+            
+            // Display results
+            document.getElementById('scoreDisplay').innerHTML = `
+                <div class="score-circle ${scoreClass}">${percentage}%</div>
+                <h2>Your AI Collaboration Profile: ${profile}</h2>
+            `;
+            
+            document.getElementById('resultContent').innerHTML = `
+                <div class="result-content">
+                    <h3>What This Means</h3>
+                    <p>${description}</p>
+                    
+                    <div class="recommendations">
+                        <h3>Your CW Standard Recommendations</h3>
+                        <ul style="text-align: left; margin-left: 20px;">
+                            ${recommendations.map(rec => `<li style="margin: 10px 0;">${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

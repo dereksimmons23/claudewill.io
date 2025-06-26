@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Frameworks & Business Innovation | Derek Simmons</title>
+    <meta name="description" content="Proven frameworks and methodologies that generate measurable business results through strategic technology implementation and cross-domain innovation">
+    
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+    <style>
+        /* Page specific styles */
+        .projects-hero {
+            padding: var(--space-8) 0;
+            text-align: center;
+        }
+        
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+            border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-2);
+        }
+        
+        .tab-button {
+            padding: var(--space-2) var(--space-4);
+            background: none;
+            border: none;
+            font-family: var(--font-primary);
+            font-weight: var(--weight-medium);
+            color: var(--color-text);
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+        }
+        
+        .tab-button:hover {
+            opacity: 1;
+        }
+        
+        .tab-button.active {
+            border-bottom: 2px solid var(--color-accent);
+            opacity: 1;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .framework-card {
+            padding: var(--space-6);
+            border-radius: 12px;
+            background-color: rgba(56, 96, 110, 0.05);
+            border: 1px solid rgba(56, 96, 110, 0.2);
+            border-left: 4px solid var(--color-primary);
+            margin-bottom: var(--space-6);
+        }
+        
+        .framework-card h3 {
+            margin-bottom: var(--space-3);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: var(--text-xl);
+            color: var(--color-primary);
+        }
+        
+        .framework-card .material-icons {
+            color: var(--color-primary);
+        }
+        
+        .framework-overview {
+            margin-bottom: var(--space-4);
+            font-size: var(--text-lg);
+            line-height: 1.6;
+        }
+        
+        .business-impact {
+            background-color: rgba(56, 96, 110, 0.1);
+            padding: var(--space-4);
+            border-radius: 8px;
+            margin: var(--space-4) 0;
+        }
+        
+        .business-impact h4 {
+            color: var(--color-accent);
+            font-weight: var(--weight-bold);
+            margin-bottom: var(--space-2);
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-3);
+            margin: var(--space-3) 0;
+        }
+        
+        .metric-item {
+            text-align: center;
+            padding: var(--space-2);
+        }
+        
+        .metric-number {
+            font-size: var(--text-lg);
+            font-weight: var(--weight-bold);
+            color: var(--color-accent);
+        }
+        
+        .metric-label {
+            font-size: var(--text-sm);
+            color: var(--color-text);
+        }
+        
+        .implementation-phases {
+            margin: var(--space-4) 0;
+        }
+        
+        .implementation-phases h4 {
+            margin-bottom: var(--space-2);
+            color: var(--color-primary);
+        }
+        
+        .phase-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .phase-list li {
+            padding: var(--space-2) 0;
+            border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+        }
+        
+        .phase-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .cta-section {
+            background-color: var(--color-primary);
+            color: white;
+            padding: var(--space-4);
+            border-radius: 8px;
+            text-align: center;
+            margin-top: var(--space-4);
+        }
+        
+        .cta-section a {
+            color: white;
+            text-decoration: none;
+            font-weight: var(--weight-bold);
+            border: 2px solid white;
+            padding: var(--space-2) var(--space-4);
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: var(--space-2);
+            transition: background-color 0.2s ease;
+        }
+        
+        .cta-section a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .back-nav {
+            margin-bottom: var(--space-6);
+        }
+        
+        .back-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: var(--weight-medium);
+        }
+        
+        .back-nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-991ML96NJ3');
+    </script>
+</head>
+<body>
+    <header class="site-header" aria-label="Site header">
+        <a href="/index.html" class="wordmark">
+          <span class="wordmark-full">ClaudeWill</span>
+          <span class="wordmark-short">CW</span>
+        </a>
+        <div class="header-actions">
+            <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <button id="theme-toggle" aria-label="Toggle theme" tabindex="0">
+                <span class="material-icons theme-toggle-icon">light_mode</span>
+            </button>
+        </div>
+    </header>
+    <nav id="main-nav" class="hamburger-nav" aria-label="Main navigation">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="assessment.html">Assessment</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="back-nav">
+                <a href="../index.html">
+                    <span class="material-icons">arrow_back</span>
+                    Back to Claude Will
+                </a>
+            </div>
+
+            <section class="projects-hero">
+                <h1>Strategic Frameworks & Business Innovation</h1>
+                <p>Proven methodologies that generate measurable business results through strategic technology implementation and cross-domain pattern recognition</p>
+            </section>
+            
+            <div class="tabs">
+                <button class="tab-button active" data-tab="frameworks">Strategic Frameworks</button>
+                <button class="tab-button" data-tab="implementations">Case Studies</button>
+                <button class="tab-button" data-tab="consulting">Consulting Services</button>
+            </div>
+            
+            <div class="tab-content active" id="frameworks-tab">
+                <h2>Enterprise-Ready Strategic Frameworks</h2>
+                <p>These proprietary frameworks have generated $20M+ in measurable business impact across multiple industries through systematic application of cross-domain pattern recognition principles.</p>
+                
+                <div class="framework-card">
+                    <h3>
+                        <span class="material-icons">integration_instructions</span>
+                        The CW Standard: AI Implementation Methodology
+                    </h3>
+                    <div class="framework-overview">
+                        A comprehensive framework for enterprise AI implementation that ensures technology enhances human capability rather than creating dependency. The CW Standard provides systematic methodology for evaluating, implementing, and optimizing AI solutions that generate competitive advantage while maintaining human agency and organizational resilience.
+                    </div>
+                    
+                    <div class="business-impact">
+                        <h4>Proven Business Impact</h4>
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <div class="metric-number">2.5x</div>
+                                <div class="metric-label">Revenue Amplification</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">40%</div>
+                                <div class="metric-label">Efficiency Gains</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">85%</div>
+                                <div class="metric-label">Employee Satisfaction</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">90%</div>
+                                <div class="metric-label">Risk Mitigation</div>
+                            </div>
+                        </div>
+                        <p><strong>Core Principle:</strong> Technology implementation that amplifies the 20% of human work that drives 80% of business value, while automating routine tasks that consume resources without generating strategic advantage.</p>
+                    </div>
+                    
+                    <div class="implementation-phases">
+                        <h4>Implementation Methodology</h4>
+                        <ul class="phase-list">
+                            <li><strong>Phase 1:</strong> Value Stream Analysis - Identify 20/80 split in organizational activities</li>
+                            <li><strong>Phase 2:</strong> Human-AI Capability Mapping - Determine optimal technology-human collaboration points</li>
+                            <li><strong>Phase 3:</strong> Pilot Implementation - Test AI enhancement of high-value human work</li>
+                            <li><strong>Phase 4:</strong> Scale & Optimization - Enterprise-wide deployment with continuous improvement</li>
+                            <li><strong>Phase 5:</strong> Performance Measurement - ROI tracking and strategic impact assessment</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cta-section">
+                        <h4>Enterprise AI Strategy Consulting Available</h4>
+                        <p>Ready to implement AI that amplifies rather than replaces human capability?</p>
+                        <a href="mailto:simmons.derek@gmail.com?subject=CW Standard Enterprise Consultation">Schedule Strategic Consultation</a>
+                    </div>
+                </div>
+                
+                <div class="framework-card">
+                    <h3>
+                        <span class="material-icons">trending_up</span>
+                        Media Franchise Model: Revenue Generation Framework
+                    </h3>
+                    <div class="framework-overview">
+                        Revolutionary business model that transforms traditional content verticals into autonomous revenue-generating units. By applying entrepreneurial principles to content organization, this framework creates sustainable competitive advantages and new revenue streams that scale across industries.
+                    </div>
+                    
+                    <div class="business-impact">
+                        <h4>Documented Revenue Impact</h4>
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <div class="metric-number">$15M+</div>
+                                <div class="metric-label">New Revenue Generated</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">300%</div>
+                                <div class="metric-label">Sponsorship Growth</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">180%</div>
+                                <div class="metric-label">Content Engagement</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">5</div>
+                                <div class="metric-label">Industry Awards</div>
+                            </div>
+                        </div>
+                        <p><strong>Strategic Advantage:</strong> Creates content ecosystems that function as independent business units while maintaining brand coherence and operational efficiency.</p>
+                    </div>
+                    
+                    <div class="implementation-phases">
+                        <h4>Framework Components</h4>
+                        <ul class="phase-list">
+                            <li><strong>Vertical Autonomy:</strong> Each content area operates with entrepreneurial independence and P&L accountability</li>
+                            <li><strong>Brand Architecture:</strong> Systematic approach to brand development and market positioning</li>
+                            <li><strong>Sponsorship Innovation:</strong> Create premium partnership opportunities through content excellence</li>
+                            <li><strong>Cross-Platform Integration:</strong> Unified content strategy across digital and traditional channels</li>
+                            <li><strong>Performance Analytics:</strong> Data-driven optimization and strategic decision making</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cta-section">
+                        <h4>Revenue Strategy Consulting</h4>
+                        <p>Transform your content strategy into a revenue generation engine</p>
+                        <a href="mailto:simmons.derek@gmail.com?subject=Media Franchise Model Consultation">Explore Revenue Opportunities</a>
+                    </div>
+                </div>
+                
+                <div class="framework-card">
+                    <h3>
+                        <span class="material-icons">psychology</span>
+                        Cross-Domain Innovation Methodology
+                    </h3>
+                    <div class="framework-overview">
+                        Systematic approach to identifying breakthrough solutions by recognizing patterns across unrelated industries and domains. This methodology enables organizations to discover competitive advantages by applying insights from high-performing systems in adjacent fields.
+                    </div>
+                    
+                    <div class="business-impact">
+                        <h4>Innovation Impact</h4>
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <div class="metric-number">20+</div>
+                                <div class="metric-label">Industries Applied</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">75%</div>
+                                <div class="metric-label">Success Rate</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">50+</div>
+                                <div class="metric-label">Strategic Initiatives</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">$5M+</div>
+                                <div class="metric-label">Value Created</div>
+                            </div>
+                        </div>
+                        <p><strong>Competitive Edge:</strong> Breakthrough solutions emerge from connecting insights across domains that specialists view as unrelated.</p>
+                    </div>
+                    
+                    <div class="implementation-phases">
+                        <h4>Methodology Framework</h4>
+                        <ul class="phase-list">
+                            <li><strong>Pattern Recognition:</strong> Systematic identification of high-performance principles across industries</li>
+                            <li><strong>Context Translation:</strong> Adaptation of successful strategies to new organizational environments</li>
+                            <li><strong>Pilot Development:</strong> Low-risk testing of cross-domain applications</li>
+                            <li><strong>Scale Implementation:</strong> Enterprise deployment of validated innovations</li>
+                            <li><strong>Continuous Discovery:</strong> Ongoing pattern recognition for strategic advantage</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="framework-card">
+                    <h3>
+                        <span class="material-icons">movie</span>
+                        "Mistake Proof" - Netflix Series Development
+                    </h3>
+                    <div class="framework-overview">
+                        Transformative drama series exploring how apparent mistakes prove to be catalysts for growth and understanding. Based on Derek's own love story that began with a newspaper error, the series examines AI ethics, human development, and "productive failure" through the lens of a former media executive turned innovation architect.
+                    </div>
+                    
+                    <div class="business-impact">
+                        <h4>Creative Vision & Strategic Framework</h4>
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <div class="metric-number">A-List</div>
+                                <div class="metric-label">Casting Vision</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">Netflix</div>
+                                <div class="metric-label">Target Platform</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">AI Ethics</div>
+                                <div class="metric-label">Core Theme</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">Universal</div>
+                                <div class="metric-label">Appeal</div>
+                            </div>
+                        </div>
+                        <p><strong>Core Philosophy:</strong> The quest to "mistake-proof" systems reveals deeper truths about human development and artificial intelligence. Growth emerges not from avoiding mistakes but from recognizing them as proof of development.</p>
+                    </div>
+                    
+                    <div class="implementation-phases">
+                        <h4>Series Framework & Development</h4>
+                        <ul class="phase-list">
+                            <li><strong>Origin Story:</strong> A 2001 newspaper error connects two people across borders, proving some mistakes are destiny finding its path</li>
+                            <li><strong>Character Development:</strong> Jeremy Renner as media executive discovering that innovation requires space for imperfection</li>
+                            <li><strong>Thematic Integration:</strong> Basketball coaching wisdom applied to AI development and human-technology collaboration</li>
+                            <li><strong>Visual Narrative:</strong> Contrast between Kansas authenticity and tech world complexity with family as foundation</li>
+                            <li><strong>Strategic Message:</strong> Technology should enhance rather than replace human capability, with growth requiring "productive failure"</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cta-section">
+                        <h4>Entertainment Industry Partnerships Available</h4>
+                        <p>Ready to explore innovative storytelling that bridges technology and human wisdom?</p>
+                        <a href="mailto:simmons.derek@gmail.com?subject=Mistake Proof Series Development">Discuss Development Opportunities</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="implementations-tab">
+                <h2>Strategic Implementation Case Studies</h2>
+                <p>Real-world applications of our frameworks that have delivered measurable business results.</p>
+                
+                <div class="framework-card">
+                    <h3>
+                        <span class="material-icons">sports_basketball</span>
+                        Baller: AI-Powered Basketball Analytics
+                    </h3>
+                    <div class="framework-overview">
+                        A revolutionary basketball analytics platform that combines advanced AI with intuitive visualization to provide deep insights into player performance and team dynamics. Built with modern web technologies and designed for both casual fans and professional analysts.
+                    </div>
+                    
+                    <div class="business-impact">
+                        <h4>Key Features</h4>
+                        <ul class="phase-list">
+                            <li>Real-time player performance analytics</li>
+                            <li>Advanced shot chart visualization</li>
+                            <li>Team and player comparison tools</li>
+                            <li>Customizable data dashboards</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="implementation-phases">
+                        <h4>Technical Implementation</h4>
+                        <ul class="phase-list">
+                            <li>Modern React-based frontend</li>
+                            <li>Real-time data processing</li>
+                            <li>Responsive design for all devices</li>
+                            <li>Interactive data visualization</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cta-section">
+                        <p>Experience the future of basketball analytics</p>
+                        <a href="https://baller.floshake.io/" target="_blank" rel="noopener">Visit Baller</a>
+                    </div>
+                </div>
+                
+                <div class="framework-card">
+                    <h3>
+                        <span class="material-icons">business</span>
+                        Star Tribune Media Transformation
+                    </h3>
+                    <div class="framework-overview">
+                        Complete digital transformation of major metropolitan newspaper using Media Franchise Model and AI Implementation Framework. Project scope included organizational redesign, revenue model innovation, and technology integration across 1,000+ employee organization.
+                    </div>
+                    
+                    <div class="business-impact">
+                        <h4>Measurable Results</h4>
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <div class="metric-number">$15M+</div>
+                                <div class="metric-label">New Revenue</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">100K+</div>
+                                <div class="metric-label">Digital Subscribers</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">Top 5</div>
+                                <div class="metric-label">Global Design Ranking</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">50+</div>
+                                <div class="metric-label">Team Members Hired</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="implementation-phases">
+                        <h4>Implementation Highlights</h4>
+                        <ul class="phase-list">
+                            <li><strong>Organizational Design:</strong> Applied sports team development principles to content organization</li>
+                            <li><strong>Revenue Innovation:</strong> Created franchise-based sponsorship model generating sustainable revenue growth</li>
+                            <li><strong>AI Strategy:</strong> Developed enterprise-wide AI implementation plan emphasizing human-AI collaboration</li>
+                            <li><strong>Digital Transformation:</strong> Led comprehensive platform redesign and content strategy evolution</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="framework-card">
+                    <h3>
+                        <span class="material-icons">sports</span>
+                        Athletic Development System
+                    </h3>
+                    <div class="framework-overview">
+                        Application of systematic development principles to youth basketball coaching, resulting in exceptional college scholarship success rates through focus on fundamental skill building and strategic player development.
+                    </div>
+                    
+                    <div class="business-impact">
+                        <h4>Performance Results</h4>
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <div class="metric-number">75%</div>
+                                <div class="metric-label">College Scholarship Rate</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">15+</div>
+                                <div class="metric-label">Years Applied</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">200+</div>
+                                <div class="metric-label">Athletes Developed</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">90%</div>
+                                <div class="metric-label">Skill Improvement</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="consulting-tab">
+                <h2>Strategic Consulting Services</h2>
+                <p>Available for strategic consulting, executive advising, and implementation partnerships across multiple industries and organizational contexts.</p>
+                
+                <div class="framework-card">
+                    <h3>
+                        <span class="material-icons">consultant_engineering</span>
+                        AI Strategy & Implementation
+                    </h3>
+                    <div class="framework-overview">
+                        Comprehensive consulting on enterprise AI strategy, implementation planning, and organizational change management. Focus on ensuring AI enhances rather than replaces human capability while generating measurable business results.
+                    </div>
+                    
+                    <div class="implementation-phases">
+                        <h4>Consulting Services</h4>
+                        <ul class="phase-list">
+                            <li><strong>Strategic Assessment:</strong> Organizational readiness and opportunity analysis</li>
+                            <li><strong>Implementation Planning:</strong> Roadmap development and change management strategy</li>
+                            <li><strong>Pilot Program Design:</strong> Low-risk testing and validation methodologies</li>
+                            <li><strong>Performance Optimization:</strong> Continuous improvement and ROI maximization</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="framework-card">
+                    <h3>
+                        <span class="material-icons">campaign</span>
+                        Speaking & Thought Leadership
+                    </h3>
+                    <div class="framework-overview">
+                        Keynote presentations, workshop facilitation, and thought leadership development on AI ethics, strategic innovation, and cross-domain pattern recognition. Available for conferences, corporate events, and executive education programs.
+                    </div>
+                    
+                    <div class="implementation-phases">
+                        <h4>Speaking Topics</h4>
+                        <ul class="phase-list">
+                            <li><strong>AI Implementation Strategy:</strong> Practical frameworks for enterprise AI adoption</li>
+                            <li><strong>Cross-Domain Innovation:</strong> Finding breakthrough solutions through pattern recognition</li>
+                            <li><strong>Revenue Model Innovation:</strong> Creating sustainable competitive advantages</li>
+                            <li><strong>Leadership Development:</strong> Coaching principles applied to organizational growth</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="cta-section">
+                    <h4>Ready to Discuss Your Strategic Challenges?</h4>
+                    <p>Available for consulting engagements, speaking opportunities, and strategic partnerships</p>
+                    <a href="mailto:simmons.derek@gmail.com?subject=Strategic Consulting Inquiry">Contact Derek Simmons</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2025 Derek Simmons |
+            <a href="site-index.html">Site Index</a> |
+            <a href="../docs/PRIVACY.md" target="_blank" rel="noopener">Privacy Policy</a> |
+            <a href="../docs/TERMS.md" target="_blank" rel="noopener">Terms of Use</a>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and content
+                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                });
+            });
+        });
+    </script>
+
+    <!-- Claude Will Widget -->
+    <link rel="stylesheet" href="/css/claude-will-widget.css">
+    <script src="/js/claude-will-widget.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        new ClaudeWillWidget();
+      });
+    </script>
+</body>
+</html>
