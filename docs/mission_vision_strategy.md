@@ -64,7 +64,7 @@ A world where organizations leverage human wisdom and technological advancement 
 
 ## Why This Matters
 
-In a world of rapid technological change, organizations that combine human wisdom with strategic innovation will lead, adapt, and thrive. This platform provides the frameworks and methodologies for that journey—starting with your team, scaling to your organization, and creating lasting impact.
+In a world of rapid technological change, organizations that combine human wisdom with strategic innovation will lead, adapt, and thrive. This platform provides the frameworks and methodologies for that journey — starting with your team, scaling to your organization, and creating lasting impact.
 
 ---
 

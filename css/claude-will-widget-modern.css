@@ -57,7 +57,6 @@
   right: 0;
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
   padding: var(--space-4) var(--space-5);
@@ -92,7 +91,6 @@
   max-width: calc(100vw - var(--space-12));
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-2xl);
   box-shadow: var(--glass-shadow);
@@ -101,6 +99,12 @@
   visibility: hidden;
   transition: all var(--transition-normal);
   overflow: hidden;
+}
+
+/* Dark theme widget content must come before open state */
+.dark-theme .widget-content {
+  background: var(--glass-bg);
+  border-color: var(--glass-border);
 }
 
 .claude-will-widget.open .widget-content {
@@ -235,32 +239,6 @@
   align-self: flex-start;
 }
 
-/* Modern Suggested Actions */
-.suggested-actions {
-  padding: 0 var(--space-6) var(--space-4);
-  display: none;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
-.suggested-actions button {
-  padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text-secondary);
-  border-radius: var(--radius-lg);
-  font-size: 0.75rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  white-space: nowrap;
-}
-
-.suggested-actions button:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-}
-
 /* Modern Chat Input */
 .chat-input {
   display: flex;
@@ -298,6 +276,32 @@
   font-size: 0.875rem;
   font-weight: 500;
   transition: all var(--transition-fast);
+}
+
+/* Modern Suggested Actions */
+.suggested-actions {
+  padding: 0 var(--space-6) var(--space-4);
+  display: none;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.suggested-actions button {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  border-radius: var(--radius-lg);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.suggested-actions button:hover {
+  background: rgb(255 255 255 / 10%);
+  color: white;
 }
 
 .chat-input button:hover {
@@ -343,25 +347,7 @@
   }
 }
 
-/* Dark Theme Adjustments */
-.dark-theme .widget-toggle {
-  box-shadow: var(--shadow-xl), 0 0 20px rgb(59 130 246 / 30%);
-}
 
-.dark-theme .widget-content {
-  background: var(--glass-bg);
-  border-color: var(--glass-border);
-}
-
-.dark-theme .widget-header {
-  background: var(--surface);
-  border-bottom-color: var(--border);
-}
-
-.dark-theme .chat-input {
-  background: var(--surface);
-  border-top-color: var(--border);
-}
 
 /* Animation for typing indicator */
 @keyframes typing {
@@ -408,4 +394,19 @@
   border-radius: var(--radius-full);
   background: var(--emerald-500);
   animation: pulse 2s infinite;
+}
+
+/* Dark Theme Adjustments */
+.dark-theme .widget-toggle {
+  box-shadow: var(--shadow-xl), 0 0 20px rgb(59 130 246 / 30%);
+}
+
+.dark-theme .widget-header {
+  background: var(--surface);
+  border-bottom-color: var(--border);
+}
+
+.dark-theme .chat-input {
+  background: var(--surface);
+  border-top-color: var(--border);
 }

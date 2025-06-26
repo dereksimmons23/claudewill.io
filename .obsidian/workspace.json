@@ -1,0 +1,193 @@
+{
+  "main": {
+    "id": "a35d3535654b2508",
+    "type": "split",
+    "children": [
+      {
+        "id": "dc2ca28bc7d3691e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "44189ba1bc45f77a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "resume-engine/resumes/Derek_Simmons_Qualtrics_Clean_Resume.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Derek_Simmons_Qualtrics_Clean_Resume"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "feb7dd65e356439d",
+    "type": "split",
+    "children": [
+      {
+        "id": "9fd648e6a354463c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f32ecb17212fe19d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "558d464ba06c0d7b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "c948009890f8fd14",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "aa3e8ef49e8f04b6",
+    "type": "split",
+    "children": [
+      {
+        "id": "5bdd37760b0a0a37",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "84c6ebc1fc9a12b1",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "resume-engine/resumes/Derek_Simmons_Qualtrics_Clean_Resume.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Derek_Simmons_Qualtrics_Clean_Resume"
+            }
+          },
+          {
+            "id": "77bda226349d7217",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "resume-engine/resumes/Derek_Simmons_Qualtrics_Clean_Resume.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Derek_Simmons_Qualtrics_Clean_Resume"
+            }
+          },
+          {
+            "id": "58192ededaea9783",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "8e2d351ca7346ddf",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "resume-engine/resumes/Derek_Simmons_Qualtrics_Clean_Resume.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Derek_Simmons_Qualtrics_Clean_Resume"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "f32ecb17212fe19d",
+  "lastOpenFiles": [
+    "resume-engine/resumes/Professional Recommendation for Derek Simmons.pdf",
+    "derek-simmons-photo.jpg",
+    "resume-engine/resumes/Derek_Simmons_Thomson_Reuters_Clean_Cover_Letter.md",
+    "resume-engine/resumes/Derek_Simmons_Thomson_Reuters_Cover_Letter_v2.md",
+    "resume-engine/resumes/Derek_Simmons_Thomson_Reuters_Clean_Resume.md",
+    "resume-engine/resumes/Derek_Simmons_Thomson_Reuters_Director_Product_Management_v2.md",
+    "docs/AI_ORCHESTRATION_SESSION_LOG.md",
+    "js/research/enhanced-systems/claude-will-chat-enhancement.js",
+    "js/research/enhanced-systems/project-setup.js",
+    "js/research/enhanced-systems/error-handling-system.js",
+    "js/research/enhanced-systems/notification-system.js",
+    "js/research/enhanced-systems/tagging-system.js",
+    "js/research/enhanced-systems/drive-connector.js",
+    "js/research/enhanced-systems/threshold-preset-scheduler.js",
+    "js/research/enhanced-systems/schedule-optimizer.js",
+    "js/research/enhanced-systems/specialized-prediction-models.js",
+    "js/research/enhanced-systems/model-training-utils.js",
+    "resume-engine/resumes/Derek_Simmons_Qualtrics_Clean_Cover_Letter.md",
+    "resume-engine/resumes/Derek_Simmons_Qualtrics_Clean_Resume.md"
+  ]
+}

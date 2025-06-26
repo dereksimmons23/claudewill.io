@@ -569,11 +569,11 @@ body.dark-theme .suggestion-button:hover {
 
 .framework-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
 }
 
 .dark-theme .framework-card:hover {
-    box-shadow: 0 8px 32px rgba(248,245,242,0.1);
+    box-shadow: 0 8px 32px rgb(248 245 242 / 10%);
 }
 
 /* Responsive adjustments for AI orchestra */
@@ -671,17 +671,7 @@ body.dark-theme .suggestion-button:hover {
     }
 }
 
-/* Homepage specific styles */
-.cta-primary:hover {
-    background: #8e340d !important;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(163,62,16,0.4) !important;
-}
-
-.cta-secondary:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
-    transform: translateY(-2px);
-}
+/* Homepage specific styles - consolidated with storytelling enhancements */
 
 .value-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -689,7 +679,7 @@ body.dark-theme .suggestion-button:hover {
 
 .value-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(56,96,110,0.15);
+    box-shadow: 0 8px 25px rgb(56 96 110 / 15%);
 }
 
 .demo-cta:hover {
@@ -710,12 +700,171 @@ body.dark-theme .value-props {
 
 .dark-theme .value-card,
 body.dark-theme .value-card {
-    background: rgba(248, 245, 242, 0.03);
+    background: rgb(248 245 242 / 3%);
     border-left-color: var(--color-primary);
 }
 
 .dark-theme .demo-interface,
 body.dark-theme .demo-interface {
-    background: rgba(248, 245, 242, 0.05);
-    border-color: rgba(248, 245, 242, 0.2);
+    background: rgb(248 245 242 / 5%);
+    border-color: rgb(248 245 242 / 20%);
+}
+
+/* Homepage Storytelling Enhancements */
+.derek-photo {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.derek-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgb(0 0 0 / 40%) !important;
+}
+
+.principle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgb(0 0 0 / 15%);
+}
+
+.story-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgb(0 0 0 / 12%);
+}
+
+/* Pulse Animation for AI Systems */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* CTA Button Enhancements */
+.cta-primary:hover {
+    background: var(--color-primary) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgb(163 62 16 / 40%) !important;
+}
+
+.cta-secondary:hover {
+    background: rgb(255 255 255 / 30%) !important;
+    transform: translateY(-2px);
+    border-color: rgb(255 255 255 / 80%) !important;
+}
+
+/* Problem Cards Hover Effect */
+.problem-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgb(163 62 16 / 15%);
+    background: rgb(163 62 16 / 8%) !important;
+}
+
+/* Check Items Hover Effect */
+.check-item:hover {
+    background: rgb(255 255 255 / 20%) !important;
+    transform: translateY(-2px);
+}
+
+/* Value Tags Hover Effect */
+.value:hover {
+    background: rgb(56 96 110 / 20%) !important;
+    transform: scale(1.05);
+}
+
+/* Mobile Responsive Enhancements */
+@media (width <= 768px) {
+    .hero-greeting h1 {
+        font-size: 2.2rem !important;
+    }
+    
+    .warm-greeting {
+        font-size: 1.1rem !important;
+    }
+    
+    .credibility-proof {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+    
+    .problem-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .story-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .qualification-checklist {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .connection-options {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    .ai-systems-status {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (width <= 480px) {
+    .hero-greeting {
+        padding: 3rem 0 !important;
+        padding-top: calc(3rem + 60px) !important;
+    }
+    
+    .derek-photo {
+        width: 100px !important;
+        height: 100px !important;
+    }
+    
+    .hero-greeting h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    .framework-interactive {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .principle {
+        padding: 1.5rem !important;
+    }
+    
+    .story-card {
+        padding: 1.5rem !important;
+    }
+}
+
+/* Scroll-triggered animations preparation */
+.principle[data-reveal] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.principle[data-reveal].revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Enhanced accessibility */
+.cta-primary:focus,
+.cta-secondary:focus {
+    outline: 3px solid rgb(255 255 255 / 50%);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .principle:hover,
+    .story-card:hover,
+    .problem-card:hover,
+    .check-item:hover,
+    .value:hover,
+    .cta-primary:hover,
+    .cta-secondary:hover {
+        transform: none;
+    }
+    
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+    }
 }

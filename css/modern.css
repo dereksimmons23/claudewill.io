@@ -144,7 +144,6 @@ body {
   height: var(--header-height);
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
@@ -364,7 +363,6 @@ p {
 /* AI Orchestra Status */
 .orchestration-demo {
   background: var(--glass-bg);
-  backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-2xl);
