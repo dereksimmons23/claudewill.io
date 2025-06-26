@@ -107,16 +107,9 @@ function initConsciousnessToggle() {
   const consciousnessToggle = document.getElementById('consciousness-toggle');
   if (!consciousnessToggle) return;
   
-  // Initialize the space orb game if available
-  if (window.spaceOrbGame) {
-    // Game is already initialized in consciousness-navigation.js
-    return;
-  }
-  
-  // Fallback for pages without the game
-  consciousnessToggle.addEventListener('click', () => {
-    console.log('Consciousness mode not available on this page');
-  });
+  // Don't interfere with consciousness-navigation.js
+  // The SpaceOrbGame class handles its own initialization
+  // This function is kept for compatibility but does nothing
 }
 
 // Loading Screen
