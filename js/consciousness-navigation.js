@@ -105,7 +105,7 @@ class SpaceOrbGame {
         // Reset toggle button
         const toggle = document.getElementById('consciousness-toggle');
         const icon = toggle.querySelector('i');
-        icon.setAttribute('data-lucide', 'brain-circuit');
+        icon.setAttribute('data-lucide', 'play');
         toggle.title = 'Enter Space Game';
         toggle.classList.remove('active');
         if (window.lucide) window.lucide.createIcons();

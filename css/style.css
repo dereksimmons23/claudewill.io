@@ -296,13 +296,15 @@ footer a:hover {
 .hamburger-nav {
     display: none;
     position: absolute;
-    top: 60px;
-    right: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 8px 32px rgb(44 62 80 / 15%);
-    padding: 1em 2em;
+    top: calc(var(--header-height) + 0.5rem);
+    right: 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    padding: 1rem 1.5rem;
     z-index: 1000;
+    min-width: 200px;
 }
 
 .header-actions {
@@ -402,6 +404,17 @@ footer a:hover {
 
 body.dark-theme footer a {
     color: #e0e0e0;
+}
+
+/* Dark theme hamburger navigation */
+.dark-theme .hamburger-nav {
+    background: var(--surface);
+    border-color: var(--border);
+    color: var(--text-primary);
+}
+
+.dark-theme .hamburger-nav a {
+    color: var(--text-primary);
 }
 
 /* Class descendant pseudo-classes */
@@ -750,7 +763,12 @@ body.dark-theme .demo-interface {
     border-color: rgb(255 255 255 / 80%) !important;
 }
 
-/* Problem Cards Hover Effect */
+/* Problem Cards Base and Hover Effect */
+.problem-card {
+    color: var(--color-text) !important;
+    background: rgb(163 62 16 / 5%) !important;
+}
+
 .problem-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgb(163 62 16 / 15%);
@@ -868,3 +886,62 @@ body.dark-theme .demo-interface {
         0%, 100% { opacity: 1; }
     }
 }
+
+/* Light mode text readability fixes */
+.challenge-section h2,
+.cw-standard-section h2,
+.heritage-section h2,
+.qualification-section h2 {
+    color: var(--color-primary) !important;
+}
+
+
+
+.principle p,
+.story-card p {
+    color: var(--color-text) !important;
+}
+
+.principle h3 {
+    color: var(--color-primary) !important;
+}
+
+.principle[data-reveal="2"] h3 {
+    color: var(--iron-range) !important;
+}
+
+.principle[data-reveal="3"] h3 {
+    color: var(--north-pond) !important;
+}
+
+/* Light mode specific overrides */
+body:not(.dark-theme) .challenge-section,
+body:not(.dark-theme) .cw-standard-section,
+body:not(.dark-theme) .heritage-section {
+    background: #fafafa !important;
+}
+
+body:not(.dark-theme) .problem-card {
+    background: rgb(163 62 16 / 8%) !important;
+    color: #333 !important;
+}
+
+body:not(.dark-theme) .principle {
+    background: rgb(56 96 110 / 8%) !important;
+    color: #333 !important;
+}
+
+body:not(.dark-theme) .principle[data-reveal="2"] {
+    background: rgb(163 62 16 / 8%) !important;
+}
+
+body:not(.dark-theme) .principle[data-reveal="3"] {
+    background: rgb(56 96 110 / 8%) !important;
+}
+
+body:not(.dark-theme) .story-card {
+    background: rgb(56 96 110 / 8%) !important;
+    color: #333 !important;
+    border-color: rgb(56 96 110 / 20%) !important;
+}
+
