@@ -84,8 +84,10 @@ class SpaceOrbGame {
         
         // Update toggle button
         const toggle = document.getElementById('consciousness-toggle');
+        console.log('Toggle element found:', toggle);
         if (toggle) {
             const icon = toggle.querySelector('i');
+            console.log('Icon element found:', icon);
             if (icon) {
                 icon.setAttribute('data-lucide', 'target');
             }
