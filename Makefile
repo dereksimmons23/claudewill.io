@@ -30,15 +30,50 @@ tex:
 clean:
 	rm -f $(RESUME_PDF) $(RESUME_HTML) $(RESUME_TEX)
 
-.PHONY: deploy fix test quick status
+.PHONY: deploy fix test quick status dev-deploy prod-deploy dev-test
 
-# Deploy with a custom message
+# PRODUCTION DEPLOYMENT (main branch only)
 deploy:
-	@echo "🚀 Deploying with message: $(MSG)"
+	@if [ "$$(git branch --show-current)" != "main" ]; then \
+		echo "❌ ERROR: Production deploy only allowed from main branch"; \
+		echo "💡 Use 'make dev-deploy' for development or 'make prod-deploy' to merge and deploy"; \
+		exit 1; \
+	fi
+	@echo "🚀 PRODUCTION Deploying with message: $(MSG)"
 	npm run precommit
 	git add .
 	git commit -m "$(MSG)"
 	git push origin main
+
+# DEVELOPMENT DEPLOYMENT (dev branch)
+dev-deploy:
+	@if [ "$$(git branch --show-current)" != "dev" ]; then \
+		echo "❌ ERROR: Please switch to dev branch first: git checkout dev"; \
+	fi
+	@echo "🧪 DEV Deploying with message: $(MSG)"
+	npm run precommit
+	git add .
+	git commit -m "$(MSG)"
+	git push origin dev
+
+# PRODUCTION DEPLOYMENT (merge dev to main and deploy)
+prod-deploy:
+	@echo "🔄 Merging dev to main and deploying..."
+	git checkout main
+	git merge dev
+	npm run precommit
+	git push origin main
+	git checkout dev
+	@echo "✅ Deployed to production and returned to dev branch"
+
+# DEVELOPMENT TESTING (safer local testing)
+dev-test:
+	@echo "🧪 Starting DEV test server..."
+	@if [ "$$(git branch --show-current)" != "dev" ]; then \
+		echo "⚠️  WARNING: Not on dev branch. Switch with: git checkout dev"; \
+	fi
+	npm run precommit
+	npm run dev
 
 # Auto-fix linting issues
 fix:
@@ -46,19 +81,25 @@ fix:
 	npm run lint:css -- --fix
 	npm run lint:js -- --fix
 
-# Test locally with live reload
+# Test locally with live reload (legacy - use dev-test instead)
 test:
 	@echo "🧪 Starting local test server..."
 	npm run precommit
 	npm run dev
 
-# Quick deploy with auto-generated message
+# Quick deploy with auto-generated message (DEVELOPMENT ONLY)
 quick:
-	@echo "⚡ Quick deploying with auto-fixes..."
+	@if [ "$$(git branch --show-current)" = "main" ]; then \
+		echo "❌ ERROR: Quick deploy not allowed on main branch"; \
+		echo "💡 Switch to dev branch: git checkout dev"; \
+		exit 1; \
+	fi
+	@echo "⚡ Quick DEV deploying with auto-fixes..."
 	npm run quick-deploy
 
 # Check git and linting status
 status:
+	@echo "📋 Current Branch: $$(git branch --show-current)"
 	@echo "📋 Git Status:"
 	git status --short
 	@echo "\n🔍 CSS Lint Status:"
@@ -67,10 +108,17 @@ status:
 	npm run lint:js || echo "❌ JS errors found"
 
 # Usage examples:
-# make deploy MSG="fix assessment tool"
+# DEVELOPMENT:
+# make dev-deploy MSG="test navigation fixes"
+# make dev-test
+# make quick (on dev branch only)
+#
+# PRODUCTION:
+# make prod-deploy (merges dev to main and deploys)
+# make deploy MSG="final navigation fix" (main branch only)
+#
+# GENERAL:
 # make fix
-# make test  
-# make quick
 # make status
 
-.PHONY: all pdf html tex clean deploy fix test quick status
+.PHONY: all pdf html tex clean deploy fix test quick status dev-deploy prod-deploy dev-test

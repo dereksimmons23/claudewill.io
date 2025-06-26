@@ -217,9 +217,10 @@
                     <label for="target-industry">Target Industry:</label>
                     <select id="target-industry">
                         <option value="">Select Industry</option>
+                        <option value="coaching">Business Coaching & Leadership</option>
+                        <option value="consulting">Consulting</option>
                         <option value="tech">Technology</option>
                         <option value="legal">Legal Services</option>
-                        <option value="consulting">Consulting</option>
                         <option value="finance">Finance</option>
                         <option value="healthcare">Healthcare</option>
                         <option value="media">Media & Marketing</option>
@@ -255,7 +256,7 @@
                     <label for="company-size">Company Size:</label>
                     <select id="company-size">
                         <option value="">Select if known</option>
-                        <option value="startup">Startup (&lt;100 employees)</option>
+                        <option value="startup">Startup (<100 employees)</option>
                         <option value="midsize">Mid-size (100-1000)</option>
                         <option value="large">Large (1000-5000)</option>
                         <option value="enterprise">Enterprise (5000+)</option>
@@ -298,7 +299,8 @@
             healthcare: ['patient care', 'clinical', 'medical', 'healthcare', 'treatment', 'diagnosis', 'protocol', 'compliance'],
             media: ['content', 'creative', 'brand', 'marketing', 'digital', 'social media', 'campaign', 'analytics'],
             retail: ['customer service', 'sales', 'inventory', 'merchandising', 'retail', 'customer experience'],
-            manufacturing: ['operations', 'production', 'quality', 'safety', 'process improvement', 'lean', 'manufacturing']
+            manufacturing: ['operations', 'production', 'quality', 'safety', 'process improvement', 'lean', 'manufacturing'],
+            coaching: ['business coaching', 'leadership development', 'executive coaching', 'strategic planning', 'mentoring', 'organizational growth', 'business operations', 'cross-functional leadership']
         };
 
         // ATS system characteristics
@@ -372,27 +374,50 @@
         }
 
         function calculateATSScore(resumeText, industry) {
-            let score = 70; // Base score
+            let score = 60; // Lowered base score to account for more rigorous checking
             
-            // Check for standard sections
-            if (resumeText.toLowerCase().includes('experience')) score += 5;
+            // Enhanced section structure checks (more weight)
+            if (resumeText.toLowerCase().includes('experience')) score += 8;
             if (resumeText.toLowerCase().includes('education')) score += 5;
-            if (resumeText.toLowerCase().includes('skills')) score += 5;
             
-            // Check for quantifiable achievements
-            const numberMatches = resumeText.match(/\d+(\.\d+)?[%\+\-\$]/g);
-            if (numberMatches && numberMatches.length > 3) score += 10;
+            // Critical skills section check (heavily weighted)
+            const hasSkillsSection = resumeText.toLowerCase().includes('skills') || 
+                                   resumeText.toLowerCase().includes('competencies') || 
+                                   resumeText.toLowerCase().includes('core competencies');
+            if (hasSkillsSection) {
+                score += 15; // Major boost for having skills section
+            } else {
+                score -= 10; // Significant penalty for missing skills section
+            }
             
-            // Industry keyword check
+            // Enhanced quantification check
+            const numberMatches = resumeText.match(/\d+(\.\d+)?[%\+\-\$KkMm]/g);
+            if (numberMatches && numberMatches.length > 5) score += 12;
+            else if (numberMatches && numberMatches.length > 2) score += 8;
+            else score -= 5; // Penalty for lack of quantification
+            
+            // Action verb strength check (new)
+            const strongActionVerbs = ['led', 'managed', 'developed', 'implemented', 'created', 'generated', 'achieved', 'optimized', 'directed', 'established'];
+            const foundActionVerbs = strongActionVerbs.filter(verb => 
+                resumeText.toLowerCase().includes(verb)
+            );
+            score += Math.min(foundActionVerbs.length * 2, 10);
+            
+            // Industry keyword check (enhanced)
             if (industry && industryKeywords[industry]) {
                 const keywords = industryKeywords[industry];
                 const foundKeywords = keywords.filter(keyword => 
                     resumeText.toLowerCase().includes(keyword.toLowerCase())
                 );
-                score += Math.min(foundKeywords.length * 2, 15);
+                const keywordPercentage = foundKeywords.length / keywords.length;
+                
+                if (keywordPercentage > 0.7) score += 15;
+                else if (keywordPercentage > 0.5) score += 10;
+                else if (keywordPercentage > 0.3) score += 5;
+                else score -= 5; // Penalty for poor keyword match
             }
             
-            return Math.min(score, 98);
+            return Math.min(Math.max(score, 20), 98); // Floor of 20, ceiling of 98
         }
 
         function calculateMatchScore(resumeText, jobDescription, atsSystem) {
@@ -427,14 +452,38 @@
                 recommendations.push({ text: 'Add a clear "Professional Experience" or "Work Experience" section', type: 'warning' });
             }
             
-            if (!resumeText.toLowerCase().includes('skills')) {
-                recommendations.push({ text: 'Include a dedicated "Skills" or "Core Competencies" section', type: 'warning' });
+            // Enhanced skills section detection
+            const hasSkillsSection = resumeText.toLowerCase().includes('skills') || 
+                                   resumeText.toLowerCase().includes('competencies') || 
+                                   resumeText.toLowerCase().includes('core competencies');
+            
+            if (!hasSkillsSection) {
+                recommendations.push({ 
+                    text: 'CRITICAL: Include a dedicated "Skills" or "Core Competencies" section with keyword-rich content', 
+                    type: 'warning' 
+                });
             }
             
-            // Quantification check
-            const numberMatches = resumeText.match(/\d+(\.\d+)?[%\+\-\$]/g);
+            // Enhanced quantification check
+            const numberMatches = resumeText.match(/\d+(\.\d+)?[%\+\-\$KkMm]/g);
             if (!numberMatches || numberMatches.length < 3) {
-                recommendations.push({ text: 'Add more quantifiable achievements (percentages, dollar amounts, metrics)', type: 'warning' });
+                recommendations.push({ 
+                    text: 'Add more quantifiable achievements (percentages, dollar amounts, team sizes, timeframes)', 
+                    type: 'warning' 
+                });
+            }
+            
+            // Action verb strength check
+            const strongActionVerbs = ['led', 'managed', 'developed', 'implemented', 'created', 'generated', 'achieved', 'optimized'];
+            const foundActionVerbs = strongActionVerbs.filter(verb => 
+                resumeText.toLowerCase().includes(verb)
+            );
+            
+            if (foundActionVerbs.length < 4) {
+                recommendations.push({
+                    text: 'Use stronger action verbs: Led, Managed, Developed, Implemented, Generated, Achieved',
+                    type: 'warning'
+                });
             }
             
             // Industry-specific recommendations
@@ -446,16 +495,17 @@
                 
                 if (foundKeywords.length < keywords.length / 2) {
                     recommendations.push({ 
-                        text: `Include more ${industry} industry keywords: ${keywords.slice(0, 5).join(', ')}`, 
+                        text: `Include more ${industry} industry keywords in your skills section: ${keywords.slice(0, 5).join(', ')}`, 
                         type: 'warning' 
                     });
                 }
             }
             
-            // General best practices
-            recommendations.push({ text: 'Use standard PDF format for best ATS compatibility', type: 'good' });
-            recommendations.push({ text: 'Include exact keywords from job descriptions you\'re targeting', type: 'good' });
-            recommendations.push({ text: 'Use standard fonts (Arial, Calibri, Times New Roman)', type: 'good' });
+            // ATS-specific formatting recommendations
+            recommendations.push({ text: 'Use standard section headers: Experience, Education, Skills', type: 'good' });
+            recommendations.push({ text: 'Include exact keywords from job descriptions in your skills section', type: 'good' });
+            recommendations.push({ text: 'Use standard fonts (Arial, Calibri, Times New Roman) for ATS parsing', type: 'good' });
+            recommendations.push({ text: 'Save as PDF with text layer for best ATS compatibility', type: 'good' });
             
             return recommendations;
         }
