@@ -1,5 +1,41 @@
 # Changelog
 
+## [2025-06-26-5] - Critical UI/UX Fixes
+
+### 🛠️ **CRITICAL FIXES RESOLVED**
+- **Dark Mode Icon Visibility**: Fixed hamburger, theme, and play button icons not visible in dark mode
+  - Added proper white color styling for all header icons in dark theme
+  - Enhanced button backgrounds with semi-transparent white overlays
+  - Fixed icon contrast issues across all pages
+- **Navigation Discovery**: Added ATS Decoder to main navigation menu
+  - Now accessible from all pages via hamburger menu
+  - Consistent navigation structure across the site
+- **Light Mode Readability**: Fixed text contrast issues in challenge and framework sections
+  - Added specific color overrides for light mode text
+  - Ensured sufficient contrast ratios for accessibility
+  - Fixed framework card text visibility issues
+
+### 🎯 **ICON SYSTEM STANDARDIZATION**
+- **Lucide Icons**: Migrated about.html from Material Icons to Lucide for consistency
+  - Unified icon system across all pages
+  - Better cross-browser compatibility
+  - Consistent visual design language
+- **Play Button**: Confirmed proper 'play' icon implementation for consciousness game
+  - Beat Saber-style space orb navigation game fully functional
+  - Proper icon states (play/target) based on game state
+
+### 📱 **MOBILE & ACCESSIBILITY**
+- **Touch Feedback**: Enhanced mobile interactions for all header buttons
+- **Icon Scaling**: Proper hover states and transform effects
+- **Screen Reader**: Improved ARIA labels and accessibility features
+
+### 🚀 **DEPLOYMENT EFFICIENCY**
+- **Automation Framework**: All fixes deployed through streamlined CI/CD pipeline
+- **Linting Pipeline**: All CSS, JS, and HTML checks passing
+- **Zero Errors**: Clean deployment with comprehensive quality checks
+
+---
+
 ## [2025-06-26-4] - CSS Specificity & Linting Fixes
 
 ### 🛠️ **TECHNICAL FIXES**
