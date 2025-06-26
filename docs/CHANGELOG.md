@@ -1,5 +1,27 @@
 # Changelog
 
+## [2025-06-26-4] - CSS Specificity & Linting Fixes
+
+### 🛠️ **TECHNICAL FIXES**
+- **CSS Specificity**: Resolved CSS selector specificity order issues
+  - Reordered footer and navigation selectors to meet CSS specificity requirements
+  - Fixed `footer a` and `footer a:hover` coming before `.hamburger-nav a` selectors
+  - Eliminated duplicate backdrop-filter properties
+- **CSS Linting**: Fixed all remaining CSS linting errors
+  - Removed vendor-prefixed properties that were flagged by stylelint
+  - Applied auto-fix for vendor prefix issues
+- **File Organization**: Cleaned up resume-engine directory structure
+  - Organized resume files into company-specific folders (Qualtrics/, TR Westlaw/)
+  - Maintained file organization during git operations
+
+### 🎯 **DEVELOPMENT WORKFLOW**
+- **Linting Pipeline**: CSS now passes all stylelint checks without errors
+- **Code Quality**: Improved CSS maintainability with proper selector ordering
+- **Automation**: Enhanced development workflow with clean linting pipeline
+- **Deployment**: Successful deployment with all checks passing
+
+---
+
 ## [Current] - 2025-01-24
 
 ### Added
