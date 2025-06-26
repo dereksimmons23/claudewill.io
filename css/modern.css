@@ -176,7 +176,8 @@ body {
 }
 
 #consciousness-toggle,
-#theme-toggle {
+#theme-toggle,
+#hamburger-toggle {
   width: 2.5rem;
   height: 2.5rem;
   background: var(--surface);
@@ -188,6 +189,7 @@ body {
   transition: all var(--transition-fast);
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border);
+  color: var(--text-primary);
 }
 
 #consciousness-toggle.active {
@@ -197,30 +199,30 @@ body {
 }
 
 #consciousness-toggle:hover,
-#theme-toggle:hover {
-  background: var(--surface-elevated);
-  transform: scale(1.05);
-}
-
-#hamburger-toggle {
-  width: 2.5rem;
-  height: 2.5rem;
-  background: var(--surface);
-  border-radius: var(--radius-lg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border);
-  gap: 3px;
-}
-
+#theme-toggle:hover,
 #hamburger-toggle:hover {
   background: var(--surface-elevated);
   transform: scale(1.05);
+}
+
+/* Dark mode icon visibility */
+.dark-theme #consciousness-toggle,
+.dark-theme #theme-toggle,
+.dark-theme #hamburger-toggle {
+  color: white;
+}
+
+.dark-theme #consciousness-toggle:not(.active),
+.dark-theme #theme-toggle,
+.dark-theme #hamburger-toggle {
+  background: rgb(255 255 255 / 10%);
+  border-color: rgb(255 255 255 / 20%);
+}
+
+.dark-theme #consciousness-toggle:hover,
+.dark-theme #theme-toggle:hover,
+.dark-theme #hamburger-toggle:hover {
+  background: rgb(255 255 255 / 20%);
 }
 
 /* Hamburger bars removed - using Lucide icons instead */
@@ -292,6 +294,33 @@ p {
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
+}
+
+/* Light mode text readability */
+.framework-card h3,
+.framework-card p,
+.challenge-section h2,
+.challenge-section p,
+.framework-section h2,
+.framework-section p {
+  color: var(--text-primary);
+}
+
+.framework-card p {
+  color: var(--text-secondary);
+}
+
+/* Ensure sufficient contrast in light mode */
+body:not(.dark-theme) .framework-card h3,
+body:not(.dark-theme) .challenge-section h2,
+body:not(.dark-theme) .framework-section h2 {
+  color: #1a1a1a;
+}
+
+body:not(.dark-theme) .framework-card p,
+body:not(.dark-theme) .challenge-section p,
+body:not(.dark-theme) .framework-section p {
+  color: #4a4a4a;
 }
 
 .framework-card::before {

@@ -110,13 +110,11 @@
           <span class="wordmark-short">CW</span>
         </a>
         <div class="header-actions">
-            <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
+            <button id="theme-toggle" aria-label="Toggle theme" title="Toggle Light/Dark Mode">
+                <i data-lucide="sun"></i>
             </button>
-            <button id="theme-toggle" aria-label="Toggle theme" tabindex="0">
-                <span class="material-icons theme-toggle-icon">light_mode</span>
+            <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
+                <i data-lucide="menu"></i>
             </button>
         </div>
     </header>
@@ -128,6 +126,7 @@
             <li><a href="projects.html">Projects</a></li>
             <li><a href="portfolio.html">Portfolio</a></li>
             <li><a href="resume.html">Resume</a></li>
+            <li><a href="../ats-decoder/index.html">ATS Decoder</a></li>
             <li><a href="assessment.html">Assessment</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -189,6 +188,10 @@
         </div>
     </footer>
 
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>lucide.createIcons();</script>
+    
     <script src="../js/main.js"></script>
     <!-- Claude Will Widget -->
     <link rel="stylesheet" href="/css/claude-will-widget.css">
