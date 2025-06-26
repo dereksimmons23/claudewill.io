@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Request a strategic consultation with Derek Simmons for AI strategy, revenue generation, and executive leadership transformation">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="../css/style.css" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link href="../css/modern.css" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
   <style>
     .consultation-hero {
@@ -54,15 +54,32 @@
       margin-top: 1rem;
     }
     .consultation-form input,
-    .consultation-form textarea,
-    .consultation-form select {
+    .consultation-form textarea {
       padding: 0.7rem;
-      border: 1px solid #ccc;
+      border: 1px solid var(--border);
       border-radius: 6px;
       font-size: 1rem;
       font-family: inherit;
-      background: #fff;
-      color: var(--color-text);
+      background: var(--surface);
+      color: var(--text-primary);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .consultation-form input:focus,
+    .consultation-form textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+    
+    .consultation-form select {
+      padding: 0.7rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: var(--surface);
+      color: var(--text-primary);
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
@@ -70,6 +87,7 @@
       background-repeat: no-repeat;
       background-position: right 0.7rem center;
       background-size: 1em;
+      cursor: pointer;
     }
     .consultation-form .sr-only {
         position: absolute;
@@ -111,13 +129,11 @@
       <span class="wordmark-short">CW</span>
     </a>
     <div class="header-actions">
-      <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
+      <button id="theme-toggle" aria-label="Toggle theme" title="Toggle Light/Dark Mode">
+        <i data-lucide="sun"></i>
       </button>
-      <button id="theme-toggle" aria-label="Toggle theme" tabindex="0">
-        <span class="material-icons theme-toggle-icon">light_mode</span>
+      <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
+        <i data-lucide="menu"></i>
       </button>
     </div>
   </header>
@@ -178,6 +194,12 @@
     </div>
   </footer>
   <script src="../js/main.js"></script>
+  <script>
+    // Initialize Lucide icons
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  </script>
   <!-- Claude Will Widget -->
   <link rel="stylesheet" href="/css/claude-will-widget.css">
   <script src="/js/claude-will-widget.js"></script>
