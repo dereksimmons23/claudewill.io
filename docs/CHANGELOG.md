@@ -41,6 +41,27 @@
 
 # ClaudeWill.io Changelog
 
+## [2025-06-26-2] - Critical Homepage UX Fixes
+
+### 🛠️ **USABILITY IMPROVEMENTS**
+- **Light Mode Readability**: Fixed text contrast issues in challenge and framework sections
+- **Navigation Menu**: Fixed hamburger menu positioning and dark theme support
+- **Game Button**: Corrected consciousness game toggle icon and functionality
+- **Metric Clarity**: Clarified "67% resume response rate vs 15% industry average" for better understanding
+
+### 🎯 **TECHNICAL FIXES**
+- **CSS Specificity**: Resolved linting errors by reordering selectors properly
+- **Mobile Navigation**: Enhanced hamburger menu with proper header-relative positioning
+- **Dark Theme**: Added complete dark mode support for navigation elements
+- **Game Integration**: Fixed play button icon states and game initialization
+
+### 📊 **CONTENT CLARIFICATION**
+- **Response Rate Metric**: Clearly identified as resume optimization performance metric
+- **Test-Driven Strategy**: Enhanced explanation of real-world validation approach
+- **Professional Credibility**: Maintained focus on measurable business impact
+
+---
+
 ## [2025-06-26] - Major Homepage Transformation: Storytelling Architecture
 
 ### 🎯 **STRATEGIC TRANSFORMATION**
