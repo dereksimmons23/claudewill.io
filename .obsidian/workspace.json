@@ -166,6 +166,8 @@
   },
   "active": "f32ecb17212fe19d",
   "lastOpenFiles": [
+    "js/global.js",
+    "css/global.css",
     "resume-engine/resumes/Qualtrics/Derek_Simmons_Qualtrics_AI_Innovation_Evangelist_v2.md",
     "resume-engine/resumes/Qualtrics/Derek_Simmons_Qualtrics_Clean_Resume.md",
     "resume-engine/resumes/Qualtrics/Derek_Simmons_Qualtrics_Clean_Cover_Letter.md",
@@ -182,7 +184,6 @@
     "resume-engine/resumes/TR Westlaw/Professional Recommendation for Derek Simmons.pdf",
     "resume-engine/resumes/TR Westlaw/thomson_reuters_professional_resume.html",
     "resume-engine/resumes/TR Westlaw/thomson_reuters_professional_cover_letter.html",
-    "resume-engine/resumes/TR Westlaw/Derek Simmons - AI Product Strategy Executive.pdf",
     "ats-decoder/project-summary.md",
     "ats-decoder/README.md",
     "ats-decoder/docs/product-roadmap.md",

@@ -1,0 +1,299 @@
+/* Global Styles - Consistent across all pages */
+
+/* CSS Reset and Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: #2c3e50;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Global Header Styles */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  background: rgb(255 255 255 / 95%);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgb(44 62 80 / 10%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.wordmark {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #2c3e50;
+  text-decoration: none;
+  letter-spacing: -0.025em;
+  transition: opacity 0.2s ease;
+}
+
+.wordmark:hover {
+  opacity: 0.8;
+}
+
+.wordmark-full {
+  display: inline;
+}
+
+.wordmark-short {
+  display: none;
+}
+
+/* Footer */
+footer {
+  padding: 2rem 1rem 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: rgb(44 62 80 / 60%);
+  border-top: 1px solid rgb(44 62 80 / 10%);
+  background: #fff;
+}
+
+footer a {
+  color: #a33f10;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Header Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: auto;
+}
+
+/* Button Styles */
+#consciousness-toggle,
+#theme-toggle,
+#hamburger-toggle {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgb(44 62 80 / 10%);
+  border: 1px solid rgb(44 62 80 / 20%);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #2c3e50;
+}
+
+#consciousness-toggle:hover,
+#theme-toggle:hover,
+#hamburger-toggle:hover {
+  background: rgb(44 62 80 / 15%);
+  transform: scale(1.05);
+}
+
+#consciousness-toggle.active {
+  background: #a33f10;
+  color: white;
+  border-color: #a33f10;
+}
+
+/* Navigation Menu */
+.hamburger-nav {
+  display: none;
+  position: absolute;
+  top: calc(4rem + 0.5rem);
+  right: 1rem;
+  background: rgb(255 255 255 / 95%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgb(44 62 80 / 20%);
+  border-radius: 1rem;
+  box-shadow: 0 10px 40px rgb(44 62 80 / 15%);
+  padding: 1rem;
+  z-index: 1000;
+  min-width: 200px;
+}
+
+.hamburger-nav.open {
+  display: block;
+}
+
+.hamburger-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hamburger-nav li {
+  margin: 0;
+}
+
+.hamburger-nav a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #2c3e50;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.hamburger-nav a:hover {
+  background: rgb(44 62 80 / 10%);
+  color: #a33f10;
+  transform: translateX(4px);
+}
+
+/* Dark Theme */
+.dark-theme {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+.dark-theme .site-header {
+  background: rgb(26 26 26 / 95%);
+  border-bottom-color: rgb(224 224 224 / 10%);
+}
+
+.dark-theme .wordmark {
+  color: #e0e0e0;
+}
+
+.dark-theme #consciousness-toggle,
+.dark-theme #theme-toggle,
+.dark-theme #hamburger-toggle {
+  background: rgb(224 224 224 / 10%);
+  border-color: rgb(224 224 224 / 20%);
+  color: #e0e0e0;
+}
+
+.dark-theme #consciousness-toggle:hover,
+.dark-theme #theme-toggle:hover,
+.dark-theme #hamburger-toggle:hover {
+  background: rgb(224 224 224 / 20%);
+}
+
+.dark-theme .hamburger-nav {
+  background: rgb(26 26 26 / 95%);
+  border-color: rgb(224 224 224 / 20%);
+}
+
+.dark-theme .hamburger-nav a {
+  color: #e0e0e0;
+}
+
+.dark-theme .hamburger-nav a:hover {
+  background: rgb(224 224 224 / 10%);
+  color: #ff6b35;
+}
+
+.dark-theme footer {
+  color: rgb(224 224 224 / 60%);
+  border-top-color: rgb(224 224 224 / 10%);
+  background: #1a1a1a;
+}
+
+.dark-theme footer a {
+  color: #ff6b35;
+}
+
+/* Content Spacing */
+main {
+  padding-top: 4rem;
+  min-height: calc(100vh - 4rem);
+}
+
+/* Responsive Design */
+@media (width <= 768px) {
+  .site-header {
+    padding: 0 1rem;
+  }
+  
+  .wordmark-full {
+    display: none;
+  }
+  
+  .wordmark-short {
+    display: inline;
+  }
+  
+  .hamburger-nav {
+    right: 0.5rem;
+    left: 0.5rem;
+    min-width: auto;
+  }
+}
+
+
+
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Loading Screen */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.dark-theme .loading-screen {
+  background: #1a1a1a;
+}
+
+.spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid rgb(44 62 80 / 20%);
+  border-top-color: #a33f10;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-message {
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: rgb(44 62 80 / 60%);
+  animation: pulse 2s infinite;
+}
+
+.dark-theme .loading-message {
+  color: rgb(224 224 224 / 60%);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+} 
