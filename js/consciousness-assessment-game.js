@@ -393,6 +393,13 @@ class AIReadinessGame {
             this.crosshair.style.left = (e.clientX - 15) + 'px';
             this.crosshair.style.top = (e.clientY - 15) + 'px';
         });
+        
+        // Add escape key listener
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.isActive) {
+                this.endGame();
+            }
+        });
     }
     
     showIntroduction() {
@@ -417,8 +424,11 @@ class AIReadinessGame {
                 Navigate through 5 strategic scenarios using your mouse crosshair. 
                 Hit the orbs that represent your approach to AI challenges.
             </p>
-            <p style="margin-bottom: 2rem; font-size: 0.9rem; opacity: 0.8;">
+            <p style="margin-bottom: 1rem; font-size: 0.9rem; opacity: 0.8;">
                 Based on Derek's Human-AI Orchestration framework and real client experiences.
+            </p>
+            <p style="margin-bottom: 2rem; font-size: 0.8rem; opacity: 0.6;">
+                Press <kbd style="background: rgba(255,255,255,0.2); padding: 2px 6px; border-radius: 3px;">ESC</kbd> to exit anytime
             </p>
             <button id="start-assessment" style="
                 background: #00ff88;
@@ -550,9 +560,13 @@ class AIReadinessGame {
         // Show feedback
         this.showFeedback(orb.feedback, orb.points);
         
-        // Remove all orbs for this scenario
-        const allOrbs = this.gameContainer.querySelectorAll('div[style*="border-radius: 50%"]:not([id="crosshair"])');
-        allOrbs.forEach(orb => orb.remove());
+        // Remove all orbs for this scenario (but keep crosshair)
+        const allOrbs = this.gameContainer.querySelectorAll('div[style*="border-radius: 50%"]');
+        allOrbs.forEach(orb => {
+            if (orb !== this.crosshair) {
+                orb.remove();
+            }
+        });
         
         // Remove scenario display
         const scenarioDisplay = document.getElementById('scenario-display');

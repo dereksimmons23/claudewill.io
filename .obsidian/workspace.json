@@ -166,6 +166,11 @@
   },
   "active": "f32ecb17212fe19d",
   "lastOpenFiles": [
+    "resume-engine/resumes/Google/Derek_Simmons_Google_Cover_Letter_Clean.md",
+    "resume-engine/resumes/Google/Derek_Simmons_Google_Resume_Clean.md",
+    "resume-engine/resumes/Google/Derek_Simmons_Google_Cover_Letter_Professional.html",
+    "resume-engine/resumes/Google/Derek_Simmons_Google_Resume_Professional.html",
+    "resume-engine/resumes/Google",
     "resume-engine/resumes/untitled folder",
     "js/consciousness-assessment-game.js",
     "pages/style-guide.html",
@@ -173,14 +178,10 @@
     "pages/portfolio.html",
     "pages/projects-old.html",
     "pages/portfolio-old.html",
-    "pages/projects-redirect.html",
-    "pages/portfolio-redirect.html",
-    "pages/case-studies.html",
     "ats-decoder/docs/product_positioning_framework.md",
     "resume-engine/strategic_career_framework.md",
     "resume-engine/resumes/CEO Business Coach/Derek_Simmons_CEO_Business_Coach_Clean_Resume.md",
     "resume-engine/resumes/CEO Business Coach/Derek_Simmons_CEO_Business_Coach_Cover_Letter.md",
-    "resume-engine/resumes/CEO Business Coach",
     "resume-engine/career_decision_framework.md",
     "docs/NEXT_STEPS.md",
     "resume-engine/resumes/career_decision_framework.md",
@@ -201,7 +202,6 @@
     "resume-engine/resumes/Derek_Simmons_Thomson_Reuters_Clean_Cover_Letter.md",
     "resume-engine/resumes/Derek_Simmons_Thomson_Reuters_Cover_Letter_v2.md",
     "resume-engine/resumes/Derek_Simmons_Thomson_Reuters_Clean_Resume.md",
-    "resume-engine/resumes/Derek_Simmons_Thomson_Reuters_Director_Product_Management_v2.md",
-    "docs/AI_ORCHESTRATION_SESSION_LOG.md"
+    "resume-engine/resumes/Derek_Simmons_Thomson_Reuters_Director_Product_Management_v2.md"
   ]
 }
