@@ -2,24 +2,39 @@
 
 ## 🎯 **IMMEDIATE PRIORITIES**
 
-### **1. Resume System Architecture Consolidation**
+### **1. ✅ COMPLETED: Navigation Restructure & Content Consolidation**
+**Status:** Successfully completed - Portfolio + Projects merged into Case Studies
+
+**What Was Accomplished:**
+- **Created comprehensive Case Studies page** - Merged Portfolio + Projects content
+- **Streamlined navigation** - 10 items → 7 items for better UX
+- **Smart redirects** - Old Portfolio/Projects URLs redirect to Case Studies
+- **Updated branding** - Header logo changed from "ClaudeWill" → "CW"
+- **Enhanced conversion flow** - Clear journey from expertise → methodology → results → CTA
+
+**Business Impact:**
+- Stronger narrative arc showcasing $25M+ proven results
+- Better mobile experience with simplified navigation
+- Consolidated authority for SEO benefits
+- Ready for Claude Will hero animation integration
+
+### **2. Resume System Architecture Consolidation**
 **Current Status:** Multiple overlapping resume systems need consolidation
 
 **Systems to Evaluate:**
 - **`/resume-engine`** - React-based resume generation system
 - **`/ats-decoder`** - ATS optimization tools  
-- **`pages/resume.html`** - Static resume display page
+- **`pages/resume.html`** - Static resume display page (now removed from nav)
 - **`/resumes`** - Collection of resume files and templates
 
 **Key Decisions Needed:**
 - Should `/resume-engine` and `/ats-decoder` be merged into unified system?
-- Keep `pages/resume.html` as static display vs migrate to dynamic generation?
 - Consolidate or eliminate `/resumes` folder contents?
 - Define clear separation of concerns: display vs generation vs optimization
 
 **Impact:** Critical for site maintainability and user experience clarity
 
-### **2. Production Deployment Decision**
+### **3. Production Deployment Decision**
 **Current Status:** Dev branch has fully functional consciousness game + stable main branch with dark mode default
 
 **Options:**
