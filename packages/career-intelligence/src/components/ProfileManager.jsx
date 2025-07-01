@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Download, Print, ExternalLink, Mail, Phone, MapPin, Globe, Briefcase } from 'lucide-react';
+import { Download, Printer, ExternalLink, Mail, Phone, MapPin, Globe, Briefcase } from 'lucide-react';
 
 const ProfileManager = () => {
   const [activeSection, setActiveSection] = useState('experience');
@@ -252,7 +252,7 @@ const ProfileManager = () => {
 
       <div style={styles.exportActions}>
         <button style={styles.exportBtn} onClick={() => handleExport('pdf')}>
-          <Print size={16} />
+          <Printer size={16} />
           Print / Save as PDF
         </button>
         <button style={styles.exportBtn} onClick={() => handleExport('txt')}>
