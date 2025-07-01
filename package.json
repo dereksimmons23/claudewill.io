@@ -1,9 +1,14 @@
 {
   "name": "claudewill-mvp",
   "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "description": "Static site for Claude Will with CI/CD linting and checks",
   "scripts": {
     "dev": "python3 -m http.server 8000",
+    "build": "npm run build --workspaces",
     "lint:html": "htmlhint '**/*.html'",
     "lint:css": "stylelint 'css/**/*.css'",
     "lint:js": "eslint 'js/**/*.js' --ignore-pattern 'js/research/**'",

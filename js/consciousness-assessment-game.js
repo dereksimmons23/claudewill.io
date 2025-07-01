@@ -741,6 +741,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Export for potential use in other modules
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = AIReadinessGame;
+if (typeof window !== 'undefined') {
+    window.AIReadinessGame = AIReadinessGame;
 }

@@ -1,104 +1,185 @@
-# Claude Will
+# Claude Will Portfolio & Business Platform
 
-Claude Will is a conversational interface and framework testbed that explores connections between coaching philosophy, media transformation, and technological advancement—where pattern recognition reveals insights others miss.
+**Strategic business transformation through Human-AI Orchestration methodology**
 
-## Table of Contents
+Visit: [claudewill.io](https://claudewill.io)
 
-- [About the Project](#about-the-project)
-- [Features](#features)
-- [Key Frameworks](#key-frameworks)
-- [Project Structure](#project-structure)
-- [Installation &amp; Usage](#installation--usage)
-- [Documentation](#documentation)
-- [Development Philosophy](#development-philosophy)
-- [Contact](#contact)
-- [Contributing](#contributing)
-- [License](#license)
+## 🎯 Platform Overview
 
-## About the Project
+### **Core Features**
+- **Consciousness OS** - Interactive space navigation game demonstrating AI orchestration philosophy
+- **Career Intelligence Platform** - Unified resume optimization, ATS decoding, and career strategy tools
+- **Strategic Consulting** - The CW Standard methodology for executive transformation
+- **Assessment Tools** - AI readiness and strategic evaluation frameworks
 
-Claude Will is named in honor of Claude William Simmons, whose practical wisdom inspired The CW Standard framework. The site serves as both a portfolio for Derek Simmons and a demonstration of cross-domain pattern recognition principles. It is also a testbed for evolving frameworks and future AI agent/assistant concepts.
+### **Business Model**
+- **Consulting Services** - Strategic transformation and AI implementation 
+- **Career Intelligence SaaS** - Freemium platform with Professional ($47/mo) and Executive ($97/mo) tiers
+- **Content & Speaking** - Thought leadership and industry presentations
+- **Enterprise Solutions** - Custom frameworks and team implementations
 
-## Features
+## 🏗️ Architecture
 
-- **Conversational Interface**: Ask Claude Will about concepts like The CW Standard, Media Franchise Model, or pattern recognition
-- **Cross-Domain Insights**: Explore connections between coaching philosophy, media transformation, and technological implementation
-- **Light/Dark Mode**: Toggle between themes based on your preference
-- **Responsive Design**: Works seamlessly across all device sizes
-- **Unified Documentation Hub**: All project, policy, and technical docs are now accessible from `/documentation.html` for clarity and ease of use
-- **Modern Navigation**: Main nav includes Home, About Derek, Projects, Resume, Documentation; footer includes Documentation, About Derek, Privacy Policy, Terms of Use
+### **Main Site**
+- **Frontend**: HTML5, CSS3, Vanilla JavaScript with modern UX patterns
+- **Styling**: CSS custom properties with dark/light theme support
+- **Icons**: Lucide icons for consistent visual language
+- **Performance**: Optimized for Core Web Vitals and mobile experience
 
-## Key Frameworks
+### **Career Intelligence Platform** (`/career-intelligence/`)
+- **Framework**: React 18 + Vite for modern development experience
+- **Components**: Modular architecture with ProfileManager, ATSDecoder, VoiceCalibrator, DecisionMatrix
+- **Data**: Structured resume components and career intelligence algorithms
+- **Export**: PDF and text format generation with professional templates
 
-### The CW Standard
+### **Game Engine** (`consciousness-navigation.js`)
+- **Performance**: 60 FPS smooth gameplay with optimized rendering
+- **Educational**: Service information panels integrated with game mechanics
+- **Mobile**: Touch-optimized controls for cross-device compatibility
+- **Philosophy**: Demonstrates Human-AI Orchestration principles through interactive experience
 
-A comprehensive framework for navigating complex transitions that bridges human wisdom with technological advancement. The CW Standard emerged from observing how practical wisdom creates patterns of success across seemingly unrelated areas.
+## 🚀 Development Workflow
 
-### Media Franchise Model
-
-A revolutionary approach to content development that treats traditional verticals as entrepreneurial business units with their own identity and development pathway. This approach generated over $10M in new revenue by creating sponsorship opportunities that transcended traditional platform boundaries.
-
-### Baton Handoff & Pattern Recognition
-
-Frameworks for managing transitions and identifying cross-domain patterns, with detailed documentation in the [Documentation Hub](./documentation.html).
-
-## Project Structure
-
-- **index.html, about.html, projects.html, resume.html**: Main site pages
-- **js/**: JavaScript for chat and interactivity ([see js/README.md](js/README.md))
-- **css/**: Stylesheets
-- **documentation.html**: Centralized documentation hub (includes summaries and links to all key docs)
-- **PUNCH_LIST.md**: Ongoing punch list, roadmap, and enhancement tracker
-- **resume.md, resume.html**: Resume in Markdown and HTML formats
-- **krista.html**: Documentation for Krista.ai research and related work
-
-## Installation & Usage
-
-No build tools or frameworks required. Simply clone the repository and open `index.html` in your browser.
-
-```sh
-git clone https://github.com/yourusername/claudewill.io.git
-cd claudewill.io
-open index.html
+### **Branch Strategy**
+```bash
+main    # Production (claudewill.io live site)
+dev     # Development and testing
 ```
 
-## Documentation
+### **Quick Commands**
+```bash
+# Development
+make dev-deploy MSG="your message"  # Deploy to dev branch
+make dev-test                       # Local testing on dev
+make quick                         # Quick dev deploy
 
-- [documentation.html](./documentation.html): Centralized hub for all project, policy, and technical docs
-- [js/README.md](js/README.md): JavaScript codebase overview
-- [resume.md](./resume.md): Resume in Markdown format
-- [docs/mission_vision_strategy.md](docs/mission_vision_strategy.md): Mission, vision, values, strategic pillars, success metrics, and key risks
-- [docs/resume_project_handoff_updated.md](docs/resume_project_handoff_updated.md): Current project status, outcomes, and next steps
-- [docs/internal/roadmap_and_project_plan.md](docs/internal/roadmap_and_project_plan.md): Platform roadmap, implementation plan, technical guide, and CI/CD analysis
-  > *Note: The full Baton Handoff framework and its historical context are now archived for reference.*
-  >
+# Production
+make prod-deploy                   # Merge dev to main and deploy
+make status                        # Check git status and linting
+make fix                          # Auto-fix linting issues
+```
 
-## Development Philosophy
+### **Local Development**
+```bash
+# Install dependencies
+npm install
 
-- **Progress Over Perfection**: Prioritizing functionality and core experience
-- **Focus on Unique Value**: Showcasing cross-domain expertise
-- **Authentic Voice**: Maintaining a conversational, accessible tone
-- **Strategic Simplicity**: Clean design that puts content first
+# Start local server
+npx http-server -p 8000
 
-## Contact
+# Career Intelligence development
+cd career-intelligence
+npm install
+npm run dev
+```
 
-- [LinkedIn](https://www.linkedin.com/in/dereksimm)
-- [Bluesky](https://bsky.app/profile/derek4thecws.bsky.social)
-- [Substack](https://derek4thecws.substack.com/)
-- [Personal Site](https://dcs.bio)
+## 💼 Business Results
 
-## Contributing
+### **Proven Methodology**
+- **67% response rate** vs 15% industry average for career transitions
+- **2,500+ hours** of systematic ATS optimization research
+- **Cross-domain expertise** from technology, sports, and executive coaching
+- **$25M+ value creation** across portfolio of consulting engagements
 
-Contributions are welcome! To help keep this project high-quality and focused, please follow these guidelines:
+### **Competitive Advantages**
+- **Only platform** combining resume optimization + voice calibration + decision frameworks
+- **Anti-AI authenticity** positioning against generic AI tools
+- **Human-AI Orchestration** philosophy with practical applications
+- **Research-driven** methodology with documented success rates
 
-- **Open an issue** to propose a feature, report a bug, or ask a question before submitting a pull request for major changes.
-- **Fork the repo** and create a new branch for your contribution.
-- **Submit a pull request** with a clear description of your changes and why they improve the project.
-- **Follow the documentation and code style** as seen in `/docs`, `/js`, and `/css`.
-- **Be respectful and constructive** in all discussions and code reviews.
+## 🗂️ Repository Structure
 
-All contributions are reviewed for clarity, quality, and alignment with the project's mission and documentation structure.
+```
+claudewill.io/
+├── career-intelligence/          # Unified career tools platform
+├── css/                         # Global styles and themes
+├── js/                          # JavaScript modules and game engine
+├── pages/                       # Static site pages
+├── docs/                        # Documentation and frameworks
+├── archived/                    # Legacy systems preservation
+│   ├── resume-engine-legacy/    # Original React resume system
+│   ├── ats-decoder-legacy/      # Original ATS research platform
+│   └── MIGRATION_RECORD.md      # Complete migration documentation
+└── Makefile                     # Development and deployment automation
+```
 
-## License
+## 🎨 Design System
 
-© 2025 Derek Simmons. All rights reserved.
+### **Visual Identity**
+- **Colors**: Primary blue (#38606e), gold accent (#d4af37), semantic colors for different states
+- **Typography**: Noto Sans for UI, Noto Serif for content, consistent hierarchy
+- **Icons**: Lucide icon system for professional consistency
+- **Themes**: Dark mode default with comprehensive light mode support
+
+### **Component Library**
+- **Navigation**: Hamburger menu with smooth animations
+- **Cards**: Consistent service and project presentation
+- **Buttons**: Multiple variants with hover states and accessibility
+- **Forms**: Assessment tools with progressive disclosure
+- **Game UI**: Custom controls optimized for consciousness navigation
+
+## 📊 Analytics & Performance
+
+### **Key Metrics**
+- **Core Web Vitals**: Optimized for Google performance standards
+- **Career Intelligence**: User engagement, conversion rates, feature usage
+- **Consciousness Game**: Play time, service exploration, conversion to contact
+- **Content Marketing**: Thought leadership impact and lead generation
+
+### **Monitoring**
+- **Performance**: Page load times and interactive metrics
+- **Business**: Platform trial conversions and subscription upgrades
+- **User Behavior**: Navigation patterns and engagement depth
+- **Revenue**: MRR growth and customer acquisition costs
+
+## 🛠️ Technical Stack
+
+### **Frontend Technologies**
+- **HTML5**: Semantic markup with accessibility standards
+- **CSS3**: Custom properties, Grid, Flexbox, animations
+- **JavaScript**: ES6+ modules with performance optimization
+- **React**: Modern component architecture for complex interactions
+
+### **Development Tools**
+- **ESLint**: Code quality and consistency enforcement
+- **Stylelint**: CSS standards and performance optimization
+- **Vite**: Fast development server and optimized builds
+- **Git**: Professional branching workflow with automation
+
+## 🎯 Strategic Roadmap
+
+### **Q1 2025: Revenue Launch**
+- Beta test Career Intelligence platform with 15+ users
+- Implement Stripe payment processing for subscription model
+- Launch content marketing campaign for thought leadership
+- Target $5K+ MRR with 15%+ trial-to-paid conversion
+
+### **Q2 2025: Scale & Partnerships**
+- Enterprise features for team collaboration
+- Strategic partnerships with ATS vendors and career services
+- Speaking engagement circuit for brand recognition
+- Advanced analytics and A/B testing implementation
+
+### **Q3 2025: Market Leadership**
+- Industry recognition and media coverage
+- Advanced AI integrations while maintaining human-first philosophy
+- Franchise or licensing model for consulting methodology
+- International expansion planning
+
+## 📝 Contributing
+
+### **Development Standards**
+- Follow established CSS and JavaScript patterns
+- Maintain accessibility standards (WCAG 2.1 AA)
+- Test across devices and browsers before deployment
+- Document new features and architectural decisions
+
+### **Content Guidelines**
+- Align with Human-AI Orchestration philosophy
+- Focus on proven results and authentic expertise
+- Balance technical sophistication with accessibility
+- Maintain professional consulting brand while showcasing innovation
+
+---
+
+**Built with Human-AI Orchestration methodology • [claudewill.io](https://claudewill.io)**

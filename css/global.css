@@ -145,7 +145,7 @@ footer a:hover {
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+  box-shadow: 0 4px 15px rgb(0 212 255 / 30%);
   animation: pulse-glow 3s infinite;
   width: auto;
   height: auto;
@@ -153,7 +153,7 @@ footer a:hover {
 
 .assessment-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+  box-shadow: 0 6px 20px rgb(0 212 255 / 40%);
   background: linear-gradient(135deg, #00d4ff, var(--accent-color));
 }
 
@@ -168,10 +168,11 @@ footer a:hover {
 
 @keyframes pulse-glow {
   0%, 70%, 100% {
-    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+    box-shadow: 0 4px 15px rgb(0 212 255 / 30%);
   }
+
   35% {
-    box-shadow: 0 4px 25px rgba(0, 212, 255, 0.6);
+    box-shadow: 0 4px 25px rgb(0 212 255 / 60%);
   }
 }
 
@@ -234,11 +235,11 @@ footer a:hover {
 
 .dark-theme .assessment-cta {
   background: linear-gradient(135deg, var(--accent-color), #00d4ff);
-  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+  box-shadow: 0 4px 15px rgb(0 212 255 / 40%);
 }
 
 .dark-theme .assessment-cta:hover {
-  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.5);
+  box-shadow: 0 6px 20px rgb(0 212 255 / 50%);
 }
 
 .dark-theme .hamburger-nav {
