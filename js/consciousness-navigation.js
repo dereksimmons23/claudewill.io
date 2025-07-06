@@ -18,42 +18,48 @@ class SpaceOrbGame {
                 color: '#00d4ff', 
                 icon: '🧠',
                 url: 'pages/assessment.html',
-                points: 100
+                points: 100,
+                info: "Discover your AI readiness level with our comprehensive assessment. Takes 5 minutes, provides personalized insights."
             },
             resume: {
                 title: 'Resume Engine', 
                 color: '#8b5cf6', 
                 icon: '📄',
                 url: 'pages/resume.html',
-                points: 80
+                points: 80,
+                info: "AI-powered resume optimization achieving 67% response rates vs 15% industry average. Real results, real data."
             },
             portfolio: {
                 title: 'Portfolio', 
                 color: '#00ff88', 
                 icon: '🎨',
                 url: 'pages/portfolio.html',
-                points: 120
+                points: 120,
+                info: "See real examples of AI transformations, case studies, and client success stories from our work."
             },
             about: {
-                title: 'About', 
+                title: 'About Derek', 
                 color: '#ff6b35', 
                 icon: '👤',
                 url: 'pages/about.html',
-                points: 60
+                points: 60,
+                info: "Meet Derek Simmons - AI strategist, Kansas native, and the human conductor behind Claude Wisdom Strategies."
             },
             projects: {
-                title: 'Projects', 
+                title: 'Live Projects', 
                 color: '#ff0080', 
                 icon: '🚀',
                 url: 'pages/projects.html',
-                points: 150
+                points: 150,
+                info: "Active AI orchestration projects including this website being built in real-time with 5 AI systems."
             },
             services: {
                 title: 'Services', 
                 color: '#ffd700', 
                 icon: '⚡',
                 url: 'pages/services.html',
-                points: 100
+                points: 100,
+                info: "Human-AI Orchestration, Test-Driven Strategy, and Water in the Glass frameworks for your organization."
             }
         };
     }
@@ -84,11 +90,15 @@ class SpaceOrbGame {
         
         // Update toggle button
         const toggle = document.getElementById('consciousness-toggle');
-        const icon = toggle.querySelector('i');
-        icon.setAttribute('data-lucide', 'target');
-        toggle.title = 'Exit Space Game';
-        toggle.classList.add('active');
-        if (window.lucide) window.lucide.createIcons();
+        if (toggle) {
+            const icon = toggle.querySelector('i');
+            if (icon) {
+                icon.setAttribute('data-lucide', 'target');
+            }
+            toggle.title = 'Exit Space Game';
+            toggle.classList.add('active');
+            if (window.lucide) window.lucide.createIcons();
+        }
         
         this.createGameContainer();
         this.createCrosshair();
@@ -104,11 +114,15 @@ class SpaceOrbGame {
         
         // Reset toggle button
         const toggle = document.getElementById('consciousness-toggle');
-        const icon = toggle.querySelector('i');
-        icon.setAttribute('data-lucide', 'play');
-        toggle.title = 'Enter Space Game';
-        toggle.classList.remove('active');
-        if (window.lucide) window.lucide.createIcons();
+        if (toggle) {
+            const icon = toggle.querySelector('i');
+            if (icon) {
+                icon.setAttribute('data-lucide', 'play');
+            }
+            toggle.title = 'Enter Space Game';
+            toggle.classList.remove('active');
+            if (window.lucide) window.lucide.createIcons();
+        }
         
         if (this.gameContainer) {
             this.gameContainer.remove();
@@ -275,13 +289,13 @@ class SpaceOrbGame {
                 data: service,
                 x: Math.random() * (window.innerWidth - 100) + 50,
                 y: window.innerHeight + 50,
-                speed: Math.random() * 2 + 1 + (this.level * 0.5),
+                speed: Math.random() * 1 + 0.5 + (this.level * 0.3), // Slower, more manageable
                 hit: false
             };
             
             this.orbs.push(orb);
             this.gameContainer.appendChild(orb.element);
-        }, 2000 - (this.level * 100)); // Spawn faster as level increases
+        }, 3000 - (this.level * 200)); // Spawn slower for better playability
     }
     
     createOrbElement(service, serviceKey) {
@@ -298,9 +312,9 @@ class SpaceOrbGame {
             justify-content: center;
             font-size: 24px;
             cursor: crosshair;
-            animation: orb-float ${8 - this.level}s linear;
             box-shadow: 0 0 30px ${service.color}60;
-            transition: all 0.2s ease;
+            transition: transform 0.2s ease;
+            will-change: transform;
         `;
         
         orb.innerHTML = `
@@ -338,13 +352,8 @@ class SpaceOrbGame {
             this.levelUp();
         }
         
-        // Navigate after brief delay
-        setTimeout(() => {
-            if (service.url) {
-                this.endGame();
-                window.location.href = service.url;
-            }
-        }, 1000);
+        // Show service info instead of immediate navigation
+        this.showServiceInfo(service);
     }
     
     createExplosion(x, y, color) {
@@ -395,6 +404,56 @@ class SpaceOrbGame {
         
         document.body.appendChild(popup);
         setTimeout(() => popup.remove(), 1000);
+    }
+    
+    showServiceInfo(service) {
+        const infoPanel = document.createElement('div');
+        infoPanel.style.cssText = `
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid ${service.color};
+            border-radius: 20px;
+            padding: 30px;
+            color: white;
+            font-family: 'JetBrains Mono', monospace;
+            text-align: center;
+            z-index: 10006;
+            max-width: 500px;
+            box-shadow: 0 0 40px ${service.color}60;
+        `;
+        
+        infoPanel.innerHTML = `
+            <div style="font-size: 32px; margin-bottom: 15px;">${service.icon}</div>
+            <h3 style="color: ${service.color}; margin-bottom: 20px; font-size: 24px;">${service.title}</h3>
+            <p style="margin-bottom: 25px; line-height: 1.6; font-size: 14px;">${service.info}</p>
+            <div style="display: flex; gap: 15px; justify-content: center;">
+                <button onclick="window.location.href='${service.url}'; this.parentElement.parentElement.remove();" style="
+                    background: ${service.color};
+                    color: black;
+                    border: none;
+                    padding: 12px 24px;
+                    border-radius: 10px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    font-size: 14px;
+                ">Explore ${service.title}</button>
+                <button onclick="this.parentElement.parentElement.remove()" style="
+                    background: transparent;
+                    color: ${service.color};
+                    border: 2px solid ${service.color};
+                    padding: 12px 24px;
+                    border-radius: 10px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    font-size: 14px;
+                ">Continue Game</button>
+            </div>
+        `;
+        
+        this.gameContainer.appendChild(infoPanel);
     }
     
     levelUp() {
@@ -467,26 +526,43 @@ class SpaceOrbGame {
     }
     
     startGameLoop() {
-        const loop = () => {
+        let lastTime = 0;
+        const targetFPS = 60;
+        const frameTime = 1000 / targetFPS;
+        
+        const loop = (currentTime) => {
             if (!this.isActive) return;
             
-            // Update orb positions
-            this.orbs.forEach((orb, index) => {
-                orb.y -= orb.speed;
-                orb.element.style.left = orb.x + 'px';
-                orb.element.style.top = orb.y + 'px';
+            // Throttle to target FPS for better performance
+            if (currentTime - lastTime >= frameTime) {
+                // Update orb positions (batch DOM updates)
+                const orbsToRemove = [];
                 
-                // Remove orbs that went off screen
-                if (orb.y < -100) {
-                    orb.element.remove();
+                this.orbs.forEach((orb, index) => {
+                    orb.y -= orb.speed;
+                    
+                    // Batch DOM updates
+                    orb.element.style.transform = `translate(${orb.x}px, ${orb.y}px)`;
+                    
+                    // Mark orbs for removal instead of removing immediately
+                    if (orb.y < -100) {
+                        orbsToRemove.push(index);
+                    }
+                });
+                
+                // Remove orbs in reverse order to maintain indices
+                orbsToRemove.reverse().forEach(index => {
+                    this.orbs[index].element.remove();
                     this.orbs.splice(index, 1);
+                });
+                
+                lastTime = currentTime;
             }
-            });
             
             this.gameLoop = requestAnimationFrame(loop);
         };
         
-        loop();
+        loop(0);
     }
     
     setupEventListeners() {

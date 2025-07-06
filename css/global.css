@@ -110,7 +110,6 @@ footer a:hover {
 }
 
 /* Button Styles */
-#consciousness-toggle,
 #theme-toggle,
 #hamburger-toggle {
   width: 2.5rem;
@@ -126,17 +125,55 @@ footer a:hover {
   color: #2c3e50;
 }
 
-#consciousness-toggle:hover,
 #theme-toggle:hover,
 #hamburger-toggle:hover {
   background: rgb(44 62 80 / 15%);
   transform: scale(1.05);
 }
 
-#consciousness-toggle.active {
-  background: #a33f10;
+/* Assessment CTA Button */
+.assessment-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--accent-color), #00d4ff);
   color: white;
-  border-color: #a33f10;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgb(0 212 255 / 30%);
+  animation: pulse-glow 3s infinite;
+  width: auto;
+  height: auto;
+}
+
+.assessment-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgb(0 212 255 / 40%);
+  background: linear-gradient(135deg, #00d4ff, var(--accent-color));
+}
+
+.assessment-cta.active {
+  background: var(--error-color);
+  animation: none;
+}
+
+.assessment-cta.active:hover {
+  background: #dc2626;
+}
+
+@keyframes pulse-glow {
+  0%, 70%, 100% {
+    box-shadow: 0 4px 15px rgb(0 212 255 / 30%);
+  }
+
+  35% {
+    box-shadow: 0 4px 25px rgb(0 212 255 / 60%);
+  }
 }
 
 /* Navigation Menu */
@@ -184,7 +221,6 @@ footer a:hover {
   color: #e0e0e0;
 }
 
-.dark-theme #consciousness-toggle,
 .dark-theme #theme-toggle,
 .dark-theme #hamburger-toggle {
   background: rgb(224 224 224 / 10%);
@@ -192,10 +228,18 @@ footer a:hover {
   color: #e0e0e0;
 }
 
-.dark-theme #consciousness-toggle:hover,
 .dark-theme #theme-toggle:hover,
 .dark-theme #hamburger-toggle:hover {
   background: rgb(224 224 224 / 20%);
+}
+
+.dark-theme .assessment-cta {
+  background: linear-gradient(135deg, var(--accent-color), #00d4ff);
+  box-shadow: 0 4px 15px rgb(0 212 255 / 40%);
+}
+
+.dark-theme .assessment-cta:hover {
+  box-shadow: 0 6px 20px rgb(0 212 255 / 50%);
 }
 
 .dark-theme .hamburger-nav {
@@ -242,6 +286,19 @@ main {
     right: 0.5rem;
     left: 0.5rem;
     min-width: auto;
+  }
+  
+  .assessment-cta span {
+    display: none;
+  }
+  
+  .assessment-cta {
+    padding: 0.75rem;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+    min-width: 48px;
   }
 }
 

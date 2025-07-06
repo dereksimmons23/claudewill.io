@@ -110,19 +110,8 @@ function initHamburgerMenu() {
 
 // Consciousness Toggle (for homepage only)
 function initConsciousnessToggle() {
-  const consciousnessToggle = document.getElementById('consciousness-toggle');
-  if (!consciousnessToggle) return;
-  
-  // Initialize the space orb game if available
-  if (window.spaceOrbGame) {
-    // Game is already initialized in consciousness-navigation.js
-    return;
-  }
-  
-  // Fallback for pages without the game
-  consciousnessToggle.addEventListener('click', () => {
-    console.log('Consciousness mode not available on this page');
-  });
+  // Completely removed to avoid conflicts with consciousness-navigation.js
+  // The SpaceOrbGame class handles the consciousness toggle button entirely
 }
 
 // Loading Screen

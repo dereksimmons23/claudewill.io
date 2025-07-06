@@ -29,3 +29,18 @@ His career trajectory from visual journalist to design director to chief creativ
 ## Conclusion
 
 Derek Simmons has established himself as one of the most accomplished leaders in contemporary visual journalism, with concrete achievements that include record-breaking award wins, sustained excellence across multiple premier organizations, and recognition as an industry pioneer in both traditional design and emerging technologies. His work consistently elevates publications to compete at the highest international levels while fostering innovation that shapes the future of visual storytelling. The combination of his **43-award record**, three consecutive global Top 10 finishes, and leadership during the LA Times' dominant period creates a portfolio of achievement that few in the industry can match.
+
+
+**Note from Michael and Colin about my departure from The Los Angeles Times:**
+
+It is with a mix of feelings we announce deputy design director Derek Simmons is departing The Times to return to the Minneapolis Star Tribune as assistant managing editor for visuals.
+
+Derek arrived at the Times six years ago and made an immediate impact. His creativity and attention to detail helped push the design of Business and Sports, especially Sports special sections, to new heights.
+
+He was part of the team that redesigned the paper in 2008, against the grain of over design sweeping the industry. He made contributions to our best news projects, our Oscars coverage, our overall use of illustration, and helped create the Saturday section.
+
+During his time with us, The Times won more design awards from the Society for News Design than any paper over any similar period ever.
+
+To put it simply, he made us better. We are sad he is leaving but proud he is moving on to such a great opportunity. He earned it.
+
+Derek's last day is Dec. 4. Please stop by and wish him well.

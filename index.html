@@ -7,10 +7,20 @@
     <meta name="description" content="Explore connections between coaching philosophy, media transformation, and technological advancement with Claude Will.">
     
     <!-- Open Graph / Social Sharing -->
-    <meta property="og:title" content="Claude Will | Strategic Builder">
-    <meta property="og:description" content="Explore connections between coaching philosophy, media transformation, and technological advancement.">
+    <meta property="og:title" content="Derek Simmons | Strategic AI Transformation">
+    <meta property="og:description" content="$25M+ revenue impact through proven AI frameworks. Human-AI orchestration that enhances rather than replaces human capability.">
     <meta property="og:url" content="https://claudewill.io">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://claudewill.io/derek-simmons-photo.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Derek Simmons, Founder & CEO of Claude Wisdom Strategies">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Derek Simmons | Strategic AI Transformation">
+    <meta name="twitter:description" content="$25M+ revenue impact through proven AI frameworks. Human-AI orchestration that enhances rather than replaces human capability.">
+    <meta name="twitter:image" content="https://claudewill.io/derek-simmons-photo.jpg">
     
     <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
@@ -45,11 +55,12 @@
     <header class="site-header" aria-label="Site header">
         <a href="index.html" class="wordmark">
           <span class="wordmark-full">ClaudeWill</span>
+          <span class="wordmark-short">CW</span>
         </a>
         <div class="header-actions">
-            <button id="consciousness-toggle" aria-label="Enter consciousness mode" title="Enter Consciousness Mode">
-                <i data-lucide="play"></i>
-            </button>
+                            <button id="consciousness-toggle" class="assessment-cta" aria-label="Start AI assessment game" title="Try Consciousness OS - Interactive AI Assessment Game">
+                    <i data-lucide="play"></i>
+                </button>
             <button id="theme-toggle" aria-label="Toggle theme" title="Toggle Light/Dark Mode">
                 <i data-lucide="sun"></i>
             </button>
@@ -62,39 +73,265 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="pages/about.html">About</a></li>
                 <li><a href="pages/services.html">Services</a></li>
-                <li><a href="pages/projects.html">Projects</a></li>
-                <li><a href="pages/portfolio.html">Portfolio</a></li>
-                <li><a href="pages/resume.html">Resume</a></li>
-                <li><a href="ats-decoder/index.html">ATS Decoder</a></li>
-                <li><a href="pages/documentation.html">Documentation</a></li>
+                <li><a href="pages/case-studies.html">Case Studies</a></li>
                 <li><a href="pages/assessment.html">Assessment</a></li>
+                <li><a href="career-intelligence/index.html">Career Intelligence</a></li>
+                <li><a href="pages/documentation.html">Documentation</a></li>
                 <li><a href="pages/contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <!-- Hero Section: Personal Introduction -->
-        <section class="hero-greeting" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--north-pond) 100%); color: white; padding: 4rem 0; margin-top: -60px; padding-top: calc(4rem + 60px); text-align: center;">
-            <div class="container">
+        <!-- Animated Hero Section: Strategic Transformation -->
+        <section class="hero-greeting animated-hero" style="position: relative; margin-top: -60px; padding-top: calc(4rem + 60px); min-height: 500px; overflow: hidden;">
+            <!-- Animated SVG Background -->
+            <div class="hero-animation-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
+                <svg viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                    <!-- Background Gradient -->
+                    <defs>
+                        <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1"/>
+                            <stop offset="50%" style="stop-color:#16213e;stop-opacity:1"/>
+                            <stop offset="100%" style="stop-color:#38606e;stop-opacity:1"/>
+                        </linearGradient>
+                        
+                        <radialGradient id="bgGradient" cx="50%" cy="50%" r="70%">
+                            <stop offset="0%" style="stop-color:#2d6883;stop-opacity:0.3"/>
+                            <stop offset="70%" style="stop-color:#38606e;stop-opacity:0.1"/>
+                            <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:0"/>
+                        </radialGradient>
+                        
+                        <!-- Glow effects -->
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge> 
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                        
+                        <filter id="connectionGlow">
+                            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                            <feMerge> 
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    
+                    <rect width="100%" height="100%" fill="url(#heroGradient)"/>
+                    <rect width="100%" height="100%" fill="url(#bgGradient)"/>
+                    
+                    <!-- Floating Data Points (Scene 1: 0-3s) -->
+                    <g id="dataPoints">
+                        <!-- Gold data points -->
+                        <circle cx="200" cy="100" r="4" fill="#d4af37" opacity="0">
+                            <animate attributeName="opacity" values="0;0.8;0.8" dur="12s" repeatCount="indefinite"/>
+                            <animateTransform attributeName="transform" type="translate" 
+                                values="0,0; 20,-10; -15,25; 10,-5; 0,0" dur="12s" repeatCount="indefinite"/>
+                        </circle>
+                        
+                        <polygon points="350,150 360,140 370,150 360,160" fill="#d4af37" opacity="0">
+                            <animate attributeName="opacity" values="0;0;0.7;0.7" dur="12s" repeatCount="indefinite"/>
+                            <animateTransform attributeName="transform" type="translate" 
+                                values="0,0; -10,15; 25,-20; -5,10; 0,0" dur="12s" repeatCount="indefinite"/>
+                        </polygon>
+                        
+                        <rect x="950" y="80" width="8" height="8" fill="#d4af37" opacity="0">
+                            <animate attributeName="opacity" values="0;0;0.9;0.9" dur="12s" repeatCount="indefinite"/>
+                            <animateTransform attributeName="transform" type="translate" 
+                                values="0,0; 15,20; -20,-10; 12,8; 0,0" dur="12s" repeatCount="indefinite"/>
+                        </rect>
+                        
+                        <!-- Teal data points -->
+                        <circle cx="150" cy="400" r="5" fill="#38606e" opacity="0">
+                            <animate attributeName="opacity" values="0;0.6;0.6" dur="12s" repeatCount="indefinite"/>
+                            <animateTransform attributeName="transform" type="translate" 
+                                values="0,0; -18,12; 22,-15; -8,18; 0,0" dur="12s" repeatCount="indefinite"/>
+                        </circle>
+                        
+                        <polygon points="1050,350 1065,340 1080,350 1072,365 1058,365" fill="#38606e" opacity="0">
+                            <animate attributeName="opacity" values="0;0;0.8;0.8" dur="12s" repeatCount="indefinite"/>
+                            <animateTransform attributeName="transform" type="translate" 
+                                values="0,0; 10,-25; -15,20; 20,5; 0,0" dur="12s" repeatCount="indefinite"/>
+                        </polygon>
+                        
+                        <rect x="120" y="280" width="6" height="6" fill="#38606e" opacity="0">
+                            <animate attributeName="opacity" values="0;0;0.7;0.7" dur="12s" repeatCount="indefinite"/>
+                            <animateTransform attributeName="transform" type="translate" 
+                                values="0,0; 25,8; -12,-22; 8,15; 0,0" dur="12s" repeatCount="indefinite"/>
+                        </rect>
+                    </g>
+                    
+                    <!-- Connection Lines (Scene 1-2: Appear and organize) -->
+                    <g id="connectionLines" opacity="0">
+                        <animate attributeName="opacity" values="0;0;0;0.4;0.4" dur="12s" repeatCount="indefinite"/>
+                        
+                        <line x1="200" y1="100" x2="350" y2="150" stroke="#d4af37" stroke-width="1" opacity="0.5" filter="url(#connectionGlow)">
+                            <animate attributeName="opacity" values="0;0;0;0.8;0.3" dur="12s" repeatCount="indefinite"/>
+                        </line>
+                        <line x1="350" y1="150" x2="950" y2="80" stroke="#d4af37" stroke-width="1" opacity="0.5" filter="url(#connectionGlow)">
+                            <animate attributeName="opacity" values="0;0;0;0.8;0.3" dur="12s" repeatCount="indefinite"/>
+                        </line>
+                        <line x1="150" y1="400" x2="1050" y2="350" stroke="#38606e" stroke-width="1" opacity="0.5" filter="url(#connectionGlow)">
+                            <animate attributeName="opacity" values="0;0;0;0.8;0.3" dur="12s" repeatCount="indefinite"/>
+                        </line>
+                        <line x1="120" y1="280" x2="200" y2="100" stroke="#38606e" stroke-width="1" opacity="0.5" filter="url(#connectionGlow)">
+                            <animate attributeName="opacity" values="0;0;0;0.8;0.3" dur="12s" repeatCount="indefinite"/>
+                        </line>
+                    </g>
+                    
+                    <!-- Framework Shapes (Scene 3: 6-9s) -->
+                    <g id="frameworks" opacity="0">
+                        <animate attributeName="opacity" values="0;0;0;0;0;1;1" dur="12s" repeatCount="indefinite"/>
+                        
+                        <!-- Hexagon (Orchestration) -->
+                        <polygon points="300,280 320,270 340,280 340,300 320,310 300,300" 
+                            fill="none" stroke="#d4af37" stroke-width="2" filter="url(#glow)">
+                            <animateTransform attributeName="transform" type="scale" 
+                                values="0;0;0;0;0;1;1" dur="12s" repeatCount="indefinite"
+                                transform-origin="320 290"/>
+                        </polygon>
+                        
+                        <!-- Triangle (Testing) -->
+                        <polygon points="600,260 640,320 560,320" 
+                            fill="none" stroke="#a33f10" stroke-width="2" filter="url(#glow)">
+                            <animateTransform attributeName="transform" type="scale" 
+                                values="0;0;0;0;0;1;1" dur="12s" repeatCount="indefinite"
+                                transform-origin="600 300"/>
+                        </polygon>
+                        
+                        <!-- Circle (Clarity) -->
+                        <circle cx="900" cy="290" r="25" 
+                            fill="none" stroke="#38606e" stroke-width="2" filter="url(#glow)">
+                            <animateTransform attributeName="transform" type="scale" 
+                                values="0;0;0;0;0;1;1" dur="12s" repeatCount="indefinite"
+                                transform-origin="900 290"/>
+                        </circle>
+                        
+                        <!-- Framework Icons -->
+                        <text x="320" y="295" text-anchor="middle" font-size="14" fill="#d4af37" opacity="0">🎼
+                            <animate attributeName="opacity" values="0;0;0;0;0;0;1;1" dur="12s" repeatCount="indefinite"/>
+                        </text>
+                        <text x="600" y="300" text-anchor="middle" font-size="14" fill="#a33f10" opacity="0">🔬
+                            <animate attributeName="opacity" values="0;0;0;0;0;0;1;1" dur="12s" repeatCount="indefinite"/>
+                        </text>
+                        <text x="900" y="295" text-anchor="middle" font-size="14" fill="#38606e" opacity="0">💧
+                            <animate attributeName="opacity" values="0;0;0;0;0;0;1;1" dur="12s" repeatCount="indefinite"/>
+                        </text>
+                        
+                        <!-- Connecting lines between frameworks -->
+                        <line x1="340" y1="290" x2="560" y2="310" stroke="#ffffff" stroke-width="1" opacity="0">
+                            <animate attributeName="opacity" values="0;0;0;0;0;0;0.6;0.6" dur="12s" repeatCount="indefinite"/>
+                        </line>
+                        <line x1="640" y1="300" x2="875" y2="290" stroke="#ffffff" stroke-width="1" opacity="0">
+                            <animate attributeName="opacity" values="0;0;0;0;0;0;0.6;0.6" dur="12s" repeatCount="indefinite"/>
+                        </line>
+                        <line x1="320" y1="270" x2="885" y2="270" stroke="#ffffff" stroke-width="1" opacity="0" stroke-dasharray="3,3">
+                            <animate attributeName="opacity" values="0;0;0;0;0;0;0.4;0.4" dur="12s" repeatCount="indefinite"/>
+                        </line>
+                    </g>
+                    
+                    <!-- Pulse effect for insight moments -->
+                    <g id="insightPulse">
+                        <circle cx="600" cy="290" r="80" fill="none" stroke="#ffffff" stroke-width="1" opacity="0">
+                            <animate attributeName="opacity" values="0;0;0;0.6;0;0;0;0" dur="12s" repeatCount="indefinite"/>
+                            <animateTransform attributeName="transform" type="scale" 
+                                values="0;0;0;2;3;0;0;0" dur="12s" repeatCount="indefinite"
+                                transform-origin="600 290"/>
+                        </circle>
+                    </g>
+                </svg>
+            </div>
+            
+            <!-- Content Overlay -->
+            <div class="container" style="position: relative; z-index: 10; padding: 4rem 0; color: white; text-align: center;">
                 <div class="derek-introduction" style="max-width: 800px; margin: 0 auto;">
-                    <img src="derek-simmons-photo.jpg" alt="Derek Simmons, Founder & CEO of Claude Wisdom Strategies" class="derek-photo" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 4px solid white; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
-                    <h1 style="font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem;">Hello, I'm Derek Simmons</h1>
-                    <p class="title-subtitle" style="font-size: 1.1rem; color: rgba(255,255,255,0.9); font-weight: 600; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Founder & CEO, Claude Wisdom Strategies</p>
-                    <p class="warm-greeting" style="font-size: 1.3rem; margin-bottom: 2rem; line-height: 1.6; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    <img src="derek-simmons-photo.jpg" alt="Derek Simmons, Founder & CEO of Claude Wisdom Strategies" 
+                         class="derek-photo" 
+                         style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 4px solid white; box-shadow: 0 8px 32px rgba(0,0,0,0.3); opacity: 0; animation: fadeInUp 1s ease 1s forwards;">
+                    
+                    <h1 style="font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem; opacity: 0; animation: fadeInUp 1s ease 1.5s forwards;">Hello, I'm Derek Simmons</h1>
+                    
+                    <p class="title-subtitle" style="font-size: 1.1rem; color: rgba(255,255,255,0.9); font-weight: 600; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0; animation: fadeInUp 1s ease 2s forwards;">Founder & CEO, Claude Wisdom Strategies</p>
+                    
+                    <p class="warm-greeting" style="font-size: 1.3rem; margin-bottom: 2rem; line-height: 1.6; max-width: 700px; margin-left: auto; margin-right: auto; opacity: 0; animation: fadeInUp 1s ease 2.5s forwards;">
                         I help organizations navigate AI transformation without losing what makes them unique. 
                         I've generated $25M+ in new revenue and earned 1,000+ industry awards 
                         by combining human wisdom with strategic innovation.
                     </p>
-                    <div class="credibility-proof" style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin: 2rem 0; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 12px; backdrop-filter: blur(10px);">
-                        <span class="proof-item" style="font-size: 0.9rem; font-weight: 600; color: white; white-space: nowrap;">🎯 2,500+ Hours AI Research</span>
-                        <span class="proof-item" style="font-size: 0.9rem; font-weight: 600; color: white; white-space: nowrap;">🏆 67% Resume Response Rate (vs 15% Industry)</span>
-                        <span class="proof-item" style="font-size: 0.9rem; font-weight: 600; color: white; white-space: nowrap;">🚀 Live AI Orchestration Running Now</span>
+                    
+                    <div class="credibility-proof" style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin: 2rem 0; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 12px; backdrop-filter: blur(10px); opacity: 0; animation: fadeInUp 1s ease 9s forwards;">
+                        <span class="proof-item" style="font-size: 0.9rem; font-weight: 600; color: #d4af37; white-space: nowrap;">🎯 2,500+ Hours AI Research</span>
+                        <span class="proof-item" style="font-size: 0.9rem; font-weight: 600; color: #a33f10; white-space: nowrap;">🏆 67% Resume Response Rate (vs 15% Industry)</span>
+                        <span class="proof-item" style="font-size: 0.9rem; font-weight: 600; color: #38606e; white-space: nowrap;">🚀 Live AI Orchestration Running Now</span>
                     </div>
-                    <a href="pages/about.html" class="cta-primary" style="display: inline-block; padding: 1rem 2rem; background: var(--iron-range); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(163,62,16,0.3);">My Story →</a>
+                    
+                    <a href="pages/about.html" class="cta-primary" style="display: inline-block; padding: 1rem 2rem; background: var(--iron-range); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(163,62,16,0.3); opacity: 0; animation: fadeInUp 1s ease 10s forwards;">My Story →</a>
                 </div>
             </div>
+            
+            <!-- Click to scroll indicator -->
+            <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.7); font-size: 0.9rem; cursor: pointer; z-index: 10; opacity: 0; animation: fadeInUp 1s ease 11s forwards;" onclick="document.getElementById('frameworks').scrollIntoView({behavior: 'smooth'});">
+                <div style="margin-bottom: 0.5rem;">Click to explore The CW Standard</div>
+                <div style="animation: bounce 2s infinite;">↓</div>
+            </div>
         </section>
+        
+        <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .animated-hero:hover .hero-animation-bg svg {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .animated-hero * {
+                animation-duration: 0.1s !important;
+                animation-iteration-count: 1 !important;
+            }
+            .derek-photo, h1, .title-subtitle, .warm-greeting, .credibility-proof, .cta-primary {
+                animation: none !important;
+                opacity: 1 !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .animated-hero h1 {
+                font-size: 2.5rem !important;
+            }
+            .animated-hero .warm-greeting {
+                font-size: 1.1rem !important;
+            }
+            .animated-hero .credibility-proof {
+                flex-direction: column !important;
+                gap: 1rem !important;
+            }
+        }
+        </style>
 
         <!-- Challenge & Solution Section -->
         <section class="challenge-section" style="padding: 4rem 0; background: var(--color-background);">
@@ -293,8 +530,8 @@
     <link rel="stylesheet" href="css/claude-will-widget-modern.css">
     <script src="js/claude-will-widget.js"></script>
     
-    <!-- Consciousness Navigation System -->
-    <script src="js/consciousness-navigation.js"></script>
+    <!-- AI Assessment Game -->
+    <script src="js/consciousness-assessment-game.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         // Initialize Lucide icons
@@ -304,9 +541,7 @@
         
         new ClaudeWillWidget();
         
-        // Initialize Consciousness Navigation
-        const consciousnessNav = new ConsciousnessNavigation();
-        consciousnessNav.init();
+        // SpaceOrbGame is initialized automatically in consciousness-navigation.js
       });
     </script>
 

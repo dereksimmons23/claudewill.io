@@ -1,0 +1,96 @@
+/* App.css - Additional component-specific styles */
+
+.App {
+  text-align: left;
+}
+
+/* Loading animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.job-input-container,
+.resume-generator {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Enhanced button styles */
+.analyze-button:hover:not(:disabled) {
+  box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+}
+
+.download-btn:hover {
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .resume-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .resume-section h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Focus states for accessibility */
+.analyze-button:focus,
+.download-btn:focus,
+.back-button:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Cover Letter Styles */
+.cover-letter-generator {
+  margin-top: 40px;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.cover-letter-generating {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.cover-letter-preview {
+  margin: 20px 0;
+  background-color: white;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.cover-letter-content {
+  font-family: 'Times New Roman', serif;
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  margin: 0;
+  color: #333;
+}
+
+.cover-letter-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.cover-letter-generator .download-btn {
+  background-color: #28a745;
+}
+
+.cover-letter-generator .download-btn:hover {
+  background-color: #218838;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
