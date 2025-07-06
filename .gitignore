@@ -19,3 +19,5 @@ ehthumbs.db
 .idea/
 .vscode/
 *.swp
+.DS_Store
+.obsidian
