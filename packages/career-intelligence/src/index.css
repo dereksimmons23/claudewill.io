@@ -30,7 +30,7 @@
 .resume-generator {
   background: white;
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
   overflow: hidden;
 }
 
@@ -50,9 +50,9 @@
 }
 
 .back-button {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgb(255 255 255 / 20%);
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgb(255 255 255 / 30%);
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
@@ -60,7 +60,7 @@
 }
 
 .back-button:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgb(255 255 255 / 30%);
 }
 
 /* Resume Preview */
@@ -75,7 +75,7 @@
   max-width: 800px;
   margin: 0 auto;
   background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
   padding: 2rem;
 }
 
@@ -314,7 +314,7 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .app-header h1 {
     font-size: 2rem;
   }
@@ -360,7 +360,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
   .app-main {
     padding: 1rem;
   }

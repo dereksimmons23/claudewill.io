@@ -1,3 +1,54 @@
+# Next Steps for claudewill.io
+
+## Current State (Post-Cleanup)
+- ✅ Career Intelligence platform integrated as npm workspace (`packages/career-intelligence`)
+- ✅ Legacy systems moved to `archived/` directory
+- ✅ Basketball app deployed at `/basketball`
+- ✅ GitHub Actions CI workflow added
+- ✅ Git cleanup (removed .DS_Store, .obsidian artifacts)
+- ✅ Workspaces structure in place
+
+## Priority Tasks for Claude Agent
+
+### 1. CSS Consolidation & Design System
+- Re-enable stylelint specificity rule (currently disabled)
+- Consolidate active styles into `/css/global.css`
+- Review and optimize Career Intelligence component styles
+- Ensure consistent design tokens across all pages
+
+### 2. Testing Infrastructure
+- Add Vitest + React Testing Library to Career Intelligence package
+- Create smoke test in `packages/career-intelligence/__tests__/smoke.test.jsx`
+- Ensure CI runs test suite
+
+### 3. Documentation
+- Create `docs/ARCHIVES.md` explaining archived content structure
+- Update main README with current architecture
+- Document workspace structure and build process
+
+### 4. Performance & Security
+- Review and optimize bundle sizes
+- Security audit of dependencies
+- Consider implementing Content Security Policy headers
+
+### 5. Production Readiness
+- Verify Career Intelligence platform works correctly at `/career`
+- Test all navigation flows
+- Ensure mobile responsiveness across all pages
+
+## Architecture Notes
+- Main site: Static HTML/CSS/JS in root
+- Career Intelligence: React 18 + Vite workspace package
+- Shared assets: `/css/global.css`, `/js/global.js`
+- Build output: Career Intelligence builds to `/career` directory
+- Deployment: Makefile handles dev/prod workflow with git branching
+
+## Commands for Development
+- `npm run build --workspaces` - Build all packages
+- `make dev-deploy MSG="message"` - Deploy to dev branch
+- `make prod-deploy` - Merge dev to main and deploy
+- `npm run lint:css && npm run lint:js` - Run linters
+
 # Next Steps - 2025-06-27
 
 ## 🎯 **IMMEDIATE PRIORITIES**

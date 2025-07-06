@@ -10,7 +10,7 @@
     "dev": "python3 -m http.server 8000",
     "build": "npm run build --workspaces",
     "lint:html": "htmlhint '**/*.html' --ignore 'archived/**'",
-    "lint:css": "stylelint '**/*.css' --ignore-path .gitignore",
+    "lint:css": "stylelint 'css/**/*.css' 'basketball/**/*.css' 'packages/**/src/**/*.css' --ignore-path .gitignore",
     "lint:js": "eslint 'js/**/*.js' --ignore-pattern 'js/research/**'",
     "a11y": "pa11y-ci --chrome-flags=\"--no-sandbox\" 'index.html' 'about.html' 'projects.html' 'how-we-built.html' 'resume.html'",
     "links": "lychee --no-progress --include-mail --exclude 'https://fonts.googleapis.com' --exclude 'https://fonts.gstatic.com' --exclude 'https://derek4thecws.substack.com/' --exclude 'https://linkedin.com/in/dereksimm' --exclude 'https://www.linkedin.com/in/dereksimm' --exclude-path 'node_modules' '**/*.html'",
