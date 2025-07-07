@@ -28,7 +28,7 @@
     "stylelint-config-standard": "^38.0.0"
   },
   "dependencies": {
-    "lighthouse": "^12.6.0",
+    "lighthouse": "^12.7.1",
     "lucide-react": "^0.525.0"
   }
 }
