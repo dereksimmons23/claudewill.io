@@ -1,0 +1,34 @@
+{
+  "name": "claudewill-mvp",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "description": "Static site for Claude Will with CI/CD linting and checks",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "build": "npm run build --workspaces",
+    "lint:html": "htmlhint '**/*.html' --ignore 'archived/**'",
+    "lint:css": "stylelint 'css/**/*.css' 'basketball/**/*.css' 'packages/**/src/**/*.css' --ignore-path .gitignore",
+    "lint:js": "eslint 'js/**/*.js' --ignore-pattern 'js/research/**'",
+    "a11y": "pa11y-ci --chrome-flags=\"--no-sandbox\" 'index.html' 'about.html' 'projects.html' 'how-we-built.html' 'resume.html'",
+    "links": "lychee --no-progress --include-mail --exclude 'https://fonts.googleapis.com' --exclude 'https://fonts.gstatic.com' --exclude 'https://derek4thecws.substack.com/' --exclude 'https://linkedin.com/in/dereksimm' --exclude 'https://www.linkedin.com/in/dereksimm' --exclude-path 'node_modules' '**/*.html'",
+    "lighthouse": "lighthouse-ci autorun --collect.settings.onlyCategories=performance,accessibility,best-practices,seo",
+    "precommit": "npm run lint:css -- --fix && npm run lint:js -- --fix",
+    "test-local": "npm run precommit && npm run dev",
+    "quick-deploy": "npm run precommit && git add . && git commit -m 'auto-fix and deploy' && git push origin main"
+  },
+  "devDependencies": {
+    "@lhci/cli": "^0.14.0",
+    "eslint": "^8.57.0",
+    "htmlhint": "^1.5.1",
+    "pa11y-ci": "^2.4.2",
+    "stylelint": "^16.19.1",
+    "stylelint-config-standard": "^38.0.0"
+  },
+  "dependencies": {
+    "lighthouse": "^12.6.0",
+    "lucide-react": "^0.525.0"
+  }
+}
