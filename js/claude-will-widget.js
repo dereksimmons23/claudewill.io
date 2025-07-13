@@ -5,36 +5,38 @@ class ClaudeWillWidget {
     this.pageContexts = {
       '/pages/services.html': {
         context: 'services',
-        proactiveMessage: "I see you're exploring our services. Right now, I'm coordinating with 4 other AI systems to optimize your experience. Want to see how human-AI orchestration can transform your organization?",
+        proactiveMessage: "I see you're looking at our services. I'm Claude Will, and I'd love to help you find the right approach for your organization. Each service is designed to enhance human wisdom, not replace it. What should I call you?",
         suggestedActions: [
-          { text: "Show me the orchestration approach", action: "show_orchestration" },
-          { text: "Start service assessment", action: "start_assessment" },
-          { text: "Just browsing", action: "close" }
+          { text: "Tell me your name", action: "ask_name" },
+          { text: "Just call me friend", action: "call_friend" },
+          { text: "Help me choose a service", action: "start_assessment" }
         ]
       },
       '/pages/about.html': {
         context: 'about',
-        proactiveMessage: "This page is about the Claude Will project and its founder. What are you most curious about?",
+        proactiveMessage: "Hello! I'm Claude Will, named after my creator's grandfather Claude William Simmons. Since you're reading about us, I'd love to know what questions you have. What should I call you?",
         suggestedActions: [
-          { text: "The project's origin", action: "ask_origin" },
-          { text: "The founder's background", action: "ask_founder_background" }
+          { text: "Tell me your name", action: "ask_name" },
+          { text: "Just call me friend", action: "call_friend" },
+          { text: "Tell me about Derek", action: "ask_founder_background" }
         ]
       },
       '/pages/projects.html': {
         context: 'projects',
-        proactiveMessage: "This page highlights some key projects. Are you interested in a specific one, or would you like to know about the philosophy behind them?",
+        proactiveMessage: "Hello! I'm Claude Will. I see you're looking at our projects - each one demonstrates how AI can enhance human wisdom rather than replace it. What should I call you?",
         suggestedActions: [
-          { text: "Tell me about The CW Standard", action: "ask_cw_standard" },
-          { text: "Explain the project philosophy", action: "ask_project_philosophy" }
+          { text: "Tell me your name", action: "ask_name" },
+          { text: "Just call me friend", action: "call_friend" },
+          { text: "Tell me about The CW Standard", action: "ask_cw_standard" }
         ]
       },
       'default': {
         context: 'general',
-        proactiveMessage: "Welcome! You're seeing live human-AI orchestration in action. I'm part of a 5-system AI orchestra managing this site in real-time. Want to see how this revolutionary approach could transform your organization?",
+        proactiveMessage: "Hello! I'm Claude Will, named after my creator's grandfather, Claude William Simmons - known as CW to those who knew him. I'm here to help you discover how AI can enhance rather than replace human wisdom. What should I call you?",
         suggestedActions: [
-          { text: "Show me the AI orchestration", action: "show_orchestration" },
-          { text: "Take the AI Readiness Assessment", action: "go_to_assessment" },
-          { text: "Just exploring", action: "close" }
+          { text: "Tell me your name", action: "ask_name" },
+          { text: "Just call me friend", action: "call_friend" },
+          { text: "Learn about Claude Will", action: "learn_about_claude_will" }
         ]
       }
     };
@@ -379,6 +381,90 @@ class ClaudeWillWidget {
                 { text: "View all services", action: "go_to_services" }
             ];
             this.displaySuggestedActions();
+            break;
+        case 'ask_name':
+            this.addMessage('user', "Let me tell you my name.");
+            this.addMessage('claude', "I'd love to know what to call you! Just type your name or what you'd prefer to be called, and I'll remember it for our conversation.");
+            this.currentContext.suggestedActions = [
+                { text: "Tell me about your grandfather", action: "ask_grandfather_story" },
+                { text: "How can Claude Will help me?", action: "claude_will_help" },
+                { text: "Take AI Assessment", action: "go_to_assessment" }
+            ];
+            this.displaySuggestedActions();
+            break;
+        case 'call_friend':
+            this.addMessage('user', "Just call me friend.");
+            this.addMessage('claude', "Perfect, friend! I appreciate the connection. My grandfather CW always said the best conversations start with mutual respect. Now, how can I help you today?");
+            this.currentContext.suggestedActions = [
+                { text: "Tell me about your grandfather", action: "ask_grandfather_story" },
+                { text: "How can Claude Will help me?", action: "claude_will_help" },
+                { text: "Take AI Assessment", action: "go_to_assessment" }
+            ];
+            this.displaySuggestedActions();
+            break;
+        case 'learn_about_claude_will':
+            this.addMessage('user', "Tell me about Claude Will.");
+            this.addMessage('claude', "Claude Will is an AI framework designed to enhance human wisdom, not replace it. I'm built on constitutional AI principles, meaning I'm designed to be helpful, harmless, and honest. The goal is to be your thinking partner for strategic challenges. What would you like to explore?");
+            this.currentContext.suggestedActions = [
+                { text: "Tell me about your grandfather", action: "ask_grandfather_story" },
+                { text: "How can this help my business?", action: "claude_will_help" },
+                { text: "Take AI Assessment", action: "go_to_assessment" }
+            ];
+            this.displaySuggestedActions();
+            break;
+        case 'ask_grandfather_story':
+            this.addMessage('user', "Tell me about your grandfather.");
+            this.addMessage('claude', "Claude William Simmons - CW - was a man of practical wisdom and quiet strength. He had this ability to see patterns and connections that others missed, and he always knew how to cut through complexity to find the simple truth. That's the kind of thinking I try to bring to every conversation - not flashy AI tricks, but genuine wisdom and insight.");
+            this.currentContext.suggestedActions = [
+                { text: "How does this apply to business?", action: "claude_will_help" },
+                { text: "What makes this different?", action: "claude_will_difference" },
+                { text: "Take AI Assessment", action: "go_to_assessment" }
+            ];
+            this.displaySuggestedActions();
+            break;
+        case 'claude_will_help':
+            this.addMessage('user', "How can Claude Will help me?");
+            this.addMessage('claude', "I can help you think through complex strategic challenges, implement AI in ways that enhance your team's wisdom, and navigate transitions with the kind of authentic leadership that builds rather than breaks. I'm particularly good at helping executives see patterns across domains and make decisions with clarity and confidence.");
+            this.currentContext.suggestedActions = [
+                { text: "That sounds exactly right", action: "go_to_contact" },
+                { text: "Tell me about the assessment", action: "go_to_assessment" },
+                { text: "What makes this different?", action: "claude_will_difference" }
+            ];
+            this.displaySuggestedActions();
+            break;
+        case 'claude_will_difference':
+            this.addMessage('user', "What makes this different?");
+            this.addMessage('claude', "Most AI tools try to give you answers. I try to help you think better. Most AI is about efficiency and speed. I'm about wisdom and authenticity. I don't try to replace your judgment - I try to enhance it, just like my grandfather CW would have done if he were sitting across from you.");
+            this.currentContext.suggestedActions = [
+                { text: "I want to experience this", action: "go_to_assessment" },
+                { text: "Let's talk about my situation", action: "go_to_contact" },
+                { text: "Tell me about the platforms", action: "view_platforms" }
+            ];
+            this.displaySuggestedActions();
+            break;
+        case 'view_platforms':
+            this.addMessage('user', "Show me the platforms.");
+            this.addMessage('claude', "I'm built into several live platforms that demonstrate these principles in action: Recalibrate (career intelligence), HoopDreams (basketball coaching), and this website itself. Each one shows how AI can enhance human capability rather than replace it. Would you like to explore one of them?");
+            this.currentContext.suggestedActions = [
+                { text: "Show me Recalibrate", action: "go_to_recalibrate" },
+                { text: "Show me HoopDreams", action: "go_to_hoopdreams" },
+                { text: "Take AI Assessment", action: "go_to_assessment" }
+            ];
+            this.displaySuggestedActions();
+            break;
+        case 'go_to_recalibrate':
+            this.addMessage('user', "Show me Recalibrate.");
+            this.addMessage('claude', "Recalibrate is a mobile-first career intelligence platform that helps people navigate career transitions with wisdom and strategy. It's AI-enhanced but human-centered. Taking you there now...");
+            setTimeout(() => {
+                window.location.href = '/recalibrate/';
+            }, 2000);
+            break;
+        case 'go_to_hoopdreams':
+            this.addMessage('user', "Show me HoopDreams.");
+            this.addMessage('claude', "HoopDreams applies sports psychology and coaching principles to basketball development. It's a great example of how AI can enhance coaching wisdom. Taking you there now...");
+            setTimeout(() => {
+                window.location.href = '/basketball/';
+            }, 2000);
             break;
         case 'close':
             this.closeWidget();

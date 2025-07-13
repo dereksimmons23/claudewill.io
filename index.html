@@ -3,27 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claude Will | Strategic Builder</title>
-    <meta name="description" content="Explore connections between coaching philosophy, media transformation, and technological advancement with Claude Will.">
+    <title>Claude Will | Where There's a Claude Will, There's a Way</title>
+    <meta name="description" content="GLG Expert Derek Simmons builds AI platforms that enhance human wisdom. Serving Fortune 500 executives through proven methodology and innovative platform development.">
     
     <!-- Open Graph / Social Sharing -->
-    <meta property="og:title" content="Derek Simmons | Strategic AI Transformation">
-    <meta property="og:description" content="$25M+ revenue impact through proven AI frameworks. Human-AI orchestration that enhances rather than replaces human capability.">
+    <meta property="og:title" content="Claude Will | GLG Expert | Platform Builder">
+    <meta property="og:description" content="GLG Expert Derek Simmons builds AI platforms that enhance human wisdom. Constitutional AI meets coaching methodology.">
     <meta property="og:url" content="https://claudewill.io">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://claudewill.io/derek-simmons-photo.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Derek Simmons, Founder & CEO of Claude Wisdom Strategies">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Derek Simmons | Strategic AI Transformation">
-    <meta name="twitter:description" content="$25M+ revenue impact through proven AI frameworks. Human-AI orchestration that enhances rather than replaces human capability.">
-    <meta name="twitter:image" content="https://claudewill.io/derek-simmons-photo.jpg">
     
     <!-- Fonts and Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
@@ -31,7 +23,7 @@
     <link href="css/global.css" rel="stylesheet">
     <link href="css/modern.css" rel="stylesheet">
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -41,536 +33,956 @@
     </script>
 
     <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+    
+    <style>
+        /* Tealium-inspired professional design */
+        :root {
+            --primary-blue: #1e40af;
+            --primary-teal: #0891b2;
+            --dark-blue: #1e3a8a;
+            --light-gray: #f8fafc;
+            --border-gray: #e2e8f0;
+            --text-gray: #64748b;
+            --gold-accent: #d4af37;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background-color: #ffffff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--border-gray);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+        
+        .logo {
+            font-family: 'Zilla Slab', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .nav a {
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+        
+        .nav a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .cta-button {
+            background: var(--primary-blue);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        
+        .cta-button:hover {
+            background: var(--dark-blue);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-teal) 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .hero-brand {
+            color: var(--gold-accent);
+            position: relative;
+        }
+        
+        .hero-action {
+            position: relative;
+            min-width: 200px;
+            transition: all 0.6s ease-in-out;
+            color: #ffffff;
+        }
+        
+        .hero-action.fade-out {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        
+        .hero-action.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hero-tagline {
+            font-size: 18px;
+            font-weight: 500;
+            margin-top: 32px;
+            opacity: 0.8;
+            color: #ffffff;
+            font-style: italic;
+        }
+        
+        .hero .description {
+            font-size: 20px;
+            margin-bottom: 32px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #ffffff;
+        }
+        
+        .hero .badges {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+                 .badge {
+             background: rgba(255,255,255,0.15);
+             padding: 8px 16px;
+             border-radius: 24px;
+             font-size: 14px;
+             font-weight: 600;
+             -webkit-backdrop-filter: blur(10px);
+             backdrop-filter: blur(10px);
+         }
+        
+        .hero .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: var(--primary-blue);
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s;
+            border: 2px solid white;
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-blue);
+        }
+        
+        #claude-will-chat {
+            font-family: inherit;
+        }
+        
+        /* Platform Showcase */
+        .platforms {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--primary-blue);
+        }
+        
+        .section-header p {
+            font-size: 20px;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+        
+        .platform-card {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .platform-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        }
+        
+        .platform-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--primary-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 32px;
+            color: white;
+            box-shadow: 0 4px 16px rgba(30, 64, 175, 0.3);
+        }
+        
+        .platform-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--primary-blue);
+        }
+        
+        .platform-card p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+        
+        .platform-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .platform-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        
+        .service-card {
+            text-align: center;
+            padding: 24px;
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-teal));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 36px;
+            color: white;
+            box-shadow: 0 4px 16px rgba(30, 64, 175, 0.3);
+        }
+        
+        .service-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--primary-blue);
+        }
+        
+        .service-card p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+        
+        /* GLG Section */
+        .glg-section {
+            padding: 80px 0;
+            background: var(--primary-blue);
+            color: white;
+            text-align: center;
+        }
+        
+        .glg-badge {
+            background: var(--gold-accent);
+            color: var(--primary-blue);
+            padding: 12px 24px;
+            border-radius: 24px;
+            font-weight: 700;
+            font-size: 16px;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+        
+        .glg-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .glg-section p {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 48px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        
+        .footer-section h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.2s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 24px;
+            color: #94a3b8;
+        }
+        
+        /* Scroll Animation Classes */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reveal-on-scroll.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
+            }
+            
+            .hero-action {
+                min-width: 180px;
+            }
+            
+            .hero-tagline {
+                font-size: 16px;
+            }
+            
+            .hero .description {
+                font-size: 18px;
+            }
+            
+            .hero .badges {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero .cta-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header h2 {
+                font-size: 28px;
+            }
+            
+            /* Derek Introduction Mobile */
+            .derek-introduction div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+                gap: 32px !important;
+                text-align: center;
+            }
+            
+            .derek-photo-container img {
+                width: 200px !important;
+                height: 200px !important;
+            }
+            
+            .derek-introduction h2 {
+                font-size: 28px !important;
+            }
+            
+            .credibility-metrics {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Challenge Solution Mobile */
+            .challenge-solution h2 {
+                font-size: 28px !important;
+            }
+            
+            .problems-grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .solution-reveal {
+                padding: 32px 24px !important;
+            }
+            
+            /* Heritage Story Mobile */
+            .heritage-story h2 {
+                font-size: 28px !important;
+            }
+            
+            .heritage-story div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 32px !important;
+            }
+            
+            .heritage-timeline {
+                margin-bottom: 24px;
+            }
+            
+            .heritage-story-content div[style*="grid-template-columns"] {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loading-screen">
-        <div class="loading-animation">
-            <div class="spinner"></div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">claudewill.io</a>
+                <nav class="nav">
+                    <a href="#services">Services</a>
+                    <a href="#platforms">Platforms</a>
+                    <a href="pages/about.html">About</a>
+                    <a href="pages/contact.html">Contact</a>
+                </nav>
+                <a href="pages/contact.html" class="cta-button">Get Started</a>
+            </div>
         </div>
-        <p class="loading-message">i/o, i/o, it's off to work I go!</p>
-    </div>
-
-    <!-- Header with wordmark and theme toggle -->
-    <header class="site-header" aria-label="Site header">
-        <a href="index.html" class="wordmark">
-          <span class="wordmark-full">ClaudeWill</span>
-          <span class="wordmark-short">CW</span>
-        </a>
-        <div class="header-actions">
-                            <button id="consciousness-toggle" class="assessment-cta" aria-label="Start AI assessment game" title="Try Consciousness OS - Interactive AI Assessment Game">
-                    <i data-lucide="play"></i>
-                </button>
-            <button id="theme-toggle" aria-label="Toggle theme" title="Toggle Light/Dark Mode">
-                <i data-lucide="sun"></i>
-            </button>
-            <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
-                <i data-lucide="menu"></i>
-            </button>
-        </div>
-        <nav id="main-nav" class="hamburger-nav" aria-label="Main navigation">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="pages/about.html">About</a></li>
-                <li><a href="pages/services.html">Services</a></li>
-                <li><a href="pages/case-studies.html">Case Studies</a></li>
-                <li><a href="pages/assessment.html">Assessment</a></li>
-                <li><a href="career-intelligence/index.html">Career Intelligence</a></li>
-                <li><a href="pages/documentation.html">Documentation</a></li>
-                <li><a href="pages/contact.html">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <main>
-        <!-- Animated Hero Section: Strategic Transformation -->
-        <section class="hero-greeting animated-hero" style="position: relative; margin-top: -60px; padding-top: calc(4rem + 60px); min-height: 500px; overflow: hidden;">
-            <!-- Animated SVG Background -->
-            <div class="hero-animation-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
-                <svg viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
-                    <!-- Background Gradient -->
-                    <defs>
-                        <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1"/>
-                            <stop offset="50%" style="stop-color:#16213e;stop-opacity:1"/>
-                            <stop offset="100%" style="stop-color:#38606e;stop-opacity:1"/>
-                        </linearGradient>
-                        
-                        <radialGradient id="bgGradient" cx="50%" cy="50%" r="70%">
-                            <stop offset="0%" style="stop-color:#2d6883;stop-opacity:0.3"/>
-                            <stop offset="70%" style="stop-color:#38606e;stop-opacity:0.1"/>
-                            <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:0"/>
-                        </radialGradient>
-                        
-                        <!-- Glow effects -->
-                        <filter id="glow">
-                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                            <feMerge> 
-                                <feMergeNode in="coloredBlur"/>
-                                <feMergeNode in="SourceGraphic"/>
-                            </feMerge>
-                        </filter>
-                        
-                        <filter id="connectionGlow">
-                            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                            <feMerge> 
-                                <feMergeNode in="coloredBlur"/>
-                                <feMergeNode in="SourceGraphic"/>
-                            </feMerge>
-                        </filter>
-                    </defs>
-                    
-                    <rect width="100%" height="100%" fill="url(#heroGradient)"/>
-                    <rect width="100%" height="100%" fill="url(#bgGradient)"/>
-                    
-                    <!-- Floating Data Points (Scene 1: 0-3s) -->
-                    <g id="dataPoints">
-                        <!-- Gold data points -->
-                        <circle cx="200" cy="100" r="4" fill="#d4af37" opacity="0">
-                            <animate attributeName="opacity" values="0;0.8;0.8" dur="12s" repeatCount="indefinite"/>
-                            <animateTransform attributeName="transform" type="translate" 
-                                values="0,0; 20,-10; -15,25; 10,-5; 0,0" dur="12s" repeatCount="indefinite"/>
-                        </circle>
-                        
-                        <polygon points="350,150 360,140 370,150 360,160" fill="#d4af37" opacity="0">
-                            <animate attributeName="opacity" values="0;0;0.7;0.7" dur="12s" repeatCount="indefinite"/>
-                            <animateTransform attributeName="transform" type="translate" 
-                                values="0,0; -10,15; 25,-20; -5,10; 0,0" dur="12s" repeatCount="indefinite"/>
-                        </polygon>
-                        
-                        <rect x="950" y="80" width="8" height="8" fill="#d4af37" opacity="0">
-                            <animate attributeName="opacity" values="0;0;0.9;0.9" dur="12s" repeatCount="indefinite"/>
-                            <animateTransform attributeName="transform" type="translate" 
-                                values="0,0; 15,20; -20,-10; 12,8; 0,0" dur="12s" repeatCount="indefinite"/>
-                        </rect>
-                        
-                        <!-- Teal data points -->
-                        <circle cx="150" cy="400" r="5" fill="#38606e" opacity="0">
-                            <animate attributeName="opacity" values="0;0.6;0.6" dur="12s" repeatCount="indefinite"/>
-                            <animateTransform attributeName="transform" type="translate" 
-                                values="0,0; -18,12; 22,-15; -8,18; 0,0" dur="12s" repeatCount="indefinite"/>
-                        </circle>
-                        
-                        <polygon points="1050,350 1065,340 1080,350 1072,365 1058,365" fill="#38606e" opacity="0">
-                            <animate attributeName="opacity" values="0;0;0.8;0.8" dur="12s" repeatCount="indefinite"/>
-                            <animateTransform attributeName="transform" type="translate" 
-                                values="0,0; 10,-25; -15,20; 20,5; 0,0" dur="12s" repeatCount="indefinite"/>
-                        </polygon>
-                        
-                        <rect x="120" y="280" width="6" height="6" fill="#38606e" opacity="0">
-                            <animate attributeName="opacity" values="0;0;0.7;0.7" dur="12s" repeatCount="indefinite"/>
-                            <animateTransform attributeName="transform" type="translate" 
-                                values="0,0; 25,8; -12,-22; 8,15; 0,0" dur="12s" repeatCount="indefinite"/>
-                        </rect>
-                    </g>
-                    
-                    <!-- Connection Lines (Scene 1-2: Appear and organize) -->
-                    <g id="connectionLines" opacity="0">
-                        <animate attributeName="opacity" values="0;0;0;0.4;0.4" dur="12s" repeatCount="indefinite"/>
-                        
-                        <line x1="200" y1="100" x2="350" y2="150" stroke="#d4af37" stroke-width="1" opacity="0.5" filter="url(#connectionGlow)">
-                            <animate attributeName="opacity" values="0;0;0;0.8;0.3" dur="12s" repeatCount="indefinite"/>
-                        </line>
-                        <line x1="350" y1="150" x2="950" y2="80" stroke="#d4af37" stroke-width="1" opacity="0.5" filter="url(#connectionGlow)">
-                            <animate attributeName="opacity" values="0;0;0;0.8;0.3" dur="12s" repeatCount="indefinite"/>
-                        </line>
-                        <line x1="150" y1="400" x2="1050" y2="350" stroke="#38606e" stroke-width="1" opacity="0.5" filter="url(#connectionGlow)">
-                            <animate attributeName="opacity" values="0;0;0;0.8;0.3" dur="12s" repeatCount="indefinite"/>
-                        </line>
-                        <line x1="120" y1="280" x2="200" y2="100" stroke="#38606e" stroke-width="1" opacity="0.5" filter="url(#connectionGlow)">
-                            <animate attributeName="opacity" values="0;0;0;0.8;0.3" dur="12s" repeatCount="indefinite"/>
-                        </line>
-                    </g>
-                    
-                    <!-- Framework Shapes (Scene 3: 6-9s) -->
-                                            <g id="frameworks-svg" opacity="0">
-                        <animate attributeName="opacity" values="0;0;0;0;0;1;1" dur="12s" repeatCount="indefinite"/>
-                        
-                        <!-- Hexagon (Orchestration) -->
-                        <polygon points="300,280 320,270 340,280 340,300 320,310 300,300" 
-                            fill="none" stroke="#d4af37" stroke-width="2" filter="url(#glow)">
-                            <animateTransform attributeName="transform" type="scale" 
-                                values="0;0;0;0;0;1;1" dur="12s" repeatCount="indefinite"
-                                transform-origin="320 290"/>
-                        </polygon>
-                        
-                        <!-- Triangle (Testing) -->
-                        <polygon points="600,260 640,320 560,320" 
-                            fill="none" stroke="#a33f10" stroke-width="2" filter="url(#glow)">
-                            <animateTransform attributeName="transform" type="scale" 
-                                values="0;0;0;0;0;1;1" dur="12s" repeatCount="indefinite"
-                                transform-origin="600 300"/>
-                        </polygon>
-                        
-                        <!-- Circle (Clarity) -->
-                        <circle cx="900" cy="290" r="25" 
-                            fill="none" stroke="#38606e" stroke-width="2" filter="url(#glow)">
-                            <animateTransform attributeName="transform" type="scale" 
-                                values="0;0;0;0;0;1;1" dur="12s" repeatCount="indefinite"
-                                transform-origin="900 290"/>
-                        </circle>
-                        
-                        <!-- Framework Icons -->
-                        <text x="320" y="295" text-anchor="middle" font-size="14" fill="#d4af37" opacity="0">🎼
-                            <animate attributeName="opacity" values="0;0;0;0;0;0;1;1" dur="12s" repeatCount="indefinite"/>
-                        </text>
-                        <text x="600" y="300" text-anchor="middle" font-size="14" fill="#a33f10" opacity="0">🔬
-                            <animate attributeName="opacity" values="0;0;0;0;0;0;1;1" dur="12s" repeatCount="indefinite"/>
-                        </text>
-                        <text x="900" y="295" text-anchor="middle" font-size="14" fill="#38606e" opacity="0">💧
-                            <animate attributeName="opacity" values="0;0;0;0;0;0;1;1" dur="12s" repeatCount="indefinite"/>
-                        </text>
-                        
-                        <!-- Connecting lines between frameworks -->
-                        <line x1="340" y1="290" x2="560" y2="310" stroke="#ffffff" stroke-width="1" opacity="0">
-                            <animate attributeName="opacity" values="0;0;0;0;0;0;0.6;0.6" dur="12s" repeatCount="indefinite"/>
-                        </line>
-                        <line x1="640" y1="300" x2="875" y2="290" stroke="#ffffff" stroke-width="1" opacity="0">
-                            <animate attributeName="opacity" values="0;0;0;0;0;0;0.6;0.6" dur="12s" repeatCount="indefinite"/>
-                        </line>
-                        <line x1="320" y1="270" x2="885" y2="270" stroke="#ffffff" stroke-width="1" opacity="0" stroke-dasharray="3,3">
-                            <animate attributeName="opacity" values="0;0;0;0;0;0;0.4;0.4" dur="12s" repeatCount="indefinite"/>
-                        </line>
-                    </g>
-                    
-                    <!-- Pulse effect for insight moments -->
-                    <g id="insightPulse">
-                        <circle cx="600" cy="290" r="80" fill="none" stroke="#ffffff" stroke-width="1" opacity="0">
-                            <animate attributeName="opacity" values="0;0;0;0.6;0;0;0;0" dur="12s" repeatCount="indefinite"/>
-                            <animateTransform attributeName="transform" type="scale" 
-                                values="0;0;0;2;3;0;0;0" dur="12s" repeatCount="indefinite"
-                                transform-origin="600 290"/>
-                        </circle>
-                    </g>
-                </svg>
-            </div>
-            
-            <!-- Content Overlay -->
-            <div class="container" style="position: relative; z-index: 10; padding: 4rem 0; color: white; text-align: center;">
-                <div class="derek-introduction" style="max-width: 800px; margin: 0 auto;">
-                    <img src="derek-simmons-photo.jpg" alt="Derek Simmons, Founder & CEO of Claude Wisdom Strategies" 
-                         class="derek-photo" 
-                         style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 4px solid white; box-shadow: 0 8px 32px rgba(0,0,0,0.3); opacity: 0; animation: fadeInUp 1s ease 1s forwards;">
-                    
-                    <h1 style="font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem; opacity: 0; animation: fadeInUp 1s ease 1.5s forwards;">Hello, I'm Derek Simmons</h1>
-                    
-                    <p class="title-subtitle" style="font-size: 1.1rem; color: rgba(255,255,255,0.9); font-weight: 600; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0; animation: fadeInUp 1s ease 2s forwards;">Founder & CEO, Claude Wisdom Strategies</p>
-                    
-                    <p class="warm-greeting" style="font-size: 1.3rem; margin-bottom: 2rem; line-height: 1.6; max-width: 700px; margin-left: auto; margin-right: auto; opacity: 0; animation: fadeInUp 1s ease 2.5s forwards;">
-                        I help organizations navigate AI transformation without losing what makes them unique. 
-                        I've generated $25M+ in new revenue and earned 1,000+ industry awards 
-                        by combining human wisdom with strategic innovation.
-                    </p>
-                    
-                    <div class="credibility-proof" style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin: 2rem 0; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 12px; backdrop-filter: blur(10px); opacity: 0; animation: fadeInUp 1s ease 9s forwards;">
-                        <span class="proof-item" style="font-size: 0.9rem; font-weight: 600; color: #d4af37; white-space: nowrap;">🎯 2,500+ Hours AI Research</span>
-                        <span class="proof-item" style="font-size: 0.9rem; font-weight: 600; color: #a33f10; white-space: nowrap;">🏆 67% Resume Response Rate (vs 15% Industry)</span>
-                        <span class="proof-item" style="font-size: 0.9rem; font-weight: 600; color: #38606e; white-space: nowrap;">🚀 Live AI Orchestration Running Now</span>
-                    </div>
-                    
-                    <a href="pages/about.html" class="cta-primary" style="display: inline-block; padding: 1rem 2rem; background: var(--iron-range); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(163,62,16,0.3); opacity: 0; animation: fadeInUp 1s ease 10s forwards;">My Story →</a>
-                </div>
-            </div>
-            
-            <!-- Click to scroll indicator -->
-            <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.7); font-size: 0.9rem; cursor: pointer; z-index: 10; opacity: 0; animation: fadeInUp 1s ease 11s forwards;" onclick="document.getElementById('frameworks').scrollIntoView({behavior: 'smooth'});">
-                <div style="margin-bottom: 0.5rem;">Click to explore The CW Standard</div>
-                <div style="animation: bounce 2s infinite;">↓</div>
-            </div>
-        </section>
-        
-        <style>
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-        
-        .animated-hero:hover .hero-animation-bg svg {
-            transform: scale(1.02);
-            transition: transform 0.3s ease;
-        }
-        
-        @media (prefers-reduced-motion: reduce) {
-            .animated-hero * {
-                animation-duration: 0.1s !important;
-                animation-iteration-count: 1 !important;
-            }
-            .derek-photo, h1, .title-subtitle, .warm-greeting, .credibility-proof, .cta-primary {
-                animation: none !important;
-                opacity: 1 !important;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .animated-hero h1 {
-                font-size: 2.5rem !important;
-            }
-            .animated-hero .warm-greeting {
-                font-size: 1.1rem !important;
-            }
-            .animated-hero .credibility-proof {
-                flex-direction: column !important;
-                gap: 1rem !important;
-            }
-        }
-        </style>
-
-        <!-- Challenge & Solution Section -->
-        <section class="challenge-section" style="padding: 4rem 0; background: var(--color-background);">
-            <div class="container">
-                <div style="text-align: center; max-width: 900px; margin: 0 auto;">
-                    <h2 style="font-size: 2.5rem; color: var(--color-primary); margin-bottom: 2rem;">Most AI Strategies Fail Because...</h2>
-                    <div class="problem-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-                        <div class="problem-card" style="padding: 2rem; background: rgba(163,62,16,0.05); border-radius: 12px; border-left: 4px solid var(--iron-range);">❌ They're built in conference rooms, not tested in reality</div>
-                        <div class="problem-card" style="padding: 2rem; background: rgba(163,62,16,0.05); border-radius: 12px; border-left: 4px solid var(--iron-range);">❌ They treat AI as magic, not as tools requiring orchestration</div>
-                        <div class="problem-card" style="padding: 2rem; background: rgba(163,62,16,0.05); border-radius: 12px; border-left: 4px solid var(--iron-range);">❌ They ignore the human element in human-AI collaboration</div>
-                    </div>
-                    
-                    <div class="solution-reveal" style="text-align: center; padding: 3rem; background: var(--color-primary); color: white; border-radius: 12px;">
-                        <h3 style="font-size: 2rem; margin-bottom: 1rem; color: white;">That's why I created The CW Standard</h3>
-                        <p style="font-size: 1.2rem; margin-bottom: 0;">A proven methodology for making complicated transitions less painful</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- The CW Standard Frameworks -->
-        <section id="frameworks" class="cw-standard-section" style="padding: 4rem 0; background: var(--color-background);">
-            <div class="container">
-                <div style="text-align: center; margin-bottom: 3rem;">
-                    <h2 style="font-size: 2.5rem; color: var(--color-primary); margin-bottom: 1rem;">The CW Standard: Three Core Principles</h2>
-                    <p style="font-size: 1.2rem; color: var(--color-text); max-width: 600px; margin: 0 auto; opacity: 0.8;">Practical frameworks for managing AI complexity without getting stuck in analysis paralysis</p>
-                </div>
-                
-                <div class="framework-interactive" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-                    <div class="principle" data-reveal="1" style="background: rgba(56, 96, 110, 0.05); padding: 2.5rem; border-radius: 12px; border-left: 4px solid var(--color-primary); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                        <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-                            <div class="icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--color-primary), var(--north-pond)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 1rem; font-size: 1.5rem;">🎼</div>
-                            <div>
-                                <h3 style="color: var(--color-primary); margin-bottom: 0.25rem; font-size: 1.3rem;">Human-AI Orchestration</h3>
-                                <div style="font-size: 0.9rem; color: var(--color-primary); font-weight: 600;">Managing Multiple AI Systems</div>
-                            </div>
-                        </div>
-                        <p style="color: var(--color-text); line-height: 1.6; margin-bottom: 1rem;">Humans become the intelligent API between AI systems that can't communicate directly. Most teams struggle with one AI tool. I've documented systematic approaches for coordinating 5+ AI systems simultaneously.</p>
-                        <div style="font-size: 0.85rem; color: var(--color-text); opacity: 0.7; font-style: italic;">"Success requires not just good AI tools, but exceptional AI conductors."</div>
-                    </div>
-                    
-                    <div class="principle" data-reveal="2" style="background: rgba(163, 62, 16, 0.05); padding: 2.5rem; border-radius: 12px; border-left: 4px solid var(--iron-range); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                        <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-                            <div class="icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--iron-range), var(--color-primary)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 1rem; font-size: 1.5rem;">🔬</div>
-                            <div>
-                                <h3 style="color: var(--iron-range); margin-bottom: 0.25rem; font-size: 1.3rem;">Test-Driven Strategy</h3>
-                                <div style="font-size: 0.9rem; color: var(--iron-range); font-weight: 600;">Real-World Validation</div>
-                            </div>
-                        </div>
-                        <p style="color: var(--color-text); line-height: 1.6; margin-bottom: 1rem;">Every framework tested with real systems and real data. My resume optimization system achieves 67% response rates vs 15% industry average. I test everything with real applications and real hiring systems.</p>
-                        <div style="font-size: 0.85rem; color: var(--color-text); opacity: 0.7; font-style: italic;">"Build it, test it, measure it, improve it."</div>
-                    </div>
-                    
-                    <div class="principle" data-reveal="3" style="background: rgba(56, 96, 110, 0.05); padding: 2.5rem; border-radius: 12px; border-left: 4px solid var(--north-pond); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                        <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-                            <div class="icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--north-pond), var(--color-primary)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 1rem; font-size: 1.5rem;">💧</div>
-                            <div>
-                                <h3 style="color: var(--north-pond); margin-bottom: 0.25rem; font-size: 1.3rem;">Water in the Glass</h3>
-                                <div style="font-size: 0.9rem; color: var(--north-pond); font-weight: 600;">Clear Thinking Framework</div>
-                            </div>
-                        </div>
-                        <p style="color: var(--color-text); line-height: 1.6; margin-bottom: 1rem;">Skip philosophical arguments, focus on building solutions that work. While others debate half-full vs. half-empty, we observe that the glass has water in it.</p>
-                        <div style="font-size: 0.85rem; color: var(--color-text); opacity: 0.7; font-style: italic;">"Can we all agree and get back to work?"</div>
-                    </div>
-                </div>
-                
-                <!-- Results Section -->
-                <div style="text-align: center; background: rgba(56, 96, 110, 0.05); padding: 2rem; border-radius: 12px;">
-                    <h3 style="color: var(--color-primary); margin-bottom: 1.5rem; font-size: 1.4rem;">Proven Results Through Systematic Testing</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
-                        <div>
-                            <div id="revenue-counter" style="font-size: 2rem; font-weight: 700; color: var(--color-primary); margin-bottom: 0.5rem;">$25M+</div>
-                            <div style="color: var(--color-text); font-size: 0.9rem;">Revenue Impact</div>
-                        </div>
-                        <div>
-                            <div id="hours-counter" style="font-size: 2rem; font-weight: 700; color: var(--iron-range); margin-bottom: 0.5rem;">2,500+</div>
-                            <div style="color: var(--color-text); font-size: 0.9rem;">Research Hours</div>
-                        </div>
-                        <div>
-                            <div id="response-counter" style="font-size: 2rem; font-weight: 700; color: var(--north-pond); margin-bottom: 0.5rem;">67%</div>
-                            <div style="color: var(--color-text); font-size: 0.9rem;">Resume Response Rate vs 15% Industry Average</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Claude Will Technology Demo -->
-        <section class="claude-will-demo" style="padding: 4rem 0; background: linear-gradient(135deg, var(--color-primary) 0%, var(--north-pond) 100%); color: white;">
-            <div class="container">
-                <div style="text-align: center; max-width: 900px; margin: 0 auto;">
-                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: white;">Meet Claude Will</h2>
-                    <p style="font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.9;">My AI-powered platform that enhances every consultation</p>
-                    
-                    <div class="live-orchestration" style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 12px; backdrop-filter: blur(10px); margin-bottom: 2rem;">
-                        <h3 style="margin-bottom: 1.5rem; color: white;">Currently Running:</h3>
-                        <div class="ai-systems-status" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem;">
-                            <div class="system active" style="padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">
-                                <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; margin: 0 auto 0.5rem; animation: pulse 2s infinite;"></div>
-                                <div style="font-weight: 600; margin-bottom: 0.25rem;">Claude Sonnet</div>
-                                <div style="font-size: 0.75rem; opacity: 0.8;">Strategy</div>
-                            </div>
-                            <div class="system active" style="padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">
-                                <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; margin: 0 auto 0.5rem; animation: pulse 2s infinite;"></div>
-                                <div style="font-weight: 600; margin-bottom: 0.25rem;">Cursor AI</div>
-                                <div style="font-size: 0.75rem; opacity: 0.8;">Development</div>
-                            </div>
-                            <div class="system active" style="padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">
-                                <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; margin: 0 auto 0.5rem; animation: pulse 2s infinite;"></div>
-                                <div style="font-weight: 600; margin-bottom: 0.25rem;">GitHub</div>
-                                <div style="font-size: 0.75rem; opacity: 0.8;">Deployment</div>
-                            </div>
-                            <div class="system monitoring" style="padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">
-                                <div style="width: 8px; height: 8px; background: #f59e0b; border-radius: 50%; margin: 0 auto 0.5rem; animation: pulse 2s infinite;"></div>
-                                <div style="font-weight: 600; margin-bottom: 0.25rem;">Analytics</div>
-                                <div style="font-size: 0.75rem; opacity: 0.8;">Monitoring</div>
-                            </div>
-                            <div class="system active" style="padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">
-                                <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; margin: 0 auto 0.5rem; animation: pulse 2s infinite;"></div>
-                                <div style="font-weight: 600; margin-bottom: 0.25rem;">Claude Will</div>
-                                <div style="font-size: 0.75rem; opacity: 0.8;">Engagement</div>
-                            </div>
-                        </div>
-                        <div style="margin-top: 1.5rem; font-size: 0.9rem; font-weight: 500;">
-                            <span style="font-size: 1.25rem; margin-right: 0.5rem;">🎼</span>
-                            <strong>Human Conductor:</strong> Coordinating 5 AI systems to build this site right now
-                        </div>
-                    </div>
-                    
-                    <a href="pages/assessment.html" class="cta-secondary" style="display: inline-block; padding: 1rem 2rem; background: rgba(255,255,255,0.2); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; border: 2px solid white; transition: all 0.3s ease;">Experience Claude Will →</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Heritage Section -->
-        <section class="heritage-section" style="padding: 4rem 0; background: var(--color-background);">
-            <div class="container">
-                <div style="text-align: center; max-width: 900px; margin: 0 auto;">
-                    <h2 style="font-size: 2.5rem; color: var(--color-primary); margin-bottom: 3rem;">Why Kansas? Why Claude?</h2>
-                    <div class="story-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
-                        <div class="story-card" style="background: rgba(56, 96, 110, 0.05); border: 1px solid rgba(56, 96, 110, 0.15); border-radius: 12px; padding: 2rem; text-align: left;">
-                            <h3 style="color: var(--color-primary); margin-bottom: 1rem; font-size: 1.3rem;">Claude William Simmons</h3>
-                            <p style="margin-bottom: 1rem; line-height: 1.6;">My grandfather, who passed down wisdom of doing things that needed to be done. Born in Oklahoma before it was a state, he once sold race horses for work horses. Because it needed to be done. He also worked for the railroad. The name Claude was passed down to my Uncle Junior, and then to me (Derek Claude) and my oldest son (Jackson Claude).</p>
-                            <div class="heritage-timeline" style="margin-top: 1rem; padding: 1rem; background: rgba(163, 62, 16, 0.05); border-radius: 8px; text-align: center;">
-                                <div class="generation" style="font-family: var(--font-secondary); font-style: italic; color: var(--iron-range); font-weight: 600;">Claude William → Uncle Junior → Derek Claude → Jackson Claude</div>
-                            </div>
-                        </div>
-                        <div class="story-card" style="background: rgba(56, 96, 110, 0.05); border: 1px solid rgba(56, 96, 110, 0.15); border-radius: 12px; padding: 2rem; text-align: left;">
-                            <h3 style="color: var(--color-primary); margin-bottom: 1rem; font-size: 1.3rem;">Claude Wisdom Strategies LLC</h3>
-                            <p style="margin-bottom: 1rem; line-height: 1.6;">Founded in Kansas because great ideas don't need coastal validation — they need practical application. Like my grandfather trading race horses for work horses, we focus on what works, not what looks impressive.</p>
-                            <div class="kansas-values" style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; justify-content: center;">
-                                <span class="value" style="font-size: 0.85rem; font-weight: 600; color: var(--color-primary); background: rgba(56, 96, 110, 0.1); padding: 0.5rem 1rem; border-radius: 20px;">🌾 Practical Solutions</span>
-                                <span class="value" style="font-size: 0.85rem; font-weight: 600; color: var(--color-primary); background: rgba(56, 96, 110, 0.1); padding: 0.5rem 1rem; border-radius: 20px;">🔧 Real-World Testing</span>
-                                <span class="value" style="font-size: 0.85rem; font-weight: 600; color: var(--color-primary); background: rgba(56, 96, 110, 0.1); padding: 0.5rem 1rem; border-radius: 20px;">💪 Get Things Done</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Qualification & Connection -->
-        <section class="qualification-section" style="padding: 4rem 0; background: linear-gradient(135deg, var(--color-primary) 0%, var(--north-pond) 100%); color: white;">
-            <div class="container">
-                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                    <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: white;">Is Derek Right for Your Organization?</h2>
-                    <div class="qualification-checklist" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; text-align: left;">
-                        <div class="check-item" style="padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; backdrop-filter: blur(10px);">✓ You're facing AI transformation challenges</div>
-                        <div class="check-item" style="padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; backdrop-filter: blur(10px);">✓ You need proven frameworks, not theoretical concepts</div>
-                        <div class="check-item" style="padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; backdrop-filter: blur(10px);">✓ You want measurable results, not just strategy documents</div>
-                        <div class="check-item" style="padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; backdrop-filter: blur(10px);">✓ You value human wisdom enhanced by technology</div>
-                    </div>
-                    
-                    <div class="connection-options" style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                        <a href="pages/assessment.html" class="cta-primary" style="display: inline-block; padding: 1rem 2rem; background: var(--iron-range); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(163,62,16,0.3);">Start with Assessment</a>
-                        <a href="pages/contact.html" class="cta-secondary" style="display: inline-block; padding: 1rem 2rem; background: rgba(255,255,255,0.2); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; border: 2px solid white; transition: all 0.3s ease;">Schedule Consultation</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            © 2025 Derek Simmons |
-            <a href="pages/site-index.html">Site Index</a> |
-            <a href="docs/PRIVACY.md" target="_blank" rel="noopener">Privacy Policy</a> |
-            <a href="docs/TERMS.md" target="_blank" rel="noopener">Terms of Use</a>
+            <h1>
+                <span class="hero-brand">Claude Will</span>
+                <span class="hero-action" id="rotating-action">Find a Way</span>
+            </h1>
+            <p class="description">
+                AI that enhances human wisdom through constitutional methodology. 
+                Built on proven frameworks that have generated $25M+ in strategic value.
+            </p>
+            <div class="badges">
+                <div class="badge">✓ GLG Expert Network</div>
+                <div class="badge">✓ $25M+ Revenue Generated</div>
+                <div class="badge">✓ 2,500+ Hours AI Research</div>
+                <div class="badge">✓ Constitutional AI Pioneer</div>
+            </div>
+            <div class="cta-group">
+                <button id="claude-will-chat" class="btn-primary">Chat with Claude Will</button>
+                <a href="pages/assessment.html" class="btn-secondary">Take AI Assessment</a>
+                <a href="pages/contact.html" class="btn-secondary">Schedule GLG Consultation</a>
+            </div>
+            <p class="hero-tagline">Where There's A Claude Will, There's A Way</p>
+        </div>
+    </section>
+
+    <!-- Derek's Personal Introduction -->
+    <section class="derek-introduction reveal-on-scroll" style="padding: 80px 0; background: white;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 64px; align-items: center; max-width: 1000px; margin: 0 auto;">
+                <div class="derek-photo-container reveal-on-scroll" style="text-align: center;">
+                    <img src="css/images/derek-simmons-photo.jpg" alt="Derek Simmons, GLG Expert and Founder of Claude Wisdom Strategies" 
+                         style="width: 300px; height: 300px; border-radius: 50%; object-fit: cover; box-shadow: 0 8px 32px rgba(30, 64, 175, 0.15); border: 4px solid var(--gold-accent);">
+                </div>
+                <div class="derek-introduction-content reveal-on-scroll">
+                    <h2 style="font-size: 36px; font-weight: 700; color: var(--primary-blue); margin-bottom: 16px;">
+                        Hello, I'm Derek Simmons
+                    </h2>
+                    <p style="font-size: 20px; color: var(--primary-blue); font-weight: 600; margin-bottom: 24px;">
+                        GLG Expert | Founder & CEO, Claude Wisdom Strategies
+                    </p>
+                    <p style="font-size: 18px; color: #475569; line-height: 1.7; margin-bottom: 32px;">
+                        I help Fortune 500 organizations navigate AI transformation without losing what makes them unique. 
+                        I've generated <strong>$25M+ in new revenue</strong> and built platforms that demonstrate the methodologies I teach.
+                    </p>
+                    <div class="credibility-metrics" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+                        <div style="background: linear-gradient(135deg, var(--primary-blue), var(--primary-teal)); color: white; padding: 20px; border-radius: 12px; text-align: center;">
+                            <div style="font-size: 24px; font-weight: 700; margin-bottom: 4px;">$25M+</div>
+                            <div style="font-size: 14px; opacity: 0.9;">Revenue Generated</div>
+                        </div>
+                        <div style="background: linear-gradient(135deg, var(--gold-accent), #e6c547); color: white; padding: 20px; border-radius: 12px; text-align: center;">
+                            <div style="font-size: 24px; font-weight: 700; margin-bottom: 4px;">GLG Expert</div>
+                            <div style="font-size: 14px; opacity: 0.9;">Network Member</div>
+                        </div>
+                        <div style="background: linear-gradient(135deg, var(--primary-teal), #0ea5e9); color: white; padding: 20px; border-radius: 12px; text-align: center;">
+                            <div style="font-size: 24px; font-weight: 700; margin-bottom: 4px;">2,500+</div>
+                            <div style="font-size: 14px; opacity: 0.9;">Hours AI Research</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge & Solution Flow -->
+    <section class="challenge-solution reveal-on-scroll" style="padding: 80px 0; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 class="reveal-on-scroll" style="font-size: 36px; font-weight: 700; color: var(--primary-blue); margin-bottom: 40px;">
+                    Most AI Strategies Fail Because...
+                </h2>
+                <div class="problems-grid reveal-on-scroll" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-bottom: 48px;">
+                    <div class="problem-card" style="background: white; padding: 32px 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-left: 4px solid #ef4444;">
+                        <div style="font-size: 24px; margin-bottom: 12px;">❌</div>
+                        <p style="color: #475569; font-weight: 500;">Built in conference rooms, not tested in reality</p>
+                    </div>
+                    <div class="problem-card" style="background: white; padding: 32px 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-left: 4px solid #ef4444;">
+                        <div style="font-size: 24px; margin-bottom: 12px;">❌</div>
+                        <p style="color: #475569; font-weight: 500;">Treat AI as magic, not orchestrated tools</p>
+                    </div>
+                    <div class="problem-card" style="background: white; padding: 32px 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-left: 4px solid #ef4444;">
+                        <div style="font-size: 24px; margin-bottom: 12px;">❌</div>
+                        <p style="color: #475569; font-weight: 500;">Ignore human wisdom in collaboration</p>
+                    </div>
+                </div>
+                <div class="solution-reveal reveal-on-scroll" style="background: white; padding: 48px; border-radius: 16px; box-shadow: 0 8px 32px rgba(30, 64, 175, 0.12); border: 2px solid var(--gold-accent);">
+                    <h3 style="font-size: 28px; font-weight: 700; color: var(--primary-blue); margin-bottom: 16px;">
+                        That's why I created The CW Standard
+                    </h3>
+                    <p style="font-size: 18px; color: #475569; margin-bottom: 24px;">
+                        A proven methodology for human-AI orchestration that has generated measurable results
+                    </p>
+                    <a href="pages/documentation.html" style="background: var(--primary-blue); color: white; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
+                        Learn The CW Standard <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Showcase -->
+    <section class="platforms" id="platforms">
+        <div class="container">
+            <div class="section-header">
+                <h2>Proven Platforms | Real Results</h2>
+                <p>Live platforms that demonstrate AI-enhanced human wisdom in action</p>
+            </div>
+            <div class="platform-grid">
+                <div class="platform-card">
+                    <div class="platform-icon">🎯</div>
+                    <h3>Recalibrate</h3>
+                    <p>World's first mobile-first career intelligence platform. Voice-enabled, ATS-aware, and PWA-ready. Revolutionary cross-device workflow with 67% response rates.</p>
+                    <a href="recalibrate/" class="platform-link">
+                        Launch Platform <i data-lucide="external-link"></i>
+                    </a>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon">🏀</div>
+                    <h3>HoopDreams</h3>
+                    <p>Basketball coaching platform with live client data. Demonstrates cross-domain expertise and sports psychology frameworks applied to technology.</p>
+                    <a href="basketball/" class="platform-link">
+                        View Demo <i data-lucide="external-link"></i>
+                    </a>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon">🎼</div>
+                    <h3>Claude Will OS</h3>
+                    <p>Constitutional AI platform that orchestrates multiple AI systems. The coaching approach to AI that enhances rather than replaces human judgment.</p>
+                    <a href="pages/assessment.html" class="platform-link">
+                        Experience AI <i data-lucide="external-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Heritage Story Section -->
+    <section class="heritage-story reveal-on-scroll" style="padding: 80px 0; background: white;">
+        <div class="container">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div class="reveal-on-scroll" style="text-align: center; margin-bottom: 64px;">
+                    <h2 style="font-size: 36px; font-weight: 700; color: var(--primary-blue); margin-bottom: 20px;">
+                        Why Claude? The Family Legacy
+                    </h2>
+                    <p style="font-size: 18px; color: #475569; max-width: 600px; margin: 0 auto;">
+                        Four generations of practical wisdom, from Oklahoma Territory to Fortune 500 consulting
+                    </p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;">
+                    <div class="heritage-timeline reveal-on-scroll" style="background: linear-gradient(135deg, #f8fafc, #e2e8f0); padding: 40px; border-radius: 16px; border-left: 4px solid var(--gold-accent);">
+                        <h3 style="color: var(--primary-blue); font-size: 24px; font-weight: 700; margin-bottom: 24px;">
+                            The Claude Legacy
+                        </h3>
+                        <div class="timeline-item" style="margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #e2e8f0;">
+                            <div style="font-weight: 600; color: var(--primary-blue); margin-bottom: 8px;">Claude William Simmons (1890s)</div>
+                            <div style="color: #64748b; font-size: 14px;">Born in Oklahoma before it was a state</div>
+                        </div>
+                        <div class="timeline-item" style="margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #e2e8f0;">
+                            <div style="font-weight: 600; color: var(--primary-blue); margin-bottom: 8px;">Uncle Junior (Claude)</div>
+                            <div style="color: #64748b; font-size: 14px;">Carried forward the family name and values</div>
+                        </div>
+                        <div class="timeline-item" style="margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #e2e8f0;">
+                            <div style="font-weight: 600; color: var(--primary-blue); margin-bottom: 8px;">Derek Claude Simmons</div>
+                            <div style="color: #64748b; font-size: 14px;">GLG Expert | Claude Wisdom Strategies founder</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div style="font-weight: 600; color: var(--primary-blue); margin-bottom: 8px;">Jackson Claude Simmons</div>
+                            <div style="color: #64748b; font-size: 14px;">The legacy continues</div>
+                        </div>
+                    </div>
+                    
+                    <div class="heritage-story-content reveal-on-scroll">
+                        <div style="background: white; padding: 32px; border-radius: 16px; box-shadow: 0 8px 32px rgba(30, 64, 175, 0.08); margin-bottom: 24px;">
+                            <h4 style="color: var(--primary-blue); font-size: 20px; font-weight: 700; margin-bottom: 16px;">
+                                The Horse Trading Wisdom
+                            </h4>
+                            <p style="color: #475569; line-height: 1.7; margin-bottom: 16px; font-style: italic;">
+                                "My grandfather Claude William once sold race horses for work horses. 
+                                Because it needed to be done."
+                            </p>
+                            <p style="color: #475569; line-height: 1.7;">
+                                This is the essence of The CW Standard: choosing practical solutions over flashy presentations, 
+                                work horses over race horses. Great ideas don't need coastal validation—they need practical application.
+                            </p>
+                        </div>
+                        
+                        <div style="background: linear-gradient(135deg, var(--primary-blue), var(--primary-teal)); color: white; padding: 32px; border-radius: 16px;">
+                            <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 16px;">
+                                Kansas Values in AI Strategy
+                            </h4>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 16px;">
+                                <div style="text-align: center;">
+                                    <div style="font-size: 24px; margin-bottom: 8px;">🌾</div>
+                                    <div style="font-size: 14px; font-weight: 600;">Practical Solutions</div>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div style="font-size: 24px; margin-bottom: 8px;">🔧</div>
+                                    <div style="font-size: 14px; font-weight: 600;">Real-World Testing</div>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div style="font-size: 24px; margin-bottom: 8px;">💪</div>
+                                    <div style="font-size: 14px; font-weight: 600;">Get Things Done</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Claude Will Capabilities Section -->
+    <section class="claude-will-capabilities" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 80px 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: var(--primary-blue);">The Claude Will Approach</h2>
+                <p style="color: #64748b; max-width: 700px; margin: 0 auto 40px;">
+                    Constitutional AI meets coaching methodology. Not a chatbot personality, but a strategic framework 
+                    that enhances human wisdom across every dimension of business transformation.
+                </p>
+            </div>
+            <div class="capabilities-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 40px;">
+                <div class="capability-card" style="background: white; padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+                    <h3 style="color: var(--primary-blue); margin-bottom: 12px;">Claude Will Build Platforms</h3>
+                    <p style="color: #64748b; margin-bottom: 16px;">Live demonstrations: Recalibrate career intelligence, HoopDreams coaching, constitutional AI systems</p>
+                    <a href="#platforms" style="color: var(--primary-blue); font-weight: 600;">View Platform Demos →</a>
+                </div>
+                <div class="capability-card" style="background: white; padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+                    <h3 style="color: var(--primary-blue); margin-bottom: 12px;">Claude Will Enhance Wisdom</h3>
+                    <p style="color: #64748b; margin-bottom: 16px;">GLG expert methodology that augments human decision-making rather than replacing it</p>
+                    <button id="claude-will-demo" style="background: transparent; border: none; color: var(--primary-blue); font-weight: 600; cursor: pointer;">Experience the Difference →</button>
+                </div>
+                <div class="capability-card" style="background: white; padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+                    <h3 style="color: var(--primary-blue); margin-bottom: 12px;">Claude Will Drive Results</h3>
+                    <p style="color: #64748b; margin-bottom: 16px;">$25M+ revenue generated through systematic frameworks and proven AI strategy</p>
+                    <a href="pages/assessment.html" style="color: var(--primary-blue); font-weight: 600;">Take AI Assessment →</a>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                <a href="pages/contact.html" class="btn-primary">Schedule GLG Consultation</a>
+                <a href="pages/assessment.html" class="btn-secondary" style="background: transparent; border: 2px solid var(--primary-blue); color: var(--primary-blue);">
+                    Take AI Assessment
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Strategic Services</h2>
+                <p>GLG Expert consulting for Fortune 500 organizations</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <h3>AI Strategy</h3>
+                    <p>Constitutional AI implementation that enhances human wisdom rather than replacing it. Proven methodology for complex AI orchestration.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>Revenue Generation</h3>
+                    <p>Systematic frameworks that have generated $25M+ in new business. The CW Standard methodology for complicated transitions.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Executive Coaching</h3>
+                    <p>Sports psychology applied to business transformation. Authentic leadership development through cross-domain pattern recognition.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GLG Section -->
+    <section class="glg-section">
+        <div class="container">
+            <div class="glg-badge">GLG Expert Network Member</div>
+            <h2>Serving Fortune 500 Executives</h2>
+            <p>
+                Vetted by GLG, the world's premier expert network serving leading investment banks, 
+                private equity firms, and global enterprises. Building platforms that demonstrate 
+                the methodologies I teach.
+            </p>
+            <div class="cta-group">
+                <a href="pages/contact.html" class="btn-primary">Schedule Consultation</a>
+                <a href="pages/about.html" class="btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <a href="pages/services.html">AI Strategy</a>
+                    <a href="pages/services.html">Revenue Generation</a>
+                    <a href="pages/services.html">Executive Coaching</a>
+                    <a href="pages/contact.html">GLG Consultation</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Platforms</h4>
+                    <a href="recalibrate/">Recalibrate</a>
+                    <a href="basketball/">HoopDreams</a>
+                    <a href="pages/assessment.html">Claude Will OS</a>
+                    <a href="pages/portfolio.html">Case Studies</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <a href="pages/about.html">About Derek</a>
+                    <a href="pages/documentation.html">The CW Standard</a>
+                    <a href="pages/contact.html">Contact</a>
+                    <a href="pages/site-index.html">Site Index</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Claude Will. All rights reserved. | GLG Expert Network Member</p>
+            </div>
         </div>
     </footer>
 
-    <script src="js/global.js"></script>
-    <script src="js/chat.js" onerror="alert('Chat functionality failed to load. Please refresh or try again later.');"></script>
-
-    <!-- Claude Will Widget -->
-    <link rel="stylesheet" href="css/claude-will-widget-modern.css">
-    <script src="js/claude-will-widget.js"></script>
+    <!-- Claude Will Widget Styles -->
+    <link href="css/claude-will-widget.css" rel="stylesheet">
     
-    <!-- AI Assessment Game -->
+    <!-- Claude Will Widget Script -->
+    <script src="js/claude-will-widget.js"></script>
     <script src="js/consciousness-assessment-game.js"></script>
+    
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
         // Initialize Lucide icons
-        if (window.lucide) {
-          lucide.createIcons();
-        }
+        lucide.createIcons();
         
-        new ClaudeWillWidget();
+        // Initialize Claude Will Widget
+        const claudeWillWidget = new ClaudeWillWidget();
         
-        // SpaceOrbGame is initialized automatically in consciousness-navigation.js
-      });
-    </script>
-
-    <!-- Add animated counter script -->
-    <script>
-        // Animated counters
-        function animateCounter(elementId, targetValue, suffix = '', duration = 2000) {
-            const element = document.getElementById(elementId);
-            const startValue = 0;
-            const increment = targetValue / (duration / 16);
-            let currentValue = startValue;
+        // Chat button functionality
+        document.getElementById('claude-will-chat').addEventListener('click', function() {
+            claudeWillWidget.toggleWidget();
+        });
+        
+        // Demo button functionality
+        document.getElementById('claude-will-demo').addEventListener('click', function() {
+            claudeWillWidget.toggleWidget();
+        });
+        
+        // Rotating hero text functionality
+        const actions = [
+            "Find a Way",
+            "Build Platforms",
+            "Enhance Wisdom",
+            "Drive Results", 
+            "Lead Change",
+            "Coach Growth",
+            "Scale Success",
+            "Create Value"
+        ];
+        
+        let currentActionIndex = 0;
+        const actionElement = document.getElementById('rotating-action');
+        
+        function rotateAction() {
+            actionElement.classList.add('fade-out');
             
-            const timer = setInterval(() => {
-                currentValue += increment;
-                if (currentValue >= targetValue) {
-                    currentValue = targetValue;
-                    clearInterval(timer);
-                }
-                element.textContent = Math.floor(currentValue) + suffix;
-            }, 16);
+            setTimeout(() => {
+                currentActionIndex = (currentActionIndex + 1) % actions.length;
+                actionElement.textContent = actions[currentActionIndex];
+                actionElement.classList.remove('fade-out');
+                actionElement.classList.add('fade-in');
+                
+                setTimeout(() => {
+                    actionElement.classList.remove('fade-in');
+                }, 100);
+            }, 300);
         }
         
-        // Start counters when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                animateCounter('revenue-counter', 25, 'M+');
-                animateCounter('hours-counter', 2500, '+');
-                animateCounter('response-counter', 67, '%');
-            }, 500);
+        // Start the rotation after initial load
+        setTimeout(() => {
+            setInterval(rotateAction, 3000);
+        }, 2000);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all elements with reveal-on-scroll class
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
