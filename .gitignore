@@ -12,6 +12,9 @@ build/
 .cache/
 coverage/
 
+# Internal documentation and strategy
+docs/
+
 # OS and editor files
 .DS_Store
 Thumbs.db
