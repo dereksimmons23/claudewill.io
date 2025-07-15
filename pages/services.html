@@ -7,8 +7,9 @@
     <meta name="description" content="Strategic business transformation services based on The CW Standard: AI strategy, transition management, and executive framework development.">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/global.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+    <link rel="icon" type="image/svg+xml" href="../favicon-cw-dark.svg">
     <style>
         .services-hero {
             text-align: center;
@@ -33,6 +34,7 @@
             padding: 2rem;
             display: flex;
             flex-direction: column;
+            color: var(--color-text);
         }
         .service-card h3 {
             display: flex;
@@ -101,17 +103,12 @@
 </head>
 <body>
     <header class="site-header" aria-label="Site header">
-        <a href="/index.html" class="wordmark">
+        <a href="../index.html" class="wordmark">
             <span class="wordmark-full">CW</span>
         </a>
         <div class="header-actions">
             <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
-            </button>
-            <button id="theme-toggle" aria-label="Toggle theme" tabindex="0">
-                <span class="material-icons theme-toggle-icon">light_mode</span>
+                <i data-lucide="menu"></i>
             </button>
         </div>
     </header>
@@ -122,7 +119,8 @@
             <li><a href="services.html">Services</a></li>
             <li><a href="case-studies.html">Case Studies</a></li>
             <li><a href="assessment.html">Assessment</a></li>
-            <li><a href="../career-intelligence/index.html">Career Intelligence</a></li>
+            <li><a href="../recalibrate/index.html">Recalibrate</a></li>
+            <li><a href="../basketball/index.html">HoopDreams</a></li>
             <li><a href="documentation.html">Documentation</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -237,14 +235,14 @@
             <a href="../docs/TERMS.md" target="_blank" rel="noopener">Terms of Use</a>
         </div>
     </footer>
-    <script src="../js/main.js"></script>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>lucide.createIcons();</script>
+    
+    <script src="../js/global.js"></script>
+    
     <!-- Claude Will Widget -->
-    <link rel="stylesheet" href="/css/claude-will-widget.css">
-    <script src="/js/claude-will-widget.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        new ClaudeWillWidget();
-      });
-    </script>
+    <link rel="stylesheet" href="../css/claude-will-widget.css">
+    <script src="../js/claude-will-widget.js"></script>
 </body>
 </html> 

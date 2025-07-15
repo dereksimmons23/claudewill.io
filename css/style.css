@@ -12,6 +12,7 @@
     
     /* Light theme (default) */
     --color-background: var(--cottonwood);
+    --color-background-alt: #f0f0f0;
     --color-text: var(--gunmetal-firebird);
     --color-primary: var(--prairie-dusk);
     --color-accent: var(--iron-range);
@@ -45,6 +46,9 @@
     /* Other */
     --header-height: 60px;
 }
+
+/* Dark theme variables - REMOVED
+   Using light mode only to avoid contrast issues */
 
 /* Universal selector */
 * {
@@ -398,24 +402,10 @@ footer a:hover {
 }
 
 /* Dark theme footer selectors before class descendant pseudo-classes */
-.dark-theme footer a {
-    color: #e0e0e0;
-}
 
-body.dark-theme footer a {
-    color: #e0e0e0;
-}
 
 /* Dark theme hamburger navigation */
-.dark-theme .hamburger-nav {
-    background: var(--surface);
-    border-color: var(--border);
-    color: var(--text-primary);
-}
 
-.dark-theme .hamburger-nav a {
-    color: var(--text-primary);
-}
 
 /* Class descendant pseudo-classes */
 .hamburger-nav a:hover {
@@ -504,62 +494,16 @@ body.dark-theme footer a {
 }
 
 /* Complex selectors (most specific) - ordered by specificity */
-body.dark-theme {
-    --color-background: var(--gunmetal-firebird);
-    --color-text: var(--cottonwood);
-    --color-primary: var(--cottonwood);
-    --color-accent: var(--iron-range);
-    --color-link: var(--iron-range);
-}
 
-.dark-theme footer {
-    color: #e0e0e0;
-}
 
-body.dark-theme footer {
-    color: #e0e0e0;
-}
 
-.dark-theme footer a:hover {
-    color: #fff;
-}
 
-body.dark-theme footer a:hover {
-    color: #fff;
-}
 
-.dark-theme .suggestion-button {
-    background-color: var(--color-accent);
-    color: #fff;
-    border: 1px solid var(--color-accent);
-}
 
-body.dark-theme .suggestion-button {
-    background-color: var(--color-accent);
-    color: #fff;
-    border: 1px solid var(--color-accent);
-}
 
-.dark-theme .suggestion-button:hover {
-    background-color: #8e340d;
-    color: #fff;
-}
 
-body.dark-theme .suggestion-button:hover {
-    background-color: #8e340d;
-    color: #fff;
-}
 
-.dark-theme .site-header .theme-toggle-icon,
-.dark-theme .site-header #hamburger-toggle,
-.dark-theme .site-header #hamburger-toggle .hamburger-bar,
-.dark-theme .site-header .wordmark {
-    color: #fff;
-}
 
-.dark-theme .site-header #hamburger-toggle .hamburger-bar {
-    background: #fff;
-}
 
 /* Keyframes */
 @keyframes pulse {
@@ -585,9 +529,6 @@ body.dark-theme .suggestion-button:hover {
     box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
 }
 
-.dark-theme .framework-card:hover {
-    box-shadow: 0 8px 32px rgb(248 245 242 / 10%);
-}
 
 /* Responsive adjustments for AI orchestra */
 @media (width <= 768px) {
@@ -701,27 +642,9 @@ body.dark-theme .suggestion-button:hover {
 }
 
 /* Dark theme for new homepage */
-.dark-theme .hero-section,
-body.dark-theme .hero-section {
-    background: linear-gradient(135deg, var(--color-text) 0%, var(--north-pond) 100%);
-}
 
-.dark-theme .value-props,
-body.dark-theme .value-props {
-    background: var(--color-background);
-}
 
-.dark-theme .value-card,
-body.dark-theme .value-card {
-    background: rgb(248 245 242 / 3%);
-    border-left-color: var(--color-primary);
-}
 
-.dark-theme .demo-interface,
-body.dark-theme .demo-interface {
-    background: rgb(248 245 242 / 5%);
-    border-color: rgb(248 245 242 / 20%);
-}
 
 /* Homepage Storytelling Enhancements */
 .derek-photo {
@@ -915,33 +838,9 @@ body.dark-theme .demo-interface {
 }
 
 /* Light mode specific overrides */
-body:not(.dark-theme) .challenge-section,
-body:not(.dark-theme) .cw-standard-section,
-body:not(.dark-theme) .heritage-section {
-    background: #fafafa !important;
-}
 
-body:not(.dark-theme) .problem-card {
-    background: rgb(163 62 16 / 8%) !important;
-    color: #333 !important;
-}
 
-body:not(.dark-theme) .principle {
-    background: rgb(56 96 110 / 8%) !important;
-    color: #333 !important;
-}
 
-body:not(.dark-theme) .principle[data-reveal="2"] {
-    background: rgb(163 62 16 / 8%) !important;
-}
 
-body:not(.dark-theme) .principle[data-reveal="3"] {
-    background: rgb(56 96 110 / 8%) !important;
-}
 
-body:not(.dark-theme) .story-card {
-    background: rgb(56 96 110 / 8%) !important;
-    color: #333 !important;
-    border-color: rgb(56 96 110 / 20%) !important;
-}
 

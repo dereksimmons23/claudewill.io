@@ -97,9 +97,6 @@ footer a:hover {
 }
 
 /* Dark Theme Footer */
-.dark-theme footer a {
-  color: #ff6b35;
-}
 
 /* Header Actions */
 .header-actions {
@@ -207,60 +204,16 @@ footer a:hover {
 }
 
 /* Dark Theme */
-.dark-theme {
-  background: #1a1a1a;
-  color: #e0e0e0;
-}
 
-.dark-theme .site-header {
-  background: rgb(26 26 26 / 95%);
-  border-bottom-color: rgb(224 224 224 / 10%);
-}
 
-.dark-theme .wordmark {
-  color: #e0e0e0;
-}
 
-.dark-theme #theme-toggle,
-.dark-theme #hamburger-toggle {
-  background: rgb(224 224 224 / 10%);
-  border-color: rgb(224 224 224 / 20%);
-  color: #e0e0e0;
-}
 
-.dark-theme #theme-toggle:hover,
-.dark-theme #hamburger-toggle:hover {
-  background: rgb(224 224 224 / 20%);
-}
 
-.dark-theme .assessment-cta {
-  background: linear-gradient(135deg, var(--accent-color), #00d4ff);
-  box-shadow: 0 4px 15px rgb(0 212 255 / 40%);
-}
 
-.dark-theme .assessment-cta:hover {
-  box-shadow: 0 6px 20px rgb(0 212 255 / 50%);
-}
 
-.dark-theme .hamburger-nav {
-  background: rgb(26 26 26 / 95%);
-  border-color: rgb(224 224 224 / 20%);
-}
 
-.dark-theme .hamburger-nav a {
-  color: #e0e0e0;
-}
 
-.dark-theme .hamburger-nav a:hover {
-  background: rgb(224 224 224 / 10%);
-  color: #ff6b35;
-}
 
-.dark-theme footer {
-  color: rgb(224 224 224 / 60%);
-  border-top-color: rgb(224 224 224 / 10%);
-  background: #1a1a1a;
-}
 
 /* Content Spacing */
 main {
@@ -324,9 +277,6 @@ main {
   transition: opacity 0.5s ease;
 }
 
-.dark-theme .loading-screen {
-  background: #1a1a1a;
-}
 
 .spinner {
   width: 2rem;
@@ -344,9 +294,6 @@ main {
   animation: pulse 2s infinite;
 }
 
-.dark-theme .loading-message {
-  color: rgb(224 224 224 / 60%);
-}
 
 @keyframes spin {
   to { transform: rotate(360deg); }

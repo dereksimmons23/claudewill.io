@@ -3,27 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claude Will | Where There's a Claude Will, There's a Way</title>
-    <meta name="description" content="GLG Expert Derek Simmons builds AI platforms that enhance human wisdom. Serving Fortune 500 executives through proven methodology and innovative platform development.">
+    <title>Derek Simmons - claudewill.io</title>
+    <meta name="description" content="Derek Simmons - GLG Expert, AI strategy consultant, and creator of The CW Standard methodology for strategic business transformation.">
     
-    <!-- Open Graph / Social Sharing -->
-    <meta property="og:title" content="Claude Will | GLG Expert | Platform Builder">
-    <meta property="og:description" content="GLG Expert Derek Simmons builds AI platforms that enhance human wisdom. Constitutional AI meets coaching methodology.">
-    <meta property="og:url" content="https://claudewill.io">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://claudewill.io/derek-simmons-photo.jpg">
-    
-    <!-- Fonts and Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
-    <!-- Styles -->
     <link href="css/global.css" rel="stylesheet">
-    <link href="css/modern.css" rel="stylesheet">
-
-    <!-- Google Analytics -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
+    
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -31,1281 +21,434 @@
       gtag('js', new Date());
       gtag('config', 'G-991ML96NJ3');
     </script>
-
-    <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
     
     <style>
-        /* Tealium-inspired professional design */
-        :root {
-            --primary-blue: #1e40af;
-            --primary-teal: #0891b2;
-            --dark-blue: #1e3a8a;
-            --light-gray: #f8fafc;
-            --border-gray: #e2e8f0;
-            --text-gray: #64748b;
-            --gold-accent: #d4af37;
+        /* Homepage-specific styles */
+        .hero-section {
+            background: linear-gradient(135deg, var(--prairie-dusk) 0%, var(--north-pond) 100%);
+            color: white;
+            padding: 4rem 0 3rem;
+            padding-top: calc(4rem + 60px);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: #334155;
-            background-color: #ffffff;
-        }
-        
-        .container {
-            max-width: 1200px;
+        .hero-content {
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
         }
         
-        /* Header */
-        .header {
-            background: white;
-            border-bottom: 1px solid var(--border-gray);
-            position: fixed;
-            top: 0;
+        .derek-intro {
+            font-size: 2.2rem;
+            font-weight: 300;
+            line-height: 1.4;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 2s ease 0.5s both;
+        }
+        
+        .whitespace-moment {
+            height: 80px;
+            width: 100%;
+            position: relative;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+        
+        .whitespace-breath {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            position: absolute;
+            top: 50%;
             left: 0;
             right: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            animation: breathe 4s ease-in-out infinite;
+            transform: translateY(-50%);
         }
         
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 72px;
-        }
-        
-        .logo {
-            font-family: 'Zilla Slab', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-blue);
-            text-decoration: none;
-        }
-        
-        .nav {
-            display: flex;
-            gap: 32px;
-        }
-        
-        .nav a {
-            color: #64748b;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-            transition: color 0.2s;
-        }
-        
-        .nav a:hover {
-            color: var(--primary-blue);
-        }
-        
-        .cta-button {
-            background: var(--primary-blue);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-        
-        .cta-button:hover {
-            background: var(--dark-blue);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-teal) 100%);
-            color: white;
-            padding: 120px 0 80px;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            line-height: 1.1;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
-        }
-        
-        .hero-brand {
-            color: var(--gold-accent);
-            position: relative;
-        }
-        
-        .hero-action {
-            position: relative;
-            min-width: 200px;
-            transition: all 0.6s ease-in-out;
-            color: #ffffff;
-        }
-        
-        .hero-action.fade-out {
+        .derek-context {
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
             opacity: 0;
-            transform: translateY(-10px);
+            animation: fadeIn 2s ease 1s both;
         }
         
-        .hero-action.fade-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .hero-tagline {
-            font-size: 18px;
+        .derek-essence {
+            font-size: 1.4rem;
             font-weight: 500;
-            margin-top: 32px;
-            opacity: 0.8;
-            color: #ffffff;
-            font-style: italic;
+            line-height: 1.5;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeIn 2s ease 1.5s both;
         }
         
-        .hero .description {
-            font-size: 20px;
-            margin-bottom: 32px;
-            opacity: 0.95;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            color: #ffffff;
+        .ambient-info {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            z-index: 3;
         }
         
-        .hero .badges {
+        .hero-actions {
             display: flex;
             justify-content: center;
-            gap: 24px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            opacity: 0;
+            animation: fadeIn 2s ease 2s both;
         }
         
-                 .badge {
-             background: rgba(255,255,255,0.15);
-             padding: 8px 16px;
-             border-radius: 24px;
-             font-size: 14px;
-             font-weight: 600;
-             -webkit-backdrop-filter: blur(10px);
-             backdrop-filter: blur(10px);
-         }
-        
-        .hero .cta-group {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        
-        .btn-primary {
-            background: white;
-            color: var(--primary-blue);
-            padding: 16px 32px;
+        .cta-primary {
+            background: var(--iron-range);
+            color: white;
+            padding: 1rem 2rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 16px;
-            transition: all 0.2s;
-            border: 2px solid white;
+            transition: all 0.3s ease;
+            border: 2px solid var(--iron-range);
         }
         
-        .btn-primary:hover {
-            background: transparent;
-            color: white;
+        .cta-primary:hover {
+            background: #8e340d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(163, 62, 16, 0.4);
         }
         
-        .btn-secondary {
+        .cta-secondary {
             background: transparent;
             color: white;
-            padding: 16px 32px;
+            padding: 1rem 2rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 16px;
-            transition: all 0.2s;
-            border: 2px solid white;
-            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
         
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary-blue);
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
         }
         
-        #claude-will-chat {
-            font-family: inherit;
+        .value-props {
+            padding: 4rem 0;
+            background: var(--cottonwood);
         }
         
-        /* Platform Showcase */
-        .platforms {
-            padding: 80px 0;
-            background: var(--light-gray);
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 64px;
-        }
-        
-        .section-header h2 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--primary-blue);
-        }
-        
-        .section-header p {
-            font-size: 20px;
-            color: var(--text-gray);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .platform-grid {
+        .value-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
         
-        .platform-card {
+        .value-card {
             background: white;
+            padding: 2rem;
             border-radius: 12px;
-            padding: 32px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: transform 0.2s, box-shadow 0.2s;
+            border-left: 4px solid var(--prairie-dusk);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
         }
         
-        .platform-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(56, 96, 110, 0.15);
         }
         
-        .platform-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--primary-blue);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            font-size: 32px;
-            color: white;
-            box-shadow: 0 4px 16px rgba(30, 64, 175, 0.3);
+        .value-card h3 {
+            color: var(--prairie-dusk);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
         
-        .platform-card h3 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--primary-blue);
+        .value-card p {
+            color: var(--gunmetal-firebird);
+            line-height: 1.6;
+            margin-bottom: 1rem;
         }
         
-        .platform-card p {
-            color: var(--text-gray);
-            margin-bottom: 20px;
-        }
-        
-        .platform-link {
-            color: var(--primary-blue);
-            text-decoration: none;
+        .value-card .card-link {
+            color: var(--iron-range);
             font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            text-decoration: none;
         }
         
-        .platform-link:hover {
+        .value-card .card-link:hover {
             text-decoration: underline;
         }
         
-        /* Services Section */
-        .services {
-            padding: 80px 0;
-            background: white;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
+        @keyframes breathe {
+            0%, 100% { transform: translateY(-50%) scaleX(0.8); opacity: 0.3; }
+            50% { transform: translateY(-50%) scaleX(1.2); opacity: 0.7; }
         }
         
-        .service-card {
-            text-align: center;
-            padding: 24px;
+        /* Ambient mood variations */
+        .mood-storm .hero-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
         }
         
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-teal));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            font-size: 36px;
-            color: white;
-            box-shadow: 0 4px 16px rgba(30, 64, 175, 0.3);
+        .mood-clear .hero-section {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
         }
         
-        .service-card h3 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--primary-blue);
+        .mood-dawn .hero-section {
+            background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
         }
         
-        .service-card p {
-            color: var(--text-gray);
-            margin-bottom: 20px;
+        .mood-dusk .hero-section {
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
         }
         
-        /* GLG Section */
-        .glg-section {
-            padding: 80px 0;
-            background: var(--primary-blue);
-            color: white;
-            text-align: center;
+        .mood-night .hero-section {
+            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
         }
         
-        .glg-badge {
-            background: var(--gold-accent);
-            color: var(--primary-blue);
-            padding: 12px 24px;
-            border-radius: 24px;
-            font-weight: 700;
-            font-size: 16px;
-            display: inline-block;
-            margin-bottom: 24px;
-        }
-        
-        .glg-section h2 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        
-        .glg-section p {
-            font-size: 20px;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto 40px;
-        }
-        
-        /* Footer */
-        .footer {
-            background: #1e293b;
-            color: white;
-            padding: 48px 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 32px;
-            margin-bottom: 32px;
-        }
-        
-        .footer-section h4 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-        
-        .footer-section a {
-            color: #94a3b8;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 8px;
-            transition: color 0.2s;
-        }
-        
-        .footer-section a:hover {
-            color: white;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #334155;
-            padding-top: 24px;
-            color: #94a3b8;
-        }
-        
-        /* Scroll Animation Classes */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .reveal-on-scroll.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Staggered Animation Delays */
-        .reveal-on-scroll:nth-child(1) { transition-delay: 0.1s; }
-        .reveal-on-scroll:nth-child(2) { transition-delay: 0.2s; }
-        .reveal-on-scroll:nth-child(3) { transition-delay: 0.3s; }
-        .reveal-on-scroll:nth-child(4) { transition-delay: 0.4s; }
-        
-        .derek-introduction .reveal-on-scroll:nth-child(1) { transition-delay: 0.1s; }
-        .derek-introduction .reveal-on-scroll:nth-child(2) { transition-delay: 0.3s; }
-        
-        .problems-grid .problem-card:nth-child(1) { transition-delay: 0.1s; }
-        .problems-grid .problem-card:nth-child(2) { transition-delay: 0.2s; }
-        .problems-grid .problem-card:nth-child(3) { transition-delay: 0.3s; }
-        
-        .timeline-item:nth-child(1) { transition-delay: 0.1s; }
-        .timeline-item:nth-child(2) { transition-delay: 0.2s; }
-        .timeline-item:nth-child(3) { transition-delay: 0.3s; }
-        .timeline-item:nth-child(4) { transition-delay: 0.4s; }
-        
-        /* Smooth hover effects */
-        .platform-card,
-        .service-card,
-        .problem-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .platform-card:hover,
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 48px rgba(0,0,0,0.15);
-        }
-        
-        .credibility-metrics > div {
-            transition: transform 0.3s ease;
-        }
-        
-        .credibility-metrics > div:hover {
-            transform: scale(1.05);
-        }
-        
-        /* Touch-friendly interactions */
-        .problem-card:active,
-        .platform-card:active,
-        .service-card:active,
-        .credibility-metrics > div:active {
-            transform: scale(0.98);
-        }
-        
-        /* Improved mobile touch targets */
         @media (max-width: 768px) {
-            .problem-card,
-            .platform-card,
-            .service-card {
-                padding: 24px !important;
-                margin-bottom: 16px;
-            }
-            
-            .problem-card:hover,
-            .platform-card:hover,
-            .service-card:hover {
-                transform: none; /* Disable hover effects on mobile */
-            }
-            
-            .credibility-metrics > div:hover {
-                transform: none; /* Disable hover effects on mobile */
-            }
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 36px;
-                flex-direction: column;
-                align-items: center;
-                gap: 4px;
-            }
-            
-            .hero-action {
-                min-width: 180px;
-            }
-            
-            .hero-tagline {
-                font-size: 16px;
-            }
-            
-            .hero .description {
-                font-size: 18px;
-            }
-            
-            .hero .badges {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .hero .cta-group {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .platform-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-header h2 {
-                font-size: 28px;
-            }
-            
-            /* Derek Introduction Mobile */
-            .derek-introduction div[style*="grid-template-columns"] {
-                grid-template-columns: 1fr !important;
-                gap: 32px !important;
-                text-align: center;
-            }
-            
-            .derek-photo-container img {
-                width: 200px !important;
-                height: 200px !important;
-            }
-            
-            .derek-introduction h2 {
-                font-size: 28px !important;
-            }
-            
-            .credibility-metrics {
-                grid-template-columns: 1fr !important;
-                gap: 12px !important;
-            }
-            
-            .credibility-metrics > div {
-                padding: 16px !important;
-                margin: 0 auto;
-                max-width: 300px;
-            }
-            
-            /* Challenge Solution Mobile */
-            .challenge-solution h2 {
-                font-size: 28px !important;
-            }
-            
-            .problems-grid {
-                grid-template-columns: 1fr !important;
-            }
-            
-            .solution-reveal {
-                padding: 32px 24px !important;
-            }
-            
-            /* Heritage Story Mobile */
-            .heritage-story h2 {
-                font-size: 28px !important;
-            }
-            
-            .heritage-story div[style*="grid-template-columns: 1fr 1fr"] {
-                grid-template-columns: 1fr !important;
-                gap: 32px !important;
-            }
-            
-            .heritage-timeline {
-                margin-bottom: 24px;
-            }
-            
-            .heritage-story-content div[style*="grid-template-columns"] {
-                grid-template-columns: repeat(3, 1fr) !important;
-            }
+            .derek-intro { font-size: 1.8rem; }
+            .derek-context { font-size: 1.1rem; }
+            .derek-essence { font-size: 1.2rem; }
+            .hero-actions { flex-direction: column; align-items: center; }
+            .ambient-info { top: 1rem; right: 1rem; font-size: 0.8rem; }
+            .value-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <a href="/" class="logo">claudewill.io</a>
-                <nav class="nav">
-                    <a href="#services">Services</a>
-                    <a href="#platforms">Platforms</a>
-                    <a href="pages/about.html">About</a>
-                    <a href="pages/contact.html">Contact</a>
-                </nav>
-                <a href="pages/contact.html" class="cta-button">Get Started</a>
-            </div>
+    <header class="site-header" aria-label="Site header">
+        <a href="index.html" class="wordmark">
+          <span class="wordmark-full">CW</span>
+          <span class="wordmark-short">CW</span>
+        </a>
+        <div class="header-actions">
+            <button id="consciousness-toggle" aria-label="Enter Space Game" title="Enter Space Game">
+                <i data-lucide="play"></i>
+            </button>
+            <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
+                <i data-lucide="menu"></i>
+            </button>
         </div>
     </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>
-                <span class="hero-brand">Claude Will</span>
-                <span class="hero-action" id="rotating-action">Find a Way</span>
-            </h1>
-            <p class="description">
-                AI that enhances human wisdom through constitutional methodology. 
-                Built on proven frameworks that have generated $25M+ in strategic value.
-            </p>
-            <div class="badges">
-                <div class="badge">✓ GLG Expert Network</div>
-                <div class="badge">✓ $25M+ Revenue Generated</div>
-                <div class="badge">✓ 2,500+ Hours AI Research</div>
-                <div class="badge">✓ Constitutional AI Pioneer</div>
-            </div>
-            <div class="cta-group">
-                <a href="pages/assessment.html" class="btn-primary">Free AI Strategy Diagnostic ($2,500 Value)</a>
-                <a href="pages/contact.html" class="btn-secondary">Schedule Executive Briefing</a>
-                <button id="claude-will-chat" class="btn-secondary">Ask Claude Will</button>
-            </div>
-            <p class="hero-tagline">Where There's A Claude Will, There's A Way</p>
-        </div>
-    </section>
-
-    <!-- Derek's Personal Introduction -->
-    <section class="derek-introduction reveal-on-scroll" style="padding: 80px 0; background: white;" aria-labelledby="derek-intro-heading">
-        <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 64px; align-items: center; max-width: 1000px; margin: 0 auto;">
-                <div class="derek-photo-container reveal-on-scroll" style="text-align: center;">
-                    <img src="css/images/derek-simmons-photo.jpg" alt="Derek Simmons, GLG Expert and Founder of Claude Wisdom Strategies" 
-                         loading="lazy"
-                         style="width: 300px; height: 300px; border-radius: 50%; object-fit: cover; box-shadow: 0 8px 32px rgba(30, 64, 175, 0.15); border: 4px solid var(--gold-accent);">
-                </div>
-                <div class="derek-introduction-content reveal-on-scroll">
-                    <h2 id="derek-intro-heading" style="font-size: 36px; font-weight: 700; color: var(--primary-blue); margin-bottom: 16px;">
-                        Hello, I'm Derek Simmons
-                    </h2>
-                    <p style="font-size: 20px; color: var(--primary-blue); font-weight: 600; margin-bottom: 24px;">
-                        GLG Expert | Founder & CEO, Claude Wisdom Strategies
-                    </p>
-                    <p style="font-size: 18px; color: #475569; line-height: 1.7; margin-bottom: 32px;">
-                        I help Fortune 500 organizations navigate AI transformation without losing what makes them unique. 
-                        I've generated <strong>$25M+ in new revenue</strong> and built platforms that demonstrate the methodologies I teach.
-                    </p>
-                    <div class="credibility-metrics" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;" role="group" aria-label="Derek's professional credentials">
-                        <div style="background: linear-gradient(135deg, var(--primary-blue), var(--primary-teal)); color: white; padding: 20px; border-radius: 12px; text-align: center;" role="img" aria-label="$25 million plus revenue generated">
-                            <div style="font-size: 24px; font-weight: 700; margin-bottom: 4px;" aria-hidden="true">$25M+</div>
-                            <div style="font-size: 14px; opacity: 0.9;" aria-hidden="true">Revenue Generated</div>
-                        </div>
-                        <div style="background: linear-gradient(135deg, var(--gold-accent), #e6c547); color: white; padding: 20px; border-radius: 12px; text-align: center;" role="img" aria-label="GLG Expert Network Member">
-                            <div style="font-size: 24px; font-weight: 700; margin-bottom: 4px;" aria-hidden="true">GLG Expert</div>
-                            <div style="font-size: 14px; opacity: 0.9;" aria-hidden="true">Network Member</div>
-                        </div>
-                        <div style="background: linear-gradient(135deg, var(--primary-teal), #0ea5e9); color: white; padding: 20px; border-radius: 12px; text-align: center;" role="img" aria-label="2,500 plus hours of AI research">
-                            <div style="font-size: 24px; font-weight: 700; margin-bottom: 4px;" aria-hidden="true">2,500+</div>
-                            <div style="font-size: 14px; opacity: 0.9;" aria-hidden="true">Hours AI Research</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enterprise ROI Section -->
-    <section class="enterprise-roi" style="padding: 80px 0; background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-teal) 100%); color: white;">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 64px;">
-                <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 20px; color: white;">
-                    Recent Client Results
-                </h2>
-                <p style="font-size: 18px; opacity: 0.9; max-width: 600px; margin: 0 auto;">
-                    Fortune 500 organizations working with Derek through GLG Expert Network
-                </p>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-bottom: 48px;">
-                <div style="background: rgba(255,255,255,0.1); padding: 32px; border-radius: 16px; backdrop-filter: blur(10px);">
-                    <div style="font-size: 32px; font-weight: 700; margin-bottom: 12px;">$8.2M</div>
-                    <div style="font-size: 18px; font-weight: 600; margin-bottom: 8px;">Revenue Impact</div>
-                    <div style="font-size: 14px; opacity: 0.8;">Media organization AI transformation (12 months)</div>
-                </div>
-                <div style="background: rgba(255,255,255,0.1); padding: 32px; border-radius: 16px; backdrop-filter: blur(10px);">
-                    <div style="font-size: 32px; font-weight: 700; margin-bottom: 12px;">67%</div>
-                    <div style="font-size: 18px; font-weight: 600; margin-bottom: 8px;">Response Rate</div>
-                    <div style="font-size: 14px; opacity: 0.8;">vs 15% industry average (CW Standard methodology)</div>
-                </div>
-                <div style="background: rgba(255,255,255,0.1); padding: 32px; border-radius: 16px; backdrop-filter: blur(10px);">
-                    <div style="font-size: 32px; font-weight: 700; margin-bottom: 12px;">90 Days</div>
-                    <div style="font-size: 18px; font-weight: 600; margin-bottom: 8px;">Implementation</div>
-                    <div style="font-size: 14px; opacity: 0.8;">From strategy to measurable results</div>
-                </div>
-            </div>
-            
-            <div style="background: rgba(255,255,255,0.1); padding: 48px; border-radius: 16px; backdrop-filter: blur(10px); text-align: center;">
-                <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: white;">
-                    "Derek's CW Standard methodology helped us navigate our AI transformation while preserving what makes our organization unique."
-                </h3>
-                <p style="font-size: 16px; opacity: 0.8; margin-bottom: 24px;">
-                    — Chief Technology Officer, Fortune 500 Media Company
-                </p>
-                <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-                    <a href="pages/assessment.html" style="background: white; color: var(--primary-blue); padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 600;">
-                        Get Your Free Diagnostic
-                    </a>
-                    <a href="pages/contact.html" style="background: transparent; color: white; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; border: 2px solid white;">
-                        Executive Briefing
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Challenge & Solution Flow -->
-    <section class="challenge-solution reveal-on-scroll" style="padding: 80px 0; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);" aria-labelledby="challenge-heading">
-        <div class="container">
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <h2 id="challenge-heading" class="reveal-on-scroll" style="font-size: 36px; font-weight: 700; color: var(--primary-blue); margin-bottom: 40px;">
-                    Enterprise AI Transformation Challenges
-                </h2>
-                <div class="problems-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 48px;">
-                    <div class="problem-card reveal-on-scroll" style="background: white; padding: 32px 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-left: 4px solid #ef4444;">
-                        <div style="font-size: 24px; margin-bottom: 12px;">⚠️</div>
-                        <h4 style="color: var(--primary-blue); font-weight: 600; margin-bottom: 8px;">Integration Complexity</h4>
-                        <p style="color: #475569; font-weight: 400;">85% of AI initiatives fail to integrate with existing enterprise systems and workflows</p>
-                    </div>
-                    <div class="problem-card reveal-on-scroll" style="background: white; padding: 32px 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-left: 4px solid #ef4444;">
-                        <div style="font-size: 24px; margin-bottom: 12px;">📊</div>
-                        <h4 style="color: var(--primary-blue); font-weight: 600; margin-bottom: 8px;">ROI Uncertainty</h4>
-                        <p style="color: #475569; font-weight: 400;">C-suite lacks frameworks to measure AI success and scale across business units</p>
-                    </div>
-                    <div class="problem-card reveal-on-scroll" style="background: white; padding: 32px 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-left: 4px solid #ef4444;">
-                        <div style="font-size: 24px; margin-bottom: 12px;">🎯</div>
-                        <h4 style="color: var(--primary-blue); font-weight: 600; margin-bottom: 8px;">Cultural Resistance</h4>
-                        <p style="color: #475569; font-weight: 400;">Teams resist AI adoption without clear frameworks for human-AI collaboration</p>
-                    </div>
-                </div>
-                <div class="solution-reveal reveal-on-scroll" style="background: white; padding: 48px; border-radius: 16px; box-shadow: 0 8px 32px rgba(30, 64, 175, 0.12); border: 2px solid var(--gold-accent);">
-                    <h3 style="font-size: 28px; font-weight: 700; color: var(--primary-blue); margin-bottom: 16px;">
-                        The CW Standard Framework
-                    </h3>
-                    <p style="font-size: 18px; color: #475569; margin-bottom: 32px;">
-                        A systematic approach to enterprise AI transformation with proven ROI
-                    </p>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-bottom: 32px;">
-                        <div style="text-align: center;">
-                            <div style="background: var(--primary-blue); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 24px;">1</div>
-                            <h4 style="color: var(--primary-blue); font-weight: 600; margin-bottom: 8px;">Assessment</h4>
-                            <p style="color: #64748b; font-size: 14px;">90-day AI readiness diagnostic</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="background: var(--primary-blue); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 24px;">2</div>
-                            <h4 style="color: var(--primary-blue); font-weight: 600; margin-bottom: 8px;">Framework</h4>
-                            <p style="color: #64748b; font-size: 14px;">Custom implementation roadmap</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="background: var(--primary-blue); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 24px;">3</div>
-                            <h4 style="color: var(--primary-blue); font-weight: 600; margin-bottom: 8px;">Results</h4>
-                            <p style="color: #64748b; font-size: 14px;">Measurable business impact</p>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-                        <a href="pages/assessment.html" style="background: var(--primary-blue); color: white; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
-                            Start Free Diagnostic <i data-lucide="arrow-right"></i>
-                        </a>
-                        <a href="pages/documentation.html" style="background: transparent; color: var(--primary-blue); padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; border: 2px solid var(--primary-blue); display: inline-flex; align-items: center; gap: 8px;">
-                            View Framework <i data-lucide="external-link"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Platform Showcase -->
-    <section class="platforms" id="platforms">
-        <div class="container">
-            <div class="section-header">
-                <h2>Proven Platforms | Real Results</h2>
-                <p>Live platforms that demonstrate AI-enhanced human wisdom in action</p>
-            </div>
-            <div class="platform-grid">
-                <div class="platform-card">
-                    <div class="platform-icon">🎯</div>
-                    <h3>Recalibrate</h3>
-                    <p>World's first mobile-first career intelligence platform. Voice-enabled, ATS-aware, and PWA-ready. Revolutionary cross-device workflow with 67% response rates.</p>
-                    <a href="recalibrate/" class="platform-link">
-                        Launch Platform <i data-lucide="external-link"></i>
-                    </a>
-                </div>
-                <div class="platform-card">
-                    <div class="platform-icon">🏀</div>
-                    <h3>HoopDreams</h3>
-                    <p>Basketball coaching platform with live client data. Demonstrates cross-domain expertise and sports psychology frameworks applied to technology.</p>
-                    <a href="basketball/" class="platform-link">
-                        View Demo <i data-lucide="external-link"></i>
-                    </a>
-                </div>
-                <div class="platform-card">
-                    <div class="platform-icon">🎼</div>
-                    <h3>Claude Will OS</h3>
-                    <p>Constitutional AI platform that orchestrates multiple AI systems. The coaching approach to AI that enhances rather than replaces human judgment.</p>
-                    <a href="pages/assessment.html" class="platform-link">
-                        Experience AI <i data-lucide="external-link"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Heritage Story Section -->
-    <section class="heritage-story reveal-on-scroll" style="padding: 80px 0; background: white;" aria-labelledby="heritage-heading">
-        <div class="container">
-            <div style="max-width: 900px; margin: 0 auto;">
-                <div class="reveal-on-scroll" style="text-align: center; margin-bottom: 64px;">
-                    <h2 id="heritage-heading" style="font-size: 36px; font-weight: 700; color: var(--primary-blue); margin-bottom: 20px;">
-                        Why Claude? The Family Legacy
-                    </h2>
-                    <p style="font-size: 18px; color: #475569; max-width: 600px; margin: 0 auto;">
-                        Four generations of practical wisdom, from Oklahoma Territory to Fortune 500 consulting
-                    </p>
+    
+    <nav id="main-nav" class="hamburger-nav" aria-label="Main navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pages/about.html">About</a></li>
+            <li><a href="pages/services.html">Services</a></li>
+            <li><a href="pages/case-studies.html">Case Studies</a></li>
+            <li><a href="pages/assessment.html">Assessment</a></li>
+            <li><a href="recalibrate/index.html">Recalibrate</a></li>
+            <li><a href="basketball/index.html">HoopDreams</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main id="ambientContainer">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="derek-intro" id="derekIntro">
+                    Derek Simmons is the guy who's been exactly where you are.
+                </h1>
+                
+                <div class="whitespace-moment">
+                    <div class="whitespace-breath"></div>
                 </div>
                 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;">
-                    <div class="heritage-timeline reveal-on-scroll" style="background: linear-gradient(135deg, #f8fafc, #e2e8f0); padding: 40px; border-radius: 16px; border-left: 4px solid var(--gold-accent);">
-                        <h3 style="color: var(--primary-blue); font-size: 24px; font-weight: 700; margin-bottom: 24px;">
-                            The Claude Legacy
-                        </h3>
-                        <div class="timeline-item reveal-on-scroll" style="margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #e2e8f0;">
-                            <div style="font-weight: 600; color: var(--primary-blue); margin-bottom: 8px;">Claude William Simmons (1890s)</div>
-                            <div style="color: #64748b; font-size: 14px;">Born in Oklahoma before it was a state</div>
-                        </div>
-                        <div class="timeline-item reveal-on-scroll" style="margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #e2e8f0;">
-                            <div style="font-weight: 600; color: var(--primary-blue); margin-bottom: 8px;">Uncle Junior (Claude)</div>
-                            <div style="color: #64748b; font-size: 14px;">Carried forward the family name and values</div>
-                        </div>
-                        <div class="timeline-item reveal-on-scroll" style="margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #e2e8f0;">
-                            <div style="font-weight: 600; color: var(--primary-blue); margin-bottom: 8px;">Derek Claude Simmons</div>
-                            <div style="color: #64748b; font-size: 14px;">GLG Expert | Claude Wisdom Strategies founder</div>
-                        </div>
-                        <div class="timeline-item reveal-on-scroll">
-                            <div style="font-weight: 600; color: var(--primary-blue); margin-bottom: 8px;">Jackson Claude Simmons</div>
-                            <div style="color: #64748b; font-size: 14px;">The legacy continues</div>
-                        </div>
+                <p class="derek-context" id="derekContext">
+                    He's the former newspaper executive who left institutional dysfunction after 18.5 years and is figuring out what comes next at 52.
+                </p>
+                
+                <p class="derek-essence" id="derekEssence">
+                    Most importantly: Derek is the person who will tell you the truth about your situation without the hype, marketing, or bs. He's been in the uncertainty. He's done the work. He's found patterns in the chaos.
+                </p>
+                
+                <div class="hero-actions">
+                    <a href="pages/about.html" class="cta-primary">Learn More</a>
+                    <a href="pages/assessment.html" class="cta-secondary">Take Assessment</a>
+                </div>
+            </div>
+            
+            <div class="ambient-info" id="ambientInfo">
+                Loading ambient conditions...
+            </div>
+        </section>
+        
+        <section class="value-props">
+            <div class="container">
+                <div class="value-grid">
+                    <div class="value-card">
+                        <h3>About Derek</h3>
+                        <p>GLG Expert Network member with 25+ years of strategic leadership. Generated $25M+ in new business revenue across multiple industries.</p>
+                        <a href="pages/about.html" class="card-link">Read Full Bio →</a>
                     </div>
                     
-                    <div class="heritage-story-content reveal-on-scroll">
-                        <div style="background: white; padding: 32px; border-radius: 16px; box-shadow: 0 8px 32px rgba(30, 64, 175, 0.08); margin-bottom: 24px;">
-                            <h4 style="color: var(--primary-blue); font-size: 20px; font-weight: 700; margin-bottom: 16px;">
-                                The Horse Trading Wisdom
-                            </h4>
-                            <p style="color: #475569; line-height: 1.7; margin-bottom: 16px; font-style: italic;">
-                                "My grandfather Claude William once sold race horses for work horses. 
-                                Because it needed to be done."
-                            </p>
-                            <p style="color: #475569; line-height: 1.7;">
-                                This is the essence of The CW Standard: choosing practical solutions over flashy presentations, 
-                                work horses over race horses. Great ideas don't need coastal validation—they need practical application.
-                            </p>
-                        </div>
-                        
-                        <div style="background: linear-gradient(135deg, var(--primary-blue), var(--primary-teal)); color: white; padding: 32px; border-radius: 16px;">
-                            <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 16px;">
-                                Kansas Values in AI Strategy
-                            </h4>
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 16px;">
-                                <div style="text-align: center;">
-                                    <div style="font-size: 24px; margin-bottom: 8px;">🌾</div>
-                                    <div style="font-size: 14px; font-weight: 600;">Practical Solutions</div>
-                                </div>
-                                <div style="text-align: center;">
-                                    <div style="font-size: 24px; margin-bottom: 8px;">🔧</div>
-                                    <div style="font-size: 14px; font-weight: 600;">Real-World Testing</div>
-                                </div>
-                                <div style="text-align: center;">
-                                    <div style="font-size: 24px; margin-bottom: 8px;">💪</div>
-                                    <div style="font-size: 14px; font-weight: 600;">Get Things Done</div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="value-card">
+                        <h3>Recalibrate</h3>
+                        <p>Mobile-first career intelligence platform with ATS integration and voice-enabled features for modern job seekers.</p>
+                        <a href="recalibrate/index.html" class="card-link">Explore Platform →</a>
+                    </div>
+                    
+                    <div class="value-card">
+                        <h3>HoopDreams</h3>
+                        <p>Basketball coaching platform that develops overlooked players through proven strategic methodologies.</p>
+                        <a href="basketball/index.html" class="card-link">View Coaching →</a>
+                    </div>
+                    
+                    <div class="value-card">
+                        <h3>Strategic Services</h3>
+                        <p>AI strategy, revenue generation, and executive transformation consulting for Fortune 500 organizations.</p>
+                        <a href="pages/services.html" class="card-link">See Services →</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Claude Will Capabilities Section -->
-    <section class="claude-will-capabilities" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 80px 0;">
+    <footer>
         <div class="container">
-            <div class="section-header">
-                <h2 style="color: var(--primary-blue);">The Claude Will Approach</h2>
-                <p style="color: #64748b; max-width: 700px; margin: 0 auto 40px;">
-                    Constitutional AI meets coaching methodology. Not a chatbot personality, but a strategic framework 
-                    that enhances human wisdom across every dimension of business transformation.
-                </p>
-            </div>
-            <div class="capabilities-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 40px;">
-                <div class="capability-card" style="background: white; padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
-                    <h3 style="color: var(--primary-blue); margin-bottom: 12px;">Claude Will Build Platforms</h3>
-                    <p style="color: #64748b; margin-bottom: 16px;">Live demonstrations: Recalibrate career intelligence, HoopDreams coaching, constitutional AI systems</p>
-                    <a href="#platforms" style="color: var(--primary-blue); font-weight: 600;">View Platform Demos →</a>
-                </div>
-                <div class="capability-card" style="background: white; padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
-                    <h3 style="color: var(--primary-blue); margin-bottom: 12px;">Claude Will Enhance Wisdom</h3>
-                    <p style="color: #64748b; margin-bottom: 16px;">GLG expert methodology that augments human decision-making rather than replacing it</p>
-                    <button id="claude-will-demo" style="background: transparent; border: none; color: var(--primary-blue); font-weight: 600; cursor: pointer;">Experience the Difference →</button>
-                </div>
-                <div class="capability-card" style="background: white; padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
-                    <h3 style="color: var(--primary-blue); margin-bottom: 12px;">Claude Will Drive Results</h3>
-                    <p style="color: #64748b; margin-bottom: 16px;">$25M+ revenue generated through systematic frameworks and proven AI strategy</p>
-                    <a href="pages/assessment.html" style="color: var(--primary-blue); font-weight: 600;">Take AI Assessment →</a>
-                </div>
-            </div>
-            <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-                <a href="pages/contact.html" class="btn-primary">Schedule GLG Consultation</a>
-                <a href="pages/assessment.html" class="btn-secondary" style="background: transparent; border: 2px solid var(--primary-blue); color: var(--primary-blue);">
-                    Take AI Assessment
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Strategic Services</h2>
-                <p>GLG Expert consulting for Fortune 500 organizations</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🧠</div>
-                    <h3>AI Strategy</h3>
-                    <p>Constitutional AI implementation that enhances human wisdom rather than replacing it. Proven methodology for complex AI orchestration.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📈</div>
-                    <h3>Revenue Generation</h3>
-                    <p>Systematic frameworks that have generated $25M+ in new business. The CW Standard methodology for complicated transitions.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🎯</div>
-                    <h3>Executive Coaching</h3>
-                    <p>Sports psychology applied to business transformation. Authentic leadership development through cross-domain pattern recognition.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enterprise Engagement Options -->
-    <section style="padding: 80px 0; background: white;">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 64px;">
-                <h2 style="font-size: 36px; font-weight: 700; color: var(--primary-blue); margin-bottom: 20px;">
-                    Enterprise Engagement Options
-                </h2>
-                <p style="font-size: 18px; color: #64748b; max-width: 600px; margin: 0 auto;">
-                    Strategic AI transformation services for Fortune 500 organizations
-                </p>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px;">
-                <div style="background: linear-gradient(135deg, #f8fafc, #e2e8f0); padding: 40px; border-radius: 16px; text-align: center; border: 2px solid var(--primary-blue);">
-                    <div style="background: var(--primary-blue); color: white; padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; display: inline-block; margin-bottom: 20px;">MOST POPULAR</div>
-                    <h3 style="font-size: 24px; font-weight: 700; color: var(--primary-blue); margin-bottom: 12px;">AI Strategy Diagnostic</h3>
-                    <div style="font-size: 32px; font-weight: 700; color: var(--primary-blue); margin-bottom: 8px;">FREE</div>
-                    <div style="font-size: 14px; color: #64748b; margin-bottom: 24px;">($2,500 value)</div>
-                    <ul style="text-align: left; margin-bottom: 32px; padding-left: 0; list-style: none;">
-                        <li style="margin-bottom: 12px; color: #475569; display: flex; align-items: center;">
-                            <span style="color: var(--primary-blue); margin-right: 8px;">✓</span>
-                            90-day AI readiness assessment
-                        </li>
-                        <li style="margin-bottom: 12px; color: #475569; display: flex; align-items: center;">
-                            <span style="color: var(--primary-blue); margin-right: 8px;">✓</span>
-                            Custom transformation roadmap
-                        </li>
-                        <li style="margin-bottom: 12px; color: #475569; display: flex; align-items: center;">
-                            <span style="color: var(--primary-blue); margin-right: 8px;">✓</span>
-                            ROI projections and business case
-                        </li>
-                        <li style="margin-bottom: 12px; color: #475569; display: flex; align-items: center;">
-                            <span style="color: var(--primary-blue); margin-right: 8px;">✓</span>
-                            30-minute executive briefing
-                        </li>
-                    </ul>
-                    <a href="pages/assessment.html" style="background: var(--primary-blue); color: white; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; width: 100%; display: block; text-align: center;">
-                        Start Free Diagnostic
-                    </a>
-                </div>
-                
-                <div style="background: white; padding: 40px; border-radius: 16px; text-align: center; border: 2px solid #e2e8f0; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
-                    <h3 style="font-size: 24px; font-weight: 700; color: var(--primary-blue); margin-bottom: 12px;">Executive Briefing</h3>
-                    <div style="font-size: 32px; font-weight: 700; color: var(--primary-blue); margin-bottom: 8px;">$5,000</div>
-                    <div style="font-size: 14px; color: #64748b; margin-bottom: 24px;">Half-day session</div>
-                    <ul style="text-align: left; margin-bottom: 32px; padding-left: 0; list-style: none;">
-                        <li style="margin-bottom: 12px; color: #475569; display: flex; align-items: center;">
-                            <span style="color: var(--primary-blue); margin-right: 8px;">✓</span>
-                            C-suite strategic alignment
-                        </li>
-                        <li style="margin-bottom: 12px; color: #475569; display: flex; align-items: center;">
-                            <span style="color: var(--primary-blue); margin-right: 8px;">✓</span>
-                            Custom CW Standard workshop
-                        </li>
-                        <li style="margin-bottom: 12px; color: #475569; display: flex; align-items: center;">
-                            <span style="color: var(--primary-blue); margin-right: 8px;">✓</span>
-                            Implementation planning session
-                        </li>
-                        <li style="margin-bottom: 12px; color: #475569; display: flex; align-items: center;">
-                            <span style="color: var(--primary-blue); margin-right: 8px;">✓</span>
-                            90-day action plan
-                        </li>
-                    </ul>
-                    <a href="pages/contact.html" style="background: transparent; color: var(--primary-blue); padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; border: 2px solid var(--primary-blue); width: 100%; display: block; text-align: center;">
-                        Schedule Briefing
-                    </a>
-                </div>
-                
-                <div style="background: linear-gradient(135deg, var(--primary-blue), var(--primary-teal)); color: white; padding: 40px; border-radius: 16px; text-align: center;">
-                    <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 12px;">Framework Implementation</h3>
-                    <div style="font-size: 32px; font-weight: 700; margin-bottom: 8px;">$25,000</div>
-                    <div style="font-size: 14px; opacity: 0.8; margin-bottom: 24px;">90-day engagement</div>
-                    <ul style="text-align: left; margin-bottom: 32px; padding-left: 0; list-style: none;">
-                        <li style="margin-bottom: 12px; display: flex; align-items: center;">
-                            <span style="margin-right: 8px;">✓</span>
-                            Complete CW Standard deployment
-                        </li>
-                        <li style="margin-bottom: 12px; display: flex; align-items: center;">
-                            <span style="margin-right: 8px;">✓</span>
-                            Team training and enablement
-                        </li>
-                        <li style="margin-bottom: 12px; display: flex; align-items: center;">
-                            <span style="margin-right: 8px;">✓</span>
-                            Executive coaching and support
-                        </li>
-                        <li style="margin-bottom: 12px; display: flex; align-items: center;">
-                            <span style="margin-right: 8px;">✓</span>
-                            Measurable results guarantee
-                        </li>
-                    </ul>
-                    <a href="pages/contact.html" style="background: white; color: var(--primary-blue); padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; width: 100%; display: block; text-align: center;">
-                        Discuss Implementation
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- GLG Section -->
-    <section class="glg-section">
-        <div class="container">
-            <div class="glg-badge">GLG Expert Network Member</div>
-            <h2>Trusted by Fortune 500 Leadership</h2>
-            <p style="font-size: 20px; max-width: 800px; margin: 0 auto 40px;">
-                As a vetted GLG Expert, Derek advises C-suite executives at leading investment banks, 
-                private equity firms, and global enterprises on strategic AI transformation and revenue optimization.
-            </p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-bottom: 40px;">
-                <div style="text-align: center;">
-                    <div style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">$500-650/hour</div>
-                    <div style="font-size: 14px; opacity: 0.8;">GLG Expert Rate</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Fortune 500</div>
-                    <div style="font-size: 14px; opacity: 0.8;">Client Portfolio</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">2,500+ Hours</div>
-                    <div style="font-size: 14px; opacity: 0.8;">AI Strategy Research</div>
-                </div>
-            </div>
-            
-            <div class="cta-group">
-                <a href="pages/assessment.html" class="btn-primary">Start Free Diagnostic</a>
-                <a href="pages/contact.html" class="btn-secondary">Executive Briefing</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <a href="pages/services.html">AI Strategy</a>
-                    <a href="pages/services.html">Revenue Generation</a>
-                    <a href="pages/services.html">Executive Coaching</a>
-                    <a href="pages/contact.html">GLG Consultation</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Platforms</h4>
-                    <a href="recalibrate/">Recalibrate</a>
-                    <a href="basketball/">HoopDreams</a>
-                    <a href="pages/assessment.html">Claude Will OS</a>
-                    <a href="pages/portfolio.html">Case Studies</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <a href="pages/about.html">About Derek</a>
-                    <a href="pages/documentation.html">The CW Standard</a>
-                    <a href="pages/contact.html">Contact</a>
-                    <a href="pages/site-index.html">Site Index</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Claude Will. All rights reserved. | GLG Expert Network Member</p>
-            </div>
+            © 2025 Derek Simmons |
+            <a href="pages/site-index.html">Site Index</a> |
+            <a href="docs/PRIVACY.md" target="_blank" rel="noopener">Privacy Policy</a> |
+            <a href="docs/TERMS.md" target="_blank" rel="noopener">Terms of Use</a>
         </div>
     </footer>
 
-    <!-- Claude Will Widget Styles -->
-    <link href="css/claude-will-widget.css" rel="stylesheet">
+    <!-- Loading screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="spinner"></div>
+        <p class="loading-message">Loading ambient intelligence...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>lucide.createIcons();</script>
     
-    <!-- Claude Will Widget Script -->
+    <script src="js/global.js"></script>
+    
+    <!-- Claude Will Widget -->
+    <link rel="stylesheet" href="css/claude-will-widget.css">
     <script src="js/claude-will-widget.js"></script>
-    <script src="js/consciousness-assessment-game.js"></script>
     
     <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-        
-        // Initialize Claude Will Widget
-        const claudeWillWidget = new ClaudeWillWidget();
-        
-        // Chat button functionality
-        document.getElementById('claude-will-chat').addEventListener('click', function() {
-            claudeWillWidget.toggleWidget();
-        });
-        
-        // Demo button functionality
-        document.getElementById('claude-will-demo').addEventListener('click', function() {
-            claudeWillWidget.toggleWidget();
-        });
-        
-        // Rotating hero text functionality
-        const actions = [
-            "Find a Way",
-            "Build Platforms",
-            "Enhance Wisdom",
-            "Drive Results", 
-            "Lead Change",
-            "Coach Growth",
-            "Scale Success",
-            "Create Value"
-        ];
-        
-        let currentActionIndex = 0;
-        const actionElement = document.getElementById('rotating-action');
-        
-        function rotateAction() {
-            actionElement.classList.add('fade-out');
+        // Ambient system that changes Derek's presentation based on conditions
+        const ambientSystem = {
+            contexts: {
+                storm: {
+                    intro: "Derek Simmons is the leader who thrives in chaos.",
+                    context: "He's the former executive who navigated institutional dysfunction for 18.5 years and knows how to guide others through transformation.",
+                    essence: "Derek is the person who will tell you the truth about your crisis without the hype or bs. He's been in the storm. He's found the way through."
+                },
+                clear: {
+                    intro: "Derek Simmons is the strategist who sees opportunity in clarity.",
+                    context: "He's the GLG Expert who spent 2,500+ hours in conversation with AI and discovered what others miss about human-AI collaboration.",
+                    essence: "Derek is the person who will help you build what comes next without the hype or bs. He's done the research. He's found the patterns."
+                },
+                dawn: {
+                    intro: "Derek Simmons is the guide for new beginnings.",
+                    context: "He's the marathon runner who knows that transformation happens in the last six miles, and the career strategist helping others navigate transitions at 52.",
+                    essence: "Derek is the person who will help you find your third option without the hype or bs. He's made the transition. He's walking the path."
+                },
+                dusk: {
+                    intro: "Derek Simmons is the coach who sees potential in reflection.",
+                    context: "He's the basketball coach who develops overlooked players and the strategic thinker who finds solutions when others see only problems.",
+                    essence: "Derek is the person who will help you see what's possible without the hype or bs. He's in the whitespace moment. He's learned patience."
+                },
+                night: {
+                    intro: "Derek Simmons is the thinker who works in the depths.",
+                    context: "He's the researcher with 5-6 manuscripts in progress and the consultant who refuses to build another template when 'everything popular is wrong.'",
+                    essence: "Derek is the person who will help you think differently about your situation without the hype or bs. He's done the deep work. He's found the truth."
+                }
+            },
             
-            setTimeout(() => {
-                currentActionIndex = (currentActionIndex + 1) % actions.length;
-                actionElement.textContent = actions[currentActionIndex];
-                actionElement.classList.remove('fade-out');
-                actionElement.classList.add('fade-in');
+            init() {
+                this.setAmbientMood();
+                this.updateContent();
+                // Update every 5 minutes
+                setInterval(() => {
+                    this.setAmbientMood();
+                    this.updateContent();
+                }, 300000);
+            },
+            
+            setAmbientMood() {
+                const hour = new Date().getHours();
+                const container = document.getElementById('ambientContainer');
+                const info = document.getElementById('ambientInfo');
+                
+                let mood, description;
+                
+                if (hour >= 5 && hour < 7) {
+                    mood = 'dawn';
+                    description = 'Dawn • New beginnings';
+                } else if (hour >= 7 && hour < 17) {
+                    mood = 'clear';
+                    description = 'Day • Clear thinking';
+                } else if (hour >= 17 && hour < 20) {
+                    mood = 'dusk';
+                    description = 'Dusk • Reflection';
+                } else {
+                    mood = 'night';
+                    description = 'Night • Deep work';
+                }
+                
+                // Add some randomness for weather-like variation
+                const random = Math.random();
+                if (random < 0.1) {
+                    mood = 'storm';
+                    description = 'Storm • Crisis leadership';
+                }
+                
+                container.className = `mood-${mood}`;
+                info.textContent = description;
+                
+                this.currentMood = mood;
+            },
+            
+            updateContent() {
+                const context = this.contexts[this.currentMood];
+                const intro = document.getElementById('derekIntro');
+                const contextEl = document.getElementById('derekContext');
+                const essence = document.getElementById('derekEssence');
+                
+                // Fade out, change content, fade in
+                [intro, contextEl, essence].forEach(el => {
+                    el.style.opacity = '0';
+                });
                 
                 setTimeout(() => {
-                    actionElement.classList.remove('fade-in');
-                }, 100);
-            }, 300);
-        }
-        
-        // Start the rotation after initial load
-        setTimeout(() => {
-            setInterval(rotateAction, 3000);
-        }, 2000);
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    intro.textContent = context.intro;
+                    contextEl.textContent = context.context;
+                    essence.textContent = context.essence;
+                    
+                    [intro, contextEl, essence].forEach(el => {
+                        el.style.opacity = '1';
                     });
-                }
-            });
-        });
-        
-        // Scroll-triggered animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+                }, 500);
+            }
         };
         
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all elements with reveal-on-scroll class
-        document.querySelectorAll('.reveal-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Analytics tracking for story sections
-        const storyObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const section = entry.target;
-                    let sectionName = 'unknown';
-                    
-                    if (section.classList.contains('derek-introduction')) {
-                        sectionName = 'derek_introduction';
-                    } else if (section.classList.contains('challenge-solution')) {
-                        sectionName = 'challenge_solution';
-                    } else if (section.classList.contains('heritage-story')) {
-                        sectionName = 'heritage_story';
-                    } else if (section.classList.contains('platforms')) {
-                        sectionName = 'platforms';
-                    } else if (section.classList.contains('claude-will-capabilities')) {
-                        sectionName = 'claude_will_capabilities';
-                    }
-                    
-                    // Track story section engagement
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'story_section_viewed', {
-                            'section_name': sectionName,
-                            'event_category': 'storytelling'
-                        });
-                    }
-                }
-            });
-        }, {
-            threshold: 0.5, // Trigger when 50% visible
-            rootMargin: '0px'
-        });
-        
-        // Track story sections
-        document.querySelectorAll('.derek-introduction, .challenge-solution, .heritage-story, .platforms, .claude-will-capabilities').forEach(section => {
-            storyObserver.observe(section);
-        });
-        
-        // Track scroll depth milestones
-        let scrollDepthTracked = { 25: false, 50: false, 75: false, 100: false };
-        
-        window.addEventListener('scroll', () => {
-            const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-            
-            Object.keys(scrollDepthTracked).forEach(milestone => {
-                if (scrollPercent >= milestone && !scrollDepthTracked[milestone]) {
-                    scrollDepthTracked[milestone] = true;
-                    
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'scroll_depth', {
-                            'scroll_percentage': milestone,
-                            'event_category': 'engagement'
-                        });
-                    }
-                }
-            });
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            ambientSystem.init();
         });
     </script>
+    
+    <!-- Consciousness Navigation -->
+    <script src="js/consciousness-navigation.js"></script>
 </body>
 </html>

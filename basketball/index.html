@@ -3,392 +3,288 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kabir's Basketball Training - India 2025</title>
-    <meta name="theme-color" content="#667eea">
+    <title>🏀 Kabir's Training - India 2025</title>
+    <meta name="description" content="Personal basketball training app for Kabir Patel - Powered by Claude AI">
+    <meta name="theme-color" content="#ff6b35">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Kabir Basketball">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="data:application/json,{%22name%22:%22Kabir's%20Basketball%20Training%22,%22short_name%22:%22Basketball%22,%22display%22:%22standalone%22,%22background_color%22:%22%23000000%22,%22theme_color%22:%22%23ff6b35%22,%22icons%22:[{%22src%22:%22data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23ff6b35'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='40'%3E🏀%3C/text%3E%3C/svg%3E%22,%22sizes%22:%22192x192%22,%22type%22:%22image/svg+xml%22}]}">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-991ML96NJ3');
+    </script>
+    
     <link rel="stylesheet" href="kabir.css">
 </head>
 <body>
-    <div id="loginScreen" class="login-screen">
-        <div class="login-card">
-            <div class="login-logo">🏀</div>
-            <h2 class="login-title">Kabir's Training</h2>
-            <p class="login-subtitle">India Summer 2025<br>July 13 - August 16</p>
-            <input type="password" id="passwordInput" class="password-input" placeholder="Enter password">
-            <button id="loginBtn" class="login-btn">Start Training 🚀</button>
+    <!-- Simple Welcome Screen (No Password) -->
+    <div id="welcomeScreen" class="welcome-screen">
+        <div class="welcome-card">
+            <div class="welcome-logo">🏀</div>
+            <h1 class="welcome-title">Kabir's Training</h1>
+            <p class="welcome-subtitle">Personal basketball development app<br>Powered by Claude AI</p>
+            <button id="startBtn" class="start-btn" aria-label="Start training app">Start Training</button>
+            <p class="welcome-note">India Trip: July 13 - August 16<br>Sin Miedo - Be Fearless!</p>
         </div>
     </div>
 
+    <!-- Main App -->
     <div id="mainApp" class="app">
         <header class="header">
-            <div class="logo">🏀 Kabir's India Training</div>
-            <div class="subtitle">Solo Development • Sin Miedo</div>
+            <h1 class="logo">🏀 Kabir's Training</h1>
+            <p class="subtitle">Building basketball excellence daily • Powered by Claude</p>
         </header>
 
-        <nav class="tab-nav">
-            <button class="tab-btn active" onclick="showTab(event, 'today')" data-tab="today">
-                <span>📊</span>
-                <span>Today</span>
+        <!-- Tab Navigation -->
+        <nav class="tab-nav" role="tablist">
+            <button class="tab-btn active" data-tab="today" role="tab" aria-selected="true" aria-controls="today">
+                <span class="tab-icon">📊</span>
+                <span class="tab-text">Today</span>
             </button>
-            <button class="tab-btn" onclick="showTab(event, 'conditioning')" data-tab="conditioning">
-                <span>💪</span>
-                <span>Conditioning</span>
+            <button class="tab-btn" data-tab="conditioning" role="tab" aria-selected="false" aria-controls="conditioning">
+                <span class="tab-icon">💪</span>
+                <span class="tab-text">Fitness</span>
             </button>
-            <button class="tab-btn" onclick="showTab(event, 'coach')" data-tab="coach">
-                <span>🤖</span>
-                <span>Coach D</span>
+            <button class="tab-btn" data-tab="coach" role="tab" aria-selected="false" aria-controls="coach">
+                <span class="tab-icon">🤖</span>
+                <span class="tab-text">Coach D</span>
             </button>
-            <button class="tab-btn" onclick="showTab(event, 'memory')" data-tab="memory">
-                <span>💭</span>
-                <span>Remember</span>
+            <button class="tab-btn" data-tab="memory" role="tab" aria-selected="false" aria-controls="memory">
+                <span class="tab-icon">💭</span>
+                <span class="tab-text">Remember</span>
             </button>
-            <button class="tab-btn" onclick="showTab(event, 'progress')" data-tab="progress">
-                <span>📈</span>
-                <span>Progress</span>
+            <button class="tab-btn" data-tab="progress" role="tab" aria-selected="false" aria-controls="progress">
+                <span class="tab-icon">📈</span>
+                <span class="tab-text">Progress</span>
             </button>
         </nav>
 
+        <!-- Main Content -->
         <main class="content">
-            <div id="today" class="tab-content">
-                <div class="motivational-quote">
-                    <strong>"Sin Miedo"</strong> - You're already SO much better than when we started in May! 💪<br>
-                    <small>17 3s & 17 FTs today - heading to India goals! 🔥</small>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <span>🎯</span>
-                        <h3>Today's Training</h3>
-                    </div>
-                    <div class="stats-grid">
-                        <div class="stat-box">
-                            <span class="stat-number" id="displayRight">0</span>
-                            <span class="stat-label">Get 50 Right</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-number" id="displayLeft">0</span>
-                            <span class="stat-label">Get 50 Left</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-number" id="display3s">0</span>
-                            <span class="stat-label">3s in 2 min</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-number" id="displayFTs">0</span>
-                            <span class="stat-label">FTs in 1 min</span>
-                        </div>
-                    </div>
-
+            <!-- Today Tab -->
+            <div id="today" class="tab-content active" role="tabpanel">
+                <div class="score-group">
+                    <h2>🎯 Today's Training Scores</h2>
+                    
+                    <!-- Simplified Score Inputs - Single Method -->
                     <div class="score-input">
-                        <label>Get 50 - Right Hand</label>
-                        <div class="input-group">
-                            <button aria-label="Decrease right score" onclick="updateScore('right', -1)">−</button>
-                            <input type="number" id="rightScore" value="0" min="0" max="50" oninput="updateScore('right', 0)" aria-label="Right hand score">
-                            <button aria-label="Increase right score" onclick="updateScore('right', 1)">+</button>
+                        <label for="rightHand">Get 50 Right Hand:</label>
+                        <div class="input-controls">
+                            <button class="btn btn-minus" onclick="updateScore('rightHand', -1)" aria-label="Decrease right hand score">−</button>
+                            <div class="score-display" id="rightHandDisplay" aria-live="polite">0</div>
+                            <button class="btn btn-plus" onclick="updateScore('rightHand', 1)" aria-label="Increase right hand score">+</button>
                         </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="rightProgress" style="width: 0%"></div>
-                        </div>
-                        <small style="color: #666;">🎯 India Goal: 50/50</small>
+                        <div class="goal-indicator">Goal: 50/50 for India</div>
                     </div>
-
+                    
                     <div class="score-input">
-                        <label>Get 50 - Left Hand</label>
-                        <div class="input-group">
-                            <button aria-label="Decrease left score" onclick="updateScore('left', -1)">−</button>
-                            <input type="number" id="leftScore" value="0" min="0" max="50" oninput="updateScore('left', 0)" aria-label="Left hand score">
-                            <button aria-label="Increase left score" onclick="updateScore('left', 1)">+</button>
+                        <label for="leftHand">Get 50 Left Hand:</label>
+                        <div class="input-controls">
+                            <button class="btn btn-minus" onclick="updateScore('leftHand', -1)" aria-label="Decrease left hand score">−</button>
+                            <div class="score-display" id="leftHandDisplay" aria-live="polite">0</div>
+                            <button class="btn btn-plus" onclick="updateScore('leftHand', 1)" aria-label="Increase left hand score">+</button>
                         </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="leftProgress" style="width: 0%"></div>
-                        </div>
-                        <small style="color: #666;">🎯 India Goal: 45/50</small>
+                        <div class="goal-indicator">Goal: 45/50 for India</div>
                     </div>
-
+                    
                     <div class="score-input">
-                        <label>3-Pointers in 2 Minutes</label>
-                        <div class="input-group">
-                            <button aria-label="Decrease threes score" onclick="updateScore('threes', -1)">−</button>
-                            <input type="number" id="threesScore" value="0" min="0" max="30" oninput="updateScore('threes', 0)" aria-label="Three-pointers score">
-                            <button aria-label="Increase threes score" onclick="updateScore('threes', 1)">+</button>
+                        <label for="threePointers">3-Pointers in 2 min:</label>
+                        <div class="input-controls">
+                            <button class="btn btn-minus" onclick="updateScore('threePointers', -1)" aria-label="Decrease three-pointers score">−</button>
+                            <div class="score-display" id="threePointersDisplay" aria-live="polite">0</div>
+                            <button class="btn btn-plus" onclick="updateScore('threePointers', 1)" aria-label="Increase three-pointers score">+</button>
                         </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="threesProgress" style="width: 0%"></div>
-                        </div>
-                        <small style="color: #666;">🎯 India Goal: 20 | Today: 17 🔥</small>
+                        <div class="goal-indicator">Goal: 20 for India (Current best: 17!)</div>
                     </div>
-
+                    
                     <div class="score-input">
-                        <label>Free Throws in 1 Minute</label>
-                        <div class="input-group">
-                            <button aria-label="Decrease fts score" onclick="updateScore('fts', -1)">−</button>
-                            <input type="number" id="ftsScore" value="0" min="0" max="25" oninput="updateScore('fts', 0)" aria-label="Free throws score">
-                            <button aria-label="Increase fts score" onclick="updateScore('fts', 1)">+</button>
+                        <label for="freeThrows">Free Throws in 1 min:</label>
+                        <div class="input-controls">
+                            <button class="btn btn-minus" onclick="updateScore('freeThrows', -1)" aria-label="Decrease free throws score">−</button>
+                            <div class="score-display" id="freeThrowsDisplay" aria-live="polite">0</div>
+                            <button class="btn btn-plus" onclick="updateScore('freeThrows', 1)" aria-label="Increase free throws score">+</button>
                         </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="ftsProgress" style="width: 0%"></div>
-                        </div>
-                        <small style="color: #666;">🎯 India Goal: 20 | Today: 17 🔥</small>
+                        <div class="goal-indicator">Goal: 20 for India (Current best: 17!)</div>
                     </div>
-
+                    
                     <div class="score-input">
-                        <label>Training Time (minutes)</label>
-                        <div class="input-group">
-                            <button aria-label="Decrease time" onclick="updateScore('time', -5)">−5</button>
-                            <input type="number" id="timeScore" value="0" min="0" max="120" oninput="updateScore('time', 0)" aria-label="Training time in minutes">
-                            <button aria-label="Increase time" onclick="updateScore('time', 5)">+5</button>
+                        <label for="trainingTime">Training Minutes:</label>
+                        <div class="input-controls">
+                            <button class="btn btn-minus" onclick="updateScore('trainingTime', -5)" aria-label="Decrease training time by 5 minutes">−5</button>
+                            <div class="score-display" id="trainingTimeDisplay" aria-live="polite">0</div>
+                            <button class="btn btn-plus" onclick="updateScore('trainingTime', 5)" aria-label="Increase training time by 5 minutes">+5</button>
                         </div>
+                        <div class="goal-indicator">Track your daily training time</div>
                     </div>
+                    
+                    <button class="complete-session-btn" onclick="completeSession()" aria-label="Complete today's training session">
+                        ✅ Complete Today's Session
+                    </button>
                 </div>
             </div>
 
-            <div id="conditioning" class="tab-content hidden">
-                <div class="card">
-                    <div class="card-header">
-                        <span>💪</span>
-                        <h3>Solo Conditioning Challenges</h3>
-                    </div>
-                    
-                    <div class="motivational-quote">
-                        <strong>"Champions are made while drenched in sweat when no one is watching"</strong><br>
-                        <small>Energy = performance. Energy flows from your voice!</small>
-                    </div>
-
-                    <div style="margin-bottom: 1rem;">
-                        <h4>🏃‍♂️ Court Conditioning (Choose 1-2 daily)</h4>
-                        
-                        <div class="drill-card">
-                            <div class="drill-header">
-                                <h4>28 Baseline Touches</h4>
-                                <span style="color: #ff6b6b; font-weight: bold;">⏱️ 3:00</span>
-                            </div>
-                            <p>Sprint baseline to baseline. Touch each baseline with your hand. 28 touches total in 3 minutes. Perfect for solo training!</p>
-                            <small style="color: #666;">🎯 Track your time and try to finish faster each week</small>
+            <!-- Conditioning Tab -->
+            <div id="conditioning" class="tab-content" role="tabpanel">
+                <div class="conditioning-challenge">
+                    <h2>💪 Sideline Conditioning Challenge</h2>
+                    <p class="challenge-description">Progressive speed challenge - get faster each set!</p>
+                    <div class="conditioning-sets">
+                        <div class="conditioning-set">
+                            <strong>Set 1:</strong> 17 touches in 65 seconds<br>
+                            <small>Rest 60 seconds</small>
                         </div>
-
-                        <div class="drill-card">
-                            <div class="drill-header">
-                                <h4>17-13-9-7 Sideline Series</h4>
-                                <span style="color: #ff6b6b; font-weight: bold;">⏱️ 4 sets</span>
-                            </div>
-                            <p>Sprint sideline to sideline, touch with hand. Progressive speed challenge:</p>
-                            <div style="margin: 0.5rem 0; font-size: 0.85rem; line-height: 1.4;">
-                                • <strong>Set 1:</strong> 17 touches in 65 seconds<br>
-                                • <strong>Set 2:</strong> 13 touches in 45 seconds<br>
-                                • <strong>Set 3:</strong> 9 touches in 30 seconds<br>
-                                • <strong>Set 4:</strong> 7 touches in 20 seconds<br>
-                                <em>60 seconds rest between each set</em>
-                            </div>
-                            <small style="color: #666;">🔥 Gets progressively faster - ultimate conditioning test!</small>
+                        <div class="conditioning-set">
+                            <strong>Set 2:</strong> 13 touches in 45 seconds<br>
+                            <small>Rest 60 seconds</small>
                         </div>
-
-                        <div class="drill-card">
-                            <div class="drill-header">
-                                <h4>Down & Back Series</h4>
-                                <span style="color: #ff6b6b; font-weight: bold;">⏱️ 5 min</span>
-                            </div>
-                            <p>Sprint down and back 3 times. Must finish under 35 seconds. Rest with remaining time each minute. Do this 5 times total.</p>
-                            <small style="color: #666;">💡 Faster you finish, more you rest</small>
+                        <div class="conditioning-set">
+                            <strong>Set 3:</strong> 9 touches in 30 seconds<br>
+                            <small>Rest 60 seconds</small>
+                        </div>
+                        <div class="conditioning-set">
+                            <strong>Set 4:</strong> 7 touches in 20 seconds<br>
+                            <small>Challenge complete!</small>
                         </div>
                     </div>
+                </div>
 
-                    <div style="margin-bottom: 1rem;">
-                        <h4>🦵 Footwork & Agility</h4>
-                        
-                        <div class="drill-card">
-                            <div class="drill-header">
-                                <h4>D-Time Stance Work</h4>
-                                <span style="color: #28a745; font-weight: bold;">⚡ Quick</span>
-                            </div>
-                            <p>Defensive stance, slap floor and yell "East Ridge!" Move ball right/left, jump 6 inches each direction. Add front/back slides.</p>
-                            <small style="color: #666;">🗣️ Impossible to stand still and be loud!</small>
-                        </div>
-
-                        <div class="drill-card">
-                            <div class="drill-header">
-                                <h4>Line Hops & Frog Jumps</h4>
-                                <span style="color: #28a745; font-weight: bold;">⚡ Power</span>
-                            </div>
-                            <p>Line hops forward (baseline) and sideways. Frog jumps down court - hold 3 seconds on toes, then backward starting on toes.</p>
-                            <small style="color: #666;">🐸 Build explosive power for drives and rebounds</small>
-                        </div>
+                <div class="conditioning-challenge">
+                    <h3>🏃‍♂️ Baseline Challenge</h3>
+                    <p class="challenge-description">Build that game-ready conditioning</p>
+                    <div class="conditioning-set">
+                        <strong>Target:</strong> 28 baseline touches in 3 minutes<br>
+                        <small>Sprint baseline to baseline, touch each line</small>
                     </div>
+                </div>
 
-                    <div style="margin-top: 1rem; padding: 1rem; background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: white; border-radius: 8px;">
-                        <h4>Coach D's Conditioning Philosophy</h4>
-                        <div style="font-size: 0.85rem; line-height: 1.4; margin-top: 0.5rem;">
-                            • <strong>"Training tired is like preparing for the fourth quarter"</strong><br>
-                            • <strong>"Anyone can train halfway - which player are you?"</strong><br>
-                            • <strong>"Practice like you've never won. Play like you've never lost"</strong><br>
-                            • <strong>"Basketball is a hard game when you're tired"</strong>
-                        </div>
-                    </div>
+                <div class="wisdom-library">
+                    <h3>💪 Mental Toughness</h3>
+                    <div class="wisdom-item">"Champions are made while drenched in sweat when no one is watching"</div>
+                    <div class="wisdom-item">"Energy = performance; Energy flows from your voice"</div>
+                    <div class="wisdom-item">"Impossible to stand still and be loud; easy to be quiet and be still"</div>
                 </div>
             </div>
 
-            <div id="coach" class="tab-content hidden">
-                <div class="card">
-                    <div class="card-header">
-                        <span>🤖</span>
-                        <h3>Coach D in Your Pocket</h3>
+            <!-- Coach D Tab -->
+            <div id="coach" class="tab-content" role="tabpanel">
+                <div class="coaching-section">
+                    <h2>🎯 Quick Coaching Help</h2>
+                    <div class="quick-questions">
+                        <button class="quick-btn" onclick="askQuickQuestion('leftHand')" aria-label="Get help with left hand struggles">Left Hand Struggles</button>
+                        <button class="quick-btn" onclick="askQuickQuestion('shooting')" aria-label="Get help with shooting form">Shooting Form</button>
+                        <button class="quick-btn" onclick="askQuickQuestion('spinMove')" aria-label="Get help with spin move issues">Spin Move Issues</button>
+                        <button class="quick-btn" onclick="askQuickQuestion('mentalGame')" aria-label="Get help with mental toughness">Mental Toughness</button>
+                        <button class="quick-btn" onclick="askQuickQuestion('fatigue')" aria-label="Get help training when tired">Training When Tired</button>
+                        <button class="quick-btn" onclick="askQuickQuestion('motivation')" aria-label="Get help staying motivated">Stay Motivated</button>
+                        <button class="quick-btn" onclick="askQuickQuestion('organization')" aria-label="Get help staying organized">Stay Organized</button>
+                        <button class="quick-btn" onclick="askQuickQuestion('overwhelmed')" aria-label="Get help when feeling overwhelmed">Feeling Overwhelmed</button>
+                        <button class="quick-btn" onclick="askQuickQuestion('focus')" aria-label="Get help when can't focus">Can't Focus</button>
+                        <button class="quick-btn" onclick="askQuickQuestion('alone')" aria-label="Get help training alone">Training Alone</button>
+                        <button class="quick-btn" onclick="askQuickQuestion('confidence')" aria-label="Get help when lost confidence">Lost Confidence</button>
+                        <button class="quick-btn" onclick="askQuickQuestion('pressure')" aria-label="Get help with game pressure">Game Pressure</button>
                     </div>
-                    
-                    <div class="motivational-quote">
-                        <strong>Need coaching help during solo training?</strong><br>
-                        Ask Coach D anything - form, mental game, or motivation!
-                    </div>
+                </div>
 
-                    <div style="margin-bottom: 1rem;">
-                        <h4>Quick Help:</h4>
-                        <div style="display: grid; gap: 0.5rem; margin: 0.5rem 0;">
-                            <button class="btn" onclick="askCoachD('My left hand shots are missing')" style="font-size: 0.8rem; padding: 0.5rem;">
-                                Left Hand Struggles 🤲
-                            </button>
-                            <button class="btn" onclick="askCoachD('I am missing shots and getting frustrated')" style="font-size: 0.8rem; padding: 0.5rem;">
-                                Missing Shots & Frustrated 😤
-                            </button>
-                            <button class="btn" onclick="askCoachD('One leg shooting feels awkward in Get 50')" style="font-size: 0.8rem; padding: 0.5rem;">
-                                One-Leg Shooting Help 🦵
-                            </button>
-                            <button class="btn" onclick="askCoachD('How do I stay tough training alone')" style="font-size: 0.8rem; padding: 0.5rem;">
-                                Solo Toughness Training 💪
-                            </button>
-                        </div>
+                <div class="coaching-section">
+                    <h3>💬 Ask Coach D Anything</h3>
+                    <div class="custom-question">
+                        <textarea id="customQuestion" placeholder="Ask Coach D any basketball question..." aria-label="Ask Coach D a custom question"></textarea>
+                        <button class="ask-btn" onclick="askCustomQuestion()" aria-label="Send question to Coach D">Ask Coach D</button>
                     </div>
+                </div>
 
-                    <div style="margin-bottom: 1rem;">
-                        <h4>Ask Coach D:</h4>
-                        <textarea id="coachQuestion" class="memory-area" style="min-height: 80px;" placeholder="What do you need help with?
+                <div id="coachResponse" class="coach-response" style="display: none;" aria-live="polite"></div>
 
-Examples:
-• My shots are falling short today
-• Feeling tired, how do I push through?
-• Left hand finishing feels weak
-• Need motivation for today's session"></textarea>
-                        <button class="btn" onclick="askCoachD()" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24);">
-                            🤖 Get Coach D's Help
-                        </button>
-                    </div>
-
-                    <div id="coachResponse" style="display: none; background: #f8f9fa; border-left: 4px solid #ff6b6b; padding: 1rem; border-radius: 0 8px 8px 0; margin: 1rem 0;">
-                        <div style="font-weight: bold; color: #ff6b6b; margin-bottom: 0.5rem;">🤖 Coach D Says:</div>
-                        <div id="coachText"></div>
-                    </div>
-
-                    <div style="margin-top: 1rem; padding: 1rem; background: linear-gradient(135deg, #a29bfe, #6c5ce7); color: white; border-radius: 8px;">
-                        <h4>Coach D's Core Wisdom</h4>
-                        <div style="font-size: 0.85rem; line-height: 1.4; margin-top: 0.5rem;">
-                            • <strong>"Aim small, miss small"</strong><br>
-                            • <strong>"Your inner voice is your champion of success"</strong><br>
-                            • <strong>"Next shot goes in. Always"</strong><br>
-                            • <strong>"High and soft. Three basketballs fit"</strong><br>
-                            • <strong>"Slow is smooth, smooth is fast"</strong><br>
-                            • <strong>"Change speed and direction. Unguardable"</strong><br>
-                            • <strong>"Wide base, strong legs, balance always"</strong><br>
-                            • <strong>"Spin low, fast, use their leverage"</strong>
-                        </div>
-                    </div>
+                <div class="wisdom-library">
+                    <h3>🧠 Coach D's Core Wisdom</h3>
+                    <div class="wisdom-item">"Aim small, miss small"</div>
+                    <div class="wisdom-item">"Your inner voice is your champion of success"</div>
+                    <div class="wisdom-item">"Next shot goes in. Always."</div>
+                    <div class="wisdom-item">"High and soft. Three basketballs fit."</div>
+                    <div class="wisdom-item">"Slow is smooth, smooth is fast"</div>
+                    <div class="wisdom-item">"Change speed and direction. Unguardable."</div>
+                    <div class="wisdom-item">"Game shots from game spots at game speed"</div>
                 </div>
             </div>
 
-            <div id="memory" class="tab-content hidden">
-                <div class="card">
-                    <div class="card-header">
-                        <span>💭</span>
-                        <h3>Things I Want to Remember</h3>
-                    </div>
-                    
-                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">
-                        After each session, capture what you learned. These become your mantras.
-                    </p>
+            <!-- Memory Tab -->
+            <div id="memory" class="tab-content" role="tabpanel">
+                <div class="memory-form">
+                    <h2>💭 Things I Want to Remember</h2>
+                    <textarea id="memoryInput" placeholder="What did you learn or think about during today's training? What breakthrough moments happened? What mantras are you building?" aria-label="Enter your training memories and thoughts"></textarea>
+                    <button class="save-btn" onclick="saveMemory()" aria-label="Save your memory">Save Memory</button>
+                </div>
 
-                    <textarea id="memoryInput" class="memory-area" placeholder="What did I learn today?
-
-Examples from today's session:
-• Elbow combo drill: cross float → between,between → cross/behind → jumper or finish
-• Working toward grabbing the rim, not just touching
-• 17 3s in 2 minutes - almost at 20 goal!
-• 17 free throws in 1 minute - getting stronger
-
-Other things to remember:
-• When to shoot vs pump fake
-• Getting low and explosive to the paint
-• Making space after contact
-
-What felt good? What needs work?"></textarea>
-                    
-                    <button class="btn" onclick="saveMemory()">Save Memory 💭</button>
-                    <div id="memoryList" class="memory-list"></div>
+                <div class="memories-list" id="memoriesList" aria-live="polite">
+                    <!-- Memories will be displayed here -->
                 </div>
             </div>
 
-            <div id="progress" class="tab-content hidden">
-                <div class="card">
-                    <div class="card-header">
-                        <span>📈</span>
-                        <h3>India Trip Progress</h3>
+            <!-- Progress Tab -->
+            <div id="progress" class="tab-content" role="tabpanel">
+                <div class="progress-stats">
+                    <div class="stat-card">
+                        <span class="stat-value" id="trainingStreak" aria-label="Current training streak">1</span>
+                        <div class="stat-label">Training Streak</div>
                     </div>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-box">
-                            <span class="stat-number" id="totalSessions">0</span>
-                            <span class="stat-label">Sessions</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-number" id="bestRight">0</span>
-                            <span class="stat-label">Best Right</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-number" id="bestLeft">0</span>
-                            <span class="stat-label">Best Left</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-number" id="totalMinutes">0</span>
-                            <span class="stat-label">Total Minutes</span>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 1rem; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
-                        <h4>🇮🇳 India Goals (July 13 - Aug 16)</h4>
-                        <div style="margin: 0.5rem 0;">
-                            <strong>Get 50 Right:</strong> Current best vs 50/50 goal
-                            <div class="progress-bar" style="margin: 0.25rem 0;">
-                                <div class="progress-fill" id="rightGoal" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div style="margin: 0.5rem 0;">
-                            <strong>Get 50 Left:</strong> Current best vs 45/50 goal  
-                            <div class="progress-bar" style="margin: 0.25rem 0;">
-                                <div class="progress-fill" id="leftGoal" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div style="margin: 0.5rem 0;">
-                            <strong>3-Pointers:</strong> 17 → 20 in 2 minutes
-                            <div class="progress-bar" style="margin: 0.25rem 0;">
-                                <div class="progress-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div style="margin: 0.5rem 0;">
-                            <strong>Free Throws:</strong> 17 → 20 in 1 minute
-                            <div class="progress-bar" style="margin: 0.25rem 0;">
-                                <div class="progress-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div style="margin: 0.5rem 0;">
-                            <strong>Physical:</strong> Not just touching the rim → <strong>grabbing the rim</strong> 💪
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 1rem; padding: 1rem; background: linear-gradient(135deg, #28a745, #20c997); color: white; border-radius: 8px;">
-                        <h4>🏀 Today's New Combo Drill</h4>
-                        <p style="font-size: 0.9rem; margin: 0.5rem 0;">
-                            <strong>Elbow Combo:</strong> Start at elbow → cross dribble float to opposite elbow → between, between → cross/behind into jumper OR hesi-push cross into finish at rim
-                        </p>
-                        <small>Practice this daily in India - perfect for solo training!</small>
+                    <div class="stat-card">
+                        <span class="stat-value" id="totalSessions" aria-label="Total sessions completed">0</span>
+                        <div class="stat-label">Sessions Completed</div>
                     </div>
                 </div>
+
+                <div class="goal-progress">
+                    <h3>🇮🇳 India Trip Goals</h3>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>Get 50 Right (Goal: 50/50)</span>
+                            <span id="rightHandGoal" aria-label="Right hand progress">0/50</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="rightHandProgress" style="width: 0%" aria-label="Right hand progress bar"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>Get 50 Left (Goal: 45/50)</span>
+                            <span id="leftHandGoal" aria-label="Left hand progress">0/45</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="leftHandProgress" style="width: 0%" aria-label="Left hand progress bar"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>3-Pointers (Goal: 20 in 2 min)</span>
+                            <span id="threePointGoal" aria-label="Three-point progress">0/20</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="threePointProgress" style="width: 0%" aria-label="Three-point progress bar"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>Free Throws (Goal: 20 in 1 min)</span>
+                            <span id="freeThrowGoal" aria-label="Free throw progress">0/20</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="freeThrowProgress" style="width: 0%" aria-label="Free throw progress bar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="logout-btn" onclick="resetApp()" aria-label="Reset app data">Reset App</button>
             </div>
         </main>
     </div>

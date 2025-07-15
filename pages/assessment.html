@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The CW Standard: AI Readiness Assessment</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>AI Readiness Assessment | Derek Simmons - Claude Will</title>
+    <meta name="description" content="Discover your organization's AI readiness level with our comprehensive assessment. Takes 5 minutes, provides personalized insights.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Google Analytics -->
+    
+    <!-- Styles -->
+    <link href="../css/global.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/claude-will-widget.css" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon-cw-dark.svg">
+    
+    <!-- Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -233,18 +245,16 @@
 </head>
 <body>
     <header class="site-header" aria-label="Site header">
-        <a href="/index.html" class="wordmark">
-            <span class="wordmark-full">ClaudeWill</span>
+        <a href="../index.html" class="wordmark">
+            <span class="wordmark-full">CW</span>
             <span class="wordmark-short">CW</span>
         </a>
         <div class="header-actions">
-            <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
+            <button id="consciousness-toggle" aria-label="Enter Space Game" title="Enter Space Game">
+                <i data-lucide="play"></i>
             </button>
-            <button id="theme-toggle" aria-label="Toggle theme" tabindex="0">
-                <span class="material-icons theme-toggle-icon">light_mode</span>
+            <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
+                <i data-lucide="menu"></i>
             </button>
         </div>
     </header>
@@ -255,7 +265,8 @@
             <li><a href="services.html">Services</a></li>
             <li><a href="case-studies.html">Case Studies</a></li>
             <li><a href="assessment.html">Assessment</a></li>
-            <li><a href="../career-intelligence/index.html">Career Intelligence</a></li>
+            <li><a href="../recalibrate/index.html">Recalibrate</a></li>
+            <li><a href="../basketball/index.html">HoopDreams</a></li>
             <li><a href="documentation.html">Documentation</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -691,5 +702,12 @@
         }
     });
     </script>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>lucide.createIcons();</script>
+    <script src="../js/global.js"></script>
+    <script src="../js/consciousness-navigation.js"></script>
+    <script src="../js/claude-will-widget.js"></script>
 </body>
 </html>

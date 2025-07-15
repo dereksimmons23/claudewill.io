@@ -8,23 +8,31 @@
   <meta property="og:title" content="Site Index | Claude Will">
   <meta property="og:description" content="A complete, human-friendly index of all main pages and sections on ClaudeWill.io for easy navigation and accessibility.">
   <meta property="og:type" content="website">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link href="../css/global.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <link href="../css/claude-will-widget.css" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon-cw-dark.svg">
 </head>
 <body>
   <header class="site-header" aria-label="Site header">
-    <a href="/index.html" class="wordmark">
+    <a href="../index.html" class="wordmark">
       <span class="wordmark-full">ClaudeWill</span>
       <span class="wordmark-short">CW</span>
     </a>
     <div class="header-actions">
-      <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
+      <button id="consciousness-toggle" aria-label="Enter Space Game" title="Enter Space Game">
+        <i data-lucide="play"></i>
       </button>
-      <button id="theme-toggle" aria-label="Toggle theme" tabindex="0">
-        <span class="material-icons theme-toggle-icon">light_mode</span>
+      <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
+        <i data-lucide="menu"></i>
       </button>
     </div>
   </header>
@@ -76,6 +84,12 @@
       <a href="../docs/TERMS.md" target="_blank" rel="noopener">Terms of Use</a>
     </div>
   </footer>
-  <script src="../js/main.js"></script>
+  
+  <!-- Scripts -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>lucide.createIcons();</script>
+  <script src="../js/global.js"></script>
+  <script src="../js/consciousness-navigation.js"></script>
+  <script src="../js/claude-will-widget.js"></script>
 </body>
 </html>

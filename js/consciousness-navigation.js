@@ -324,8 +324,12 @@ class SpaceOrbGame {
             </div>
         `;
         
-        // Add click handler
+        // Add click/touch handlers for mobile
         orb.addEventListener('click', (e) => this.hitOrb(serviceKey, service, orb, e));
+        orb.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            this.hitOrb(serviceKey, service, orb, e);
+        });
         
         return orb;
     }
@@ -506,11 +510,15 @@ class SpaceOrbGame {
             z-index: 10005;
             max-width: 400px;
         `;
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
         instructions.innerHTML = `
             <h3 style="color: #00d4ff; margin-bottom: 20px;">🚀 SPACE ORB NAVIGATOR</h3>
             <p style="margin-bottom: 15px;">Shoot the floating service orbs to navigate the site!</p>
             <p style="margin-bottom: 15px;">Each orb takes you to a different page.</p>
-            <p style="margin-bottom: 20px; font-size: 12px; opacity: 0.7;">Click orbs • ESC to exit • Higher levels = faster orbs</p>
+            <p style="margin-bottom: 20px; font-size: 12px; opacity: 0.7;">
+                ${isMobile ? 'Tap orbs • ESC to exit • Higher levels = faster orbs' : 'Click orbs • ESC to exit • Higher levels = faster orbs'}
+            </p>
             <button onclick="this.parentElement.remove()" style="
                 background: #00d4ff;
                 color: black;
@@ -566,7 +574,7 @@ class SpaceOrbGame {
     }
     
     setupEventListeners() {
-        // Mouse tracking for crosshair
+        // Mouse/touch tracking for crosshair
         document.addEventListener('mousemove', (e) => {
             if (!this.isActive || !this.crosshair) return;
             
@@ -575,6 +583,18 @@ class SpaceOrbGame {
             
             this.crosshair.style.left = (e.clientX - 20) + 'px';
             this.crosshair.style.top = (e.clientY - 20) + 'px';
+        });
+        
+        // Touch tracking for mobile
+        document.addEventListener('touchmove', (e) => {
+            if (!this.isActive || !this.crosshair) return;
+            
+            const touch = e.touches[0];
+            this.mousePos.x = touch.clientX;
+            this.mousePos.y = touch.clientY;
+            
+            this.crosshair.style.left = (touch.clientX - 20) + 'px';
+            this.crosshair.style.top = (touch.clientY - 20) + 'px';
         });
         
         // Keyboard controls

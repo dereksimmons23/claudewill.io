@@ -92,23 +92,6 @@
 }
 
 /* Dark Theme */
-.dark-theme {
-  --background: var(--gray-950);
-  --surface: var(--gray-900);
-  --surface-elevated: var(--gray-800);
-  --border: var(--gray-700);
-  --border-subtle: var(--gray-800);
-  --text-primary: var(--gray-50);
-  --text-secondary: var(--gray-400);
-  --text-tertiary: var(--gray-500);
-  --accent: var(--blue-500);
-  --accent-hover: var(--blue-400);
-
-  /* Dark Glass Effects */
-  --glass-bg: rgb(0 0 0 / 40%);
-  --glass-border: rgb(255 255 255 / 10%);
-  --glass-shadow: 0 8px 32px rgb(0 0 0 / 30%);
-}
 
 /* Reset and Base */
 * {
@@ -206,24 +189,8 @@ body {
 }
 
 /* Dark mode icon visibility */
-.dark-theme #consciousness-toggle,
-.dark-theme #theme-toggle,
-.dark-theme #hamburger-toggle {
-  color: white;
-}
 
-.dark-theme #consciousness-toggle:not(.active),
-.dark-theme #theme-toggle,
-.dark-theme #hamburger-toggle {
-  background: rgb(255 255 255 / 10%);
-  border-color: rgb(255 255 255 / 20%);
-}
 
-.dark-theme #consciousness-toggle:hover,
-.dark-theme #theme-toggle:hover,
-.dark-theme #hamburger-toggle:hover {
-  background: rgb(255 255 255 / 20%);
-}
 
 /* Hamburger bars removed - using Lucide icons instead */
 
@@ -311,17 +278,7 @@ p {
 }
 
 /* Ensure sufficient contrast in light mode */
-body:not(.dark-theme) .framework-card h3,
-body:not(.dark-theme) .challenge-section h2,
-body:not(.dark-theme) .framework-section h2 {
-  color: #1a1a1a;
-}
 
-body:not(.dark-theme) .framework-card p,
-body:not(.dark-theme) .challenge-section p,
-body:not(.dark-theme) .framework-section p {
-  color: #4a4a4a;
-}
 
 .framework-card::before {
   content: '';

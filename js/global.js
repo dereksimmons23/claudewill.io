@@ -8,69 +8,24 @@ document.addEventListener('DOMContentLoaded', () => {
   initLoadingScreen();
 });
 
-// Theme Toggle Functionality
+// Theme Toggle Functionality - DISABLED
+// Using light mode only to avoid contrast issues
 function initThemeToggle() {
-  const themeToggle = document.getElementById('theme-toggle');
-  if (!themeToggle) return;
-
-  const themeIcon = themeToggle.querySelector('i');
+  // Force light mode always
+  document.body.classList.remove('dark-theme');
   
-  // Check for saved theme preference (default to dark mode)
-  let savedTheme = 'dark';
+  // Remove any saved theme preference
   try {
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme) {
-      savedTheme = storedTheme;
-    } else {
-      // Default to dark mode since it's the most stable
-      savedTheme = 'dark';
-    }
+    localStorage.removeItem('theme');
   } catch (error) {
-    console.log('Unable to access localStorage. Using default dark theme.');
+    console.log('Unable to access localStorage.');
   }
   
-  // Apply theme (default to dark mode)
-  if (savedTheme === 'dark') {
-    document.body.classList.add('dark-theme');
-    if (themeIcon) {
-      themeIcon.setAttribute('data-lucide', 'sun');
-      if (window.lucide) window.lucide.createIcons();
-    }
-  } else {
-    // Light mode
-    document.body.classList.remove('dark-theme');
-    if (themeIcon) {
-      themeIcon.setAttribute('data-lucide', 'moon');
-      if (window.lucide) window.lucide.createIcons();
-    }
+  // Hide theme toggle button if it exists
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.style.display = 'none';
   }
-  
-  // Toggle theme when button is clicked
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-    
-    if (document.body.classList.contains('dark-theme')) {
-      if (themeIcon) {
-        themeIcon.setAttribute('data-lucide', 'sun');
-        if (window.lucide) window.lucide.createIcons();
-      }
-      try {
-        localStorage.setItem('theme', 'dark');
-      } catch (error) {
-        console.log('Unable to access localStorage. Theme preference will not persist.');
-      }
-    } else {
-      if (themeIcon) {
-        themeIcon.setAttribute('data-lucide', 'moon');
-        if (window.lucide) window.lucide.createIcons();
-      }
-      try {
-        localStorage.setItem('theme', 'light');
-      } catch (error) {
-        console.log('Unable to access localStorage. Theme preference will not persist.');
-      }
-    }
-  });
 }
 
 // Hamburger Menu Functionality

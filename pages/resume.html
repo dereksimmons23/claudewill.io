@@ -29,7 +29,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <!-- CSS will be in a separate file -->
+    <link href="../css/global.css" rel="stylesheet">
     <link href="../css/resume-styles.css" rel="stylesheet">
+    <link href="../css/claude-will-widget.css" rel="stylesheet">
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
@@ -40,7 +42,7 @@
       gtag('config', 'G-991ML96NJ3');
     </script>
     <!-- Favicon path check: ensure /favicon.ico exists at site root -->
-    <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+    <link rel="icon" type="image/svg+xml" href="../favicon-cw-dark.svg">
     <style>
         @media print {
             .site-header, .resume-navigation, .print-button, .back-button, footer { display: none !important; }
@@ -62,18 +64,16 @@
     </noscript>
     <!-- Header with wordmark and theme toggle -->
     <header class="site-header" aria-label="Site header">
-        <a href="/index.html" class="wordmark">
+        <a href="../index.html" class="wordmark">
           <span class="wordmark-full">ClaudeWill</span>
           <span class="wordmark-short">CW</span>
         </a>
         <div class="header-actions">
-            <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
+            <button id="consciousness-toggle" aria-label="Enter Space Game" title="Enter Space Game">
+                <i data-lucide="play"></i>
             </button>
-            <button id="theme-toggle" aria-label="Toggle theme" tabindex="0">
-                <span class="material-icons theme-toggle-icon">light_mode</span>
+            <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
+                <i data-lucide="menu"></i>
             </button>
         </div>
     </header>
@@ -415,14 +415,11 @@
         });
     </script>
 
-    <!-- Claude Will Widget -->
-    <link rel="stylesheet" href="/css/claude-will-widget.css">
-    <script src="/js/claude-will-widget.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        new ClaudeWillWidget();
-      });
-    </script>
-    <script src="../js/main.js"></script>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>lucide.createIcons();</script>
+    <script src="../js/global.js"></script>
+    <script src="../js/consciousness-navigation.js"></script>
+    <script src="../js/claude-will-widget.js"></script>
 </body>
 </html>

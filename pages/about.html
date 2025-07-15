@@ -11,7 +11,7 @@
     
     <link href="../css/global.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+    <link rel="icon" type="image/svg+xml" href="../favicon-cw-dark.svg">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
     <script>
@@ -46,6 +46,7 @@
         flex-direction: column;
         align-items: flex-start;
         box-shadow: 0 2px 8px rgba(56,96,110,0.04);
+        color: var(--color-text);
       }
       .about-card h2 {
         color: var(--color-primary);
@@ -106,13 +107,10 @@
 </head>
 <body>
     <header class="site-header" aria-label="Site header">
-        <a href="/index.html" class="wordmark">
+        <a href="../index.html" class="wordmark">
           <span class="wordmark-full">CW</span>
         </a>
         <div class="header-actions">
-            <button id="theme-toggle" aria-label="Toggle theme" title="Toggle Light/Dark Mode">
-                <i data-lucide="sun"></i>
-            </button>
             <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
                 <i data-lucide="menu"></i>
             </button>
@@ -125,7 +123,8 @@
             <li><a href="services.html">Services</a></li>
             <li><a href="case-studies.html">Case Studies</a></li>
             <li><a href="assessment.html">Assessment</a></li>
-            <li><a href="../career-intelligence/index.html">Career Intelligence</a></li>
+            <li><a href="../recalibrate/index.html">Recalibrate</a></li>
+            <li><a href="../basketball/index.html">HoopDreams</a></li>
             <li><a href="documentation.html">Documentation</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -195,8 +194,8 @@
     
     <script src="../js/global.js"></script>
     <!-- Claude Will Widget -->
-    <link rel="stylesheet" href="/css/claude-will-widget.css">
-    <script src="/js/claude-will-widget.js"></script>
+    <link rel="stylesheet" href="../css/claude-will-widget.css">
+    <script src="../js/claude-will-widget.js"></script>
     
     <!-- Mermaid.js for Diagrams -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
