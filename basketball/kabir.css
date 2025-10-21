@@ -20,13 +20,13 @@
     --bg-dark: #1a1a1a;
     --bg-medium: #2d2d2d;
     --bg-light: #f8f9fa;
-    --bg-card: rgba(255, 255, 255, 0.05);
-    --bg-card-hover: rgba(255, 255, 255, 0.1);
+    --bg-card: rgb(255 255 255 / 5%);
+    --bg-card-hover: rgb(255 255 255 / 10%);
     
     /* Text colors */
-    --text-primary: #ffffff;
-    --text-secondary: #cccccc;
-    --text-muted: #888888;
+    --text-primary: #fff;
+    --text-secondary: #ccc;
+    --text-muted: #888;
     
     /* Spacing system */
     --spacing-xs: 4px;
@@ -55,9 +55,9 @@
     --border-radius-lg: 15px;
     
     /* Shadows */
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
-    --shadow-lg: 0 8px 25px rgba(255, 107, 53, 0.3);
+    --shadow-sm: 0 2px 8px rgb(0 0 0 / 10%);
+    --shadow-md: 0 4px 12px rgb(0 0 0 / 15%);
+    --shadow-lg: 0 8px 25px rgb(255 107 53 / 30%);
     
     /* Transitions */
     --transition-fast: 0.2s ease;
@@ -81,16 +81,17 @@ body {
     min-height: 100vh;
     line-height: var(--line-height-base);
     user-select: none;
-    -webkit-user-select: none;
+    user-select: none;
     font-size: var(--font-size-base);
 }
 
 /* ==================== FOCUS MANAGEMENT ==================== */
+
 /* High-contrast focus indicators for accessibility */
 *:focus {
     outline: 3px solid var(--primary-orange);
     outline-offset: 2px;
-    box-shadow: 0 0 0 6px rgba(255, 107, 53, 0.2);
+    box-shadow: 0 0 0 6px rgb(255 107 53 / 20%);
 }
 
 /* ==================== WELCOME SCREEN (NO PASSWORD) ==================== */
@@ -105,11 +106,11 @@ body {
 }
 
 .welcome-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgb(255 255 255 / 10%);
     backdrop-filter: blur(10px);
     padding: var(--spacing-xxl);
     border-radius: var(--border-radius-lg);
-    border: 2px solid rgba(255, 107, 53, 0.3);
+    border: 2px solid rgb(255 107 53 / 30%);
     width: 100%;
     max-width: 400px;
     box-shadow: var(--shadow-lg);
@@ -174,7 +175,7 @@ body {
 }
 
 .header {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgb(0 0 0 / 90%);
     padding: var(--spacing-lg);
     text-align: center;
     border-bottom: 2px solid var(--primary-orange);
@@ -198,7 +199,7 @@ body {
 /* ==================== TAB NAVIGATION ==================== */
 .tab-nav {
     display: flex;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgb(0 0 0 / 90%);
     border-bottom: 1px solid #333;
     position: sticky;
     top: 80px;
@@ -232,7 +233,7 @@ body {
 }
 
 .tab-btn:not(.active):hover {
-    background: rgba(255, 107, 53, 0.2);
+    background: rgb(255 107 53 / 20%);
 }
 
 .tab-icon {
@@ -265,7 +266,7 @@ body {
     padding: var(--spacing-xl);
     margin-bottom: var(--spacing-lg);
     border-radius: var(--border-radius-lg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgb(255 255 255 / 10%);
 }
 
 .score-group h2 {
@@ -301,7 +302,6 @@ body {
 .btn {
     width: var(--touch-target-min);
     height: var(--touch-target-min);
-    border: none;
     border-radius: var(--border-radius-md);
     font-size: 1.6rem;
     font-weight: bold;
@@ -348,10 +348,10 @@ body {
     font-size: 2rem;
     font-weight: bold;
     color: var(--primary-orange);
-    background: rgba(255, 107, 53, 0.1);
+    background: rgb(255 107 53 / 10%);
     padding: var(--spacing-md);
     border-radius: var(--border-radius-md);
-    border: 2px solid rgba(255, 107, 53, 0.5);
+    border: 2px solid rgb(255 107 53 / 50%);
 }
 
 /* Goal Indicator */
@@ -385,11 +385,11 @@ body {
 
 /* ==================== CONDITIONING COMPONENTS ==================== */
 .conditioning-challenge {
-    background: rgba(255, 107, 53, 0.1);
+    background: rgb(255 107 53 / 10%);
     padding: var(--spacing-lg);
     border-radius: var(--border-radius-lg);
     margin-bottom: var(--spacing-lg);
-    border: 1px solid rgba(255, 107, 53, 0.3);
+    border: 1px solid rgb(255 107 53 / 30%);
 }
 
 .conditioning-challenge h2,
@@ -438,9 +438,9 @@ body {
 }
 
 .quick-btn {
-    background: rgba(255, 107, 53, 0.1);
+    background: rgb(255 107 53 / 10%);
     color: var(--primary-orange);
-    border: 1px solid rgba(255, 107, 53, 0.3);
+    border: 1px solid rgb(255 107 53 / 30%);
     padding: var(--spacing-lg) var(--spacing-md);
     border-radius: var(--border-radius-md);
     cursor: pointer;
@@ -455,7 +455,7 @@ body {
 }
 
 .quick-btn:hover {
-    background: rgba(255, 107, 53, 0.2);
+    background: rgb(255 107 53 / 20%);
     transform: translateY(-1px);
 }
 
@@ -466,7 +466,7 @@ body {
 .custom-question textarea {
     width: 100%;
     padding: var(--spacing-lg);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgb(255 255 255 / 20%);
     border-radius: var(--border-radius-md);
     background: var(--bg-card);
     color: var(--text-primary);
@@ -478,7 +478,7 @@ body {
 }
 
 .custom-question textarea::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgb(255 255 255 / 60%);
 }
 
 .ask-btn {
@@ -502,8 +502,8 @@ body {
 }
 
 .coach-response {
-    background: rgba(255, 107, 53, 0.1);
-    border: 1px solid rgba(255, 107, 53, 0.3);
+    background: rgb(255 107 53 / 10%);
+    border: 1px solid rgb(255 107 53 / 30%);
     padding: var(--spacing-lg);
     border-radius: var(--border-radius-lg);
     margin-top: var(--spacing-lg);
@@ -530,7 +530,7 @@ body {
 }
 
 .wisdom-item {
-    background: rgba(255, 107, 53, 0.1);
+    background: rgb(255 107 53 / 10%);
     padding: var(--spacing-md);
     border-radius: var(--border-radius-sm);
     margin-bottom: var(--spacing-md);
@@ -552,7 +552,7 @@ body {
 .memory-form textarea {
     width: 100%;
     padding: var(--spacing-lg);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgb(255 255 255 / 20%);
     border-radius: var(--border-radius-md);
     background: var(--bg-card);
     color: var(--text-primary);
@@ -565,7 +565,7 @@ body {
 }
 
 .memory-form textarea::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgb(255 255 255 / 60%);
 }
 
 .save-btn {
@@ -624,7 +624,7 @@ body {
     padding: var(--spacing-lg);
     border-radius: var(--border-radius-lg);
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgb(255 255 255 / 10%);
 }
 
 .stat-value {
@@ -661,7 +661,7 @@ body {
 }
 
 .progress-bar {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgb(255 255 255 / 10%);
     height: 12px;
     border-radius: 6px;
     overflow: hidden;
@@ -694,7 +694,7 @@ body {
 }
 
 /* ==================== RESPONSIVE DESIGN ==================== */
-@media (max-width: 480px) {
+@media (width <= 480px) {
     .content {
         padding: var(--spacing-lg);
     }
@@ -728,7 +728,7 @@ body {
     }
 }
 
-@media (max-width: 320px) {
+@media (width <= 320px) {
     .input-controls {
         gap: var(--spacing-md);
     }
@@ -784,8 +784,8 @@ body {
 /* ==================== HIGH CONTRAST MODE ==================== */
 @media (prefers-contrast: high) {
     :root {
-        --bg-card: rgba(255, 255, 255, 0.1);
-        --text-secondary: #ffffff;
+        --bg-card: rgb(255 255 255 / 10%);
+        --text-secondary: #fff;
     }
     
     .btn {
