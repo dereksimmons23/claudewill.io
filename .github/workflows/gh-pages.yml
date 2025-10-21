@@ -11,6 +11,8 @@ jobs:
   lint-and-deploy:
     name: Lint and Deploy
     runs-on: ubuntu-latest
+    env:
+      PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
     steps:
       - uses: actions/checkout@v3
       

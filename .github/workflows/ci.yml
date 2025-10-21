@@ -3,6 +3,8 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
