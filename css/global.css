@@ -302,4 +302,118 @@ main {
 @keyframes pulse {
   0%, 100% { opacity: 0.6; }
   50% { opacity: 1; }
+}
+
+/* Dark Theme Styles */
+
+/* Applies to both manual toggle (.dark-theme class) and system preference */
+@media (prefers-color-scheme: dark) {
+  body:not(.light-theme) {
+    background: #1a1a1a;
+    color: #e4e4e7;
+  }
+
+  body:not(.light-theme) .site-header {
+    background: rgb(26 26 26 / 95%);
+    border-bottom-color: rgb(228 228 231 / 10%);
+  }
+
+  body:not(.light-theme) .wordmark,
+  body:not(.light-theme) .hamburger-nav a {
+    color: #e4e4e7;
+  }
+
+  body:not(.light-theme) .hamburger-nav a:hover {
+    background: rgb(228 228 231 / 10%);
+  }
+
+  body:not(.light-theme) .hamburger-nav {
+    background: rgb(26 26 26 / 95%);
+    border-color: rgb(228 228 231 / 20%);
+  }
+
+  body:not(.light-theme) #theme-toggle,
+  body:not(.light-theme) #hamburger-toggle {
+    background: rgb(228 228 231 / 10%);
+    border-color: rgb(228 228 231 / 20%);
+    color: #e4e4e7;
+  }
+
+  body:not(.light-theme) #theme-toggle:hover,
+  body:not(.light-theme) #hamburger-toggle:hover {
+    background: rgb(228 228 231 / 15%);
+  }
+
+  body:not(.light-theme) footer {
+    background: #1a1a1a;
+    color: rgb(228 228 231 / 60%);
+    border-top-color: rgb(228 228 231 / 10%);
+  }
+
+  body:not(.light-theme) #loading-screen {
+    background: #1a1a1a;
+  }
+
+  body:not(.light-theme) .spinner {
+    border-color: rgb(228 228 231 / 20%);
+  }
+
+  body:not(.light-theme) .loading-message {
+    color: rgb(228 228 231 / 60%);
+  }
+}
+
+/* Manual dark theme override (when user explicitly toggles) */
+body.dark-theme {
+  background: #1a1a1a;
+  color: #e4e4e7;
+}
+
+body.dark-theme .site-header {
+  background: rgb(26 26 26 / 95%);
+  border-bottom-color: rgb(228 228 231 / 10%);
+}
+
+body.dark-theme .wordmark,
+body.dark-theme .hamburger-nav a {
+  color: #e4e4e7;
+}
+
+body.dark-theme .hamburger-nav a:hover {
+  background: rgb(228 228 231 / 10%);
+}
+
+body.dark-theme .hamburger-nav {
+  background: rgb(26 26 26 / 95%);
+  border-color: rgb(228 228 231 / 20%);
+}
+
+body.dark-theme #theme-toggle,
+body.dark-theme #hamburger-toggle {
+  background: rgb(228 228 231 / 10%);
+  border-color: rgb(228 228 231 / 20%);
+  color: #e4e4e7;
+}
+
+body.dark-theme #theme-toggle:hover,
+body.dark-theme #hamburger-toggle:hover {
+  background: rgb(228 228 231 / 15%);
+}
+
+body.dark-theme footer {
+  background: #1a1a1a;
+  color: rgb(228 228 231 / 60%);
+  border-top-color: rgb(228 228 231 / 10%);
+}
+
+body.dark-theme #loading-screen {
+  background: #1a1a1a;
+}
+
+body.dark-theme .spinner {
+  border-color: rgb(228 228 231 / 20%);
+}
+
+body.dark-theme .loading-message {
+  color: rgb(228 228 231 / 60%);
 } 
