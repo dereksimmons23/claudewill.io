@@ -1,0 +1,305 @@
+/* Global Styles - Consistent across all pages */
+
+/* CSS Reset and Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: #2c3e50;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Global Header Styles */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  background: rgb(255 255 255 / 95%);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgb(44 62 80 / 10%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.wordmark {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #2c3e50;
+  text-decoration: none;
+  letter-spacing: -0.025em;
+  transition: opacity 0.2s ease;
+}
+
+.wordmark:hover {
+  opacity: 0.8;
+}
+
+.wordmark-full {
+  display: inline;
+}
+
+.wordmark-short {
+  display: none;
+}
+
+/* Navigation Menu Elements */
+.hamburger-nav a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #2c3e50;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.hamburger-nav a:hover {
+  background: rgb(44 62 80 / 10%);
+  color: #a33f10;
+  transform: translateX(4px);
+}
+
+/* Footer */
+footer {
+  padding: 2rem 1rem 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: rgb(44 62 80 / 60%);
+  border-top: 1px solid rgb(44 62 80 / 10%);
+  background: #fff;
+}
+
+footer a {
+  color: #a33f10;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Dark Theme Footer */
+
+/* Header Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: auto;
+}
+
+/* Button Styles */
+#theme-toggle,
+#hamburger-toggle {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgb(44 62 80 / 10%);
+  border: 1px solid rgb(44 62 80 / 20%);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #2c3e50;
+}
+
+#theme-toggle:hover,
+#hamburger-toggle:hover {
+  background: rgb(44 62 80 / 15%);
+  transform: scale(1.05);
+}
+
+/* Assessment CTA Button */
+.assessment-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--accent-color), #00d4ff);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgb(0 212 255 / 30%);
+  animation: pulse-glow 3s infinite;
+  width: auto;
+  height: auto;
+}
+
+.assessment-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgb(0 212 255 / 40%);
+  background: linear-gradient(135deg, #00d4ff, var(--accent-color));
+}
+
+.assessment-cta.active {
+  background: var(--error-color);
+  animation: none;
+}
+
+.assessment-cta.active:hover {
+  background: #dc2626;
+}
+
+@keyframes pulse-glow {
+  0%, 70%, 100% {
+    box-shadow: 0 4px 15px rgb(0 212 255 / 30%);
+  }
+
+  35% {
+    box-shadow: 0 4px 25px rgb(0 212 255 / 60%);
+  }
+}
+
+/* Navigation Menu */
+.hamburger-nav {
+  display: none;
+  position: absolute;
+  top: calc(4rem + 0.5rem);
+  right: 1rem;
+  background: rgb(255 255 255 / 95%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgb(44 62 80 / 20%);
+  border-radius: 1rem;
+  box-shadow: 0 10px 40px rgb(44 62 80 / 15%);
+  padding: 1rem;
+  z-index: 1000;
+  min-width: 200px;
+}
+
+.hamburger-nav.open {
+  display: block;
+}
+
+.hamburger-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hamburger-nav li {
+  margin: 0;
+}
+
+/* Dark Theme */
+
+
+
+
+
+
+
+
+
+
+
+/* Content Spacing */
+main {
+  padding-top: 4rem;
+  min-height: calc(100vh - 4rem);
+}
+
+/* Responsive Design */
+@media (width <= 768px) {
+  .site-header {
+    padding: 0 1rem;
+  }
+  
+  .wordmark-full {
+    display: none;
+  }
+  
+  .wordmark-short {
+    display: inline;
+  }
+  
+  .hamburger-nav {
+    right: 0.5rem;
+    left: 0.5rem;
+    min-width: auto;
+  }
+  
+  .assessment-cta span {
+    display: none;
+  }
+  
+  .assessment-cta {
+    padding: 0.75rem;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+    min-width: 48px;
+  }
+}
+
+
+
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Loading Screen */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+
+.spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid rgb(44 62 80 / 20%);
+  border-top-color: #a33f10;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-message {
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: rgb(44 62 80 / 60%);
+  animation: pulse 2s infinite;
+}
+
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+} 

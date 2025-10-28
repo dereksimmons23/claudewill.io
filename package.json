@@ -1,0 +1,32 @@
+{
+  "name": "claudewill-io",
+  "version": "2.0.0",
+  "description": "Coach Claude Platform - Constitutional AI Implementation",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -p 8000 -o",
+    "lint:html": "npx htmlhint **/*.html",
+    "lint:css": "npx stylelint **/*.css",
+    "lint:js": "npx eslint **/*.js",
+    "test": "npm run lint:html && npm run lint:css && npm run lint:js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dereksimmons23/claudewill.io.git"
+  },
+  "keywords": [
+    "coach-claude",
+    "constitutional-ai",
+    "ai-implementation",
+    "business-transformation"
+  ],
+  "author": "Derek Simmons",
+  "license": "MIT",
+  "homepage": "https://claudewill.io",
+  "devDependencies": {
+    "htmlhint": "^1.1.4",
+    "stylelint": "^15.10.3",
+    "eslint": "^8.48.0",
+    "http-server": "^14.1.1"
+  }
+}
