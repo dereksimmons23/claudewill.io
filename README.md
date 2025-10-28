@@ -1,16 +1,22 @@
-# Claude Will Portfolio & Business Platform
+# Coach Claude Platform
 
-**Strategic business transformation through Human-AI Orchestration methodology**
+**Constitutional AI Implementation Platform for Strategic Business Transformation**
 
 Visit: [claudewill.io](https://claudewill.io)
+
+> **Repository Status**: ✅ **CLEAN** - Nuclear cleanup completed October 27, 2025  
+> **Size**: 22MB (down from 2.8GB - 99.2% reduction)  
+> **Files**: 149 essential files (clean git history)  
+> **Next**: CW-Strategies framework integration
 
 ## 🎯 Platform Overview
 
 ### **Core Features**
-- **Consciousness OS** - Interactive space navigation game demonstrating AI orchestration philosophy
-- **Career Intelligence Platform** - Unified resume optimization, ATS decoding, and career strategy tools
-- **Strategic Consulting** - The CW Standard methodology for executive transformation
-- **Assessment Tools** - AI readiness and strategic evaluation frameworks
+- **Coach Claude Methodology** - 5-phase framework for strategic human-AI collaboration
+- **Constitutional AI Implementation** - Practical organizational frameworks for AI ethics
+- **Recalibrate Platform** - Cross-device career intelligence PWA (692KB complete foundation)
+- **Assessment Tools** - Organizational readiness evaluation for AI implementation
+- **Movement-Based Consulting** - Proven methodology with 300-400% efficiency gains
 
 ### **Business Model**
 - **Consulting Services** - Strategic transformation and AI implementation 
