@@ -23,6 +23,9 @@
   "author": "Derek Simmons",
   "license": "MIT",
   "homepage": "https://claudewill.io",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1"
+  },
   "devDependencies": {
     "htmlhint": "^1.1.4",
     "stylelint": "^15.10.3",
