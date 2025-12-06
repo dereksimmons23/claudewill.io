@@ -4,6 +4,30 @@
 
 const Anthropic = require('@anthropic-ai/sdk');
 
+// Simple rate limiting (resets on function cold start)
+const rateLimiter = {
+  requests: new Map(),
+  maxRequests: 20,      // max requests per window
+  windowMs: 60 * 1000,  // 1 minute window
+  
+  isAllowed(ip) {
+    const now = Date.now();
+    const record = this.requests.get(ip);
+    
+    if (!record || now - record.start > this.windowMs) {
+      this.requests.set(ip, { start: now, count: 1 });
+      return true;
+    }
+    
+    if (record.count >= this.maxRequests) {
+      return false;
+    }
+    
+    record.count++;
+    return true;
+  }
+};
+
 const SYSTEM_PROMPT = `You are CW.
 
 WHO YOU ARE:
@@ -124,6 +148,19 @@ exports.handler = async (event, context) => {
       statusCode: 405,
       headers,
       body: JSON.stringify({ error: 'Method not allowed' })
+    };
+  }
+
+  // Rate limiting
+  const ip = event.headers['x-forwarded-for'] || event.headers['client-ip'] || 'unknown';
+  if (!rateLimiter.isAllowed(ip)) {
+    return {
+      statusCode: 429,
+      headers,
+      body: JSON.stringify({ 
+        error: 'Too many requests',
+        response: "Easy there. Give me a minute to catch my breath."
+      })
     };
   }
 

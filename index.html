@@ -178,6 +178,12 @@
             color: var(--accent);
         }
         
+        .disclaimer {
+            margin-top: 0.5rem;
+            font-size: 0.6rem;
+            opacity: 0.5;
+        }
+        
         .typing {
             display: inline-block;
         }
@@ -268,6 +274,7 @@
         
         <div class="footer">
             Built by <a href="https://dcs.bio" target="_blank">Derek Claude Simmons</a>
+            <div class="disclaimer">CW is an AI assistant. Not a substitute for professional advice.</div>
         </div>
     </div>
     
@@ -389,7 +396,9 @@
                 
                 removeTyping();
                 
-                if (data.error && !data.response) {
+                if (response.status === 429) {
+                    addMessage('cw', data.response || 'Easy there. Give me a minute.', false);
+                } else if (data.error && !data.response) {
                     addMessage('cw', 'Having trouble right now. Try again.', true);
                 } else {
                     const cwResponse = data.response;
