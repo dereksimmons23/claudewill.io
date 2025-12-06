@@ -205,6 +205,34 @@
             background: var(--border);
         }
         
+        .prompts {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 0 1rem 0;
+        }
+        
+        .prompts.hidden {
+            display: none;
+        }
+        
+        .prompt-chip {
+            background: var(--input-bg);
+            border: 1px solid var(--border);
+            color: var(--dim);
+            padding: 0.5rem 1rem;
+            font-family: inherit;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .prompt-chip:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        
         @media (max-width: 600px) {
             body { font-size: 14px; }
             .container { padding: 0 1rem; }
@@ -218,10 +246,15 @@
     <div class="container">
         <div class="header">
             <div class="wordmark">CW</div>
-            <div class="condition" id="condition"></div>
         </div>
         
         <div class="chat-area" id="chat"></div>
+        
+        <div class="prompts" id="prompts">
+            <button class="prompt-chip" data-prompt="Who is CW?">Who is CW?</button>
+            <button class="prompt-chip" data-prompt="I need help with a decision">Help with a decision</button>
+            <button class="prompt-chip" data-prompt="What's the catch?">What's the catch?</button>
+        </div>
         
         <div class="input-area">
             <div class="input-row">
@@ -244,14 +277,14 @@
         const chat = document.getElementById('chat');
         const input = document.getElementById('input');
         const send = document.getElementById('send');
-        const conditionEl = document.getElementById('condition');
+        const prompts = document.getElementById('prompts');
         
         // Conversation history for context
         let conversationHistory = [];
         let currentCondition = 'clear';
         let conversationEnded = false;
         
-        // Conditions based on time
+        // Conditions based on time (internal, not shown to user)
         function setCondition() {
             const hour = new Date().getHours();
             const rand = Math.random();
@@ -263,12 +296,22 @@
             else if (hour >= 17 && hour < 20) mode = 'dusk';
             else mode = 'night';
             
-            conditionEl.textContent = mode;
             currentCondition = mode;
             return mode;
         }
         
+        // CW's greeting based on time of day
+        function getGreeting() {
+            const hour = new Date().getHours();
+            if (hour >= 5 && hour < 12) return 'Morning.';
+            if (hour >= 12 && hour < 17) return 'Afternoon.';
+            return 'Evening.';
+        }
+        
         setCondition();
+        
+        // Show CW's greeting on load
+        addMessage('cw', getGreeting());
         
         function addMessage(who, text, isError = false) {
             const msg = document.createElement('div');
@@ -307,6 +350,9 @@
         async function sendMessage() {
             const text = input.value.trim();
             if (!text) return;
+            
+            // Hide prompts after first message
+            hidePrompts();
             
             // Check if conversation was ended
             if (conversationEnded) {
@@ -391,6 +437,19 @@
             input.style.height = 'auto';
             input.style.height = Math.min(input.scrollHeight, 150) + 'px';
         });
+        
+        // Prompt chip handlers
+        document.querySelectorAll('.prompt-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                input.value = chip.dataset.prompt;
+                sendMessage();
+            });
+        });
+        
+        // Hide prompts after first user message
+        function hidePrompts() {
+            prompts.classList.add('hidden');
+        }
         
         input.focus();
     </script>
