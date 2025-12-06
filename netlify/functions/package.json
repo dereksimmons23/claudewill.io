@@ -1,0 +1,9 @@
+{
+  "name": "cw-functions",
+  "version": "1.0.0",
+  "description": "CW Netlify Functions",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1"
+  }
+}
+

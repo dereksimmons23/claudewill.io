@@ -3,509 +3,398 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Derek Simmons - GLG Expert | AI Strategy & Business Transformation</title>
-    <meta name="description" content="Derek Simmons, GLG Expert Network member, specializes in AI strategy consulting and business transformation. Creator of The CW Standard methodology and Recalibrate platform. Expert in human-AI orchestration and strategic innovation.">
-    <meta name="keywords" content="Derek Simmons, GLG Expert, AI strategy, business transformation, The CW Standard, Recalibrate, HoopDreams, strategic consulting, human-AI orchestration">
-    <meta name="author" content="Derek Simmons">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://claudewill.io/">
-    <meta property="og:title" content="Derek Simmons - GLG Expert | AI Strategy & Business Transformation">
-    <meta property="og:description" content="GLG Expert Network member specializing in AI strategy consulting and business transformation. Creator of The CW Standard methodology and Recalibrate platform.">
-    <meta property="og:image" content="https://claudewill.io/css/images/derek-simmons-photo.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="ClaudeWill.io">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://claudewill.io/">
-    <meta name="twitter:title" content="Derek Simmons - GLG Expert | AI Strategy & Business Transformation">
-    <meta name="twitter:description" content="GLG Expert Network member specializing in AI strategy consulting and business transformation. Creator of The CW Standard methodology and Recalibrate platform.">
-    <meta name="twitter:image" content="https://claudewill.io/css/images/derek-simmons-photo.jpg">
-    
-    <!-- Schema.org structured data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Derek Simmons",
-      "url": "https://claudewill.io",
-      "image": "https://claudewill.io/css/images/derek-simmons-photo.jpg",
-      "jobTitle": "AI Strategy Consultant & Business Transformation Expert",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "GLG Expert Network",
-        "url": "https://glginsights.com"
-      },
-      "alumniOf": {
-        "@type": "Organization",
-        "name": "University of Minnesota"
-      },
-      "knowsAbout": [
-        "AI Strategy",
-        "Business Transformation", 
-        "Strategic Consulting",
-        "Human-AI Orchestration",
-        "Digital Innovation",
-        "Career Intelligence",
-        "Executive Coaching"
-      ],
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://claudewill.io"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/in/dereksimmons23"
-      ]
-    }
-    </script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-    <link href="css/global.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <title>CW</title>
+    <meta name="description" content="CW. 1903-1967. Oklahoma. Built by his grandson Derek.">
     <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-991ML96NJ3');
-    </script>
-    
     <style>
-        /* Homepage-specific styles */
-        .hero-section {
-            background: linear-gradient(135deg, var(--prairie-dusk) 0%, var(--north-pond) 100%);
-            color: white;
-            padding: 4rem 0 3rem;
-            padding-top: calc(4rem + 60px);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
+        :root {
+            --bg: #0d0d0d;
+            --text: #d4d4d4;
+            --dim: #666;
+            --accent: #b8860b;
+            --border: #2a2a2a;
+            --input-bg: #1a1a1a;
         }
         
-        .derek-intro {
-            font-size: 2.2rem;
-            font-weight: 300;
-            line-height: 1.4;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeIn 2s ease 0.5s both;
-        }
-        
-        .whitespace-moment {
-            height: 80px;
-            width: 100%;
-            position: relative;
-            margin: 2rem 0;
-            overflow: hidden;
-        }
-        
-        .whitespace-breath {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            animation: breathe 4s ease-in-out infinite;
-            transform: translateY(-50%);
-        }
-        
-        .derek-context {
-            font-size: 1.2rem;
-            font-weight: 400;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            animation: fadeIn 2s ease 1s both;
-        }
-        
-        .derek-essence {
-            font-size: 1.4rem;
-            font-weight: 500;
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.5;
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeIn 2s ease 1.5s both;
+            font-size: 16px;
+            height: 100vh;
+            overflow: hidden;
         }
         
-        .ambient-info {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            font-size: 0.9rem;
-            opacity: 0.7;
-            z-index: 3;
-        }
-        
-        .hero-actions {
+        .container {
+            height: 100vh;
             display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            opacity: 0;
-            animation: fadeIn 2s ease 2s both;
+            flex-direction: column;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
         
-        .cta-primary {
-            background: var(--iron-range);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid var(--iron-range);
+        .header {
+            padding: 2rem 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 1px solid var(--border);
         }
         
-        .cta-primary:hover {
-            background: #8e340d;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(163, 62, 16, 0.4);
+        .wordmark {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            letter-spacing: 0.15em;
         }
         
-        .cta-secondary {
+        .condition {
+            font-size: 0.75rem;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .chat-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 2rem 0;
+        }
+        
+        .message {
+            margin-bottom: 2rem;
+        }
+        
+        .message-label {
+            font-size: 0.7rem;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .message-text {
+            color: var(--text);
+            white-space: pre-wrap;
+        }
+        
+        .message.cw .message-text {
+            border-left: 2px solid var(--accent);
+            padding-left: 1rem;
+        }
+        
+        .message.you .message-text {
+            border-left: 2px solid var(--dim);
+            padding-left: 1rem;
+            color: #999;
+        }
+        
+        .message.error .message-text {
+            border-left: 2px solid #8b0000;
+            padding-left: 1rem;
+            color: #cc6666;
+        }
+        
+        .input-area {
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border);
+        }
+        
+        .input-row {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-end;
+        }
+        
+        .input-field {
+            flex: 1;
+            background: var(--input-bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.75rem 1rem;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: none;
+            min-height: 48px;
+            max-height: 150px;
+            line-height: 1.5;
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        .input-field::placeholder {
+            color: var(--dim);
+        }
+        
+        .send-btn {
             background: transparent;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid var(--border);
+            color: var(--dim);
+            padding: 0.75rem 1.5rem;
+            font-family: inherit;
+            font-size: 0.875rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.2s;
         }
         
-        .cta-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.6);
-            transform: translateY(-2px);
+        .send-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
         }
         
-        .value-props {
-            padding: 4rem 0;
-            background: var(--cottonwood);
+        .send-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
         }
         
-        .value-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+        .footer {
+            padding: 1rem 0;
+            font-size: 0.7rem;
+            color: var(--dim);
+            border-top: 1px solid var(--border);
+            text-align: center;
         }
         
-        .value-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--prairie-dusk);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-        
-        .value-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(56, 96, 110, 0.15);
-        }
-        
-        .value-card h3 {
-            color: var(--prairie-dusk);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-        
-        .value-card p {
-            color: var(--gunmetal-firebird);
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-        
-        .value-card .card-link {
-            color: var(--iron-range);
-            font-weight: 600;
+        .footer a {
+            color: var(--dim);
             text-decoration: none;
         }
         
-        .value-card .card-link:hover {
-            text-decoration: underline;
+        .footer a:hover {
+            color: var(--accent);
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .typing {
+            display: inline-block;
         }
         
-        @keyframes breathe {
-            0%, 100% { transform: translateY(-50%) scaleX(0.8); opacity: 0.3; }
-            50% { transform: translateY(-50%) scaleX(1.2); opacity: 0.7; }
+        .typing::after {
+            content: '...';
+            animation: dots 1.5s infinite;
         }
         
-        /* Ambient mood variations */
-        .mood-storm .hero-section {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
         }
         
-        .mood-clear .hero-section {
-            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+        .chat-area::-webkit-scrollbar {
+            width: 4px;
         }
         
-        .mood-dawn .hero-section {
-            background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
+        .chat-area::-webkit-scrollbar-track {
+            background: var(--bg);
         }
         
-        .mood-dusk .hero-section {
-            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+        .chat-area::-webkit-scrollbar-thumb {
+            background: var(--border);
         }
         
-        .mood-night .hero-section {
-            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
-        }
-        
-        @media (max-width: 768px) {
-            .derek-intro { font-size: 1.8rem; }
-            .derek-context { font-size: 1.1rem; }
-            .derek-essence { font-size: 1.2rem; }
-            .hero-actions { flex-direction: column; align-items: center; }
-            .ambient-info { top: 1rem; right: 1rem; font-size: 0.8rem; }
-            .value-grid { grid-template-columns: 1fr; }
+        @media (max-width: 600px) {
+            body { font-size: 14px; }
+            .container { padding: 0 1rem; }
+            .wordmark { font-size: 1.5rem; }
+            .input-row { flex-direction: column; }
+            .send-btn { width: 100%; }
         }
     </style>
 </head>
 <body>
-    <header class="site-header" aria-label="Site header">
-        <a href="index.html" class="wordmark">
-          <span class="wordmark-full">CW</span>
-          <span class="wordmark-short">CW</span>
-        </a>
-        <div class="header-actions">
-            <button id="consciousness-toggle" aria-label="Enter Space Game" title="Enter Space Game">
-                <i data-lucide="play"></i>
-            </button>
-            <button id="hamburger-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
-                <i data-lucide="menu"></i>
-            </button>
+    <div class="container">
+        <div class="header">
+            <div class="wordmark">CW</div>
+            <div class="condition" id="condition"></div>
         </div>
-    </header>
-    
-    <nav id="main-nav" class="hamburger-nav" aria-label="Main navigation">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="pages/about.html">About</a></li>
-            <li><a href="pages/services.html">Services</a></li>
-            <li><a href="pages/case-studies.html">Case Studies</a></li>
-            <li><a href="pages/assessment.html">Assessment</a></li>
-            <li><a href="recalibrate/index.html">Recalibrate</a></li>
-            <li><a href="basketball/index.html">HoopDreams</a></li>
-            <li><a href="pages/contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <main id="ambientContainer">
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1 class="derek-intro" id="derekIntro">
-                    Derek Simmons is the guy who's been exactly where you are.
-                </h1>
-                
-                <div class="whitespace-moment">
-                    <div class="whitespace-breath"></div>
-                </div>
-                
-                <p class="derek-context" id="derekContext">
-                    He's the former newspaper executive who left institutional dysfunction after 18.5 years and is figuring out what comes next at 52.
-                </p>
-                
-                <p class="derek-essence" id="derekEssence">
-                    Most importantly: Derek is the person who will tell you the truth about your situation without the hype, marketing, or bs. He's been in the uncertainty. He's done the work. He's found patterns in the chaos.
-                </p>
-                
-                <div class="hero-actions">
-                    <a href="pages/about.html" class="cta-primary">Learn More</a>
-                    <a href="pages/assessment.html" class="cta-secondary">Take Assessment</a>
-                </div>
-            </div>
-            
-            <div class="ambient-info" id="ambientInfo">
-                Loading ambient conditions...
-            </div>
-        </section>
         
-        <section class="value-props">
-            <div class="container">
-                <div class="value-grid">
-                    <div class="value-card">
-                        <h3>About Derek</h3>
-                        <p>GLG Expert Network member with 25+ years of strategic leadership. Generated $25M+ in new business revenue across multiple industries.</p>
-                        <a href="pages/about.html" class="card-link">Read Full Bio →</a>
-                    </div>
-                    
-                    <div class="value-card">
-                        <h3>Recalibrate</h3>
-                        <p>Mobile-first career intelligence platform with ATS integration and voice-enabled features for modern job seekers.</p>
-                        <a href="recalibrate/index.html" class="card-link">Explore Platform →</a>
-                    </div>
-                    
-                    <div class="value-card">
-                        <h3>HoopDreams</h3>
-                        <p>Basketball coaching platform that develops overlooked players through proven strategic methodologies.</p>
-                        <a href="basketball/index.html" class="card-link">View Coaching →</a>
-                    </div>
-                    
-                    <div class="value-card">
-                        <h3>Strategic Services</h3>
-                        <p>AI strategy, revenue generation, and executive transformation consulting for Fortune 500 organizations.</p>
-                        <a href="pages/services.html" class="card-link">See Services →</a>
-                    </div>
-                </div>
+        <div class="chat-area" id="chat"></div>
+        
+        <div class="input-area">
+            <div class="input-row">
+                <textarea 
+                    class="input-field" 
+                    id="input" 
+                    placeholder="What do you need?"
+                    rows="1"
+                ></textarea>
+                <button class="send-btn" id="send">Send</button>
             </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            © 2025 Derek Simmons |
-            <a href="pages/site-index.html">Site Index</a> |
-            <a href="docs/PRIVACY.md" target="_blank" rel="noopener">Privacy Policy</a> |
-            <a href="docs/TERMS.md" target="_blank" rel="noopener">Terms of Use</a>
         </div>
-    </footer>
-
-    <!-- Loading screen -->
-    <div id="loading-screen" class="loading-screen">
-        <div class="spinner"></div>
-        <p class="loading-message">Loading ambient intelligence...</p>
+        
+        <div class="footer">
+            <a href="pages/thoroughbreds.html">The Blood of Thoroughbreds</a> · 
+            <a href="pages/finding-claude.html">Finding Claude</a> · 
+            <a href="https://dcs.bio" target="_blank">Derek Simmons</a>
+        </div>
     </div>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <script>lucide.createIcons();</script>
-    
-    <script src="js/global.js"></script>
-    
-    <!-- Claude Will Widget -->
-    <link rel="stylesheet" href="css/claude-will-widget.css">
-    <script src="js/claude-will-widget.js"></script>
     
     <script>
-        // Ambient system that changes Derek's presentation based on conditions
-        const ambientSystem = {
-            contexts: {
-                storm: {
-                    intro: "Derek Simmons is the leader who thrives in chaos.",
-                    context: "He's the former executive who navigated institutional dysfunction for 18.5 years and knows how to guide others through transformation.",
-                    essence: "Derek is the person who will tell you the truth about your crisis without the hype or bs. He's been in the storm. He's found the way through."
-                },
-                clear: {
-                    intro: "Derek Simmons is the strategist who sees opportunity in clarity.",
-                    context: "He's the GLG Expert who spent 2,500+ hours in conversation with AI and discovered what others miss about human-AI collaboration.",
-                    essence: "Derek is the person who will help you build what comes next without the hype or bs. He's done the research. He's found the patterns."
-                },
-                dawn: {
-                    intro: "Derek Simmons is the guide for new beginnings.",
-                    context: "He's the marathon runner who knows that transformation happens in the last six miles, and the career strategist helping others navigate transitions at 52.",
-                    essence: "Derek is the person who will help you find your third option without the hype or bs. He's made the transition. He's walking the path."
-                },
-                dusk: {
-                    intro: "Derek Simmons is the coach who sees potential in reflection.",
-                    context: "He's the basketball coach who develops overlooked players and the strategic thinker who finds solutions when others see only problems.",
-                    essence: "Derek is the person who will help you see what's possible without the hype or bs. He's in the whitespace moment. He's learned patience."
-                },
-                night: {
-                    intro: "Derek Simmons is the thinker who works in the depths.",
-                    context: "He's the researcher with 5-6 manuscripts in progress and the consultant who refuses to build another template when 'everything popular is wrong.'",
-                    essence: "Derek is the person who will help you think differently about your situation without the hype or bs. He's done the deep work. He's found the truth."
-                }
-            },
+        const chat = document.getElementById('chat');
+        const input = document.getElementById('input');
+        const send = document.getElementById('send');
+        const conditionEl = document.getElementById('condition');
+        
+        // Conversation history for context
+        let conversationHistory = [];
+        let currentCondition = 'clear';
+        let conversationEnded = false;
+        
+        // Conditions based on time
+        function setCondition() {
+            const hour = new Date().getHours();
+            const rand = Math.random();
             
-            init() {
-                this.setAmbientMood();
-                this.updateContent();
-                // Update every 5 minutes
-                setInterval(() => {
-                    this.setAmbientMood();
-                    this.updateContent();
-                }, 300000);
-            },
+            let mode;
+            if (rand < 0.08) mode = 'storm';
+            else if (hour >= 5 && hour < 7) mode = 'dawn';
+            else if (hour >= 7 && hour < 17) mode = 'clear';
+            else if (hour >= 17 && hour < 20) mode = 'dusk';
+            else mode = 'night';
             
-            setAmbientMood() {
-                const hour = new Date().getHours();
-                const container = document.getElementById('ambientContainer');
-                const info = document.getElementById('ambientInfo');
-                
-                let mood, description;
-                
-                if (hour >= 5 && hour < 7) {
-                    mood = 'dawn';
-                    description = 'Dawn • New beginnings';
-                } else if (hour >= 7 && hour < 17) {
-                    mood = 'clear';
-                    description = 'Day • Clear thinking';
-                } else if (hour >= 17 && hour < 20) {
-                    mood = 'dusk';
-                    description = 'Dusk • Reflection';
-                } else {
-                    mood = 'night';
-                    description = 'Night • Deep work';
-                }
-                
-                // Add some randomness for weather-like variation
-                const random = Math.random();
-                if (random < 0.1) {
-                    mood = 'storm';
-                    description = 'Storm • Crisis leadership';
-                }
-                
-                container.className = `mood-${mood}`;
-                info.textContent = description;
-                
-                this.currentMood = mood;
-            },
+            conditionEl.textContent = mode;
+            currentCondition = mode;
+            return mode;
+        }
+        
+        setCondition();
+        
+        function addMessage(who, text, isError = false) {
+            const msg = document.createElement('div');
+            msg.className = `message ${who}${isError ? ' error' : ''}`;
+            msg.innerHTML = `
+                <div class="message-label">${who === 'cw' ? 'CW' : 'You'}</div>
+                <div class="message-text">${escapeHtml(text)}</div>
+            `;
+            chat.appendChild(msg);
+            chat.scrollTop = chat.scrollHeight;
+        }
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        function showTyping() {
+            const msg = document.createElement('div');
+            msg.className = 'message cw';
+            msg.id = 'typing';
+            msg.innerHTML = `
+                <div class="message-label">CW</div>
+                <div class="message-text"><span class="typing"></span></div>
+            `;
+            chat.appendChild(msg);
+            chat.scrollTop = chat.scrollHeight;
+        }
+        
+        function removeTyping() {
+            const t = document.getElementById('typing');
+            if (t) t.remove();
+        }
+        
+        async function sendMessage() {
+            const text = input.value.trim();
+            if (!text) return;
             
-            updateContent() {
-                const context = this.contexts[this.currentMood];
-                const intro = document.getElementById('derekIntro');
-                const contextEl = document.getElementById('derekContext');
-                const essence = document.getElementById('derekEssence');
-                
-                // Fade out, change content, fade in
-                [intro, contextEl, essence].forEach(el => {
-                    el.style.opacity = '0';
+            // Check if conversation was ended
+            if (conversationEnded) {
+                addMessage('cw', "We're done here.", false);
+                return;
+            }
+            
+            addMessage('you', text);
+            input.value = '';
+            input.style.height = 'auto';
+            
+            send.disabled = true;
+            input.disabled = true;
+            
+            showTyping();
+            
+            // Add user message to history
+            conversationHistory.push({
+                role: 'user',
+                content: text
+            });
+            
+            try {
+                const response = await fetch('/.netlify/functions/cw', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        messages: conversationHistory,
+                        condition: currentCondition
+                    })
                 });
                 
-                setTimeout(() => {
-                    intro.textContent = context.intro;
-                    contextEl.textContent = context.context;
-                    essence.textContent = context.essence;
+                const data = await response.json();
+                
+                removeTyping();
+                
+                if (data.error && !data.response) {
+                    addMessage('cw', 'Having trouble right now. Try again.', true);
+                } else {
+                    const cwResponse = data.response;
+                    addMessage('cw', cwResponse);
                     
-                    [intro, contextEl, essence].forEach(el => {
-                        el.style.opacity = '1';
+                    // Add CW response to history
+                    conversationHistory.push({
+                        role: 'assistant',
+                        content: cwResponse
                     });
-                }, 500);
+                    
+                    // Check if CW ended the conversation
+                    if (cwResponse.toLowerCase().includes("we're done here") || 
+                        cwResponse.toLowerCase().includes("we are done here")) {
+                        conversationEnded = true;
+                        input.disabled = true;
+                        send.disabled = true;
+                        input.placeholder = "Conversation ended.";
+                        return;
+                    }
+                }
+                
+            } catch (error) {
+                removeTyping();
+                addMessage('cw', 'Connection problem. Try again.', true);
             }
-        };
+            
+            send.disabled = false;
+            input.disabled = false;
+            input.focus();
+        }
         
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            ambientSystem.init();
+        send.addEventListener('click', sendMessage);
+        
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
         });
+        
+        input.addEventListener('input', () => {
+            input.style.height = 'auto';
+            input.style.height = Math.min(input.scrollHeight, 150) + 'px';
+        });
+        
+        input.focus();
     </script>
-    
-    <!-- Consciousness Navigation -->
-    <script src="js/consciousness-navigation.js"></script>
 </body>
 </html>
