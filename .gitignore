@@ -1,6 +1,14 @@
 node_modules/
 .local-chromium/
 
+# Environment variables (API keys, secrets)
+.env
+.env.local
+.env.*.local
+
+# Netlify
+.netlify/
+
 # Ignore temporary and upload files
 .tmp.driveupload/
 *.tmp
@@ -22,7 +30,5 @@ ehthumbs.db
 .idea/
 .vscode/
 *.swp
-.DS_Store
 .obsidian
-CW-Strategies/
 CW-Strategies/
