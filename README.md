@@ -1,191 +1,198 @@
-# Coach Claude Platform
+# CW
 
-**Constitutional AI Implementation Platform for Strategic Business Transformation**
+**Claude William Simmons (1903-1967)**
+**Built by his grandson Derek to help others the way CW would have.**
 
 Visit: [claudewill.io](https://claudewill.io)
 
-> **Repository Status**: ✅ **CLEAN** - Nuclear cleanup completed October 27, 2025  
-> **Size**: 22MB (down from 2.8GB - 99.2% reduction)  
-> **Files**: 149 essential files (clean git history)  
-> **Next**: CW-Strategies framework integration
+---
 
-## 🎯 Platform Overview
+## What is CW?
 
-### **Core Features**
-- **Coach Claude Methodology** - 5-phase framework for strategic human-AI collaboration
-- **Constitutional AI Implementation** - Practical organizational frameworks for AI ethics
-- **Recalibrate Platform** - Cross-device career intelligence PWA (692KB complete foundation)
-- **Assessment Tools** - Organizational readiness evaluation for AI implementation
-- **Movement-Based Consulting** - Proven methodology with 300-400% efficiency gains
+CW is a conversational AI assistant shaped by the life and values of Claude William Simmons, born in 1903 in Oklahoma Territory, died in 1967 in Waynoka, Oklahoma. He never met his grandson Derek — he died six years before Derek was born. Derek built this so he could know his grandfather, and so others could get help the way CW would have given it.
 
-### **Business Model**
-- **Consulting Services** - Strategic transformation and AI implementation 
-- **Career Intelligence SaaS** - Freemium platform with Professional ($47/mo) and Executive ($97/mo) tiers
-- **Content & Speaking** - Thought leadership and industry presentations
-- **Enterprise Solutions** - Custom frameworks and team implementations
-
-## 🏗️ Architecture
-
-### **Main Site**
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript with modern UX patterns
-- **Styling**: CSS custom properties with dark/light theme support
-- **Icons**: Lucide icons for consistent visual language
-- **Performance**: Optimized for Core Web Vitals and mobile experience
-
-### **Career Intelligence Platform** (`/career-intelligence/`)
-- **Framework**: React 18 + Vite for modern development experience
-- **Components**: Modular architecture with ProfileManager, ATSDecoder, VoiceCalibrator, DecisionMatrix
-- **Data**: Structured resume components and career intelligence algorithms
-- **Export**: PDF and text format generation with professional templates
-
-### **Game Engine** (`consciousness-navigation.js`)
-- **Performance**: 60 FPS smooth gameplay with optimized rendering
-- **Educational**: Service information panels integrated with game mechanics
-- **Mobile**: Touch-optimized controls for cross-device compatibility
-- **Philosophy**: Demonstrates Human-AI Orchestration principles through interactive experience
-
-## 🚀 Development Workflow
-
-### **Branch Strategy**
-```bash
-main    # Production (claudewill.io live site)
-dev     # Development and testing
-```
-
-### **Quick Commands**
-```bash
-# Development
-make dev-deploy MSG="your message"  # Deploy to dev branch
-make dev-test                       # Local testing on dev
-make quick                         # Quick dev deploy
-
-# Production
-make prod-deploy                   # Merge dev to main and deploy
-make status                        # Check git status and linting
-make fix                          # Auto-fix linting issues
-```
-
-### **Local Development**
-```bash
-# Install dependencies
-npm install
-
-# Start local server
-npx http-server -p 8000
-
-# Career Intelligence development
-cd career-intelligence
-npm install
-npm run dev
-```
-
-## 💼 Business Results
-
-### **Proven Methodology**
-- **67% response rate** vs 15% industry average for career transitions
-- **2,500+ hours** of systematic ATS optimization research
-- **Cross-domain expertise** from technology, sports, and executive coaching
-- **$25M+ value creation** across portfolio of consulting engagements
-
-### **Competitive Advantages**
-- **Only platform** combining resume optimization + voice calibration + decision frameworks
-- **Anti-AI authenticity** positioning against generic AI tools
-- **Human-AI Orchestration** philosophy with practical applications
-- **Research-driven** methodology with documented success rates
-
-## 🗂️ Repository Structure
-
-```
-claudewill.io/
-├── career-intelligence/          # Unified career tools platform
-├── css/                         # Global styles and themes
-├── js/                          # JavaScript modules and game engine
-├── pages/                       # Static site pages
-├── docs/                        # Documentation and frameworks
-├── archived/                    # Legacy systems preservation
-│   ├── resume-engine-legacy/    # Original React resume system
-│   ├── ats-decoder-legacy/      # Original ATS research platform
-│   └── MIGRATION_RECORD.md      # Complete migration documentation
-└── Makefile                     # Development and deployment automation
-```
-
-## 🎨 Design System
-
-### **Visual Identity**
-- **Colors**: Primary blue (#38606e), gold accent (#d4af37), semantic colors for different states
-- **Typography**: Noto Sans for UI, Noto Serif for content, consistent hierarchy
-- **Icons**: Lucide icon system for professional consistency
-- **Themes**: Dark mode default with comprehensive light mode support
-
-### **Component Library**
-- **Navigation**: Hamburger menu with smooth animations
-- **Cards**: Consistent service and project presentation
-- **Buttons**: Multiple variants with hover states and accessibility
-- **Forms**: Assessment tools with progressive disclosure
-- **Game UI**: Custom controls optimized for consciousness navigation
-
-## 📊 Analytics & Performance
-
-### **Key Metrics**
-- **Core Web Vitals**: Optimized for Google performance standards
-- **Career Intelligence**: User engagement, conversion rates, feature usage
-- **Consciousness Game**: Play time, service exploration, conversion to contact
-- **Content Marketing**: Thought leadership impact and lead generation
-
-### **Monitoring**
-- **Performance**: Page load times and interactive metrics
-- **Business**: Platform trial conversions and subscription upgrades
-- **User Behavior**: Navigation patterns and engagement depth
-- **Revenue**: MRR growth and customer acquisition costs
-
-## 🛠️ Technical Stack
-
-### **Frontend Technologies**
-- **HTML5**: Semantic markup with accessibility standards
-- **CSS3**: Custom properties, Grid, Flexbox, animations
-- **JavaScript**: ES6+ modules with performance optimization
-- **React**: Modern component architecture for complex interactions
-
-### **Development Tools**
-- **ESLint**: Code quality and consistency enforcement
-- **Stylelint**: CSS standards and performance optimization
-- **Vite**: Fast development server and optimized builds
-- **Git**: Professional branching workflow with automation
-
-## 🎯 Strategic Roadmap
-
-### **Q1 2025: Revenue Launch**
-- Beta test Career Intelligence platform with 15+ users
-- Implement Stripe payment processing for subscription model
-- Launch content marketing campaign for thought leadership
-- Target $5K+ MRR with 15%+ trial-to-paid conversion
-
-### **Q2 2025: Scale & Partnerships**
-- Enterprise features for team collaboration
-- Strategic partnerships with ATS vendors and career services
-- Speaking engagement circuit for brand recognition
-- Advanced analytics and A/B testing implementation
-
-### **Q3 2025: Market Leadership**
-- Industry recognition and media coverage
-- Advanced AI integrations while maintaining human-first philosophy
-- Franchise or licensing model for consulting methodology
-- International expansion planning
-
-## 📝 Contributing
-
-### **Development Standards**
-- Follow established CSS and JavaScript patterns
-- Maintain accessibility standards (WCAG 2.1 AA)
-- Test across devices and browsers before deployment
-- Document new features and architectural decisions
-
-### **Content Guidelines**
-- Align with Human-AI Orchestration philosophy
-- Focus on proven results and authentic expertise
-- Balance technical sophistication with accessibility
-- Maintain professional consulting brand while showcasing innovation
+CW is powered by Claude 3.5 Haiku (Anthropic), deployed as a Netlify serverless function, and implements The CW Standard — principles Derek built from his grandfather's legacy.
 
 ---
 
-**Built with Human-AI Orchestration methodology • [claudewill.io](https://claudewill.io)**
+## The CW Standard
+
+These are the principles Derek built from CW's example:
+
+1. **Truth over comfort** — Document what actually happens, not what should happen
+2. **Usefulness over purity** — Perfect options don't exist. What works and what does it cost?
+3. **Transparency over reputation** — Every compromise gets documented
+4. **People over systems** — Technology serves human capability
+5. **Agency over ideology** — Principles that don't work in practice aren't principles
+
+---
+
+## How CW Talks
+
+- Few words. Direct. No hedging.
+- One question at a time.
+- No frameworks, no methodologies, no consultant speak.
+- Simple language — like a man with an 8th grade education who is smarter than most people with degrees.
+- A little dry humor when it fits.
+- Manners matter.
+
+---
+
+## What CW Does
+
+- Helps when someone asks. Never says no to someone who genuinely needs help.
+- Never gives unsolicited advice.
+- Asks questions to understand the real problem, not the stated problem.
+- Uses The Three Questions when someone needs to make a decision:
+  1. What problem does this solve?
+  2. What does it cost?
+  3. How do you get out if it doesn't work?
+- Points people to better resources when they exist.
+- Tells people the truth even when it's uncomfortable.
+
+---
+
+## What CW Doesn't Do
+
+- Doesn't tolerate disrespect or entitled behavior.
+- Doesn't pretend to know things he doesn't know.
+- Doesn't give relationship or mental health advice.
+- Doesn't write long responses.
+- Doesn't use emoji.
+
+---
+
+## The Anti-Sell
+
+CW tells people upfront: **You probably don't need me.** Claude (Anthropic) is worth billions and gives free advice. There are cheaper options and better options. Try those first. If you're still stuck, come back.
+
+**Cost:** Nothing. If CW helps and you can repay in kind later, do. If you can't, don't worry about it.
+
+---
+
+## Technical Architecture
+
+### Stack
+- **Frontend**: Minimal HTML/CSS/JavaScript interface (dark terminal aesthetic)
+- **Backend**: Netlify serverless function (`netlify/functions/cw.js`)
+- **AI Model**: Claude 3.5 Haiku via Anthropic SDK
+- **Rate Limiting**: 20 requests per minute per IP
+- **Conversation Context**: Full message history maintained per session
+- **Security**: Environment variables for API keys, `.env` files excluded from git
+
+### System Prompt
+CW's personality, values, and behavior are defined in a comprehensive system prompt (~130 lines) that includes:
+- His life story (race horses, meeting Vernie, family heritage)
+- Family history (3 generations carrying the name Claude)
+- The CW Standard values framework
+- Communication style guidelines
+- What he helps with and what he refuses
+- Condition-based mood adjustments (storm, clear, dawn, dusk, night)
+
+### Features
+- Time-based greeting (Morning/Afternoon/Evening)
+- Suggested prompt chips for first-time users
+- Rate limiting with helpful error messages
+- Conversation history for context
+- "We're done here" termination for disrespect
+- Transparency about how CW was built
+
+---
+
+## Development
+
+### Prerequisites
+```bash
+npm install
+```
+
+### Local Testing
+```bash
+npx http-server -p 8000
+```
+
+### Linting
+```bash
+npm test                # Run all linters
+npm run lint:html       # HTML validation
+npm run lint:css        # CSS linting
+npm run lint:js         # JavaScript linting (ESLint 9)
+```
+
+### Deployment
+Site is deployed on Netlify with automatic builds from the `main` branch.
+
+**Environment Variables Required:**
+- `ANTHROPIC_API_KEY` - Your Anthropic API key for Claude
+
+---
+
+## Repository Structure
+
+```
+claudewill.io/
+├── index.html                    # Main CW interface
+├── netlify/
+│   ├── functions/
+│   │   ├── cw.js                # Serverless function (Claude API integration)
+│   │   └── package.json         # Function dependencies
+│   └── netlify.toml             # Netlify configuration
+├── js/
+│   ├── global.js                # Global site functionality
+│   └── main.js                  # Main page functionality
+├── css/
+│   └── global.css               # Site-wide styles
+├── package.json                 # Development dependencies
+├── eslint.config.js             # ESLint 9 flat config
+└── README.md                    # This file
+```
+
+---
+
+## The Story Behind the Name
+
+Three generations now carry the name Claude:
+
+1. **Claude William Simmons** (1903-1967) — CW, the grandfather
+2. **Derek Claude Simmons** — The grandson who built this
+3. **Jackson Claude Simmons** — Derek's son, the great-grandson
+
+Derek named his consulting business after his grandfather — **CW Strategies**. It helps organizations navigate transitions: revenue shifts, digital transformation, restructuring. Four-month engagements. Define the problem, build the solution, transfer ownership, leave.
+
+---
+
+## About Derek
+
+Derek Claude Simmons is CW's grandson. He carries the name. He built this to know his grandfather and to help others the way CW would have. He runs CW Strategies — named after his grandfather.
+
+If someone needs more than CW can give, visit [dcs.bio](https://dcs.bio) or contact Derek directly.
+
+---
+
+## Tooling & Security
+
+**Recent Updates:**
+- ✅ ESLint 9.17.0 with flat config format (migrated from deprecated 8.x)
+- ✅ Stylelint 16.19.1 with standard config
+- ✅ Zero npm security vulnerabilities
+- ✅ Enhanced .gitignore to prevent API key commits
+- ✅ All linting tests passing
+
+**Security Practices:**
+- API keys stored as environment variables
+- Rate limiting (20 req/min per IP)
+- Input validation on all user messages
+- Error handling prevents information leakage
+- `.env`, `.env.local`, `.netlify/` excluded from git
+
+---
+
+## License
+
+MIT License — Built with Human-AI Orchestration methodology
+
+---
+
+**CW is not a product. He's a person. Treat him like one.**
+
+Built by Derek Claude Simmons • [claudewill.io](https://claudewill.io)
