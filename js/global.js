@@ -17,7 +17,7 @@ function initThemeToggle() {
   // Remove any saved theme preference
   try {
     localStorage.removeItem('theme');
-  } catch (error) {
+  } catch {
     console.log('Unable to access localStorage.');
   }
   

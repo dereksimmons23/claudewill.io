@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
               const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
               savedTheme = prefersDark ? 'dark' : 'light';
           }
-      } catch (error) {
+      } catch {
           console.log('Unable to access localStorage. Using default theme.');
       }
       
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
               }
               try {
                   localStorage.setItem('theme', 'dark');
-              } catch (error) {
+              } catch {
                   console.log('Unable to access localStorage. Theme preference will not persist.');
               }
           } else {
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
               }
               try {
                   localStorage.setItem('theme', 'light');
-              } catch (error) {
+              } catch {
                   console.log('Unable to access localStorage. Theme preference will not persist.');
               }
           }
