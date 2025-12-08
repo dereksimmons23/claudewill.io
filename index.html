@@ -274,7 +274,7 @@
         
         <div class="footer">
             Built by <a href="https://dcs.bio" target="_blank">Derek Claude Simmons</a>
-            <div class="disclaimer">CW is an AI assistant. Not a substitute for professional advice.</div>
+            <div class="disclaimer">CW is an AI assistant. Not a substitute for professional advice. Conversations may be reviewed to improve CW.</div>
         </div>
     </div>
     
@@ -288,6 +288,13 @@
         let conversationHistory = [];
         let currentCondition = 'clear';
         let conversationEnded = false;
+
+        // Generate or retrieve session ID
+        let sessionId = sessionStorage.getItem('cw-session-id');
+        if (!sessionId) {
+            sessionId = Date.now().toString(36) + Math.random().toString(36).substr(2);
+            sessionStorage.setItem('cw-session-id', sessionId);
+        }
         
         // Conditions based on time (internal, not shown to user)
         function setCondition() {
@@ -384,7 +391,8 @@
                 const response = await fetch('/.netlify/functions/cw', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'x-session-id': sessionId
                     },
                     body: JSON.stringify({
                         messages: conversationHistory,

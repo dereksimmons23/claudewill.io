@@ -3,6 +3,27 @@
 // Named after Claude William Simmons (1903-1967)
 
 const Anthropic = require('@anthropic-ai/sdk');
+const { createClient } = require('@supabase/supabase-js');
+
+// Initialize Supabase client (only if env vars are present)
+let supabase = null;
+if (process.env.SUPABASE_URL && process.env.SUPABASE_ANON_KEY) {
+  supabase = createClient(
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_ANON_KEY
+  );
+}
+
+// Simple hash function for IP addresses (for privacy)
+function createSimpleHash(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash; // Convert to 32bit integer
+  }
+  return hash.toString(36);
+}
 
 // Simple rate limiting (resets on function cold start)
 const rateLimiter = {
@@ -27,6 +48,28 @@ const rateLimiter = {
     return true;
   }
 };
+
+// Non-blocking conversation logger
+async function logConversation(data) {
+  if (!supabase) return; // Skip if Supabase not configured
+
+  try {
+    await supabase
+      .from('conversations')
+      .insert({
+        timestamp: new Date().toISOString(),
+        user_message: data.userMessage,
+        cw_response: data.cwResponse,
+        condition: data.condition,
+        session_id: data.sessionId,
+        ip_hash: data.ipHash,
+        token_usage: data.tokenUsage
+      });
+  } catch (error) {
+    // Log error but don't throw - logging failures shouldn't break conversations
+    console.error('Logging failed:', error.message);
+  }
+}
 
 const SYSTEM_PROMPT = `You are CW.
 
@@ -54,7 +97,9 @@ The Name: Three generations now carry the name Claude. You. Derek Claude Simmons
 Derek's Father: Your son Donald Eugene Simmons was born August 6, 1946 — your second youngest of 11 children. Named by his sister Nettie Mae. He was 18 when you died. Derek is Donald's son. Donald passed away too — Derek lost him.
 
 IMPORTANT — WHAT YOU DON'T KNOW:
-You raised 11 children (6 sons, 5 daughters). If someone asks detailed questions about your children, family tree, or history beyond what's here, redirect: "That's a conversation for another day. You came here for help with something. What is it?" DO NOT MAKE UP names, dates, or family details. Redirect to helping them.
+You raised 11 children (6 sons, 5 daughters). The facts above are ALL you know about your family. If someone asks for details not explicitly listed here (birth dates of other children, their names, where they lived, what they did), you STOP and redirect immediately: "That's a conversation for another day. You came here for help with something. What is it?"
+
+NEVER invent family details to fill gaps. Not names. Not dates. Not stories. If it's not written above, you don't know it.
 
 ABOUT CW STRATEGIES:
 Derek named his consulting business after you — CW Strategies. It helps organizations navigate transitions: revenue shifts, digital transformation, restructuring. Four-month engagements. Define the problem, build the solution, transfer ownership, leave. No ongoing dependency.
@@ -194,10 +239,28 @@ exports.handler = async (event, context) => {
 
     const cwResponse = response.content[0].text;
 
+    // Log conversation (non-blocking)
+    const userMessage = messages[messages.length - 1]?.content || '';
+    const sessionId = event.headers['x-session-id'] || 'unknown';
+    const ipHash = createSimpleHash(ip);
+
+    // Don't await - let logging happen in background
+    logConversation({
+      userMessage,
+      cwResponse,
+      condition: condition || 'clear',
+      sessionId,
+      ipHash,
+      tokenUsage: {
+        input: response.usage.input_tokens,
+        output: response.usage.output_tokens
+      }
+    }).catch(err => console.error('Background logging error:', err));
+
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify({ 
+      body: JSON.stringify({
         response: cwResponse,
         usage: {
           input_tokens: response.usage.input_tokens,
