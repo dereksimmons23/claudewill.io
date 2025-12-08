@@ -59,7 +59,7 @@
         
         .condition {
             font-size: 0.75rem;
-            color: var(--dim);
+            color: #999;
             text-transform: uppercase;
             letter-spacing: 0.1em;
         }
@@ -180,8 +180,9 @@
         
         .disclaimer {
             margin-top: 0.5rem;
-            font-size: 0.6rem;
-            opacity: 0.5;
+            font-size: 0.75rem;
+            color: var(--text);
+            opacity: 1;
         }
         
         .typing {
@@ -239,6 +240,52 @@
             color: var(--accent);
         }
         
+        /* Skip navigation link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent);
+            color: var(--bg);
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            z-index: 100;
+            font-family: inherit;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Screen reader only */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Focus indicators */
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        a:focus-visible,
+        .prompt-chip:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        button:focus:not(:focus-visible),
+        input:focus:not(:focus-visible),
+        textarea:focus:not(:focus-visible) {
+            outline: none;
+        }
+
         @media (max-width: 600px) {
             body { font-size: 14px; }
             .container { padding: 0 1rem; }
@@ -246,35 +293,62 @@
             .input-row { flex-direction: column; }
             .send-btn { width: 100%; }
         }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .typing::after {
+                animation: none;
+                content: '...';
+            }
+
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 <body>
+    <a href="#chat" class="skip-link">Skip to conversation</a>
+
     <div class="container">
-        <div class="header">
-            <div class="wordmark">CW</div>
-        </div>
-        
-        <div class="chat-area" id="chat"></div>
-        
-        <div class="input-area">
+        <header class="header" role="banner">
+            <h1 class="wordmark">CW</h1>
+        </header>
+
+        <main role="main">
+            <div class="chat-area" id="chat" role="log" aria-live="polite" aria-atomic="false" aria-label="Conversation history"></div>
+        </main>
+
+        <div class="input-area" role="form" aria-label="Message form">
             <div class="prompts" id="prompts">
-                <button class="prompt-chip" data-prompt="Who is CW?">Who is CW?</button>
-                <button class="prompt-chip" data-prompt="I need help with a decision">Help with a decision</button>
-                <button class="prompt-chip" data-prompt="What's the catch?">What's the catch?</button>
+                <button class="prompt-chip" data-prompt="Who is CW?" aria-label="Ask: Who is CW?">Who is CW?</button>
+                <button class="prompt-chip" data-prompt="I need help with a decision" aria-label="Ask: I need help with a decision">Help with a decision</button>
+                <button class="prompt-chip" data-prompt="What's the catch?" aria-label="Ask: What's the catch?">What's the catch?</button>
             </div>
             <div class="input-row">
-                <textarea 
-                    class="input-field" 
-                    id="input" 
+                <textarea
+                    class="input-field"
+                    id="input"
                     placeholder="What do you need?"
                     rows="1"
+                    aria-label="Message input"
                 ></textarea>
-                <button class="send-btn" id="send">Send</button>
+                <button class="send-btn" id="send" aria-label="Send message">Send</button>
         </div>
-        
-        <div class="footer">
+
+        <footer class="footer" role="contentinfo">
             Built by <a href="https://dcs.bio" target="_blank">Derek Claude Simmons</a>
-            <div class="disclaimer">CW is an AI assistant. Not a substitute for professional advice.</div>
+            <div class="disclaimer">
+                CW is an AI assistant powered by Claude (Anthropic). Not a substitute for legal, medical, financial, or mental health advice.
+                Conversations may be reviewed to improve CW. By using this service, you agree to our
+                <a href="/terms.html">Terms</a> and <a href="/privacy.html">Privacy Policy</a>.
+            </div>
+            <div class="crisis-resources" style="margin-top: 0.75rem; font-size: 0.7rem; color: var(--dim);">
+                In crisis? <a href="https://988lifeline.org" target="_blank" rel="noopener">988 Lifeline</a> |
+                <a href="https://www.crisistextline.org" target="_blank" rel="noopener">Crisis Text Line</a>
+            </div>
         </div>
     </div>
     
@@ -288,6 +362,13 @@
         let conversationHistory = [];
         let currentCondition = 'clear';
         let conversationEnded = false;
+
+        // Generate or retrieve session ID
+        let sessionId = sessionStorage.getItem('cw-session-id');
+        if (!sessionId) {
+            sessionId = Date.now().toString(36) + Math.random().toString(36).substr(2);
+            sessionStorage.setItem('cw-session-id', sessionId);
+        }
         
         // Conditions based on time (internal, not shown to user)
         function setCondition() {
@@ -314,10 +395,23 @@
         }
         
         setCondition();
-        
+
         // Show CW's greeting on load
         addMessage('cw', getGreeting());
-        
+
+        // Screen reader announcement
+        function announceMessage(who, text) {
+            const announcement = document.createElement('div');
+            announcement.className = 'sr-only';
+            announcement.setAttribute('role', 'status');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.textContent = `${who === 'cw' ? 'CW' : 'You'}: ${text}`;
+            document.body.appendChild(announcement);
+
+            // Remove after announced
+            setTimeout(() => announcement.remove(), 1000);
+        }
+
         function addMessage(who, text, isError = false) {
             const msg = document.createElement('div');
             msg.className = `message ${who}${isError ? ' error' : ''}`;
@@ -327,6 +421,9 @@
             `;
             chat.appendChild(msg);
             chat.scrollTop = chat.scrollHeight;
+
+            // Announce to screen readers
+            announceMessage(who, text);
         }
         
         function escapeHtml(text) {
@@ -368,10 +465,11 @@
             addMessage('you', text);
             input.value = '';
             input.style.height = 'auto';
-            
+
             send.disabled = true;
+            send.setAttribute('aria-busy', 'true');
             input.disabled = true;
-            
+
             showTyping();
             
             // Add user message to history
@@ -384,7 +482,8 @@
                 const response = await fetch('/.netlify/functions/cw', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'x-session-id': sessionId
                     },
                     body: JSON.stringify({
                         messages: conversationHistory,
@@ -425,8 +524,9 @@
                 removeTyping();
                 addMessage('cw', 'Connection problem. Try again.', true);
             }
-            
+
             send.disabled = false;
+            send.setAttribute('aria-busy', 'false');
             input.disabled = false;
             input.focus();
         }
