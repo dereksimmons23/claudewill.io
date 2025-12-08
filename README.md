@@ -193,6 +193,4 @@ MIT License — Built with Human-AI Orchestration methodology
 
 ---
 
-**CW is not a product. He's a person. Treat him like one.**
-
 Built by Derek Claude Simmons • [claudewill.io](https://claudewill.io)
