@@ -1,11 +1,46 @@
 # Session Close-Out Summary
 
-**Session Date:** December 8, 2025
-**Branch:** `claude/repo-review-011CUKMG5Vtm1fUc597EsXwH`
-**Total Commits:** 8
-**Status:** Ready for deployment and soft launch
+---
+
+## Session: December 9, 2025
+
+**Branch:** `claude/continue-cw-improvements-012WuHBE3gyZtjiy7szQBTxj`
+**Status:** Ready for Dec 13 soft launch
+
+### Completed
+- ✅ Supabase logging verified working
+- ✅ Fixed geographic origin hallucination (CW no longer invents family migration details)
+- ✅ Mobile UI improvements (typography, colors, layout)
+- ✅ Shortened disclaimer
+- ✅ Added "Feedback" prompt chip with handling in system prompt
+- ✅ Created WISHLIST.md for future features
+
+### Mobile Fixes
+- Gold accent brightened (#b8860b → #d4a84b)
+- Gray text lightened (#666 → #999)
+- Base font increased to 16px on mobile
+- Input row stays horizontal
+- Tap targets enlarged
+
+### Remaining for Dec 13
+- [ ] Merge PR
+- [ ] Soft launch message to 5-10 testers
+- [ ] Finalize LinkedIn post
+- [ ] Test feedback chip after deploy
+
+### Future Ideas (see WISHLIST.md)
+- Family Mode (richer genealogy for family members)
+- Vernie agent (family historian)
+- Voice interface
+- Session memory
 
 ---
+
+## Session: December 8, 2025
+
+**Branch:** `claude/repo-review-011CUKMG5Vtm1fUc597EsXwH`
+**Total Commits:** 8
+**Status:** Merged to main
 
 ## 🎯 Major Accomplishments This Session
 
