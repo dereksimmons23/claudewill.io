@@ -2,12 +2,18 @@
 
 ---
 
-## Session: December 9, 2025
+## Session: December 9, 2025 (continued)
 
 **Branch:** `claude/continue-cw-improvements-012WuHBE3gyZtjiy7szQBTxj`
 **Status:** Ready for Dec 13 soft launch
 
-### Completed
+### Completed Today
+- ✅ Created `/derek` page (professional bio, experience, recommendations)
+- ✅ Updated footer link from dcs.bio to /derek
+- ✅ Added Substack link (derek4thecws.substack.com)
+- ✅ Light/professional theme contrasting CW's dark interface
+
+### Previously Completed (Dec 9)
 - ✅ Supabase logging verified working
 - ✅ Fixed geographic origin hallucination (CW no longer invents family migration details)
 - ✅ Mobile UI improvements (typography, colors, layout)
@@ -25,8 +31,9 @@
 ### Remaining for Dec 13
 - [ ] Merge PR
 - [ ] Soft launch message to 5-10 testers
-- [ ] Finalize LinkedIn post
+- [ ] Finalize LinkedIn/Substack post
 - [ ] Test feedback chip after deploy
+- [ ] Verify /derek page renders correctly
 
 ### Future Ideas (see WISHLIST.md)
 - Family Mode (richer genealogy for family members)
