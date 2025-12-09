@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Derek Simmons | Executive Editor & Strategic Consultant</title>
+  <meta name="description" content="Executive Editor with 20+ years driving digital transformation and revenue generation. Strategic consultant helping organizations navigate growth and change.">
+  <meta property="og:title" content="Derek Simmons | Executive Editor & Strategic Consultant">
+  <meta property="og:description" content="Executive Editor with 20+ years driving digital transformation and revenue generation. Strategic consultant helping organizations navigate growth and change.">
+  <meta property="og:type" content="profile">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #fafafa;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 60px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    header {
+      border-bottom: 1px solid #e5e5e5;
+      padding-bottom: 40px;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .tagline {
+      font-size: 1.125rem;
+      color: #666;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .bio {
+      font-size: 1rem;
+      color: #3a3a3a;
+      line-height: 1.7;
+      max-width: 680px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 0.8rem;
+      color: #666;
+      font-weight: 600;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .quick-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      border: 1px solid #e0e0e0;
+      background: white;
+      color: #1a1a1a;
+      border-radius: 4px;
+    }
+
+    .btn:hover {
+      border-color: #1e3a8a;
+      color: #1e3a8a;
+    }
+
+    .btn-primary {
+      background: #1e3a8a;
+      color: white;
+      border-color: #1e3a8a;
+    }
+
+    .btn-primary:hover {
+      background: #1e40af;
+      border-color: #1e40af;
+      color: white;
+    }
+
+    .experience-item {
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .experience-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 4px;
+    }
+
+    .job-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .date {
+      font-size: 0.85rem;
+      color: #888;
+      white-space: nowrap;
+    }
+
+    .organization {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .experience-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .experience-list li {
+      font-size: 0.9rem;
+      color: #444;
+      margin-bottom: 4px;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .experience-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 4px;
+      height: 4px;
+      background: #1e3a8a;
+      border-radius: 50%;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      padding: 24px;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+    }
+
+    .project-card:hover {
+      border-color: #1e3a8a;
+      box-shadow: 0 2px 8px rgba(30, 58, 138, 0.08);
+    }
+
+    .project-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .project-card:hover .project-title {
+      color: #1e3a8a;
+    }
+
+    .project-description {
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .competencies {
+      background: #f8f9fa;
+      padding: 16px 20px;
+      border-radius: 6px;
+      border-left: 3px solid #1e3a8a;
+    }
+
+    .competencies p {
+      font-size: 0.9rem;
+      color: #444;
+      margin: 0;
+      line-height: 1.8;
+    }
+
+    .recommendation {
+      margin-bottom: 24px;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 6px;
+    }
+
+    .recommendation:last-child {
+      margin-bottom: 0;
+    }
+
+    .recommendation-text {
+      font-style: italic;
+      color: #444;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .recommender {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .recommender strong {
+      color: #1a1a1a;
+      font-weight: 600;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid #e5e5e5;
+      text-align: center;
+      color: #999;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: #1e3a8a;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #666;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    .back-link:hover {
+      color: #1e3a8a;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 20px 16px;
+      }
+
+      .container {
+        padding: 40px 24px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .tagline {
+        font-size: 1rem;
+      }
+
+      .quick-links {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .job-header {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .container {
+        box-shadow: none;
+        padding: 40px;
+      }
+
+      .back-link, .quick-links {
+        display: none;
+      }
+
+      .section {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="/" class="back-link">
+      <span>&larr;</span> Back to CW
+    </a>
+
+    <header>
+      <h1>Derek Simmons</h1>
+      <p class="tagline">Executive Editor & Strategic Consultant</p>
+      <p class="bio">
+        Executive with 20+ years driving digital transformation and sustainable business growth across major metro media organizations. Trusted partner for organizational growth, executive leadership development, and strategic revenue diversification.
+      </p>
+    </header>
+
+    <div class="section">
+      <h2 class="section-title">Connect</h2>
+      <div class="quick-links">
+        <a href="https://www.linkedin.com/in/dereksimm/" target="_blank" rel="noopener" class="btn btn-primary">LinkedIn</a>
+        <a href="mailto:simmons.derek@gmail.com" class="btn">Email</a>
+        <a href="https://github.com/dereksimmons23" target="_blank" rel="noopener" class="btn">GitHub</a>
+        <a href="https://x.com/dereksimmons23" target="_blank" rel="noopener" class="btn">X</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects">
+        <a href="/" class="project-card">
+          <h3 class="project-title">CW</h3>
+          <p class="project-description">
+            A conversational AI honoring my grandfather, Claude William Simmons (1903-1967). Built so I could know him, and so others could get help the way he would have given it.
+          </p>
+        </a>
+        <a href="https://coachflo.floshake.io" target="_blank" rel="noopener" class="project-card">
+          <h3 class="project-title">Coach D</h3>
+          <p class="project-description">
+            AI-powered basketball development platform with voice-enabled training. Personal coaching at scale, built with Claude (Anthropic).
+          </p>
+        </a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Experience</h2>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <span class="job-title">Founder & Principal Consultant</span>
+          <span class="date">Nov 2024 - Present</span>
+        </div>
+        <div class="organization">CW Strategies | AI Strategy and Media Transformation</div>
+        <ul class="experience-list">
+          <li>Trusted partner for organizational growth, executive leadership development, and strategic revenue diversification</li>
+          <li>Deliver 150-200% efficiency gains via AI-accelerated research, producing $20K-$40K client savings per engagement</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <span class="job-title">Executive Director, New Products & Digital Strategy</span>
+          <span class="date">Feb 2023 - Oct 2024</span>
+        </div>
+        <div class="organization">Star Tribune Media Company, Minneapolis</div>
+        <ul class="experience-list">
+          <li>Championed AI strategy establishing integration and innovation roadmap</li>
+          <li>Served on senior leadership team redefining company mission, values, and digital presence</li>
+          <li>Led digital-product evolution driving significant audience and revenue growth</li>
+          <li>Launched franchises generating seven-figure annual sponsorship support for journalism</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <span class="job-title">Chief Creative Officer & Vice President</span>
+          <span class="date">Jun 2017 - Feb 2023</span>
+        </div>
+        <div class="organization">Star Tribune Media Company, Minneapolis</div>
+        <ul class="experience-list">
+          <li>Directed multiyear transformation integrating data-driven content and audience development</li>
+          <li>Achieved Pulitzer recognition for investigative projects and Top 3 worldwide design ranking</li>
+          <li>Generated $20M+ in subscription, sponsorship, and advertising revenue</li>
+          <li>Led 55-person editorial and creative teams across digital, mobile, print, and event platforms</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <span class="job-title">Deputy Design Director</span>
+          <span class="date">Mar 2007 - Dec 2013</span>
+        </div>
+        <div class="organization">Los Angeles Times Communications</div>
+        <ul class="experience-list">
+          <li>Achieved No. 1 worldwide design ranking (SND) for six consecutive years</li>
+          <li>Contributed to Pulitzer Prize team recognition for investigative and multimedia projects</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Core Competencies</h2>
+      <div class="competencies">
+        <p>Editorial Strategy &middot; Newsroom Leadership &middot; Revenue Growth &middot; Audience Development &middot; Digital Transformation &middot; Brand & Content Partnerships &middot; Crisis Management &middot; Data-Driven Storytelling &middot; AI Integration &middot; Talent Development</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Education</h2>
+      <p style="font-size: 0.95rem; color: #444; line-height: 1.8;">
+        <strong>B.S., Journalism & Mass Communication</strong> - Kansas State University<br>
+        <strong>Executive Certificate, Customer Experience</strong> - Minnesota State University Mankato<br>
+        <strong>Executive Training</strong> - Poynter Institute, Yale University, Leiden University
+      </p>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Recommendations</h2>
+
+      <div class="recommendation">
+        <p class="recommendation-text">"Derek consistently demonstrated exceptional strategic thinking and cross-functional leadership capabilities essential for executive-level roles... He was instrumental in developing revenue-generating initiatives that contributed to the generation of more than $20 million in revenue."</p>
+        <p class="recommender"><strong>Michelle Mueller</strong><br>Senior Vice President, Human Resources | Star Tribune Media Company</p>
+      </div>
+
+      <div class="recommendation">
+        <p class="recommendation-text">"Derek has been crucial to the Star Tribune's uncommon success and stability in a perilous era... He is not a leader who merely manages whatever arises - he keeps daring to break new ground."</p>
+        <p class="recommender"><strong>Rene Sanchez</strong><br>Former Executive Editor | Star Tribune Media Company</p>
+      </div>
+
+      <div class="recommendation">
+        <p class="recommendation-text">"Derek may be the most productive and innovative person I know... He's a born strategist... He sees the big picture while keeping a firm grasp on the details."</p>
+        <p class="recommender"><strong>Monica Moses</strong><br>Former Executive Director, Product Innovation | Star Tribune Media Company</p>
+      </div>
+    </div>
+
+    <footer>
+      <p>Minneapolis, MN &middot; <a href="mailto:simmons.derek@gmail.com">simmons.derek@gmail.com</a></p>
+      <p style="margin-top: 8px;">&copy; 2025 Derek Simmons</p>
+    </footer>
+  </div>
+</body>
+</html>
