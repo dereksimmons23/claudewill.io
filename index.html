@@ -16,10 +16,10 @@
         
         :root {
             --bg: #0d0d0d;
-            --text: #d4d4d4;
-            --dim: #666;
-            --accent: #b8860b;
-            --border: #2a2a2a;
+            --text: #e0e0e0;
+            --dim: #999;
+            --accent: #d4a84b;
+            --border: #333;
             --input-bg: #1a1a1a;
         }
         
@@ -75,7 +75,7 @@
         }
         
         .message-label {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: var(--dim);
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -163,7 +163,7 @@
         
         .footer {
             padding: 1rem 0;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             color: var(--dim);
             border-top: 1px solid var(--border);
             text-align: center;
@@ -181,8 +181,7 @@
         .disclaimer {
             margin-top: 0.5rem;
             font-size: 0.75rem;
-            color: var(--text);
-            opacity: 1;
+            color: var(--dim);
         }
         
         .typing {
@@ -287,11 +286,57 @@
         }
 
         @media (max-width: 600px) {
-            body { font-size: 14px; }
-            .container { padding: 0 1rem; }
-            .wordmark { font-size: 1.5rem; }
-            .input-row { flex-direction: column; }
-            .send-btn { width: 100%; }
+            body {
+                font-size: 16px;
+                height: auto;
+                min-height: 100vh;
+                overflow: auto;
+            }
+            .container {
+                padding: 0 1rem;
+                height: auto;
+                min-height: 100vh;
+            }
+            .header {
+                padding: 1.5rem 0 1rem;
+            }
+            .wordmark { font-size: 1.75rem; }
+            .chat-area {
+                padding: 1.5rem 0;
+                min-height: 40vh;
+            }
+            .message {
+                margin-bottom: 1.5rem;
+            }
+            .input-area {
+                padding: 1rem 0;
+                position: sticky;
+                bottom: 0;
+                background: var(--bg);
+            }
+            .input-row {
+                flex-direction: row;
+                gap: 0.75rem;
+            }
+            .input-field {
+                padding: 0.875rem 1rem;
+                font-size: 16px; /* Prevents iOS zoom */
+            }
+            .send-btn {
+                padding: 0.875rem 1.25rem;
+                white-space: nowrap;
+            }
+            .prompt-chip {
+                padding: 0.625rem 1rem;
+                font-size: 0.875rem;
+            }
+            .footer {
+                font-size: 0.75rem;
+                padding: 0.75rem 0;
+            }
+            .disclaimer {
+                font-size: 0.7rem;
+            }
         }
 
         /* Reduced motion support */
@@ -341,13 +386,10 @@
         <footer class="footer" role="contentinfo">
             Built by <a href="https://dcs.bio" target="_blank">Derek Claude Simmons</a>
             <div class="disclaimer">
-                CW is an AI assistant powered by Claude (Anthropic). Not a substitute for legal, medical, financial, or mental health advice.
-                Conversations may be reviewed to improve CW. By using this service, you agree to our
-                <a href="/terms.html">Terms</a> and <a href="/privacy.html">Privacy Policy</a>.
+                AI-powered. Not professional advice. <a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a>
             </div>
-            <div class="crisis-resources" style="margin-top: 0.75rem; font-size: 0.7rem; color: var(--dim);">
-                In crisis? <a href="https://988lifeline.org" target="_blank" rel="noopener">988 Lifeline</a> |
-                <a href="https://www.crisistextline.org" target="_blank" rel="noopener">Crisis Text Line</a>
+            <div class="crisis-resources" style="margin-top: 0.5rem;">
+                Crisis? <a href="https://988lifeline.org" target="_blank" rel="noopener">988</a> · <a href="https://www.crisistextline.org" target="_blank" rel="noopener">Text Line</a>
             </div>
         </div>
     </div>
