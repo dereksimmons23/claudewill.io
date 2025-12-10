@@ -2,31 +2,27 @@
 
 ---
 
-## Session: December 9, 2025 (continued)
+## Session: December 10, 2025
 
 **Branch:** `claude/continue-cw-improvements-012WuHBE3gyZtjiy7szQBTxj`
 **Status:** Ready for Dec 13 soft launch
 
 ### Completed Today
-- ✅ Created `/derek` page (professional bio, experience, recommendations)
-- ✅ Updated footer link from dcs.bio to /derek
-- ✅ Added Substack link (derek4thecws.substack.com)
-- ✅ Light/professional theme contrasting CW's dark interface
+- ✅ Refined `/derek` page bio: "Three decades in media, sports, and technology..."
+- ✅ Removed X from Connect links
+- ✅ Removed Core Competencies section
+- ✅ Cleaned up recommendation titles (removed Star Tribune references)
+- ✅ Simplified footer (removed redundant email)
+- ✅ Updated meta tags to match new bio
+- ✅ Removed ~90 lines of dead CSS
 
-### Previously Completed (Dec 9)
-- ✅ Supabase logging verified working
-- ✅ Fixed geographic origin hallucination (CW no longer invents family migration details)
-- ✅ Mobile UI improvements (typography, colors, layout)
-- ✅ Shortened disclaimer
-- ✅ Added "Feedback" prompt chip with handling in system prompt
-- ✅ Created WISHLIST.md for future features
-
-### Mobile Fixes
-- Gold accent brightened (#b8860b → #d4a84b)
-- Gray text lightened (#666 → #999)
-- Base font increased to 16px on mobile
-- Input row stays horizontal
-- Tap targets enlarged
+### /derek Page Final Structure
+1. Header: Name + bio
+2. Connect: LinkedIn, Email, GitHub, Substack
+3. Experience: CW Strategies, Star Tribune (2 roles), LA Times
+4. Education
+5. Recommendations (3)
+6. Footer: Minneapolis, MN · © 2025
 
 ### Remaining for Dec 13
 - [ ] Merge PR
@@ -34,6 +30,30 @@
 - [ ] Finalize LinkedIn/Substack post
 - [ ] Test feedback chip after deploy
 - [ ] Verify /derek page renders correctly
+
+---
+
+## Session: December 9, 2025
+
+**Branch:** `claude/continue-cw-improvements-012WuHBE3gyZtjiy7szQBTxj`
+
+### Completed
+- ✅ Supabase logging verified working
+- ✅ Fixed geographic origin hallucination (CW no longer invents family migration details)
+- ✅ Mobile UI improvements (typography, colors, layout)
+- ✅ Shortened disclaimer
+- ✅ Added "Feedback" prompt chip with handling in system prompt
+- ✅ Created WISHLIST.md for future features
+- ✅ Created `/derek` page (professional bio, experience, recommendations)
+- ✅ Updated footer link from dcs.bio to /derek
+- ✅ Added Substack link (derek4thecws.substack.com)
+
+### Mobile Fixes
+- Gold accent brightened (#b8860b → #d4a84b)
+- Gray text lightened (#666 → #999)
+- Base font increased to 16px on mobile
+- Input row stays horizontal
+- Tap targets enlarged
 
 ### Future Ideas (see WISHLIST.md)
 - Family Mode (richer genealogy for family members)
