@@ -151,11 +151,12 @@ claudewill.io/
 
 ## The Story Behind the Name
 
-Three generations now carry the name Claude:
+Four generations:
 
 1. **Claude William Simmons** (1903-1967) — CW, the grandfather
-2. **Derek Claude Simmons** — The grandson who built this
-3. **Jackson Claude Simmons** — Derek's son, the great-grandson
+2. **Claude William Simmons Jr.** (1903-1967) — Uncle Junior
+3. **Derek Claude Simmons** — The grandson who built this
+4. **Jackson Claude Simmons** — Derek's son, the great-grandson
 
 Derek named his consulting business after his grandfather — **CW Strategies**. It helps organizations navigate transitions: revenue shifts, digital transformation, restructuring. Four-month engagements. Define the problem, build the solution, transfer ownership, leave.
 
