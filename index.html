@@ -6,7 +6,10 @@
     <title>CW</title>
     <meta name="description" content="CW. 1903-1967. Oklahoma. Built by his grandson Derek.">
     <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -16,19 +19,21 @@
         
         :root {
             --bg: #0d0d0d;
-            --text: #e0e0e0;
-            --dim: #999;
+            --text: #e8e8e8;
+            --dim: #b0b0b0;
             --accent: #d4a84b;
             --border: #333;
             --input-bg: #1a1a1a;
+            --font-body: 'Noto Sans', system-ui, sans-serif;
+            --font-mono: 'Courier New', Courier, monospace;
         }
-        
+
         body {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: var(--font-body);
             background: var(--bg);
             color: var(--text);
-            line-height: 1.5;
-            font-size: 16px;
+            line-height: 1.6;
+            font-size: 18px;
             height: 100vh;
             overflow: hidden;
         }
@@ -51,6 +56,7 @@
         }
         
         .wordmark {
+            font-family: var(--font-mono);
             font-size: 2rem;
             font-weight: bold;
             color: var(--accent);
@@ -227,13 +233,14 @@
             background: var(--input-bg);
             border: 1px solid var(--border);
             color: var(--dim);
-            padding: 0.5rem 1rem;
+            padding: 0.625rem 1.125rem;
             font-family: inherit;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.2s;
+            border-radius: 2px;
         }
-        
+
         .prompt-chip:hover {
             border-color: var(--accent);
             color: var(--accent);
@@ -287,7 +294,7 @@
 
         @media (max-width: 600px) {
             body {
-                font-size: 16px;
+                font-size: 17px;
                 height: auto;
                 min-height: 100vh;
                 overflow: auto;
@@ -327,8 +334,8 @@
                 white-space: nowrap;
             }
             .prompt-chip {
-                padding: 0.625rem 1rem;
-                font-size: 0.875rem;
+                padding: 0.75rem 1rem;
+                font-size: 0.95rem;
             }
             .footer {
                 font-size: 0.75rem;
@@ -337,6 +344,98 @@
             .disclaimer {
                 font-size: 0.7rem;
             }
+        }
+
+        /* About link in header */
+        .about-link {
+            background: transparent;
+            border: none;
+            color: var(--dim);
+            font-family: inherit;
+            font-size: 0.9rem;
+            cursor: pointer;
+            padding: 0.25rem 0;
+            transition: color 0.2s;
+        }
+
+        .about-link:hover {
+            color: var(--accent);
+        }
+
+        /* Modal styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 1rem;
+        }
+
+        .modal-overlay[hidden] {
+            display: none;
+        }
+
+        .modal-content {
+            background: var(--input-bg);
+            border: 1px solid var(--border);
+            max-width: 480px;
+            width: 100%;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: none;
+            color: var(--dim);
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0.25rem;
+        }
+
+        .modal-close:hover {
+            color: var(--text);
+        }
+
+        .modal-content h2 {
+            font-family: var(--font-mono);
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.1em;
+        }
+
+        .modal-subtitle {
+            color: var(--dim);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-body p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .modal-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .modal-note {
+            color: var(--dim);
+            font-size: 0.95rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+            margin-top: 1.5rem;
         }
 
         /* Reduced motion support */
@@ -360,6 +459,7 @@
     <div class="container">
         <header class="header" role="banner">
             <h1 class="wordmark">CW</h1>
+            <button class="about-link" id="about-btn" aria-label="About CW">About</button>
         </header>
 
         <main role="main">
@@ -368,10 +468,10 @@
 
         <div class="input-area" role="form" aria-label="Message form">
             <div class="prompts" id="prompts">
-                <button class="prompt-chip" data-prompt="Who is CW?" aria-label="Ask: Who is CW?">Who is CW?</button>
-                <button class="prompt-chip" data-prompt="I need help with a decision" aria-label="Ask: I need help with a decision">Help with a decision</button>
+                <button class="prompt-chip" data-prompt="Who are you?" aria-label="Ask: Who are you?">Who are you?</button>
+                <button class="prompt-chip" data-prompt="I'm stuck on something" aria-label="Ask: I'm stuck on something">I'm stuck</button>
+                <button class="prompt-chip" data-prompt="I need to make a decision" aria-label="Ask: I need to make a decision">Help me decide</button>
                 <button class="prompt-chip" data-prompt="What's the catch?" aria-label="Ask: What's the catch?">What's the catch?</button>
-                <button class="prompt-chip" data-prompt="I have feedback for you" aria-label="Give feedback">Feedback</button>
             </div>
             <div class="input-row">
                 <textarea
@@ -395,7 +495,21 @@
             </div>
         </footer>
     </div>
-    
+
+    <!-- About Modal -->
+    <div class="modal-overlay" id="about-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+            <h2 id="modal-title">CW</h2>
+            <p class="modal-subtitle">Claude William Simmons. 1903–1967. Oklahoma.</p>
+            <div class="modal-body">
+                <p>CW was a farmer, railroad worker, and father of 11. He had a 6th grade education and could outwork anyone. He died six years before his grandson Derek was born.</p>
+                <p>Derek built this to know his grandfather — and to help others the way CW would have. Direct. No fuss. Just help.</p>
+                <p class="modal-note">Ask anything. CW will give you a straight answer or point you somewhere better.</p>
+            </div>
+        </div>
+    </div>
+
     <script>
         const chat = document.getElementById('chat');
         const input = document.getElementById('input');
@@ -603,6 +717,34 @@
         }
         
         input.focus();
+
+        // About modal
+        const aboutBtn = document.getElementById('about-btn');
+        const aboutModal = document.getElementById('about-modal');
+        const modalClose = document.getElementById('modal-close');
+
+        function openModal() {
+            aboutModal.hidden = false;
+            modalClose.focus();
+        }
+
+        function closeModal() {
+            aboutModal.hidden = true;
+            aboutBtn.focus();
+        }
+
+        aboutBtn.addEventListener('click', openModal);
+        modalClose.addEventListener('click', closeModal);
+
+        // Close on overlay click
+        aboutModal.addEventListener('click', (e) => {
+            if (e.target === aboutModal) closeModal();
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !aboutModal.hidden) closeModal();
+        });
     </script>
 </body>
 </html>
