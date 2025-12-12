@@ -2,12 +2,39 @@
 
 ---
 
-## Session: December 10, 2025
+## Session: December 11, 2025
 
 **Branch:** `claude/continue-cw-improvements-012WuHBE3gyZtjiy7szQBTxj`
 **Status:** Ready for Dec 13 soft launch
 
 ### Completed Today
+- ✅ Simplified CW Strategies experience bullets
+- ✅ Fixed `dcs.bio` → `claudewill.io/derek` in system prompt
+- ✅ Analyzed Supabase conversation data (44 conversations)
+- ✅ Verified Charlton Jackson Simmons story is real family history
+- ✅ Reviewed CW's handling of difficult questions (good)
+- ✅ Decided to keep "conditions" system hidden (working as intended)
+- ✅ Attempted Supabase MCP setup (CLI only, deferred for web)
+
+### Key Findings from Conversation Data
+- Dec 12 leadership/startup thread: CW delivered real value
+- Geographic origins hallucination was fixed correctly
+- CW handles corrections gracefully ("6 vs 11 children")
+- Response quality is strong, ready for soft launch
+
+### Remaining for Dec 13
+- [ ] Merge PR
+- [ ] Soft launch message to 5-10 testers
+- [ ] Write LinkedIn/Substack post
+- [ ] Test with family members
+
+---
+
+## Session: December 10, 2025
+
+**Branch:** `claude/continue-cw-improvements-012WuHBE3gyZtjiy7szQBTxj`
+
+### Completed
 - ✅ Refined `/derek` page bio: "Three decades in media, sports, and technology..."
 - ✅ Removed X from Connect links
 - ✅ Removed Core Competencies section
@@ -23,13 +50,6 @@
 4. Education
 5. Recommendations (3)
 6. Footer: Minneapolis, MN · © 2025
-
-### Remaining for Dec 13
-- [ ] Merge PR
-- [ ] Soft launch message to 5-10 testers
-- [ ] Finalize LinkedIn/Substack post
-- [ ] Test feedback chip after deploy
-- [ ] Verify /derek page renders correctly
 
 ---
 
