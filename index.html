@@ -26,6 +26,8 @@
             --input-bg: #1a1a1a;
             --font-body: 'Noto Sans', system-ui, sans-serif;
             --font-mono: 'Courier New', Courier, monospace;
+            --glow-intensity: 0.35;
+            --glow-spread: 40px;
         }
 
         body {
@@ -61,6 +63,8 @@
             font-weight: bold;
             color: var(--accent);
             letter-spacing: 0.15em;
+            text-shadow: 0 0 var(--glow-spread) rgba(212, 168, 75, var(--glow-intensity));
+            transition: text-shadow 0.6s ease;
         }
         
         .condition {
@@ -113,6 +117,41 @@
         .input-area {
             padding: 1.5rem 0;
             border-top: 1px solid var(--border);
+            transition: border-color 0.5s ease;
+        }
+
+        .input-area:focus-within {
+            border-color: rgba(212, 168, 75, 0.3);
+        }
+
+        body:has(.input-area:focus-within) .wordmark {
+            text-shadow: 0 0 50px rgba(212, 168, 75, 0.5);
+        }
+
+        /* Condition-aware glow intensity (porch light matters more in darkness) */
+        body[data-condition="night"] .wordmark {
+            text-shadow: 0 0 45px rgba(212, 168, 75, 0.45);
+        }
+        body[data-condition="dusk"] .wordmark {
+            text-shadow: 0 0 42px rgba(212, 168, 75, 0.4);
+        }
+        body[data-condition="dawn"] .wordmark {
+            text-shadow: 0 0 38px rgba(212, 168, 75, 0.32);
+        }
+        body[data-condition="clear"] .wordmark {
+            text-shadow: 0 0 35px rgba(212, 168, 75, 0.28);
+        }
+        body[data-condition="storm"] .wordmark {
+            text-shadow: 0 0 50px rgba(212, 168, 75, 0.5);
+        }
+
+        /* Focus state overrides condition */
+        body:has(.input-area:focus-within)[data-condition="night"] .wordmark,
+        body:has(.input-area:focus-within)[data-condition="dusk"] .wordmark,
+        body:has(.input-area:focus-within)[data-condition="dawn"] .wordmark,
+        body:has(.input-area:focus-within)[data-condition="clear"] .wordmark,
+        body:has(.input-area:focus-within)[data-condition="storm"] .wordmark {
+            text-shadow: 0 0 55px rgba(212, 168, 75, 0.55);
         }
         
         .input-row {
@@ -133,11 +172,13 @@
             min-height: 48px;
             max-height: 150px;
             line-height: 1.5;
+            transition: border-color 0.5s ease, box-shadow 0.5s ease;
         }
-        
+
         .input-field:focus {
             outline: none;
             border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(212, 168, 75, 0.15);
         }
         
         .input-field::placeholder {
@@ -541,9 +582,10 @@
             else mode = 'night';
             
             currentCondition = mode;
+            document.body.dataset.condition = mode;
             return mode;
         }
-        
+
         // CW's greeting based on time of day
         function getGreeting() {
             const hour = new Date().getHours();
