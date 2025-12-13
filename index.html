@@ -18,16 +18,14 @@
         }
         
         :root {
-            --bg: #001A34;
+            --bg: #000D1A;
             --text: #e8e8e8;
             --dim: #b0b0b0;
             --accent: #d4a84b;
-            --border: #1a3a5c;
-            --input-bg: #002244;
+            --border: #0d2840;
+            --input-bg: #001428;
             --font-body: 'Noto Sans', system-ui, sans-serif;
             --font-mono: 'Courier New', Courier, monospace;
-            --glow-intensity: 0.35;
-            --glow-spread: 40px;
         }
 
         body {
@@ -63,7 +61,7 @@
             font-weight: bold;
             color: var(--accent);
             letter-spacing: 0.15em;
-            text-shadow: 0 0 var(--glow-spread) rgba(212, 168, 75, var(--glow-intensity));
+            text-shadow: 0 0 40px rgba(212, 168, 75, 0.4);
             transition: text-shadow 0.6s ease;
         }
         
@@ -125,24 +123,24 @@
         }
 
         body:has(.input-area:focus-within) .wordmark {
-            text-shadow: 0 0 50px rgba(212, 168, 75, 0.5);
+            text-shadow: 0 0 60px rgba(212, 168, 75, 0.65);
         }
 
         /* Condition-aware glow intensity (porch light matters more in darkness) */
         body[data-condition="night"] .wordmark {
-            text-shadow: 0 0 45px rgba(212, 168, 75, 0.45);
+            text-shadow: 0 0 50px rgba(212, 168, 75, 0.55);
         }
         body[data-condition="dusk"] .wordmark {
-            text-shadow: 0 0 42px rgba(212, 168, 75, 0.4);
+            text-shadow: 0 0 45px rgba(212, 168, 75, 0.5);
         }
         body[data-condition="dawn"] .wordmark {
-            text-shadow: 0 0 38px rgba(212, 168, 75, 0.32);
+            text-shadow: 0 0 42px rgba(212, 168, 75, 0.42);
         }
         body[data-condition="clear"] .wordmark {
-            text-shadow: 0 0 35px rgba(212, 168, 75, 0.28);
+            text-shadow: 0 0 40px rgba(212, 168, 75, 0.38);
         }
         body[data-condition="storm"] .wordmark {
-            text-shadow: 0 0 50px rgba(212, 168, 75, 0.5);
+            text-shadow: 0 0 55px rgba(212, 168, 75, 0.6);
         }
 
         /* Focus state overrides condition */
@@ -151,7 +149,7 @@
         body:has(.input-area:focus-within)[data-condition="dawn"] .wordmark,
         body:has(.input-area:focus-within)[data-condition="clear"] .wordmark,
         body:has(.input-area:focus-within)[data-condition="storm"] .wordmark {
-            text-shadow: 0 0 55px rgba(212, 168, 75, 0.55);
+            text-shadow: 0 0 65px rgba(212, 168, 75, 0.7);
         }
         
         .input-row {
