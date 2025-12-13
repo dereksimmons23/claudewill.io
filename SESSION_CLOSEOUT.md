@@ -2,6 +2,49 @@
 
 ---
 
+## Session: December 13, 2025
+
+**Branch:** `main`
+**Launch Date:** January 6, 2026 (CW's 123rd birthday)
+
+### Completed Today
+
+**Security Hardening (from ChatGPT 5.2 review):**
+- ✅ CORS: Replaced wildcard with allowlist (claudewill.io, localhost, netlify previews)
+- ✅ Input validation: Max 20 messages, 4000 chars/msg, 20000 total
+- ✅ IP extraction: Fixed to take first IP from x-forwarded-for
+- ✅ Supabase: Now prefers service role key over anon key
+- ✅ Added GitHub Actions: CI tests + gitleaks secret scanning
+- ✅ Updated .gitignore, SECURITY.md, docs
+
+**Security Verification:**
+- ✅ Confirmed secrets were NEVER committed to git history
+- ✅ No credential rotation needed
+- ✅ Security headers verified live (CSP, HSTS, X-Frame-Options, etc.)
+
+**Documentation:**
+- ✅ Created RELEASE_NOTES.md for v1.0.0
+- ✅ Reorganized WISHLIST.md as post-MVP roadmap (ordered by complexity)
+- ✅ LinkedIn launch post already drafted (3 versions)
+
+### Commits Today
+```
+9579a7f2 docs: add release notes and reorder wishlist as post-MVP roadmap
+6f5e581a security: harden CORS, input validation, add CI workflows
+```
+
+### Still Parked
+- Porch light glow (CSS deployed but not rendering - needs investigation)
+
+### Ready for Jan 6 Launch
+- ✅ Core chat experience
+- ✅ Security hardened
+- ✅ Documentation complete
+- ✅ LinkedIn post drafted
+- ✅ Release notes written
+
+---
+
 ## Session: December 12, 2025
 
 **Branch:** `main`
