@@ -2,6 +2,63 @@
 
 ---
 
+## Session: December 12, 2025
+
+**Branch:** `main`
+**Launch Date:** January 6, 2026 (CW's 123rd birthday)
+
+### Completed Today
+
+**Readability & Onboarding:**
+- ✅ Switched to Noto Sans font (better readability, multilingual support)
+- ✅ Increased base font size (16px → 18px)
+- ✅ Improved contrast (dim text #999 → #b0b0b0)
+- ✅ Added About modal in header (no separate page)
+- ✅ Improved prompt chips: "Who are you?", "I'm stuck", "Help me decide", "What's the catch?"
+
+**Multilingual Support:**
+- ✅ CW now responds in whatever language the user writes
+- ✅ Tested with Spanish - working well
+
+**Visual Design:**
+- ✅ Switched to midnight blue background (#000D1A)
+- ✅ Implemented porch light concept (glow on CW wordmark)
+- ⏸️ Glow effect code deployed but not rendering (CDN caching issue - parked)
+
+**Contact & Email Protection:**
+- ✅ Removed mailto link from /derek (email no longer exposed)
+- ✅ Added Netlify Forms contact form to /derek page
+- ✅ Updated CW system prompt to direct users to Derek when appropriate
+- ✅ Added inline chat form idea to WISHLIST.md
+
+**Code Cleanup:**
+- ✅ Deleted dead `js/chat.js` file (173 lines of unused code)
+- ✅ Fixed HTML structure in index.html (footer nesting)
+
+### Commits Today
+```
+1ebe1b42 feat: add contact form, remove email exposure
+21b1acb2 fix: repair porch light glow and darken blue background
+5535a06b style: switch to midnight blue background
+04cf5037 feat: add porch light effect with condition-aware glow
+0eb83109 feat: improve onboarding, readability, and add multilingual support
+7adc7799 refactor: remove dead chat.js, fix HTML structure
+```
+
+### Parked / Revisit Later
+- Porch light glow effect (CSS is correct but not rendering live - likely CDN cache)
+- User preferences (font size toggle, high contrast mode)
+
+### Ready for Jan 6 Launch
+- ✅ Core chat experience
+- ✅ Multilingual support
+- ✅ About modal
+- ✅ Contact form (email protected)
+- ✅ Mobile optimized
+- ✅ Accessibility (WCAG AA)
+
+---
+
 ## Session: December 11, 2025
 
 **Branch:** `claude/continue-cw-improvements-012WuHBE3gyZtjiy7szQBTxj`
