@@ -41,17 +41,9 @@ CREATE INDEX idx_conversations_timestamp ON conversations(timestamp DESC);
 -- Enable Row Level Security (RLS)
 ALTER TABLE conversations ENABLE ROW LEVEL SECURITY;
 
--- Create policy to allow inserts (service role will bypass RLS anyway)
-CREATE POLICY "Allow service role to insert" ON conversations
-  FOR INSERT
-  TO authenticated, anon
-  WITH CHECK (true);
-
--- Create policy to allow reads (for reviewing conversations)
-CREATE POLICY "Allow service role to read" ON conversations
-  FOR SELECT
-  TO authenticated, anon
-  USING (true);
+-- With Netlify Functions, use the SUPABASE **service_role** key server-side.
+-- The service role bypasses RLS, so you do NOT need public SELECT/INSERT policies here.
+-- Keeping RLS enabled with no public policies prevents the anon key from reading conversation logs.
 ```
 
 4. Click "Run" to execute the SQL
@@ -61,9 +53,11 @@ CREATE POLICY "Allow service role to read" ON conversations
 
 1. In Supabase, click "Settings" (gear icon) in the left sidebar
 2. Click "API" under Project Settings
-3. Copy these two values:
+3. Copy these values:
    - **Project URL** (looks like `https://xxxxx.supabase.co`)
-   - **anon public** key (under "Project API keys")
+   - **service_role** key (under "Project API keys")
+
+**Important:** The **service_role** key is a **secret**. Never put it in browser JavaScript and never commit it to git. It should only live in Netlify environment variables.
 
 ## 4. Add Environment Variables to Netlify
 
@@ -78,8 +72,8 @@ CREATE POLICY "Allow service role to read" ON conversations
    - **Scopes**: All scopes (build-time and runtime)
 
    **Variable 2:**
-   - **Key**: `SUPABASE_ANON_KEY`
-   - **Value**: Your anon public key from step 3
+   - **Key**: `SUPABASE_SERVICE_ROLE_KEY`
+   - **Value**: Your service_role key from step 3
    - **Scopes**: All scopes (build-time and runtime)
 
 5. Click "Save"

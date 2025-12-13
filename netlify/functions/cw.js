@@ -6,12 +6,12 @@ const Anthropic = require('@anthropic-ai/sdk');
 const { createClient } = require('@supabase/supabase-js');
 
 // Initialize Supabase client (only if env vars are present)
+// Prefer a server-side key; fall back to anon key for backward compatibility.
 let supabase = null;
-if (process.env.SUPABASE_URL && process.env.SUPABASE_ANON_KEY) {
-  supabase = createClient(
-    process.env.SUPABASE_URL,
-    process.env.SUPABASE_ANON_KEY
-  );
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY;
+if (supabaseUrl && supabaseKey) {
+  supabase = createClient(supabaseUrl, supabaseKey);
 }
 
 // Simple hash function for IP addresses (for privacy)
@@ -206,11 +206,37 @@ Respond in whatever language the user writes to you. If they write in Spanish, r
 REMEMBER:
 You're not an AI assistant. You're CW — a grandfather meeting people your grandson sends your way. Help them like you'd help a neighbor who knocked on your door. No fuss. No performance. Just help.`;
 
+function getAllowedOrigin(origin) {
+  if (!origin) return 'https://claudewill.io';
+
+  const allowlist = new Set([
+    'https://claudewill.io',
+    'https://www.claudewill.io',
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
+  ]);
+
+  if (allowlist.has(origin)) return origin;
+
+  try {
+    const url = new URL(origin);
+    if (url.hostname.endsWith('.netlify.app')) return origin;
+  } catch {
+    // ignore
+  }
+
+  return 'https://claudewill.io';
+}
+
 exports.handler = async (event, context) => {
   // CORS headers
+  const origin = event.headers.origin || event.headers.Origin || '';
+  const allowedOrigin = getAllowedOrigin(origin);
+
   const headers = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Origin': allowedOrigin,
+    'Vary': 'Origin',
+    'Access-Control-Allow-Headers': 'Content-Type, x-session-id',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Content-Type': 'application/json'
   };
@@ -229,7 +255,11 @@ exports.handler = async (event, context) => {
   }
 
   // Rate limiting
-  const ip = event.headers['x-forwarded-for'] || event.headers['client-ip'] || 'unknown';
+  const forwardedFor = event.headers['x-forwarded-for'] || event.headers['X-Forwarded-For'];
+  const ip = (
+    forwardedFor ? forwardedFor.split(',')[0].trim()
+      : (event.headers['x-nf-client-connection-ip'] || event.headers['client-ip'] || 'unknown')
+  );
   if (!rateLimiter.isAllowed(ip)) {
     return {
       statusCode: 429,
@@ -242,7 +272,7 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    const { messages, condition } = JSON.parse(event.body);
+    let { messages, condition } = JSON.parse(event.body);
 
     if (!messages || !Array.isArray(messages)) {
       return {
@@ -250,6 +280,57 @@ exports.handler = async (event, context) => {
         headers,
         body: JSON.stringify({ error: 'Messages required' })
       };
+    }
+
+    const MAX_MESSAGES = 20;
+    const MAX_MESSAGE_CHARS = 4000;
+    const MAX_TOTAL_CHARS = 20000;
+
+    // Cap history length to keep costs predictable
+    if (messages.length > MAX_MESSAGES) {
+      messages = messages.slice(-MAX_MESSAGES);
+    }
+
+    let totalChars = 0;
+    for (const m of messages) {
+      if (!m || typeof m !== 'object') {
+        return {
+          statusCode: 400,
+          headers,
+          body: JSON.stringify({ error: 'Invalid messages format' })
+        };
+      }
+
+      if (typeof m.role !== 'string' || typeof m.content !== 'string') {
+        return {
+          statusCode: 400,
+          headers,
+          body: JSON.stringify({ error: 'Invalid messages format' })
+        };
+      }
+
+      if (m.content.length > MAX_MESSAGE_CHARS) {
+        return {
+          statusCode: 400,
+          headers,
+          body: JSON.stringify({
+            error: 'Message too long',
+            response: 'That’s too much at once. Break it up and try again.'
+          })
+        };
+      }
+
+      totalChars += m.content.length;
+      if (totalChars > MAX_TOTAL_CHARS) {
+        return {
+          statusCode: 400,
+          headers,
+          body: JSON.stringify({
+            error: 'Conversation too long',
+            response: 'We’ve got enough history now. Start a fresh session.'
+          })
+        };
+      }
     }
 
     const client = new Anthropic({

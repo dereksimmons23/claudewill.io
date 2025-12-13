@@ -1,21 +1,23 @@
 # Security Policy
 
-## Supported Versions
-
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
-
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
-
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+If you find a security issue, **do not open a public issue**.
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+- Email: `security@dcs.bio` (or if that alias isn’t set up, use `derek@dcs.bio`)
+- Include: what you found, steps to reproduce, and any proof-of-concept
+
+## Scope
+
+This repo is a static site (`index.html`, `js/`, `css/`) with a Netlify Function (`netlify/functions/cw.js`) that talks to third-party APIs.
+
+Key risk areas:
+- **Secrets** (Anthropic API key, Supabase service keys)
+- **Abuse** (rate limiting, CORS/origin restrictions)
+- **Data access** (Supabase RLS policies)
+
+## Secret Handling
+
+- **Never commit API keys** or credentials.
+- Use **Netlify environment variables** for runtime secrets.
+- Rotate credentials immediately if you suspect exposure.

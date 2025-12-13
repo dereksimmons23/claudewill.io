@@ -32,3 +32,12 @@ ehthumbs.db
 *.swp
 .obsidian
 CW-Strategies/
+
+# Secrets / local-only files
+netlify/anthropic-key.txt
+netlify/*.txt
+.claude/
+.mcp.json
+
+# Local editor/workspace
+*.code-workspace

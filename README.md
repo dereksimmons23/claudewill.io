@@ -184,7 +184,7 @@ If someone needs more than CW can give, visit [dcs.bio](https://dcs.bio) or cont
 - Rate limiting (20 req/min per IP)
 - Input validation on all user messages
 - Error handling prevents information leakage
-- `.env`, `.env.local`, `.netlify/` excluded from git
+- `.env`, `.env.local`, `.netlify/`, `netlify/*.txt`, `.claude/`, `.mcp.json` excluded from git
 
 ---
 
