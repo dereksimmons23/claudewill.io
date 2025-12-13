@@ -21,6 +21,9 @@ Let people talk to CW instead of typing. Would feel more like a real conversatio
 ### Session Memory
 Remember returning visitors across sessions. "Good to see you again."
 
+### Inline Contact Form
+When someone asks to contact Derek, CW renders a contact form directly in the chat instead of linking away. User fills it out without leaving the conversation. More seamless, keeps the threshold metaphor intact.
+
 ---
 
 ## Improvements

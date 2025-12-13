@@ -243,6 +243,60 @@
       }
     }
 
+    .contact-form {
+      max-width: 500px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      background: #fafafa;
+      color: #1a1a1a;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #1e3a8a;
+      background: white;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .btn-submit {
+      background: #1e3a8a;
+      color: white;
+      border: 1px solid #1e3a8a;
+      cursor: pointer;
+    }
+
+    .btn-submit:hover {
+      background: #1e40af;
+      border-color: #1e40af;
+      color: white;
+    }
+
     @media print {
       body {
         background: white;
@@ -281,10 +335,29 @@
       <h2 class="section-title">Connect</h2>
       <div class="quick-links">
         <a href="https://www.linkedin.com/in/dereksimm/" target="_blank" rel="noopener" class="btn">LinkedIn</a>
-        <a href="mailto:simmons.derek@gmail.com" class="btn">Email</a>
         <a href="https://github.com/dereksimmons23" target="_blank" rel="noopener" class="btn">GitHub</a>
         <a href="https://derek4thecws.substack.com" target="_blank" rel="noopener" class="btn">Substack</a>
       </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Contact</h2>
+      <form name="contact" method="POST" data-netlify="true" class="contact-form">
+        <input type="hidden" name="form-name" value="contact">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-submit">Send Message</button>
+      </form>
     </div>
 
     <div class="section">
