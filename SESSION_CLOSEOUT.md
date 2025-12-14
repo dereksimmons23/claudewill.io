@@ -42,7 +42,12 @@
 ### Commits Today
 ```
 195ca4d5 feat: Jan 6 launch prep - safety, UX, and SEO/GEO improvements
+bdd82460 docs: update documentation for v1.1.0
+0be9059d fix: restore desktop scroll (attempt - issue persists)
 ```
+
+### Known Issue for Next Session
+- **Desktop scroll bug**: Can't scroll chat on desktop, works on mobile. Removed `overflow: hidden` from `.container` but issue persists. Needs deeper investigation.
 
 ### Ready for Jan 6 Launch
 - ✅ Core chat experience

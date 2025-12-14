@@ -42,6 +42,10 @@ Safety, UX, and SEO/GEO improvements ahead of the Jan 6, 2025 launch.
 - **sitemap.xml**: Updated for minimal site structure
 - **robots.txt**: Explicit AI crawler permissions (GPTBot, Perplexity, anthropic-ai, etc.)
 
+### Known Issues
+
+- **Desktop scroll**: Chat area doesn't scroll on desktop browsers (works on mobile). Under investigation.
+
 ---
 
 ## v1.0.1 — December 13, 2024
