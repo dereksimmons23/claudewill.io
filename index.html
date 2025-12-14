@@ -3,8 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CW</title>
-    <meta name="description" content="CW. 1903-1967. Oklahoma. Built by his grandson Derek.">
+    <title>CW | AI Conversation for Clear Thinking</title>
+    <meta name="description" content="CW is an AI built on the practical wisdom of Claude William Simmons (1903-1967). Direct answers. No fuss. Just help. Built by his grandson Derek Simmons.">
+    <meta property="og:title" content="CW | AI Conversation for Clear Thinking">
+    <meta property="og:description" content="An AI built on the practical wisdom of Claude William Simmons. Direct answers. No fuss. Just help.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://claudewill.io/">
+    <link rel="canonical" href="https://claudewill.io/">
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://claudewill.io/#cw",
+          "name": "CW",
+          "description": "AI conversation built on the practical wisdom of Claude William Simmons (1903-1967). Direct answers, no fuss, just help.",
+          "url": "https://claudewill.io/",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "creator": {
+            "@type": "Person",
+            "@id": "https://claudewill.io/derek#person"
+          },
+          "isPartOf": {
+            "@type": "Organization",
+            "@id": "https://claudewill.io/about#organization"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://claudewill.io/about#organization",
+          "name": "The CW Standard",
+          "alternateName": "CW Strategies",
+          "description": "AI strategy and organizational transformation consulting. Four-month engagements with full ownership transfer.",
+          "url": "https://claudewill.io/about",
+          "sameAs": [
+            "https://www.linkedin.com/company/cw-standard/"
+          ],
+          "founder": {
+            "@type": "Person",
+            "@id": "https://claudewill.io/derek#person"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://claudewill.io/derek#person",
+          "name": "Derek Simmons",
+          "alternateName": "Derek Claude Simmons",
+          "jobTitle": "Founder & Principal Consultant",
+          "description": "Three decades in media, sports, and technology. Building AI frameworks for human-centered organizations.",
+          "url": "https://claudewill.io/derek",
+          "sameAs": [
+            "https://www.linkedin.com/in/dereksimm/",
+            "https://github.com/dereksimmons23"
+          ],
+          "worksFor": {
+            "@type": "Organization",
+            "@id": "https://claudewill.io/about#organization"
+          }
+        }
+      ]
+    }
+    </script>
     <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -479,6 +542,77 @@
             margin-top: 1.5rem;
         }
 
+        /* Age Gate */
+        .age-gate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .age-gate[hidden] {
+            display: none;
+        }
+
+        .age-gate-content {
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .age-gate-title {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .age-gate-text {
+            color: var(--dim);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .age-gate-btn {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 0.875rem 2rem;
+            font-family: inherit;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .age-gate-btn:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        .age-gate-note {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--dim);
+        }
+
+        /* Honeypot - hidden from humans */
+        .hp-field {
+            position: absolute;
+            left: -9999px;
+            opacity: 0;
+            height: 0;
+            width: 0;
+            overflow: hidden;
+        }
+
         /* Reduced motion support */
         @media (prefers-reduced-motion: reduce) {
             .typing::after {
@@ -495,6 +629,16 @@
     </style>
 </head>
 <body>
+    <!-- Age Gate -->
+    <div class="age-gate" id="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-gate-title">
+        <div class="age-gate-content">
+            <h1 class="age-gate-title" id="age-gate-title">CW</h1>
+            <p class="age-gate-text">This is a conversation with an AI. By continuing, you confirm you are 18 or older, or 13+ with parental consent.</p>
+            <button class="age-gate-btn" id="age-gate-btn">Continue</button>
+            <p class="age-gate-note">Your conversation is not stored after you leave.</p>
+        </div>
+    </div>
+
     <a href="#chat" class="skip-link">Skip to conversation</a>
 
     <div class="container">
@@ -515,6 +659,8 @@
                 <button class="prompt-chip" data-prompt="What's the catch?" aria-label="Ask: What's the catch?">What's the catch?</button>
             </div>
             <div class="input-row">
+                <!-- Honeypot field - bots fill this, humans don't see it -->
+                <input type="text" name="website" id="hp-website" class="hp-field" tabindex="-1" autocomplete="off">
                 <textarea
                     class="input-field"
                     id="input"
@@ -537,6 +683,13 @@
         </footer>
     </div>
 
+    <!-- Hidden form for Netlify detection -->
+    <form name="inline-contact" data-netlify="true" hidden>
+        <input type="text" name="name">
+        <input type="email" name="email">
+        <textarea name="message"></textarea>
+    </form>
+
     <!-- About Modal -->
     <div class="modal-overlay" id="about-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
         <div class="modal-content">
@@ -547,6 +700,7 @@
                 <p>CW was a farmer, railroad worker, and father of 11. He had a 6th grade education and could outwork anyone. He died six years before his grandson Derek was born.</p>
                 <p>Derek built this to know his grandfather — and to help others the way CW would have. Direct. No fuss. Just help.</p>
                 <p class="modal-note">Ask anything. CW will give you a straight answer or point you somewhere better.</p>
+                <p style="margin-top: 1rem;"><a href="/about" style="color: var(--accent); text-decoration: none;">Learn about CW Strategies & The CW Standard &rarr;</a></p>
             </div>
         </div>
     </div>
@@ -556,11 +710,107 @@
         const input = document.getElementById('input');
         const send = document.getElementById('send');
         const prompts = document.getElementById('prompts');
-        
+        const ageGate = document.getElementById('age-gate');
+        const ageGateBtn = document.getElementById('age-gate-btn');
+        const honeypot = document.getElementById('hp-website');
+
+        // Age gate handling
+        const ageVerified = sessionStorage.getItem('cw-age-verified');
+        if (ageVerified) {
+            ageGate.hidden = true;
+        } else {
+            input.disabled = true;
+            send.disabled = true;
+        }
+
+        ageGateBtn.addEventListener('click', () => {
+            sessionStorage.setItem('cw-age-verified', 'true');
+            ageGate.hidden = true;
+            input.disabled = false;
+            send.disabled = false;
+            input.focus();
+        });
+
         // Conversation history for context
         let conversationHistory = [];
         let currentCondition = 'clear';
         let conversationEnded = false;
+        let exchangeCount = 0;
+        let derekMentioned = false;
+
+        // Contextual prompts based on conversation stage
+        const promptSets = {
+            start: [
+                { text: "Who are you?", prompt: "Who are you?" },
+                { text: "I'm stuck", prompt: "I'm stuck on something" },
+                { text: "Help me decide", prompt: "I need to make a decision" },
+                { text: "What's the catch?", prompt: "What's the catch?" }
+            ],
+            early: [
+                { text: "Tell me more", prompt: "Can you tell me more about that?" },
+                { text: "What do you mean?", prompt: "What do you mean by that?" },
+                { text: "I have feedback", prompt: "I have feedback" }
+            ],
+            mid: [
+                { text: "What should I do?", prompt: "What should I do?" },
+                { text: "What's the risk?", prompt: "What's the risk if I do nothing?" },
+                { text: "I have feedback", prompt: "I have feedback" }
+            ],
+            late: [
+                { text: "I think I've got it", prompt: "I think I've got what I need" },
+                { text: "Go deeper with Derek", prompt: "I'd like to go deeper with Derek" },
+                { text: "I have feedback", prompt: "I have feedback" }
+            ],
+            derekMentioned: [
+                { text: "Contact Derek", prompt: "__CONTACT_FORM__" },
+                { text: "Keep talking", prompt: "Let's keep talking for now" },
+                { text: "I have feedback", prompt: "I have feedback" }
+            ]
+        };
+
+        function getPromptStage() {
+            if (derekMentioned) return 'derekMentioned';
+            if (exchangeCount === 0) return 'start';
+            if (exchangeCount <= 3) return 'early';
+            if (exchangeCount <= 6) return 'mid';
+            return 'late';
+        }
+
+        function updatePrompts() {
+            const stage = getPromptStage();
+            const currentPrompts = promptSets[stage];
+
+            prompts.innerHTML = '';
+            currentPrompts.forEach(p => {
+                const chip = document.createElement('button');
+                chip.className = 'prompt-chip';
+                chip.setAttribute('data-prompt', p.prompt);
+                chip.setAttribute('aria-label', `Ask: ${p.text}`);
+                chip.textContent = p.text;
+                chip.addEventListener('click', () => {
+                    if (p.prompt === '__CONTACT_FORM__') {
+                        showInlineContactForm();
+                    } else {
+                        input.value = p.prompt;
+                        sendMessage();
+                    }
+                });
+                prompts.appendChild(chip);
+            });
+
+            prompts.classList.remove('hidden');
+        }
+
+        function checkForDerekMention(response) {
+            const lowerResponse = response.toLowerCase();
+            if (lowerResponse.includes('claudewill.io/derek') ||
+                lowerResponse.includes('contact form') ||
+                lowerResponse.includes('derek works with people') ||
+                lowerResponse.includes('derek handles that')) {
+                derekMentioned = true;
+                updatePrompts();
+            }
+        }
 
         // Generate or retrieve session ID
         let sessionId = sessionStorage.getItem('cw-session-id');
@@ -568,7 +818,7 @@
             sessionId = Date.now().toString(36) + Math.random().toString(36).substr(2);
             sessionStorage.setItem('cw-session-id', sessionId);
         }
-        
+
         // Conditions based on time (internal, not shown to user)
         function setCondition() {
             const hour = new Date().getHours();
@@ -652,9 +902,16 @@
         async function sendMessage() {
             const text = input.value.trim();
             if (!text) return;
-            
-            // Hide prompts after first message
-            hidePrompts();
+
+            // Honeypot check - if filled, silently reject (bot detected)
+            if (honeypot && honeypot.value) {
+                input.value = '';
+                return;
+            }
+
+            // Increment exchange count and update prompts
+            exchangeCount++;
+            updatePrompts();
             
             // Check if conversation was ended
             if (conversationEnded) {
@@ -702,20 +959,24 @@
                 } else {
                     const cwResponse = data.response;
                     addMessage('cw', cwResponse);
-                    
+
                     // Add CW response to history
                     conversationHistory.push({
                         role: 'assistant',
                         content: cwResponse
                     });
-                    
+
+                    // Check if CW mentioned Derek/contact form
+                    checkForDerekMention(cwResponse);
+
                     // Check if CW ended the conversation
-                    if (cwResponse.toLowerCase().includes("we're done here") || 
+                    if (cwResponse.toLowerCase().includes("we're done here") ||
                         cwResponse.toLowerCase().includes("we are done here")) {
                         conversationEnded = true;
                         input.disabled = true;
                         send.disabled = true;
                         input.placeholder = "Conversation ended.";
+                        prompts.classList.add('hidden');
                         return;
                     }
                 }
@@ -745,19 +1006,76 @@
             input.style.height = Math.min(input.scrollHeight, 150) + 'px';
         });
         
-        // Prompt chip handlers
+        // Initial prompt chip handlers (will be replaced by updatePrompts)
         document.querySelectorAll('.prompt-chip').forEach(chip => {
             chip.addEventListener('click', () => {
                 input.value = chip.dataset.prompt;
                 sendMessage();
             });
         });
-        
-        // Hide prompts after first user message
-        function hidePrompts() {
+
+        // Inline contact form
+        function showInlineContactForm() {
+            // Hide prompts while form is shown
             prompts.classList.add('hidden');
+
+            const formHtml = `
+                <div class="message cw">
+                    <div class="message-label">CW</div>
+                    <div class="message-text">
+                        <form id="inline-contact-form" style="margin-top: 0.5rem;">
+                            <div style="margin-bottom: 0.75rem;">
+                                <input type="text" name="name" placeholder="Your name" required
+                                    style="width: 100%; padding: 0.5rem; background: var(--input-bg); border: 1px solid var(--border); color: var(--text); font-family: inherit; font-size: 0.9rem;">
+                            </div>
+                            <div style="margin-bottom: 0.75rem;">
+                                <input type="email" name="email" placeholder="Your email" required
+                                    style="width: 100%; padding: 0.5rem; background: var(--input-bg); border: 1px solid var(--border); color: var(--text); font-family: inherit; font-size: 0.9rem;">
+                            </div>
+                            <div style="margin-bottom: 0.75rem;">
+                                <textarea name="message" placeholder="What would you like to discuss with Derek?" rows="3" required
+                                    style="width: 100%; padding: 0.5rem; background: var(--input-bg); border: 1px solid var(--border); color: var(--text); font-family: inherit; font-size: 0.9rem; resize: vertical;"></textarea>
+                            </div>
+                            <input type="hidden" name="form-name" value="inline-contact">
+                            <button type="submit" style="background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 0.5rem 1rem; font-family: inherit; font-size: 0.85rem; cursor: pointer;">Send to Derek</button>
+                            <button type="button" id="cancel-contact" style="background: transparent; border: 1px solid var(--border); color: var(--dim); padding: 0.5rem 1rem; font-family: inherit; font-size: 0.85rem; cursor: pointer; margin-left: 0.5rem;">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            `;
+
+            chat.insertAdjacentHTML('beforeend', formHtml);
+            chat.scrollTop = chat.scrollHeight;
+
+            const form = document.getElementById('inline-contact-form');
+            const cancelBtn = document.getElementById('cancel-contact');
+
+            cancelBtn.addEventListener('click', () => {
+                form.closest('.message').remove();
+                updatePrompts();
+            });
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = new FormData(form);
+
+                try {
+                    await fetch('/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams(formData).toString()
+                    });
+
+                    form.closest('.message').remove();
+                    addMessage('cw', "Message sent. Derek will be in touch.");
+                    updatePrompts();
+                } catch (error) {
+                    addMessage('cw', "Couldn't send that. Try the form at claudewill.io/derek.", true);
+                    updatePrompts();
+                }
+            });
         }
-        
+
         input.focus();
 
         // About modal

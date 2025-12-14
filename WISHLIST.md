@@ -4,49 +4,83 @@ Future features and improvements. Not promises - just ideas worth exploring, ord
 
 ---
 
-## Roadmap Order
+## Completed (Dec 14, 2024)
 
-Each item builds infrastructure that makes the next one easier.
+### Smarter Hallucination Prevention v2
+**Status:** Complete
 
-### 1. Smarter Hallucination Prevention
-**Complexity:** Small
-**Status:** v1 complete (Dec 13, 2024)
+- Stories are now earned, not given freely ("I'll swap stories once I know what brought you here")
+- Graceful redirect for unknown facts ("Vernie kept all that in her head, not me")
+- Minnesota Nice protection mode - helpful but not naive
+- Detects when visitors are probing for information vs. seeking help
 
-**What's done:**
-- Added explicit family member names (Albert David Simmons, Charlton Jackson Simmons)
-- Added instruction to never claim "I don't hallucinate"
-- Strengthened guardrails against mixing up family member details
-- Corrected Derek's father Donald (divorced, not deceased)
+### Inline Contact Form
+**Status:** Complete
 
-**What's next:**
-- More graceful acknowledgment of known vs unknown facts
-- Consider confidence indicators in responses
+- Contact form renders directly in chat when someone clicks "Contact Derek"
+- No navigation away from conversation
+- Form submits via Netlify Forms
+- Cancel option returns to chat
 
-**Why first:** Polish the core experience. No new infrastructure needed, just system prompt refinement.
+### Contextual Prompt Chips
+**Status:** Complete
+
+Prompt chips stay visible and change based on conversation stage:
+- **Start (0 messages):** "Who are you?" · "I'm stuck" · "Help me decide" · "What's the catch?"
+- **Early (1-3):** "Tell me more" · "What do you mean?" · "I have feedback"
+- **Mid (4-6):** "What should I do?" · "What's the risk?" · "I have feedback"
+- **Late (7+):** "I think I've got it" · "Go deeper with Derek" · "I have feedback"
+- **Derek mentioned:** "Contact Derek" · "Keep talking" · "I have feedback"
+
+### Smarter Contact Routing
+**Status:** Complete
+
+- CW now offers Derek proactively after 5+ meaningful exchanges
+- Framed as option, not redirect
+- Conversation rhythm: natural close at 6-8 exchanges, wrap up at 10-12
+
+### Age Gate & Bot Protection
+**Status:** Complete
+
+- Age verification gate on first visit (18+ or 13+ with parental consent)
+- Honeypot field for bot detection
+- Session-based (once per visit)
+
+### /about Page
+**Status:** Complete
+
+- CW Strategies: What it is, four-month engagement model
+- The CW Standard: Five principles with explanations
+- About CW: The grandfather, why this exists
+- Cross-linked from modal, /derek, and footer
+
+### SEO/GEO Foundation
+**Status:** Complete
+
+- Updated sitemap.xml for new minimal site structure
+- robots.txt with explicit AI crawler permissions (GPTBot, Perplexity, etc.)
+- Schema.org structured data on all pages:
+  - WebApplication (CW)
+  - Organization (The CW Standard / CW Strategies)
+  - Person (Derek Simmons)
+  - DefinedTermSet (The five principles)
+- Enhanced meta tags and canonical URLs
+
+### Conversation Limits
+**Status:** Complete
+
+- Message limit lowered from 20 to 12
+- Natural conversation arc built into system prompt
 
 ---
 
-### 2. Inline Contact Form
-**Complexity:** Medium
-**Status:** Not started
-
-When someone asks to contact Derek, CW renders a contact form directly in the chat instead of linking away. User fills it out without leaving the conversation.
-
-**Why second:** Better UX for existing flow. The Netlify form already exists on /derek - this just brings it into the chat.
-
----
+## Future Roadmap
 
 ### 3. Session Memory
 **Complexity:** Medium
-**Status:** Not started
+**Status:** Parked (not needed for porch model)
 
-Remember returning visitors across sessions. "Good to see you again."
-
-**Implementation options:**
-- localStorage (simple, client-side only)
-- Supabase (already set up for logging)
-
-**Why third:** Adds persistence layer that unlocks Family Mode and better Analytics.
+Remember returning visitors across sessions. Decided against for now - CW is a porch conversation, not a daily assistant. May revisit for Family Mode.
 
 ---
 
@@ -60,8 +94,6 @@ A richer mode for family members who want to talk to grandpa about family histor
 - Names and details of the 11 children
 - Vernie's stories (she was the family historian)
 
-**Why fourth:** Builds on Session Memory - could detect family members or provide a toggle.
-
 **Note:** Requires careful curation of family facts to avoid hallucination.
 
 ---
@@ -72,8 +104,6 @@ A richer mode for family members who want to talk to grandpa about family histor
 
 Visual dashboard for conversation insights instead of raw SQL queries.
 
-**Why fifth:** Builds on existing Supabase data. SQL queries already written in ANALYTICS_QUERIES.md.
-
 ---
 
 ### 6. Voice Interface
@@ -82,9 +112,7 @@ Visual dashboard for conversation insights instead of raw SQL queries.
 
 Let people talk to CW instead of typing. Would feel more like a real conversation.
 
-**Implementation:** Web Speech API (browser native) or Whisper API (Anthropic/OpenAI)
-
-**Why sixth:** Independent feature, doesn't depend on earlier items but is technically complex.
+**Implementation:** Web Speech API (browser native) or Whisper API
 
 ---
 
@@ -94,8 +122,6 @@ Let people talk to CW instead of typing. Would feel more like a real conversatio
 
 CW for practical advice. Vernie for family history. Others TBD.
 
-**Why last:** Most complex - requires routing logic, separate system prompts, UI changes. Family Mode is a stepping stone.
-
 ---
 
 ## Experiments (No Order)
@@ -103,6 +129,9 @@ CW for practical advice. Vernie for family history. Others TBD.
 ### The CW Standard as Framework
 Package the five principles into a reusable framework for other AI implementations.
 
+### Dedicated /cw-standard Page
+Consider a standalone page for better SEO/GEO authority on "The CW Standard" term.
+
 ---
 
-*Last updated: December 13, 2024*
+*Last updated: December 14, 2024*
