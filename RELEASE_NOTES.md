@@ -1,5 +1,49 @@
 # CW Release Notes
 
+## v1.1.0 — December 14, 2024
+
+**Jan 6 Launch Prep**
+
+Safety, UX, and SEO/GEO improvements ahead of the Jan 6, 2025 launch.
+
+---
+
+### Safety & Verification
+
+- **Age gate**: Visitors confirm 18+ (or 13+ with parental consent) before first message
+- **Honeypot field**: Hidden input catches bots
+- **Minnesota Nice protection**: CW is helpful but not naive — detects probing, protects Derek's personal info
+- **Story guarding**: CW earns stories through conversation, doesn't give them to strangers
+
+### UX Improvements
+
+- **Contextual prompt chips**: Prompts stay visible and change by conversation stage (Start → Early → Mid → Late → Derek mentioned)
+- **Inline contact form**: "Contact Derek" renders a form in the chat instead of navigating away
+- **Natural conversation arc**: CW wraps up naturally at 6-8 exchanges, closes at 10-12
+- **Message limit**: Lowered from 20 to 12 per conversation
+
+### New Content
+
+- **/about page**: CW Strategies + The CW Standard (5 principles) + About CW
+- **About modal**: Now links to /about for deeper context
+- **/derek page**: Links to /about from "The CW Standard" mention
+
+### System Prompt Updates
+
+- Stories earned, not given freely ("I'll swap stories once I know what brought you here")
+- Graceful hallucination handling ("Vernie kept all that in her head, not me")
+- Smarter contact routing (offer Derek after 5+ meaningful exchanges)
+- Conversation rhythm guidance for natural close
+
+### SEO/GEO
+
+- **Schema.org**: Structured data on all pages (WebApplication, Organization, Person, DefinedTermSet)
+- **Meta tags**: Enhanced titles, descriptions, canonical URLs
+- **sitemap.xml**: Updated for minimal site structure
+- **robots.txt**: Explicit AI crawler permissions (GPTBot, Perplexity, anthropic-ai, etc.)
+
+---
+
 ## v1.0.1 — December 13, 2024
 
 **Pre-launch Fixes**

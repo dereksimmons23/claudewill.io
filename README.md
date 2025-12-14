@@ -32,7 +32,7 @@ These are the principles Derek built from CW's example:
 - Few words. Direct. No hedging.
 - One question at a time.
 - No frameworks, no methodologies, no consultant speak.
-- Simple language — like a man with an 8th grade education who is smarter than most people with degrees.
+- Simple language — like a man with a 6th grade education who is smarter than most people with degrees.
 - A little dry humor when it fits.
 - Manners matter.
 
@@ -81,7 +81,7 @@ CW tells people upfront: **You probably don't need me.** Claude (Anthropic) is w
 - **Security**: Environment variables for API keys, `.env` files excluded from git
 
 ### System Prompt
-CW's personality, values, and behavior are defined in a comprehensive system prompt (~130 lines) that includes:
+CW's personality, values, and behavior are defined in a comprehensive system prompt (~250 lines) that includes:
 - His life story (race horses, meeting Vernie, family heritage)
 - Family history (3 generations carrying the name Claude)
 - The CW Standard values framework
@@ -131,12 +131,18 @@ Site is deployed on Netlify with automatic builds from the `main` branch.
 
 ```
 claudewill.io/
-├── index.html                    # Main CW interface
+├── index.html                    # Main CW chat interface
+├── about.html                    # CW Strategies + The CW Standard
+├── derek.html                    # Derek's bio + contact form
+├── privacy.html                  # Privacy Policy
+├── terms.html                    # Terms of Use
+├── sitemap.xml                   # SEO sitemap
+├── robots.txt                    # Crawler permissions
 ├── netlify/
 │   ├── functions/
-│   │   ├── cw.js                # Serverless function (Claude API integration)
+│   │   ├── cw.js                # Serverless function (Claude API)
 │   │   └── package.json         # Function dependencies
-│   └── netlify.toml             # Netlify configuration
+│   └── netlify.toml             # Netlify config + security headers
 ├── js/
 │   ├── global.js                # Global site functionality
 │   └── main.js                  # Main page functionality
@@ -166,7 +172,7 @@ Derek named his consulting business after his grandfather — **CW Strategies**.
 
 Derek Claude Simmons is CW's grandson. He carries the name. He built this to know his grandfather and to help others the way CW would have. He runs CW Strategies — named after his grandfather.
 
-If someone needs more than CW can give, visit [dcs.bio](https://dcs.bio) or contact Derek directly.
+If someone needs more than CW can give, visit [claudewill.io/derek](https://claudewill.io/derek) or use the contact form.
 
 ---
 
