@@ -2,10 +2,80 @@
 
 ---
 
-## Session: December 13, 2025
+## Session: December 13, 2024 (Evening)
 
 **Branch:** `main`
-**Launch Date:** January 6, 2026 (CW's 123rd birthday)
+**Launch Date:** January 6, 2025 (CW's 122nd birthday)
+
+### Completed Today
+
+**Hallucination Prevention (v1):**
+- ✅ Fixed Albert's name: Added "Albert David Simmons" (was hallucinating "Albert Jackson Simmons")
+- ✅ Added instruction to never claim "I don't hallucinate" — now says "I do my best. When I'm wrong, tell me."
+- ✅ Strengthened guardrails against mixing up family member details
+- ✅ Corrected Derek's father Donald (divorced when Derek was 4, not deceased)
+
+**UI Bug Fix:**
+- ✅ Fixed chat scroll on laptop — messages were becoming unscrollable after a few exchanges
+- ✅ Added `min-height: 0` to flex child and `overflow: hidden` to container
+
+**Documentation:**
+- ✅ Updated WISHLIST.md — hallucination prevention now "v1 complete"
+- ✅ Updated RELEASE_NOTES.md — added v1.0.1 with fixes
+- ✅ Fixed launch year (2025, not 2026) and birthday count (122nd)
+
+### Commits Today
+```
+cc614eb6 fix: correct Derek's father details
+7ded113c fix: prevent hallucinations and restore chat scroll
+```
+
+### Still Ready for Jan 6 Launch
+- ✅ Core chat experience
+- ✅ Security hardened
+- ✅ Hallucination prevention v1 complete
+- ✅ Documentation complete
+- ✅ LinkedIn post drafted
+
+---
+
+## Quick Start for Next Session
+
+```bash
+cd /Users/dereksimmons/Desktop/claudewill.io
+claude
+```
+
+Then say: "cw" — or provide more context:
+
+**Before Jan 6:**
+- "cw - ready to launch, need to post to LinkedIn"
+- "cw - want to debug the porch light glow"
+- "cw - testing with family before launch"
+
+**After Jan 6:**
+- "cw - launched, reviewing feedback"
+- "cw - continuing post-MVP roadmap"
+
+---
+
+**What's done:**
+- Security hardened
+- Hallucination prevention v1
+- Docs complete (README, RELEASE_NOTES, LINKEDIN_LAUNCH_POST)
+- Post-MVP roadmap ordered
+
+**What's left:**
+- Post LinkedIn (Jan 6)
+- Debug porch light (optional)
+- Celebrate the launch
+
+---
+
+## Session: December 13, 2024 (Earlier)
+
+**Branch:** `main`
+**Launch Date:** January 6, 2025 (CW's 122nd birthday)
 
 ### Completed Today
 

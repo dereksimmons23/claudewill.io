@@ -10,9 +10,17 @@ Each item builds infrastructure that makes the next one easier.
 
 ### 1. Smarter Hallucination Prevention
 **Complexity:** Small
-**Status:** Not started
+**Status:** v1 complete (Dec 13, 2024)
 
-Current approach redirects unknown family questions. Could be more graceful - acknowledge what's known, redirect what isn't.
+**What's done:**
+- Added explicit family member names (Albert David Simmons, Charlton Jackson Simmons)
+- Added instruction to never claim "I don't hallucinate"
+- Strengthened guardrails against mixing up family member details
+- Corrected Derek's father Donald (divorced, not deceased)
+
+**What's next:**
+- More graceful acknowledgment of known vs unknown facts
+- Consider confidence indicators in responses
 
 **Why first:** Polish the core experience. No new infrastructure needed, just system prompt refinement.
 
@@ -97,4 +105,4 @@ Package the five principles into a reusable framework for other AI implementatio
 
 ---
 
-*Last updated: December 2024*
+*Last updated: December 13, 2024*

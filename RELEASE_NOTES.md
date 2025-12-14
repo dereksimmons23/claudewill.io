@@ -1,8 +1,30 @@
 # CW Release Notes
 
-## v1.0.0 — January 6, 2026
+## v1.0.1 — December 13, 2024
 
-**CW's 123rd Birthday Launch**
+**Pre-launch Fixes**
+
+Bug fixes and system prompt improvements discovered during testing.
+
+---
+
+### Fixes
+
+**Hallucination Prevention**
+- Added explicit family member names to system prompt (Albert David Simmons, Charlton Jackson Simmons)
+- Added instruction to never claim "I don't hallucinate" — CW now says "I do my best. When I'm wrong, tell me."
+- Strengthened guardrails to prevent mixing up family member details
+- Corrected Derek's father Donald (divorced when Derek was 4, not deceased)
+
+**UI Bug**
+- Fixed chat scroll on laptop — messages were becoming unscrollable after a few exchanges
+- Added `min-height: 0` to flex child for proper overflow behavior
+
+---
+
+## v1.0.0 — January 6, 2025
+
+**CW's 122nd Birthday Launch**
 
 The first public release of CW, a conversational AI shaped by Claude William Simmons (1903-1967).
 
@@ -91,4 +113,4 @@ Powered by Claude (Anthropic).
 
 ---
 
-*Released January 6, 2026 — CW's 123rd birthday*
+*Releasing January 6, 2025 — CW's 122nd birthday*
