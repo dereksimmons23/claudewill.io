@@ -2,6 +2,52 @@
 
 ---
 
+## Session: December 17, 2024
+
+**Branch:** `main`
+**Launch Date:** January 6, 2026 (CW's 123rd birthday)
+
+### Completed Today
+
+**Fact Corrections:**
+- ✅ Education language: "6th grade" → "never finished high school" (all files)
+- ✅ Launch date: January 6, 2026 (CW's 123rd birthday) - fixed everywhere
+- ✅ Verified: CW birthday Jan 6, 1903; death Aug 10, 1967
+
+**Bug Fixes:**
+- ✅ Desktop scroll bug FIXED - added flex styles to `<main>` element
+- ✅ Porch light glow added - gold bar with condition-aware glow intensity
+
+**Accessibility:**
+- ✅ WCAG AA contrast fix: pages/finding-claude.html (#666 → #999 on dark bg)
+- ✅ Main index.html already compliant with `--dim: #b0b0b0`
+
+**Heritage Content (from ChatGPT):**
+- ✅ Origins card added to /pages/about.html
+- ✅ Vernie's 1985 interview detail added to system prompt
+- ✅ heritage-manuscript-archive.md added to .gitignore
+
+### Commits Today
+```
+f4621152 fix: correct facts and add Origins card
+3e85e277 fix: desktop scroll bug - add flex styles to main element
+35f4bc5f feat: add porch light element with condition-aware glow
+17b04799 fix: improve contrast on finding-claude.html for WCAG AA
+```
+
+### Parked for Later
+- **Netlify bar**: Yellow bar appearing on production site - not blocking, cosmetic
+
+### Ready for Jan 6 Launch
+- ✅ Core chat experience
+- ✅ Facts verified and consistent
+- ✅ Desktop scroll working
+- ✅ Porch light visual element
+- ✅ WCAG AA accessibility
+- ✅ Heritage content integrated
+
+---
+
 ## Session: December 14, 2024
 
 **Branch:** `main`
@@ -47,7 +93,7 @@ bdd82460 docs: update documentation for v1.1.0
 ```
 
 ### Known Issue for Next Session
-- **Desktop scroll bug**: Can't scroll chat on desktop, works on mobile. Removed `overflow: hidden` from `.container` but issue persists. Needs deeper investigation.
+- ~~**Desktop scroll bug**~~: FIXED on Dec 17, 2024 - added flex styles to `<main>` element
 
 ### Ready for Jan 6 Launch
 - ✅ Core chat experience
