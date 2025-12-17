@@ -100,6 +100,56 @@
             height: 100vh;
             overflow: hidden;
         }
+
+        /* Porch light - the warm glow that says someone's home */
+        .porch-light {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 180px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.7) 100%);
+            z-index: 9999;
+            box-shadow:
+                0 0 15px rgba(212, 168, 75, 1),
+                0 0 40px rgba(212, 168, 75, 0.8),
+                0 8px 60px rgba(212, 168, 75, 0.5),
+                0 15px 100px rgba(212, 168, 75, 0.3);
+            transition: box-shadow 0.6s ease, width 0.3s ease;
+        }
+
+        /* Condition-aware porch light intensity */
+        body[data-condition="night"] .porch-light {
+            box-shadow:
+                0 0 30px rgba(212, 168, 75, 0.6),
+                0 4px 40px rgba(212, 168, 75, 0.35),
+                0 8px 80px rgba(212, 168, 75, 0.15);
+        }
+        body[data-condition="dusk"] .porch-light {
+            box-shadow:
+                0 0 25px rgba(212, 168, 75, 0.5),
+                0 4px 35px rgba(212, 168, 75, 0.3),
+                0 8px 70px rgba(212, 168, 75, 0.12);
+        }
+        body[data-condition="dawn"] .porch-light {
+            box-shadow:
+                0 0 22px rgba(212, 168, 75, 0.45),
+                0 4px 32px rgba(212, 168, 75, 0.25),
+                0 8px 65px rgba(212, 168, 75, 0.1);
+        }
+        body[data-condition="storm"] .porch-light {
+            box-shadow:
+                0 0 35px rgba(212, 168, 75, 0.7),
+                0 4px 50px rgba(212, 168, 75, 0.4),
+                0 8px 90px rgba(212, 168, 75, 0.2);
+        }
+
+        /* Mobile: full width porch light above header */
+        @media (max-width: 700px) {
+            .porch-light {
+                width: 100%;
+            }
+        }
         
         .container {
             height: 100vh;
@@ -635,6 +685,9 @@
     </style>
 </head>
 <body>
+    <!-- Porch light -->
+    <div class="porch-light" aria-hidden="true"></div>
+
     <!-- Age Gate -->
     <div class="age-gate" id="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-gate-title">
         <div class="age-gate-content">
