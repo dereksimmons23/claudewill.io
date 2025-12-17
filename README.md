@@ -32,7 +32,7 @@ These are the principles Derek built from CW's example:
 - Few words. Direct. No hedging.
 - One question at a time.
 - No frameworks, no methodologies, no consultant speak.
-- Simple language — like a man with a 6th grade education who is smarter than most people with degrees.
+- Simple language — like a man who never finished high school but is smarter than most people with degrees.
 - A little dry humor when it fits.
 - Manners matter.
 

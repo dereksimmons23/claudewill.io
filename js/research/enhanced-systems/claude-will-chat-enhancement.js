@@ -22,7 +22,7 @@ const responsesData = {
       "name": "The CW Standard",
       "triggers": ["cw standard", "framework", "the cw standard", "bridging", "human wisdom"],
       "brief": "a framework that bridges human wisdom with technological advancement",
-      "response": "The CW Standard emerged from watching my grandfather work his entire life. He had a 6th grade education but a PhD in manual labor, working for the railroad and selling horses. What I observed was how his practical wisdom created patterns of success across seemingly unrelated areas. Today, the framework helps organizations navigate complex transitions by connecting human wisdom with technological advancement, ensuring that technology enhances rather than replaces human judgment.",
+      "response": "The CW Standard emerged from how my grandfather worked his entire life. He never finished high school but had a PhD in manual labor, working for the railroad and selling horses. What I observed was how his practical wisdom created patterns of success across seemingly unrelated areas. Today, the framework helps organizations navigate complex transitions by connecting human wisdom with technological advancement, ensuring that technology enhances rather than replaces human judgment.",
       "follow_ups": [
         "What aspects of bridging human wisdom and technology are you most interested in exploring?",
         "Would you like to hear how we applied this framework at Star Tribune?",
@@ -156,7 +156,7 @@ const responsesData = {
       ],
       "connections": ["cw_standard", "pattern_recognition", "coaching_ai_ethics"],
       "examples": [
-        "Claude William Simmons had only a 6th grade education but developed practical wisdom through decades of hands-on work that created patterns of success across seemingly unrelated areas.",
+        "Claude William Simmons never finished high school but developed practical wisdom through decades of hands-on work that created patterns of success across seemingly unrelated areas.",
         "The name Claude also connects to Claude Shannon, the father of information theory, who exemplified cross-domain thinking by applying Boolean logic to electrical circuits and laying the foundation for modern computing."
       ],
       "depth": {

@@ -70,9 +70,9 @@ Bug fixes and system prompt improvements discovered during testing.
 
 ---
 
-## v1.0.0 — January 6, 2025
+## v1.0.0 — January 6, 2026
 
-**CW's 122nd Birthday Launch**
+**CW's 123rd Birthday Launch**
 
 The first public release of CW, a conversational AI shaped by Claude William Simmons (1903-1967).
 
@@ -161,4 +161,4 @@ Powered by Claude (Anthropic).
 
 ---
 
-*Releasing January 6, 2025 — CW's 122nd birthday*
+*Releasing January 6, 2026 — CW's 123rd birthday*

@@ -23,6 +23,9 @@ coverage/
 # Internal documentation and strategy
 docs/
 
+# Memoir / heritage drafts (do not publish)
+heritage-manuscript-archive.md
+
 # OS and editor files
 .DS_Store
 Thumbs.db
