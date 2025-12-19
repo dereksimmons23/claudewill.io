@@ -4,7 +4,7 @@
 
 **Jan 6 Launch Prep**
 
-Safety, UX, and SEO/GEO improvements ahead of the Jan 6, 2025 launch.
+Safety, UX, and SEO/GEO improvements ahead of the Jan 6, 2026 launch.
 
 ---
 
@@ -44,7 +44,7 @@ Safety, UX, and SEO/GEO improvements ahead of the Jan 6, 2025 launch.
 
 ### Known Issues
 
-- **Desktop scroll**: Chat area doesn't scroll on desktop browsers (works on mobile). Under investigation.
+- ~~**Desktop scroll**: Fixed Dec 17, 2024 — added flex styles to `<main>` element~~
 
 ---
 
