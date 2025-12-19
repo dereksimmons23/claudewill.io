@@ -177,7 +177,21 @@
             text-shadow: 0 0 40px rgba(212, 168, 75, 0.4);
             transition: text-shadow 0.6s ease;
         }
-        
+
+        .tagline {
+            font-size: 0.95rem;
+            color: var(--dim);
+            margin-top: 0.5rem;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            opacity: 0;
+            animation: fadeIn 0.8s ease 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
         .condition {
             font-size: 0.75rem;
             color: #999;
@@ -468,6 +482,7 @@
                 padding: 1.5rem 0 1rem;
             }
             .wordmark { font-size: 1.75rem; }
+            .tagline { font-size: 0.85rem; margin-top: 0.35rem; }
             .chat-area {
                 padding: 1.5rem 0;
                 min-height: 40vh;
@@ -702,7 +717,10 @@
 
     <div class="container">
         <header class="header" role="banner">
-            <h1 class="wordmark">CW</h1>
+            <div>
+                <h1 class="wordmark">CW</h1>
+                <p class="tagline" id="tagline"></p>
+            </div>
             <button class="about-link" id="about-btn" aria-label="About CW">About</button>
         </header>
 
@@ -904,6 +922,30 @@
         }
         
         setCondition();
+
+        // Set tagline based on first visit vs returning + condition
+        function setTagline() {
+            const taglineEl = document.getElementById('tagline');
+            const hasVisited = localStorage.getItem('cw-has-visited');
+
+            if (!hasVisited) {
+                // First visit: the hook
+                taglineEl.textContent = 'Before there was Claude AI, there was Claude William.';
+                localStorage.setItem('cw-has-visited', 'true');
+            } else {
+                // Returning visitor: condition-based
+                const taglines = {
+                    dawn: "The porch light's on. He's up early.",
+                    clear: "He's on the porch. Got a minute?",
+                    dusk: "Still here. Pull up a chair.",
+                    night: "Late night? He's been there.",
+                    storm: "Good night to sit and think."
+                };
+                taglineEl.textContent = taglines[currentCondition] || taglines.clear;
+            }
+        }
+
+        setTagline();
 
         // Show CW's greeting on load
         addMessage('cw', getGreeting());
