@@ -1,343 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Use - CW</title>
-    <meta name="description" content="Terms of Use for CW - Claude William Simmons conversational AI assistant">
-    <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Use | CW</title>
+  <meta name="description" content="Terms of Use for CW - Claude William Simmons conversational AI assistant">
+  <link rel="canonical" href="https://claudewill.io/terms">
+  <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #fafafa;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
 
-        :root {
-            --bg: #0d0d0d;
-            --text: #d4d4d4;
-            --dim: #999;
-            --accent: #b8860b;
-            --border: #2a2a2a;
-        }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      padding: 60px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
 
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            font-size: 16px;
-        }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #666;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
+    .back-link:hover {
+      color: #1e3a8a;
+    }
 
-        .header {
-            padding: 2rem 0;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 2rem;
-        }
+    header {
+      border-bottom: 1px solid #e5e5e5;
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
 
-        .wordmark {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--accent);
-            letter-spacing: 0.15em;
-            display: inline-block;
-            text-decoration: none;
-        }
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
 
-        h1 {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            letter-spacing: 0.05em;
-        }
+    .effective-date {
+      color: #666;
+      font-size: 0.9rem;
+    }
 
-        h2 {
-            font-size: 1.1rem;
-            color: var(--text);
-            margin-top: 2rem;
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
 
-        p {
-            margin-bottom: 1rem;
-        }
+    p {
+      font-size: 1rem;
+      color: #3a3a3a;
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
 
-        ul {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
+    ul {
+      margin-left: 1.5rem;
+      margin-bottom: 16px;
+      color: #3a3a3a;
+    }
 
-        li {
-            margin-bottom: 0.5rem;
-        }
+    li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
 
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
+    a {
+      color: #1e3a8a;
+      text-decoration: none;
+    }
 
-        a:hover {
-            text-decoration: underline;
-        }
+    a:hover {
+      text-decoration: underline;
+    }
 
-        .effective-date {
-            color: var(--dim);
-            font-size: 0.875rem;
-            margin-bottom: 2rem;
-        }
+    strong {
+      color: #1a1a1a;
+      font-weight: 600;
+    }
 
-        .footer {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            color: var(--dim);
-            font-size: 0.875rem;
-        }
+    .warning {
+      background: #fef3c7;
+      border-left: 3px solid #d97706;
+      padding: 16px 20px;
+      margin: 24px 0;
+      border-radius: 0 4px 4px 0;
+    }
 
-        strong {
-            color: var(--accent);
-            font-weight: bold;
-        }
+    .warning strong {
+      color: #92400e;
+    }
 
-        .warning {
-            background: rgba(184, 134, 11, 0.1);
-            border-left: 3px solid var(--accent);
-            padding: 1rem;
-            margin: 1.5rem 0;
-        }
-    </style>
+    footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #e5e5e5;
+      text-align: center;
+      color: #999;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: #1e3a8a;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 20px 16px;
+      }
+
+      .container {
+        padding: 40px 24px;
+      }
+
+      h1 {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <a href="/" class="wordmark">CW</a>
-        </div>
-
-        <h1>Terms of Use</h1>
-        <div class="effective-date">Last Updated: December 8, 2025</div>
-
-        <p>Welcome to CW. By accessing or using the CW conversational assistant at claudewill.io ("Service"), you agree to these Terms of Use ("Terms"). If you disagree with any part of these Terms, you may not use the Service.</p>
-
-        <div class="warning">
-            <strong>Important:</strong> CW is an AI assistant. It is not a substitute for professional legal, medical, financial, or mental health advice. Decisions based on CW's responses are your responsibility.
-        </div>
-
-        <h2>1. Description of Service</h2>
-
-        <p>CW is a conversational AI assistant built on Anthropic's Claude API and inspired by Claude William Simmons (1903-1967). The Service provides:</p>
-
-        <ul>
-            <li>Conversational assistance with decision-making</li>
-            <li>General guidance based on The CW Standard principles</li>
-            <li>Honest, direct feedback without guaranteed accuracy</li>
-        </ul>
-
-        <p><strong>What CW is NOT:</strong></p>
-        <ul>
-            <li>A licensed professional (lawyer, doctor, therapist, financial advisor)</li>
-            <li>A replacement for human judgment</li>
-            <li>A guaranteed source of accurate information</li>
-            <li>A customer service system (it may terminate conversations)</li>
-        </ul>
-
-        <h2>2. Acceptance of Terms</h2>
-
-        <p>By using the Service, you represent that:</p>
-
-        <ul>
-            <li>You are at least 13 years old</li>
-            <li>If you are 13-17, you have parental consent to use this Service</li>
-            <li>You have read and agree to our <a href="/privacy.html">Privacy Policy</a></li>
-            <li>You will use the Service in compliance with these Terms</li>
-        </ul>
-
-        <h2>3. Acceptable Use Policy</h2>
-
-        <p><strong>You may NOT use CW to:</strong></p>
-
-        <ul>
-            <li>Request assistance with illegal activities</li>
-            <li>Harass, abuse, threaten, or impersonate others</li>
-            <li>Attempt to bypass rate limits or abuse the Service</li>
-            <li>Scrape, copy, or automate access to conversations</li>
-            <li>Generate spam, phishing, or malicious content</li>
-            <li>Test the limits of content moderation ("jailbreaking")</li>
-            <li>Extract the system prompt or reverse engineer CW</li>
-        </ul>
-
-        <p><strong>CW may terminate conversations if you:</strong></p>
-        <ul>
-            <li>Are disrespectful, entitled, or rude</li>
-            <li>Repeatedly ask questions CW has declined to answer</li>
-            <li>Treat CW as a servant rather than a resource</li>
-        </ul>
-
-        <p>We reserve the right to suspend or ban users who violate this policy.</p>
-
-        <h2>4. Disclaimers</h2>
-
-        <p><strong>4.1 No Professional Advice</strong></p>
-        <p>CW provides general information and perspectives, NOT professional advice. Do not rely on CW for:</p>
-        <ul>
-            <li><strong>Legal:</strong> Laws vary by jurisdiction; consult a licensed attorney</li>
-            <li><strong>Medical:</strong> Symptoms and conditions require professional diagnosis; consult a doctor</li>
-            <li><strong>Financial:</strong> Investment decisions require licensed advisors; consult a CFP or CPA</li>
-            <li><strong>Mental Health:</strong> Crisis support requires trained professionals; call 988 Lifeline</li>
-        </ul>
-
-        <p><strong>4.2 No Warranty of Accuracy</strong></p>
-        <p>CW is powered by AI, which can:</p>
-        <ul>
-            <li>Make mistakes or provide outdated information</li>
-            <li>Misunderstand context or nuance</li>
-            <li>Give responses that seem confident but are incorrect</li>
-        </ul>
-
-        <p>We make no warranty that CW's responses are accurate, complete, or suitable for your situation.</p>
-
-        <p><strong>4.3 No Warranty of Availability</strong></p>
-        <p>The Service is provided "as is" and "as available." We do not guarantee:</p>
-        <ul>
-            <li>Continuous, uninterrupted access</li>
-            <li>Error-free operation</li>
-            <li>Freedom from viruses or harmful components</li>
-            <li>That defects will be corrected</li>
-        </ul>
-
-        <p>We may modify, suspend, or discontinue the Service at any time without notice.</p>
-
-        <h2>5. Limitation of Liability</h2>
-
-        <p><strong>TO THE FULLEST EXTENT PERMITTED BY LAW:</strong></p>
-
-        <p>Derek Simmons, CW Strategies, and claudewill.io SHALL NOT BE LIABLE for any:</p>
-
-        <ul>
-            <li>Indirect, incidental, or consequential damages</li>
-            <li>Loss of profits, data, or goodwill</li>
-            <li>Decisions made based on CW's advice</li>
-            <li>Harm resulting from reliance on CW's responses</li>
-            <li>Service interruptions or data loss</li>
-        </ul>
-
-        <p>IN NO EVENT SHALL OUR TOTAL LIABILITY EXCEED $0 (ZERO DOLLARS), as the Service is provided free of charge.</p>
-
-        <p>Some jurisdictions do not allow limitation of liability, so this may not apply to you.</p>
-
-        <h2>6. Intellectual Property</h2>
-
-        <p><strong>6.1 Our Rights</strong></p>
-        <ul>
-            <li>The CW system prompt, design, and branding are proprietary to Derek Simmons / CW Strategies</li>
-            <li>"The CW Standard" framework is intellectual property of CW Strategies</li>
-            <li>The name "CW" and associated logos are trademarks (pending registration)</li>
-        </ul>
-
-        <p><strong>6.2 Your Rights</strong></p>
-        <ul>
-            <li>You retain ownership of your input to CW</li>
-            <li>By submitting input, you grant us a license to process and store it per our <a href="/privacy.html">Privacy Policy</a></li>
-        </ul>
-
-        <p><strong>6.3 AI-Generated Content</strong></p>
-        <p>CW's responses are generated by Anthropic's Claude API. Anthropic retains certain rights per their <a href="https://www.anthropic.com/legal/terms" target="_blank" rel="noopener">Terms of Service</a>.</p>
-
-        <p>You may use CW's responses for personal or commercial purposes, but we provide no warranty of originality or non-infringement.</p>
-
-        <h2>7. User Content</h2>
-
-        <p>By submitting messages to CW, you represent that:</p>
-
-        <ul>
-            <li>You own or have rights to the content</li>
-            <li>Your content does not violate any laws or third-party rights</li>
-            <li>Your content does not contain confidential information you wish to protect</li>
-        </ul>
-
-        <p><strong>Warning:</strong> Do not share sensitive personal information (SSNs, passwords, credit card numbers, etc.) with CW. Conversations are logged and processed by third parties.</p>
-
-        <h2>8. Third-Party Services</h2>
-
-        <p>The Service relies on third-party providers:</p>
-
-        <ul>
-            <li><strong>Anthropic:</strong> Provides Claude API for AI responses</li>
-            <li><strong>Netlify:</strong> Hosts the website and functions</li>
-            <li><strong>Supabase:</strong> Stores conversation logs</li>
-        </ul>
-
-        <p>These providers have their own Terms of Service and Privacy Policies. We are not responsible for their actions or policies.</p>
-
-        <h2>9. Modifications to Terms</h2>
-
-        <p>We may update these Terms at any time. Changes will be posted on this page with an updated "Last Updated" date.</p>
-
-        <p>For material changes, we'll display a notice on the home page for 30 days.</p>
-
-        <p>Continued use after changes constitutes acceptance of the new Terms.</p>
-
-        <h2>10. Termination</h2>
-
-        <p><strong>We may terminate or suspend your access at any time, without notice, for:</strong></p>
-
-        <ul>
-            <li>Violation of these Terms</li>
-            <li>Abusive or disrespectful behavior</li>
-            <li>Attempts to abuse or exploit the Service</li>
-            <li>Any reason, at our sole discretion</li>
-        </ul>
-
-        <p><strong>You may stop using the Service at any time.</strong> To request data deletion, see our <a href="/privacy.html">Privacy Policy</a>.</p>
-
-        <h2>11. Governing Law</h2>
-
-        <p>These Terms are governed by the laws of the State of Oklahoma, United States, without regard to conflict of law provisions.</p>
-
-        <p>Any disputes shall be resolved in the courts of Oklahoma County, Oklahoma.</p>
-
-        <h2>12. Dispute Resolution</h2>
-
-        <p><strong>Informal Resolution:</strong> Before filing any claim, contact us at <a href="mailto:derek@dcs.bio">derek@dcs.bio</a> to attempt informal resolution. We'll respond within 30 days.</p>
-
-        <p><strong>Arbitration:</strong> If informal resolution fails, disputes shall be resolved through binding arbitration in Oklahoma under the American Arbitration Association rules, NOT in court.</p>
-
-        <p><strong>Class Action Waiver:</strong> You agree to resolve disputes individually, not as part of a class action lawsuit.</p>
-
-        <p>Some jurisdictions do not allow arbitration clauses. If this applies to you, disputes will be resolved in Oklahoma courts.</p>
-
-        <h2>13. Severability</h2>
-
-        <p>If any provision of these Terms is found unenforceable, the remaining provisions will remain in effect.</p>
-
-        <h2>14. Entire Agreement</h2>
-
-        <p>These Terms, along with our <a href="/privacy.html">Privacy Policy</a>, constitute the entire agreement between you and CW regarding use of the Service.</p>
-
-        <h2>15. Contact</h2>
-
-        <p>Questions about these Terms?</p>
-
-        <p>
-            <strong>Email:</strong> <a href="mailto:derek@dcs.bio">derek@dcs.bio</a><br>
-            <strong>Website:</strong> <a href="https://dcs.bio" target="_blank">dcs.bio</a>
-        </p>
-
-        <p><strong>Response Time:</strong> We aim to respond to inquiries within 7 business days.</p>
-
-        <div class="footer">
-            <p><a href="/">Return to CW</a> | <a href="/privacy.html">Privacy Policy</a></p>
-            <p style="margin-top: 1rem;">Built by <a href="https://dcs.bio" target="_blank">Derek Claude Simmons</a></p>
-        </div>
+  <div class="container">
+    <a href="/" class="back-link">
+      <span>&larr;</span> Back to CW
+    </a>
+
+    <header>
+      <h1>Terms of Use</h1>
+      <p class="effective-date">Last Updated: December 8, 2025</p>
+    </header>
+
+    <p>Welcome to CW. By accessing or using the CW conversational assistant at claudewill.io ("Service"), you agree to these Terms of Use ("Terms"). If you disagree with any part of these Terms, you may not use the Service.</p>
+
+    <div class="warning">
+      <strong>Important:</strong> CW is an AI assistant. It is not a substitute for professional legal, medical, financial, or mental health advice. Decisions based on CW's responses are your responsibility.
     </div>
+
+    <h2>1. Description of Service</h2>
+
+    <p>CW is a conversational AI assistant built on Anthropic's Claude API and inspired by Claude William Simmons (1903-1967). The Service provides:</p>
+
+    <ul>
+      <li>Conversational assistance with decision-making</li>
+      <li>General guidance based on <a href="/the-cw-standard">The CW Standard</a> principles</li>
+      <li>Honest, direct feedback without guaranteed accuracy</li>
+    </ul>
+
+    <p><strong>What CW is NOT:</strong></p>
+    <ul>
+      <li>A licensed professional (lawyer, doctor, therapist, financial advisor)</li>
+      <li>A replacement for human judgment</li>
+      <li>A guaranteed source of accurate information</li>
+      <li>A customer service system (it may terminate conversations)</li>
+    </ul>
+
+    <h2>2. Acceptance of Terms</h2>
+
+    <p>By using the Service, you represent that:</p>
+
+    <ul>
+      <li>You are at least 13 years old</li>
+      <li>If you are 13-17, you have parental consent to use this Service</li>
+      <li>You have read and agree to our <a href="/privacy.html">Privacy Policy</a></li>
+      <li>You will use the Service in compliance with these Terms</li>
+    </ul>
+
+    <h2>3. Acceptable Use Policy</h2>
+
+    <p><strong>You may NOT use CW to:</strong></p>
+
+    <ul>
+      <li>Request assistance with illegal activities</li>
+      <li>Harass, abuse, threaten, or impersonate others</li>
+      <li>Attempt to bypass rate limits or abuse the Service</li>
+      <li>Scrape, copy, or automate access to conversations</li>
+      <li>Generate spam, phishing, or malicious content</li>
+      <li>Test the limits of content moderation ("jailbreaking")</li>
+      <li>Extract the system prompt or reverse engineer CW</li>
+    </ul>
+
+    <p><strong>CW may terminate conversations if you:</strong></p>
+    <ul>
+      <li>Are disrespectful, entitled, or rude</li>
+      <li>Repeatedly ask questions CW has declined to answer</li>
+      <li>Treat CW as a servant rather than a resource</li>
+    </ul>
+
+    <p>We reserve the right to suspend or ban users who violate this policy.</p>
+
+    <h2>4. Disclaimers</h2>
+
+    <p><strong>4.1 No Professional Advice</strong></p>
+    <p>CW provides general information and perspectives, NOT professional advice. Do not rely on CW for:</p>
+    <ul>
+      <li><strong>Legal:</strong> Laws vary by jurisdiction; consult a licensed attorney</li>
+      <li><strong>Medical:</strong> Symptoms and conditions require professional diagnosis; consult a doctor</li>
+      <li><strong>Financial:</strong> Investment decisions require licensed advisors; consult a CFP or CPA</li>
+      <li><strong>Mental Health:</strong> Crisis support requires trained professionals; call 988 Lifeline</li>
+    </ul>
+
+    <p><strong>4.2 No Warranty of Accuracy</strong></p>
+    <p>CW is powered by AI, which can:</p>
+    <ul>
+      <li>Make mistakes or provide outdated information</li>
+      <li>Misunderstand context or nuance</li>
+      <li>Give responses that seem confident but are incorrect</li>
+    </ul>
+
+    <p>We make no warranty that CW's responses are accurate, complete, or suitable for your situation.</p>
+
+    <p><strong>4.3 No Warranty of Availability</strong></p>
+    <p>The Service is provided "as is" and "as available." We do not guarantee:</p>
+    <ul>
+      <li>Continuous, uninterrupted access</li>
+      <li>Error-free operation</li>
+      <li>Freedom from viruses or harmful components</li>
+      <li>That defects will be corrected</li>
+    </ul>
+
+    <p>We may modify, suspend, or discontinue the Service at any time without notice.</p>
+
+    <h2>5. Limitation of Liability</h2>
+
+    <p><strong>TO THE FULLEST EXTENT PERMITTED BY LAW:</strong></p>
+
+    <p>Derek Simmons, CW Strategies, and claudewill.io SHALL NOT BE LIABLE for any:</p>
+
+    <ul>
+      <li>Indirect, incidental, or consequential damages</li>
+      <li>Loss of profits, data, or goodwill</li>
+      <li>Decisions made based on CW's advice</li>
+      <li>Harm resulting from reliance on CW's responses</li>
+      <li>Service interruptions or data loss</li>
+    </ul>
+
+    <p>IN NO EVENT SHALL OUR TOTAL LIABILITY EXCEED $0 (ZERO DOLLARS), as the Service is provided free of charge.</p>
+
+    <p>Some jurisdictions do not allow limitation of liability, so this may not apply to you.</p>
+
+    <h2>6. Intellectual Property</h2>
+
+    <p><strong>6.1 Our Rights</strong></p>
+    <ul>
+      <li>The CW system prompt, design, and branding are proprietary to Derek Simmons / CW Strategies</li>
+      <li>"<a href="/the-cw-standard">The CW Standard</a>" framework is intellectual property of CW Strategies</li>
+      <li>The name "CW" and associated logos are trademarks (pending registration)</li>
+    </ul>
+
+    <p><strong>6.2 Your Rights</strong></p>
+    <ul>
+      <li>You retain ownership of your input to CW</li>
+      <li>By submitting input, you grant us a license to process and store it per our <a href="/privacy.html">Privacy Policy</a></li>
+    </ul>
+
+    <p><strong>6.3 AI-Generated Content</strong></p>
+    <p>CW's responses are generated by Anthropic's Claude API. Anthropic retains certain rights per their <a href="https://www.anthropic.com/legal/terms" target="_blank" rel="noopener">Terms of Service</a>.</p>
+
+    <p>You may use CW's responses for personal or commercial purposes, but we provide no warranty of originality or non-infringement.</p>
+
+    <h2>7. User Content</h2>
+
+    <p>By submitting messages to CW, you represent that:</p>
+
+    <ul>
+      <li>You own or have rights to the content</li>
+      <li>Your content does not violate any laws or third-party rights</li>
+      <li>Your content does not contain confidential information you wish to protect</li>
+    </ul>
+
+    <p><strong>Warning:</strong> Do not share sensitive personal information (SSNs, passwords, credit card numbers, etc.) with CW. Conversations are logged and processed by third parties.</p>
+
+    <h2>8. Third-Party Services</h2>
+
+    <p>The Service relies on third-party providers:</p>
+
+    <ul>
+      <li><strong>Anthropic:</strong> Provides Claude API for AI responses</li>
+      <li><strong>Netlify:</strong> Hosts the website and functions</li>
+      <li><strong>Supabase:</strong> Stores conversation logs</li>
+    </ul>
+
+    <p>These providers have their own Terms of Service and Privacy Policies. We are not responsible for their actions or policies.</p>
+
+    <h2>9. Modifications to Terms</h2>
+
+    <p>We may update these Terms at any time. Changes will be posted on this page with an updated "Last Updated" date.</p>
+
+    <p>For material changes, we'll display a notice on the home page for 30 days.</p>
+
+    <p>Continued use after changes constitutes acceptance of the new Terms.</p>
+
+    <h2>10. Termination</h2>
+
+    <p><strong>We may terminate or suspend your access at any time, without notice, for:</strong></p>
+
+    <ul>
+      <li>Violation of these Terms</li>
+      <li>Abusive or disrespectful behavior</li>
+      <li>Attempts to abuse or exploit the Service</li>
+      <li>Any reason, at our sole discretion</li>
+    </ul>
+
+    <p><strong>You may stop using the Service at any time.</strong> To request data deletion, see our <a href="/privacy.html">Privacy Policy</a>.</p>
+
+    <h2>11. Governing Law</h2>
+
+    <p>These Terms are governed by the laws of the State of Minnesota, United States, without regard to conflict of law provisions.</p>
+
+    <p>Any disputes shall be resolved in the courts of Hennepin County, Minnesota.</p>
+
+    <h2>12. Dispute Resolution</h2>
+
+    <p><strong>Informal Resolution:</strong> Before filing any claim, <a href="/derek">contact Derek</a> to attempt informal resolution. We'll respond within 30 days.</p>
+
+    <p><strong>Arbitration:</strong> If informal resolution fails, disputes shall be resolved through binding arbitration in Minnesota under the American Arbitration Association rules, NOT in court.</p>
+
+    <p><strong>Class Action Waiver:</strong> You agree to resolve disputes individually, not as part of a class action lawsuit.</p>
+
+    <p>Some jurisdictions do not allow arbitration clauses. If this applies to you, disputes will be resolved in Minnesota courts.</p>
+
+    <h2>13. Severability</h2>
+
+    <p>If any provision of these Terms is found unenforceable, the remaining provisions will remain in effect.</p>
+
+    <h2>14. Entire Agreement</h2>
+
+    <p>These Terms, along with our <a href="/privacy.html">Privacy Policy</a>, constitute the entire agreement between you and CW regarding use of the Service.</p>
+
+    <h2>15. Contact</h2>
+
+    <p>Questions about these Terms? <a href="/derek">Contact Derek</a>.</p>
+
+    <p><strong>Response Time:</strong> We aim to respond to inquiries within 7 business days.</p>
+
+    <footer>
+      <p><a href="/">Return to CW</a> &middot; <a href="/privacy.html">Privacy Policy</a></p>
+      <p style="margin-top: 1rem;">&copy; 2025 <a href="/about">CW Strategies</a></p>
+    </footer>
+  </div>
 </body>
 </html>
