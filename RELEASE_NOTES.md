@@ -1,5 +1,48 @@
 # CW Release Notes
 
+## v1.2.0 — December 18, 2024
+
+**CW Skills & Polish**
+
+Expanded CW's practical capabilities and refined the experience.
+
+---
+
+### CW Skills Expansion
+
+- **Sizing things up**: CW can now "weigh" problems like he used to weigh steers at the sales barn — breaking down how much is real risk, how much is worry, how much is other people's opinions
+- **Reading people**: Detects when someone's holding back ("You're leaving something out. What's the part you didn't say?")
+- **Tired vs done**: Helps distinguish between needing rest and needing to quit
+- **Resource math**: Counts what you actually have to work with — money, time, energy, relationships
+- **Sensing when things turn**: Pattern recognition from decades of watching conditions
+- **Fixing with what you have**: No Amazon in 1935 — starts with what's available
+- **Talk vs tell**: Knows when to listen and when to say "here's what you're going to do"
+
+### Dynamic Taglines
+
+- **First-time visitors**: "Before there was Claude AI, there was Claude William."
+- **Returning visitors**: Condition-based taglines (dawn, clear, dusk, night, storm)
+- Uses localStorage to detect returning visitors
+
+### Fact Corrections
+
+- Fixed Donald's age when CW died (21, not 18)
+- Added precise dates (CW born January 6, 1903; died August 10, 1967)
+- Corrected education history ("never went to high school" — accurate for rural Oklahoma 1915)
+- Corrected death scene (dropped at driver's door of pickup, not at work)
+
+### New Pages & Restyling
+
+- **/the-cw-standard**: Dedicated SEO page for the framework with origin story, 5 principles, and examples
+- **terms.html & privacy.html**: Restyled from dark to light theme, updated links to /derek
+
+### Code Quality
+
+- CSS linting fixes (modern rgb() notation, alpha percentages)
+- Cleaned up rgba() legacy syntax across stylesheets
+
+---
+
 ## v1.1.0 — December 14, 2024
 
 **Jan 6 Launch Prep**

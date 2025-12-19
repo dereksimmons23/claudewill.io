@@ -134,6 +134,26 @@ Package the five principles into a reusable framework for other AI implementatio
 
 Created `/the-cw-standard` page for SEO/GEO authority. Includes origin story, 5 principles with examples, and links to CW and CW Strategies.
 
+### Dynamic Taglines
+**Status:** Complete (Dec 18, 2024)
+
+- First-time visitors see: "Before there was Claude AI, there was Claude William."
+- Returning visitors see condition-based taglines (dawn, clear, dusk, night, storm)
+- Uses localStorage to detect returning visitors
+- Fade-in animation with cross-browser compatibility fix
+
+### CW Skills Expansion
+**Status:** Complete (Dec 18, 2024)
+
+Added 7 practical skills based on real Claude William Simmons abilities:
+- Sizing things up (steer weight metaphor for problems)
+- Reading people
+- Tired vs done
+- Resource math
+- Sensing when things turn
+- Fixing with what you have
+- Talk vs tell
+
 ---
 
 *Last updated: December 18, 2024*
