@@ -16,24 +16,24 @@
   
   /* Neutrals */
   --text-primary: #1a1a1a;
-  --text-secondary: #666666;
-  --text-tertiary: #999999;
-  --background-primary: #ffffff;
+  --text-secondary: #666;
+  --text-tertiary: #999;
+  --background-primary: #fff;
   --background-secondary: #f8f9fa;
-  --background-card: #ffffff;
+  --background-card: #fff;
   --border-color: #e1e5e9;
-  --shadow-color: rgba(0, 0, 0, 0.1);
-  
+  --shadow-color: rgb(0 0 0 / 10%);
+
   /* Dark Mode */
   --dark-bg-primary: #121212;
   --dark-bg-secondary: #1e1e1e;
   --dark-bg-card: #2d2d2d;
-  --dark-text-primary: #ffffff;
-  --dark-text-secondary: #cccccc;
+  --dark-text-primary: #fff;
+  --dark-text-secondary: #ccc;
   --dark-border: #404040;
-  
+
   /* Typography */
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family: "Inter", -apple-system, blinkmacsystemfont, "Segoe UI", roboto, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -64,10 +64,10 @@
   --radius-xl: 24px;
   
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
-  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.15);
+  --shadow-sm: 0 1px 3px rgb(0 0 0 / 10%);
+  --shadow-md: 0 4px 12px rgb(0 0 0 / 10%);
+  --shadow-lg: 0 8px 24px rgb(0 0 0 / 12%);
+  --shadow-xl: 0 16px 48px rgb(0 0 0 / 15%);
   
   /* Z-Index Scale */
   --z-modal: 1000;
@@ -87,7 +87,7 @@
 
 html {
   font-size: 16px;
-  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   scroll-behavior: smooth;
 }
@@ -166,7 +166,7 @@ button {
 .loading-progress {
   width: 200px;
   height: 4px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgb(255 255 255 / 30%);
   border-radius: 2px;
   margin: 0 auto;
   overflow: hidden;
@@ -335,7 +335,7 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgb(0 0 0 / 90%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -734,7 +734,7 @@ button {
   border-top: 1px solid var(--border-color);
   display: flex;
   padding: var(--space-2) var(--space-2) calc(var(--space-2) + env(safe-area-inset-bottom));
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -4px 12px rgb(0 0 0 / 10%);
   z-index: var(--z-nav);
 }
 
@@ -757,7 +757,7 @@ button {
 
 .nav-item.active {
   color: var(--primary-color);
-  background: rgba(44, 90, 160, 0.1);
+  background: rgb(44 90 160 / 10%);
 }
 
 .nav-icon {
@@ -831,17 +831,17 @@ button {
 
 .toast.success {
   border-color: var(--secondary-color);
-  background: rgba(0, 200, 150, 0.1);
+  background: rgb(0 200 150 / 10%);
 }
 
 .toast.error {
   border-color: var(--accent-color);
-  background: rgba(255, 107, 107, 0.1);
+  background: rgb(255 107 107 / 10%);
 }
 
 .toast.warning {
   border-color: var(--warning-color);
-  background: rgba(255, 167, 38, 0.1);
+  background: rgb(255 167 38 / 10%);
 }
 
 /* ===============================================
@@ -872,7 +872,7 @@ button {
 /* ===============================================
    RESPONSIVE BREAKPOINTS
    =============================================== */
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .dashboard-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -894,7 +894,7 @@ button {
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .dashboard-grid {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -926,6 +926,7 @@ button {
   0%, 100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.1);
   }
@@ -936,10 +937,12 @@ button {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
+
   50% {
     transform: translate(-50%, -50%) scale(1.2);
     opacity: 0.7;
   }
+
   100% {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
@@ -951,6 +954,7 @@ button {
     opacity: 0;
     transform: translateX(20px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -977,8 +981,8 @@ button {
 /* High contrast mode support */
 @media (prefers-contrast: high) {
   :root {
-    --border-color: #000000;
-    --text-secondary: #000000;
+    --border-color: #000;
+    --text-secondary: #000;
   }
 }
 
