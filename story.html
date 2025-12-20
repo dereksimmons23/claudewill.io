@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-991ML96NJ3');
+    </script>
+    <title>The Story | CW's Porch</title>
+    <meta name="description" content="The story of Claude William Simmons (1903-1967), the Blood of Builders, and why his grandson Derek built an AI to carry his voice forward.">
+    <meta property="og:title" content="The Story | CW's Porch">
+    <meta property="og:description" content="The story of Claude William Simmons and the Blood of Builders.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://claudewill.io/story">
+    <link rel="canonical" href="https://claudewill.io/story">
+    <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #000D1A;
+            --text: #e8e8e8;
+            --dim: #b0b0b0;
+            --accent: #d4a84b;
+            --border: #0d2840;
+            --font-body: 'Noto Sans', system-ui, sans-serif;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 18px;
+        }
+
+        /* Porch light */
+        .porch-light {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 180px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.7) 100%);
+            z-index: 9999;
+            box-shadow:
+                0 0 15px rgba(212, 168, 75, 1),
+                0 0 40px rgba(212, 168, 75, 0.8),
+                0 8px 60px rgba(212, 168, 75, 0.5),
+                0 15px 100px rgba(212, 168, 75, 0.3);
+        }
+
+        @media (max-width: 700px) {
+            .porch-light {
+                width: 100%;
+            }
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            padding: 2.5rem 0 2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .wordmark {
+            font-family: var(--font-mono);
+            font-size: 1.75rem;
+            font-weight: bold;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            text-shadow: 0 0 40px rgba(212, 168, 75, 0.4);
+        }
+
+        .wordmark:hover {
+            text-shadow: 0 0 50px rgba(212, 168, 75, 0.6);
+        }
+
+        .back-link {
+            font-size: 0.9rem;
+            color: var(--dim);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        /* Chapter navigation */
+        .chapter-nav {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .chapter-nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+            justify-content: center;
+        }
+
+        .chapter-nav a {
+            color: var(--dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .chapter-nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Main content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .chapter {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .chapter:last-child {
+            margin-bottom: 2rem;
+        }
+
+        .chapter-label {
+            font-size: 0.75rem;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+        }
+
+        .chapter h2 {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .chapter p {
+            margin-bottom: 1.25rem;
+            color: var(--text);
+        }
+
+        .chapter p:last-child {
+            margin-bottom: 0;
+        }
+
+        .chapter .dim {
+            color: var(--dim);
+        }
+
+        .chapter .accent {
+            color: var(--accent);
+        }
+
+        /* Lineage list */
+        .lineage {
+            border-left: 2px solid var(--accent);
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .lineage-item {
+            margin-bottom: 1rem;
+        }
+
+        .lineage-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .lineage-name {
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .lineage-years {
+            color: var(--dim);
+            font-size: 0.9rem;
+        }
+
+        .lineage-note {
+            color: var(--dim);
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Standard principles */
+        .standard-list {
+            margin: 1.5rem 0;
+        }
+
+        .standard-item {
+            margin-bottom: 1.25rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--border);
+        }
+
+        .standard-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .standard-item strong {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Links */
+        .chapter a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .chapter a:hover {
+            text-decoration: underline;
+        }
+
+        /* Separator */
+        .separator {
+            text-align: center;
+            color: var(--dim);
+            margin: 3rem 0;
+            font-size: 0.9rem;
+            letter-spacing: 0.5em;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 2rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer a {
+            color: var(--dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer a:hover {
+            color: var(--accent);
+        }
+
+        .footer-note {
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            color: var(--dim);
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
+            body {
+                font-size: 17px;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .header {
+                padding: 2rem 0 1.5rem;
+            }
+
+            .wordmark {
+                font-size: 1.5rem;
+            }
+
+            .chapter-nav ul {
+                gap: 0.5rem 1rem;
+            }
+
+            .chapter-nav a {
+                font-size: 0.85rem;
+            }
+
+            main {
+                padding: 2rem 0;
+            }
+
+            .chapter {
+                margin-bottom: 3rem;
+            }
+
+            .chapter h2 {
+                font-size: 1.35rem;
+            }
+
+            .footer-links {
+                gap: 1.5rem;
+            }
+        }
+
+        /* Focus states */
+        a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Porch light -->
+    <div class="porch-light" aria-hidden="true"></div>
+
+    <div class="container">
+        <header class="header">
+            <a href="/" class="wordmark">CW</a>
+            <a href="/" class="back-link">Back to CW</a>
+        </header>
+
+        <nav class="chapter-nav" aria-label="Chapter navigation">
+            <ul>
+                <li><a href="#the-man">The Man</a></li>
+                <li><a href="#the-lineage">The Lineage</a></li>
+                <li><a href="#the-standard">The Standard</a></li>
+                <li><a href="#why-this-exists">Why This Exists</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <!-- CHAPTER 1: THE MAN -->
+            <section class="chapter" id="the-man">
+                <div class="chapter-label">Chapter One</div>
+                <h2>The Man</h2>
+
+                <!-- CONTENT PLACEHOLDER -->
+                <p class="dim">[Content: Who CW was. Claude William Simmons. 1903-1967. Oklahoma. The farmer, railroad worker, father of 11. Left school at 13. Could outwork anyone. Direct, no fuss, just help.]</p>
+
+            </section>
+
+            <div class="separator">***</div>
+
+            <!-- CHAPTER 2: THE LINEAGE -->
+            <section class="chapter" id="the-lineage">
+                <div class="chapter-label">Chapter Two</div>
+                <h2>The Blood of Builders</h2>
+
+                <!-- CONTENT PLACEHOLDER -->
+                <p class="dim">[Content: The lineage. The thread that connects them. What "builder" means in this family.]</p>
+
+                <div class="lineage">
+                    <div class="lineage-item">
+                        <div class="lineage-name">Charlton Jackson Simmons</div>
+                        <div class="lineage-years">[years]</div>
+                        <div class="lineage-note">[Orphaned at 13. Raised six siblings. Built 1,100 acres.]</div>
+                    </div>
+                    <div class="lineage-item">
+                        <div class="lineage-name">William Henry Simmons</div>
+                        <div class="lineage-years">[years]</div>
+                        <div class="lineage-note">[note]</div>
+                    </div>
+                    <div class="lineage-item">
+                        <div class="lineage-name">Albert Simmons</div>
+                        <div class="lineage-years">[years]</div>
+                        <div class="lineage-note">[note]</div>
+                    </div>
+                    <div class="lineage-item">
+                        <div class="lineage-name">Claude William Simmons</div>
+                        <div class="lineage-years">1903–1967</div>
+                        <div class="lineage-note">[The anchor. CW.]</div>
+                    </div>
+                    <div class="lineage-item">
+                        <div class="lineage-name">Donald Wayne Simmons</div>
+                        <div class="lineage-years">[years]</div>
+                        <div class="lineage-note">[note]</div>
+                    </div>
+                    <div class="lineage-item">
+                        <div class="lineage-name">Derek Claude Simmons</div>
+                        <div class="lineage-years">[years]</div>
+                        <div class="lineage-note">[The builder of this.]</div>
+                    </div>
+                </div>
+
+            </section>
+
+            <div class="separator">***</div>
+
+            <!-- CHAPTER 3: THE STANDARD -->
+            <section class="chapter" id="the-standard">
+                <div class="chapter-label">Chapter Three</div>
+                <h2>The Standard</h2>
+
+                <!-- CONTENT PLACEHOLDER -->
+                <p class="dim">[Content: Intro to The CW Standard. Five principles built from his example. Not a manifesto — a way of working.]</p>
+
+                <div class="standard-list">
+                    <div class="standard-item">
+                        <strong>[Principle 1]</strong>
+                        <p class="dim">[Description woven into narrative]</p>
+                    </div>
+                    <div class="standard-item">
+                        <strong>[Principle 2]</strong>
+                        <p class="dim">[Description]</p>
+                    </div>
+                    <div class="standard-item">
+                        <strong>[Principle 3]</strong>
+                        <p class="dim">[Description]</p>
+                    </div>
+                    <div class="standard-item">
+                        <strong>[Principle 4]</strong>
+                        <p class="dim">[Description]</p>
+                    </div>
+                    <div class="standard-item">
+                        <strong>[Principle 5]</strong>
+                        <p class="dim">[Description]</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <div class="separator">***</div>
+
+            <!-- CHAPTER 4: WHY THIS EXISTS -->
+            <section class="chapter" id="why-this-exists">
+                <div class="chapter-label">Chapter Four</div>
+                <h2>Why This Exists</h2>
+
+                <!-- CONTENT PLACEHOLDER -->
+                <p class="dim">[Content: Derek built this to know his grandfather. CW died five and a half years before Derek was born. This is an attempt to bridge that gap — and to help others the way CW would have.]</p>
+
+                <p class="dim">[Content: What this is (an AI shaped by CW's values, not a recreation of the man). What it isn't (a replacement, a medium, a perfect memory).]</p>
+
+                <p class="dim">[Content: The launch. January 6, 2026. CW's 123rd birthday.]</p>
+
+                <p><a href="/derek">More about Derek &rarr;</a></p>
+
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="/">Talk to CW</a>
+                <a href="/derek">About Derek</a>
+                <a href="/terms.html">Terms</a>
+                <a href="/privacy.html">Privacy</a>
+            </div>
+            <p class="footer-note">January 6, 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
