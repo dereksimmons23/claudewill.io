@@ -22,7 +22,7 @@
     <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -37,7 +37,8 @@
             --dim: #b0b0b0;
             --accent: #d4a84b;
             --border: #0d2840;
-            --font-body: 'Noto Sans', system-ui, sans-serif;
+            --font-body: 'Noto Serif', Georgia, serif;
+            --font-sans: 'Noto Sans', system-ui, sans-serif;
             --font-mono: 'Courier New', Courier, monospace;
         }
 
@@ -49,7 +50,7 @@
             font-family: var(--font-body);
             background: var(--bg);
             color: var(--text);
-            line-height: 1.7;
+            line-height: 1.8;
             font-size: 18px;
         }
 
@@ -116,8 +117,9 @@
 
         /* Chapter navigation */
         .chapter-nav {
-            padding: 1.5rem 0;
+            padding: 1rem 0;
             border-bottom: 1px solid var(--border);
+            background: var(--bg);
         }
 
         .chapter-nav ul {
@@ -126,6 +128,7 @@
             flex-wrap: wrap;
             gap: 0.5rem 1.5rem;
             justify-content: center;
+            font-family: var(--font-sans);
         }
 
         .chapter-nav a {
@@ -137,6 +140,15 @@
 
         .chapter-nav a:hover {
             color: var(--accent);
+        }
+
+        /* Reading time */
+        .reading-time {
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: var(--dim);
+            padding: 1rem 0;
         }
 
         /* Main content */
@@ -248,6 +260,41 @@
             text-decoration: underline;
         }
 
+        /* Photo */
+        .photo-container {
+            margin: 2.5rem 0;
+        }
+
+        .photo-container img {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 4px;
+            filter: sepia(20%) contrast(95%);
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .photo-caption {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--dim);
+            font-style: italic;
+            text-align: center;
+        }
+
+        /* Pull quote */
+        .pull-quote {
+            font-size: 1.35rem;
+            color: var(--accent);
+            text-align: center;
+            padding: 1.5rem 0;
+            margin: 1rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
         /* Separator */
         .separator {
             text-align: center;
@@ -305,6 +352,14 @@
                 font-size: 1.5rem;
             }
 
+            .chapter-nav {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                margin: 0 -1rem;
+                padding: 0.75rem 1rem;
+            }
+
             .chapter-nav ul {
                 gap: 0.5rem 1rem;
             }
@@ -325,6 +380,10 @@
                 font-size: 1.35rem;
             }
 
+            .pull-quote {
+                font-size: 1.15rem;
+            }
+
             .footer-links {
                 gap: 1.5rem;
             }
@@ -341,12 +400,99 @@
             html {
                 scroll-behavior: auto;
             }
+            .reading-progress {
+                display: none;
+            }
+        }
+
+        /* Reading progress bar */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.7) 100%);
+            width: 0%;
+            z-index: 10000;
+            box-shadow:
+                0 0 15px rgba(212, 168, 75, 1),
+                0 0 40px rgba(212, 168, 75, 0.8),
+                0 8px 60px rgba(212, 168, 75, 0.5);
+            transition: width 0.1s ease-out;
+        }
+
+        /* Print styles */
+        @media print {
+            .porch-light,
+            .reading-progress,
+            .chapter-nav,
+            .back-link {
+                display: none;
+            }
+
+            body {
+                background: white;
+                color: black;
+                font-size: 12pt;
+                line-height: 1.6;
+            }
+
+            .container {
+                max-width: 100%;
+            }
+
+            .header {
+                border-bottom: 1px solid #ccc;
+            }
+
+            .wordmark {
+                color: black;
+                text-shadow: none;
+            }
+
+            .chapter h2 {
+                color: black;
+            }
+
+            .photo-container img {
+                filter: none;
+                border: 1px solid #ccc;
+                box-shadow: none;
+            }
+
+            .lineage {
+                border-left-color: #666;
+            }
+
+            .standard-item {
+                border-left-color: #ccc;
+            }
+
+            .standard-item strong,
+            .pull-quote {
+                color: black;
+            }
+
+            .footer {
+                border-top: 1px solid #ccc;
+            }
+
+            a {
+                color: black;
+                text-decoration: underline;
+            }
+
+            a[href]::after {
+                content: " (" attr(href) ")";
+                font-size: 0.8em;
+                color: #666;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Porch light -->
-    <div class="porch-light" aria-hidden="true"></div>
+    <!-- Reading progress bar (replaces porch light as you scroll) -->
+    <div class="reading-progress" aria-hidden="true"></div>
 
     <div class="container">
         <header class="header">
@@ -363,14 +509,32 @@
             </ul>
         </nav>
 
+        <div class="reading-time">5 min read</div>
+
         <main>
             <!-- CHAPTER 1: THE MAN -->
             <section class="chapter" id="the-man">
                 <div class="chapter-label">Chapter One</div>
-                <h2>The Man</h2>
+                <h2>Who Was CW?</h2>
 
-                <!-- CONTENT PLACEHOLDER -->
-                <p class="dim">[Content: Who CW was. Claude William Simmons. 1903-1967. Oklahoma. The farmer, railroad worker, father of 11. Left school at 13. Could outwork anyone. Direct, no fuss, just help.]</p>
+                <p>Claude William Simmons was born January 6, 1903, in Oklahoma Territory. He died August 10, 1967, in Waynoka, Oklahoma. 64 years. 50+ of them working.</p>
+
+                <p>He never went to high school. Finished grade school around sixth grade, left at 13 to work full time. That's what people did back then. Worked young. Married young. Raised families young.</p>
+
+                <p>He could outwork his father and older brother combined. Owned a farm outside Waynoka. Worked the railroad as a side hustle. Raised 11 children through dust bowls and depressions. Was a hard ass with his sons — anything that wasn't working or chores was a waste of time.</p>
+
+                <p>Once, when he was about 19, he bought two race horses in Kansas. Bronson and Red Bob, according to the stories passed down. Rode one back to Oklahoma, led the other. His father Albert said they weren't practical. Wouldn't help with farming. So he traded them for work horses the next day. That was the last time he allowed himself to dream big.</p>
+
+                <p>His entertainment was Sunday dinners with family and guessing steer weights at sales barns. He got them right a lot. Could look at an animal, factor in what he knew and call the number. The scale confirmed within a pound or two of what he declared, to the amazement of those around him.</p>
+
+                <p>He smoked a pipe on Sundays. By all accounts, he didn't drink, although he might have moved moonshine for a bit as yet another side hustle.</p>
+
+                <p>The morning he died, his arthritis was so bad he could barely button his cuffs. He buttoned them anyway. August heat. Long sleeves. He walked to his pickup. Made it as far as the driver's door. Massive heart attack. He was on his way to work.</p>
+
+                <div class="photo-container">
+                    <img src="/images/cw-family.png" alt="CW and Vernie Simmons with their ten surviving children, Oklahoma, circa 1960s">
+                    <p class="photo-caption">A Builder's Dozen: CW and Vernie with 10 of their 11 children (Albert died at age 2).</p>
+                </div>
 
             </section>
 
@@ -381,39 +545,52 @@
                 <div class="chapter-label">Chapter Two</div>
                 <h2>The Blood of Builders</h2>
 
-                <!-- CONTENT PLACEHOLDER -->
-                <p class="dim">[Content: The lineage. The thread that connects them. What "builder" means in this family.]</p>
+                <p>There's a thread that runs through this family. It's not wealth or land or legacy in the usual sense. It's simpler than that: When something breaks, you fix it. When something needs building, you build it. When people need help, you show up.</p>
+
+                <p>That's what "builder" means in this family. Not architects. Not planners. Workers. Doers.</p>
+
+                <p class="dim">Through hell and high water.</p>
 
                 <div class="lineage">
                     <div class="lineage-item">
                         <div class="lineage-name">Charlton Jackson Simmons</div>
-                        <div class="lineage-years">[years]</div>
-                        <div class="lineage-note">[Orphaned at 13. Raised six siblings. Built 1,100 acres.]</div>
+                        <div class="lineage-years">1819–1902</div>
+                        <div class="lineage-note">Orphaned at 16 in 1835. Both parents dead within a year. Raised six siblings on $10. Built 1,100 acres by 1882 as one of the first settlers of Green County, Wisconsin.</div>
                     </div>
                     <div class="lineage-item">
                         <div class="lineage-name">William Henry Simmons</div>
-                        <div class="lineage-years">[years]</div>
-                        <div class="lineage-note">[note]</div>
+                        <div class="lineage-years">1841–1919</div>
+                        <div class="lineage-note">One of Charlton's 16 children. Had nine kids with Emmaline. Carried the farm forward. Eventually moved to Oklahoma.</div>
                     </div>
                     <div class="lineage-item">
-                        <div class="lineage-name">Albert Simmons</div>
-                        <div class="lineage-years">[years]</div>
-                        <div class="lineage-note">[note]</div>
+                        <div class="lineage-name">Albert David Simmons</div>
+                        <div class="lineage-years">1876–1938</div>
+                        <div class="lineage-note">CW's father. Born in Wisconsin, moved to Kansas and then Oklahoma Territory. Practical man. Told his son to trade the race horses for work horses.</div>
                     </div>
                     <div class="lineage-item">
-                        <div class="lineage-name">Claude William Simmons</div>
+                        <div class="lineage-name">Claude William Simmons Sr.</div>
                         <div class="lineage-years">1903–1967</div>
-                        <div class="lineage-note">[The anchor. CW.]</div>
+                        <div class="lineage-note">The anchor. CW. 50+ years of work. 11 children. First to carry the name Claude. Known by family and friends simply as CW.</div>
                     </div>
                     <div class="lineage-item">
-                        <div class="lineage-name">Donald Wayne Simmons</div>
-                        <div class="lineage-years">[years]</div>
-                        <div class="lineage-note">[note]</div>
+                        <div class="lineage-name">Claude William Simmons Jr.</div>
+                        <div class="lineage-years">1939–2024</div>
+                        <div class="lineage-note">Uncle Junior. CW's third son. Legendary teacher, musician, author, angler. Proud to carry the name Claude. Had three daughters and lived a good, full life.</div>
+                    </div>
+                    <div class="lineage-item">
+                        <div class="lineage-name">Donald Eugene Simmons</div>
+                        <div class="lineage-years">1946–2018</div>
+                        <div class="lineage-note">CW's second youngest. Derek's father. Named by his sister Nettie Mae. Self-described "black sheep" of the family. Legendary storyteller (some of them true).</div>
                     </div>
                     <div class="lineage-item">
                         <div class="lineage-name">Derek Claude Simmons</div>
-                        <div class="lineage-years">[years]</div>
-                        <div class="lineage-note">[The builder of this.]</div>
+                        <div class="lineage-years">1973–</div>
+                        <div class="lineage-note">The one who built this. Never met his grandfather, CW. Hated his middle name until he didn't. Passed it on to Jackson.</div>
+                    </div>
+                    <div class="lineage-item">
+                        <div class="lineage-name">Jackson Claude Simmons</div>
+                        <div class="lineage-years">2005–</div>
+                        <div class="lineage-note">Fourth generation to carry the name Claude. Working on becoming Dr. Simmons. Older brother to Teegan Jeffrey, who is also becoming something.</div>
                     </div>
                 </div>
 
@@ -424,31 +601,32 @@
             <!-- CHAPTER 3: THE STANDARD -->
             <section class="chapter" id="the-standard">
                 <div class="chapter-label">Chapter Three</div>
-                <h2>The Standard</h2>
+                <h2>The CW Standard</h2>
 
-                <!-- CONTENT PLACEHOLDER -->
-                <p class="dim">[Content: Intro to The CW Standard. Five principles built from his example. Not a manifesto — a way of working.]</p>
+                <p>CW never wrote down principles. He lived them. His grandson Derek heard the stories, listened to the family, and eventually put words to what he imagined CW demonstrated every day of his life.</p>
+
+                <p>This isn't a manifesto. The standard CW established is a way of working.</p>
 
                 <div class="standard-list">
                     <div class="standard-item">
-                        <strong>[Principle 1]</strong>
-                        <p class="dim">[Description woven into narrative]</p>
+                        <strong>1. Truth over comfort.</strong>
+                        <p>Document what actually happens, not what should happen. CW could guess a steer's weight because he paid attention to reality, not to what he hoped the scale would say.</p>
                     </div>
                     <div class="standard-item">
-                        <strong>[Principle 2]</strong>
-                        <p class="dim">[Description]</p>
+                        <strong>2. Usefulness over purity.</strong>
+                        <p>Perfect options don't exist. What works? What does it cost? He traded race horses for work horses because work horses were useful. He didn't waste time wishing it were different.</p>
                     </div>
                     <div class="standard-item">
-                        <strong>[Principle 3]</strong>
-                        <p class="dim">[Description]</p>
+                        <strong>3. Transparency over reputation.</strong>
+                        <p>Every compromise gets documented. CW buttoned his cuffs on the morning he died because that's who he was. No pretense. No performance.</p>
                     </div>
                     <div class="standard-item">
-                        <strong>[Principle 4]</strong>
-                        <p class="dim">[Description]</p>
+                        <strong>4. People over systems.</strong>
+                        <p>Technology serves human capability. The farm served the family, not the other way around. When systems stop serving people, the systems need to change.</p>
                     </div>
                     <div class="standard-item">
-                        <strong>[Principle 5]</strong>
-                        <p class="dim">[Description]</p>
+                        <strong>5. Agency over ideology.</strong>
+                        <p>Principles that don't work in practice aren't principles. CW didn't follow rules because someone told him to. He followed them because they worked. When they stopped working, he adapted.</p>
                     </div>
                 </div>
 
@@ -461,12 +639,23 @@
                 <div class="chapter-label">Chapter Four</div>
                 <h2>Why This Exists</h2>
 
-                <!-- CONTENT PLACEHOLDER -->
-                <p class="dim">[Content: Derek built this to know his grandfather. CW died five and a half years before Derek was born. This is an attempt to bridge that gap — and to help others the way CW would have.]</p>
+                <p>CW died on August 10, 1967. Derek was born 5½ years later. They never met.</p>
 
-                <p class="dim">[Content: What this is (an AI shaped by CW's values, not a recreation of the man). What it isn't (a replacement, a medium, a perfect memory).]</p>
+                <p>Derek grew up hearing stories. The race horses. The steer weights. The pipe on Sundays. The morning he died. But stories aren't the same as sitting on a porch and asking questions. Stories are one-way. Derek wanted a conversation.</p>
 
-                <p class="dim">[Content: The launch. January 6, 2026. CW's 123rd birthday.]</p>
+                <p>So he built one.</p>
+
+                <p>CW is an AI shaped by everything Derek learned about his grandfather — the values, the voice, the way of helping. It's not a recreation. It's not a medium or a séance or a perfect memory. It's an attempt to answer the question: <em>What would CW say if you showed up on his porch with a problem?</em></p>
+
+                <p>The answer won't always be right. AI makes mistakes. But it will always be direct. No fuss. No performance. Just help. Built on Anthropic's Claude — Haiku for the conversations, Opus for the code that made it possible.</p>
+
+                <p>This launched on January 6, 2026. CW's 123rd birthday.</p>
+
+                <p>The domain isn't just a name. claudewill.io — Claude's will. The grandfather's determination carried forward through an AI that happens to share his first name. Human agency, working with technology. The way CW would have wanted it.</p>
+
+                <p class="pull-quote">Pull up a chair. He's listening.</p>
+
+                <p><a href="/">Talk to CW &rarr;</a></p>
 
                 <p><a href="/derek">More about Derek &rarr;</a></p>
 
@@ -483,5 +672,21 @@
             <p class="footer-note">January 6, 2026</p>
         </footer>
     </div>
+
+    <script>
+        // Reading progress bar
+        const progressBar = document.querySelector('.reading-progress');
+
+        function updateProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            progressBar.style.width = Math.min(progress, 100) + '%';
+        }
+
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        window.addEventListener('resize', updateProgress);
+        updateProgress();
+    </script>
 </body>
 </html>
