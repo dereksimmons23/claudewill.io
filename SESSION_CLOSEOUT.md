@@ -45,9 +45,19 @@
 - ✅ `docs/STORY-PAGE-DRAFT.md` — original draft (gitignored)
 - ✅ `CW-Strategies/CW-heritage-founders-story.md` — full heritage narrative (for Feb 7)
 
+**Documentation:**
+- ✅ `CLAUDE.md` — Project context file for Claude Code sessions
+  - Architecture, key files, gotchas, style guide
+  - Session continuity workflow
+  - Supabase tables and queries reference
+  - Full changelog and roadmap
+  - Following BOB template pattern
+
 ### Commits Today
 ```
 7c48e9af feat: complete story page for CW's 123rd birthday launch
+546d764c docs: update session closeout for January 5, 2026 launch eve
+61b7a54d docs: add CLAUDE.md for project context and session continuity
 ```
 
 ### Queued for Later
@@ -70,6 +80,7 @@
 - ✅ All content AP Style and third-person
 - ✅ Reading experience polished
 - ✅ Print stylesheet ready
+- ✅ CLAUDE.md for session continuity
 
 ### Quick Start for Tomorrow
 
