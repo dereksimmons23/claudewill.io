@@ -2,6 +2,93 @@
 
 ---
 
+## Session: January 5, 2026 (Launch Eve)
+
+**Branch:** `main`
+**Launch Date:** January 6, 2026 (CW's 123rd birthday) — TOMORROW
+
+### Completed Today
+
+**Story Page (`/story`) — Complete:**
+- ✅ Chapter 1: Who Was CW? — full narrative with family photo
+- ✅ Chapter 2: Blood of Builders — 8-person lineage (Charlton through Jackson)
+- ✅ Chapter 3: The CW Standard — 5 principles with CW-connected explanations
+- ✅ Chapter 4: Why This Exists — Derek's reason, Anthropic credit, claudewill.io explanation
+- ✅ Uncle Junior (Claude William Jr., 1939–2024) added to lineage
+- ✅ Teegan Jeffrey mentioned in Jackson's entry
+- ✅ Family photo added (`/images/cw-family.png`) with sepia treatment
+- ✅ Caption: "A Builder's Dozen: CW and Vernie with 10 of their 11 children (Albert died at age 2)."
+
+**Reading Experience Enhancements:**
+- ✅ Noto Serif for body text (better long-form reading)
+- ✅ Noto Sans for nav/UI elements
+- ✅ Line-height increased to 1.8
+- ✅ Reading time indicator ("5 min read")
+- ✅ Reading progress bar (porch light grows as you scroll)
+- ✅ Sticky chapter nav on mobile
+- ✅ Pull quote styling for "Pull up a chair. He's listening."
+- ✅ Print stylesheet (clean black/white, URLs shown)
+
+**Content & Style:**
+- ✅ AP Style throughout (numerals 10+, no Oxford comma, $10 not "10 dollars")
+- ✅ Third-person perspective (no "I heard" or "our family")
+- ✅ Anthropic credit: "Built on Anthropic's Claude — Haiku for the conversations, Opus for the code that made it possible."
+- ✅ claudewill.io explanation: "Claude's will. The grandfather's determination carried forward through an AI that happens to share his first name."
+
+**About Modal Updated:**
+- ✅ New title: "Welcome to CW's Porch."
+- ✅ New copy: moonshiner mention, "doctorate in common sense"
+- ✅ Links: The Story · CW Strategies · The CW Standard
+
+**Source Files:**
+- ✅ `docs/STORY-PAGE-FINAL.md` — editable markdown version
+- ✅ `docs/STORY-PAGE-DRAFT.md` — original draft (gitignored)
+- ✅ `CW-Strategies/CW-heritage-founders-story.md` — full heritage narrative (for Feb 7)
+
+### Commits Today
+```
+7c48e9af feat: complete story page for CW's 123rd birthday launch
+```
+
+### Queued for Later
+
+**Information Architecture (revisit in 2 weeks):**
+- Navigation hierarchy (About vs Story vs Standard)
+- "The Stable" concept — wiki/library for stories, research, docs
+- Subdomain strategy (bob, coach, dawn)
+- CW Strategies positioning
+
+**Future Content:**
+- How CW's Porch Was Built — technical deep dive
+- The Founder's Story — target: February 7, 2026 (Derek's 53rd birthday)
+- PostSyncer for cross-platform posting
+
+### Ready for Jan 6 Launch
+- ✅ Story page complete and tested
+- ✅ About modal updated
+- ✅ Family photo in place
+- ✅ All content AP Style and third-person
+- ✅ Reading experience polished
+- ✅ Print stylesheet ready
+
+### Quick Start for Tomorrow
+
+```bash
+cd /Users/dereksimmons/Desktop/claudewill.io
+claude
+```
+
+Then: "cw - it's launch day"
+
+**Launch checklist:**
+- [ ] Verify claudewill.io/story is live
+- [ ] Test About modal links
+- [ ] Post to LinkedIn/social
+- [ ] Monitor analytics
+- [ ] Celebrate CW's 123rd birthday
+
+---
+
 ## Session: December 17, 2024
 
 **Branch:** `main`
