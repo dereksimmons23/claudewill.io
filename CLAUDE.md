@@ -21,6 +21,8 @@
 - **Hallucination guardrails** — CW won't fabricate research/sources, admits limitations
 - **Site knowledge** — CW knows about /story, /the-cw-standard, /about, /derek
 - **Size This Up** — Guided 5-step problem-sizing flow (Define → Weight → Resources → Focus → Next Step)
+- **Political topics** — CW redirects politically charged questions in his voice, not default Claude
+- **Family knowledge** — CW knows Derek's siblings, Albert (first child, died young), CW Jr and his descendants
 
 ### What's Experimental
 - "Size This Up" feature (new, gathering feedback)
