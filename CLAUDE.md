@@ -1,8 +1,8 @@
 # CLAUDE.md — claudewill.io
 
-**Last updated:** January 5, 2026
-**Status:** v1.0 Launch Ready
-**Next milestone:** January 6, 2026 — CW's 123rd birthday
+**Last updated:** January 6, 2026
+**Status:** v1.0 LAUNCHED
+**Milestone:** CW's 123rd birthday — LIVE
 
 > Pull up a chair. He's listening.
 
@@ -18,9 +18,12 @@
 - **Multilingual** — CW responds in user's language
 - **Safety** — Age gate, bot protection, crisis resources
 - **Accessibility** — WCAG 2.1 AA compliant
+- **Hallucination guardrails** — CW won't fabricate research/sources, admits limitations
+- **Site knowledge** — CW knows about /story, /the-cw-standard, /about, /derek
+- **Size This Up** — Guided 5-step problem-sizing flow (Define → Weight → Resources → Focus → Next Step)
 
 ### What's Experimental
-- Nothing currently
+- "Size This Up" feature (new, gathering feedback)
 
 ### Known Issues
 - None blocking launch

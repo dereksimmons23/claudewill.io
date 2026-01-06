@@ -2,6 +2,60 @@
 
 ---
 
+## Session: January 6, 2026 (Launch Day)
+
+**Branch:** `main`
+**Status:** LAUNCHED on CW's 123rd birthday
+
+### Completed Today
+
+**Launch Activities:**
+- ✅ CW officially launched across social platforms (Substack, LinkedIn, X, BlueSky, IG, Facebook)
+
+**Bug Fixes from Real User Feedback (Michiela - Riley County poverty taskforce):**
+
+1. **Hallucination Prevention v2:**
+   - ✅ Added "WHAT YOU DON'T MAKE UP" section to system prompt
+   - ✅ CW no longer fabricates statistics, research, sources, or citations
+   - ✅ Points users to Perplexity/Claude for actual research
+   - ✅ Admits limitations: "I'm not a research database. I'm a farmer who never finished high school."
+
+2. **Site Knowledge ("THE STABLE"):**
+   - ✅ CW now knows about /story, /the-cw-standard, /about, /derek
+   - ✅ Can point visitors to relevant pages naturally
+
+3. **Derek's Siblings:**
+   - ✅ CW now knows Derek has three sisters (Donald had four children)
+   - ✅ Welcomes family members instead of being suspicious
+
+**New Feature: "Size This Up" Guided Problem-Sizing Flow:**
+- ✅ Added GUIDED SIZING section to system prompt (5-step process)
+- ✅ Steps: Define → Weight → Resources → Focus (Three Questions) → Next Step
+- ✅ CW walks through ONE AT A TIME, doesn't rush
+- ✅ Natural offer: CW suggests sizing when detecting complex problems
+- ✅ Added "Size this up" prompt chip to early conversation stage
+- ✅ Target use case: Community leaders, taskforces, complex problems
+
+### Commits Today
+```
+37d12266 feat: add "Size This Up" guided problem-sizing flow
+9b37c150 fix: add Derek's siblings to CW's knowledge
+0155deb5 fix: add hallucination guardrails and site knowledge to CW
+```
+
+### Roadmap Addition
+**Future: Complex "Size This Up" (AGI direction):**
+- [ ] Session memory — pick up where you left off
+- [ ] Project persistence — "Riley County Poverty Project"
+- [ ] Learning from outcomes — what worked?
+- [ ] Exportable artifact — PDF/doc for taskforce
+- [ ] Multiple guided flows (decision-making, resource allocation, etc.)
+
+### Key Insight
+Real user feedback (Michiela's poverty taskforce test) revealed that CW was helpful but fabricated sources when pressed. Fixed within hours of launch. This is the value of family testing.
+
+---
+
 ## Session: January 5, 2026 (Launch Eve)
 
 **Branch:** `main`
