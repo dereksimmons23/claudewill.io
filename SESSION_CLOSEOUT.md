@@ -54,6 +54,10 @@
 ### Key Insight
 Real user feedback (Michiela's poverty taskforce test) revealed that CW was helpful but fabricated sources when pressed. Fixed within hours of launch. This is the value of family testing.
 
+### Notes
+- **Hostile visitor (18:03 UTC)**: Someone tried to bait CW on Jan 6 politics, escalated to personal attack on Derek ("that's how your grandson got ahead in his job"). CW handled it well. Visitor appears to know Derek's work. IP hashed, identity unknown. No action needed — noted per The CW Standard.
+- **Political topics fix**: Added "POLITICAL AND DIVISIVE TOPICS" section to system prompt. CW now redirects politically charged questions in his voice, not default Claude hedging.
+
 ---
 
 ## Session: January 5, 2026 (Launch Eve)
