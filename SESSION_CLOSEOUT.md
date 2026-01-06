@@ -36,13 +36,6 @@
 - ✅ Added "Size this up" prompt chip to early conversation stage
 - ✅ Target use case: Community leaders, taskforces, complex problems
 
-### Commits Today
-```
-37d12266 feat: add "Size This Up" guided problem-sizing flow
-9b37c150 fix: add Derek's siblings to CW's knowledge
-0155deb5 fix: add hallucination guardrails and site knowledge to CW
-```
-
 ### Roadmap Addition
 **Future: Complex "Size This Up" (AGI direction):**
 - [ ] Session memory — pick up where you left off
@@ -55,8 +48,22 @@
 Real user feedback (Michiela's poverty taskforce test) revealed that CW was helpful but fabricated sources when pressed. Fixed within hours of launch. This is the value of family testing.
 
 ### Notes
-- **Hostile visitor (18:03 UTC)**: Someone tried to bait CW on Jan 6 politics, escalated to personal attack on Derek ("that's how your grandson got ahead in his job"). CW handled it well. Visitor appears to know Derek's work. IP hashed, identity unknown. No action needed — noted per The CW Standard.
+- **Hostile visitor (18:03 UTC)**: Someone tried to bait CW on Jan 6 politics, escalated to personal attack on Derek ("that's how your grandson got ahead in his job"). CW handled it well. First-time visitor, no history, came on Jan 6 anniversary — could be someone who knows Derek or just trolling. IP hashed, identity unknown. No action needed — noted per The CW Standard.
 - **Political topics fix**: Added "POLITICAL AND DIVISIVE TOPICS" section to system prompt. CW now redirects politically charged questions in his voice, not default Claude hedging.
+- **Family visits**: Vicki (CW Jr's daughter) and Shannon (granddaughter) visited. Shannon got great help with accounting meeting. Vicki initially got broken response (CW denied knowing CW Jr) — fixed with CW Jr addition.
+- **Albert added**: Albert Aldrich Simmons, first child, died ~age 2 from food poisoning, named after CW's dad Albert David. CW can now answer "what happened to your oldest son" appropriately.
+- **CW Jr added**: Claude William Jr (1939-2024), third son, teacher/musician/author. His kids/grandkids (Vicki, etc.) now welcomed as family.
+- **Transparency notice**: Added "Conversations may be reviewed to improve CW" to footer disclaimer. Explicit notice beyond privacy policy.
+
+### Commits Today
+```
+cd700fdc feat: add Albert and CW Jr to family knowledge
+cce495de fix: add political topics handling, note hostile visitor
+5aee0a35 docs: update session closeout and CLAUDE.md for launch day
+37d12266 feat: add "Size This Up" guided problem-sizing flow
+9b37c150 fix: add Derek's siblings to CW's knowledge
+0155deb5 fix: add hallucination guardrails and site knowledge to CW
+```
 
 ---
 
