@@ -2,6 +2,69 @@
 
 ---
 
+## Session: January 7, 2026 (Post-Launch Refinements)
+
+**Branch:** `main`
+**Status:** Live, iterating based on real usage data
+
+### Completed Today
+
+**Data Review:**
+- ✅ Analyzed Supabase data: 98 conversations on launch day across 11 sessions
+- ✅ Identified hallucination issue: CW made up poverty rates for benchmark cities
+- ✅ User caught it, CW apologized — but shouldn't have happened
+
+**System Prompt Updates:**
+
+1. **Stronger Numerical Hallucination Prevention:**
+   - ✅ Added explicit ban on percentages, rates, dates, dollar amounts, populations
+   - ✅ Added ban on comparative claims with numbers
+   - ✅ New instruction: "When you catch yourself about to say a specific number you're not certain about — stop."
+   - ✅ New redirect: "You'll want to look that up. I'll get it wrong."
+
+2. **Human Connection Guidance (new skill):**
+   - ✅ "Knowing when they need a human, not you"
+   - ✅ CW now recognizes when someone's using him instead of talking to real people
+   - ✅ Key phrases: "Who else have you talked to about this?" / "A porch talk isn't a substitute for a kitchen table conversation."
+
+3. **Clearer Derek Referral Criteria:**
+   - ✅ Added the test: "Is this a problem solved by doing work together over months, or by thinking it through right now?"
+   - ✅ Explicit YES list: organizational problems, needs execution help, asks directly, needs accountability
+   - ✅ Explicit NO list: personal/emotional, just exploring, hypotheticals, needs therapist
+   - ✅ Dropped wishy-washy "might benefit" language
+
+4. **Conversational Derek Knowledge:**
+   - ✅ CW now knows Derek's tagline: "Designs the process and trusts the players"
+   - ✅ Knows about startribune.com, Substack, LinkedIn
+   - ✅ Knows about other porches: bob.claudewill.io, coach.claudewill.io
+   - ✅ Knows: proud papa, part-owner of the Green Bay Packers
+   - ✅ Knows: three manuscripts, volunteers as coach/animal therapy advocate/mentor
+
+**/derek Page Updates:**
+- ✅ New bio with tagline: "Designs the process and trusts the players"
+- ✅ Added: "Proud papa. Part-owner of the Green Bay Packers."
+- ✅ Updated meta description and OG tags to match
+
+**Cost Protection Discussion:**
+- ✅ Reviewed current limits (20 req/min, 12 messages, 500 output tokens)
+- ✅ Recommendation: Set $25/month cap in Anthropic console
+- ✅ User on free Netlify plan — no alerts available, cap is the safeguard
+
+### Still Needed
+- [ ] BOB and Coach D one-liners for /derek "What I'm Building" section
+- [ ] "Beyond Work" section on /derek (coach, animal therapy, mentor)
+- [ ] Set Anthropic spending cap ($25/month recommended)
+
+### Commits Today
+```
+0e51c666 feat: strengthen guardrails, add human connection guidance, update Derek bio
+```
+
+### Key Insight
+The poverty taskforce conversation showed CW's helpfulness can become a liability when he invents data to seem helpful. The fix: explicit instruction to stop mid-generation when about to fabricate numbers. "A wrong number dressed up as fact is worse than no number at all."
+
+---
+
 ## Session: January 6, 2026 (Launch Day)
 
 **Branch:** `main`
