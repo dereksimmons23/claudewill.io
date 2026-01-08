@@ -51,12 +51,21 @@
 - ✅ User on free Netlify plan — no alerts available, cap is the safeguard
 
 ### Still Needed
-- [ ] BOB and Coach D one-liners for /derek "What I'm Building" section
-- [ ] "Beyond Work" section on /derek (coach, animal therapy, mentor)
-- [ ] Set Anthropic spending cap ($25/month recommended)
+- [ ] Founder's Story for /founder or /derek/story — target Feb 7, 2026 (Derek's 53rd birthday)
+
+### Done Since Initial Closeout
+- ✅ Set Anthropic spending cap
+- ✅ Beyond Work woven into bio (coach, animal therapy advocate, mentor)
+- ✅ CW Strategies links added (CW, Coach D, Battle o' Brackets, The CW Standard)
+- ✅ Bio updated: "Owner of CW Strategies and part-owner of the Green Bay Packers"
 
 ### Commits Today
 ```
+279854a1 fix: update meta descriptions to match new bio
+598d0b33 refactor: weave Beyond Work into bio, add CW Strategies ownership
+9af18994 feat: add links to CW, Coach D, Battle o' Brackets on /derek
+842b6a7a feat: add Beyond Work section to /derek
+bfbf3d44 docs: update session closeout for January 7, 2026
 0e51c666 feat: strengthen guardrails, add human connection guidance, update Derek bio
 ```
 
