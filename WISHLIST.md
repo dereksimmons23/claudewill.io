@@ -84,7 +84,41 @@ Remember returning visitors across sessions. Decided against for now - CW is a p
 
 ---
 
-### 4. Family Mode
+### 4. Recalibrate Skill
+**Complexity:** Medium
+**Status:** Skill defined, not yet deployed
+
+Career clarity conversation — 7 questions to help someone figure out direction before optimizing resumes. Pivoted from standalone PWA product to CW skill.
+
+**The flow:**
+1. What's the itch? (feeling underneath the situation)
+2. What drains you? (avoid-at-all-costs list)
+3. What feeds you? (pattern they keep returning to)
+4. What's the pattern? (their own cycle)
+5. What are you pretending? (should vs want gap)
+6. What would fit? (structural fit, not job titles)
+7. What's the next move? (land with something concrete)
+
+**To deploy:** Add skill block from `recalibrate/docs/recalibrate-skill.md` to system prompt.
+
+**Expanded vision (Jan 2026):** Recalibrate is bigger than a CW skill. It's Claude as thought partner for the full career 360:
+- Clarity (assessment data + pattern recognition → strategic framework)
+- Positioning (resume, CV, cover letter that reflect the real you)
+- Prep (research, roleplay, one-sheeter)
+- Debrief (blind spots, accommodation patterns, gut vs. brain)
+- Decisions (framework applied to offers)
+
+**Concept:** "Pair Processing" — like pair programming, but for thinking through complex decisions. Recalibrate is the career-specific application. Could extend to business decisions, life transitions, creative projects.
+
+**Key insight:** Most career AI tools serve employers (ATS optimization). This serves the person (clarity first, then positioning). "Reverse prompting."
+
+**Source material:** Full prep conversation with Derek for RSR COO interview (Jan 2026) demonstrates the methodology.
+
+**Legacy:** The `recalibrate/` folder contains remnants of original PWA vision (modules, docs, architecture). Reference only.
+
+---
+
+### 6. Family Mode
 **Complexity:** Medium-Large
 **Status:** Not started
 
@@ -98,7 +132,7 @@ A richer mode for family members who want to talk to grandpa about family histor
 
 ---
 
-### 5. Analytics Dashboard
+### 7. Analytics Dashboard
 **Complexity:** Medium
 **Status:** Not started
 
@@ -106,7 +140,7 @@ Visual dashboard for conversation insights instead of raw SQL queries.
 
 ---
 
-### 6. Voice Interface
+### 8. Voice Interface
 **Complexity:** Large
 **Status:** Not started
 
@@ -116,7 +150,7 @@ Let people talk to CW instead of typing. Would feel more like a real conversatio
 
 ---
 
-### 7. Multi-Agent Family
+### 9. Multi-Agent Family
 **Complexity:** Large
 **Status:** Not started
 
@@ -156,4 +190,4 @@ Added 7 practical skills based on real Claude William Simmons abilities:
 
 ---
 
-*Last updated: December 18, 2024*
+*Last updated: January 8, 2026*

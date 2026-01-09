@@ -41,6 +41,7 @@ netlify/anthropic-key.txt
 netlify/*.txt
 .claude/
 .mcp.json
+.serena/
 
 # Local editor/workspace
 *.code-workspace
