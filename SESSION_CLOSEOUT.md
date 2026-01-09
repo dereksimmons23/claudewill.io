@@ -2,6 +2,52 @@
 
 ---
 
+## Session: January 9, 2026
+
+**Branch:** `main`
+**Status:** Live, light traffic post-launch
+
+### Completed Today
+
+**Recalibrate Skill Deployed:**
+- ✅ Pivoted Recalibrate from standalone PWA to CW skill
+- ✅ Added 7-question career clarity flow to system prompt
+- ✅ CW offers recalibration when sensing career crossroads
+- ✅ Added "Recalibrate" prompt chip in mid-conversation stage
+- ✅ Documented Portfolio_Career_Strategy_Framework_2026.md as example output
+
+**Family Knowledge Update:**
+- ✅ Added Derek's five sisters: Michiela, Shannon, Ailie, Karen, Christiane
+- ✅ Michiela specifically noted (Don's daughter, caught hallucination on launch day)
+- ✅ Added principle: "The downside of being warm to a stranger is low. The downside of being cold to family is high."
+
+**Housekeeping:**
+- ✅ Added .serena/ to .gitignore
+- ✅ Deleted 11 CleanShot screenshots from /images/
+- ✅ Cleaned up recalibrate/ legacy PWA code (moved to archive/)
+
+**Supabase Check:**
+- Usage dropped post-launch: 98 conversations on Jan 6, then 7 total in 3 days
+- Total cost since Jan 1: ~$0.14 (Haiku doing its job)
+- No issues, just low traffic
+
+### Commits Today
+```
+71eb7659 refactor: pivot Recalibrate from PWA to CW skill
+85e3fc0a feat: deploy Recalibrate skill to CW
+bc3988fd feat: add Derek's sisters to CW's family knowledge
+```
+
+### Still Needed
+- [ ] Founder's Story — target Feb 7, 2026 (Derek's 53rd birthday)
+- [ ] Information Architecture — nav hierarchy, "The Stable" concept
+- [ ] Distribution strategy — traffic dropped off, CW works but nobody knows
+
+### Key Insight
+Recalibrate works better as a CW skill than a standalone product. The questions matter, not the interface. Same principle: clarification before optimization.
+
+---
+
 ## Session: January 7, 2026 (Post-Launch Refinements)
 
 **Branch:** `main`

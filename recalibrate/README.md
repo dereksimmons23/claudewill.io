@@ -40,13 +40,7 @@ At the end, CW asks them to say it back: "What did you figure out?"
 
 ## What This Replaces
 
-The `/recalibrate` folder contains remnants of the original product vision:
-
-- `modules/` — JavaScript modules for ATS intelligence, voice engine, decision matrix, etc.
-- `docs/` — Market analysis, technical architecture, UX patterns
-- `index.html`, `recalibrate.js`, `recalibrate.css` — PWA foundation
-
-These files remain as reference, but the direction has changed. The value isn't in building another app. It's in the questions themselves, delivered through CW's voice.
+The original vision was a full PWA — ATS intelligence, voice engine, decision matrix, cross-device sync. All that code is now in `archive/` for reference. The direction changed. The value isn't in building another app. It's in the questions themselves, delivered through CW's voice.
 
 ---
 
@@ -63,11 +57,9 @@ Recalibrate fits this pattern. It's not a separate product requiring its own int
 
 ## Implementation
 
-To add `/recalibrate` as a CW skill:
+**Status: Deployed** (January 9, 2026)
 
-1. Add the skill definition to the CW system prompt in `netlify/functions/cw.js`
-2. Define the trigger phrase and question flow
-3. Test with real conversations
+The skill is live in `netlify/functions/cw.js`. CW will offer recalibration when sensing career crossroads. A "Recalibrate" prompt chip appears in mid-conversation.
 
 The skill definition is documented in `docs/recalibrate-skill.md`.
 
@@ -77,10 +69,10 @@ The skill definition is documented in `docs/recalibrate-skill.md`.
 
 | Path | Purpose |
 |------|---------|
-| `docs/recalibrate-skill.md` | The skill definition for CW |
-| `docs/archive/` | Original product vision documents |
-| `modules/` | Legacy code from PWA concept (reference only) |
+| `README.md` | This file |
+| `docs/recalibrate-skill.md` | The skill definition (now deployed to CW) |
 | `Portfolio_Career_Strategy_Framework_2026.md` | Example output — what a recalibration conversation produces |
+| `archive/` | Legacy PWA code and docs (reference only) |
 
 ---
 
