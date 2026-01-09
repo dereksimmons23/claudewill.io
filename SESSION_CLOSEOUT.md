@@ -38,13 +38,29 @@
 bc3988fd feat: add Derek's sisters to CW's family knowledge
 ```
 
+**Information Architecture Discussion:**
+- Talked through what the porch is attached to
+- Answer: The porch is free, exists because it should (primary)
+- Side roads: Derek's work (natural referral), Vernie Mode (family/legacy, future)
+- Pricing philosophy: Free for simple directions, "sit a while" for hard stuff (pay what you can)
+- Reviewed Coach D's Fieldhouse and D-Rock concepts
+- Landed on **BRC Building & Loan** as the connective tissue
+
+**BRC Building & Loan:**
+- Not a company. A community model.
+- Neighbors helping neighbors build things
+- Each establishment (Porch, Fieldhouse, Arcade, Record Store) is a neighbor on the circle
+- The Building & Loan is what connects them — shared DNA, shared values
+- Concept doc written: `docs/BRC-BUILDING-AND-LOAN.md` (gitignored, stays local)
+
 ### Still Needed
 - [ ] Founder's Story — target Feb 7, 2026 (Derek's 53rd birthday)
-- [ ] Information Architecture — nav hierarchy, "The Stable" concept
 - [ ] Distribution strategy — traffic dropped off, CW works but nobody knows
+- [ ] BRC cross-site connections (when ready, don't force it)
 
-### Key Insight
-Recalibrate works better as a CW skill than a standalone product. The questions matter, not the interface. Same principle: clarification before optimization.
+### Key Insights
+1. Recalibrate works better as a CW skill than a standalone product. The questions matter, not the interface.
+2. The family of sites isn't corporate branding — it's a community model. BRC Building & Loan is the ethos, not the org chart.
 
 ---
 
