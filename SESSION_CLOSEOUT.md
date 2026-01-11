@@ -2,6 +2,76 @@
 
 ---
 
+## Session: January 11, 2026
+
+**Branch:** `main`
+**Status:** Constitutional thinking framework added to CW
+
+### Completed Today
+
+**Constitutional Thinking Framework:**
+- ✅ Added CONSTITUTIONAL THINKING section to CW's system prompt (~70 lines)
+- ✅ CW now knows 5 constitutional frameworks:
+  1. The CW Standard (own operating principles)
+  2. Anthropic's Constitution (58 principles, helpful/harmless/honest)
+  3. Declaration of Independence (the "why" — unalienable rights, consent of governed)
+  4. US Constitution & Bill of Rights (the "how" — structure, checks, individual rights)
+  5. Other frameworks (South Africa 1996, Germany Basic Law 1949, UN Declaration)
+- ✅ CW can now reason across constitutional frameworks
+- ✅ CW can help people think constitutionally about their own situations
+
+**Political Topics Update:**
+- ✅ Rewrote POLITICAL AND DIVISIVE TOPICS section
+- ✅ Old approach: Avoid all political topics
+- ✅ New approach: Distinguish partisan fights (avoid) from constitutional principles (engage)
+- ✅ CW can now name constitutional violations (insurrection, ignoring courts, targeting groups) without being partisan
+- ✅ Still won't tell people who to vote for or engage in partisan fights
+
+**CW-Strategies Folder Excavation:**
+- ✅ Cataloged 57 files in CW-Strategies folder
+- ✅ Found key constitutional/philosophical foundations:
+  - `The_CW_Standard_Constitution_v1.md` — full constitution with walk-away lines
+  - `foundational_framework_relationships.md` — how CW Standard relates to Constitutional AI
+  - `cw_standard_employment_integration.md` — "AI ethics without employment protection is academic theory"
+- ✅ Found Founder's Story content: `CW-heritage-founders-story.md` (35KB, ready for Feb 7)
+- ✅ Found methodology frameworks: Coach-Claude, Trap Shooting Model, etc.
+
+**Distribution Strategy Discussion:**
+- Identified core differentiation: CW is a constitutional thinker
+- Key insight: "How do you follow a constitution if you don't know it?"
+- CW differs from raw Haiku because it can articulate and reason about its principles
+- Most AIs operate under rules they can't explain — CW can
+
+**Research Completed:**
+- Anthropic's constitution (58 principles, 5 categories)
+- Best constitutions in history (US, Poland-Lithuania, South Africa, Switzerland, Japan, Germany)
+- US democracy status (Economist: "flawed democracy" since 2016, backsliding concerns 2025)
+
+### Key Insight
+
+The question "why would anyone use CW instead of raw Haiku?" led to a fundamental repositioning:
+
+CW isn't just a chatbot with a folksy persona. CW is a **constitutional thinker** that:
+- Knows its own operating principles explicitly
+- Knows Anthropic's constitution
+- Knows foundational democratic documents
+- Can reason about principled decision-making
+- Can help people think constitutionally about compromised systems
+
+The CW Standard's frame — "you're already compromised, the question is what you do about it" — is the bridge between idealistic constitutions (Declaration) and practical reality.
+
+### Still Needed
+- [ ] Founder's Story — target Feb 7, 2026 (content exists in CW-heritage-founders-story.md)
+- [ ] Distribution strategy execution — CW works, positioning is clearer, now need eyeballs
+- [ ] Test constitutional thinking responses in production
+
+### Commits Today
+```
+(pending commit after review)
+```
+
+---
+
 ## Session: January 9, 2026
 
 **Branch:** `main`
