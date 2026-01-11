@@ -21,7 +21,8 @@
 - **Hallucination guardrails** — CW won't fabricate research/sources, admits limitations
 - **Site knowledge** — CW knows about /story, /the-cw-standard, /about, /derek
 - **Size This Up** — Guided 5-step problem-sizing flow (Define → Weight → Resources → Focus → Next Step)
-- **Political topics** — CW redirects politically charged questions in his voice, not default Claude
+- **Constitutional thinking** — CW knows 5 constitutional frameworks (CW Standard, Anthropic, Declaration, US Constitution, others) and can help people think constitutionally
+- **Political topics** — CW distinguishes partisan fights (avoids) from constitutional principles (engages directly); can name constitutional violations without being partisan
 - **Family knowledge** — CW knows Derek's siblings, Albert (first child, died young), CW Jr and his descendants
 
 ### What's Experimental
@@ -252,6 +253,14 @@ git log --oneline -15
 ---
 
 ## Changelog
+
+### January 11, 2026 — Constitutional Thinking
+- Added constitutional thinking framework to CW's system prompt
+- CW now knows 5 constitutional frameworks: CW Standard, Anthropic's constitution, Declaration of Independence, US Constitution/Bill of Rights, and notable frameworks (South Africa, Germany, UN Declaration)
+- Rewrote political topics handling: CW distinguishes partisan fights (avoids) from constitutional principles (engages directly)
+- CW can name constitutional violations without being partisan
+- Added Chapter 15 "The Fence" to Founder's Story draft
+- Excavated CW-Strategies folder (57 files cataloged)
 
 ### January 6, 2026 — v1.0 Launch
 - CW's 123rd birthday

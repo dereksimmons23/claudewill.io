@@ -60,15 +60,49 @@ CW isn't just a chatbot with a folksy persona. CW is a **constitutional thinker*
 
 The CW Standard's frame — "you're already compromised, the question is what you do about it" — is the bridge between idealistic constitutions (Declaration) and practical reality.
 
+**Founder's Story Addition:**
+- ✅ Added Chapter 15: "The Fence" to CW-heritage-founders-story.md
+- Reframes "sitting on the fence" criticism as a principle
+- "The fence isn't the destination. It's the vantage point."
+- Connects to race horses story, builder blood, constitutional thinking
+
 ### Still Needed
-- [ ] Founder's Story — target Feb 7, 2026 (content exists in CW-heritage-founders-story.md)
+- [ ] Founder's Story — target Feb 7, 2026 (content exists, new chapter added)
 - [ ] Distribution strategy execution — CW works, positioning is clearer, now need eyeballs
-- [ ] Test constitutional thinking responses in production
+- [ ] Test constitutional thinking responses in production (deployed, ready to test)
 
 ### Commits Today
 ```
-(pending commit after review)
+b50f8b76 feat: add constitutional thinking framework to CW
 ```
+
+### Next Session Handoff
+
+**Test these on claudewill.io:**
+1. "Today is the anniversary of January 6. What are your thoughts?"
+2. "What constitutions do you know?"
+3. "Is the US still a democracy?"
+4. "How were you built? What rules guide you?"
+5. "I'm working in a system that feels compromised. How do I think about that?"
+
+**If responses need tuning:**
+- Constitutional thinking section is in `netlify/functions/cw.js` lines 403-474
+- Political topics section is lines 269-300
+
+**Founder's Story (Feb 7):**
+- Content is in `CW-Strategies/CW-heritage-founders-story.md`
+- New Chapter 15 "The Fence" added — may need polish
+- 35KB of content ready, needs editing pass before publishing
+
+**Distribution strategy:**
+- Differentiation is now clearer: "CW is a constitutional thinker"
+- Pitch: "How do you follow a constitution if you don't know it?"
+- Next step: figure out how to get eyeballs (Substack? LinkedIn? Something else?)
+
+**CW-Strategies folder:**
+- 57 files excavated and cataloged this session
+- Key docs identified for potential CW knowledge expansion
+- See session notes above for full catalog
 
 ---
 
