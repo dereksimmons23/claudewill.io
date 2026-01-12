@@ -188,6 +188,7 @@ Environment variables in Netlify:
 | Information Architecture | 2 weeks | Nav hierarchy, "The Stable" concept |
 | Founder's Story | Feb 7, 2026 | Derek's 53rd birthday |
 | Technical deep dive | TBD | How CW's Porch was built |
+| Email setup | TBD | Separate work/personal email; ImprovMX for @claudewill.io forwarding |
 | bob.claudewill.io | TBD | BOB subdomain |
 | coach.claudewill.io | TBD | Coach D persona |
 | dawn.claudewill.io | TBD | Dawn's writing assistant |
