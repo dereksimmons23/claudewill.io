@@ -3,126 +3,90 @@
 
 const { createClient } = require('@supabase/supabase-js');
 
-// Initialize Supabase
-let supabase = null;
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY;
-if (supabaseUrl && supabaseKey) {
-  supabase = createClient(supabaseUrl, supabaseKey);
-}
-
-// Format number with commas
-function formatNumber(num) {
-  return num.toLocaleString();
-}
-
-// Calculate cost from tokens (Haiku 3.5 pricing)
-function calculateCost(inputTokens, outputTokens) {
-  const inputCost = (inputTokens / 1000000) * 0.25;  // $0.25 per 1M input
-  const outputCost = (outputTokens / 1000000) * 1.25; // $1.25 per 1M output
-  return (inputCost + outputCost).toFixed(4);
-}
-
-async function sendEmail(subject, body) {
-  const resendKey = process.env.RESEND_API_KEY;
-  if (!resendKey) {
-    console.log('No RESEND_API_KEY - skipping email');
-    return false;
-  }
-
-  try {
-    const response = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${resendKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from: 'CW Strategies <onboarding@resend.dev>',
-        to: 'simmons.derek@gmail.com',  // Resend test domain requires sending to account email
-        subject: subject,
-        text: body,
-      }),
-    });
-
-    if (!response.ok) {
-      const error = await response.text();
-      console.error('Resend error:', error);
-      return false;
-    }
-    return true;
-  } catch (err) {
-    console.error('Email send failed:', err);
-    return false;
-  }
-}
-
 exports.handler = async (event) => {
-  // Can be triggered by schedule or manually via GET request
-  const isScheduled = event.headers?.['x-netlify-event'] === 'schedule';
-  console.log(`Running weekly digest... (scheduled: ${isScheduled})`);
+  console.log('Starting weekly digest...');
+
+  // Initialize Supabase inside handler to ensure env vars are loaded
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY;
+
   console.log('Supabase URL:', supabaseUrl ? 'set' : 'missing');
   console.log('Supabase Key:', supabaseKey ? 'set' : 'missing');
 
-  if (!supabase) {
-    console.error('Supabase not configured');
-    return { statusCode: 500, body: JSON.stringify({ error: 'Supabase not configured' }) };
+  if (!supabaseUrl || !supabaseKey) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: 'Supabase not configured' })
+    };
   }
 
-  // Get date range (last 7 days)
-  const endDate = new Date();
-  const startDate = new Date();
-  startDate.setDate(startDate.getDate() - 7);
-  console.log('Date range:', startDate.toISOString(), 'to', endDate.toISOString());
+  const supabase = createClient(supabaseUrl, supabaseKey);
 
   try {
+    // Get date range (last 7 days)
+    const endDate = new Date();
+    const startDate = new Date();
+    startDate.setDate(startDate.getDate() - 7);
+
+    console.log('Querying conversations...');
+
     // Query conversations from last 7 days
     const { data: conversations, error } = await supabase
       .from('conversations')
-      .select('*')
+      .select('created_at, session_id, token_usage, user_message')
       .gte('created_at', startDate.toISOString())
       .lte('created_at', endDate.toISOString())
       .order('created_at', { ascending: false });
 
     if (error) {
-      console.error('Supabase query error:', error);
-      return { statusCode: 500, body: 'Database query failed' };
+      console.error('Supabase error:', error);
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: 'Database query failed', details: error.message })
+      };
     }
 
+    console.log('Found conversations:', conversations?.length || 0);
+
     // Calculate stats
-    const totalConversations = conversations.length;
-    const uniqueSessions = new Set(conversations.map(c => c.session_id).filter(Boolean)).size;
+    const totalConversations = conversations?.length || 0;
+    const uniqueSessions = new Set((conversations || []).map(c => c.session_id).filter(Boolean)).size;
 
     let totalInputTokens = 0;
     let totalOutputTokens = 0;
 
-    conversations.forEach(c => {
+    (conversations || []).forEach(c => {
       if (c.token_usage) {
         totalInputTokens += c.token_usage.input || 0;
         totalOutputTokens += c.token_usage.output || 0;
       }
     });
 
-    const totalCost = calculateCost(totalInputTokens, totalOutputTokens);
+    // Calculate cost (Haiku 3.5 pricing)
+    const inputCost = (totalInputTokens / 1000000) * 0.25;
+    const outputCost = (totalOutputTokens / 1000000) * 1.25;
+    const totalCost = (inputCost + outputCost).toFixed(4);
 
     // Group by day
     const byDay = {};
-    conversations.forEach(c => {
-      const day = c.created_at.split('T')[0];
-      byDay[day] = (byDay[day] || 0) + 1;
+    (conversations || []).forEach(c => {
+      if (c.created_at) {
+        const day = c.created_at.split('T')[0];
+        byDay[day] = (byDay[day] || 0) + 1;
+      }
     });
 
-    // Get all-time stats
+    // Get all-time count
     const { count: allTimeCount } = await supabase
       .from('conversations')
       .select('*', { count: 'exact', head: true });
 
-    // Sample some recent messages (first 50 chars of user messages)
-    const sampleMessages = conversations
+    // Sample recent messages
+    const sampleMessages = (conversations || [])
       .slice(0, 5)
       .map(c => {
         const preview = (c.user_message || '').substring(0, 80);
-        return `  - "${preview}${c.user_message?.length > 80 ? '...' : ''}"`;
+        return `  - "${preview}${(c.user_message?.length || 0) > 80 ? '...' : ''}"`;
       })
       .join('\n');
 
@@ -131,19 +95,15 @@ exports.handler = async (event) => {
 CW's Porch — Weekly Digest
 ${startDate.toLocaleDateString()} to ${endDate.toLocaleDateString()}
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 THIS WEEK
   Conversations: ${totalConversations}
   Unique sessions: ${uniqueSessions}
-  Input tokens: ${formatNumber(totalInputTokens)}
-  Output tokens: ${formatNumber(totalOutputTokens)}
+  Input tokens: ${totalInputTokens.toLocaleString()}
+  Output tokens: ${totalOutputTokens.toLocaleString()}
   Estimated cost: $${totalCost}
 
 ALL TIME
-  Total conversations: ${formatNumber(allTimeCount || 0)}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Total conversations: ${(allTimeCount || 0).toLocaleString()}
 
 DAILY BREAKDOWN
 ${Object.entries(byDay)
@@ -151,35 +111,58 @@ ${Object.entries(byDay)
   .map(([day, count]) => `  ${day}: ${count} conversations`)
   .join('\n') || '  No conversations this week'}
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 RECENT CONVERSATIONS
 ${sampleMessages || '  None this week'}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 View full data: https://supabase.com/dashboard
     `.trim();
 
     // Send email
-    const sent = await sendEmail(
-      `CW Weekly: ${totalConversations} conversations, $${totalCost}`,
-      emailBody
-    );
+    const resendKey = process.env.RESEND_API_KEY;
+    let emailSent = false;
 
-    console.log('Digest complete:', { totalConversations, sent });
+    if (resendKey) {
+      console.log('Sending email...');
+      try {
+        const response = await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${resendKey}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            from: 'CW Strategies <onboarding@resend.dev>',
+            to: 'simmons.derek@gmail.com',
+            subject: `CW Weekly: ${totalConversations} conversations, $${totalCost}`,
+            text: emailBody,
+          }),
+        });
+
+        emailSent = response.ok;
+        if (!response.ok) {
+          const errText = await response.text();
+          console.error('Resend error:', errText);
+        }
+      } catch (emailErr) {
+        console.error('Email send failed:', emailErr.message);
+      }
+    }
+
+    console.log('Digest complete');
 
     return {
       statusCode: 200,
       body: JSON.stringify({
         success: true,
         conversations: totalConversations,
-        emailSent: sent,
+        uniqueSessions,
+        cost: totalCost,
+        emailSent,
       }),
     };
 
   } catch (err) {
-    console.error('Digest error:', err.message, err.stack);
+    console.error('Digest error:', err.message);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Digest failed', message: err.message })
