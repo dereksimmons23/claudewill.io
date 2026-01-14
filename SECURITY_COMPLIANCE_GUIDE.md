@@ -228,7 +228,7 @@ I'll create a comprehensive accessibility update in a separate file with all the
 4. **User rights:**
    - Right to request their data
    - Right to request deletion
-   - How to contact you: derek@dcs.bio
+   - How to contact you: derek@claudewill.io
 
 5. **Third parties:**
    - Anthropic (Claude API) - processes messages

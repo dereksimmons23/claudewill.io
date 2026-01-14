@@ -45,3 +45,4 @@ netlify/*.txt
 
 # Local editor/workspace
 *.code-workspace
+.netlify/

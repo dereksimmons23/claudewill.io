@@ -4,7 +4,7 @@
 
 If you find a security issue, **do not open a public issue**.
 
-- Email: `security@dcs.bio` (or if that alias isn’t set up, use `derek@dcs.bio`)
+- Email: `derek@claudewill.io`
 - Include: what you found, steps to reproduce, and any proof-of-concept
 
 ## Scope

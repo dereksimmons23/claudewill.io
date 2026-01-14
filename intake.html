@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intake Assessment | CW Strategies</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #fafafa;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      padding: 2.5rem 2rem;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .intro {
+      color: #666;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .question {
+      margin-bottom: 2rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .hint {
+      font-size: 0.875rem;
+      color: #666;
+      margin-bottom: 0.75rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #333;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      margin-top: 0.25rem;
+    }
+
+    .checkbox-item label {
+      font-weight: 400;
+      margin-bottom: 0;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #fff;
+      background: #1a1a1a;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button[type="submit"]:hover {
+      background: #333;
+    }
+
+    .footer-note {
+      margin-top: 1.5rem;
+      font-size: 0.875rem;
+      color: #666;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .required {
+      color: #c00;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Intake Assessment</h1>
+    <p class="intro">Before we talk, a few questions. This isn't a test — it's a filter for both of us. Take 10 minutes. Be honest. There are no wrong answers, but vague ones tell me you're not ready.</p>
+
+    <form action="/.netlify/functions/intake" method="POST" id="intake-form">
+
+      <div class="question">
+        <label for="name">Your name <span class="required">*</span></label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="question">
+        <label for="email">Email <span class="required">*</span></label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="question">
+        <label for="building">What are you trying to build? <span class="required">*</span></label>
+        <p class="hint">Not "what's your goal" — what are you actually trying to build? A practice? A team capability? A system? Be specific.</p>
+        <textarea id="building" name="building" required></textarea>
+      </div>
+
+      <div class="question">
+        <label for="tried">What have you already tried?</label>
+        <p class="hint">What tools have you experimented with? What worked? What didn't? If "nothing yet" — tell me why now.</p>
+        <textarea id="tried" name="tried"></textarea>
+      </div>
+
+      <div class="question">
+        <label for="constraint">What's the constraint? <span class="required">*</span></label>
+        <p class="hint">Time. Budget. Team buy-in. Technical knowledge. Fear of looking stupid. Overwhelm. What's yours?</p>
+        <textarea id="constraint" name="constraint" required></textarea>
+      </div>
+
+      <div class="question">
+        <label for="success">What does success look like in 90 days? <span class="required">*</span></label>
+        <p class="hint">Be concrete. What's different in your work, your team, your organization if this engagement works?</p>
+        <textarea id="success" name="success" required></textarea>
+      </div>
+
+      <div class="question">
+        <label for="why-me">Why me?</label>
+        <p class="hint">How did you find me? What made you fill this out instead of closing the tab?</p>
+        <textarea id="why-me" name="why_me"></textarea>
+      </div>
+
+      <div class="question">
+        <label>What kind of engagement are you looking for? <span class="required">*</span></label>
+        <p class="hint">Select all that apply.</p>
+        <div class="checkbox-group">
+          <div class="checkbox-item">
+            <input type="checkbox" id="type-1on1" name="engagement_type" value="1on1">
+            <label for="type-1on1"><strong>1:1 Coaching</strong> — I want to develop my own practice with a guide</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="type-team" name="engagement_type" value="team">
+            <label for="type-team"><strong>Team Engagement</strong> — My team/org needs to build capacity together</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="type-strategic" name="engagement_type" value="strategic">
+            <label for="type-strategic"><strong>Strategic Consulting</strong> — We need help with a larger implementation</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="type-unsure" name="engagement_type" value="unsure">
+            <label for="type-unsure"><strong>Not sure yet</strong> — I need help figuring that out</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="question">
+        <label for="anything-else">Anything else I should know?</label>
+        <p class="hint">Context matters. Situation, timeline, constraints — whatever helps.</p>
+        <textarea id="anything-else" name="anything_else"></textarea>
+      </div>
+
+      <button type="submit">Submit Assessment</button>
+
+      <p class="footer-note">I'll review your answers within 48 hours. If there's a fit, I'll reach out. If not, I'll tell you that too. No ghosting.</p>
+
+    </form>
+  </div>
+</body>
+</html>
