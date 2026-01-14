@@ -61,16 +61,19 @@ exports.handler = async (event) => {
   // Can be triggered by schedule or manually via GET request
   const isScheduled = event.headers?.['x-netlify-event'] === 'schedule';
   console.log(`Running weekly digest... (scheduled: ${isScheduled})`);
+  console.log('Supabase URL:', supabaseUrl ? 'set' : 'missing');
+  console.log('Supabase Key:', supabaseKey ? 'set' : 'missing');
 
   if (!supabase) {
     console.error('Supabase not configured');
-    return { statusCode: 500, body: 'Supabase not configured' };
+    return { statusCode: 500, body: JSON.stringify({ error: 'Supabase not configured' }) };
   }
 
   // Get date range (last 7 days)
   const endDate = new Date();
   const startDate = new Date();
   startDate.setDate(startDate.getDate() - 7);
+  console.log('Date range:', startDate.toISOString(), 'to', endDate.toISOString());
 
   try {
     // Query conversations from last 7 days
@@ -176,7 +179,10 @@ View full data: https://supabase.com/dashboard
     };
 
   } catch (err) {
-    console.error('Digest error:', err);
-    return { statusCode: 500, body: 'Digest failed' };
+    console.error('Digest error:', err.message, err.stack);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: 'Digest failed', message: err.message })
+    };
   }
 };
