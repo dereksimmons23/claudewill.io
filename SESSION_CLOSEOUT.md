@@ -2,6 +2,44 @@
 
 ---
 
+## Session: January 13, 2026
+
+**Branch:** `main`
+**Status:** Quick data check, documentation update
+
+### Completed Today
+
+**Supabase Data Review:**
+- ✅ Confirmed token logging is working correctly
+- ✅ Token structure: `{input: N, output: N}` — all data present
+- ✅ Updated ANALYTICS_QUERIES.md with current Haiku 3.5 pricing ($0.25/1M input, $1.25/1M output)
+
+**Stats Since Launch (Dec 8 - Jan 13):**
+- 355 total conversations
+- 33 unique sessions
+- 1,505,337 input tokens / 25,060 output tokens
+- **Total cost: ~$0.41** (Haiku doing its job)
+
+**Last 7 Days:**
+| Date | Convos | Input | Output | Total |
+|------|--------|-------|--------|-------|
+| Jan 12 | 2 | 17,467 | 196 | 17,663 |
+| Jan 11 | 11 | 96,054 | 1,946 | 98,000 |
+| Jan 8 | 6 | 37,001 | 250 | 37,251 |
+| Jan 7 | 1 | 5,716 | 189 | 5,905 |
+
+**Observations:**
+- Jan 11 session was testing constitutional thinking updates — worked well
+- Input tokens dominate because system prompt is ~3K tokens per request
+- Output stays low because CW talks in short bursts (as designed)
+- Traffic is light post-launch (mostly testing sessions, no apparent external users yet)
+
+### Still Needed
+- [ ] Founder's Story — target Feb 7, 2026 (Derek's 53rd birthday)
+- [ ] Distribution strategy — traffic dropped off, need eyeballs
+
+---
+
 ## Session: January 11, 2026
 
 **Branch:** `main`

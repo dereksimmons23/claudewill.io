@@ -137,15 +137,15 @@ FROM conversations
 WHERE token_usage IS NOT NULL;
 ```
 
-### Estimated Cost (Haiku pricing: $0.80/1M input, $4.00/1M output)
+### Estimated Cost (Haiku 3.5 pricing: $0.25/1M input, $1.25/1M output)
 ```sql
 SELECT
   COUNT(*) as total_conversations,
   SUM((token_usage->>'input')::int) as total_input_tokens,
   SUM((token_usage->>'output')::int) as total_output_tokens,
   ROUND(
-    (SUM((token_usage->>'input')::int) * 0.80 / 1000000.0) +
-    (SUM((token_usage->>'output')::int) * 4.00 / 1000000.0),
+    (SUM((token_usage->>'input')::int) * 0.25 / 1000000.0) +
+    (SUM((token_usage->>'output')::int) * 1.25 / 1000000.0),
     4
   ) as estimated_cost_usd
 FROM conversations
