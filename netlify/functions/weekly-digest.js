@@ -39,7 +39,7 @@ async function sendEmail(subject, body) {
       },
       body: JSON.stringify({
         from: 'CW Strategies <onboarding@resend.dev>',
-        to: 'derek@claudewill.io',
+        to: 'simmons.derek@gmail.com',  // Resend test domain requires sending to account email
         subject: subject,
         text: body,
       }),

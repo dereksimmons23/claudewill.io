@@ -66,7 +66,7 @@ View in Supabase: https://supabase.com/dashboard/project/YOUR_PROJECT/editor
       },
       body: JSON.stringify({
         from: 'CW Strategies <onboarding@resend.dev>',
-        to: 'derek@claudewill.io',
+        to: 'simmons.derek@gmail.com',  // Resend test domain requires sending to account email
         subject: `New Intake: ${submission.name}`,
         text: emailBody,
       }),
