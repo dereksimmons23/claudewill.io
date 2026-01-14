@@ -5,9 +5,8 @@
 [functions]
   node_bundler = "esbuild"
 
-# Weekly digest - runs Monday at 9am CT (15:00 UTC)
-[functions."weekly-digest"]
-  schedule = "0 15 * * 1"
+# Note: Schedule for weekly-digest is configured in Netlify dashboard
+# schedule = "0 15 * * 1" (Monday 9am CT)
 
 [[headers]]
   for = "/*"
