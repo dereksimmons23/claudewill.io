@@ -5,9 +5,6 @@
 [functions]
   node_bundler = "esbuild"
 
-[functions."weekly-digest"]
-schedule = "@weekly"
-
 [[headers]]
   for = "/*"
   [headers.values]
