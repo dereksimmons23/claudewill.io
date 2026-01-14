@@ -1,0 +1,15 @@
+name: Weekly CW Digest
+
+on:
+  schedule:
+    # Monday at 9am CT (15:00 UTC)
+    - cron: '0 15 * * 1'
+  workflow_dispatch: # Allow manual trigger from GitHub UI
+
+jobs:
+  send-digest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger weekly digest
+        run: |
+          curl -sS "https://claudewill.io/.netlify/functions/weekly-digest"
