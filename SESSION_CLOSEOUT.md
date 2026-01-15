@@ -2,6 +2,93 @@
 
 ---
 
+## Session: January 14, 2026
+
+**Branch:** `main`
+**Status:** CW Strategies infrastructure built, case studies drafted
+
+### Completed Today
+
+**Founder's Story Draft:**
+- ✅ Created `docs/FOUNDERS-STORY-DRAFT.md` (~1,800 words, 8 min read)
+- ✅ 5 chapters: Seven Words, Blood of Builders, Country Queen, The Fence, Now What?
+- ✅ Ready for Derek's review/edits before Feb 7 launch
+
+**Email Setup:**
+- ✅ Confirmed `derek@claudewill.io` forwarding works (Forward Email → Gmail)
+- ✅ Updated email references across security docs and CW-Strategies files
+- ✅ Installed Netlify CLI, linked to claudewill.io site
+
+**Intake Form System:**
+- ✅ Built `intake.html` — assessment form for CW Strategies prospects
+- ✅ Built `intake-thanks.html` — confirmation page
+- ✅ Built `netlify/functions/intake.js` — serverless handler
+- ✅ Created `intake_submissions` table in Supabase
+- ✅ Email notifications via Resend (sends to Gmail)
+- ✅ Full pipeline tested and working
+
+**Weekly Digest System:**
+- ✅ Built `netlify/functions/weekly-digest.js` — conversation summary
+- ✅ Queries Supabase for weekly stats (conversations, sessions, tokens, cost)
+- ✅ Sends email summary via Resend
+- ✅ GitHub Actions workflow for Monday 9am CT schedule (`.github/workflows/weekly-digest.yml`)
+- ✅ Manual trigger tested and working
+
+**Case Studies:**
+- ✅ Created `CW-Strategies/case-studies/small-org.md` — Regional Media Organization (CDN anonymized)
+- ✅ Created `CW-Strategies/case-studies/executive.md` — Executive Coaching (self-application)
+- ⏸️ Large org case study paused — 27 years newspaper experience stays in bio, not case study format
+
+**CW-Strategies Assets Reviewed:**
+- README.md (asset bundle overview)
+- CW_Strategies_Offering_DRAFT.md (full service offering)
+- CW_Strategies_Assessment_v1.md (intake questions)
+- warm-outreach-template.md (4 templates)
+- case-study-template.md (structure)
+
+### Decisions Made
+
+1. **Large org case study:** Skip for now. Star Tribune history is complicated, LA Times adds complexity. Bio covers the credential. First CW Strategies large org client becomes the clean case study.
+
+2. **Email notifications:** Send directly to Gmail (Resend test domain limitation). Can upgrade later by verifying claudewill.io domain in Resend.
+
+3. **Weekly digest schedule:** GitHub Actions (Netlify scheduled functions had config issues).
+
+### Files Changed
+
+```
+New:
+- docs/FOUNDERS-STORY-DRAFT.md
+- intake.html
+- intake-thanks.html
+- netlify/functions/intake.js
+- netlify/functions/weekly-digest.js
+- .github/workflows/weekly-digest.yml
+- CW-Strategies/case-studies/small-org.md
+- CW-Strategies/case-studies/executive.md
+
+Modified:
+- SECURITY.md (email updated)
+- SECURITY_COMPLIANCE_GUIDE.md (email updated)
+- netlify.toml (schedule removed — using GitHub Actions instead)
+- .gitignore (.netlify/ added)
+
+Supabase:
+- New table: intake_submissions
+
+Netlify:
+- New env var: RESEND_API_KEY
+```
+
+### Still Needed
+
+- [ ] Founder's Story — Derek review/edit, target Feb 7
+- [ ] CW-Strategies one-pager review — does it sound like you?
+- [ ] Warm outreach — 10-20 contacts
+- [ ] Distribution strategy — traffic still light
+
+---
+
 ## Session: January 13, 2026
 
 **Branch:** `main`
