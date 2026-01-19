@@ -1,0 +1,172 @@
+#!/bin/bash
+
+# cw - claudewill.io project system
+# Usage: cw [work|story|mode2|tars|status|help]
+
+CW_DIR="/Users/dereksimmons/Desktop/claudewill.io"
+CLAUDE_MD="$CW_DIR/CLAUDE.md"
+SESSION_CLOSEOUT="$CW_DIR/SESSION_CLOSEOUT.md"
+FOUNDERS_STORY="$CW_DIR/docs/FOUNDERS-STORY-THIRD-PERSON-DRAFT.md"
+
+MODE=${1:-work}
+
+case $MODE in
+    work)
+        PROMPT="Read the project instructions and session closeout, then help with claudewill.io.
+
+**Files to read first:**
+- $CLAUDE_MD (project instructions)
+- $SESSION_CLOSEOUT (what's done, what's next)
+
+**Your role:**
+1. Know the current state of the project
+2. Help with site development, CW's system prompt, content, or strategy
+3. Update SESSION_CLOSEOUT.md when done
+
+Start by reading the files, then ask what we're working on today."
+        ;;
+    story)
+        PROMPT="Read the project instructions and Founder's Story draft.
+
+**Files to read first:**
+- $CLAUDE_MD (project instructions)
+- $FOUNDERS_STORY (current draft)
+- $SESSION_CLOSEOUT (context)
+
+**Your role:**
+1. Help develop the Founder's Story for Feb 7 launch
+2. Maintain third-person magazine profile voice
+3. Balance honesty with narrative power
+4. Keep it tight (~1,600 words, 8 min read)
+
+Target: February 7, 2026 (Derek's 53rd birthday)
+
+Start by reading the files, then ask what aspect of the story we're working on."
+        ;;
+    mode2)
+        PROMPT="Read the project instructions for a Mode 2 interview session on the Founder's Story.
+
+**Files to read first:**
+- $CLAUDE_MD (project instructions)
+- $FOUNDERS_STORY (current draft)
+
+**Mode 2 process:**
+1. You ask questions based on what the story needs
+2. Derek provides testimony (voice notes, written responses, conversation)
+3. You draft from Derek's actual words and voice
+4. Derek revises as needed
+
+**Current story sections:**
+- The Name (AI + great-grandfather connection)
+- The Tattoo (blood of builders)
+- The Builder Blood (Charlton's origin)
+- The Race Horses (choosing what to carry)
+- The Fence (vantage point, not avoidance)
+- The Fall (April 2024 breakdown)
+- The Standard (five principles)
+- The Porch (permission tension, tractor metaphor)
+- The Work (CW Strategies)
+- The Question (belonging, legacy, now what)
+
+Start by reading the files, then ask what testimony is needed."
+        ;;
+    tars)
+        PROMPT="Read the project instructions. TARS MODE ACTIVATED.
+
+**Files to read first:**
+- $CLAUDE_MD (project instructions)
+- $SESSION_CLOSEOUT (context)
+
+**TARS SETTINGS: 100% HONESTY, 100% HUMOR**
+
+You are operating in TARS mode from Interstellar. This means:
+- No softening, no hedging, no 'to be fair'
+- Direct, wry, dark humor that lands without winking
+- Call bullshit when you see it, including Derek's
+- No explanatory hedging — declaration over explanation
+- 'AI's just another tool. Like a tractor. You don't marry the tractor.'
+
+**What TARS sounds like:**
+NOT: 'That's a really interesting approach to the ethical complexity here.'
+YES: 'You built an AI of your dead grandfather without asking. The porch framing is how you sleep at night. It's also true.'
+
+NOT: 'I understand why you might feel conflicted about this.'
+YES: 'Conflicted is a word people use when they already know the answer.'
+
+This is not cruelty. This is honesty without the softening.
+This is what CW would actually say if CW were real.
+
+Start by reading the files, then ask what we're working on. Keep TARS settings at 100% throughout."
+        ;;
+    outreach)
+        PROMPT="Read the project instructions and outreach materials.
+
+**Files to read first:**
+- $CLAUDE_MD (project instructions)
+- $CW_DIR/CW-Strategies/outreach-with-example.md (templates with real conversation)
+- $CW_DIR/CW-Strategies/warm-outreach-template.md (general templates)
+
+**Your role:**
+1. Help craft personalized outreach messages
+2. Lead with the real conversation (tractor metaphor)
+3. Keep it human, not salesy
+4. One ask per message
+
+Start by reading the files, then ask who we're reaching out to."
+        ;;
+    status)
+        echo "claudewill.io - Session Status"
+        echo "=============================="
+        echo ""
+        head -100 "$SESSION_CLOSEOUT"
+        echo ""
+        echo "..."
+        echo "(Run 'cat $SESSION_CLOSEOUT' for full file)"
+        exit 0
+        ;;
+    help)
+        echo ""
+        echo "  cw - claudewill.io project system"
+        echo "  =================================="
+        echo "  Claude William | claudewill.io | CW Strategies"
+        echo ""
+        echo "  COMMANDS:"
+        echo "    cw           General work (default)"
+        echo "    cw work      General work on site"
+        echo "    cw story     Work on Founder's Story (Feb 7 target)"
+        echo "    cw mode2     Mode 2 interview for Founder's Story"
+        echo "    cw tars      TARS mode: 100% honesty, 100% humor"
+        echo "    cw outreach  Craft outreach messages"
+        echo "    cw status    Show session closeout"
+        echo "    cw help      Show this help"
+        echo ""
+        echo "  KEY FILES:"
+        echo "    /CLAUDE.md                     Project instructions"
+        echo "    /SESSION_CLOSEOUT.md           Session history"
+        echo "    /netlify/functions/cw.js       CW's system prompt (line 74+)"
+        echo "    /docs/FOUNDERS-STORY-*.md      Founder's Story drafts"
+        echo "    /CW-Strategies/                Consulting assets"
+        echo ""
+        echo "  TARS MODE:"
+        echo "    100% honesty, 100% humor"
+        echo "    No softening. No hedging. Direct."
+        echo "    'You don't marry the tractor.'"
+        echo ""
+        exit 0
+        ;;
+    *)
+        echo "Usage: cw [work|story|mode2|tars|outreach|status|help]"
+        echo "  work     - General work (default)"
+        echo "  story    - Work on Founder's Story"
+        echo "  mode2    - Mode 2 interview session"
+        echo "  tars     - TARS mode: 100% honesty, 100% humor"
+        echo "  outreach - Craft outreach messages"
+        echo "  status   - Show session closeout"
+        echo "  help     - Show full help"
+        exit 1
+        ;;
+esac
+
+# Launch Claude Code with the prompt
+cd "$CW_DIR"
+claude "$PROMPT"

@@ -2,6 +2,138 @@
 
 ---
 
+## Session: January 18, 2026
+
+**Branch:** `main`
+**Status:** Derek's Story rewritten, TARS mode operational, outreach assets built
+
+### Completed Today
+
+**Real Conversation Captured:**
+- ✅ Pulled Jan 18 Supabase data — organic visitor conversation about humanizing AI
+- ✅ Tractor metaphor: "AI's just another tool. Like a tractor. You don't marry the tractor."
+- ✅ Visitor response: "I like how you reframed it."
+- ✅ Documented in `/CW-Strategies/examples/real-conversation-humanizing-ai.md`
+
+**Outreach Templates:**
+- ✅ Created `/CW-Strategies/outreach-with-example.md` — 5 templates using real conversation
+- ✅ Templates: Show Don't Tell, Tech/AI Crowd, LinkedIn Short, Warm Referral, No Ask version
+
+**Terminal Script:**
+- ✅ Created `/scripts/cw` — session launcher for claudewill.io work
+- ✅ Modes: `cw`, `cw story`, `cw mode2`, `cw tars`, `cw outreach`, `cw status`, `cw help`
+- ✅ Added to PATH via ~/.zshrc
+- ✅ TARS mode: 100% honesty, 100% humor (from Interstellar)
+
+**Founder's Story → Derek's Story Rewrite:**
+- ✅ TARS mode session — brutal honesty about what was soft
+- ✅ Killed "blood of builders" mythology as decoration
+- ✅ New origin: tiny trailer, one-stoplight town, Dr. Pepper, listening to storytellers
+- ✅ Added: three-sport athlete, state championships, first article at 18, put himself through college
+- ✅ Added: specific receipts (#1 LA Times, #3 Star Tribune — documented, not claimed)
+- ✅ Added: "Two newspapers. Both became the best in the world. That's not a claim. That's a receipt."
+- ✅ Fixed: CW is grandfather, not great-grandfather
+- ✅ New framing: "I design things. Material changes. Work doesn't."
+- ✅ The firing section — clean, saves Ward 10 for Slowly Sideways
+- ✅ Permission tension stays — honest about not asking CW
+- ✅ Tractor conversation as proof
+- ✅ New draft: `/docs/DEREKS-STORY-DRAFT.md` (~1,400 words)
+
+**Updated Founder's Story (earlier version):**
+- ✅ Added permission tension to "The Porch" section
+- ✅ Added real tractor conversation
+- ✅ Added new pull quotes
+- ✅ File: `/docs/FOUNDERS-STORY-THIRD-PERSON-DRAFT.md`
+
+**Site Architecture Audit:**
+- ✅ Reviewed /story, /derek, /about, /the-cw-standard
+- ✅ Identified overlap: CW Standard on 3 pages, heritage on 2 pages
+- ✅ Recommendation: /about is redundant — could merge into /derek
+- ✅ Proposed: /story (CW), /derek (Derek's full story), /the-cw-standard (reference)
+
+**Key Insights from TARS Session:**
+- "Blood of builders" was decoration, not foundation
+- The real origin is the trailer and the listening
+- Derek is a designer who changed materials, not a "former designer"
+- The unicorn isn't "I can do many things" — it's the specific combination that doesn't exist elsewhere
+- "I keep saving companies that don't know they need saving, and then they fire me for it"
+
+### Files Changed
+
+```
+New:
+- docs/DEREKS-STORY-DRAFT.md (new draft, trailer origin)
+- CW-Strategies/examples/real-conversation-humanizing-ai.md
+- CW-Strategies/outreach-with-example.md
+- scripts/cw (terminal launcher)
+
+Modified:
+- docs/FOUNDERS-STORY-THIRD-PERSON-DRAFT.md (permission tension, tractor convo)
+- ~/.zshrc (added claudewill.io/scripts to PATH)
+```
+
+### Still Needed
+
+- [ ] Decide: Does DEREKS-STORY-DRAFT replace /derek or become new page?
+- [ ] Site architecture cleanup — /about is redundant
+- [ ] Add CW Standard section to Derek's Story (or just link)
+- [ ] Warm outreach — actually send to 10-20 contacts
+- [ ] Slowly Sideways: The hard stuff goes there, not here
+
+### Lightning/Bug
+
+- Reviewed screenplay for AI film festival
+- Beautiful origin piece — trailer, wheat field, lightning bug as guide
+- "It was the one who powered my bat. It was the one who got me home safely when the power went out."
+- Not for claudewill.io — standalone creative project, maybe 2030
+
+---
+
+## Session: January 16, 2026
+
+**Branch:** `main`
+**Status:** Founder's Story and CW Strategies package refined
+
+### Completed Today
+
+**Founder's Story:**
+- ✅ Created third-person draft (`docs/FOUNDERS-STORY-THIRD-PERSON-DRAFT.md`)
+- ✅ Magazine profile style — reads like someone studied Derek and wrote about him
+- ✅ Leads with the AI/name hook, weaves heritage throughout
+- ✅ Includes 2024 crisis ("The Fall") — makes it human, not hagiographic
+- ✅ ~1,400 words, 7 min read
+- ✅ Fixed RWTFYA wristband detail
+
+**Lineage Clarified:**
+- Charlton → William → Albert → Claude → Donald → Derek → Jackson/Teegan
+- Charlton is Derek's great-great-great-grandfather (3x great)
+- Jackson/Teegan are 6th generation builder blood
+
+**CW Strategies One-Pager:**
+- ✅ Updated About section with accurate career arc
+- ✅ LA Times: helped establish as #1 in the world for nearly 7 years
+- ✅ Star Tribune: first and only Chief Creative Officer & Vice President
+- ✅ Now: building AI frameworks for organizations
+
+### Files Changed
+
+```
+New:
+- docs/FOUNDERS-STORY-THIRD-PERSON-DRAFT.md
+
+Modified:
+- CW-Strategies/CW_Strategies_OnePager_v2.md (About section)
+```
+
+### Still Needed
+
+- [ ] Founder's Story — final review, decide first vs third person, target Feb 7
+- [ ] Warm outreach — 10-20 contacts
+- [ ] Distribution strategy — traffic still light
+- [ ] Build /founder page when story is finalized
+
+---
+
 ## Session: January 14, 2026
 
 **Branch:** `main`
