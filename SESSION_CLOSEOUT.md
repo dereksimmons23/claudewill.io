@@ -5,7 +5,7 @@
 ## Session: January 20, 2026
 
 **Branch:** `main`
-**Status:** Model upgrade complete
+**Status:** Model upgrade complete, D-Rock project initialized
 
 ### Completed Today
 
@@ -16,24 +16,66 @@
 - ✅ Updated CLAUDE.md documentation
 - ✅ Deployed and tested — CW responding correctly
 
-### Files Changed
+**D-Rock Project (NEW):**
+- ✅ Created separate repo: https://github.com/dereksimmons23/d-rock
+- ✅ D-Rock = AI DJ agent, voice only (no text outputs)
+- ✅ Uses Derek's cloned voice via ElevenLabs
+- ✅ PWA will live at d-rock.claudewill.io
+- ✅ Terminal script `d-rock` added to PATH
+- ✅ Created persona examples (dj-responses.md)
+- ✅ Research complete: Spotify DJ architecture, visual APIs, build vs API analysis
+
+**D-Rock Stack:**
+- Brain: Claude Haiku (DJ persona)
+- Voice: ElevenLabs (Derek's clone)
+- Music: Spotify Web API + Playback SDK
+- Lyrics: Genius API
+- Visuals: Web Audio API + Three.js + GSAP (buildable, no API needed)
+
+### Files Changed (claudewill.io)
 
 ```
 Modified:
 - netlify/functions/cw.js (model ID)
 - CLAUDE.md (model references, changelog)
+- ~/.zshrc (added d-rock scripts to PATH)
+```
+
+### Files Created (d-rock repo)
+
+```
+New repo: ~/Desktop/d-rock/
+- CLAUDE.md, SESSION_CLOSEOUT.md
+- index.html, netlify.toml
+- scripts/d-rock (terminal launcher)
+- docs/dj-responses.md (persona examples)
+- docs/ai-dj-research.md (competitive research)
+- docs/visual-features-research.md (API vs build)
 ```
 
 ### Commits
 
+**claudewill.io:**
 - `bb43bcd7` — chore: upgrade to Claude Haiku 4.5
 - `7a3d0e49` — fix: correct Haiku 4.5 model ID
 
-### Notes
+**d-rock:**
+- `4b62519` — Initial commit: D-Rock project setup
+- `bbb6534` — docs: define D-Rock as voice-only AI DJ agent
+- `c6dcfb1` — docs: add DJ response examples and AI DJ research
+- `dc0e34b` — docs: add visual features research (API vs build)
 
-- Haiku 4.5 pricing: $1/$5 per million tokens (same as 3.5)
-- Haiku 4.5 matches Sonnet 4 on coding benchmarks, runs 4-5x faster
-- Official docs: https://platform.claude.com/docs/en/about-claude/models/overview
+### Next Steps (D-Rock)
+
+1. Set up Netlify site for d-rock
+2. Configure subdomain: d-rock.claudewill.io
+3. Create Spotify Developer app
+4. Get ElevenLabs voice ID (Derek's clone)
+5. Build Phase 1: PWA shell + ElevenLabs voice test
+
+### Key Quote
+
+*"The song's still good. Even if they weren't."* — D-Rock
 
 ---
 
