@@ -2,6 +2,118 @@
 
 ---
 
+## Session: January 20, 2026
+
+**Branch:** `main`
+**Status:** Model upgrade complete
+
+### Completed Today
+
+**Haiku 3.5 → Haiku 4.5 Migration:**
+- ✅ Received Anthropic deprecation notice (Haiku 3.5 EOL: Feb 19, 2026)
+- ✅ Updated `netlify/functions/cw.js` to use `claude-haiku-4-5`
+- ✅ Fixed model ID (alias is `claude-haiku-4-5`, not `claude-haiku-4-5-latest`)
+- ✅ Updated CLAUDE.md documentation
+- ✅ Deployed and tested — CW responding correctly
+
+### Files Changed
+
+```
+Modified:
+- netlify/functions/cw.js (model ID)
+- CLAUDE.md (model references, changelog)
+```
+
+### Commits
+
+- `bb43bcd7` — chore: upgrade to Claude Haiku 4.5
+- `7a3d0e49` — fix: correct Haiku 4.5 model ID
+
+### Notes
+
+- Haiku 4.5 pricing: $1/$5 per million tokens (same as 3.5)
+- Haiku 4.5 matches Sonnet 4 on coding benchmarks, runs 4-5x faster
+- Official docs: https://platform.claude.com/docs/en/about-claude/models/overview
+
+---
+
+## Session: January 19, 2026
+
+**Branch:** `main`
+**Status:** Strategic docs built, TARS assessment complete, founder's story drafted
+
+### Completed Today
+
+**Governance Layer Thinking:**
+- ✅ Created `docs/governance-layer.md` — constitutional AI at scale
+- ✅ Eric Schmidt's predictions: million-word context, agents inventing their own language
+- ✅ Core insight: "Turn it off" isn't happening. Nobody's turning it off.
+- ✅ Metaphor evolution: Conductor → Brakeman → Track-builder → Quantum tracks
+- ✅ Added "The Inception Moment" — room full of Claudes spawning rooms
+
+**Founder's Package Assembly:**
+- ✅ Created `docs/founders-package.md` — Feb 7 target
+- ✅ 7 components: CDN case study, assessment, constitution, origin story, AI Outfitter philosophy, Jobs Framework, Honesty Problem
+- ✅ Lineage thread: CW → Derek → Claude
+- ✅ Site architecture questions captured
+
+**CDN Case Study:**
+- ✅ Created `docs/case-study-cdn.md` — $1M revenue gap turnaround
+- ✅ 4-pillar strategy, 4-day workshop, stakeholder management
+- ✅ "No more talking. We are moving."
+
+**TARS Assessment:**
+- ✅ Full project assessment in TARS voice (95% honest, 75% humor)
+- ✅ Key finding: "The best thing about this project is the system prompt. The worst thing is everything around it."
+- ✅ Traffic problem is existential (~355 conversations, mostly testing)
+- ✅ Probability: 35% current trajectory, 65% with distribution focus
+- ✅ Recommendation: "You built a good porch. Now invite some people to sit on it."
+
+**Founder's Story Draft (TARS/Scorsese voice):**
+- ✅ Created `docs/founders-story-tars-scorsese.md` — hybrid voice
+- ✅ Nickerson, Kansas origin (one stoplight, now none)
+- ✅ Trailer, not polished branding narrative
+- ✅ Star Tribune receipts (#1 LA Times, #3 Star Tribune)
+- ✅ Tractor conversation, racehorses, operating system
+- ✅ Closing: "Everything here is true. The stuff that's not here isn't your business yet. That's what the book is for."
+- ⚠️ Some facts need correction (Derek to review)
+
+**Next Steps Doc:**
+- ✅ Created `docs/next-steps.md` — actionable priorities from TARS assessment
+- ✅ Immediate: Ship Derek's Story, send 10 outreach messages
+- ✅ Feb 7: CDN case study live, site architecture cleanup, founder's package
+- ✅ Q1: Session memory, clarify business model, proactive CW guidance
+- ✅ Bottom line: "Stop building. Start inviting."
+
+**Weekly Digest Confirmed:**
+- ✅ Email came through — GitHub Actions + Resend working
+
+### Files Changed
+
+```
+New:
+- docs/governance-layer.md
+- docs/founders-package.md
+- docs/case-study-cdn.md
+- docs/next-steps.md
+- docs/founders-story-tars-scorsese.md
+```
+
+### Still Needed
+
+- [ ] Fix facts in founders-story-tars-scorsese.md (Derek to identify)
+- [ ] Ship Derek's Story to /derek
+- [ ] Send 10 outreach messages (this week)
+- [ ] CDN case study formatted for site
+- [ ] Site architecture cleanup (3 pages, kill friction)
+- [ ] Session memory for CW (Q1)
+
+### Key Insight
+
+From TARS: The gap between 35% and 65% success probability is distribution, not features. The porch is built. Nobody's sitting on it.
+
+---
+
 ## Session: January 18, 2026
 
 **Branch:** `main`
