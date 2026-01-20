@@ -665,7 +665,7 @@ exports.handler = async (event, context) => {
     const systemWithCondition = SYSTEM_PROMPT + `\n\nCurrent condition: ${condition || 'clear'}`;
 
     const response = await client.messages.create({
-      model: 'claude-haiku-4-5-latest',
+      model: 'claude-haiku-4-5',
       max_tokens: 500,
       system: systemWithCondition,
       messages: messages

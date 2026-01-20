@@ -41,7 +41,7 @@
 | Frontend | Static HTML/CSS/JS | No framework, vanilla JS |
 | Hosting | Netlify | Auto-deploys from main branch |
 | API | Netlify Functions | Serverless, cw.js handles all requests |
-| AI | Anthropic Haiku | claude-haiku-4-5-latest for conversations |
+| AI | Anthropic Haiku | claude-haiku-4-5 for conversations |
 | Database | Supabase | PostgreSQL, free tier |
 | Development | Claude Code (Opus) | This conversation |
 
@@ -256,7 +256,7 @@ git log --oneline -15
 ## Changelog
 
 ### January 20, 2026 — Model Upgrade
-- Upgraded from Claude Haiku 3.5 to Claude Haiku 4.5 (claude-haiku-4-5-latest)
+- Upgraded from Claude Haiku 3.5 to Claude Haiku 4.5 (claude-haiku-4-5)
 - Haiku 3.5 deprecated by Anthropic on February 19, 2026
 
 ### January 11, 2026 — Constitutional Thinking
@@ -316,7 +316,7 @@ git log --oneline -15
 **Derek's birthday:** February 7, 1973
 **Jackson's birthday:** Look it up (don't hallucinate)
 
-**Haiku model:** claude-haiku-4-5-latest
+**Haiku model:** claude-haiku-4-5
 **Opus model:** claude-opus-4-5-20251101 (Claude Code)
 
 **Cost:** ~$3-5/month (Netlify free, Supabase free, Haiku API)
