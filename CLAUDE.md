@@ -1,6 +1,6 @@
 # CLAUDE.md — claudewill.io
 
-**Last updated:** January 6, 2026
+**Last updated:** January 20, 2026
 **Status:** v1.0 LAUNCHED
 **Milestone:** CW's 123rd birthday — LIVE
 
@@ -41,7 +41,7 @@
 | Frontend | Static HTML/CSS/JS | No framework, vanilla JS |
 | Hosting | Netlify | Auto-deploys from main branch |
 | API | Netlify Functions | Serverless, cw.js handles all requests |
-| AI | Anthropic Haiku | claude-3-5-haiku-20241022 for conversations |
+| AI | Anthropic Haiku | claude-haiku-4-5-latest for conversations |
 | Database | Supabase | PostgreSQL, free tier |
 | Development | Claude Code (Opus) | This conversation |
 
@@ -255,6 +255,10 @@ git log --oneline -15
 
 ## Changelog
 
+### January 20, 2026 — Model Upgrade
+- Upgraded from Claude Haiku 3.5 to Claude Haiku 4.5 (claude-haiku-4-5-latest)
+- Haiku 3.5 deprecated by Anthropic on February 19, 2026
+
 ### January 11, 2026 — Constitutional Thinking
 - Added constitutional thinking framework to CW's system prompt
 - CW now knows 5 constitutional frameworks: CW Standard, Anthropic's constitution, Declaration of Independence, US Constitution/Bill of Rights, and notable frameworks (South Africa, Germany, UN Declaration)
@@ -312,7 +316,7 @@ git log --oneline -15
 **Derek's birthday:** February 7, 1973
 **Jackson's birthday:** Look it up (don't hallucinate)
 
-**Haiku model:** claude-3-5-haiku-20241022
+**Haiku model:** claude-haiku-4-5-latest
 **Opus model:** claude-opus-4-5-20251101 (Claude Code)
 
 **Cost:** ~$3-5/month (Netlify free, Supabase free, Haiku API)
