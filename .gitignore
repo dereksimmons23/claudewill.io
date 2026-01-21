@@ -47,3 +47,4 @@ netlify/*.txt
 *.code-workspace
 .netlify/
 SESSION_CLOSEOUT.md
+CLAUDE.md
