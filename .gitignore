@@ -46,3 +46,4 @@ netlify/*.txt
 # Local editor/workspace
 *.code-workspace
 .netlify/
+SESSION_CLOSEOUT.md
