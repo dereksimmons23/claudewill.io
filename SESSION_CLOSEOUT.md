@@ -5,7 +5,28 @@
 ## Session: January 20, 2026
 
 **Branch:** `main`
-**Status:** Model upgrade complete, D-Rock project initialized
+**Status:** Model upgrade complete, D-Rock project initialized, Recalibrate case study drafted
+
+### Tomorrow's Priorities
+
+**1. RSR Process (Interview Jan 22)**
+- Interview prep complete: `recalibrate/rsr_interview_prep_jan22.md`
+- Case study capturing frameworks: `recalibrate/recalibrate_case_study_rsr_jan2026.md`
+- Posture: Scouting trip, not audition. Heads you win, tails they lose.
+
+**2. Recalibrate — Where Does It Live?**
+- Option A: Part of Founder's Package (Feb 7 target)
+- Option B: Own subdomain at `recalibrate.claudewill.io`
+- Decision needed: Is Recalibrate a CW skill, a standalone product, or part of Derek's story?
+- 12 frameworks captured from RSR process ready for either path
+
+### New Files (Untracked)
+
+```
+recalibrate/
+├── recalibrate_case_study_rsr_jan2026.md  # Living doc: 12 frameworks from RSR process
+└── rsr_interview_prep_jan22.md            # Interview prep for Jan 22
+```
 
 ### Completed Today
 
