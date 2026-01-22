@@ -22,6 +22,7 @@ coverage/
 
 # Internal documentation and strategy
 docs/
+recalibrate/
 
 # Memoir / heritage drafts (do not publish)
 heritage-manuscript-archive.md
