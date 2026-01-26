@@ -13,11 +13,12 @@
     gtag('config', 'G-991ML96NJ3');
   </script>
   <title>Derek Simmons | CW's Porch</title>
-  <meta name="description" content="Derek Simmons: Designs the process and trusts the players. Three decades across media, sports, and technology. Owner of CW Strategies. Available for consulting, advisory, and fractional roles.">
+  <meta name="description" content="Derek Simmons: 30 years in media, two newspapers ranked best in the world, $20M+ in revenue. Now building AI frameworks. Founder of CW Strategies.">
   <meta property="og:title" content="Derek Simmons | CW's Porch">
-  <meta property="og:description" content="Designs the process and trusts the players. Three decades across media, sports, and technology. Owner of CW Strategies. Available for consulting, advisory, and fractional roles.">
+  <meta property="og:description" content="30 years in media. Two newspapers ranked best in the world. Now building AI frameworks for organizations navigating complexity.">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://claudewill.io/derek">
+  <meta property="og:image" content="https://claudewill.io/images/og-preview.png">
   <link rel="canonical" href="https://claudewill.io/derek">
 
   <!-- Schema.org structured data -->
@@ -31,7 +32,6 @@
     "jobTitle": "Founder & Principal Consultant",
     "description": "Three decades in media, sports, and technology. Former Chief Creative Officer who generated $20M+ in revenue. Now building AI frameworks for human-centered organizations navigating complexity and change.",
     "url": "https://claudewill.io/derek",
-    "image": "https://claudewill.io/derek",
     "sameAs": [
       "https://www.linkedin.com/in/dereksimm/",
       "https://github.com/dereksimmons23",
@@ -39,9 +39,9 @@
     ],
     "worksFor": {
       "@type": "Organization",
-      "@id": "https://claudewill.io/about#organization",
-      "name": "The CW Standard",
-      "url": "https://claudewill.io/about"
+      "@id": "https://claudewill.io/#organization",
+      "name": "CW Strategies",
+      "url": "https://claudewill.io"
     },
     "alumniOf": [
       {
@@ -56,16 +56,14 @@
         "@type": "EducationalOrganization",
         "name": "Kansas State University"
       }
-    ],
-    "knowsAbout": [
-      "AI Strategy",
-      "Media Transformation",
-      "Digital Product Development",
-      "Executive Leadership",
-      "Organizational Change"
     ]
   }
   </script>
+  <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -73,185 +71,385 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --bg: #000D1A;
+      --text: #e8e8e8;
+      --dim: #b0b0b0;
+      --accent: #d4a84b;
+      --border: #1a3a5c;
+      --card-bg: #0a1829;
+      --font-body: 'Noto Serif', Georgia, serif;
+      --font-sans: 'Noto Sans', system-ui, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #1a1a1a;
-      background: #fafafa;
-      min-height: 100vh;
-      padding: 40px 20px;
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 18px;
     }
 
-    .container {
-      max-width: 800px;
+    /* Porch light */
+    .porch-light {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.7) 100%);
+      z-index: 9999;
+      box-shadow:
+        0 0 15px rgba(212, 168, 75, 1),
+        0 0 40px rgba(212, 168, 75, 0.8),
+        0 8px 60px rgba(212, 168, 75, 0.5);
+    }
+
+    /* Sticky nav */
+    .sticky-nav {
+      position: sticky;
+      top: 5px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 12px 0;
+    }
+
+    .sticky-nav-inner {
+      max-width: 720px;
       margin: 0 auto;
-      background: white;
-      padding: 60px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    }
-
-    header {
-      border-bottom: 1px solid #e5e5e5;
-      padding-bottom: 40px;
-      margin-bottom: 40px;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: #000;
-      margin-bottom: 8px;
-      letter-spacing: -0.02em;
-    }
-
-    .bio {
-      font-size: 1rem;
-      color: #3a3a3a;
-      line-height: 1.7;
-      max-width: 680px;
-    }
-
-    .section {
-      margin-bottom: 40px;
-    }
-
-    .section-title {
-      font-size: 0.8rem;
-      color: #666;
-      font-weight: 600;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .quick-links {
+      padding: 0 24px;
       display: flex;
-      gap: 10px;
+      justify-content: center;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
-    .btn {
+    .sticky-nav a {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--dim);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .sticky-nav a:hover,
+    .sticky-nav a.active {
+      color: var(--accent);
+      background: rgba(212, 168, 75, 0.1);
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* Header */
+    .header {
+      padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .back-link {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--dim);
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 10px 18px;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      transition: all 0.2s ease;
-      border: 1px solid #e0e0e0;
-      background: white;
-      color: #1a1a1a;
-      border-radius: 4px;
+      margin-bottom: 32px;
+      transition: color 0.2s;
     }
 
-    .btn:hover {
-      border-color: #1e3a8a;
-      color: #1e3a8a;
+    .back-link:hover {
+      color: var(--accent);
     }
 
-    .experience-item {
-      margin-bottom: 24px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid #f0f0f0;
-    }
-
-    .experience-item:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .job-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 16px;
-      margin-bottom: 4px;
-    }
-
-    .job-title {
-      font-size: 1.05rem;
+    h1 {
+      font-family: var(--font-sans);
+      font-size: 2.5rem;
       font-weight: 600;
-      color: #1a1a1a;
+      color: var(--text);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
     }
 
-    .date {
-      font-size: 0.85rem;
-      color: #888;
-      white-space: nowrap;
+    .bio-lead {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: var(--text);
     }
 
-    .organization {
+    /* Sections */
+    section {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-label {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-family: var(--font-sans);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    /* Story section headers */
+    #story h2 {
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-top: 40px;
+      margin-bottom: 16px;
+    }
+
+    #story h2:first-of-type {
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 1.5em;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Q&A styling */
+    .qa-item {
+      margin-bottom: 40px;
+    }
+
+    .qa-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .question {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 1rem;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .answer {
+      color: var(--text);
+    }
+
+    /* Work cards */
+    .work-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .work-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px;
+    }
+
+    .work-card h3 {
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .work-card p {
+      color: var(--dim);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .work-card a {
+      font-family: var(--font-sans);
       font-size: 0.9rem;
-      color: #666;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .work-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* Connect section */
+    .connect-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .connect-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      text-decoration: none;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .connect-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* CTA buttons */
+    .cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 48px;
+      padding-top: 48px;
+      border-top: 1px solid var(--border);
+    }
+
+    .cta-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      background: var(--accent);
+      color: var(--bg);
+      text-decoration: none;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .cta-primary:hover {
+      background: #e0b860;
+    }
+
+    .cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .cta-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Contact form */
+    .contact-form {
+      max-width: 480px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--dim);
       margin-bottom: 8px;
     }
 
-    .experience-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .experience-list li {
-      font-size: 0.9rem;
-      color: #444;
-      margin-bottom: 4px;
-      padding-left: 16px;
-      position: relative;
-    }
-
-    .experience-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 10px;
-      width: 4px;
-      height: 4px;
-      background: #1e3a8a;
-      border-radius: 50%;
-    }
-
-    .recommendation {
-      margin-bottom: 24px;
-      padding: 20px;
-      background: #f8f9fa;
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
       border-radius: 6px;
+      color: var(--text);
+      transition: border-color 0.2s;
     }
 
-    .recommendation:last-child {
-      margin-bottom: 0;
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
     }
 
-    .recommendation-text {
-      font-style: italic;
-      color: #444;
-      margin-bottom: 12px;
-      font-size: 0.95rem;
-      line-height: 1.7;
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
     }
 
-    .recommender {
-      font-size: 0.85rem;
-      color: #666;
-    }
-
-    .recommender strong {
-      color: #1a1a1a;
+    .btn-submit {
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      padding: 14px 28px;
+      font-family: var(--font-sans);
+      font-size: 1rem;
       font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
     }
 
+    .btn-submit:hover {
+      background: #e0b860;
+    }
+
+    /* Footer */
     footer {
-      margin-top: 40px;
-      padding-top: 24px;
-      border-top: 1px solid #e5e5e5;
+      padding: 40px 0;
       text-align: center;
-      color: #999;
+      color: var(--dim);
+      font-family: var(--font-sans);
       font-size: 0.85rem;
     }
 
     footer a {
-      color: #1e3a8a;
+      color: var(--accent);
       text-decoration: none;
     }
 
@@ -259,147 +457,297 @@
       text-decoration: underline;
     }
 
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #666;
-      text-decoration: none;
-      font-size: 0.9rem;
-      margin-bottom: 24px;
-    }
-
-    .back-link:hover {
-      color: #1e3a8a;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        padding: 20px 16px;
-      }
-
-      .container {
-        padding: 40px 24px;
+    /* Mobile */
+    @media (max-width: 700px) {
+      .porch-light {
+        width: 100%;
       }
 
       h1 {
         font-size: 2rem;
       }
 
-      .quick-links {
-        flex-direction: column;
+      .header {
+        padding: 40px 0 32px;
       }
 
-      .btn {
-        width: 100%;
-        justify-content: center;
+      section {
+        padding: 40px 0;
       }
 
-      .job-header {
-        flex-direction: column;
-        gap: 4px;
+      .sticky-nav a {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+      }
+
+      .connect-grid {
+        grid-template-columns: 1fr;
       }
     }
 
-    .contact-form {
-      max-width: 500px;
-    }
-
-    .form-group {
-      margin-bottom: 16px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #444;
-      margin-bottom: 6px;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 10px 12px;
-      font-size: 0.95rem;
-      font-family: inherit;
-      border: 1px solid #e0e0e0;
-      border-radius: 4px;
-      background: #fafafa;
-      color: #1a1a1a;
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: #1e3a8a;
-      background: white;
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    .btn-submit {
-      background: #1e3a8a;
-      color: white;
-      border: 1px solid #1e3a8a;
-      cursor: pointer;
-    }
-
-    .btn-submit:hover {
-      background: #1e40af;
-      border-color: #1e40af;
-      color: white;
-    }
-
+    /* Print */
     @media print {
-      body {
-        background: white;
-        padding: 0;
-      }
-
-      .container {
-        box-shadow: none;
-        padding: 40px;
-      }
-
-      .back-link, .quick-links {
+      .porch-light,
+      .sticky-nav,
+      .back-link,
+      .cta-group {
         display: none;
       }
 
-      .section {
-        page-break-inside: avoid;
+      body {
+        background: white;
+        color: black;
+      }
+
+      .container {
+        max-width: 100%;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <a href="/" class="back-link">
-      <span>&larr;</span> Back to CW
-    </a>
+  <div class="porch-light"></div>
 
-    <header>
+  <nav class="sticky-nav" aria-label="Page sections">
+    <div class="sticky-nav-inner">
+      <a href="#bio">Bio</a>
+      <a href="#conversation">Q&A</a>
+      <a href="#story">Story</a>
+      <a href="#work">Work</a>
+      <a href="#connect">Connect</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header class="header" id="bio">
+      <a href="/" class="back-link">
+        <span>←</span> Back to CW's Porch
+      </a>
       <h1>Derek Simmons</h1>
-      <p class="bio">
-        Designs the process and trusts the players. Three decades across media, sports, and technology — including helping build startribune.com. Now building AI frameworks for human-centered organizations. Coach, animal therapy advocate, mentor. Proud papa. Owner of CW Strategies and part-owner of the Green Bay Packers. Available for consulting, advisory, and fractional roles.
+      <p class="bio-lead">
+        Derek Simmons grew up in a tiny trailer in a one-stoplight town in Kansas. He spent 30 years in media — helped make two newspapers the best in the world, generated $20M+ in revenue, got fired anyway. Now he builds AI frameworks for organizations navigating complexity. His grandfather was Claude William Simmons. His middle name is Claude. The AI is named Claude. That's not a coincidence. It's the reason this exists.
       </p>
     </header>
 
-    <div class="section">
-      <h2 class="section-title">Connect</h2>
-      <div class="quick-links">
-        <a href="https://www.linkedin.com/in/dereksimm/" target="_blank" rel="noopener" class="btn">LinkedIn</a>
-        <a href="https://github.com/dereksimmons23" target="_blank" rel="noopener" class="btn">GitHub</a>
-        <a href="https://derek4thecws.substack.com" target="_blank" rel="noopener" class="btn">Substack</a>
-      </div>
-    </div>
+    <!-- Q&A Section -->
+    <section id="conversation">
+      <div class="section-label">The Long Version</div>
 
-    <div class="section">
-      <h2 class="section-title">Contact</h2>
+      <div class="qa-item">
+        <p class="question">When did this stop being an idea and start being something you were actually going to build?</p>
+        <div class="answer">
+          <p>That's tough to pin to one specific moment. The long version starts in a car with Queen playing through the speakers over fast-moving asphalt in Kansas or Oklahoma. Seven words my dad said out loud. I wasn't a big talker. I mostly listened and filed things away. I was 10 years old. Surrounded by larger than life characters with names out of a southern romance novel. They turned me into a storyteller who wanted to be the quarterback for the Dallas Cowboys until he didn't. Short version: I got tired of playing games and decided it was time for a different one.</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <p class="question">What were the seven words?</p>
+        <div class="answer">
+          <p>There's the version tattooed on my back, which is the truth, and then there's the version that is not controversial: You come from the blood of builders. It's not what I heard or remembered or what's in permanent ink, but it's close enough. It doesn't matter what he exactly said or what I took it to mean. Some words are taboo for good reason. And that was one of them. Family was important to him. He was proud. He wanted to share that pride in the way he knew how. He was mostly full of shit. Big thinker. Not a great dad. He gave me a lot of instructions beyond those seven words. Some of it was said. Some shown. Some what to do. Some not.</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <p class="question">Your dad was the link to CW. You never met your grandfather — he died before you were born. What's it like building something around a man you only know through someone who was "mostly full of shit"?</p>
+        <div class="answer">
+          <p>I heard stories from others. They weren't all great. To my dad, CW was also not a father. He was a farm boss. He never saw my dad play sports. Thought it was a waste of time. Not sure if he ever told any of them that he loved them. So my dad had this complicated relationship with him. To my mom, CW was a gentle soul who smoked a pipe in an easy chair on Sundays after family dinners. Gentle. Kind. Few words. My parents thought enough of CW to give me Claude as a middle name. I think that says a lot.</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <p class="question">So which CW did you build? The farm boss or the gentle soul?</p>
+        <div class="answer">
+          <p>Hopefully, a little bit of both. The farm boss when you need a boss and a gentle soul when you need something different. Maybe something that knows when you ask for one thing, you actually need the other. Intuitive. But also not a substitute. And certainly not a replica, because I don't have the blueprint for that. And even if I did, I wouldn't build it that way. He was called CW and those initials can do a lot of work.</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <p class="question">You spent 20 years at the Star Tribune. 13 roles. First and only CCO/VP in company history. Then you left. What happened?</p>
+        <div class="answer">
+          <p>Long version is a book I'm working on. Short version: I'm proud of the work we did. I understand that you all are not the institution. That you are people. Humans. And you probably don't like any of this any more than I do. But the job's important. It is a mission. It is a calling. It is not a job. It is not a degree. It is a brutal, brutal way of life. It never sleeps. It never rests. It can't afford to have bad days. It can't afford to seek safe space. 24/7, 365. And that's what I love about it. No two days are alike. No two conversations are alike. Just when you think one more thing can't hit the fan. Like my therapist once said, you are the expert of you. But what I can't do is form an opinion about myself. I can't put myself on that graph of performance and trust. It's not for me to decide. It was 20 more things hitting the fan. Some things get lost in translation.</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <p class="question">When you left, you could have found another institution. Another mission. Why build your own thing instead?</p>
+        <div class="answer">
+          <p>I'm doing both. I'm working as a consultant and strategist in media and at the same time trying to build my own things. I had my turn working full-time for institutions. Trust is at an all-time low. The game they are playing is not for me. And I am not for them.</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <p class="question">Why AI? You could have built a consulting practice without it. What made you put an AI at the center of this?</p>
+        <div class="answer">
+          <p>Curiosity. Impossible ethical questions. Trying to understand what this moment means and what it could mean in the future. The next big thing has always come along, but this feels different. I want to figure out how it works, how and where it should be applied, and what guardrails need to exist if they need to at all. The cutting edge is also dual-edged. It is an inflection point, one capable of helping a kid commit suicide and at the same time capable of winning a peace prize. Wide range of outcomes.</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <p class="question">The CW Standard — truth over comfort, usefulness over purity, transparency over reputation, people over systems, agency over ideology. You developed those before AI was part of the picture. How do they apply now?</p>
+        <div class="answer">
+          <p>I developed them with AI, not before AI. Pair processing and vibe decoding turned into principles. Part of a constitution. Looks good on paper. Tougher in real life.</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <p class="question">Where has it been toughest to live it?</p>
+        <div class="answer">
+          <p>We are not wired for truth. We are wired for comfort. It requires human judgment. Sometimes comfort wins. Sometimes reputation wins. Purity, systems, ideology. There's no constitution for that. Everyone has a plan until they get punched in the face. Iron Mike. He had a point. Principles are a plan. Laws are supposed to keep us from punching each other in the face, but those don't always work either.</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <p class="question">So what do you want CW to do when someone shows up who's just been punched in the face?</p>
+        <div class="answer">
+          <p>Mostly listen. Try to be helpful, but mostly drive the conversation toward agency and people.</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <p class="question">How do you know if it's working?</p>
+        <div class="answer">
+          <p>I see the data of the conversations, but I have to be careful with that too. It's not public testimony or confession. But at the same time, if CW needs to handle conversations differently, I need data to help facilitate that. I've already crossed that threshold with information about me and others. So I need to recalibrate on a regular basis.</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <p class="question">What do you hope this becomes?</p>
+        <div class="answer">
+          <p>I'd be lying if I said I didn't want it to become something big and powerful in a good way. Other people way smarter than me are already doing that outside my tiny sandbox. So at the opposite end of that is one person other than myself who found it useful. Maybe it informs future projects. There's a ton of AI agents in the market and thousands more in development. If CW could help inform that development in some way, I'd consider that a success.</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <p class="question">Feb 7 is your 53rd birthday. You're launching something called the Founder's Package. What is it?</p>
+        <div class="answer">
+          <p>I've never been a birthday guy, but I have this friend whose family does birthday weeks. I love that. And I'm getting to the age where birthdays become more important. Fewer trips around the sun left. I'm also not a sales guy so the notion of a "Founder's Package" is all kinds of ick. But someone once said that content is king but distribution is King Kong. I think I have good stories to tell. I think I'm good at what I do. So why not put it out there and see what happens?</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <p class="question">What's actually in it?</p>
+        <div class="answer">
+          <p>This Q&A, case studies, obligatory CV shit, assessments, contact info. Probably more that isn't necessary or things I forgot. I am sitting on thousands of markdown files that haven't seen the light of day. And most of them probably shouldn't. But some of them should. I once wrote in a cover letter to Anthropic that I'd love to chat and invite them to see how my brain works. What if I just published it and sent them the link?</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <p class="question">Why Anthropic?</p>
+        <div class="answer">
+          <p>Because they came up with Claude. Named after Claude Elwood Shannon. And Claude is my middle name. That I hated until I didn't. And the term Anthropic kind of speaks for itself. I like that it was founded by people who understand language. If you're going to build a constitutional AI large language model, start with people who understand language. Or at least understand it well enough to keep asking questions.</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <p class="question">When someone reads this conversation, what do you want them to take away?</p>
+        <div class="answer">
+          <p>Keep reading. Keep talking. Keep having conversations. Keep going.</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <p class="question">Last question. CW died in 1967. You were born in 1973. If he could see what you built, what do you think he'd say?</p>
+        <div class="answer">
+          <p>Can it mend a fence? Can it help put food on a table? Or does it destroy fence and take food off a table? Either way, seems like a waste of time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="story">
+      <div class="section-label">The Story</div>
+
+      <h2>The Trailer</h2>
+      <p>Derek Simmons grew up in a tiny trailer in a one-stoplight town in Kansas. He was never a big talker, and he didn't have to be — not among a sea of loquacious, animated relatives with names out of a Deep South romance novel: Clara Belle, Verna Lee, Nettie Mae, Vernon Dale (not to be confused with Vernon Wayne).</p>
+      <p>He was content sipping endless Dr. Peppers and listening around campfires and the backs of pickup trucks to these mythological characters. Some of the stories might have even been partially true.</p>
+      <p>That's where he learned how stories work. Not by telling them. By shutting up and paying attention.</p>
+
+      <h2>The Athlete</h2>
+      <p>Before journalism, there was sports. Derek was a three-sport athlete in high school — winning state championships in basketball and baseball, and leading a previously lousy football team to the playoffs as quarterback.</p>
+      <p>An English teacher saw potential in him as a writer and introduced him to journalism and the student newspaper. Combining sports and writing felt like a calling. Or the next best thing to his quickly fading dream of playing QB for the Dallas Cowboys.</p>
+      <p>He wrote his first professional article for the Hutchinson News at 18. Then put himself through college to become a journalist.</p>
+
+      <h2>The Designer</h2>
+      <p>He started as a writer but gravitated toward design and visual journalism. Something about the architecture of a page — how the pieces fit, how the eye moves, how the story reveals itself — clicked.</p>
+      <p>He got good at it. Then he got great at it.</p>
+      <p>At the Los Angeles Times, he helped build a visual report that won more design awards from the Society for News Design than any paper over any similar period. Ever. For nearly seven years, the Times was ranked #1 in the world. When Derek left, a Star Tribune editor wrote: "Since then, the LAT has been the top winner every year. Coincidence? I don't think so."</p>
+      <p>He went back to Minnesota and did it again. Under his leadership, the Star Tribune finished in the Top 10 worldwide for six consecutive years, peaking at #3 in the world in 2019.</p>
+      <p>Two newspapers. Both became the best in the world at what they did. That's not a claim. That's a receipt.</p>
+
+      <h2>The Executive</h2>
+      <p>Derek became the Star Tribune's first and only Chief Creative Officer and Vice President. Then he crossed to the business side — a place where newsroom people usually go to flounder.</p>
+      <p>He didn't flounder.</p>
+      <p>He generated $20 million in revenue over a few years. During a pandemic. In a dying industry. Led ad policy and standards with a lawyer's brain (no JD, no time for that). Created new revenue streams. Built the first profitable year in branded content in over a decade.</p>
+      <p>Newsroom. Business. Creative. Legal. Technology. Most people pick a lane. Derek ran five of them and won awards in three.</p>
+
+      <h2>The Firing</h2>
+      <p>In September 2024, Derek delivered a presentation on AI strategy to the Star Tribune's leadership team. Forty witnesses. Standing ovation energy. "Nobody could have pulled that off except Derek," someone said.</p>
+      <p>Six weeks later, they fired him.</p>
+      <p>The math didn't make sense. The timeline didn't add up. But that's a longer story for another place.</p>
+      <p>What matters here: Derek spent 15 years building something, then watched the door close behind him. He walked out with a settlement, a library of documentation, and a question — <em>now what?</em></p>
+
+      <h2>The Porch</h2>
+      <p>The answer started with a name.</p>
+      <p>Derek's grandfather was Claude William Simmons — a farmer from Oklahoma Territory who never finished high school, raised 11 kids through the Depression, and worked full-time from age 13 until the morning he died at 61. CW used to sit on his porch and talk to anyone who showed up. No agenda. Just help.</p>
+      <p>When Anthropic released an AI named Claude, Derek noticed. His middle name is Claude. His son's middle name is Claude. Four generations carrying the name of a man who died in 1967.</p>
+      <p>So Derek built something: an AI advisor based on CW's values. Not a resurrection — he couldn't ask permission, and he wouldn't pretend that's okay. But a porch. A place where that way of thinking could keep helping people.</p>
+
+      <h2>The Work</h2>
+      <p>Derek designs things. He used to design with paper and ink — made two newspapers the best in the world. Now he designs with AI.</p>
+      <p>The material changes. The work doesn't.</p>
+      <p>claudewill.io is one building. There will be more. They're all coming from the same place: a kid from a trailer who learned to listen, spent 30 years helping others tell their stories, and isn't done yet.</p>
+      <p>CW Strategies is the consulting arm — helping organizations navigate AI, transformation, and the gap between what institutions say and what they do. Four months, build capacity, transfer ownership, exit. No retainers. No dependency.</p>
+
+      <h2>The Question</h2>
+      <p>Derek's anchored in Minnesota until 2029, when his son Teegan graduates high school. After that, the map is blank.</p>
+      <p>He's thought about buying land in Kansas or Oklahoma — something to physically connect to the places his ancestors lived. But he keeps coming back to the same conclusion: belonging isn't about ownership. Legacy isn't about property.</p>
+      <p>It shows up in how he coaches, writes, parents, builds. In the standards he maintains. The work he does. The stories he helps others tell.</p>
+      <p>The question isn't what the heritage means.</p>
+      <p>The question is what you do with it.</p>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work">
+      <div class="section-label">The Work</div>
+
+      <div class="work-grid">
+        <div class="work-card">
+          <h3>CW's Porch</h3>
+          <p>An AI built on the practical wisdom of a farmer who never finished high school. Direct answers. No fuss. Just help.</p>
+          <a href="/">Talk to CW →</a>
+        </div>
+
+        <div class="work-card">
+          <h3>CW Strategies</h3>
+          <p>Four-month consulting engagements. Define the problem, build the solution, transfer ownership, leave. No ongoing dependency.</p>
+          <a href="/derek/assessment">Start the assessment →</a>
+        </div>
+
+        <div class="work-card">
+          <h3>The CW Standard</h3>
+          <p>Five principles for organizations navigating complexity. Truth over comfort. Usefulness over purity. Transparency over reputation. People over systems. Agency over ideology.</p>
+          <a href="/the-cw-standard">Read the principles →</a>
+        </div>
+
+        <div class="work-card">
+          <h3>Full Resume</h3>
+          <p>20 years, 13 roles. Star Tribune, Los Angeles Times. Two newspapers ranked best in the world. The credentials, if you need them.</p>
+          <a href="/derek/resume">View resume →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connect Section -->
+    <section id="connect">
+      <div class="section-label">Connect</div>
+
+      <div class="connect-grid">
+        <a href="https://www.linkedin.com/in/dereksimm/" target="_blank" rel="noopener" class="connect-btn">LinkedIn</a>
+        <a href="https://github.com/dereksimmons23" target="_blank" rel="noopener" class="connect-btn">GitHub</a>
+        <a href="https://derek4thecws.substack.com" target="_blank" rel="noopener" class="connect-btn">Substack</a>
+      </div>
+
+      <h2>Send a message</h2>
       <form name="contact" method="POST" data-netlify="true" class="contact-form">
         <input type="hidden" name="form-name" value="contact">
         <div class="form-group">
@@ -414,97 +762,45 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="4" required></textarea>
         </div>
-        <button type="submit" class="btn btn-submit">Send Message</button>
+        <button type="submit" class="btn-submit">Send Message</button>
       </form>
-    </div>
 
-    <div class="section">
-      <h2 class="section-title">Experience</h2>
-
-      <div class="experience-item">
-        <div class="job-header">
-          <span class="job-title">Founder & Principal Consultant</span>
-          <span class="date">Nov 2024 - Present</span>
-        </div>
-        <div class="organization">CW Strategies | AI Strategy and Media Transformation</div>
-        <ul class="experience-list">
-          <li>AI strategy and media transformation consulting for organizations navigating complexity and change</li>
-          <li>Building <a href="/" style="color: #1e3a8a;">CW</a> · <a href="https://coach.claudewill.io" style="color: #1e3a8a;">Coach D</a> · <a href="https://bob.claudewill.io/" style="color: #1e3a8a;">Battle o' Brackets</a> · <a href="/the-cw-standard" style="color: #1e3a8a;">The CW Standard</a></li>
-        </ul>
+      <div class="cta-group">
+        <a href="/" class="cta-primary">Talk to CW</a>
+        <a href="/derek/assessment" class="cta-secondary">Start the Assessment</a>
       </div>
-
-      <div class="experience-item">
-        <div class="job-header">
-          <span class="job-title">Executive Director, New Products & Digital Strategy</span>
-          <span class="date">Feb 2023 - Oct 2024</span>
-        </div>
-        <div class="organization">Star Tribune Media Company, Minneapolis</div>
-        <ul class="experience-list">
-          <li>Championed AI strategy establishing integration and innovation roadmap</li>
-          <li>Served on senior leadership team redefining company mission, values, and digital presence</li>
-          <li>Led digital-product evolution driving significant audience and revenue growth</li>
-          <li>Launched franchises generating seven-figure annual sponsorship support for journalism</li>
-        </ul>
-      </div>
-
-      <div class="experience-item">
-        <div class="job-header">
-          <span class="job-title">Chief Creative Officer & Vice President</span>
-          <span class="date">Jun 2017 - Feb 2023</span>
-        </div>
-        <div class="organization">Star Tribune Media Company, Minneapolis</div>
-        <ul class="experience-list">
-          <li>Directed multiyear transformation integrating data-driven content and audience development</li>
-          <li>Achieved Pulitzer recognition for investigative projects and Top 3 worldwide design ranking</li>
-          <li>Generated $20M+ in subscription, sponsorship, and advertising revenue</li>
-          <li>Led 55-person editorial and creative teams across digital, mobile, print, and event platforms</li>
-        </ul>
-      </div>
-
-      <div class="experience-item">
-        <div class="job-header">
-          <span class="job-title">Deputy Design Director</span>
-          <span class="date">Mar 2007 - Dec 2013</span>
-        </div>
-        <div class="organization">Los Angeles Times Communications</div>
-        <ul class="experience-list">
-          <li>Achieved No. 1 worldwide design ranking (SND) for six consecutive years</li>
-          <li>Contributed to Pulitzer Prize team recognition for investigative and multimedia projects</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2 class="section-title">Education</h2>
-      <p style="font-size: 0.95rem; color: #444; line-height: 1.8;">
-        <strong>B.S., Journalism & Mass Communication</strong> - Kansas State University<br>
-        <strong>Executive Certificate, Customer Experience</strong> - Minnesota State University Mankato<br>
-        <strong>Executive Training</strong> - Poynter Institute, Yale University, Leiden University
-      </p>
-    </div>
-
-    <div class="section">
-      <h2 class="section-title">Recommendations</h2>
-
-      <div class="recommendation">
-        <p class="recommendation-text">"Derek consistently demonstrated exceptional strategic thinking and cross-functional leadership capabilities essential for executive-level roles... He was instrumental in developing revenue-generating initiatives that contributed to the generation of more than $20 million in revenue."</p>
-        <p class="recommender"><strong>Michelle Mueller</strong><br>Senior Vice President, Human Resources</p>
-      </div>
-
-      <div class="recommendation">
-        <p class="recommendation-text">"Derek has been crucial to the Star Tribune's uncommon success and stability in a perilous era... He is not a leader who merely manages whatever arises - he keeps daring to break new ground."</p>
-        <p class="recommender"><strong>Rene Sanchez</strong><br>Executive Editor and Vice President</p>
-      </div>
-
-      <div class="recommendation">
-        <p class="recommendation-text">"Derek may be the most productive and innovative person I know... He's a born strategist... He sees the big picture while keeping a firm grasp on the details."</p>
-        <p class="recommender"><strong>Monica Moses</strong><br>Executive Director, Product Innovation</p>
-      </div>
-    </div>
+    </section>
 
     <footer>
-      <p>Minneapolis, MN &middot; &copy; 2025 Derek Simmons</p>
+      <p>Minneapolis, MN · © 2026 Derek Simmons</p>
+      <p style="margin-top: 8px;"><a href="/">CW's Porch</a> · <a href="/story">The Story</a> · <a href="/the-cw-standard">The CW Standard</a></p>
     </footer>
   </div>
+
+  <script>
+    // Highlight active nav item on scroll
+    const sections = document.querySelectorAll('section[id], header[id]');
+    const navLinks = document.querySelectorAll('.sticky-nav a');
+
+    function updateActiveNav() {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav();
+  </script>
 </body>
 </html>

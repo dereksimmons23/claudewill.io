@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-991ML96NJ3');
+  </script>
+  <title>Resume | Derek Simmons</title>
+  <meta name="description" content="Derek Simmons: 20 years, 13 roles. Star Tribune CCO/VP. Los Angeles Times Deputy Design Director. Two newspapers ranked best in the world.">
+  <link rel="canonical" href="https://claudewill.io/derek/resume">
+  <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #000D1A;
+      --text: #e8e8e8;
+      --dim: #b0b0b0;
+      --accent: #d4a84b;
+      --border: #1a3a5c;
+      --card-bg: #0a1829;
+      --font-sans: 'Noto Sans', system-ui, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* Porch light */
+    .porch-light {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.7) 100%);
+      z-index: 9999;
+      box-shadow:
+        0 0 15px rgba(212, 168, 75, 1),
+        0 0 40px rgba(212, 168, 75, 0.8);
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    .back-link {
+      font-size: 0.9rem;
+      color: var(--dim);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .tagline {
+      color: var(--dim);
+      font-size: 1rem;
+      margin-bottom: 40px;
+    }
+
+    .section {
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .experience-item {
+      margin-bottom: 28px;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+
+    .job-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .date {
+      font-size: 0.85rem;
+      color: var(--dim);
+    }
+
+    .organization {
+      font-size: 0.9rem;
+      color: var(--dim);
+      margin-bottom: 12px;
+    }
+
+    .experience-list {
+      list-style: none;
+    }
+
+    .experience-list li {
+      font-size: 0.9rem;
+      color: var(--dim);
+      margin-bottom: 6px;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .experience-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .education p {
+      font-size: 0.95rem;
+      color: var(--dim);
+      margin-bottom: 8px;
+    }
+
+    .education strong {
+      color: var(--text);
+    }
+
+    .recommendation {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .recommendation-text {
+      font-style: italic;
+      color: var(--dim);
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .recommender {
+      font-size: 0.85rem;
+      color: var(--dim);
+    }
+
+    .recommender strong {
+      color: var(--text);
+    }
+
+    .connect-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .connect-links a {
+      padding: 10px 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    .connect-links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--dim);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    @media (max-width: 700px) {
+      .porch-light {
+        width: 100%;
+      }
+
+      .job-header {
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+
+    @media print {
+      .porch-light, .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+        color: black;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 40px;
+      }
+
+      .recommendation {
+        background: #f5f5f5;
+        border: 1px solid #ddd;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="porch-light"></div>
+
+  <div class="container">
+    <a href="/derek" class="back-link">
+      <span>←</span> Back to Derek
+    </a>
+
+    <h1>Derek Simmons</h1>
+    <p class="tagline">Designs the process and trusts the players.</p>
+
+    <div class="section">
+      <h2 class="section-title">Connect</h2>
+      <div class="connect-links">
+        <a href="https://www.linkedin.com/in/dereksimm/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/dereksimmons23" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://derek4thecws.substack.com" target="_blank" rel="noopener">Substack</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Experience</h2>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <span class="job-title">Founder & Principal Consultant</span>
+          <span class="date">Nov 2024 - Present</span>
+        </div>
+        <div class="organization">CW Strategies | AI Strategy and Media Transformation</div>
+        <ul class="experience-list">
+          <li>AI strategy and media transformation consulting for organizations navigating complexity and change</li>
+          <li>Building CW's Porch, The CW Standard, and related AI frameworks</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <span class="job-title">Executive Director, New Products & Digital Strategy</span>
+          <span class="date">Feb 2023 - Oct 2024</span>
+        </div>
+        <div class="organization">Star Tribune Media Company, Minneapolis</div>
+        <ul class="experience-list">
+          <li>Championed AI strategy establishing integration and innovation roadmap</li>
+          <li>Served on senior leadership team redefining company mission, values, and digital presence</li>
+          <li>Led digital-product evolution driving significant audience and revenue growth</li>
+          <li>Launched franchises generating seven-figure annual sponsorship support for journalism</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <span class="job-title">Chief Creative Officer & Vice President</span>
+          <span class="date">Jun 2017 - Feb 2023</span>
+        </div>
+        <div class="organization">Star Tribune Media Company, Minneapolis</div>
+        <ul class="experience-list">
+          <li>First and only CCO/VP in company history</li>
+          <li>Directed multiyear transformation integrating data-driven content and audience development</li>
+          <li>Achieved Pulitzer recognition for investigative projects and Top 3 worldwide design ranking</li>
+          <li>Generated $20M+ in subscription, sponsorship, and advertising revenue</li>
+          <li>Led 55-person editorial and creative teams across digital, mobile, print, and event platforms</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <span class="job-title">Deputy Design Director</span>
+          <span class="date">Mar 2007 - Dec 2013</span>
+        </div>
+        <div class="organization">Los Angeles Times Communications</div>
+        <ul class="experience-list">
+          <li>Achieved No. 1 worldwide design ranking (SND) for six consecutive years</li>
+          <li>Contributed to Pulitzer Prize team recognition for investigative and multimedia projects</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Education</h2>
+      <div class="education">
+        <p><strong>B.S., Journalism & Mass Communication</strong> — Kansas State University</p>
+        <p><strong>Executive Certificate, Customer Experience</strong> — Minnesota State University Mankato</p>
+        <p><strong>Executive Training</strong> — Poynter Institute, Yale University, Leiden University</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Recommendations</h2>
+
+      <div class="recommendation">
+        <p class="recommendation-text">"Derek consistently demonstrated exceptional strategic thinking and cross-functional leadership capabilities essential for executive-level roles... He was instrumental in developing revenue-generating initiatives that contributed to the generation of more than $20 million in revenue."</p>
+        <p class="recommender"><strong>Michelle Mueller</strong><br>Senior Vice President, Human Resources</p>
+      </div>
+
+      <div class="recommendation">
+        <p class="recommendation-text">"Derek has been crucial to the Star Tribune's uncommon success and stability in a perilous era... He is not a leader who merely manages whatever arises - he keeps daring to break new ground."</p>
+        <p class="recommender"><strong>Rene Sanchez</strong><br>Executive Editor and Vice President</p>
+      </div>
+
+      <div class="recommendation">
+        <p class="recommendation-text">"Derek may be the most productive and innovative person I know... He's a born strategist... He sees the big picture while keeping a firm grasp on the details."</p>
+        <p class="recommender"><strong>Monica Moses</strong><br>Executive Director, Product Innovation</p>
+      </div>
+    </div>
+
+    <footer>
+      <p>Minneapolis, MN · © 2026 Derek Simmons</p>
+      <p style="margin-top: 8px;"><a href="/derek">Full profile</a> · <a href="/">CW's Porch</a></p>
+    </footer>
+  </div>
+</body>
+</html>

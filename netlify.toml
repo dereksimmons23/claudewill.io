@@ -5,6 +5,27 @@
 [functions]
   node_bundler = "esbuild"
 
+# Redirects
+[[redirects]]
+  from = "/about"
+  to = "/derek"
+  status = 301
+
+[[redirects]]
+  from = "/about.html"
+  to = "/derek"
+  status = 301
+
+[[redirects]]
+  from = "/intake"
+  to = "/derek/assessment"
+  status = 301
+
+[[redirects]]
+  from = "/intake.html"
+  to = "/derek/assessment"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]
@@ -14,11 +35,11 @@
     Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
     Content-Security-Policy = """
       default-src 'self';
-      script-src 'self' 'unsafe-inline';
-      style-src 'self' 'unsafe-inline';
-      connect-src 'self' https://*.netlify.app https://*.netlify.com https://*.supabase.co https://api.anthropic.com;
+      script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      connect-src 'self' https://*.netlify.app https://*.netlify.com https://*.supabase.co https://api.anthropic.com https://www.google-analytics.com;
       img-src 'self' data:;
-      font-src 'self';
+      font-src 'self' https://fonts.gstatic.com;
       frame-ancestors 'none';
       base-uri 'self';
       form-action 'self';
