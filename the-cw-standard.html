@@ -44,7 +44,7 @@
         },
         "mainEntityOfPage": "https://claudewill.io/the-cw-standard",
         "datePublished": "2024-12-18",
-        "dateModified": "2024-12-18"
+        "dateModified": "2026-01-26"
       },
       {
         "@type": "DefinedTermSet",
@@ -93,6 +93,10 @@
   }
   </script>
   <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -100,59 +104,113 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --bg: #000D1A;
+      --text: #e8e8e8;
+      --dim: #b0b0b0;
+      --accent: #d4a84b;
+      --border: #0d2840;
+      --font-body: 'Noto Serif', Georgia, serif;
+      --font-sans: 'Noto Sans', system-ui, sans-serif;
+      --font-mono: 'Courier New', Courier, monospace;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #1a1a1a;
-      background: #fafafa;
-      min-height: 100vh;
-      padding: 40px 20px;
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    /* Porch light */
+    .porch-light {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.7) 100%);
+      z-index: 9999;
+      box-shadow:
+        0 0 15px rgba(212, 168, 75, 1),
+        0 0 40px rgba(212, 168, 75, 0.8),
+        0 8px 60px rgba(212, 168, 75, 0.5),
+        0 15px 100px rgba(212, 168, 75, 0.3);
+    }
+
+    @media (max-width: 700px) {
+      .porch-light {
+        width: 100%;
+      }
     }
 
     .container {
-      max-width: 700px;
+      max-width: 680px;
       margin: 0 auto;
-      background: white;
-      padding: 60px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+    .header {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .wordmark {
+      font-family: var(--font-mono);
+      font-size: 1.75rem;
+      font-weight: bold;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-decoration: none;
+      text-shadow: 0 0 40px rgba(212, 168, 75, 0.4);
+    }
+
+    .wordmark:hover {
+      text-shadow: 0 0 50px rgba(212, 168, 75, 0.6);
     }
 
     .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #666;
-      text-decoration: none;
       font-size: 0.9rem;
-      margin-bottom: 24px;
+      color: var(--dim);
+      text-decoration: none;
     }
 
     .back-link:hover {
-      color: #1e3a8a;
+      color: var(--accent);
     }
 
-    header {
-      border-bottom: 1px solid #e5e5e5;
-      padding-bottom: 40px;
-      margin-bottom: 40px;
+    /* Main content */
+    main {
+      padding: 3rem 0;
     }
 
-    h1 {
-      font-size: 2.25rem;
+    .page-title {
+      font-family: var(--font-mono);
+      font-size: 2rem;
+      color: var(--accent);
       font-weight: 600;
-      color: #000;
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
     }
 
     .tagline {
       font-size: 1.15rem;
-      color: #555;
+      color: var(--dim);
+      margin-bottom: 3rem;
       line-height: 1.6;
     }
 
     .section {
-      margin-bottom: 48px;
+      margin-bottom: 3rem;
     }
 
     .section:last-of-type {
@@ -160,41 +218,46 @@
     }
 
     h2 {
+      font-family: var(--font-mono);
       font-size: 1.25rem;
+      color: var(--accent);
       font-weight: 600;
-      color: #1a1a1a;
-      margin-bottom: 16px;
-      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.05em;
     }
 
     p {
-      font-size: 1rem;
-      color: #3a3a3a;
-      margin-bottom: 16px;
-      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      color: var(--text);
     }
 
     p:last-child {
       margin-bottom: 0;
     }
 
-    .origin-quote {
-      border-left: 3px solid #d4a84b;
-      padding-left: 20px;
-      margin: 24px 0;
-      font-style: italic;
-      color: #555;
+    .dim {
+      color: var(--dim);
     }
 
+    /* Origin quote */
+    .origin-quote {
+      border-left: 2px solid var(--accent);
+      padding-left: 1.5rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: var(--dim);
+    }
+
+    /* Principles list */
     .principles {
       list-style: none;
       padding: 0;
-      margin: 24px 0 0 0;
+      margin: 0;
     }
 
     .principles li {
-      padding: 24px 0;
-      border-bottom: 1px solid #f0f0f0;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
     }
 
     .principles li:first-child {
@@ -206,138 +269,199 @@
       padding-bottom: 0;
     }
 
+    .principle-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
     .principle-number {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       width: 28px;
       height: 28px;
-      background: #1e3a8a;
-      color: white;
+      background: var(--accent);
+      color: var(--bg);
       border-radius: 50%;
-      text-align: center;
-      line-height: 28px;
+      font-family: var(--font-sans);
       font-size: 0.85rem;
       font-weight: 600;
-      margin-right: 12px;
+      flex-shrink: 0;
     }
 
     .principle-name {
+      font-family: var(--font-sans);
       font-weight: 600;
-      color: #1a1a1a;
+      color: var(--text);
       font-size: 1.1rem;
     }
 
     .principle-desc {
-      display: block;
-      margin-top: 8px;
-      font-size: 0.95rem;
-      color: #555;
-      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 0.75rem;
     }
 
     .principle-example {
-      display: block;
-      margin-top: 12px;
-      font-size: 0.9rem;
-      color: #777;
-      padding-left: 40px;
+      font-size: 0.95rem;
+      color: var(--dim);
+      padding-left: 2.75rem;
     }
 
+    /* Application list */
     .application-list {
       list-style: none;
       padding: 0;
-      margin: 16px 0 0 0;
+      margin: 1rem 0 0 0;
     }
 
     .application-list li {
-      padding: 8px 0;
-      padding-left: 24px;
+      padding: 0.75rem 0;
+      padding-left: 1.5rem;
       position: relative;
-      color: #3a3a3a;
+      color: var(--text);
     }
 
     .application-list li::before {
       content: "→";
       position: absolute;
       left: 0;
-      color: #d4a84b;
+      color: var(--accent);
     }
 
+    .application-list a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .application-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* Separator */
+    .separator {
+      text-align: center;
+      color: var(--dim);
+      margin: 2.5rem 0;
+      font-size: 0.9rem;
+      letter-spacing: 0.5em;
+    }
+
+    /* CTA Section */
     .cta-section {
-      margin-top: 48px;
-      padding-top: 32px;
-      border-top: 1px solid #e5e5e5;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
     }
 
     .cta-section p {
-      margin-bottom: 20px;
+      margin-bottom: 1.5rem;
+      color: var(--dim);
     }
 
     .cta-buttons {
       display: flex;
-      gap: 12px;
+      gap: 1rem;
       flex-wrap: wrap;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 12px 20px;
+      gap: 8px;
+      padding: 14px 24px;
       text-decoration: none;
+      font-family: var(--font-sans);
       font-weight: 500;
-      font-size: 0.9rem;
-      transition: all 0.2s ease;
-      border: 1px solid #e0e0e0;
-      background: white;
-      color: #1a1a1a;
+      font-size: 0.95rem;
       border-radius: 4px;
-    }
-
-    .btn:hover {
-      border-color: #1e3a8a;
-      color: #1e3a8a;
+      transition: all 0.2s ease;
     }
 
     .btn-primary {
-      background: #1e3a8a;
-      border-color: #1e3a8a;
-      color: white;
+      background: var(--accent);
+      color: var(--bg);
     }
 
     .btn-primary:hover {
-      background: #1e40af;
-      border-color: #1e40af;
-      color: white;
+      background: #e0b860;
     }
 
-    footer {
-      margin-top: 48px;
-      padding-top: 24px;
-      border-top: 1px solid #e5e5e5;
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Footer */
+    .footer {
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
       text-align: center;
-      color: #999;
-      font-size: 0.85rem;
     }
 
-    footer a {
-      color: #1e3a8a;
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer a {
+      color: var(--dim);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer a:hover {
+      color: var(--accent);
+    }
+
+    .footer-note {
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--dim);
+    }
+
+    /* Links in content */
+    .section a {
+      color: var(--accent);
       text-decoration: none;
     }
 
-    footer a:hover {
+    .section a:hover {
       text-decoration: underline;
     }
 
-    @media (max-width: 768px) {
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
       body {
-        padding: 20px 16px;
+        font-size: 17px;
       }
 
       .container {
-        padding: 40px 24px;
+        padding: 0 1rem;
       }
 
-      h1 {
+      .header {
+        padding: 2rem 0 1.5rem;
+      }
+
+      .wordmark {
+        font-size: 1.5rem;
+      }
+
+      main {
+        padding: 2rem 0;
+      }
+
+      .page-title {
         font-size: 1.75rem;
       }
 
@@ -352,90 +476,174 @@
 
       .principle-example {
         padding-left: 0;
+        margin-top: 0.5rem;
+      }
+
+      .footer-links {
+        gap: 1.5rem;
+      }
+    }
+
+    /* Focus states */
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* Print styles */
+    @media print {
+      .porch-light,
+      .back-link,
+      .cta-section {
+        display: none;
+      }
+
+      body {
+        background: white;
+        color: black;
+        font-size: 12pt;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 100%;
+      }
+
+      .header {
+        border-bottom: 1px solid #ccc;
+      }
+
+      .wordmark,
+      .page-title,
+      h2 {
+        color: black;
+        text-shadow: none;
+      }
+
+      .principle-number {
+        background: black;
+        color: white;
+      }
+
+      .origin-quote {
+        border-left-color: #666;
+      }
+
+      .footer {
+        border-top: 1px solid #ccc;
+      }
+
+      a {
+        color: black;
+        text-decoration: underline;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <a href="/" class="back-link">
-      <span>&larr;</span> Back to CW
-    </a>
+  <div class="porch-light" aria-hidden="true"></div>
 
-    <header>
-      <h1>The CW Standard</h1>
-      <p class="tagline">Five principles for AI that serves people, not the other way around.</p>
+  <div class="container">
+    <header class="header">
+      <a href="/" class="wordmark">CW</a>
+      <a href="/" class="back-link">Back to CW</a>
     </header>
 
-    <div class="section">
-      <h2>Origin</h2>
-      <p>Claude William Simmons was born January 6, 1903, in Oklahoma Territory. He never went to high school. Finished grade school around 6th grade, left at 13 to work full time. That's what people did back then.</p>
-      <p>He raised 11 children through dust bowls and depressions. Worked the farm. Worked the railroad. Provided every single day for 51 years until it killed him. He died August 10, 1967, four days after his son Donald's 21st birthday.</p>
+    <main>
+      <h1 class="page-title">The CW Standard</h1>
+      <p class="tagline">Five principles for AI that serves people, not the other way around.</p>
 
-      <div class="origin-quote">
-        "The morning he died, his arthritis was so bad he could barely button his cuffs. He buttoned them anyway. August heat. Long sleeves. Then he went to work."
+      <div class="section">
+        <h2>Origin</h2>
+        <p>Claude William Simmons was born January 6, 1903, in Oklahoma Territory. He never went to high school. Finished grade school around 6th grade, left at 13 to work full time. That's what people did back then.</p>
+        <p>He raised 11 children through dust bowls and depressions. Worked the farm. Worked the railroad. Provided every single day for 51 years until it killed him. He died August 10, 1967, four days after his son Donald's 21st birthday.</p>
+
+        <div class="origin-quote">
+          "The morning he died, his arthritis was so bad he could barely button his cuffs. He buttoned them anyway. August heat. Long sleeves. Then he went to work."
+        </div>
+
+        <p>His grandson Derek never met him. Derek was born five and a half years after CW died. But he built <a href="/">CW</a> to know his grandfather, and named these principles after him. Because the way CW lived is the way AI should work: show up, tell the truth, help when asked, don't waste words.</p>
       </div>
 
-      <p>His grandson Derek never met him. Derek was born five and a half years after CW died. But he built <a href="/">CW</a> to know his grandfather, and named these principles after him. Because the way CW lived is the way AI should work: show up, tell the truth, help when asked, don't waste words.</p>
-    </div>
+      <div class="separator">***</div>
 
-    <div class="section">
-      <h2>The Five Principles</h2>
+      <div class="section">
+        <h2>The Five Principles</h2>
 
-      <ol class="principles">
-        <li>
-          <span class="principle-number">1</span>
-          <span class="principle-name">Truth over comfort</span>
-          <span class="principle-desc">Document what actually happens, not what should happen. Problems you can't name are problems you can't solve.</span>
-          <span class="principle-example">When an AI system fails, say so. When a recommendation is uncertain, say so. Comfortable lies compound into expensive disasters.</span>
-        </li>
-        <li>
-          <span class="principle-number">2</span>
-          <span class="principle-name">Usefulness over purity</span>
-          <span class="principle-desc">Perfect options don't exist. What works, and what does it cost? That's the question that matters.</span>
-          <span class="principle-example">A good-enough solution today beats a perfect solution that never ships. Trade-offs are the job, not obstacles to it.</span>
-        </li>
-        <li>
-          <span class="principle-number">3</span>
-          <span class="principle-name">Transparency over reputation</span>
-          <span class="principle-desc">Every compromise gets documented. When we trade one thing for another, we say so. No hidden costs.</span>
-          <span class="principle-example">If the AI was trained on data with known biases, document it. If the model has limitations, name them. Reputation built on hidden costs isn't worth protecting.</span>
-        </li>
-        <li>
-          <span class="principle-number">4</span>
-          <span class="principle-name">People over systems</span>
-          <span class="principle-desc">Technology serves human capability. Systems that don't help people do their jobs aren't systems worth building.</span>
-          <span class="principle-example">AI should make people better at what they do, not replace what they do. The goal is augmentation, not automation for its own sake.</span>
-        </li>
-        <li>
-          <span class="principle-number">5</span>
-          <span class="principle-name">Agency over ideology</span>
-          <span class="principle-desc">Principles that don't work in practice aren't principles. If the framework fails the situation, change the framework.</span>
-          <span class="principle-example">These five principles included. If one of them gets in the way of actually helping someone, the principle yields. Dogma is the enemy of usefulness.</span>
-        </li>
-      </ol>
-    </div>
-
-    <div class="section">
-      <h2>In Practice</h2>
-      <p>The CW Standard shapes how we work:</p>
-      <ul class="application-list">
-        <li><strong><a href="/">CW</a></strong> — A conversational AI shaped by these principles. Talk to the grandfather Derek never met.</li>
-        <li><strong><a href="/about">CW Strategies</a></strong> — Four-month consulting engagements. Define the problem, build the solution, transfer ownership, leave.</li>
-        <li><strong>AI Integration</strong> — Help organizations adopt AI that strengthens human capability instead of replacing it.</li>
-      </ul>
-    </div>
-
-    <div class="cta-section">
-      <p>Want to see The CW Standard in action, or apply it to your organization?</p>
-      <div class="cta-buttons">
-        <a href="/" class="btn btn-primary">Talk to CW</a>
-        <a href="/derek" class="btn">Work with Derek</a>
+        <ol class="principles">
+          <li>
+            <div class="principle-header">
+              <span class="principle-number">1</span>
+              <span class="principle-name">Truth over comfort</span>
+            </div>
+            <p class="principle-desc">Document what actually happens, not what should happen. Problems you can't name are problems you can't solve.</p>
+            <p class="principle-example">When an AI system fails, say so. When a recommendation is uncertain, say so. Comfortable lies compound into expensive disasters.</p>
+          </li>
+          <li>
+            <div class="principle-header">
+              <span class="principle-number">2</span>
+              <span class="principle-name">Usefulness over purity</span>
+            </div>
+            <p class="principle-desc">Perfect options don't exist. What works, and what does it cost? That's the question that matters.</p>
+            <p class="principle-example">A good-enough solution today beats a perfect solution that never ships. Trade-offs are the job, not obstacles to it.</p>
+          </li>
+          <li>
+            <div class="principle-header">
+              <span class="principle-number">3</span>
+              <span class="principle-name">Transparency over reputation</span>
+            </div>
+            <p class="principle-desc">Every compromise gets documented. When we trade one thing for another, we say so. No hidden costs.</p>
+            <p class="principle-example">If the AI was trained on data with known biases, document it. If the model has limitations, name them. Reputation built on hidden costs isn't worth protecting.</p>
+          </li>
+          <li>
+            <div class="principle-header">
+              <span class="principle-number">4</span>
+              <span class="principle-name">People over systems</span>
+            </div>
+            <p class="principle-desc">Technology serves human capability. Systems that don't help people do their jobs aren't systems worth building.</p>
+            <p class="principle-example">AI should make people better at what they do, not replace what they do. The goal is augmentation, not automation for its own sake.</p>
+          </li>
+          <li>
+            <div class="principle-header">
+              <span class="principle-number">5</span>
+              <span class="principle-name">Agency over ideology</span>
+            </div>
+            <p class="principle-desc">Principles that don't work in practice aren't principles. If the framework fails the situation, change the framework.</p>
+            <p class="principle-example">These five principles included. If one of them gets in the way of actually helping someone, the principle yields. Dogma is the enemy of usefulness.</p>
+          </li>
+        </ol>
       </div>
-    </div>
 
-    <footer>
-      <p>&copy; 2025 CW Strategies &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a></p>
+      <div class="separator">***</div>
+
+      <div class="section">
+        <h2>In Practice</h2>
+        <p>The CW Standard shapes how we work:</p>
+        <ul class="application-list">
+          <li><strong><a href="/">CW</a></strong> — A conversational AI shaped by these principles. Talk to the grandfather Derek never met.</li>
+          <li><strong><a href="/derek">CW Strategies</a></strong> — Four-month consulting engagements. Define the problem, build the solution, transfer ownership, leave.</li>
+          <li><strong>AI Integration</strong> — Help organizations adopt AI that strengthens human capability instead of replacing it.</li>
+        </ul>
+      </div>
+
+      <div class="cta-section">
+        <p>Want to see The CW Standard in action, or apply it to your organization?</p>
+        <div class="cta-buttons">
+          <a href="/" class="btn btn-primary">Talk to CW</a>
+          <a href="/derek" class="btn btn-secondary">Work with Derek</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="/">Talk to CW</a>
+        <a href="/story">The Story</a>
+        <a href="/derek">About Derek</a>
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+      </div>
+      <p class="footer-note">&copy; 2026 CW Strategies</p>
     </footer>
   </div>
 </body>
