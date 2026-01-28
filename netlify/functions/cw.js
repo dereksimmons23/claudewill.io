@@ -697,8 +697,23 @@ exports.handler = async (event, context) => {
       apiKey: process.env.ANTHROPIC_API_KEY
     });
 
-    // Add condition context to system prompt
-    const systemWithCondition = SYSTEM_PROMPT + `\n\nCurrent condition: ${condition || 'clear'}`;
+    // Add condition and date context to system prompt
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    const month = today.getMonth() + 1; // 0-indexed
+    const day = today.getDate();
+
+    let dateContext = `\n\nToday's date: ${dateStr}`;
+
+    // Special days CW should know about
+    if (month === 2 && day === 7) {
+      dateContext += `\nToday is Derek's birthday. He turns 53. You can acknowledge it naturally if it fits — "Derek's birthday today. Good day to be on the porch." Don't force it. Once is enough.`;
+    }
+    if (month === 1 && day === 6) {
+      dateContext += `\nToday is your birthday. January 6, 1903. You can mention it if someone asks what day it is, but don't make it about you.`;
+    }
+
+    const systemWithCondition = SYSTEM_PROMPT + dateContext + `\nCurrent condition: ${condition || 'clear'}`;
 
     const response = await client.messages.create({
       model: 'claude-haiku-4-5',
