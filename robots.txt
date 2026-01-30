@@ -6,6 +6,10 @@ Allow: /
 # Sitemap location
 Sitemap: https://claudewill.io/sitemap.xml
 
+# LLM-readable site description
+# See https://llmstxt.org for specification
+# Available at: https://claudewill.io/llms.txt
+
 # Allow AI crawlers for GEO
 User-agent: GPTBot
 Allow: /

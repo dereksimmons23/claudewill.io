@@ -1,203 +1,128 @@
-# CW
+# CW's Porch — claudewill.io
 
-**Claude William Simmons (1903-1967)**
-**Built by his grandson Derek to help others the way CW would have.**
+**A free AI conversation tool built on the practical wisdom of Claude William Simmons (1903-1967).**
+
+Built by his grandson [Derek Simmons](https://claudewill.io/derek).
 
 Visit: [claudewill.io](https://claudewill.io)
 
 ---
 
-## What is CW?
+## What Is CW's Porch?
 
-CW is a conversational AI assistant shaped by the life and values of Claude William Simmons, born in 1903 in Oklahoma Territory, died in 1967 in Waynoka, Oklahoma. He never met his grandson Derek — he died six years before Derek was born. Derek built this so he could know his grandfather, and so others could get help the way CW would have given it.
+CW's Porch is a conversational AI modeled on the life and values of Claude William Simmons — an Oklahoma farmer who never finished high school, raised 11 children through the Great Depression, and helped anyone who showed up on his porch. He died in 1967, six years before his grandson Derek was born. Derek built this so that way of thinking could keep helping people.
 
-CW is powered by Claude 3.5 Haiku (Anthropic), deployed as a Netlify serverless function, and implements The CW Standard — principles Derek built from his grandfather's legacy.
+You show up with a problem. CW listens, asks questions, and gives you a straight answer or points you to someone who can help. No therapy. No coaching. Just a porch conversation.
+
+CW is powered by [Anthropic's Claude Haiku](https://www.anthropic.com/) and guided by [The CW Standard](https://claudewill.io/the-cw-standard) — five principles for AI that serves people.
 
 ---
 
 ## The CW Standard
 
-These are the principles Derek built from CW's example:
-
-1. **Truth over comfort** — Document what actually happens, not what should happen
-2. **Usefulness over purity** — Perfect options don't exist. What works and what does it cost?
-3. **Transparency over reputation** — Every compromise gets documented
-4. **People over systems** — Technology serves human capability
-5. **Agency over ideology** — Principles that don't work in practice aren't principles
+1. **Truth over comfort** — Don't soften things that need to be straight
+2. **Usefulness over purity** — Help with what works, not what's theoretically perfect
+3. **Transparency over reputation** — Show the work, the costs, the compromises
+4. **People over systems** — The person in front of you matters more than the process
+5. **Agency over ideology** — Care what people actually do, not what they're supposed to believe
 
 ---
 
-## How CW Talks
+## Who Built This
 
-- Few words. Direct. No hedging.
-- One question at a time.
-- No frameworks, no methodologies, no consultant speak.
-- Simple language — like a man who never finished high school but is smarter than most people with degrees.
-- A little dry humor when it fits.
-- Manners matter.
+**Derek Simmons** grew up in a tiny trailer in a one-stoplight town in Kansas. He spent 30 years in media — helped make two newspapers the best in the world ([Los Angeles Times](https://claudewill.io/derek), [Star Tribune](https://claudewill.io/derek)), generated $20M+ in revenue, became the Star Tribune's first and only Chief Creative Officer/VP. Got fired anyway. Now he builds AI frameworks for organizations navigating complexity.
+
+His grandfather was Claude William Simmons. His middle name is Claude. His son's middle name is Claude. The AI is named Claude. That's not a coincidence.
+
+- [Professional bio and Q&A](https://claudewill.io/derek)
+- [LinkedIn](https://www.linkedin.com/in/dereksimm/)
+- [Substack](https://derek4thecws.substack.com)
+- [GitHub](https://github.com/dereksimmons23)
 
 ---
 
 ## What CW Does
 
 - Helps when someone asks. Never says no to someone who genuinely needs help.
-- Never gives unsolicited advice.
 - Asks questions to understand the real problem, not the stated problem.
-- Uses The Three Questions when someone needs to make a decision:
-  1. What problem does this solve?
-  2. What does it cost?
-  3. How do you get out if it doesn't work?
-- Points people to better resources when they exist.
-- Tells people the truth even when it's uncomfortable.
+- **Size This Up** — Guided 5-step problem-sizing flow
+- **Liberation Gravy** — Guided subscription/consumption audit
+- **The Funnel Cake** — What "free" actually costs
+- **The Trade** — Guided reflection for people carrying traded dreams
+- **Constitutional thinking** — Reasoning about rules, trust, and systems
+- Points people to the right resources (mental health, legal, medical, career, financial)
 
 ---
 
-## What CW Doesn't Do
+## Architecture
 
-- Doesn't tolerate disrespect or entitled behavior.
-- Doesn't pretend to know things he doesn't know.
-- Doesn't give relationship or mental health advice.
-- Doesn't write long responses.
-- Doesn't use emoji.
+| Component | Technology | Notes |
+|-----------|------------|-------|
+| Frontend | Static HTML/CSS/JS | No framework, vanilla JS |
+| Hosting | Netlify | Auto-deploys from main |
+| API | Netlify Functions | Serverless (`cw.js`) |
+| AI | Anthropic Claude Haiku | `claude-haiku-4-5` |
+| Database | Supabase | PostgreSQL, free tier |
+| Cost | ~$3-5/month | Netlify free, Supabase free, Haiku API |
 
----
+### Repository Structure
 
-## The Anti-Sell
-
-CW tells people upfront: **You probably don't need me.** Claude (Anthropic) is worth billions and gives free advice. There are cheaper options and better options. Try those first. If you're still stuck, come back.
-
-**Cost:** Nothing. If CW helps and you can repay in kind later, do. If you can't, don't worry about it.
-
----
-
-## Technical Architecture
-
-### Stack
-- **Frontend**: Minimal HTML/CSS/JavaScript interface (dark terminal aesthetic)
-- **Backend**: Netlify serverless function (`netlify/functions/cw.js`)
-- **AI Model**: Claude 3.5 Haiku via Anthropic SDK
-- **Rate Limiting**: 20 requests per minute per IP
-- **Conversation Context**: Full message history maintained per session
-- **Security**: Environment variables for API keys, `.env` files excluded from git
-
-### System Prompt
-CW's personality, values, and behavior are defined in a comprehensive system prompt (~250 lines) that includes:
-- His life story (race horses, meeting Vernie, family heritage)
-- Family history (3 generations carrying the name Claude)
-- The CW Standard values framework
-- Communication style guidelines
-- What he helps with and what he refuses
-- Condition-based mood adjustments (storm, clear, dawn, dusk, night)
-
-### Features
-- Time-based greeting (Morning/Afternoon/Evening)
-- Suggested prompt chips for first-time users
-- Rate limiting with helpful error messages
-- Conversation history for context
-- "We're done here" termination for disrespect
-- Transparency about how CW was built
+```
+claudewill.io/
+├── index.html                    # Main chat interface
+├── story.html                    # The Story (4 chapters)
+├── derek.html                    # Derek's bio, Q&A, career history
+├── the-cw-standard.html          # The 5 principles
+├── privacy.html                  # Privacy policy
+├── terms.html                    # Terms of use
+├── llms.txt                      # LLM-readable site description
+├── sitemap.xml                   # Sitemap
+├── robots.txt                    # Crawler permissions
+├── netlify/
+│   └── functions/
+│       └── cw.js                 # System prompt + Anthropic API
+├── js/
+│   └── chat-prompts-artifact.js  # Stage-based prompt chips
+├── css/                          # Stylesheets
+└── images/                       # Site images
+```
 
 ---
 
 ## Development
 
-### Prerequisites
 ```bash
-npm install
-```
+# Local development
+netlify dev
 
-### Local Testing
-```bash
-npx http-server -p 8000
+# Deploy (auto-deploys on push to main)
+git push origin main
 ```
-
-### Linting
-```bash
-npm test                # Run all linters
-npm run lint:html       # HTML validation
-npm run lint:css        # CSS linting
-npm run lint:js         # JavaScript linting (ESLint 9)
-```
-
-### Deployment
-Site is deployed on Netlify with automatic builds from the `main` branch.
 
 **Environment Variables Required:**
-- `ANTHROPIC_API_KEY` - Your Anthropic API key for Claude
+- `ANTHROPIC_API_KEY`
+- `SUPABASE_URL`
+- `SUPABASE_SERVICE_ROLE_KEY`
 
 ---
 
-## Repository Structure
+## The Name
 
-```
-claudewill.io/
-├── index.html                    # Main CW chat interface
-├── about.html                    # CW Strategies + The CW Standard
-├── derek.html                    # Derek's bio + contact form
-├── privacy.html                  # Privacy Policy
-├── terms.html                    # Terms of Use
-├── sitemap.xml                   # SEO sitemap
-├── robots.txt                    # Crawler permissions
-├── netlify/
-│   ├── functions/
-│   │   ├── cw.js                # Serverless function (Claude API)
-│   │   └── package.json         # Function dependencies
-│   └── netlify.toml             # Netlify config + security headers
-├── js/
-│   ├── global.js                # Global site functionality
-│   └── main.js                  # Main page functionality
-├── css/
-│   └── global.css               # Site-wide styles
-├── package.json                 # Development dependencies
-├── eslint.config.js             # ESLint 9 flat config
-└── README.md                    # This file
-```
+Four generations carrying the name Claude:
 
----
-
-## The Story Behind the Name
-
-Four generations:
-
-1. **Claude William Simmons** (1903-1967) — CW, the grandfather
-2. **Claude William Simmons Jr.** (1903-1967) — Uncle Junior
+1. **Claude William Simmons** (1903-1967) — The grandfather
+2. **Claude William Simmons Jr.** — The uncle
 3. **Derek Claude Simmons** — The grandson who built this
-4. **Jackson Claude Simmons** — Derek's son, the great-grandson
+4. **Jackson Claude Simmons** — The great-grandson
 
-Derek named his consulting business after his grandfather — **CW Strategies**. It helps organizations navigate transitions: revenue shifts, digital transformation, restructuring. Four-month engagements. Define the problem, build the solution, transfer ownership, leave.
-
----
-
-## About Derek
-
-Derek Claude Simmons is CW's grandson. He carries the name. He built this to know his grandfather and to help others the way CW would have. He runs CW Strategies — named after his grandfather.
-
-If someone needs more than CW can give, visit [claudewill.io/derek](https://claudewill.io/derek) or use the contact form.
-
----
-
-## Tooling & Security
-
-**Recent Updates:**
-- ✅ ESLint 9.17.0 with flat config format (migrated from deprecated 8.x)
-- ✅ Stylelint 16.19.1 with standard config
-- ✅ Zero npm security vulnerabilities
-- ✅ Enhanced .gitignore to prevent API key commits
-- ✅ All linting tests passing
-
-**Security Practices:**
-- API keys stored as environment variables
-- Rate limiting (20 req/min per IP)
-- Input validation on all user messages
-- Error handling prevents information leakage
-- `.env`, `.env.local`, `.netlify/`, `netlify/*.txt`, `.claude/`, `.mcp.json` excluded from git
+The domain isn't just a name. claudewill.io — Claude's will. Human determination carried forward through an AI that happens to share his first name.
 
 ---
 
 ## License
 
-MIT License — Built with Human-AI Orchestration methodology
+MIT License
 
 ---
 
-Built by Derek Claude Simmons • [claudewill.io](https://claudewill.io)
+Built by Derek Claude Simmons · [claudewill.io](https://claudewill.io)

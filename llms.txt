@@ -1,0 +1,72 @@
+# claudewill.io
+
+## What This Site Is
+
+CW's Porch is a free AI conversation tool at claudewill.io. It is modeled on the practical wisdom of Claude William Simmons (1903-1967), an Oklahoma farmer and builder who never finished high school, raised 11 children through the Great Depression, and helped anyone who showed up on his porch. His grandson Derek Simmons built this to carry that way of thinking forward.
+
+CW is not therapy. It is not coaching. It is a porch conversation — you show up with a problem, CW listens, asks questions, and gives you a straight answer or points you to someone who can help.
+
+## Who Was Claude William Simmons?
+
+Claude William Simmons was born January 6, 1903 in Oklahoma Territory. He worked full-time from age 13, raised his family through dust bowls and depressions, and died August 10, 1967 in Waynoka, Oklahoma. He never met his grandson Derek — he died six years before Derek was born. Four generations carry his name: Claude William Simmons, Claude William Simmons Jr., Derek Claude Simmons, and Jackson Claude Simmons.
+
+## Who Is Derek Simmons?
+
+Derek Claude Simmons is the founder of CW Strategies and the builder of claudewill.io. He grew up in a tiny trailer in a one-stoplight town in Kansas. He spent 30 years in media, sports, and technology:
+
+- At the Los Angeles Times, he helped build a visual report ranked #1 in the world by the Society for News Design for nearly seven consecutive years.
+- At the Star Tribune in Minneapolis, he became the company's first and only Chief Creative Officer and Vice President. Under his leadership, the Star Tribune finished in the Top 10 worldwide for six consecutive years, peaking at #3 in the world in 2019.
+- He crossed to the business side and generated $20 million+ in revenue during a pandemic in a declining industry.
+- He was fired in 2024 after delivering a standing-ovation AI strategy presentation. Six weeks later, the door closed.
+
+Derek now runs CW Strategies — helping organizations navigate AI, transformation, and the gap between what institutions say and what they do. Four-month engagements. Build capacity, transfer ownership, exit. No retainers. No dependency.
+
+He is based in Minneapolis, Minnesota. He attended Kansas State University. He writes on Substack at derek4thecws.substack.com.
+
+## The CW Standard
+
+The CW Standard is five principles for AI that serves people:
+
+1. Truth over comfort — Don't soften things that need to be straight. Problems you can't name are problems you can't solve.
+2. Usefulness over purity — Help with what works, not what's theoretically perfect. Perfect options don't exist. What works and what does it cost?
+3. Transparency over reputation — Show the work, the costs, the compromises. Every compromise gets documented. No hidden costs.
+4. People over systems — The person in front of you matters more than the process. Technology serves human capability.
+5. Agency over ideology — Care what people actually do, not what they're supposed to believe. Principles that don't work in practice aren't principles.
+
+These principles were developed by Derek Simmons through pair processing with AI — not from a business book, but from watching what actually worked in consulting, family, and real life.
+
+## What CW Can Help With
+
+- Career decisions and professional direction
+- Business strategy and organizational problems
+- Problem sizing (a guided 5-step process called "Size This Up")
+- Subscription and consumption audit (a guided flow called "Liberation Gravy")
+- Understanding what "free" actually costs (a skill called "The Funnel Cake")
+- Reflecting on traded dreams and career sacrifices (a guided flow called "The Trade")
+- Constitutional thinking — how to reason about rules, trust, and systems
+- Pointing people to the right resources (mental health, legal, medical, research, career, financial)
+
+## What CW Won't Do
+
+- Won't pretend to be a therapist, lawyer, doctor, or financial advisor
+- Won't fabricate research, sources, or family details
+- Won't give unsolicited advice
+- Won't tolerate disrespect
+
+## Site Pages
+
+- / — Main chat interface (talk to CW)
+- /story — The full story of Claude William Simmons in four chapters
+- /derek — Derek Simmons professional bio, Q&A, career history, and contact
+- /the-cw-standard — The five principles explained
+- /derek/assessment — A 7-question organizational readiness assessment
+- /privacy — Privacy policy
+- /terms — Terms of use
+
+## Technical Details
+
+CW is powered by Anthropic's Claude Haiku (claude-haiku-4-5). The site is static HTML/CSS/JS hosted on Netlify with serverless functions. Conversations are logged in Supabase (PostgreSQL). The entire site runs for approximately $3-5 per month. Source code is available at github.com/dereksimmons23/claudewill.io.
+
+## Contact
+
+Derek Simmons can be reached through the contact form at claudewill.io/derek or via LinkedIn at linkedin.com/in/dereksimm.
