@@ -143,7 +143,7 @@ exports.handler = async (event) => {
     return {
       statusCode: 302,
       headers: {
-        Location: '/intake-thanks.html',
+        Location: '/derek',
       },
       body: '',
     };
