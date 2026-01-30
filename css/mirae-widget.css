@@ -1,38 +1,28 @@
 /* Mirae Widget — Smart colleague at claudewill.io */
 
-.mirae-widget {
-  --mirae-bg: #000D1A;
-  --mirae-panel: #0a1829;
-  --mirae-border: #0d2840;
-  --mirae-accent: #d4a84b;
-  --mirae-text: #f5f5f5;
-  --mirae-dim: #b0b0b0;
-  --mirae-input-bg: #001428;
-  --mirae-font: 'Noto Sans', system-ui, sans-serif;
-}
-
 /* Toggle button */
 .mirae-toggle {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  background: var(--mirae-accent);
+  background: #d4a84b;
   border: none;
   cursor: pointer;
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 12px rgba(212, 168, 75, 0.3);
+  box-shadow: 0 2px 12px rgba(212, 168, 75, 0.4);
   transition: transform 0.2s, box-shadow 0.2s;
-  font-family: var(--mirae-font);
-  font-size: 18px;
-  font-weight: 600;
+  font-family: 'Noto Sans', system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
   color: #000D1A;
   line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .mirae-toggle:hover {
@@ -41,7 +31,7 @@
 }
 
 .mirae-toggle:focus-visible {
-  outline: 2px solid var(--mirae-text);
+  outline: 2px solid #f5f5f5;
   outline-offset: 2px;
 }
 
@@ -51,8 +41,8 @@
 
 /* Pulse animation on first appearance */
 @keyframes mirae-pulse {
-  0%, 100% { box-shadow: 0 2px 12px rgba(212, 168, 75, 0.3); }
-  50% { box-shadow: 0 4px 24px rgba(212, 168, 75, 0.6); }
+  0%, 100% { box-shadow: 0 2px 12px rgba(212, 168, 75, 0.4); }
+  50% { box-shadow: 0 4px 28px rgba(212, 168, 75, 0.8); }
 }
 
 .mirae-toggle.pulse {
@@ -66,15 +56,15 @@
   right: 24px;
   width: 360px;
   height: 480px;
-  background: var(--mirae-bg);
-  border: 1px solid var(--mirae-border);
+  background: #000D1A;
+  border: 1px solid #0d2840;
   border-radius: 12px;
   z-index: 9998;
   display: none;
   flex-direction: column;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-  font-family: var(--mirae-font);
+  font-family: 'Noto Sans', system-ui, sans-serif;
 }
 
 .mirae-panel.open {
@@ -87,21 +77,21 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  border-bottom: 1px solid var(--mirae-border);
+  border-bottom: 1px solid #0d2840;
   flex-shrink: 0;
 }
 
 .mirae-header-title {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--mirae-accent);
+  color: #d4a84b;
   letter-spacing: 0.05em;
 }
 
 .mirae-close {
   background: none;
   border: none;
-  color: var(--mirae-dim);
+  color: #b0b0b0;
   cursor: pointer;
   font-size: 1.25rem;
   padding: 4px 8px;
@@ -111,11 +101,11 @@
 }
 
 .mirae-close:hover {
-  color: var(--mirae-text);
+  color: #f5f5f5;
 }
 
 .mirae-close:focus-visible {
-  outline: 2px solid var(--mirae-accent);
+  outline: 2px solid #d4a84b;
   outline-offset: 1px;
 }
 
@@ -138,7 +128,7 @@
 }
 
 .mirae-messages::-webkit-scrollbar-thumb {
-  background: var(--mirae-border);
+  background: #0d2840;
   border-radius: 2px;
 }
 
@@ -154,20 +144,20 @@
 
 .mirae-msg.mirae {
   align-self: flex-start;
-  background: var(--mirae-panel);
-  color: var(--mirae-text);
+  background: #0a1829;
+  color: #f5f5f5;
   border-bottom-left-radius: 4px;
 }
 
 .mirae-msg.user {
   align-self: flex-end;
-  background: var(--mirae-border);
-  color: var(--mirae-text);
+  background: #0d2840;
+  color: #f5f5f5;
   border-bottom-right-radius: 4px;
 }
 
 .mirae-msg a {
-  color: var(--mirae-accent);
+  color: #d4a84b;
   text-decoration: none;
 }
 
@@ -179,11 +169,11 @@
 .mirae-typing {
   align-self: flex-start;
   padding: 10px 14px;
-  background: var(--mirae-panel);
+  background: #0a1829;
   border-radius: 10px;
   border-bottom-left-radius: 4px;
   font-size: 0.875rem;
-  color: var(--mirae-dim);
+  color: #b0b0b0;
 }
 
 .mirae-typing::after {
@@ -204,15 +194,15 @@
   flex-wrap: wrap;
   gap: 6px;
   padding: 8px 16px;
-  border-top: 1px solid var(--mirae-border);
+  border-top: 1px solid #0d2840;
   flex-shrink: 0;
 }
 
 .mirae-chip {
   background: transparent;
-  border: 1px solid var(--mirae-border);
-  color: var(--mirae-dim);
-  font-family: var(--mirae-font);
+  border: 1px solid #0d2840;
+  color: #b0b0b0;
+  font-family: 'Noto Sans', system-ui, sans-serif;
   font-size: 0.75rem;
   padding: 5px 10px;
   border-radius: 14px;
@@ -222,12 +212,12 @@
 }
 
 .mirae-chip:hover {
-  border-color: var(--mirae-accent);
-  color: var(--mirae-accent);
+  border-color: #d4a84b;
+  color: #d4a84b;
 }
 
 .mirae-chip:focus-visible {
-  outline: 2px solid var(--mirae-accent);
+  outline: 2px solid #d4a84b;
   outline-offset: 1px;
 }
 
@@ -235,40 +225,40 @@
 .mirae-input-area {
   display: flex;
   padding: 12px;
-  border-top: 1px solid var(--mirae-border);
+  border-top: 1px solid #0d2840;
   gap: 8px;
   flex-shrink: 0;
 }
 
 .mirae-input {
   flex: 1;
-  background: var(--mirae-input-bg);
-  border: 1px solid var(--mirae-border);
+  background: #001428;
+  border: 1px solid #0d2840;
   border-radius: 8px;
   padding: 8px 12px;
-  color: var(--mirae-text);
-  font-family: var(--mirae-font);
+  color: #f5f5f5;
+  font-family: 'Noto Sans', system-ui, sans-serif;
   font-size: 0.875rem;
   outline: none;
   transition: border-color 0.15s;
 }
 
 .mirae-input:focus {
-  border-color: var(--mirae-accent);
+  border-color: #d4a84b;
 }
 
 .mirae-input::placeholder {
-  color: var(--mirae-dim);
+  color: #b0b0b0;
   opacity: 0.6;
 }
 
 .mirae-send {
-  background: var(--mirae-accent);
+  background: #d4a84b;
   border: none;
   border-radius: 8px;
   padding: 8px 14px;
   color: #000D1A;
-  font-family: var(--mirae-font);
+  font-family: 'Noto Sans', system-ui, sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
@@ -285,7 +275,7 @@
 }
 
 .mirae-send:focus-visible {
-  outline: 2px solid var(--mirae-text);
+  outline: 2px solid #f5f5f5;
   outline-offset: 2px;
 }
 
