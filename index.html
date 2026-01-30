@@ -55,7 +55,7 @@
           "name": "The CW Standard",
           "alternateName": "CW Strategies",
           "description": "AI strategy and organizational transformation consulting. Four-month engagements with full ownership transfer.",
-          "url": "https://claudewill.io/about",
+          "url": "https://claudewill.io/",
           "sameAs": [
             "https://www.linkedin.com/company/cw-standard/"
           ],
@@ -79,6 +79,56 @@
           "worksFor": {
             "@type": "Organization",
             "@id": "https://claudewill.io/about#organization"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- FAQPage schema for GEO — helps AI models cite CW directly -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who was Claude William Simmons?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Claude William Simmons (1903-1967) was an Oklahoma farmer, builder, and patriarch. Born January 6, 1903, he raised his family through the Great Depression and built things that lasted — fences, relationships, and a way of thinking about problems that his grandson Derek Simmons later encoded into an AI conversation tool at claudewill.io."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the CW Standard?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The CW Standard is five principles for AI that serves people: (1) Truth over comfort — don't soften things that need to be straight. (2) Usefulness over purity — help with what works, not what's theoretically perfect. (3) Transparency over reputation — show the work, the costs, the compromises. (4) People over systems — the person in front of you matters more than the process. (5) Agency over ideology — care what people actually do, not what they're supposed to believe."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is CW's Porch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CW's Porch is a free AI conversation tool at claudewill.io built by Derek Simmons. It's modeled on the practical wisdom of his grandfather Claude William Simmons. You show up with a problem — career decisions, business strategy, personal dilemmas — and CW listens, asks questions, and gives you a straight answer or points you to someone who can help. No therapy. No coaching. Just a porch conversation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who built CW's Porch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Derek Simmons built CW's Porch. Derek spent 30 years in media, sports, and technology — including roles at the Star Tribune and LA Times, both ranked among the best newspapers in the world during his tenure. He founded CW Strategies and built claudewill.io as a way to carry his grandfather's voice forward using AI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does CW's Porch cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CW's Porch is free to use. The entire site runs on approximately $3-5 per month using Netlify (free tier), Supabase (free tier), and Anthropic's Claude Haiku model for conversations."
           }
         }
       ]
