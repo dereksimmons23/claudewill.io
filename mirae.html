@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-991ML96NJ3');
+  </script>
+  <title>Mirae | CW's Porch</title>
+  <meta name="description" content="Mirae is the site guide at claudewill.io. She knows the building. CW listens. Mirae navigates.">
+  <meta property="og:title" content="Mirae | CW's Porch">
+  <meta property="og:description" content="Mirae is the site guide at claudewill.io. She knows the building. CW listens. Mirae navigates.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://claudewill.io/mirae">
+  <meta property="og:image" content="https://claudewill.io/images/og-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mirae | CW's Porch">
+  <meta name="twitter:description" content="Mirae is the site guide at claudewill.io. She knows the building. CW listens. Mirae navigates.">
+  <meta name="twitter:image" content="https://claudewill.io/images/og-preview.png">
+  <link rel="canonical" href="https://claudewill.io/mirae">
+  <link rel="stylesheet" href="/css/shared-nav.css">
+  <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #000D1A;
+      --text: #e8e8e8;
+      --dim: #b0b0b0;
+      --accent: #d4a84b;
+      --border: #0d2840;
+      --font-body: 'Noto Serif', Georgia, serif;
+      --font-sans: 'Noto Sans', system-ui, sans-serif;
+      --font-mono: 'Courier New', Courier, monospace;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    /* Porch light */
+    .porch-light {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.7) 100%);
+      z-index: 9999;
+      box-shadow:
+        0 0 15px rgba(212, 168, 75, 1),
+        0 0 40px rgba(212, 168, 75, 0.8),
+        0 8px 60px rgba(212, 168, 75, 0.5),
+        0 15px 100px rgba(212, 168, 75, 0.3);
+    }
+
+    @media (max-width: 700px) {
+      .porch-light {
+        width: 100%;
+      }
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+    .header {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .wordmark {
+      font-family: var(--font-mono);
+      font-size: 1.75rem;
+      font-weight: bold;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-decoration: none;
+      text-shadow: 0 0 40px rgba(212, 168, 75, 0.4);
+    }
+
+    .wordmark:hover {
+      text-shadow: 0 0 50px rgba(212, 168, 75, 0.6);
+    }
+
+    /* Main content */
+    main {
+      padding: 3rem 0;
+    }
+
+    .page-title {
+      font-family: var(--font-mono);
+      font-size: 2rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .tagline {
+      font-size: 1.15rem;
+      color: var(--dim);
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section:last-of-type {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.05em;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .dim {
+      color: var(--dim);
+    }
+
+    .origin-quote {
+      border-left: 2px solid var(--accent);
+      padding-left: 1.5rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: var(--dim);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 4rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--dim);
+    }
+
+    footer a {
+      color: var(--dim);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 16px;
+      }
+      .page-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="porch-light" aria-hidden="true"></div>
+
+  <div class="container">
+    <header class="header">
+      <a href="/" class="wordmark">CW</a>
+    </header>
+
+    <main>
+      <h1 class="page-title">Mirae</h1>
+      <p class="tagline">She knows the building. CW listens. Mirae navigates.</p>
+
+      <div class="section">
+        <h2>What She Does</h2>
+        <p>There's a gold "M" floating in the corner of most pages on claudewill.io. That's Mirae.</p>
+        <p>If CW is the grandfather on the porch — the one you sit with when you're stuck, or carrying something, or need a straight answer — Mirae is the person who knows the building. She knows what's on each page, where to find things, and when to point you somewhere else.</p>
+        <p>Ask her what the CW Standard is. She'll tell you in two sentences and link you to the full page. Ask her who Derek is. Same thing. Ask her something personal — something you're working through — and she'll send you to the porch. "That's a porch conversation. CW's on the homepage."</p>
+        <p>She handles the quick stuff so CW doesn't have to. Navigation, context, orientation. If you know what you're looking for, Mirae gets you there. If you don't know what you're looking for, CW helps you figure it out.</p>
+      </div>
+
+      <div class="section">
+        <h2>How She Works</h2>
+        <p>Most of what Mirae does doesn't even hit the API. Common questions — who is CW, what's the standard, how do I work with Derek — are answered instantly from scripted responses. No cost, no latency. She only calls the AI when someone asks something she hasn't heard before.</p>
+        <p>Hybrid intelligence. Scripted where it's predictable, live where it matters.</p>
+      </div>
+
+      <div class="section">
+        <h2>Where She Is</h2>
+        <p>Mirae appears on content pages: <a href="/story" style="color: var(--accent); text-decoration: none;">The Story</a>, <a href="/the-cw-standard" style="color: var(--accent); text-decoration: none;">The CW Standard</a>, <a href="/derek" style="color: var(--accent); text-decoration: none;">Derek's page</a>.</p>
+        <p>Not on the homepage. That's CW's porch. Mirae knows the difference.</p>
+      </div>
+
+      <div class="section">
+        <h2>The Name</h2>
+        <p>Mirae means "future" in Korean. <span class="dim">미래.</span></p>
+        <p>The real version is that Mirae was going to be a daughter's name. Sheri's mom is Donna Rae. The plan was Mirae Jane — MJ — an homage to Donna's middle name wrapped in a word that means what comes next.</p>
+        <p>Mirae Jane never arrived.</p>
+        <p>CW is named for someone who came before — a grandfather who died five and a half years before Derek was born. Mirae is named for someone who never came at all. The site is built around family that couldn't be met. One from the past, one from a future that didn't happen.</p>
+        <div class="origin-quote">We put them on things that matter.</div>
+      </div>
+
+    </main>
+
+    <footer>
+      <p><a href="/">Talk to CW</a> · <a href="/story">The Story</a> · <a href="/the-cw-standard">The CW Standard</a> · <a href="/derek">About Derek</a></p>
+      <p style="margin-top: 0.75rem;">&copy; 2026 CW Strategies</p>
+    </footer>
+  </div>
+  <script src="/js/shared-nav.js"></script>
+</body>
+</html>
