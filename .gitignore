@@ -36,6 +36,7 @@ ehthumbs.db
 *.swp
 .obsidian
 CW-Strategies/
+hancock/
 
 # Secrets / local-only files
 netlify/anthropic-key.txt
