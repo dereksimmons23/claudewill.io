@@ -19,6 +19,7 @@
           { name: 'About CW', href: '#about', action: 'about-modal' },
           { name: 'The Story', href: '/story' },
           { name: 'The CW Standard', href: '/the-cw-standard' },
+          { name: 'CW Strategies', href: '/strategies' },
           { name: 'Mirae', href: '/mirae' },
           { name: 'About Derek', href: '/derek' }
         ]
