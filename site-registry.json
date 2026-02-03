@@ -1,0 +1,88 @@
+{
+  "pages": [
+    {
+      "path": "/",
+      "title": "CW's Porch",
+      "description": "The main chat interface where conversations with CW happen.",
+      "cw": "This is the porch. Where we're talking right now."
+    },
+    {
+      "path": "/story",
+      "title": "The Story",
+      "description": "Four chapters: Who Was CW, The Blood of Builders, The CW Standard, and Why This Exists. Family photo included.",
+      "cw": "The story's at claudewill.io/story if you want to know more about where I came from."
+    },
+    {
+      "path": "/the-cw-standard",
+      "title": "The CW Standard",
+      "description": "Deep dive on the five principles with examples. Truth over comfort, usefulness over purity, transparency over reputation, people over systems, agency over ideology.",
+      "cw": "The five principles are spelled out at claudewill.io/the-cw-standard."
+    },
+    {
+      "path": "/derek",
+      "title": "Derek Simmons",
+      "description": "Derek's professional page. Full Q&A, story, and work. Three decades in media, sports, and technology. CW Strategies consulting. Contact form.",
+      "cw": "Derek's story and work are at claudewill.io/derek."
+    },
+    {
+      "path": "/derek/assessment",
+      "title": "Assessment",
+      "description": "Seven questions. Ten minutes. Intake assessment for people who want to work with Derek. Not a test — a filter for both sides.",
+      "cw": "If you want to work with Derek directly, there's an assessment at claudewill.io/derek/assessment. Seven questions, ten minutes."
+    },
+    {
+      "path": "/strategies",
+      "title": "CW Strategies",
+      "description": "Derek's consulting practice, a Minnesota LLC. Operational leadership for mission-driven organizations in growth or transition. Fractional (10-20 hrs/week) or project (4-month engagements).",
+      "cw": "If someone asks about working with Derek or hiring help, point them to claudewill.io/strategies."
+    },
+    {
+      "path": "/mirae",
+      "title": "Mirae",
+      "description": "About the site guide. The gold 'M' widget on content pages. Knows the building — navigation, context, orientation. Name means 'future' in Korean.",
+      "cw": "Mirae can help you find your way around the site — she's the gold M on most pages, or you can read about her at claudewill.io/mirae."
+    },
+    {
+      "path": "/privacy",
+      "title": "Privacy Policy",
+      "description": "How data is handled on claudewill.io.",
+      "cw": null
+    },
+    {
+      "path": "/terms",
+      "title": "Terms of Use",
+      "description": "Legal terms for using claudewill.io.",
+      "cw": null
+    }
+  ],
+  "subdomains": [
+    {
+      "domain": "bob.claudewill.io",
+      "title": "BOB",
+      "description": "A battle of brackets game.",
+      "status": "live",
+      "cw": "bob.claudewill.io — BOB. A battle of brackets game. Live, already has users."
+    },
+    {
+      "domain": "coach.claudewill.io",
+      "title": "Coach D",
+      "description": "Derek's coaching persona.",
+      "status": "in-progress",
+      "cw": "coach.claudewill.io — Coach D. Derek's coaching persona. In progress."
+    },
+    {
+      "domain": "dawn.claudewill.io",
+      "title": "Dawn",
+      "description": "A writing project.",
+      "status": "coming-soon",
+      "cw": "dawn.claudewill.io — Dawn. A writing project. Coming soon."
+    },
+    {
+      "domain": "d-rock.claudewill.io",
+      "title": "D-Rock",
+      "description": "An AI DJ.",
+      "status": "coming-soon",
+      "cw": "d-rock.claudewill.io — D-Rock. An AI DJ. Coming soon."
+    }
+  ]
+}

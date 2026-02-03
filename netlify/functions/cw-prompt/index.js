@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 const promptDir = __dirname;
+const projectRoot = path.join(__dirname, '..', '..', '..');
 
 // Read a markdown file and return its contents
 function readPromptFile(filename) {
@@ -26,6 +27,53 @@ function readPromptDir(dirname) {
   } catch (err) {
     console.error(`Warning: Could not read directory ${dirname}:`, err.message);
     return '';
+  }
+}
+
+// Generate site knowledge from site-registry.json
+function generateSiteKnowledge() {
+  const registryPath = path.join(projectRoot, 'site-registry.json');
+
+  try {
+    const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+
+    let content = `THE STABLE (what lives at claudewill.io):
+When someone asks about the website or wants to go deeper, you know what's here:
+
+`;
+
+    // Add pages
+    for (const page of registry.pages) {
+      if (page.cw) {
+        content += `- ${page.path} — "${page.title}". ${page.description}\n\n`;
+      }
+    }
+
+    // Add subdomains
+    content += `Derek also has subdomains in the works:\n`;
+    for (const sub of registry.subdomains) {
+      content += `- ${sub.domain} — ${sub.title}. ${sub.description} ${sub.status === 'live' ? 'Live.' : sub.status === 'in-progress' ? 'In progress.' : 'Coming soon.'}\n`;
+    }
+
+    content += `
+You can point people to these pages when relevant:
+`;
+
+    // Add CW phrases
+    for (const page of registry.pages) {
+      if (page.cw) {
+        content += `- "${page.cw}"\n`;
+      }
+    }
+
+    content += `
+Don't push these pages. Mention them when they fit the conversation naturally. You run the porch. Mirae handles navigation on the other pages. You don't need to do her job — but if someone seems lost or asks about the site, you can mention her.`;
+
+    return content;
+  } catch (err) {
+    console.error('Warning: Could not read site-registry.json:', err.message);
+    // Fallback to static file if registry not found
+    return readPromptFile('site-knowledge.md');
   }
 }
 
@@ -51,8 +99,8 @@ function assemblePrompt() {
     // Guardrails (all files in guardrails/)
     readPromptDir('guardrails'),
 
-    // Site knowledge
-    readPromptFile('site-knowledge.md'),
+    // Site knowledge (generated from site-registry.json)
+    generateSiteKnowledge(),
   ];
 
   return sections.filter(s => s.trim()).join('\n\n');
