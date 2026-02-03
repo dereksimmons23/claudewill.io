@@ -1,0 +1,64 @@
+{
+  "lastUpdated": "2026-02-03",
+  "owner": "Derek Simmons",
+
+  "pipeline": {
+    "active": [],
+    "prospects": [],
+    "completed": []
+  },
+
+  "openItems": [
+    {
+      "item": "Set up derek@claudewill.io email",
+      "priority": "medium",
+      "notes": "ImprovMX forwarding or similar",
+      "due": null
+    },
+    {
+      "item": "Sign Operating Agreement + initial capital contribution",
+      "priority": "high",
+      "blocking": "bank account",
+      "due": null
+    },
+    {
+      "item": "Confirm KS entities dissolved",
+      "priority": "medium",
+      "action": "Call KS SOS 785-296-4564",
+      "due": null
+    },
+    {
+      "item": "Cerius/NeoGig/Toptal applications",
+      "priority": "medium",
+      "notes": "E&O no longer blocking",
+      "due": null
+    },
+    {
+      "item": "LinkedIn URL slug fix",
+      "priority": "low",
+      "notes": "Available ~March 4",
+      "due": "2026-03-04"
+    }
+  ],
+
+  "llc": {
+    "name": "CW Strategies LLC",
+    "state": "Minnesota",
+    "ein": "41-3991335",
+    "formed": "2026-02-01",
+    "insurances": {
+      "eo": {
+        "provider": "Next Insurance",
+        "cost": "$47/mo",
+        "status": "active"
+      }
+    }
+  },
+
+  "calendar": {
+    "upcoming": [],
+    "recurring": []
+  },
+
+  "notes": "Feb 7 is Derek's 53rd birthday and Founder's Package launch."
+}
