@@ -292,6 +292,11 @@
         <button type="submit" class="login-btn" id="loginBtn">Sign In</button>
         <div class="login-error" id="loginError"></div>
       </form>
+      <div style="margin-top: 16px; text-align: center;">
+        <button id="signUpBtn" style="background: none; border: none; color: var(--dim); font-size: 0.85rem; cursor: pointer; text-decoration: underline;">Create account</button>
+        <span style="color: var(--dim); margin: 0 8px;">|</span>
+        <button id="resetBtn" style="background: none; border: none; color: var(--dim); font-size: 0.85rem; cursor: pointer; text-decoration: underline;">Forgot password</button>
+      </div>
     </div>
   </div>
 
@@ -318,8 +323,8 @@
 
   <script>
     // Initialize Supabase
-    const SUPABASE_URL = 'https://lmvnhpbheniypekpxfve.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxtdm5ocGJoZW5peXBla3B4ZnZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM2MTMwOTksImV4cCI6MjA0OTE4OTA5OX0.gL5mSR87J6VpzgmGVAbqhHo-Y1mNjRjPaBfQvKhKbWE';
+    const SUPABASE_URL = 'https://mftseqddebdecaoovqgw.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1mdHNlcWRkZWJkZWNhb292cWd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUyMjA4NzgsImV4cCI6MjA4MDc5Njg3OH0.tbA4YuXWIiAH0O0HFefK7NSQ3WoF-sOZnRUjDHQA0LQ';
 
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
@@ -462,6 +467,70 @@
     chatInput.addEventListener('input', () => {
       chatInput.style.height = 'auto';
       chatInput.style.height = Math.min(chatInput.scrollHeight, 150) + 'px';
+    });
+
+    // Sign up
+    document.getElementById('signUpBtn').addEventListener('click', async () => {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      if (!email || !password) {
+        loginError.textContent = 'Enter email and password first';
+        loginError.style.display = 'block';
+        return;
+      }
+
+      loginBtn.disabled = true;
+      loginBtn.textContent = 'Creating account...';
+      loginError.style.display = 'none';
+
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password
+      });
+
+      if (error) {
+        loginError.textContent = error.message;
+        loginError.style.display = 'block';
+        loginBtn.disabled = false;
+        loginBtn.textContent = 'Sign In';
+        return;
+      }
+
+      if (data.session) {
+        session = data.session;
+        showEAInterface();
+      } else {
+        loginError.textContent = 'Check your email to confirm your account';
+        loginError.style.display = 'block';
+        loginError.style.color = 'var(--accent)';
+        loginBtn.disabled = false;
+        loginBtn.textContent = 'Sign In';
+      }
+    });
+
+    // Password reset
+    document.getElementById('resetBtn').addEventListener('click', async () => {
+      const email = document.getElementById('email').value;
+
+      if (!email) {
+        loginError.textContent = 'Enter your email first';
+        loginError.style.display = 'block';
+        return;
+      }
+
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: window.location.origin + '/ea'
+      });
+
+      if (error) {
+        loginError.textContent = error.message;
+        loginError.style.display = 'block';
+      } else {
+        loginError.textContent = 'Check your email for reset link';
+        loginError.style.display = 'block';
+        loginError.style.color = 'var(--accent)';
+      }
     });
 
     // Initialize
