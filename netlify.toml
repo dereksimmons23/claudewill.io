@@ -35,7 +35,7 @@
     Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
     Content-Security-Policy = """
       default-src 'self';
-      script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com;
+      script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net;
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
       connect-src 'self' https://*.netlify.app https://*.netlify.com https://*.supabase.co https://api.anthropic.com https://www.google-analytics.com;
       img-src 'self' data:;
