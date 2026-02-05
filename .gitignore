@@ -19,6 +19,7 @@ dist/
 build/
 .cache/
 coverage/
+netlify/functions/cw-prompt/compiled-prompt.js
 
 # Internal documentation and strategy
 docs/
