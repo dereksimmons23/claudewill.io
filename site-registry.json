@@ -43,6 +43,18 @@
       "cw": "Mirae can help you find your way around the site — she's the gold M on most pages, or you can read about her at claudewill.io/mirae."
     },
     {
+      "path": "/derek/resume",
+      "title": "Resume",
+      "description": "Derek's full professional resume. 20 years, 13 roles. Star Tribune, Los Angeles Times.",
+      "cw": "Derek's full resume is at claudewill.io/derek/resume if you need the credentials."
+    },
+    {
+      "path": "/ea",
+      "title": "Mirae EA",
+      "description": "Mirae's private executive assistant mode. Login required. Not indexed.",
+      "cw": null
+    },
+    {
       "path": "/privacy",
       "title": "Privacy Policy",
       "description": "How data is handled on claudewill.io.",
