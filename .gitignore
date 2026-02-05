@@ -50,7 +50,11 @@ netlify/*.txt
 *.code-workspace
 .netlify/
 SESSION_CLOSEOUT.md
+SESSION_ARCHIVE_JAN2026.md
 CLAUDE.md
+DEREK.md
+deno.lock
+screenshots/
 
 # Internal working docs
 ACCESSIBILITY_FIXES.md
