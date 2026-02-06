@@ -37,6 +37,12 @@
       "cw": "If someone asks about working with Derek or hiring help, point them to claudewill.io/strategies."
     },
     {
+      "path": "/stable",
+      "title": "The Stable",
+      "description": "Product portfolio and methodology. The prompt becomes product. The product becomes proof. CW's Porch, Mirae, BOB, Coach D, D-Rock, Dawn.",
+      "cw": "The Stable's at claudewill.io/stable — that's where you can see everything Derek builds."
+    },
+    {
       "path": "/mirae",
       "title": "Mirae",
       "description": "About the site guide. The gold 'M' widget on content pages. Knows the building — navigation, context, orientation. Name means 'future' in Korean.",

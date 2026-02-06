@@ -17,20 +17,9 @@
         items: [
           { name: "CW's Porch", href: '/' },
           { name: 'About CW', href: '#about', action: 'about-modal' },
-          { name: 'The Story', href: '/story' },
-          { name: 'The CW Standard', href: '/the-cw-standard' },
+          { name: 'The Stable', href: '/stable' },
           { name: 'CW Strategies', href: '/strategies' },
-          { name: 'Mirae', href: '/mirae' },
           { name: 'About Derek', href: '/derek' }
-        ]
-      },
-      {
-        label: 'Subdomains',
-        items: [
-          { name: 'Coach D', href: 'https://coach.claudewill.io', live: true },
-          { name: 'Bob', href: 'https://bob.claudewill.io', live: true },
-          { name: 'Dawn', href: 'https://dawn.claudewill.io', live: false },
-          { name: 'D-Rock', href: 'https://d-rock.claudewill.io', live: false }
         ]
       }
     ]

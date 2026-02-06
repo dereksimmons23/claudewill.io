@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-991ML96NJ3');
+  </script>
+  <title>The Stable | CW</title>
+  <meta name="description" content="The Stable: AI-native products built by Derek Simmons. The prompt becomes product. The product becomes proof.">
+  <meta property="og:title" content="The Stable | CW">
+  <meta property="og:description" content="AI-native products built by Derek Simmons. The prompt becomes product. The product becomes proof.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://claudewill.io/stable">
+  <meta property="og:image" content="https://claudewill.io/images/og-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Stable | CW">
+  <meta name="twitter:description" content="AI-native products built by Derek Simmons. The prompt becomes product. The product becomes proof.">
+  <link rel="canonical" href="https://claudewill.io/stable">
+  <link rel="stylesheet" href="/css/shared-nav.css">
+
+  <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #000D1A;
+      --text: #e8e8e8;
+      --dim: #b0b0b0;
+      --accent: #d4a84b;
+      --border: #1a3a5c;
+      --card-bg: #0a1829;
+      --font-body: 'Noto Serif', Georgia, serif;
+      --font-sans: 'Noto Sans', system-ui, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    .porch-light {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.7) 100%);
+      z-index: 9999;
+      box-shadow:
+        0 0 15px rgba(212, 168, 75, 1),
+        0 0 40px rgba(212, 168, 75, 0.8),
+        0 8px 60px rgba(212, 168, 75, 0.5);
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .header {
+      padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .back-link {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--dim);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    h1 {
+      font-family: var(--font-sans);
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .tagline {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: var(--dim);
+      font-style: italic;
+    }
+
+    .beta-badge {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      border: 1px solid var(--accent);
+      border-radius: 3px;
+      padding: 2px 8px;
+      margin-left: 12px;
+      vertical-align: middle;
+      position: relative;
+      top: -4px;
+    }
+
+    section {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-label {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+    }
+
+    p {
+      margin-bottom: 1.5em;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Product cards */
+    .product-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s;
+    }
+
+    a.product-card:hover {
+      border-color: var(--accent);
+    }
+
+    .product-info {
+      flex: 1;
+    }
+
+    .product-name {
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .product-desc {
+      font-size: 0.95rem;
+      color: var(--dim);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .product-status {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+      padding: 4px 10px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .status-live {
+      color: #4ade80;
+      border: 1px solid rgba(74, 222, 128, 0.3);
+    }
+
+    .status-early {
+      color: var(--dim);
+      border: 1px solid var(--border);
+    }
+
+    /* CTA */
+    .cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 48px;
+      padding-top: 48px;
+      border-top: 1px solid var(--border);
+    }
+
+    .cta-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      background: var(--accent);
+      color: var(--bg);
+      text-decoration: none;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .cta-primary:hover {
+      background: #e0b860;
+    }
+
+    .cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .cta-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      color: var(--dim);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 700px) {
+      .porch-light {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .header {
+        padding: 40px 0 32px;
+      }
+
+      section {
+        padding: 40px 0;
+      }
+
+      .product-card {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .beta-badge {
+        margin-left: 8px;
+      }
+    }
+
+    @media print {
+      .porch-light,
+      .back-link,
+      .cta-group {
+        display: none;
+      }
+
+      body {
+        background: white;
+        color: black;
+      }
+
+      .container {
+        max-width: 100%;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="/css/mirae-widget.css">
+</head>
+<body>
+  <div class="porch-light"></div>
+
+  <div class="container">
+    <header class="header">
+      <a href="/" class="back-link">&larr; CW's Porch</a>
+      <h1>The Stable <span class="beta-badge">Beta</span></h1>
+      <p class="tagline">The prompt becomes product. The product becomes proof.</p>
+    </header>
+
+    <!-- The Portfolio -->
+    <section>
+      <div class="section-label">What We Build</div>
+      <p>Every product here was built with the same AI-native methodology: a system prompt, a set of principles, and the discipline to ship. Different problems, same practice.</p>
+
+      <div class="product-list">
+        <a href="/" class="product-card">
+          <div class="product-info">
+            <div class="product-name">CW's Porch</div>
+            <p class="product-desc">Conversational AI agent built on the memory of a Depression-era Oklahoma farmer. Pull up a chair and ask a question.</p>
+          </div>
+          <span class="product-status status-live">Live</span>
+        </a>
+
+        <a href="/mirae" class="product-card">
+          <div class="product-info">
+            <div class="product-name">Mirae</div>
+            <p class="product-desc">AI site guide and executive assistant. She knows the building. Name means "future" in Korean.</p>
+          </div>
+          <span class="product-status status-live">Live</span>
+        </a>
+
+        <a href="https://bob.claudewill.io" class="product-card" target="_blank" rel="noopener">
+          <div class="product-info">
+            <div class="product-name">BOB</div>
+            <p class="product-desc">Battle o' Brackets. A party game that turns any debate into a bracket tournament. No app required.</p>
+          </div>
+          <span class="product-status status-live">Live</span>
+        </a>
+
+        <a href="https://coach.claudewill.io" class="product-card" target="_blank" rel="noopener">
+          <div class="product-info">
+            <div class="product-name">Coach D</div>
+            <p class="product-desc">Basketball training fieldhouse with an AI coach. 156 drills. Personalized skill progression.</p>
+          </div>
+          <span class="product-status status-live">Live</span>
+        </a>
+
+        <div class="product-card">
+          <div class="product-info">
+            <div class="product-name">D-Rock</div>
+            <p class="product-desc">Voice-only AI DJ. Music curation without the surveillance.</p>
+          </div>
+          <span class="product-status status-early">Early</span>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <div class="product-name">Dawn</div>
+            <p class="product-desc">151-day health accountability practice. Built for two people showing up daily.</p>
+          </div>
+          <span class="product-status status-live">Live</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- For Others -->
+    <section>
+      <div class="section-label">What We Build for Others</div>
+      <p>The same methodology that built this portfolio gets applied to client problems. The system prompt becomes the product spec. The skills framework becomes the workflow. The daily practice becomes the delivery cadence.</p>
+      <p>Derek doesn't hand you a strategy deck. He builds the system, transfers ownership, and gets out of the way.</p>
+      <p>If you need operational infrastructure that runs on AI-native principles — not a pilot program, not a proof of concept, but a working system — that's what <a href="/strategies" style="color: var(--accent); text-decoration: none;">CW Strategies</a> delivers.</p>
+
+      <div class="cta-group">
+        <a href="/strategies" class="cta-primary">Work with Derek</a>
+        <a href="/derek" class="cta-secondary">About Derek</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>Minneapolis, MN · &copy; 2026 CW Strategies LLC</p>
+      <p style="margin-top: 8px;"><a href="/">CW's Porch</a> · <a href="/story">The Story</a> · <a href="/the-cw-standard">The CW Standard</a> · <a href="/strategies">CW Strategies</a> · <a href="/derek">Derek</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></p>
+    </footer>
+  </div>
+
+  <script src="/js/mirae-widget.js" defer></script>
+  <script src="/js/shared-nav.js"></script>
+</body>
+</html>
