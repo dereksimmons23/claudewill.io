@@ -40,6 +40,7 @@
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
       connect-src 'self' https://*.netlify.app https://*.netlify.com https://*.supabase.co https://api.anthropic.com https://www.google-analytics.com;
       img-src 'self' data:;
+      media-src 'self' blob:;
       font-src 'self' https://fonts.gstatic.com;
       frame-ancestors 'none';
       base-uri 'self';
