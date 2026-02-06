@@ -945,10 +945,11 @@
     updateActiveNav();
   </script>
   <script>
-    // --- Voice player ---
+    // --- Voice player (chunked for long sections) ---
     (function() {
       let currentAudio = null;
       let currentBtn = null;
+      let cancelled = false;
 
       function extractText(sectionId) {
         const section = document.getElementById(sectionId);
@@ -979,7 +980,28 @@
         return section.textContent.trim();
       }
 
+      // Split text into chunks at paragraph/sentence boundaries
+      function chunkText(text, maxLen) {
+        if (text.length <= maxLen) return [text];
+
+        const chunks = [];
+        const paragraphs = text.split(/\n\n+/);
+        let current = '';
+
+        for (const para of paragraphs) {
+          if ((current + '\n\n' + para).length > maxLen && current) {
+            chunks.push(current.trim());
+            current = para;
+          } else {
+            current = current ? current + '\n\n' + para : para;
+          }
+        }
+        if (current.trim()) chunks.push(current.trim());
+        return chunks;
+      }
+
       function stopCurrent() {
+        cancelled = true;
         if (currentAudio) {
           currentAudio.pause();
           currentAudio.src = '';
@@ -992,60 +1014,75 @@
         }
       }
 
+      async function speakChunk(text) {
+        const res = await fetch('/.netlify/functions/speak', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text, voice: 'derek' })
+        });
+        if (!res.ok) throw new Error('Speak failed');
+        return res.blob();
+      }
+
+      async function playBlob(blob) {
+        return new Promise((resolve, reject) => {
+          const url = URL.createObjectURL(blob);
+          const audio = new Audio(url);
+          currentAudio = audio;
+          audio.onended = () => { URL.revokeObjectURL(url); resolve(); };
+          audio.onerror = () => { URL.revokeObjectURL(url); reject(); };
+          audio.play().catch(reject);
+        });
+      }
+
       async function handleListen(btn) {
         const sectionId = btn.dataset.section;
 
         // Toggle off if same button
-        if (currentBtn === btn && currentAudio && !currentAudio.paused) {
+        if (currentBtn === btn) {
           stopCurrent();
           return;
         }
 
         stopCurrent();
+        cancelled = false;
         currentBtn = btn;
 
         const text = extractText(sectionId);
         if (!text) return;
 
-        // Limit to ~5000 chars per request to manage cost
-        const trimmed = text.length > 5000 ? text.substring(0, 5000) : text;
+        const chunks = chunkText(text, 1500);
 
         btn.classList.add('loading');
         btn.querySelector('.listen-icon').innerHTML = '&#9679;';
 
         try {
-          const res = await fetch('/.netlify/functions/speak', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ text: trimmed, voice: 'derek' })
-          });
+          for (let i = 0; i < chunks.length; i++) {
+            if (cancelled) return;
 
-          if (!res.ok) throw new Error('Speak failed');
+            // Show playing state after first chunk loads
+            const blob = await speakChunk(chunks[i]);
+            if (cancelled) return;
 
-          const blob = await res.blob();
-          const url = URL.createObjectURL(blob);
-          const audio = new Audio(url);
-          currentAudio = audio;
+            btn.classList.remove('loading');
+            btn.classList.add('playing');
+            btn.querySelector('.listen-icon').innerHTML = '&#9724;';
 
-          btn.classList.remove('loading');
-          btn.classList.add('playing');
-          btn.querySelector('.listen-icon').innerHTML = '&#9724;';
+            await playBlob(blob);
+            if (cancelled) return;
 
-          audio.onended = () => {
-            URL.revokeObjectURL(url);
-            stopCurrent();
-          };
-
-          audio.onerror = () => {
-            URL.revokeObjectURL(url);
-            stopCurrent();
-          };
-
-          audio.play();
+            // Brief pause between chunks
+            if (i < chunks.length - 1) {
+              btn.classList.add('loading');
+              btn.querySelector('.listen-icon').innerHTML = '&#9679;';
+            }
+          }
         } catch {
-          btn.classList.remove('loading');
-          btn.querySelector('.listen-icon').innerHTML = '&#9654;';
-          currentBtn = null;
+          // Silently handle errors
+        }
+
+        if (!cancelled && currentBtn === btn) {
+          stopCurrent();
         }
       }
 
