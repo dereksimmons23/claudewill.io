@@ -1,7 +1,85 @@
 # HANDOFF — claudewill.io
 
-**Last session:** February 5, 2026 (session 3 — late night)
+**Last session:** February 6, 2026 (birthday eve session)
 **Next session:** —
+
+---
+
+## February 6, 2026 — Birthday Eve Session
+
+**Work completed:**
+- Ran /standup with /crew — four-lens analysis on launch readiness
+- Posted Day 1 countdown on LinkedIn (sparse + one hook line)
+- Built The Stable (/stable) — product portfolio page with two sections: "What We Build" and "What We Build for Others"
+- Tagline: "The prompt becomes product. The product becomes proof."
+- Simplified global nav from 12 items to 5: Porch, About CW, The Stable, CW Strategies, About Derek
+- Removed Story, CW Standard, Mirae, Subdomains from nav (pages still exist at URLs)
+- Added voice layer to /derek — ElevenLabs TTS with Derek's cloned voice
+- Three listen buttons (Bio, Q&A, Story) — chunked playback for long sections
+- Created netlify/functions/speak.js — multi-voice architecture (Derek now, CW/Mirae stubs)
+- Fixed CSP to allow blob: audio playback
+- Updated site-registry.json with The Stable
+
+**Naming decisions:**
+- "CW Studios" → "The Stable" (CW Studios already exists as another company; Stable fits CW/Oklahoma/farm metaphor, was already in roadmap)
+- CW Strategies LLC stays as-is — one company, two arms: Strategies (consulting) and The Stable (products)
+- Considered CW Salon, CW Shop, CW Sandbox — Stable won
+
+**Prompt changes:**
+- None (site-registry.json updated but prompt not recompiled — CW learns about /stable via registry)
+
+**Deploy status:**
+- The Stable live at claudewill.io/stable
+- Voice layer live on /derek (Bio, Q&A, Story buttons)
+- Global nav updated across all pages
+- CW chatbot healthy (verified at standup: 10,606 input tokens)
+
+**Voice layer issues (captured, not blocking):**
+- [ ] Third person problem: Bio and Story are written in third person ("Derek Simmons grew up...") — sounds odd when read in Derek's voice. Options: (a) first-person audio scripts, (b) CW's voice reads Bio/Story (Phase 2), (c) Derek only reads Q&A for now
+- [ ] Q&A chunk timing — pauses between chunks need smoothing
+- [ ] Voice clone tuning — ElevenLabs stability/similarity/style settings need adjustment
+- [ ] Cost monitoring — watch ElevenLabs usage for first week
+
+**Voice layer roadmap:**
+| Phase | What | Voice | When | Est. Cost |
+|-------|------|-------|------|-----------|
+| 1 | /derek Q&A (live now) | Derek (done) | Done | ~$10/mo |
+| 1b | Fix Bio/Story third-person issue | TBD | Post-birthday | — |
+| 2 | /story, /the-cw-standard | CW (needs casting) | Post-CDN (Feb 13+) | +$10/mo |
+| 3 | Mirae widget speaks | Mirae (needs casting) | Q2 | +$5/mo |
+| 4 | CW voice chat (Porch) | CW | Q2, with cost model | $50-500/mo |
+
+**Open items:**
+- [ ] Paste LinkedIn refresh into CW Strategies company page
+- [ ] Publish Day 0 roast on Substack (Feb 7 — TOMORROW)
+- [ ] Post Day 0 on personal LinkedIn + CW Strategies handoff line (Feb 7)
+- [ ] Post Reddit nugget (Feb 7)
+- [ ] CDN mid-term prep (Feb 13) — Q2 scope, Plan B
+- [ ] Voice layer Phase 1b — resolve third-person issue
+- [ ] Voice clone tuning (ElevenLabs settings)
+- [ ] Q&A chunk timing improvement
+- [ ] derek-profile-illo.png placement
+- [ ] Visual identity pass
+- [ ] Methodology franchise architecture (post-birthday)
+- [ ] Founder's Package architecture
+- [ ] /strategies CTA fix ("Talk to CW" → "Work with Derek")
+- [ ] EA access code pattern (Mirae, post-CDN)
+- [ ] Skills nomenclature cleanup (/eod + /handoff overlap)
+- [ ] TRACKER.md creation
+- [ ] Compile prompt with /stable knowledge (site-registry updated, prompt not recompiled)
+
+**Slam Dunks** (kick off and walk away):
+
+| # | Task | Files | Acceptance Criteria | Confidence |
+|---|------|-------|---------------------|------------|
+| ~~1~~ | ~~Fix visited link color sitewide~~ | ~~css/shared-nav.css + all page styles~~ | ~~DONE — a:visited added to all 11 pages + shared-nav.css~~ | ~~DONE~~ |
+| ~~2~~ | ~~Add 2 stat cards to /strategies~~ | ~~strategies.html~~ | ~~DONE — 6 cards: +5 lanes +6 AI skills~~ | ~~DONE~~ |
+| ~~3~~ | ~~Fix /strategies CTA~~ | ~~strategies.html~~ | ~~DONE — "Work with Derek" → /derek/assessment~~ | ~~DONE~~ |
+
+**Next session priorities:**
+1. Feb 7 launch — publish roast, LinkedIn post, Reddit nugget (use `/publish` skill)
+2. CDN mid-term prep (Feb 13)
+3. Voice layer refinement (third-person fix, timing, tuning)
 
 ---
 

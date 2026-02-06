@@ -111,6 +111,10 @@
   color: #d4a84b;
 }
 
+.cw-nav-link:visited {
+  color: #e0e0e0;
+}
+
 .cw-nav-link.active {
   color: #d4a84b;
 }
