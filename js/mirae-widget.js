@@ -28,19 +28,19 @@
 
   var CHIPS = {
     '/story': ['Who was CW?', 'Talk to CW', 'About Derek'],
-    '/derek': ['The assessment', 'The CW Standard', 'Talk to CW'],
+    '/derek': ['The assessment', 'The Standard', 'Talk to CW'],
     '/the-cw-standard': ['Read the story', 'Talk to CW', 'About Derek'],
-    '/derek/assessment': ['About Derek', 'CW Standard', 'Talk to CW'],
+    '/derek/assessment': ['About Derek', 'The Standard', 'Talk to CW'],
     '/derek/resume': ['About Derek', 'The assessment', 'Talk to CW']
   };
 
   var DEFAULT_WELCOME = 'Need help finding something?';
-  var DEFAULT_CHIPS = ['What is this site?', 'Talk to CW', 'The CW Standard'];
+  var DEFAULT_CHIPS = ['What is this site?', 'Talk to CW', 'The Standard'];
 
   // Scripted responses — checked before API call
   var SCRIPTED = [
     { patterns: [/what is (the )?cw standard/i, /five principles/i, /what('s| are) the principles/i],
-      response: 'The CW Standard is five principles Derek built from his grandfather\'s example: Truth over comfort, Usefulness over purity, Transparency over reputation, People over systems, Agency over ideology. Full breakdown at <a href="/the-cw-standard">/the-cw-standard</a>.' },
+      response: 'The Standard is five principles Derek built from his grandfather\'s example: Truth over comfort, Usefulness over purity, Transparency over reputation, People over systems, Agency over ideology. Full breakdown at <a href="/the-cw-standard">/the-cw-standard</a>.' },
     { patterns: [/who (is|was) cw\b/i, /claude william s/i, /who('s| is) the grandfather/i],
       response: 'Claude William Simmons (1903-1967). Oklahoma farmer, raised 11 kids through the Depression. Derek\'s grandfather and the reason this site exists. Full story at <a href="/story">/story</a>, or talk to him directly on <a href="/">the porch</a>.' },
     { patterns: [/who (is|was) derek/i, /derek simmons/i, /about derek/i, /who built/i],
@@ -65,7 +65,7 @@
     switch (currentPage) {
       case '/story': return 'You\'re reading the story of Claude William Simmons — CW. Four chapters covering his life, the family lineage, the principles he inspired, and why Derek built this site.';
       case '/derek': return 'This is Derek Simmons\' professional page. Bio, Q&A, career history, contact form. Derek is CW\'s grandson and the builder of this site.';
-      case '/the-cw-standard': return 'The CW Standard — five principles for AI that serves people. Truth over comfort. Usefulness over purity. Transparency over reputation. People over systems. Agency over ideology.';
+      case '/the-cw-standard': return 'The Standard — five principles for AI that serves people. Truth over comfort. Usefulness over purity. Transparency over reputation. People over systems. Agency over ideology.';
       case '/derek/assessment': return 'The intake assessment for working with Derek through CW Strategies. Seven questions, ten minutes. It\'s a mutual fit check, not a test.';
       case '/derek/resume': return 'Derek\'s career history — LA Times, Star Tribune, CW Strategies. The professional timeline.';
       default: return 'claudewill.io is an AI conversation tool built on the practical wisdom of Claude William Simmons (1903-1967). CW\'s on <a href="/">the porch</a>.';

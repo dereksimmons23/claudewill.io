@@ -18,6 +18,7 @@
           { name: "CW's Porch", href: '/' },
           { name: 'About CW', href: '#about', action: 'about-modal' },
           { name: 'The Stable', href: '/stable' },
+          { name: 'The Standard', href: '/the-cw-standard' },
           { name: 'CW Strategies', href: '/strategies' },
           { name: 'About Derek', href: '/derek' }
         ]
