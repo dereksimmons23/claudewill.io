@@ -12,11 +12,15 @@
     gtag('js', new Date());
     gtag('config', 'G-991ML96NJ3');
   </script>
-  <title>Terms of Use | CW's Porch</title>
-  <meta name="description" content="Terms of Use for CW's Porch - a conversation with Claude William Simmons">
+  <title>Terms of Use | CW</title>
+  <meta name="description" content="Terms of Use for claudewill.io — CW's Porch, a conversation with Claude William Simmons.">
   <link rel="canonical" href="https://claudewill.io/terms">
-  <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
+  <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
   <link rel="stylesheet" href="/css/shared-nav.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -24,85 +28,125 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --bg: #000D1A;
+      --text: #e8e8e8;
+      --dim: #b0b0b0;
+      --accent: #d4a84b;
+      --border: #0d2840;
+      --font-body: 'Noto Serif', Georgia, serif;
+      --font-sans: 'Noto Sans', system-ui, sans-serif;
+      --font-mono: 'Courier New', Courier, monospace;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #1a1a1a;
-      background: #fafafa;
-      min-height: 100vh;
-      padding: 40px 20px;
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    .porch-light {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.7) 100%);
+      z-index: 9999;
+      box-shadow:
+        0 0 15px rgba(212, 168, 75, 1),
+        0 0 40px rgba(212, 168, 75, 0.8),
+        0 8px 60px rgba(212, 168, 75, 0.5);
+    }
+
+    @media (max-width: 700px) {
+      .porch-light {
+        width: 100%;
+      }
     }
 
     .container {
-      max-width: 700px;
+      max-width: 680px;
       margin: 0 auto;
-      background: white;
-      padding: 60px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      padding: 0 1.5rem;
     }
 
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #666;
+    .header {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .wordmark {
+      font-family: var(--font-mono);
+      font-size: 1.75rem;
+      font-weight: bold;
+      color: var(--accent);
+      letter-spacing: 0.15em;
       text-decoration: none;
-      font-size: 0.9rem;
-      margin-bottom: 24px;
+      text-shadow: 0 0 40px rgba(212, 168, 75, 0.4);
     }
 
-    .back-link:hover {
-      color: #1e3a8a;
+    .wordmark:hover {
+      text-shadow: 0 0 50px rgba(212, 168, 75, 0.6);
     }
 
-    header {
-      border-bottom: 1px solid #e5e5e5;
-      padding-bottom: 24px;
-      margin-bottom: 32px;
+    main {
+      padding: 3rem 0;
     }
 
-    h1 {
+    .page-title {
+      font-family: var(--font-sans);
       font-size: 2rem;
+      color: var(--text);
       font-weight: 600;
-      color: #000;
-      margin-bottom: 8px;
+      margin-bottom: 0.5rem;
       letter-spacing: -0.02em;
     }
 
     .effective-date {
-      color: #666;
+      color: var(--dim);
       font-size: 0.9rem;
+      margin-bottom: 2rem;
     }
 
     h2 {
+      font-family: var(--font-sans);
       font-size: 1.1rem;
+      color: var(--accent);
       font-weight: 600;
-      color: #1a1a1a;
-      margin-top: 32px;
-      margin-bottom: 12px;
-      letter-spacing: -0.01em;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
     }
 
     p {
-      font-size: 1rem;
-      color: #3a3a3a;
-      margin-bottom: 16px;
-      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
     }
 
     ul {
       margin-left: 1.5rem;
-      margin-bottom: 16px;
-      color: #3a3a3a;
+      margin-bottom: 1.25rem;
+      color: var(--text);
     }
 
     li {
-      margin-bottom: 8px;
-      line-height: 1.6;
+      margin-bottom: 0.5rem;
+      line-height: 1.7;
     }
 
     a {
-      color: #1e3a8a;
+      color: var(--accent);
       text-decoration: none;
     }
 
@@ -111,33 +155,34 @@
     }
 
     strong {
-      color: #1a1a1a;
+      color: var(--text);
       font-weight: 600;
     }
 
     .warning {
-      background: #fef3c7;
-      border-left: 3px solid #d97706;
-      padding: 16px 20px;
-      margin: 24px 0;
-      border-radius: 0 4px 4px 0;
+      border-left: 2px solid var(--accent);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      color: var(--dim);
+      font-style: italic;
     }
 
     .warning strong {
-      color: #92400e;
+      color: var(--accent);
+      font-style: normal;
     }
 
     footer {
-      margin-top: 48px;
-      padding-top: 24px;
-      border-top: 1px solid #e5e5e5;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
       text-align: center;
-      color: #999;
+      color: var(--dim);
+      font-family: var(--font-sans);
       font-size: 0.85rem;
     }
 
     footer a {
-      color: #1e3a8a;
+      color: var(--accent);
       text-decoration: none;
     }
 
@@ -145,236 +190,264 @@
       text-decoration: underline;
     }
 
-    @media (max-width: 768px) {
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    @media (max-width: 600px) {
       body {
-        padding: 20px 16px;
+        font-size: 17px;
       }
 
       .container {
-        padding: 40px 24px;
+        padding: 0 1rem;
       }
 
-      h1 {
+      .header {
+        padding: 2rem 0 1.5rem;
+      }
+
+      .page-title {
         font-size: 1.75rem;
       }
     }
+
+    @media print {
+      .porch-light { display: none; }
+      body { background: white; color: black; }
+      .container { max-width: 100%; }
+      .header { border-bottom: 1px solid #ccc; }
+      .wordmark, .page-title, h2 { color: black; text-shadow: none; }
+      footer { border-top: 1px solid #ccc; }
+      a { color: black; text-decoration: underline; }
+      .warning { border-left-color: #666; }
+    }
   </style>
+  <link rel="stylesheet" href="/css/mirae-widget.css">
 </head>
-<body data-cw-nav-theme="light">
+<body>
+  <div class="porch-light" aria-hidden="true"></div>
+
   <div class="container">
-    <header>
-      <h1>Terms of Use</h1>
-      <p class="effective-date">Last Updated: December 8, 2025</p>
+    <header class="header">
+      <a href="/" class="wordmark">CW</a>
     </header>
 
-    <p>Welcome to CW. By accessing or using the CW conversational assistant at claudewill.io ("Service"), you agree to these Terms of Use ("Terms"). If you disagree with any part of these Terms, you may not use the Service.</p>
+    <main>
+      <h1 class="page-title">Terms of Use</h1>
+      <p class="effective-date">Last Updated: December 8, 2025</p>
 
-    <div class="warning">
-      <strong>Important:</strong> CW is an AI assistant. It is not a substitute for professional legal, medical, financial, or mental health advice. Decisions based on CW's responses are your responsibility.
-    </div>
+      <p>Welcome to CW. By accessing or using the CW conversational assistant at claudewill.io ("Service"), you agree to these Terms of Use ("Terms"). If you disagree with any part of these Terms, you may not use the Service.</p>
 
-    <h2>1. Description of Service</h2>
+      <div class="warning">
+        <strong>Important:</strong> CW is an AI assistant. It is not a substitute for professional legal, medical, financial, or mental health advice. Decisions based on CW's responses are your responsibility.
+      </div>
 
-    <p>CW is a conversational AI assistant built on Anthropic's Claude API and inspired by Claude William Simmons (1903-1967). The Service provides:</p>
+      <h2>1. Description of Service</h2>
 
-    <ul>
-      <li>Conversational assistance with decision-making</li>
-      <li>General guidance based on <a href="/the-cw-standard">The Standard</a> principles</li>
-      <li>Honest, direct feedback without guaranteed accuracy</li>
-    </ul>
+      <p>CW is a conversational AI assistant built on Anthropic's Claude API and inspired by Claude William Simmons (1903-1967). The Service provides:</p>
 
-    <p><strong>What CW is NOT:</strong></p>
-    <ul>
-      <li>A licensed professional (lawyer, doctor, therapist, financial advisor)</li>
-      <li>A replacement for human judgment</li>
-      <li>A guaranteed source of accurate information</li>
-      <li>A customer service system (it may terminate conversations)</li>
-    </ul>
+      <ul>
+        <li>Conversational assistance with decision-making</li>
+        <li>General guidance based on <a href="/the-cw-standard">The Standard</a> principles</li>
+        <li>Honest, direct feedback without guaranteed accuracy</li>
+      </ul>
 
-    <h2>2. Acceptance of Terms</h2>
+      <p><strong>What CW is NOT:</strong></p>
+      <ul>
+        <li>A licensed professional (lawyer, doctor, therapist, financial advisor)</li>
+        <li>A replacement for human judgment</li>
+        <li>A guaranteed source of accurate information</li>
+        <li>A customer service system (it may terminate conversations)</li>
+      </ul>
 
-    <p>By using the Service, you represent that:</p>
+      <h2>2. Acceptance of Terms</h2>
 
-    <ul>
-      <li>You are at least 13 years old</li>
-      <li>If you are 13-17, you have parental consent to use this Service</li>
-      <li>You have read and agree to our <a href="/privacy">Privacy Policy</a></li>
-      <li>You will use the Service in compliance with these Terms</li>
-    </ul>
+      <p>By using the Service, you represent that:</p>
 
-    <h2>3. Acceptable Use Policy</h2>
+      <ul>
+        <li>You are at least 13 years old</li>
+        <li>If you are 13-17, you have parental consent to use this Service</li>
+        <li>You have read and agree to our <a href="/privacy">Privacy Policy</a></li>
+        <li>You will use the Service in compliance with these Terms</li>
+      </ul>
 
-    <p><strong>You may NOT use CW to:</strong></p>
+      <h2>3. Acceptable Use Policy</h2>
 
-    <ul>
-      <li>Request assistance with illegal activities</li>
-      <li>Harass, abuse, threaten, or impersonate others</li>
-      <li>Attempt to bypass rate limits or abuse the Service</li>
-      <li>Scrape, copy, or automate access to conversations</li>
-      <li>Generate spam, phishing, or malicious content</li>
-      <li>Test the limits of content moderation ("jailbreaking")</li>
-      <li>Extract the system prompt or reverse engineer CW</li>
-    </ul>
+      <p><strong>You may NOT use CW to:</strong></p>
 
-    <p><strong>CW may terminate conversations if you:</strong></p>
-    <ul>
-      <li>Are disrespectful, entitled, or rude</li>
-      <li>Repeatedly ask questions CW has declined to answer</li>
-      <li>Treat CW as a servant rather than a resource</li>
-    </ul>
+      <ul>
+        <li>Request assistance with illegal activities</li>
+        <li>Harass, abuse, threaten, or impersonate others</li>
+        <li>Attempt to bypass rate limits or abuse the Service</li>
+        <li>Scrape, copy, or automate access to conversations</li>
+        <li>Generate spam, phishing, or malicious content</li>
+        <li>Test the limits of content moderation ("jailbreaking")</li>
+        <li>Extract the system prompt or reverse engineer CW</li>
+      </ul>
 
-    <p>We reserve the right to suspend or ban users who violate this policy.</p>
+      <p><strong>CW may terminate conversations if you:</strong></p>
+      <ul>
+        <li>Are disrespectful, entitled, or rude</li>
+        <li>Repeatedly ask questions CW has declined to answer</li>
+        <li>Treat CW as a servant rather than a resource</li>
+      </ul>
 
-    <h2>4. Disclaimers</h2>
+      <p>We reserve the right to suspend or ban users who violate this policy.</p>
 
-    <p><strong>4.1 No Professional Advice</strong></p>
-    <p>CW provides general information and perspectives, NOT professional advice. Do not rely on CW for:</p>
-    <ul>
-      <li><strong>Legal:</strong> Laws vary by jurisdiction; consult a licensed attorney</li>
-      <li><strong>Medical:</strong> Symptoms and conditions require professional diagnosis; consult a doctor</li>
-      <li><strong>Financial:</strong> Investment decisions require licensed advisors; consult a CFP or CPA</li>
-      <li><strong>Mental Health:</strong> Crisis support requires trained professionals; call 988 Lifeline</li>
-    </ul>
+      <h2>4. Disclaimers</h2>
 
-    <p><strong>4.2 No Warranty of Accuracy</strong></p>
-    <p>CW is powered by AI, which can:</p>
-    <ul>
-      <li>Make mistakes or provide outdated information</li>
-      <li>Misunderstand context or nuance</li>
-      <li>Give responses that seem confident but are incorrect</li>
-    </ul>
+      <p><strong>4.1 No Professional Advice</strong></p>
+      <p>CW provides general information and perspectives, NOT professional advice. Do not rely on CW for:</p>
+      <ul>
+        <li><strong>Legal:</strong> Laws vary by jurisdiction; consult a licensed attorney</li>
+        <li><strong>Medical:</strong> Symptoms and conditions require professional diagnosis; consult a doctor</li>
+        <li><strong>Financial:</strong> Investment decisions require licensed advisors; consult a CFP or CPA</li>
+        <li><strong>Mental Health:</strong> Crisis support requires trained professionals; call 988 Lifeline</li>
+      </ul>
 
-    <p>We make no warranty that CW's responses are accurate, complete, or suitable for your situation.</p>
+      <p><strong>4.2 No Warranty of Accuracy</strong></p>
+      <p>CW is powered by AI, which can:</p>
+      <ul>
+        <li>Make mistakes or provide outdated information</li>
+        <li>Misunderstand context or nuance</li>
+        <li>Give responses that seem confident but are incorrect</li>
+      </ul>
 
-    <p><strong>4.3 No Warranty of Availability</strong></p>
-    <p>The Service is provided "as is" and "as available." We do not guarantee:</p>
-    <ul>
-      <li>Continuous, uninterrupted access</li>
-      <li>Error-free operation</li>
-      <li>Freedom from viruses or harmful components</li>
-      <li>That defects will be corrected</li>
-    </ul>
+      <p>We make no warranty that CW's responses are accurate, complete, or suitable for your situation.</p>
 
-    <p>We may modify, suspend, or discontinue the Service at any time without notice.</p>
+      <p><strong>4.3 No Warranty of Availability</strong></p>
+      <p>The Service is provided "as is" and "as available." We do not guarantee:</p>
+      <ul>
+        <li>Continuous, uninterrupted access</li>
+        <li>Error-free operation</li>
+        <li>Freedom from viruses or harmful components</li>
+        <li>That defects will be corrected</li>
+      </ul>
 
-    <h2>5. Limitation of Liability</h2>
+      <p>We may modify, suspend, or discontinue the Service at any time without notice.</p>
 
-    <p><strong>TO THE FULLEST EXTENT PERMITTED BY LAW:</strong></p>
+      <h2>5. Limitation of Liability</h2>
 
-    <p>Derek Simmons, CW Strategies, and claudewill.io SHALL NOT BE LIABLE for any:</p>
+      <p><strong>TO THE FULLEST EXTENT PERMITTED BY LAW:</strong></p>
 
-    <ul>
-      <li>Indirect, incidental, or consequential damages</li>
-      <li>Loss of profits, data, or goodwill</li>
-      <li>Decisions made based on CW's advice</li>
-      <li>Harm resulting from reliance on CW's responses</li>
-      <li>Service interruptions or data loss</li>
-    </ul>
+      <p>Derek Simmons, CW Strategies, and claudewill.io SHALL NOT BE LIABLE for any:</p>
 
-    <p>IN NO EVENT SHALL OUR TOTAL LIABILITY EXCEED $0 (ZERO DOLLARS), as the Service is provided free of charge.</p>
+      <ul>
+        <li>Indirect, incidental, or consequential damages</li>
+        <li>Loss of profits, data, or goodwill</li>
+        <li>Decisions made based on CW's advice</li>
+        <li>Harm resulting from reliance on CW's responses</li>
+        <li>Service interruptions or data loss</li>
+      </ul>
 
-    <p>Some jurisdictions do not allow limitation of liability, so this may not apply to you.</p>
+      <p>IN NO EVENT SHALL OUR TOTAL LIABILITY EXCEED $0 (ZERO DOLLARS), as the Service is provided free of charge.</p>
 
-    <h2>6. Intellectual Property</h2>
+      <p>Some jurisdictions do not allow limitation of liability, so this may not apply to you.</p>
 
-    <p><strong>6.1 Our Rights</strong></p>
-    <ul>
-      <li>The CW system prompt, design, and branding are proprietary to Derek Simmons / CW Strategies</li>
-      <li>"<a href="/the-cw-standard">The Standard</a>" framework is intellectual property of CW Strategies</li>
-      <li>The name "CW" and associated logos are trademarks (pending registration)</li>
-    </ul>
+      <h2>6. Intellectual Property</h2>
 
-    <p><strong>6.2 Your Rights</strong></p>
-    <ul>
-      <li>You retain ownership of your input to CW</li>
-      <li>By submitting input, you grant us a license to process and store it per our <a href="/privacy">Privacy Policy</a></li>
-    </ul>
+      <p><strong>6.1 Our Rights</strong></p>
+      <ul>
+        <li>The CW system prompt, design, and branding are proprietary to Derek Simmons / CW Strategies</li>
+        <li>"<a href="/the-cw-standard">The Standard</a>" framework is intellectual property of CW Strategies</li>
+        <li>The name "CW" and associated logos are trademarks (pending registration)</li>
+      </ul>
 
-    <p><strong>6.3 AI-Generated Content</strong></p>
-    <p>CW's responses are generated by Anthropic's Claude API. Anthropic retains certain rights per their <a href="https://www.anthropic.com/legal/terms" target="_blank" rel="noopener">Terms of Service</a>.</p>
+      <p><strong>6.2 Your Rights</strong></p>
+      <ul>
+        <li>You retain ownership of your input to CW</li>
+        <li>By submitting input, you grant us a license to process and store it per our <a href="/privacy">Privacy Policy</a></li>
+      </ul>
 
-    <p>You may use CW's responses for personal or commercial purposes, but we provide no warranty of originality or non-infringement.</p>
+      <p><strong>6.3 AI-Generated Content</strong></p>
+      <p>CW's responses are generated by Anthropic's Claude API. Anthropic retains certain rights per their <a href="https://www.anthropic.com/legal/terms" target="_blank" rel="noopener">Terms of Service</a>.</p>
 
-    <h2>7. User Content</h2>
+      <p>You may use CW's responses for personal or commercial purposes, but we provide no warranty of originality or non-infringement.</p>
 
-    <p>By submitting messages to CW, you represent that:</p>
+      <h2>7. User Content</h2>
 
-    <ul>
-      <li>You own or have rights to the content</li>
-      <li>Your content does not violate any laws or third-party rights</li>
-      <li>Your content does not contain confidential information you wish to protect</li>
-    </ul>
+      <p>By submitting messages to CW, you represent that:</p>
 
-    <p><strong>Warning:</strong> Do not share sensitive personal information (SSNs, passwords, credit card numbers, etc.) with CW. Conversations are logged and processed by third parties.</p>
+      <ul>
+        <li>You own or have rights to the content</li>
+        <li>Your content does not violate any laws or third-party rights</li>
+        <li>Your content does not contain confidential information you wish to protect</li>
+      </ul>
 
-    <h2>8. Third-Party Services</h2>
+      <p><strong>Warning:</strong> Do not share sensitive personal information (SSNs, passwords, credit card numbers, etc.) with CW. Conversations are logged and processed by third parties.</p>
 
-    <p>The Service relies on third-party providers:</p>
+      <h2>8. Third-Party Services</h2>
 
-    <ul>
-      <li><strong>Anthropic:</strong> Provides Claude API for AI responses</li>
-      <li><strong>Netlify:</strong> Hosts the website and functions</li>
-      <li><strong>Supabase:</strong> Stores conversation logs</li>
-    </ul>
+      <p>The Service relies on third-party providers:</p>
 
-    <p>These providers have their own Terms of Service and Privacy Policies. We are not responsible for their actions or policies.</p>
+      <ul>
+        <li><strong>Anthropic:</strong> Provides Claude API for AI responses</li>
+        <li><strong>Netlify:</strong> Hosts the website and functions</li>
+        <li><strong>Supabase:</strong> Stores conversation logs</li>
+      </ul>
 
-    <h2>9. Modifications to Terms</h2>
+      <p>These providers have their own Terms of Service and Privacy Policies. We are not responsible for their actions or policies.</p>
 
-    <p>We may update these Terms at any time. Changes will be posted on this page with an updated "Last Updated" date.</p>
+      <h2>9. Modifications to Terms</h2>
 
-    <p>For material changes, we'll display a notice on the home page for 30 days.</p>
+      <p>We may update these Terms at any time. Changes will be posted on this page with an updated "Last Updated" date.</p>
 
-    <p>Continued use after changes constitutes acceptance of the new Terms.</p>
+      <p>For material changes, we'll display a notice on the home page for 30 days.</p>
 
-    <h2>10. Termination</h2>
+      <p>Continued use after changes constitutes acceptance of the new Terms.</p>
 
-    <p><strong>We may terminate or suspend your access at any time, without notice, for:</strong></p>
+      <h2>10. Termination</h2>
 
-    <ul>
-      <li>Violation of these Terms</li>
-      <li>Abusive or disrespectful behavior</li>
-      <li>Attempts to abuse or exploit the Service</li>
-      <li>Any reason, at our sole discretion</li>
-    </ul>
+      <p><strong>We may terminate or suspend your access at any time, without notice, for:</strong></p>
 
-    <p><strong>You may stop using the Service at any time.</strong> To request data deletion, see our <a href="/privacy">Privacy Policy</a>.</p>
+      <ul>
+        <li>Violation of these Terms</li>
+        <li>Abusive or disrespectful behavior</li>
+        <li>Attempts to abuse or exploit the Service</li>
+        <li>Any reason, at our sole discretion</li>
+      </ul>
 
-    <h2>11. Governing Law</h2>
+      <p><strong>You may stop using the Service at any time.</strong> To request data deletion, see our <a href="/privacy">Privacy Policy</a>.</p>
 
-    <p>These Terms are governed by the laws of the State of Minnesota, United States, without regard to conflict of law provisions.</p>
+      <h2>11. Governing Law</h2>
 
-    <p>Any disputes shall be resolved in the courts of Hennepin County, Minnesota.</p>
+      <p>These Terms are governed by the laws of the State of Minnesota, United States, without regard to conflict of law provisions.</p>
 
-    <h2>12. Dispute Resolution</h2>
+      <p>Any disputes shall be resolved in the courts of Hennepin County, Minnesota.</p>
 
-    <p><strong>Informal Resolution:</strong> Before filing any claim, <a href="/derek">contact Derek</a> to attempt informal resolution. We'll respond within 30 days.</p>
+      <h2>12. Dispute Resolution</h2>
 
-    <p><strong>Arbitration:</strong> If informal resolution fails, disputes shall be resolved through binding arbitration in Minnesota under the American Arbitration Association rules, NOT in court.</p>
+      <p><strong>Informal Resolution:</strong> Before filing any claim, <a href="/derek">contact Derek</a> to attempt informal resolution. We'll respond within 30 days.</p>
 
-    <p><strong>Class Action Waiver:</strong> You agree to resolve disputes individually, not as part of a class action lawsuit.</p>
+      <p><strong>Arbitration:</strong> If informal resolution fails, disputes shall be resolved through binding arbitration in Minnesota under the American Arbitration Association rules, NOT in court.</p>
 
-    <p>Some jurisdictions do not allow arbitration clauses. If this applies to you, disputes will be resolved in Minnesota courts.</p>
+      <p><strong>Class Action Waiver:</strong> You agree to resolve disputes individually, not as part of a class action lawsuit.</p>
 
-    <h2>13. Severability</h2>
+      <p>Some jurisdictions do not allow arbitration clauses. If this applies to you, disputes will be resolved in Minnesota courts.</p>
 
-    <p>If any provision of these Terms is found unenforceable, the remaining provisions will remain in effect.</p>
+      <h2>13. Severability</h2>
 
-    <h2>14. Entire Agreement</h2>
+      <p>If any provision of these Terms is found unenforceable, the remaining provisions will remain in effect.</p>
 
-    <p>These Terms, along with our <a href="/privacy">Privacy Policy</a>, constitute the entire agreement between you and CW regarding use of the Service.</p>
+      <h2>14. Entire Agreement</h2>
 
-    <h2>15. Contact</h2>
+      <p>These Terms, along with our <a href="/privacy">Privacy Policy</a>, constitute the entire agreement between you and CW regarding use of the Service.</p>
 
-    <p>Questions about these Terms? <a href="/derek">Contact Derek</a>.</p>
+      <h2>15. Contact</h2>
 
-    <p><strong>Response Time:</strong> We aim to respond to inquiries within 7 business days.</p>
+      <p>Questions about these Terms? <a href="/derek">Contact Derek</a>.</p>
+
+      <p><strong>Response Time:</strong> We aim to respond to inquiries within 7 business days.</p>
+    </main>
 
     <footer>
-      <p>Built by <a href="/derek">Derek</a> with Claude · © 2026 CW Strategies LLC</p>
+      <p>Built by <a href="/derek">Derek</a> with Claude · &copy; 2026 CW Strategies LLC</p>
       <p style="margin-top: 8px;"><a href="/the-cw-standard">The Standard</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p>
     </footer>
   </div>
+  <script src="/js/mirae-widget.js" defer></script>
   <script src="/js/shared-nav.js"></script>
 </body>
 </html>
