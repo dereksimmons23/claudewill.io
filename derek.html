@@ -570,6 +570,63 @@
     }
   </style>
   <link rel="stylesheet" href="/css/mirae-widget.css">
+
+  <style>
+    /* Voice player */
+    .listen-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--dim);
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.02em;
+    }
+
+    .listen-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .listen-btn.playing {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .listen-btn.loading {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .listen-btn .listen-icon {
+      font-size: 0.9rem;
+      line-height: 1;
+    }
+
+    .listen-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+      margin-bottom: 24px;
+    }
+
+    .listen-bar .listen-label {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+  </style>
 </head>
 <body>
   <div class="porch-light"></div>
@@ -588,6 +645,12 @@
     <header class="header" id="bio">
       <h1>Derek Simmons</h1>
       <p class="tagline">Designs the process. Trusts the players.</p>
+      <div class="listen-bar">
+        <span class="listen-label">Listen</span>
+        <button class="listen-btn" data-section="bio" aria-label="Listen to bio"><span class="listen-icon">&#9654;</span> Bio</button>
+        <button class="listen-btn" data-section="conversation" aria-label="Listen to Q&A"><span class="listen-icon">&#9654;</span> Q&A</button>
+        <button class="listen-btn" data-section="story" aria-label="Listen to story"><span class="listen-icon">&#9654;</span> Story</button>
+      </div>
       <p class="bio-lead">
         Derek Simmons grew up in a tiny trailer in a one-stoplight town in Kansas and became a media company's first and only chief creative officer and vice president. He spent three decades in media, made two newspapers the best in the world, and generated $20M+ in revenue along the way. Now he runs <a href="/strategies">CW Strategies</a> and coaches people and teams figuring out human-AI collaboration.
       </p>
@@ -880,6 +943,116 @@
 
     window.addEventListener('scroll', updateActiveNav);
     updateActiveNav();
+  </script>
+  <script>
+    // --- Voice player ---
+    (function() {
+      let currentAudio = null;
+      let currentBtn = null;
+
+      function extractText(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (!section) return '';
+
+        if (sectionId === 'bio') {
+          const lead = section.querySelector('.bio-lead');
+          return lead ? lead.textContent.trim() : '';
+        }
+
+        if (sectionId === 'conversation') {
+          const items = section.querySelectorAll('.qa-item');
+          const parts = [];
+          items.forEach(item => {
+            const q = item.querySelector('.question');
+            const a = item.querySelector('.answer');
+            if (q) parts.push(q.textContent.trim());
+            if (a) parts.push(a.textContent.trim());
+          });
+          return parts.join('\n\n');
+        }
+
+        if (sectionId === 'story') {
+          const els = section.querySelectorAll('h2, p');
+          return Array.from(els).map(el => el.textContent.trim()).join('\n\n');
+        }
+
+        return section.textContent.trim();
+      }
+
+      function stopCurrent() {
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio.src = '';
+          currentAudio = null;
+        }
+        if (currentBtn) {
+          currentBtn.classList.remove('playing', 'loading');
+          currentBtn.querySelector('.listen-icon').innerHTML = '&#9654;';
+          currentBtn = null;
+        }
+      }
+
+      async function handleListen(btn) {
+        const sectionId = btn.dataset.section;
+
+        // Toggle off if same button
+        if (currentBtn === btn && currentAudio && !currentAudio.paused) {
+          stopCurrent();
+          return;
+        }
+
+        stopCurrent();
+        currentBtn = btn;
+
+        const text = extractText(sectionId);
+        if (!text) return;
+
+        // Limit to ~5000 chars per request to manage cost
+        const trimmed = text.length > 5000 ? text.substring(0, 5000) : text;
+
+        btn.classList.add('loading');
+        btn.querySelector('.listen-icon').innerHTML = '&#9679;';
+
+        try {
+          const res = await fetch('/.netlify/functions/speak', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text: trimmed, voice: 'derek' })
+          });
+
+          if (!res.ok) throw new Error('Speak failed');
+
+          const blob = await res.blob();
+          const url = URL.createObjectURL(blob);
+          const audio = new Audio(url);
+          currentAudio = audio;
+
+          btn.classList.remove('loading');
+          btn.classList.add('playing');
+          btn.querySelector('.listen-icon').innerHTML = '&#9724;';
+
+          audio.onended = () => {
+            URL.revokeObjectURL(url);
+            stopCurrent();
+          };
+
+          audio.onerror = () => {
+            URL.revokeObjectURL(url);
+            stopCurrent();
+          };
+
+          audio.play();
+        } catch {
+          btn.classList.remove('loading');
+          btn.querySelector('.listen-icon').innerHTML = '&#9654;';
+          currentBtn = null;
+        }
+      }
+
+      document.querySelectorAll('.listen-btn').forEach(btn => {
+        btn.addEventListener('click', () => handleListen(btn));
+      });
+    })();
   </script>
   <script src="/js/mirae-widget.js" defer></script>
   <script src="/js/shared-nav.js"></script>
