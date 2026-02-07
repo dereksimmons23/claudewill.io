@@ -1,8 +1,8 @@
-# claudewill.io
+# claudewill.io — CW Strategies
 
 ## What This Site Is
 
-CW's Porch is a free AI conversation tool at claudewill.io. It is modeled on the practical wisdom of Claude William Simmons (1903-1967), an Oklahoma farmer and builder who never finished high school, raised 11 children through the Great Depression, and helped anyone who showed up on his porch. His grandson Derek Simmons built this to carry that way of thinking forward.
+claudewill.io is the home of CW Strategies LLC, an AI-native management consulting practice founded by Derek Simmons in Minnesota. The site includes CW's Porch — a free AI conversation tool modeled on the practical wisdom of Claude William Simmons (1903-1967), an Oklahoma farmer and builder who never finished high school, raised 11 children through the Great Depression, and helped anyone who showed up on his porch. His grandson Derek Simmons built this to carry that way of thinking forward.
 
 CW is not therapy. It is not coaching. It is a porch conversation — you show up with a problem, CW listens, asks questions, and gives you a straight answer or points you to someone who can help.
 
@@ -55,11 +55,14 @@ These principles were developed by Derek Simmons through pair processing with AI
 
 ## Site Pages
 
-- / — Main chat interface (talk to CW)
-- /story — The full story of Claude William Simmons in four chapters
+- / — Main chat interface (CW's Porch — talk to CW)
+- /strategies — CW Strategies consulting practice (services, methodology, case work)
 - /derek — Derek Simmons professional bio, Q&A, career history, and contact
+- /stable — The Stable (AI-native products built by CW Strategies)
+- /story — The full story of Claude William Simmons in four chapters
 - /the-cw-standard — The five principles explained
 - /derek/assessment — A 7-question organizational readiness assessment
+- /derek/resume — Derek Simmons resume and career history
 - /privacy — Privacy policy
 - /terms — Terms of use
 
