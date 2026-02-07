@@ -1,11 +1,85 @@
 # HANDOFF — claudewill.io
 
-**Last session:** February 6, 2026 (birthday eve session)
-**Next session:** —
+**Last session:** February 6, 2026 (birthday eve — late session)
+**Next session:** February 7, 2026 (BIRTHDAY — launch day)
 
 ---
 
-## February 6, 2026 — Birthday Eve Session
+## February 6, 2026 — Birthday Eve (Late Session)
+
+**Work completed:**
+- Restyled terms.html to match site dark theme (privacy.html done earlier)
+- Ran /crew — full four-lens business assessment ("the site is beautiful and useless")
+- Analyzed Hashimoto's AI adoption journey — mapped to Derek's workflow
+- Ran /crew again on agent delegation strategy
+- Built Slam Dunk system (Hashimoto Step 4):
+  - Created `/publish` skill — draft-to-platform pipeline (Substack, LinkedIn, Reddit, HN)
+  - Created `/brief` skill — morning analytics brief (Supabase + content calendar + CW health)
+  - Updated `/eod` to prompt for slam dunks at session close
+  - Updated `/standup` to surface slam dunks at session open ("say dunk 1 to execute")
+- Executed 3 proof-of-concept slam dunks:
+  - Fixed visited link color sitewide (all 11 pages + shared-nav.css)
+  - Added 2 stat cards to /strategies (5 lanes + 6 AI skills → 6 cards total)
+  - Fixed /strategies CTA ("Talk to CW" → "Work with Derek" → /derek/assessment)
+- 12 commits, all pushed
+
+**Key insight from /crew:**
+- Distribution is the gap, not the website. Traffic: 8 sessions/week, mostly Derek testing.
+- Challenge lens: "the site is beautiful and useless" — publish content, find client #2
+- All four lenses agreed: Feb 7 content is the priority, then Feb 13 CDN mid-term
+
+**Hashimoto mapping:**
+- Derek's CLAUDE.md/HANDOFF.md/Skills system = Hashimoto's "harness" (Step 5)
+- Slam dunk queue = Step 4 (outsource confident tasks)
+- Derek's role: writing and strategy, not code or selling
+- Overnight workers deferred to Q2
+
+**New skills created:**
+- `/publish` — format drafts for platform distribution (docs/publish/ output)
+- `/brief` — morning analytics + content calendar + CW health
+
+**Deploy status:**
+- All site changes live (terms restyle, visited links, stat cards, CTA fix)
+- Working tree clean, all pushed
+- CW chatbot responding (last conversations Feb 5)
+
+**Open items:**
+- [ ] Paste LinkedIn refresh into CW Strategies company page
+- [x] ~~Fix /strategies CTA~~ (DONE — "Work with Derek" → /derek/assessment)
+- [ ] Publish Day 0 roast on Substack (Feb 7 — TOMORROW)
+- [x] ~~Posted reintroduction on both LinkedIn channels~~ (DONE — personal + CW Strategies company page, sets up Feb 7 drops)
+- [ ] Post Day 0 LinkedIn nugget (Feb 7 — the roast teaser, separate from reintro)
+- [ ] Post Reddit nugget (Feb 7)
+- [ ] CDN mid-term prep (Feb 13) — Q2 scope, Plan B
+- [ ] Voice layer Phase 1b — resolve third-person issue
+- [ ] Voice clone tuning (ElevenLabs settings)
+- [ ] Q&A chunk timing improvement
+- [ ] derek-profile-illo.png placement
+- [ ] Visual identity pass
+- [ ] OG images — links need to look credible when shared
+- [ ] Case study — CDN or Star Tribune, publish where prospects find it
+- [ ] Methodology franchise architecture (post-birthday)
+- [ ] Founder's Package architecture
+- [ ] EA access code pattern (Mirae, post-CDN)
+- [ ] Skills nomenclature cleanup (/eod + /handoff overlap)
+- [ ] TRACKER.md creation
+- [ ] Compile prompt with /stable knowledge (site-registry updated, prompt not recompiled)
+
+**Slam Dunks** (queue empty — seed at next /eod):
+
+**Next session priorities (quick morning — it's his birthday):**
+1. **Publish Day 0 roast on Substack** — draft ready in `docs/day-00-post.md`. Use `/publish` to format.
+2. **Post LinkedIn nugget** — roast teaser on personal page, reshare to CW Strategies
+3. **Post Reddit nugget** — from same draft file
+4. Run `/brief` if time (first real test)
+
+**After birthday:** CDN mid-term prep (Feb 13), voice layer, OG images
+
+**Tomorrow is Feb 7 — Derek's 53rd birthday. The roast goes live. The countdown hits zero. Quick session — publish and go live your life.**
+
+---
+
+## February 6, 2026 — Birthday Eve Session (Earlier)
 
 **Work completed:**
 - Ran /standup with /crew — four-lens analysis on launch readiness
@@ -62,7 +136,7 @@
 - [ ] Visual identity pass
 - [ ] Methodology franchise architecture (post-birthday)
 - [ ] Founder's Package architecture
-- [ ] /strategies CTA fix ("Talk to CW" → "Work with Derek")
+- [x] ~~Fix /strategies CTA~~ (DONE this session)
 - [ ] EA access code pattern (Mirae, post-CDN)
 - [ ] Skills nomenclature cleanup (/eod + /handoff overlap)
 - [ ] TRACKER.md creation
