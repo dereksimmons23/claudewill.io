@@ -1,7 +1,48 @@
 # HANDOFF — claudewill.io
 
-**Last session:** February 6, 2026 (security audit — cross-ecosystem)
+**Last session:** February 6, 2026 (nomenclature consolidation)
 **Next session:** February 7, 2026 (BIRTHDAY — launch day)
+
+---
+
+## February 6, 2026 — Nomenclature Consolidation (Cross-Ecosystem)
+
+**This session ran from `~/` (home level). Changes touched claudewill.io, CDN-Project, writing-practice, and how-to.**
+
+**Work completed:**
+- Universal nomenclature sweep across all 9+ projects (~500 named things inventoried)
+- Three governing decisions made and documented in `~/Desktop/how-to/nomenclature.md`:
+  1. **Tools and skills are different.** Tools = CW conversation features (in `cw-prompt/tools/`). Skills = Claude Code workflows (in `.claude/skills/`).
+  2. **One name per thing.** /eod absorbs /handoff. HANDOFF.md everywhere. Workers (not overnight workers). The Stable (public), apps/ (folder).
+  3. **Method, session, chat.** Method = how you think. Session = what you do. Chat = where work happens.
+- Renamed `cw-prompt/skills/` → `cw-prompt/tools/` (5 tool files moved)
+- Updated index.js and compile-prompt.js to read from tools/
+- Recompiled prompt (42,038 chars)
+- Updated claudewill.io CLAUDE.md — tools vs skills split, session rhythm, /handoff removed
+- Deleted /handoff skill from claudewill.io, CDN-Project, writing-practice
+- Created /eod skill for writing-practice (CDN already had one)
+- Updated CDN-Project HANDOFF.md — /handoff references → /eod
+- Renamed writing-practice `current-state.md` → `HANDOFF.md` across 15+ files
+- Updated home-level ~/CLAUDE.md — "The Stable", method/session/chat
+- Updated how-to docs — "The Loop" → "The Method", "pair processing" → "the chat"
+- Dead terms killed: the loop, the core loop, pair processing, the dance, stay in the room, session loop, the mothership, overnight workers
+
+**Commits:**
+- claudewill.io `953b406` — Nomenclature: rename cw-prompt/skills/ to tools/, update references (pushed)
+- Home repo `dcc33fb` — CDN: update HANDOFF.md — /handoff absorbed by /eod
+
+**Not in any repo (on disk only):**
+- `~/Desktop/how-to/` — nomenclature.md, CLAUDE.md, work.md, start.md edits (no git repo)
+- `~/Desktop/writing-practice/` — CLAUDE.md, README, methodology, skill files, HANDOFF.md rename (no git repo)
+- `~/CLAUDE.md` — home-level ecosystem doc (untracked)
+
+**Deploy status:**
+- Pushed, Netlify rebuilt with tools/ path
+- CW prompt recompiled at build (42,038 chars)
+
+**Tomorrow's standup should surface:**
+- Nomenclature discipline — decisions made, docs updated, but language needs to get consistent in three places: Desktop (CLAUDE.md files, skills), the site (CW's prompt, page copy), and the chat (how CW talks about things). Not a one-shot fix — ongoing discipline.
+- Passengers line — "The prompt becomes the product. The product becomes the proof. The proof is for the passengers." Decide where it goes.
 
 ---
 
@@ -108,9 +149,9 @@
 - [ ] Founder's Package architecture
 - [ ] EA access code pattern (Mirae, post-CDN)
 - [x] ~~Skills nomenclature cleanup~~ (DONE — nomenclature.md in how-to/, tools vs skills split, /eod absorbs /handoff)
-- [ ] Rename cw-prompt/skills/ → cw-prompt/tools/ (nomenclature decision, needs compile)
+- [x] ~~Rename cw-prompt/skills/ → cw-prompt/tools/~~ (DONE — commit 953b406, pushed)
 - [ ] TRACKER.md creation
-- [ ] Compile prompt with /stable knowledge (site-registry updated, prompt not recompiled)
+- [x] ~~Compile prompt~~ (DONE — 42,038 chars, tools/ path, rebuilt on deploy)
 
 **Slam Dunks** (queue empty — seed at next /eod):
 
@@ -187,7 +228,7 @@
 - [ ] EA access code pattern (Mirae, post-CDN)
 - [ ] Skills nomenclature cleanup (/eod + /handoff overlap)
 - [ ] TRACKER.md creation
-- [ ] Compile prompt with /stable knowledge (site-registry updated, prompt not recompiled)
+- [x] ~~Compile prompt~~ (DONE — 42,038 chars, tools/ path, rebuilt on deploy)
 
 **Slam Dunks** (kick off and walk away):
 
