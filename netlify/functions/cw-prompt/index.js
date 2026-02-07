@@ -78,7 +78,7 @@ try {
     readPromptFile('cw-standard.md'),
     readPromptFile('derek.md'),
     readPromptFile('behaviors.md'),
-    readPromptDir('skills'),
+    readPromptDir('tools'),
     readPromptDir('guardrails'),
     generateSiteKnowledge(),
   ];

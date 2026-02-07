@@ -61,7 +61,8 @@
 - [ ] Methodology franchise architecture (post-birthday)
 - [ ] Founder's Package architecture
 - [ ] EA access code pattern (Mirae, post-CDN)
-- [ ] Skills nomenclature cleanup (/eod + /handoff overlap)
+- [x] ~~Skills nomenclature cleanup~~ (DONE — nomenclature.md in how-to/, tools vs skills split, /eod absorbs /handoff)
+- [ ] Rename cw-prompt/skills/ → cw-prompt/tools/ (nomenclature decision, needs compile)
 - [ ] TRACKER.md creation
 - [ ] Compile prompt with /stable knowledge (site-registry updated, prompt not recompiled)
 
