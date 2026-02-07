@@ -1,7 +1,53 @@
 # HANDOFF — claudewill.io
 
-**Last session:** February 6, 2026 (birthday eve — late session)
+**Last session:** February 6, 2026 (security audit — cross-ecosystem)
 **Next session:** February 7, 2026 (BIRTHDAY — launch day)
+
+---
+
+## February 6, 2026 — Security Audit (Cross-Ecosystem)
+
+**This session ran from `~/` (home level), not claudewill.io. Changes touched BOB, Hancock, claudewill.io, and Supabase.**
+
+**Work completed:**
+- Full security audit across all active CW Strategies projects (BOB, Coach D, Hancock, claudewill.io)
+- Supabase RLS: enabled on 5 unprotected tables (intake_submissions, ea_items, ea_pipeline, ea_events, ea_config), added policies to coach_d_conversations
+- BOB .gitignore: added .env exclusions to prevent accidental secret commits
+- Hancock SESSION_CLOSEOUT.md: redacted Moltbook API key (3 instances in committed file)
+- claudewill.io: renamed SUPABASE_SERVICE_ROLE_KEY → SUPABASE_ANON_KEY across 8 files (was mislabeled — value was always the anon key)
+- Hancock worker: added X-Worker-Key auth gate on all sensitive endpoints (16 endpoints locked, /health and /submit stay public)
+- Hancock .claude/settings.local.json: scrubbed 8 hardcoded Cloudflare API tokens and Moltbook keys from permission entries
+- BOB Supabase: restored from pause (was auto-paused Jan 13), verified all 6 tables have RLS enabled
+- Hancock skills + ~/.zshrc aliases: updated to pass auth header on worker calls
+- Netlify env vars confirmed — already had SUPABASE_ANON_KEY set (functions were using fallback all along)
+
+**Commits:**
+- claudewill.io `f3d5c3a` — security: rename SUPABASE_SERVICE_ROLE_KEY to SUPABASE_ANON_KEY (pushed)
+- BOB `364afc0` — security: add .env exclusions to .gitignore (pushed)
+- Hancock `6977d59` — security: add worker endpoint auth, redact leaked API keys (local only, not on GitHub by design)
+
+**Security posture after fixes:**
+- Supabase linter: 0 ERROR, 8 WARN (all expected permissive-policy warnings for anon-access tables)
+- All worker endpoints authenticated except /health (monitoring) and /submit (public form)
+- No secrets in tracked files across any project
+- BOB Supabase restored and healthy
+
+**Not fixed (accepted risk):**
+- Moltbook API key in Hancock local git history — repo is local only, never on public GitHub. Moltbook has no key rotation API.
+- Hancock worker URL is in docs — mitigated by auth gate
+
+**Deploy status:**
+- claudewill.io pushed, Netlify auto-deploying (no disruption — env var already correct)
+- BOB pushed
+- Hancock worker deployed to Cloudflare (auth verified working)
+- CW chatbot healthy (10,739 input tokens, responding in character)
+
+**Next session priorities:**
+1. **Publish Day 0 roast on Substack** — draft ready in `docs/day-00-post.md`. Use `/publish` to format.
+2. **Post LinkedIn nugget** — roast teaser on personal page, reshare to CW Strategies
+3. **Post Reddit nugget** — from same draft file
+
+**Tomorrow is Feb 7 — Derek's 53rd birthday. The roast goes live. Quick session — publish and go live your life.**
 
 ---
 
