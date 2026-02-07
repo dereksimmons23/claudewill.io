@@ -1,7 +1,74 @@
 # HANDOFF — claudewill.io
 
-**Last session:** February 6, 2026 (nomenclature consolidation)
-**Next session:** February 7, 2026 (BIRTHDAY — launch day)
+**Last session:** February 7, 2026 (birthday — roast published, SEO, Google Workspace migration)
+**Next session:** TBD
+
+---
+
+## February 7, 2026 — Derek's 53rd Birthday
+
+**Work completed:**
+- Rewrote Day 0 roast from v1 → v5 (cut from 7 acts to 4 headlines, added ecosystem context from all 10 projects, removed Hancock by name, Bill Burr energy)
+- Published roast to Substack and LinkedIn
+- Reddit post blocked by spam filter (u/cwStrategies too new, link in body triggered it) — reposted without link
+- SEO overhaul: 13 files modified across site
+  - Homepage title: "CW's Porch | CW Strategies" (was "CW's Porch | A Conversation with Claude William")
+  - sitemap.xml: added /strategies, /stable, /derek/resume; fixed stale dates on terms/privacy
+  - Footer: "CW Strategies" now links to /strategies on all 11 pages
+  - stable.html: added Organization schema (JSON-LD)
+  - llms.txt: updated with CW Strategies identity, added missing pages
+- Google Workspace migrated from flinthills.io → claudewill.io
+  - Primary domain: claudewill.io
+  - Primary email: derek@claudewill.io (live, tested, working)
+  - derek@flinthills.io kept as alias
+  - MX records: ImprovMX → Google Workspace
+  - SPF: updated to Google
+  - DKIM: authenticated with google._domainkey TXT record
+  - DNS managed in Netlify (NS1)
+
+**Commits:**
+- `6d44dec8` — SEO: add CW Strategies branding sitewide for search ranking (pushed)
+
+**Prompt changes:** None. No recompile needed.
+
+**Deploy status:** Pushed, Netlify deployed. CW healthy (10,746 input tokens, in character).
+
+**Decisions made:**
+- Roast v5 uses [REDACTED] for Hancock — no name, no platform, no email, no location. Comedy works without it.
+- Homepage title now includes "CW Strategies" for branded search ranking
+- Google Workspace fully migrated — ImprovMX no longer in use for claudewill.io email
+
+**/crew notes (birthday edition):**
+- **/earn:** Roast is brand content, not client-acquisition. Real money conversation is CDN mid-term Feb 13. Everything today is foundation-laying.
+- **/connect:** derek@claudewill.io is now the canonical identity. Email, site, SEO, LinkedIn all point to one place. The roast references the whole ecosystem — 10 projects, the stable — breadcrumb trail for curious visitors.
+- **/sharpen:** v5 roast is tight. SEO changes are clean and consistent. No prompt risk.
+- **/challenge:** Birthday morning spent rewiring DNS and writing comedy. 64 visitors last week. Reddit blocked. Don't confuse busy with productive. The CDN mid-term is where revenue lives. The roast is a flag in the ground — good — but the ground needs people standing on it.
+
+**Cleanup:**
+- `claudewill.io-google-workplace-plan.txt` in project root — planning artifact, can be deleted or gitignored
+
+**Open items:**
+- [ ] Set up hello@claudewill.io as alias in Google Admin (replaces ImprovMX catch-all)
+- [ ] Update LinkedIn profile email to derek@claudewill.io
+- [ ] Google Search Console — add claudewill.io, get verification code, submit sitemap
+- [ ] Reddit strategy — u/cwStrategies needs karma before posting links. Comment on other posts first.
+- [ ] OG images — links need to look credible when shared
+- [ ] CDN mid-term prep (Feb 13) — Q2 scope, Plan B
+- [ ] Voice layer Phase 1b — resolve third-person issue
+- [ ] Case study — CDN or Star Tribune, publish where prospects find it
+- [ ] Methodology franchise architecture (post-birthday)
+- [ ] TRACKER.md creation
+
+**Slam Dunks** (queue empty — seed at next /eod)
+
+**Next session priorities:**
+1. **CDN mid-term prep** (Feb 13) — this is the money. Q2 scope, what you're asking for, Plan B if they don't renew.
+2. **Google Search Console** — add property, verify, submit sitemap. 15-minute slam dunk.
+3. **hello@claudewill.io alias** — 2-minute fix in Google Admin.
+
+**After CDN mid-term:** Voice layer, OG images, Reddit karma-building, case study, methodology franchise.
+
+---
 
 ---
 
