@@ -7,10 +7,9 @@ const { createClient } = require('@supabase/supabase-js');
 const { SYSTEM_PROMPT } = require('./cw-prompt');
 
 // Initialize Supabase client (only if env vars are present)
-// Prefer a server-side key; fall back to anon key for backward compatibility.
 let supabase = null;
 const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY;
+const supabaseKey = process.env.SUPABASE_ANON_KEY;
 if (supabaseUrl && supabaseKey) {
   supabase = createClient(supabaseUrl, supabaseKey);
 }
