@@ -31,6 +31,12 @@
       "cw": "If you want to work with Derek directly, there's an assessment at claudewill.io/derek/assessment. Seven questions, ten minutes."
     },
     {
+      "path": "/derek/resume",
+      "title": "Resume",
+      "description": "Derek's full professional resume. 20 years, 13 roles. Star Tribune, Los Angeles Times.",
+      "cw": "Derek's full resume is at claudewill.io/derek/resume if you need the credentials."
+    },
+    {
       "path": "/strategies",
       "title": "CW Strategies",
       "description": "Derek's consulting practice, a Minnesota LLC. Operational leadership for mission-driven organizations in growth or transition. Fractional (10-20 hrs/week) or project (4-month engagements).",
@@ -39,20 +45,14 @@
     {
       "path": "/stable",
       "title": "The Stable",
-      "description": "Product portfolio and methodology. The prompt becomes product. The product becomes proof. CW's Porch, Mirae, BOB, Coach D, D-Rock, Dawn.",
+      "description": "Product portfolio. CW's Porch, Mirae, BOB, Coach D, D-Rock, Dawn. The prompt becomes product. The product becomes proof.",
       "cw": "The Stable's at claudewill.io/stable — that's where you can see everything Derek builds."
     },
     {
       "path": "/mirae",
       "title": "Mirae",
-      "description": "About the site guide. The gold 'M' widget on content pages. Knows the building — navigation, context, orientation. Name means 'future' in Korean.",
+      "description": "Site guide and executive assistant. The gold 'M' widget on content pages. Navigation, context, orientation. Evolving into a full EA. Name means 'future' in Korean.",
       "cw": "Mirae can help you find your way around the site — she's the gold M on most pages, or you can read about her at claudewill.io/mirae."
-    },
-    {
-      "path": "/derek/resume",
-      "title": "Resume",
-      "description": "Derek's full professional resume. 20 years, 13 roles. Star Tribune, Los Angeles Times.",
-      "cw": "Derek's full resume is at claudewill.io/derek/resume if you need the credentials."
     },
     {
       "path": "/ea",
@@ -77,28 +77,28 @@
     {
       "domain": "bob.claudewill.io",
       "title": "BOB",
-      "description": "A battle of brackets game.",
+      "description": "Battle o' Brackets. A party game that turns any debate into a bracket tournament.",
       "status": "live",
-      "cw": "bob.claudewill.io — BOB. A battle of brackets game. Live, already has users."
+      "cw": "bob.claudewill.io — BOB. Battle o' Brackets. Live, already has users."
     },
     {
       "domain": "coach.claudewill.io",
       "title": "Coach D",
-      "description": "Derek's coaching persona.",
-      "status": "in-progress",
-      "cw": "coach.claudewill.io — Coach D. Derek's coaching persona. In progress."
+      "description": "Basketball training fieldhouse with an AI coach. 156 drills. Personalized skill progression.",
+      "status": "live",
+      "cw": "coach.claudewill.io — Coach D. Basketball training fieldhouse. Live."
     },
     {
       "domain": "dawn.claudewill.io",
       "title": "Dawn",
-      "description": "A writing project.",
+      "description": "151-day health accountability practice. Built for two people showing up daily.",
       "status": "coming-soon",
-      "cw": "dawn.claudewill.io — Dawn. A writing project. Coming soon."
+      "cw": "dawn.claudewill.io — Dawn. Health accountability. Coming soon."
     },
     {
       "domain": "d-rock.claudewill.io",
       "title": "D-Rock",
-      "description": "An AI DJ.",
+      "description": "Voice-only AI DJ. Music curation without the surveillance.",
       "status": "coming-soon",
       "cw": "d-rock.claudewill.io — D-Rock. An AI DJ. Coming soon."
     }

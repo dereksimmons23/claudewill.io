@@ -21,8 +21,9 @@ build/
 coverage/
 netlify/functions/cw-prompt/compiled-prompt.js
 
-# Internal documentation and strategy
-docs/
+# Internal documentation and strategy (drafts + reference stay local, published is tracked)
+docs/drafts/
+docs/reference/
 recalibrate/
 
 # Memoir / heritage drafts (do not publish)
@@ -42,6 +43,7 @@ hancock/
 # Secrets / local-only files
 netlify/anthropic-key.txt
 netlify/*.txt
+.config/
 .claude/
 .mcp.json
 .serena/
