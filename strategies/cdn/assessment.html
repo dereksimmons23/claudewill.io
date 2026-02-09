@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>CDN Consulting — Mid-Term Assessment | CW Strategies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text: #1a1a2e;
+      --text-secondary: #4a4a5a;
+      --bg: #ffffff;
+      --bg-subtle: #f7f7f9;
+      --border: #e2e2e8;
+      --accent: #2d3142;
+      --accent-light: #4f5d75;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    /* Header */
+    .doc-header {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .doc-header .brand {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 1.25rem;
+    }
+
+    .doc-header .brand a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .doc-header .brand a:hover {
+      text-decoration: underline;
+    }
+
+    .doc-header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .doc-meta {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.25rem 1rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .doc-meta dt {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .doc-meta dd {
+      margin: 0;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.25rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    /* Results list */
+    .result-item {
+      margin-bottom: 0.75rem;
+    }
+
+    .result-item strong {
+      color: var(--accent);
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    thead th {
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      text-align: left;
+      padding: 0.625rem 0.75rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    tbody td {
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tbody tr:nth-child(even) {
+      background: var(--bg-subtle);
+    }
+
+    /* Comparison table */
+    .comparison-table thead th:first-child {
+      background: var(--text-secondary);
+    }
+
+    .comparison-table thead th:last-child {
+      background: var(--accent);
+    }
+
+    .comparison-table td:last-child {
+      font-weight: 500;
+    }
+
+    /* Callout line */
+    .callout {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 1.25rem 0;
+    }
+
+    .callout-summary {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Proposal */
+    .proposal-ask {
+      background: var(--bg-subtle);
+      border-left: 3px solid var(--accent);
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* Before Friday */
+    .before-friday ol {
+      padding-left: 1.25rem;
+      margin-top: 0.75rem;
+    }
+
+    .before-friday li {
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+    }
+
+    /* Close */
+    .close {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+    }
+
+    /* Footer */
+    .doc-footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 2px solid var(--accent);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.25rem;
+    }
+
+    .doc-footer .brand-footer a {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    .doc-footer .brand-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .doc-footer .contact {
+      margin-top: 0.5rem;
+      font-size: 0.7rem;
+    }
+
+    /* Access gate */
+    .gate {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .gate .gate-brand {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 2rem;
+    }
+
+    .gate .gate-brand a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .gate h2 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: none;
+      letter-spacing: 0;
+      border: none;
+      padding: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .gate p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .gate-form {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .gate-input {
+      font-family: inherit;
+      font-size: 0.95rem;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      outline: none;
+      width: 160px;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+
+    .gate-input:focus {
+      border-color: var(--accent);
+    }
+
+    .gate-submit {
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.5rem 1.25rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+    }
+
+    .gate-submit:hover {
+      background: var(--accent-light);
+    }
+
+    .gate-error {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: #c0392b;
+      visibility: hidden;
+    }
+
+    .gate-error.visible {
+      visibility: visible;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Print button */
+    .print-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg-subtle);
+      border-top: 1px solid var(--border);
+      padding: 0.75rem;
+      text-align: center;
+      z-index: 100;
+    }
+
+    .print-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .print-btn:hover {
+      background: var(--accent-light);
+    }
+
+    /* Print styles */
+    @media print {
+      .print-bar {
+        display: none;
+      }
+
+      body {
+        font-size: 11pt;
+        line-height: 1.5;
+      }
+
+      .page {
+        max-width: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .doc-header {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+      }
+
+      .doc-header h1 {
+        font-size: 18pt;
+      }
+
+      .doc-header .brand a,
+      .doc-footer .brand-footer a {
+        color: var(--accent-light);
+      }
+
+      h2 {
+        font-size: 11pt;
+        page-break-after: avoid;
+      }
+
+      section {
+        margin-bottom: 1.5rem;
+      }
+
+      table {
+        font-size: 9pt;
+        page-break-inside: avoid;
+      }
+
+      thead th {
+        background: var(--accent) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      tbody tr:nth-child(even) {
+        background: var(--bg-subtle) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .proposal-ask {
+        background: var(--bg-subtle) !important;
+        border-left: 3px solid var(--accent) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="gate" id="gate">
+    <div class="gate-brand"><a href="https://claudewill.io/strategies">CW Strategies</a></div>
+    <h2>Access Required</h2>
+    <p>Enter the access code to view this document.</p>
+    <div class="gate-form">
+      <input type="text" class="gate-input" id="gate-code" placeholder="Access code" autocomplete="off" autofocus>
+      <button class="gate-submit" onclick="checkAccess()">View</button>
+    </div>
+    <p class="gate-error" id="gate-error">Invalid access code. Please try again.</p>
+  </div>
+
+  <div class="page hidden" id="content">
+    <header class="doc-header">
+      <div class="brand"><a href="https://claudewill.io/strategies">CW Strategies</a></div>
+      <h1>CDN Consulting — Mid-Term Assessment</h1>
+      <dl class="doc-meta">
+        <dt>From</dt>
+        <dd>Derek Simmons</dd>
+        <dt>To</dt>
+        <dd>Cynthia Pope</dd>
+        <dt>Date</dt>
+        <dd>February 9, 2026</dd>
+        <dt>Meeting</dt>
+        <dd>Friday, February 13, 2026 — 11am CT</dd>
+        <dt>Classification</dt>
+        <dd>Confidential — Prepared for Cascadia Daily News</dd>
+      </dl>
+    </header>
+
+    <section>
+      <h2>How We Got Here</h2>
+      <p>Three phases. Each one outgrew its scope.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>When</th>
+            <th>Hired For</th>
+            <th>What Happened</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Sep 2025</td>
+            <td>One-month audit</td>
+            <td>11 deliverables. Revenue frameworks, platform eval, sponsored content system.</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Q4 2025</td>
+            <td>Platform + paid content</td>
+            <td>Platform strategy locked. Paid content launched. $9-18K in savings identified.</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Q1 2026</td>
+            <td>Magazine + systems</td>
+            <td>Results below.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Q1 Results <span style="font-weight: 400; text-transform: none; letter-spacing: 0; font-size: 0.875rem; color: var(--text-secondary);">(Through February 7)</span></h2>
+
+      <p class="result-item"><strong>$18,000 saved.</strong> HubSpot renewal negotiated from $57K to $39K.</p>
+
+      <p class="result-item"><strong>$14,000 in new revenue on pace.</strong> Paid content system built and running — 7 pieces published, 4 active sponsors.</p>
+
+      <p class="result-item"><strong>Beehiiv enterprise signed.</strong> $8,500/year. Dedicated CSM. Positions CDN to consolidate newsletters and paywall onto one platform.</p>
+
+      <p class="result-item"><strong>Magazine on track.</strong> Cover illustration commissioned (Joel Kimmel, $1K). Typography locked — all Adobe Fonts, no licensing cost.</p>
+
+      <p class="result-item"><strong>Nav redesign delivered.</strong> Interactive prototype — 13 items down to 7. New "Cascadia Life" and "Marketplace" sections. Mobile drawer, weather, account menu. Ready for dev.</p>
+
+      <p class="result-item"><strong>14 written deliverables.</strong> Budgets, prototypes, creative brief, eval plans, editorial drafts.</p>
+
+      <p class="result-item"><strong>19 strategic decisions supported</strong> across magazine, platform, and org strategy.</p>
+
+      <p class="result-item"><strong>105 net subscribers added in January</strong> (6,758 total).</p>
+    </section>
+
+    <section>
+      <h2>What $10K/Month Actually Buys</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Without Me</th>
+            <th>With Me</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>HubSpot renewal: $57K</td>
+            <td>$39K — <strong>saved $18K</strong></td>
+          </tr>
+          <tr>
+            <td>Nav redesign: $3-5K freelance UX</td>
+            <td>$0 — delivered</td>
+          </tr>
+          <tr>
+            <td>Typography: $3-5K+ design agency</td>
+            <td>$0 — Adobe subscription</td>
+          </tr>
+          <tr>
+            <td>Cover illustration: $3K+ undirected freelance</td>
+            <td>$1K — sourced Joel at 1/3 rate</td>
+          </tr>
+          <tr>
+            <td>PM coordination: $40-60K/yr hire or gaps</td>
+            <td>Included</td>
+          </tr>
+          <tr>
+            <td>Platform migration: outside consultant</td>
+            <td>Included</td>
+          </tr>
+          <tr>
+            <td>Paid content: nothing</td>
+            <td>7 pieces live, $14K target</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="callout-summary">Q1 cost: $30K. Savings: $18K. New revenue: $14K on pace. Avoided costs: $30K+.</p>
+      <p class="callout">The math isn't close.</p>
+    </section>
+
+    <section>
+      <h2>What's Left to Build</h2>
+      <p>This isn't a wish list. It's work in progress that needs to land.</p>
+
+      <p class="result-item"><strong>Magazine launch — May 8.</strong> Rhonda has the editorial chops. What's not covered in-house is the operational coordination, art direction, and strategic framework to get it printed on time. That's what I'm filling.</p>
+
+      <p class="result-item"><strong>Beehiiv decision — June.</strong> Six-figure platform contract. Someone drives this to a conclusion or it drifts.</p>
+
+      <p class="result-item"><strong>Fall issue and end-of-year operations.</strong> Planning, production, launch. Annual budgeting, software renewals, subscription tiers, 2027 roadmap. Decisions stack up fast in the fall.</p>
+
+      <p class="result-item"><strong>The gaps that haven't closed.</strong> Creative direction and PM coordination are still unfilled internally. I'm filling both. The goal is a team that runs the second issue with less support than the first.</p>
+    </section>
+
+    <section>
+      <h2>What I'm Proposing</h2>
+
+      <div class="proposal-ask">Continue the engagement. $10,000/month. Either of us can end it with 30 days notice.</div>
+
+      <p>The work doesn't stop in June. Magazine launches in May. Beehiiv decides in June. The fall issue, annual planning, and contract renewals stack up after that. Negotiating quarterly burns cycles we should be spending on the actual work.</p>
+
+      <p>An on-site visit timed to the final pre-print review would anchor the magazine launch — we can talk timing Friday.</p>
+
+      <p><strong>December: Off.</strong></p>
+
+      <p>I'll send over a continuing services agreement for your review — same terms you're used to, same rate, with the flexibility to adjust or end it whenever the work stops earning its place.</p>
+
+      <p>Every phase has earned the next one. That's the pattern. This just removes the paperwork from the middle of it.</p>
+
+      <div class="close">
+        <p>I'm recommending we continue. Happy to get into it Friday.</p>
+      </div>
+    </section>
+
+    <section class="before-friday">
+      <h2>Before Friday</h2>
+      <p>A few things worth sitting with before we talk:</p>
+      <ol>
+        <li>What does CDN need most between now and the end of the year?</li>
+        <li>Is an on-site visit during final magazine production something you'd want?</li>
+        <li>What questions do you want to make sure we cover?</li>
+      </ol>
+    </section>
+
+    <footer class="doc-footer">
+      <div class="footer-row">
+        <span class="brand-footer"><a href="https://claudewill.io/strategies">CW Strategies</a></span>
+        <span>Derek Simmons &middot; simmons.derek@gmail.com &middot; (213) 327-5683</span>
+      </div>
+    </footer>
+  </div>
+
+  <div class="print-bar hidden" id="print-bar">
+    <button class="print-btn" onclick="window.print()">Print this document</button>
+  </div>
+
+  <script>
+    const ACCESS_CODE = 'CDN2026';
+    const STORAGE_KEY = 'cw_access_midterm';
+
+    function checkAccess() {
+      const input = document.getElementById('gate-code');
+      if (input.value.trim().toUpperCase() === ACCESS_CODE) {
+        sessionStorage.setItem(STORAGE_KEY, 'granted');
+        reveal();
+      } else {
+        document.getElementById('gate-error').classList.add('visible');
+        input.value = '';
+        input.focus();
+      }
+    }
+
+    function reveal() {
+      document.getElementById('gate').classList.add('hidden');
+      document.getElementById('content').classList.remove('hidden');
+      document.getElementById('print-bar').classList.remove('hidden');
+    }
+
+    // Check on load
+    if (sessionStorage.getItem(STORAGE_KEY) === 'granted') {
+      reveal();
+    } else {
+      // Ensure focus after fonts load (autofocus can be unreliable)
+      setTimeout(function() { document.getElementById('gate-code').focus(); }, 100);
+    }
+
+    // Enter key submits
+    document.getElementById('gate-code').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') checkAccess();
+    });
+  </script>
+</body>
+</html>
