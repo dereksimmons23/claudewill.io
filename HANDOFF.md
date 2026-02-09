@@ -1,7 +1,81 @@
 # HANDOFF — claudewill.io
 
-**Last session:** February 7, 2026 (birthday — roast published, SEO, Google Workspace migration)
-**Next session:** TBD
+**Last session:** February 8, 2026 (content strategy, docs reorg, posting cadence decisions)
+**Next session:** Monday Feb 9 — CDN mid-term final draft (95% done), post first LinkedIn piece
+
+---
+
+## February 8, 2026 — Content Strategy + Docs Cleanup (Super Bowl Sunday)
+
+**Work completed:**
+- Content strategy session — recalibrated countup from rigid daily series to general posting cadence:
+  - **LinkedIn (CW Strategies company page):** 2-3x/week, professional but not stuffy
+  - **Substack:** 1x/week, personal voice, driven from writing-practice repo
+  - LinkedIn at 126 followers → 150 unlocks newsletter
+- Reorganized docs/ from 70+ flat files into structured directories (Hancock posts/drafts/published model):
+  - `posts/drafts/` — 17 files (countup series, launch posts, standalone pieces)
+  - `posts/published/` — 16 files (countdown series, birthday roast, LinkedIn refresh)
+  - `founders/` — 7 files (Founder's Package + story content)
+  - `planning/` — 9 files (case studies, story drafts, architecture)
+  - `reference/` — 11 files (research, archive, CW Standard articles)
+  - `derek/` — 10 files (existing, unchanged)
+  - `geo-strategy/` — 8 files (existing, unchanged)
+- Ran /crew on scoping question — all four lenses said "CDN first, post something, don't build infrastructure." Derek overruled: CDN prep is 95% done, it's Super Bowl Sunday, the docs cleanup was the right Sunday work.
+- Global ecosystem work (voice hub, cross-project awareness, derek.md consolidation) handled in separate Claude tab at ~/Desktop/ level
+
+**Decisions made:**
+- Countup posts are a content library, not a daily series. Pull from drafts 2-3x/week.
+- Substack comes from writing-practice, not claudewill.io. Cross-project awareness needed.
+- docs/ structure mirrors Hancock: posts/drafts → posts/published when posted
+- The crew was wrong about today's priorities. Derek was right.
+
+**Strategic notes (from end-of-session download):**
+- **CW/Derek confusion:** At least a few visitors think they're talking to Derek, not CW. The About modal explains it but people skip it. Birthday visitor said "Happy birthday" to CW. LinkedIn posts should frame it: "You're not talking to me — you're talking to my grandfather."
+- **Domain strategy:** CW + Derek + Mirae = three personas on one domain. Different on purpose, but shouldn't be different confusing. Needs a coherent domain/UX strategy. Not today.
+- **Visual punch:** Site is pretty but visually boring. Audio on /derek was a good touch. Needs OG images, illustrations, visual energy. Reinforced — this is a real gap.
+- **Workers:** Can't do everything manually. Need to deploy /workers (automated processes) to move the needle while Derek focuses on strategy/writing/clients.
+- **"Closer to the pin":** claudewill.io has been on the fringe too long. The product works. The infrastructure is clean. Now close the gap — distribution, visual identity, domain clarity. Approach shot, not another practice swing.
+
+**Prompt changes:** None. No recompile needed.
+
+**Deploy status:** No deploy needed — docs/ is gitignored. Local organization only.
+
+**Content ready this week:**
+| Post | Platform | Status |
+|------|----------|--------|
+| countup-01 (What's on the porch) | LinkedIn | Draft — needs voice recalibration post-roast |
+| countup-02 (Job offer story) | LinkedIn or Substack | Draft |
+| countup-03 (Truth over comfort) | LinkedIn | Draft |
+| countup-04 (Liberation Gravy) | Substack | Draft — full personal essay |
+| 6 more countup posts | Mixed | Drafts in posts/drafts/ |
+
+**Supabase check (Feb 8):**
+- 498 total messages, 50 unique sessions since Dec 8
+- Feb 7 (birthday): 2 messages, 1 session — two visitors said hello, neither went deeper
+- Still mostly Derek testing. Distribution is the gap, not the product.
+- LinkedIn at 126 followers → 150 unlocks newsletter
+
+**Open items:**
+- [ ] CDN mid-term final draft (Monday morning — 95% done)
+- [ ] Review/sharpen countup-01 for first LinkedIn post (voice recalibration post-roast)
+- [ ] Domain strategy — CW/Derek/Mirae persona clarity for visitors
+- [ ] Visual identity — OG images, illustrations, visual punch
+- [ ] Google Search Console — add property, verify, submit sitemap
+- [ ] hello@claudewill.io alias in Google Admin
+- [ ] Reddit strategy — u/cwStrategies needs karma
+- [ ] Voice layer Phase 1b — third-person issue
+- [ ] Case study — CDN or Star Tribune
+- [ ] Methodology franchise architecture
+- [ ] TRACKER.md creation
+- [ ] Cross-project content awareness (CW + writing-practice) — in progress at ecosystem level
+- [ ] Workers deployment — automated tasks to move the needle
+
+**Slam Dunks** (queue empty — seed at next /eod)
+
+**Next session priorities:**
+1. **CDN mid-term** — finish the last 5%, send it
+2. **Sharpen countup-01** — recalibrate voice post-roast, post to LinkedIn
+3. **Pick 1 Substack post** for this week (Liberation Gravy is the obvious choice)
 
 ---
 
