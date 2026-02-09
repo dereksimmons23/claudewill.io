@@ -1,0 +1,11 @@
+{
+  "name": "cw-brief",
+  "version": "1.0.0",
+  "description": "CW Brief — daily analytics for claudewill.io",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "private": true
+}

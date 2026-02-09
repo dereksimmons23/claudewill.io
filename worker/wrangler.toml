@@ -1,0 +1,12 @@
+name = "cw-brief"
+main = "src/index.js"
+compatibility_date = "2026-02-09"
+
+# CW daily brief runs at 6am CT (12:00 UTC)
+[triggers]
+crons = ["0 12 * * *"]
+
+# KV namespace for state
+[[kv_namespaces]]
+binding = "CW_STATE"
+id = "ed0510af3aab435e9c41df34cdb28a2c"
