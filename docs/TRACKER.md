@@ -1,6 +1,6 @@
 # Content Tracker — CW Strategies
 
-**Last updated:** February 9, 2026
+**Last updated:** February 10, 2026
 
 ---
 
@@ -8,6 +8,7 @@
 
 | Piece | Platform | Date | File |
 |-------|----------|------|------|
+| The Good, the Gaps & Granola | LinkedIn (personal) | Feb 10 | drafts/linkedin/granola-review-post.md |
 | I'm No Longer the API | LinkedIn (personal) | Feb 9 | published/linkedin/im-no-longer-the-api.md |
 | Birthday Roast (Day 0) | Substack + LinkedIn | Feb 7 | published/linkedin/day-00-post.md |
 | CW Strategies Refresh | LinkedIn (company) | Feb 6 | published/linkedin/linkedin-cw-strategies-refresh.md |

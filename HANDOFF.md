@@ -1,7 +1,102 @@
 # HANDOFF — claudewill.io
 
-**Last session:** February 9, 2026 (CW recalibration, worker deployed, business identity shift)
-**Next session:** CDN Friday prep, "I'm No Longer the API" LinkedIn post, Vernie Mode access code
+**Last session:** February 10, 2026 — LinkedIn Services page, strategies page builder positioning, Granola post published, housekeeping day
+**Next session:** Liberation Gravy for Substack, CDN Friday prep (3 days), platform launch strategy
+
+---
+
+## February 10, 2026 — Builder Positioning + Housekeeping
+
+**Work completed:**
+- **LinkedIn CW Strategies company page updated** — Services "About" field written (builder language, receipts, claudewill.io/strategies link). 10 services selected: Strategic Planning, Management Consulting, Strategy, Change Management, Leadership Development, Team Building, Digital Marketing, Brand Marketing, Project Management, Visual Design.
+- **Strategies page repositioned** — tagline, meta description, OG tags, Twitter card, schema.org all updated from "fractional COO / operational leadership" to "building operational infrastructure." Result cards replaced: "13 Roles" and "5 Lanes" → "30 Years" and "100% Client Ownership." Fractional card rewritten. "Who We Work With" de-consultanted.
+- **"The Good, the Gaps & Granola" posted to LinkedIn (personal)** — AI meeting notes analysis of consulting sessions. Self-aware gaps format. Link: https://www.linkedin.com/pulse/good-gaps-granola-client-calls-derek-simmons-kgrdc
+- **Google Search Console** — property added, DNS TXT verification complete, sitemap submitted.
+- **CTA visited-link bug fixed sitewide** — `a:visited` (gold) was overriding `.cta-primary` text color due to higher specificity (0,1,1 > 0,1,0), making button text invisible on gold background. Fixed on strategies, derek, stable, and the-cw-standard.
+- **CTA bottom margin added** — strategies, derek, stable pages.
+- **3 LinkedIn thumbnail images committed** — about-derek.png, cw-strategies-how.png, the-stable.png.
+- **PARKING-LOT.md created** — replaces WISHLIST.md. Raw ideas → Evaluate → Queue → Build or Kill. WISHLIST.md deleted.
+- **Asterisk brand mark research saved** — `docs/drafts/brand-asterisk.md`. Asteriskos = "little star." Typographic birth notation. Strong brand thread.
+- **WordPress account deleted** — flinthills.io and dcs.bio domains gone. derek@flinthills.io still works as Google Workspace alias.
+
+**Decisions made:**
+- Builder positioning is now consistent across LinkedIn company page and strategies page. Same language.
+- PARKING-LOT.md is the canonical ideas backlog. HANDOFF.md is session state. TRACKER.md is content pipeline. Three files, three purposes.
+- LinkedIn Services constrained by LinkedIn's fixed menu — picked the 10 closest to what CW Strategies actually does.
+- hello@claudewill.io alias parked — Google Admin won't add claudewill.io aliases while flinthills.io is still the primary domain in some config. Needs investigation, not today.
+
+**Prompt changes:** None. No recompile needed.
+
+**Deploy status:** All pushed, Netlify deployed. CW healthy (11,535 tokens, in character).
+
+**Commits (6 today):**
+- `a3a30607` — chore: track LinkedIn thumbnails, update strategies positioning to builder language
+- `35564c0e` — Update strategies page — builder positioning throughout
+- `7111d664` — fix: add bottom margin to CTA group on strategies page
+- `7e4075d1` — fix: add bottom margin to CTA group on derek and stable pages
+- `d755b953` — fix: visited link color hiding CTA button text on strategies, derek, stable
+- `424d9d9c` — fix: visited link color hiding CTA button text on the-cw-standard
+
+**Open items:**
+- [ ] **CDN Friday conversation (Feb 13)** — 3 days. Frame as proof of building, not pitch.
+- [ ] Liberation Gravy for Substack — tomorrow. Full essay ready.
+- [ ] hello@claudewill.io alias — parked, Google Admin domain config issue
+- [ ] Vernie Mode access code — Randall needs it when he comes back
+- [ ] CW Strategies positioning rewrite — strategies page done, other pages still need alignment (derek.html, llms.txt)
+- [ ] LinkedIn company slug fix — `/cw-stategies` fixable early March 2026
+- [ ] Reddit strategy — u/cwStrategies needs karma
+- [ ] Finding Claude book — family-archive.md feeds both CW and the manuscript
+
+**Parking Lot additions (see PARKING-LOT.md):**
+- CMS in reverse automation
+- AI editor agent (quality layer between AI output and publishing)
+- Dev server / brand playground on The Stable
+- Mirae + EA concept evaluation
+- Asterisk brand mark
+
+**Slam Dunks** (queue empty — seed below)
+
+**Next session priorities:**
+1. **Liberation Gravy for Substack** — format with /publish, post tomorrow.
+2. **CDN Friday prep** — 3 days out. Frame the conversation: you built their systems. Proof, not pitch.
+3. **Platform launch strategy** — Product Hunt, HN, Reddit. Which product leads? What's the angle?
+
+---
+
+---
+
+## February 9, 2026 (Late) — Content Pipeline Live
+
+**Work completed:**
+- **"I'm No Longer the API" posted to personal LinkedIn** — Derek's rewrite from the original June 2025 Substack piece. Image: The Stable header. Live.
+- **TRACKER.md created** — `docs/TRACKER.md` tracks published (4 entries), ready to post (11 pieces), in progress (3). Cadence targets: 2-3 LinkedIn/week, 1 Substack/week.
+- **LinkedIn post template** — `docs/drafts/linkedin/TEMPLATE.md` with metadata, image checklist, links block, bio/CTA, post-publish workflow.
+- **Published file convention working** — `docs/published/linkedin/im-no-longer-the-api.md` committed and tracked.
+
+**The CMS in reverse:**
+Content first, system catches up. Today: wrote → posted → saved → tracked. Template + TRACKER + drafts/published folders = a filing system that works. Not automated yet, but repeatable.
+
+**Commits:**
+- `0ecbd61c` — feat: content tracker + first published LinkedIn piece
+
+**Open items:**
+- [ ] **CDN Friday conversation (Feb 13)** — 4 days. Frame as proof of building, not pitch.
+- [ ] Vernie Mode access code — Randall needs it when he comes back
+- [ ] Pick next LinkedIn post from TRACKER.md (countup-01 needs voice recalibration)
+- [ ] Liberation Gravy for Substack — obvious first pick, full essay ready
+- [ ] LinkedIn content pipeline — /publish skill could update TRACKER.md automatically
+- [ ] Google Search Console — still not done
+- [ ] hello@claudewill.io alias — still not done
+- [ ] CW Strategies positioning rewrite — builder, not consultant
+- [ ] LinkedIn company slug fix — `/cw-stategies` fixable early March 2026
+- [ ] Reddit strategy — u/cwStrategies needs karma
+- [ ] Visual identity — OG images, illustrations
+- [ ] Finding Claude book — family-archive.md feeds both CW and the manuscript
+
+**Next session priorities:**
+1. **CDN Friday prep** — reframe the conversation. You built their systems. That's the proof.
+2. **Pick next LinkedIn post** — check TRACKER.md, sharpen countup-01 or pull a Dawn piece.
+3. **Liberation Gravy for Substack** — format with /publish, post this week.
 
 ---
 
