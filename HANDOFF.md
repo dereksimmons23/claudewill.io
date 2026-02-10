@@ -1,7 +1,67 @@
 # HANDOFF — claudewill.io
 
-**Last session:** February 8, 2026 (content strategy, docs reorg, posting cadence decisions)
-**Next session:** Monday Feb 9 — CDN mid-term final draft (95% done), post first LinkedIn piece
+**Last session:** February 9, 2026 (CW recalibration, worker deployed, business identity shift)
+**Next session:** CDN Friday conversation prep, Vernie Mode access code, LinkedIn content pipeline
+
+---
+
+## February 9, 2026 — Recalibration Day
+
+**Work completed:**
+- **CW Brief worker deployed to Cloudflare** — daily 6am CT cron, posts analytics brief to CW Strategies Slack. Supabase conversation stats, content cadence tracking, LinkedIn follower milestone. Auth-gated, Hancock worker pattern. URL: `https://cw-brief.bitter-sky-a8a5.workers.dev`. Auth key in wrangler secrets.
+- **CW recalibrated using /recalibrate** — first run of the new skill on an agent subject. Triggered by Randall Koutz session (Feb 8) where CW interrogated a real grandson instead of welcoming him. Fixed:
+  - `family.md` rewritten — corrected courtship story (Hazel Canay, race horses Bronson + Red Bob, Alva courthouse 1925), 7 of 11 children now documented, Nettie Mae's full story (Bill Koutz, Thumper, nursing school, Ponca City)
+  - "WHEN FAMILY SHOWS UP" behavioral guardrails added — warmth over suspicion, "tell me more" over "you're not being straight with me"
+  - `family-archive.md` created as canonical source of truth (1985 Vernie interview data, Porch conversation data, Derek's research notes)
+  - Prompt recompiled: 45,020 chars (up from 42,264). 11,529 input tokens on deploy.
+- **`/recalibrate` skill built** — works on people, agents, and projects. Same 7 questions. CW conversation tool aligned to match.
+- **CW Strategies recalibrated** — ran /recalibrate on the business itself. Saved to `docs/drafts/recalibration-cw-strategies-feb9.md` (gitignored). Core finding: "The world does not need more consultants. The world needs more whole builders."
+- **Sticky note added to CLAUDE.md:** "The prompt is the product. The product is the proof. The proof is the passenger."
+- **Docs reorg committed** — derek/ files moved to drafts, published/ directory tracked
+- **LinkedIn content pulls surfaced** — 5 pieces from Dawn, plus full LinkedIn strategy suite in drafts
+
+**Decisions made:**
+- CW Strategies identity is shifting from consultant to builder. Not a rebrand — a recalibration. CDN stays (pays the bills). But the positioning needs to evolve.
+- Family history tool is the first product concept beyond CW's Porch. Vernie Mode — access code via text (not Facebook), warmth-first posture, story collection.
+- Access code pattern for Vernie Mode: Derek texts the code directly. "If they know me, they have my phone number."
+- /recalibrate is one framework for humans, agents, and businesses. Same 7 questions. CW uses it on visitors, Claude uses it on CW, Derek uses it on himself.
+- Randall Koutz texted — told to come back to the Porch. CW now knows him.
+
+**Prompt changes:** Yes — family.md rewritten, family-archive.md created, recalibrate.md updated. Recompiled.
+
+**Deploy status:** Pushed, Netlify deployed. CW healthy (11,529 tokens, in character, Randall scenario verified).
+
+**Commits (7 today):**
+- `fc6113d6` — The prompt is the product. The product is the proof. The proof is the passenger.
+- `99b3d11b` — chore: update handoff — recalibration session, worker deployed
+- `d386e7b1` — feat: deploy CW Brief worker — daily analytics to Slack
+- `4894429a` — Recalibrate CW: expanded family knowledge, fix adversarial posture with family
+- `cb50438a` — chore: docs reorg — move derek/ to drafts, track published/
+- `354c8ffc` — Fix cross-team management → facilitation in agreement Exhibit A
+- `d61b4101` — Add CDN mid-term assessment and consulting agreement as unlisted deliverables
+
+**Open items:**
+- [ ] CDN Friday conversation (Feb 13) — frame as proof of building, not pitch for more consulting
+- [ ] Vernie Mode access code system — frontend gate, CW mode shift on valid code
+- [ ] LinkedIn content pipeline — connect drafts → /publish → worker tracks posts
+- [ ] Post first LinkedIn piece this week (5 content pulls ready, 10 countup drafts ready)
+- [ ] Substack — pick one for this week (Liberation Gravy still the obvious choice)
+- [ ] Google Search Console — add property, verify, submit sitemap
+- [ ] hello@claudewill.io alias in Google Admin
+- [ ] CW Strategies positioning rewrite — builder, not consultant
+- [ ] The Stable reframed as product portfolio
+- [ ] Method as product architecture
+- [ ] Finding Claude book — family-archive.md feeds both CW and the manuscript
+- [ ] Reddit strategy — u/cwStrategies needs karma
+- [ ] Visual identity — OG images, illustrations
+- [ ] TRACKER.md creation
+
+**Slam Dunks** (queue empty — seed next session)
+
+**Next session priorities:**
+1. **CDN Friday prep** — reframe the conversation. You built their systems. That's the proof, not a pitch for more consulting hours.
+2. **Post first LinkedIn piece** — "Only Doing the Thing" is ready to go. Zero editing. Just post it.
+3. **Vernie Mode access code** — build the frontend gate so Randall can use it when he comes back.
 
 ---
 
