@@ -1,7 +1,7 @@
 # HANDOFF — claudewill.io
 
 **Last session:** February 9, 2026 (CW recalibration, worker deployed, business identity shift)
-**Next session:** CDN Friday conversation prep, Vernie Mode access code, LinkedIn content pipeline
+**Next session:** CDN Friday prep, "I'm No Longer the API" LinkedIn post, Vernie Mode access code
 
 ---
 
@@ -58,9 +58,14 @@
 
 **Slam Dunks** (queue empty — seed next session)
 
+**Late addition:**
+- Drafted "I'm No Longer the API" — sequel to June 2025 Substack piece. In `docs/drafts/linkedin/im-no-longer-the-api.md`. Derek rewrites, posts to personal LinkedIn page (not company). The CMS in reverse — content first, system catches up.
+- LinkedIn strategy: personal page is the voice (1,300 followers), company page is where the work lives. Builder logic, not consultant logic.
+- Master content audit in `docs/reference/master-content-audit.md` — 200K+ words across 12 projects, 20+ pieces ready for each channel, 6+ months of publishing already written.
+
 **Next session priorities:**
 1. **CDN Friday prep** — reframe the conversation. You built their systems. That's the proof, not a pitch for more consulting hours.
-2. **Post first LinkedIn piece** — "Only Doing the Thing" is ready to go. Zero editing. Just post it.
+2. **Post "I'm No Longer the API"** to personal LinkedIn. Rewrite first, then post. Link original Substack.
 3. **Vernie Mode access code** — build the frontend gate so Randall can use it when he comes back.
 
 ---
