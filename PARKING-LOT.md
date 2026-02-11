@@ -9,7 +9,8 @@ Ideas that aren't tied to a session. They sit here until we build them, queue th
 ## Raw Ideas (just dumped, needs shaping)
 
 ### CMS in Reverse — Automation
-The drafts → post → track → commit workflow has too many manual steps. "Write it, post it, done" is the goal. Currently: write in docs/drafts, copy to platform, move to published, update TRACKER.md, commit. That's 5 steps for one post. Needs to get closer to 2.
+The drafts → post → track → commit workflow has too many manual steps. `/publish` (now global at `~/.claude/commands/publish.md`) generates all platform-native versions from one draft. Remaining friction is copy-paste into each platform. When volume hits 3x/week consistently, add Typefully ($12.50/month) for LinkedIn scheduling + auto-first-comment + analytics. Not yet.
+**Status:** `/publish` handles the generation. Paste-and-go for now. Typefully when volume justifies it.
 
 ### AI Editor Agent
 A skill or agent that edits generative text from other AI agents. Quality control layer between AI output and publishing. Could be a Claude Code skill. Could be a standalone tool. The question: is this a CW Strategies product, a personal workflow tool, or both?

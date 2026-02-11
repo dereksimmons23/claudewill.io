@@ -69,6 +69,12 @@
 - [ ] Platform launch strategy — Product Hunt, HN, Reddit. Which product leads?
 - [ ] Delete CDN-Project folder from Desktop (old copy, all files exist in cdn/)
 
+**Late session (after EOD):**
+- **CW Brief worker updated** — now fetches HANDOFF.md from GitHub and includes Slam Dunks in the morning Slack brief. Deployed to Cloudflare.
+- **`/publish` moved to global** — `~/.claude/commands/publish.md`. Works from any project. Project-local version removed.
+- **Distribution strategy decided:** `/publish` generates platform-native versions (no links in LinkedIn body, link-in-first-comment). No third-party tool yet — volume doesn't justify it. When posting 3x/week consistently, Typefully ($12.50/month) is the move — auto-posts first comment, scheduling, LinkedIn analytics.
+- **LinkedIn strategy:** personal page is the engine (2-3x/week), company page catches credibility (reshares + weekly newsletter digest at 150 followers). Currently at 134.
+
 **Slam Dunks** (kick off and walk away):
 
 | # | Task | Files | Acceptance Criteria | Confidence |
