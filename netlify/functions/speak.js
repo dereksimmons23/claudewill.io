@@ -8,6 +8,22 @@ const VOICES = {
   // mirae: process.env.ELEVENLABS_MIRAE_VOICE_ID,  // Phase 3
 };
 
+// Per-voice settings — tuned for natural delivery
+const VOICE_SETTINGS = {
+  derek: {
+    stability: 0.3,           // low = more natural variation, less teleprompter
+    similarity_boost: 0.6,    // loosened — less rigid adherence to clone
+    style: 0.7,               // high = conversational, expressive
+    use_speaker_boost: true
+  },
+  interviewer: {
+    stability: 0.5,           // Rachel sounds great already — keep her steady
+    similarity_boost: 0.75,
+    style: 0.4,
+    use_speaker_boost: true
+  }
+};
+
 const ALLOWED_ORIGINS = [
   'https://claudewill.io',
   'https://www.claudewill.io',
@@ -92,12 +108,7 @@ exports.handler = async (event) => {
         body: JSON.stringify({
           text: text.trim(),
           model_id: 'eleven_turbo_v2_5',
-          voice_settings: {
-            stability: 0.5,
-            similarity_boost: 0.75,
-            style: 0.4,
-            use_speaker_boost: true
-          }
+          voice_settings: VOICE_SETTINGS[voice] || VOICE_SETTINGS.derek
         })
       }
     );
