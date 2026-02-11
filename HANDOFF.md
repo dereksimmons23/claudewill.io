@@ -1,7 +1,45 @@
 # HANDOFF — claudewill.io
 
-**Last session:** February 10, 2026 — LinkedIn Services page, strategies page builder positioning, Granola post published, housekeeping day
-**Next session:** Liberation Gravy for Substack, CDN Friday prep (3 days), platform launch strategy
+**Last session:** February 11, 2026 — derek.html builder positioning, two-voice Q&A player, LinkedIn Substack promo
+**Next session:** CDN Friday prep (2 days), Liberation Gravy for Substack, platform launch strategy
+
+---
+
+## February 11, 2026 — derek.html Builder Positioning + Voice Layer Redesign
+
+**Work completed:**
+- **derek.html builder positioning aligned** — 11 text changes across meta tags, schema.org, bio lead, story section, and work cards. All consultant/coaching language replaced with "builds operational infrastructure" matching strategies.html.
+- **llms.txt updated** — CW Strategies line aligned to builder language.
+- **Voice layer redesigned** — Removed Bio and Story listen buttons (third-person problem solved by removal). Single Q&A button now plays podcast-style: stock interviewer voice (ElevenLabs "Rachel") asks questions, Derek's cloned voice answers. Gold left-border highlights active Q&A pair with auto-scroll.
+- **speak.js updated** — Added `interviewer` voice using ElevenLabs stock Rachel ID (public, hardcoded — no env var needed).
+- **LinkedIn Substack promo posted** — Derek pushed a promo on personal LinkedIn to the Substack piece.
+
+**Decisions made:**
+- Builder positioning is now consistent across strategies.html, derek.html, llms.txt, and LinkedIn company page. Same language everywhere.
+- Voice layer Phase 1b resolved: Bio and Story buttons removed entirely (not worth fixing third-person — Q&A is the only section that works in Derek's voice). Two-voice Q&A is the better product.
+- Q&A first-person content where Derek says "consultant" or "coaching" left as-is — that's him speaking honestly, not a positioning statement.
+
+**Prompt changes:** None. No recompile needed.
+
+**Deploy status:** Pushed (`994d40e4`), Netlify auto-deployed.
+
+**Commits (1 today):**
+- `994d40e4` — update: derek.html builder positioning + two-voice Q&A player
+
+**Open items:**
+- [ ] **CDN Friday conversation (Feb 13)** — 2 days. Frame as proof of building, not pitch.
+- [ ] Liberation Gravy for Substack — format with /publish, post this week.
+- [ ] hello@claudewill.io alias — parked, Google Admin domain config issue
+- [ ] Vernie Mode access code — Randall needs it when he comes back
+- [ ] LinkedIn company slug fix — `/cw-stategies` fixable early March 2026
+- [ ] Reddit strategy — u/cwStrategies needs karma
+- [ ] Finding Claude book — family-archive.md feeds both CW and the manuscript
+- [ ] Platform launch strategy — Product Hunt, HN, Reddit. Which product leads?
+
+**Next session priorities:**
+1. **CDN Friday prep** — 2 days out. Frame the conversation: you built their systems. Proof, not pitch.
+2. **Liberation Gravy for Substack** — format with /publish, post this week.
+3. **Platform launch strategy** — Product Hunt, HN, Reddit. Which product leads? What's the angle?
 
 ---
 

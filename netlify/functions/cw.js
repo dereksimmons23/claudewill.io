@@ -4,7 +4,7 @@
 
 const Anthropic = require('@anthropic-ai/sdk');
 const { createClient } = require('@supabase/supabase-js');
-const { SYSTEM_PROMPT } = require('./cw-prompt');
+const { SYSTEM_PROMPT, VERNIE_PROMPT } = require('./cw-prompt');
 
 // Initialize Supabase client (only if env vars are present)
 let supabase = null;
@@ -54,8 +54,9 @@ async function logConversation(data) {
   if (!supabase) return; // Skip if Supabase not configured
 
   try {
+    const table = data.table || 'conversations';
     await supabase
-      .from('conversations')
+      .from(table)
       .insert({
         timestamp: new Date().toISOString(),
         user_message: data.userMessage,
@@ -151,7 +152,7 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    let { messages, condition } = JSON.parse(event.body);
+    let { messages, condition, vernieCode } = JSON.parse(event.body);
 
     if (!messages || !Array.isArray(messages)) {
       return {
@@ -232,7 +233,11 @@ exports.handler = async (event, context) => {
       dateContext += `\nToday is your birthday. January 6, 1903. You can mention it if someone asks what day it is, but don't make it about you.`;
     }
 
-    const systemWithCondition = SYSTEM_PROMPT + dateContext + `\nCurrent condition: ${condition || 'clear'}`;
+    // Validate Vernie Mode access
+    const isVernieMode = vernieCode && vernieCode === process.env.VERNIE_CODE;
+    const basePrompt = isVernieMode ? VERNIE_PROMPT : SYSTEM_PROMPT;
+
+    const systemWithCondition = basePrompt + dateContext + `\nCurrent condition: ${condition || 'clear'}`;
 
     const response = await client.messages.create({
       model: 'claude-haiku-4-5',
@@ -258,7 +263,8 @@ exports.handler = async (event, context) => {
       tokenUsage: {
         input: response.usage.input_tokens,
         output: response.usage.output_tokens
-      }
+      },
+      table: isVernieMode ? 'family_conversations' : 'conversations'
     }).catch(err => console.error('Background logging error:', err));
 
     return {
@@ -266,6 +272,7 @@ exports.handler = async (event, context) => {
       headers,
       body: JSON.stringify({
         response: cwResponse,
+        vernieMode: isVernieMode,
         usage: {
           input_tokens: response.usage.input_tokens,
           output_tokens: response.usage.output_tokens

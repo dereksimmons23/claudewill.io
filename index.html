@@ -766,6 +766,174 @@
             color: var(--dim);
         }
 
+        /* Vernie Mode gate */
+        .vernie-gate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1500;
+            padding: 1rem;
+        }
+
+        .vernie-gate[hidden] {
+            display: none;
+        }
+
+        .vernie-gate-content {
+            background: var(--input-bg);
+            border: 1px solid var(--border);
+            max-width: 360px;
+            width: 100%;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .vernie-gate-content h2 {
+            font-family: var(--font-mono);
+            color: var(--accent);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .vernie-gate-content p {
+            color: var(--dim);
+            font-size: 0.9rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .vernie-code-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            text-align: center;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .vernie-code-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(212, 168, 75, 0.15);
+        }
+
+        .vernie-error {
+            color: #cc6666;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            min-height: 1.2em;
+        }
+
+        .vernie-submit {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 0.75rem 2rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-right: 0.5rem;
+        }
+
+        .vernie-submit:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        .vernie-cancel {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--dim);
+            padding: 0.75rem 1.5rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .vernie-cancel:hover {
+            border-color: var(--dim);
+        }
+
+        .vernie-indicator {
+            display: none;
+            font-size: 0.7rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.7;
+            margin-top: 0.4rem;
+        }
+
+        body.vernie-mode .vernie-indicator {
+            display: block;
+        }
+
+        body.vernie-mode .porch-light {
+            background: linear-gradient(90deg, #d4a84b 0%, rgba(232, 188, 95, 0.8) 50%, rgba(212, 168, 75, 0.5) 100%);
+            width: 240px;
+            box-shadow:
+                0 0 20px rgba(232, 188, 95, 1),
+                0 0 50px rgba(232, 188, 95, 0.7),
+                0 8px 80px rgba(232, 188, 95, 0.4),
+                0 15px 120px rgba(232, 188, 95, 0.2);
+        }
+
+        .family-link {
+            color: var(--dim);
+            text-decoration: none;
+            opacity: 0.5;
+            transition: opacity 0.2s;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        .family-link:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .vernie-exit {
+            display: none;
+            font-size: 0.75rem;
+            color: var(--dim);
+            opacity: 0.5;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+            transition: opacity 0.2s;
+        }
+
+        .vernie-exit:hover {
+            opacity: 1;
+        }
+
+        body.vernie-mode .vernie-exit {
+            display: inline;
+        }
+
+        @media (max-width: 700px) {
+            body.vernie-mode .porch-light {
+                width: 100%;
+            }
+        }
+
         /* Honeypot - hidden from humans */
         .hp-field {
             position: absolute;
@@ -843,7 +1011,9 @@
 
         <footer class="footer" role="contentinfo">
             Built by <a href="/derek">Derek</a> with Claude · &copy; 2026 <a href="/strategies">CW Strategies</a> LLC
-            <div style="margin-top: 0.4rem;"><a href="/the-cw-standard">The Standard</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></div>
+            <div style="margin-top: 0.4rem;"><a href="/the-cw-standard">The Standard</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <button class="family-link" id="family-link">Family?</button></div>
+            <div class="vernie-indicator" id="vernie-indicator">Vernie Mode</div>
+            <button class="vernie-exit" id="vernie-exit">Exit family mode</button>
         </footer>
     </div>
 
@@ -853,6 +1023,18 @@
         <input type="email" name="email">
         <textarea name="message"></textarea>
     </form>
+
+    <!-- Vernie Mode Gate -->
+    <div class="vernie-gate" id="vernie-gate" role="dialog" aria-modal="true" aria-labelledby="vernie-gate-title" hidden>
+        <div class="vernie-gate-content">
+            <h2 id="vernie-gate-title">Family</h2>
+            <p>If you're family, you have the code.</p>
+            <input type="text" class="vernie-code-input" id="vernie-code-input" placeholder="Enter code" autocomplete="off" maxlength="32" aria-label="Family access code">
+            <div class="vernie-error" id="vernie-error" role="alert"></div>
+            <button class="vernie-submit" id="vernie-submit">Come in</button>
+            <button class="vernie-cancel" id="vernie-cancel">Never mind</button>
+        </div>
+    </div>
 
     <!-- About Modal -->
     <div class="modal-overlay" id="about-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
@@ -900,6 +1082,7 @@
         let conversationEnded = false;
         let exchangeCount = 0;
         let derekMentioned = false;
+        let isVernieMode = false;
 
         // Contextual prompts based on conversation stage
         const promptSets = {
@@ -942,6 +1125,11 @@
         }
 
         function updatePrompts() {
+            // No prompt chips in Vernie Mode — family talks freely
+            if (isVernieMode) {
+                prompts.classList.add('hidden');
+                return;
+            }
             const stage = getPromptStage();
             const currentPrompts = promptSets[stage];
 
@@ -1138,7 +1326,8 @@
                     },
                     body: JSON.stringify({
                         messages: conversationHistory,
-                        condition: currentCondition
+                        condition: currentCondition,
+                        vernieCode: isVernieMode ? sessionStorage.getItem('cw-vernie-code') : undefined
                     })
                 });
                 
@@ -1296,6 +1485,124 @@
         // Close on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && !aboutModal.hidden) closeModal();
+        });
+
+        // === Vernie Mode ===
+        const familyLink = document.getElementById('family-link');
+        const vernieGate = document.getElementById('vernie-gate');
+        const vernieCodeInput = document.getElementById('vernie-code-input');
+        const vernieSubmit = document.getElementById('vernie-submit');
+        const vernieCancel = document.getElementById('vernie-cancel');
+        const vernieError = document.getElementById('vernie-error');
+        const vernieExit = document.getElementById('vernie-exit');
+
+        // Check for existing Vernie session on load
+        const storedVernieCode = sessionStorage.getItem('cw-vernie-code');
+        if (storedVernieCode) {
+            activateVernieMode(storedVernieCode, true);
+        }
+
+        familyLink.addEventListener('click', () => {
+            if (isVernieMode) return;
+            vernieGate.hidden = false;
+            vernieCodeInput.value = '';
+            vernieError.textContent = '';
+            vernieCodeInput.focus();
+        });
+
+        vernieCancel.addEventListener('click', () => {
+            vernieGate.hidden = true;
+        });
+
+        vernieGate.addEventListener('click', (e) => {
+            if (e.target === vernieGate) vernieGate.hidden = true;
+        });
+
+        vernieCodeInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') attemptVernieLogin();
+            if (e.key === 'Escape') vernieGate.hidden = true;
+        });
+
+        vernieSubmit.addEventListener('click', attemptVernieLogin);
+
+        async function attemptVernieLogin() {
+            const code = vernieCodeInput.value.trim();
+            if (!code) {
+                vernieError.textContent = 'Enter the family code.';
+                return;
+            }
+
+            vernieError.textContent = '';
+            vernieSubmit.disabled = true;
+            vernieSubmit.textContent = 'Checking...';
+
+            try {
+                const response = await fetch('/.netlify/functions/cw', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-session-id': sessionId
+                    },
+                    body: JSON.stringify({
+                        messages: [{ role: 'user', content: 'Family is here.' }],
+                        condition: currentCondition,
+                        vernieCode: code
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.vernieMode) {
+                    sessionStorage.setItem('cw-vernie-code', code);
+                    vernieGate.hidden = true;
+                    activateVernieMode(code, false);
+
+                    // Clear existing conversation and show CW's family greeting
+                    chat.innerHTML = '';
+                    conversationHistory = [
+                        { role: 'user', content: 'Family is here.' },
+                        { role: 'assistant', content: data.response }
+                    ];
+                    exchangeCount = 1;
+                    addMessage('cw', data.response);
+                } else {
+                    vernieError.textContent = "That's not it.";
+                }
+            } catch (err) {
+                vernieError.textContent = 'Connection problem. Try again.';
+            }
+
+            vernieSubmit.disabled = false;
+            vernieSubmit.textContent = 'Come in';
+        }
+
+        function activateVernieMode(code, isRestore) {
+            isVernieMode = true;
+            document.body.classList.add('vernie-mode');
+            prompts.classList.add('hidden');
+
+            if (isRestore) {
+                chat.innerHTML = '';
+                conversationHistory = [];
+                exchangeCount = 0;
+                addMessage('cw', 'Family porch is open. Who am I talking to?');
+            }
+        }
+
+        vernieExit.addEventListener('click', () => {
+            isVernieMode = false;
+            sessionStorage.removeItem('cw-vernie-code');
+            document.body.classList.remove('vernie-mode');
+            chat.innerHTML = '';
+            conversationHistory = [];
+            exchangeCount = 0;
+            derekMentioned = false;
+            conversationEnded = false;
+            addMessage('cw', getGreeting());
+            updatePrompts();
+            input.disabled = false;
+            send.disabled = false;
+            input.placeholder = 'What do you need?';
         });
     </script>
     <script src="/js/shared-nav.js"></script>
