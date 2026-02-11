@@ -3,6 +3,7 @@
 
 const VOICES = {
   derek: process.env.ELEVENLABS_DEREK_VOICE_ID,
+  interviewer: '21m00Tcm4TlvDq8ikWAM', // ElevenLabs stock "Rachel" — podcast Q&A interviewer
   // cw: process.env.ELEVENLABS_CW_VOICE_ID,       // Phase 2
   // mirae: process.env.ELEVENLABS_MIRAE_VOICE_ID,  // Phase 3
 };
