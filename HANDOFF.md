@@ -69,10 +69,16 @@
 - [ ] Platform launch strategy — Product Hunt, HN, Reddit. Which product leads?
 - [ ] Delete CDN-Project folder from Desktop (old copy, all files exist in cdn/)
 
+**Slam Dunks** (kick off and walk away):
+
+| # | Task | Files | Acceptance Criteria | Confidence |
+|---|------|-------|---------------------|------------|
+| 1 | `/publish` Liberation Gravy for Substack + all platforms | docs/drafts/linkedin/countup-04-post.md → docs/distro/liberation-gravy/ | Substack version ready to paste, LinkedIn personal (no links in body), LinkedIn company (reshare or skip), Reddit (suggested sub), HN (skip if no tech angle). TRACKER.md updated. | HIGH |
+
 **Next session priorities:**
-1. **CDN Friday** — read prep doc, review Joel sketches if they arrived, check Beehiiv call status.
-2. **Text Randall the code** — "pepper" — let him use Vernie Mode before the family post.
-3. **Liberation Gravy for Substack** — `/publish` to generate all platform versions, post this week.
+1. **Dunk 1** — Liberation Gravy through `/publish`. Say "dunk 1" to execute.
+2. **CDN Friday** — read prep doc, review Joel sketches if they arrived, check Beehiiv call status.
+3. **Text Randall the code** — "pepper" — let him use Vernie Mode before the family post.
 
 ---
 
