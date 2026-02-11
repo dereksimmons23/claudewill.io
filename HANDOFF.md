@@ -28,9 +28,10 @@
 
 **Open items:**
 - [ ] **CDN Friday conversation (Feb 13)** — 2 days. Frame as proof of building, not pitch.
+- [ ] **Set VERNIE_CODE env var in Netlify** — Vernie Mode is deployed but needs the code to activate.
+- [ ] **Retrain Derek's cloned voice in ElevenLabs** — still sounds like reading, needs new audio samples.
 - [ ] Liberation Gravy for Substack — format with /publish, post this week.
 - [ ] hello@claudewill.io alias — parked, Google Admin domain config issue
-- [ ] Vernie Mode access code — Randall needs it when he comes back
 - [ ] LinkedIn company slug fix — `/cw-stategies` fixable early March 2026
 - [ ] Reddit strategy — u/cwStrategies needs karma
 - [ ] Finding Claude book — family-archive.md feeds both CW and the manuscript

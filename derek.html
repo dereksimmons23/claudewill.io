@@ -1071,6 +1071,25 @@
         btn.querySelector('.listen-icon').innerHTML = '&#9679;';
 
         try {
+          // Rachel reads the bio intro first
+          const bioLead = document.querySelector('.bio-lead');
+          if (bioLead) {
+            const introBlob = await speakChunk(bioLead.textContent.trim(), 'interviewer');
+            if (cancelled) return;
+
+            btn.classList.remove('loading');
+            btn.classList.add('playing');
+            btn.querySelector('.listen-icon').innerHTML = '&#9724;';
+
+            await playBlob(introBlob);
+            if (cancelled) return;
+
+            // Pause before Q&A starts
+            btn.classList.add('loading');
+            btn.querySelector('.listen-icon').innerHTML = '&#9679;';
+            await new Promise(r => setTimeout(r, 600));
+          }
+
           for (let i = 0; i < pairs.length; i++) {
             if (cancelled) return;
             const pair = pairs[i];
