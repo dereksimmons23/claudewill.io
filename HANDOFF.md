@@ -1,46 +1,78 @@
 # HANDOFF — claudewill.io
 
-**Last session:** February 11, 2026 — derek.html builder positioning, two-voice Q&A player, LinkedIn Substack promo
-**Next session:** CDN Friday prep (2 days), Liberation Gravy for Substack, platform launch strategy
+**Last session:** February 11, 2026 — biggest day yet: positioning, voice, Vernie Mode live, prompt rewrite, /publish global, CDN Friday prepped
+**Next session:** CDN Friday (2 days), text Randall the code, Liberation Gravy for Substack
 
 ---
 
-## February 11, 2026 — derek.html Builder Positioning + Voice Layer Redesign
+## February 11, 2026 — Builder Positioning + Vernie Mode + More Claude Will
 
 **Work completed:**
 - **derek.html builder positioning aligned** — 11 text changes across meta tags, schema.org, bio lead, story section, and work cards. All consultant/coaching language replaced with "builds operational infrastructure" matching strategies.html.
 - **llms.txt updated** — CW Strategies line aligned to builder language.
 - **Voice layer redesigned** — Removed Bio and Story listen buttons (third-person problem solved by removal). Single Q&A button now plays podcast-style: stock interviewer voice (ElevenLabs "Rachel") asks questions, Derek's cloned voice answers. Gold left-border highlights active Q&A pair with auto-scroll.
-- **speak.js updated** — Added `interviewer` voice using ElevenLabs stock Rachel ID (public, hardcoded — no env var needed).
+- **speak.js per-voice settings** — Derek's voice: stability 0.3, similarity_boost 0.6, style 0.7 (more natural, less teleprompter). Rachel keeps original settings. Still needs voice retrain at ElevenLabs level.
+- **Rachel reads bio intro** — Interviewer voice now reads the bio lead paragraph before Q&A pairs start. 600ms pause between intro and first question.
+- **Vernie Mode shipped** — Full family access gate for CW's Porch:
+  - "Family?" link in footer (50% opacity, subtle)
+  - Code gate overlay — shared family code, validated server-side against `VERNIE_CODE` env var
+  - Separate `family_conversations` Supabase table (mirrors `conversations` + `family_member_name`)
+  - Vernie prompt: persona + family + family-archive + cw-standard + behaviors + vernie-mode + hallucination + safety guardrails. Drops derek.md, tools, political/protection guardrails, site-knowledge (saves ~6K tokens, adds ~2K for archive + overlay)
+  - Warmer porch light, hidden prompt chips, "Vernie Mode" indicator in footer, exit button
+  - sessionStorage (cleared on tab close), silent failure on wrong code
+  - `vernie-mode.md` created — 10 behavioral rules: warmth first, ask who they are, collect stories, share freely, admit gaps without suspicion, no tools, no sales, longer leash, story collection posture, handle emotion
+- **CW prompt rewrite — "more Claude Will"** — The will is in the choosing. CW always had the will — he spent it on other people.
+  - `persona.md`: Added THE WILL section, extended race horses moment ("never stopped knowing the difference"), expanded HOW YOU TALK with Oklahoma cadence and flat delivery
+  - `behaviors.md`: Stripped checklist format entirely, rewrote as instinct. Removed numbered Three Questions framework (now conversational). Condensed referrals from category headers to one-liners. Removed McConaughey reference. "HOW YOU WERE BUILT" rewritten in CW's voice. Anti-sell simplified. Conversation rhythm feels, not counts.
+  - Prompt sizes after rewrite: standard 43,799 chars, vernie 28,653 chars
 - **LinkedIn Substack promo posted** — Derek pushed a promo on personal LinkedIn to the Substack piece.
+- **VERNIE_CODE env var set + deployed** — code is `pepper`. Netlify redeployed. Vernie Mode tested and working end-to-end. Family conversations logging to `family_conversations` table.
+- **CDN Friday prep written** — `cdn/projects/cw-strategies/Friday_Prep_Feb13.md`. Objection handling, walk-away floor ($10K), open threads since assessment sent, three questions Cynthia got.
+- **`/publish` skill rewritten and moved to global** — now at `~/.claude/commands/publish.md` (was project-local). One draft → all platforms (LinkedIn personal, LinkedIn company, Substack, Reddit, HN). No links in LinkedIn body (algorithm penalty) — link-in-first-comment strategy. `/publish digest` for weekly company newsletter rollup. Template updated.
+- **Supabase data reviewed** — 532 messages, 53 sessions all time. 3 non-Derek visitors in 14 days. Randall (`-kpruby`) is the power user: 45 messages, 3 sessions, last visit Feb 8. Reviewed his full Feb 8 transcript — CW interrogated him for 18 exchanges before accepting he was family, then pivoted to a consulting pitch when Randall said "go deeper with Derek." He meant family. CW heard business. Vernie Mode fixes this.
+- **LinkedIn at 134 followers** — 16 from newsletter unlock at 150.
 
 **Decisions made:**
 - Builder positioning is now consistent across strategies.html, derek.html, llms.txt, and LinkedIn company page. Same language everywhere.
-- Voice layer Phase 1b resolved: Bio and Story buttons removed entirely (not worth fixing third-person — Q&A is the only section that works in Derek's voice). Two-voice Q&A is the better product.
-- Q&A first-person content where Derek says "consultant" or "coaching" left as-is — that's him speaking honestly, not a positioning statement.
+- Voice layer Phase 1b resolved: Bio and Story buttons removed (Q&A only). Two-voice podcast is the product.
+- Vernie Mode: shared family code (one code, CW asks who they are), same porch with gate, separate Supabase table for privacy.
+- CW's will is real — he just spent it on other people instead of himself. "The will is in the choosing." The prompt now reflects this: CW speaks up when it matters, stays quiet when it doesn't.
+- `/publish` is a global command, not project-local. Content distribution is practice-level.
+- LinkedIn strategy: personal is the engine (2-3x/week native text, no links in body), company catches credibility (reshares + weekly newsletter digest when 150 unlocks it).
+- Family Facebook post — parked. Text Randall first, let him use it, then invite family. Frame as story collection, not announcement. Make them come to you for the code.
 
-**Prompt changes:** None. No recompile needed.
+**Prompt changes:** Yes — persona.md rewritten, behaviors.md rewritten, vernie-mode.md created, compile-prompt.js + index.js updated for dual prompt. Recompiled twice (Vernie Mode, then prompt rewrite).
 
-**Deploy status:** Pushed (`994d40e4`), Netlify auto-deployed.
+**Deploy status:** All pushed, Netlify deployed twice (commits + VERNIE_CODE env var). CW healthy: 11,198 input tokens, in character, race horse story landing naturally.
 
-**Commits (1 today):**
+**Commits (5 today):**
 - `994d40e4` — update: derek.html builder positioning + two-voice Q&A player
+- `d814871d` — per-voice settings for two-voice Q&A
+- `c552d27c` — Vernie Mode — family access for CW's Porch
+- `2fb84cf6` — Rachel reads bio intro before Q&A
+- `eabbec16` — more Claude Will — persona sharpened, behaviors rewritten
 
 **Open items:**
-- [ ] **CDN Friday conversation (Feb 13)** — 2 days. Frame as proof of building, not pitch.
-- [ ] **Set VERNIE_CODE env var in Netlify** — Vernie Mode is deployed but needs the code to activate.
-- [ ] **Retrain Derek's cloned voice in ElevenLabs** — still sounds like reading, needs new audio samples.
-- [ ] Liberation Gravy for Substack — format with /publish, post this week.
+- [x] ~~CDN Friday prep~~ — DONE. `cdn/projects/cw-strategies/Friday_Prep_Feb13.md`
+- [x] ~~Set VERNIE_CODE env var~~ — DONE. Code is `pepper`.
+- [x] ~~Test Vernie Mode~~ — DONE. Working end-to-end.
+- [ ] **CDN Friday conversation (Feb 13)** — 2 days. Read the prep doc morning of.
+- [ ] **Text Randall the code** — he's earned it. 45 messages, 3 sessions. Family gate fixes everything that went wrong Feb 8.
+- [ ] **Retrain Derek's cloned voice in ElevenLabs** — still sounds scripted. Needs new audio samples recorded conversationally.
+- [ ] Liberation Gravy for Substack — use `/publish` to generate all platform versions.
+- [ ] **LinkedIn: 16 more followers to newsletter** — post 2-3x this week on personal to push past 150.
+- [ ] Simmons family Facebook post — parked. Text Randall first.
 - [ ] hello@claudewill.io alias — parked, Google Admin domain config issue
 - [ ] LinkedIn company slug fix — `/cw-stategies` fixable early March 2026
 - [ ] Reddit strategy — u/cwStrategies needs karma
 - [ ] Finding Claude book — family-archive.md feeds both CW and the manuscript
 - [ ] Platform launch strategy — Product Hunt, HN, Reddit. Which product leads?
+- [ ] Delete CDN-Project folder from Desktop (old copy, all files exist in cdn/)
 
 **Next session priorities:**
-1. **CDN Friday prep** — 2 days out. Frame the conversation: you built their systems. Proof, not pitch.
-2. **Liberation Gravy for Substack** — format with /publish, post this week.
-3. **Platform launch strategy** — Product Hunt, HN, Reddit. Which product leads? What's the angle?
+1. **CDN Friday** — read prep doc, review Joel sketches if they arrived, check Beehiiv call status.
+2. **Text Randall the code** — "pepper" — let him use Vernie Mode before the family post.
+3. **Liberation Gravy for Substack** — `/publish` to generate all platform versions, post this week.
 
 ---
 

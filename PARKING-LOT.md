@@ -1,6 +1,6 @@
 # Parking Lot — claudewill.io
 
-**Last updated:** February 10, 2026
+**Last updated:** February 11, 2026
 
 Ideas that aren't tied to a session. They sit here until we build them, queue them, or kill them.
 
@@ -24,9 +24,9 @@ Executive assistant concept for the site. Potentially useful but also potentiall
 
 ## Under Evaluation (thinking about it, needs more shape)
 
-### Vernie Mode
-Access code via text. Family history collection. Warmth-first posture. Derek texts the code directly — "If they know me, they have my phone number." Family-archive.md is the data source. Frontend gate needed. Randall Koutz is the first user when he comes back.
-**Status:** Concept clear, not built. Blocked on: frontend access code pattern.
+### ~~Vernie Mode~~ — SHIPPED (Feb 11)
+Built and deployed. Shared family code, "Family?" link in footer, server-side validation, separate `family_conversations` Supabase table, warmer CW posture with `vernie-mode.md` overlay. Needs: `VERNIE_CODE` env var set in Netlify, then text Randall the code.
+**Status:** Shipped. Pending activation (env var).
 
 ### Asterisk Brand Mark
 The asterisk (asteriskos, "little star") as CW's brand mark. Birth notation in typography. See `docs/drafts/brand-asterisk.md` for full notes. Needs: typeface decision, placement decision, whether it replaces or supplements current visual identity.
@@ -45,12 +45,12 @@ Visual dashboard for conversation insights instead of raw SQL queries. CW Brief 
 **Status:** Low priority while traffic is low.
 
 ### Session Memory
-Remember returning visitors across sessions. Parked — CW is a porch conversation, not a daily assistant. May revisit for Family Mode / Vernie Mode.
-**Status:** Parked. Revisit when Vernie Mode ships.
+Remember returning visitors across sessions. Parked — CW is a porch conversation, not a daily assistant. Vernie Mode shipped (Feb 11) — family visitors now get a warmer CW, but no cross-session memory yet.
+**Status:** Parked. Vernie Mode shipped — revisit if family wants continuity between visits.
 
 ### Multi-Agent Family
-CW for practical advice. Vernie for family history. Others TBD. Related to Vernie Mode but bigger scope.
-**Status:** Parked until Vernie Mode proves the concept.
+CW for practical advice. Vernie for family history. Others TBD. Vernie Mode shipped (Feb 11) — CW in family mode, not a separate Vernie agent yet. This is the next step if family usage proves the concept.
+**Status:** Parked. Watch family usage first.
 
 ### CW Standard as Framework
 Package the five principles into a reusable framework for other AI implementations. Could be a product, could be open source, could be a consulting deliverable.
@@ -64,9 +64,9 @@ Let people talk to CW instead of typing on the Porch. Phase 4 of voice roadmap (
 
 ## Queued (decided yes, waiting for the right time)
 
-### CW Strategies Positioning Rewrite
-"Builder, not consultant" language needs to flow through all copy — strategies page body text is partially done (tagline updated Feb 10), but derek.html, llms.txt, and other references still say "consulting practice" or "fractional COO."
-**Status:** In progress. Strategies page updated. Others pending.
+### ~~CW Strategies Positioning Rewrite~~ — DONE (Feb 11)
+Builder language now consistent across strategies.html, derek.html, llms.txt, and LinkedIn company page. All "consultant/coaching/fractional COO" language replaced with "builds operational infrastructure."
+**Status:** Complete.
 
 ### Reddit Strategy
 u/cwStrategies needs karma before posting links. Comment on other posts first. Too new to post links directly — spam filter blocks them.
