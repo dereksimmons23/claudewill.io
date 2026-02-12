@@ -8,9 +8,21 @@ Ideas that aren't tied to a session. They sit here until we build them, queue th
 
 ## Raw Ideas (just dumped, needs shaping)
 
-### CMS in Reverse — Automation
-The drafts → post → track → commit workflow has too many manual steps. `/publish` (now global at `~/.claude/commands/publish.md`) generates all platform-native versions from one draft. Remaining friction is copy-paste into each platform. When volume hits 3x/week consistently, add Typefully ($12.50/month) for LinkedIn scheduling + auto-first-comment + analytics. Not yet.
-**Status:** `/publish` handles the generation. Paste-and-go for now. Typefully when volume justifies it.
+### CMS in Reverse — Content Library on claudewill.io
+claudewill.io should be the canonical home for all content. Every piece lives here first (SEO, domain authority), then gets syndicated to Substack (email), LinkedIn (network), Reddit (community). Typefully ($12.50/month) for distribution scheduling when volume hits 3x/week.
+
+**Architecture decisions (Feb 12):**
+- Content library is NOT a new top-level URL — too many slashes already
+- Likely lives under /derek (his thinking, his writing) but exact structure TBD
+- /the-cw-standard should shorten to /standard (every URL = /oneword)
+- Existing identity pages (/story, /derek, /strategies) stay as-is — they're not articles
+- /stable stays as product portfolio — content is thinking, not products
+- Markdown → HTML build step (like compile-prompt.js) to convert .md files to site pages
+- Netlify redirect from /the-cw-standard → /standard so existing links don't break
+
+**Open question:** What's the right relationship between /derek and the content? Not fully resolved. Conversation for another session.
+
+**Status:** Architecture in progress. Not building yet. `/publish` handles generation at ecosystem level. Paste-and-go for now.
 
 ### AI Editor Agent
 A skill or agent that edits generative text from other AI agents. Quality control layer between AI output and publishing. Could be a Claude Code skill. Could be a standalone tool. The question: is this a CW Strategies product, a personal workflow tool, or both?
