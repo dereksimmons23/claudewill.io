@@ -134,6 +134,32 @@ async function generateBrief(env) {
 
   lines.push('');
 
+  // --- Slam Dunks from HANDOFF.md ---
+  try {
+    const handoffResponse = await fetch('https://raw.githubusercontent.com/dereksimmons23/claudewill.io/main/HANDOFF.md');
+    if (handoffResponse.ok) {
+      const handoff = await handoffResponse.text();
+      const slamMatch = handoff.match(/\*\*Slam Dunks\*\*[^\n]*\n\n\|[^\n]+\n\|[^\n]+\n((?:\|[^\n]+\n)*)/);
+      if (slamMatch) {
+        const rows = slamMatch[1].trim().split('\n').filter(r => r.startsWith('|'));
+        if (rows.length > 0) {
+          lines.push('**Slam Dunks:**');
+          for (const row of rows) {
+            const cols = row.split('|').map(c => c.trim()).filter(Boolean);
+            if (cols.length >= 4) {
+              lines.push(`- ${cols[0]}. ${cols[1]} → ${cols[2]}`);
+            }
+          }
+          lines.push('_(say "dunk N" in Claude Code to execute)_');
+        }
+      }
+    }
+  } catch (e) {
+    // Silently skip if GitHub fetch fails — not critical
+  }
+
+  lines.push('');
+
   // --- CW health ---
   lines.push('**System:** CW Porch operational (check /health for live status)');
 

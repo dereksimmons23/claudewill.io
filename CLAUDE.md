@@ -1,6 +1,6 @@
 # CLAUDE.md — claudewill.io
 
-**Last updated:** February 6, 2026
+**Last updated:** February 12, 2026
 **Status:** v1.0 LAUNCHED
 **Milestone:** CW's 123rd birthday — LIVE
 
@@ -71,6 +71,7 @@ claudewill.io/
 ├── privacy.html            # Privacy policy
 ├── terms.html              # Terms of use
 ├── HANDOFF.md              # Session state (read by /standup)
+├── TRACKER.md              # Feature/experiment tracking
 ├── site-registry.json      # Page/subdomain registry for CW
 ├── css/                    # Stylesheets
 ├── js/
@@ -92,22 +93,23 @@ claudewill.io/
 │           ├── site-knowledge.md # The Stable, pages
 │           ├── tools/       # CW conversation tools: sizing, trade, recalibrate, etc.
 │           └── guardrails/  # Safety, hallucination, political
+├── worker/                 # CW Brief Cloudflare worker
 ├── .claude/
 │   └── skills/             # Claude Code workflow skills (gitignored)
 │       ├── standup/         # Morning opener
-│       ├── eod/             # End of session (absorbs old /handoff)
+│       ├── eod/             # End of session
 │       ├── status/          # Cross-area health check
 │       ├── tracker/         # Feature/work tracking
 │       ├── housekeeping/    # Repo hygiene
 │       ├── meeting/         # Transcript processing
-│       ├── publish/         # Content distribution pipeline
+│       ├── recalibrate/     # 7-question framework
 │       └── brief/           # Morning analytics
-├── docs/
-│   ├── drafts/              # Gitignored — LinkedIn drafts, founders, planning, derek
-│   ├── published/           # Tracked — published LinkedIn posts, launched content
-│   └── reference/           # Gitignored — research, old concepts
-└── CW-Strategies/           # Heritage content, frameworks (gitignored)
+└── docs/
+    ├── drafts/              # Gitignored — founders, planning, derek
+    └── reference/           # Gitignored — research, old concepts
 ```
+
+**Note:** LinkedIn content and publishing workflows live in `~/Desktop/writing/`. CDN client deliverables live in `~/Desktop/cdn/`. This repo is the product — CW's Porch, business presence, prompt system.
 
 ---
 
@@ -152,9 +154,8 @@ If any of these happen, pause and restructure before adding more:
 | `story.html` | The Story page | Noto Serif, progress bar, print styles |
 | `js/chat-prompts-artifact.js` | Prompt chips | Changes by conversation stage |
 | `HANDOFF.md` | Session state for /standup | **Updated by /eod** |
-| `docs/drafts/` | Working content — LinkedIn drafts, planning, founders | Gitignored — stays local |
-| `docs/published/` | Published content — LinkedIn posts | Tracked in git |
-| `docs/reference/` | Research, old concepts, geo-strategy | Gitignored — stays local |
+| `docs/drafts/` | Working content — founders, planning, derek | Gitignored — stays local |
+| `docs/reference/` | Research, old concepts | Gitignored — stays local |
 
 ---
 
@@ -169,7 +170,7 @@ CW's personality is modularized in `netlify/functions/cw-prompt/` — persona.md
 - Don't mix them up. Haiku can't do complex architecture. Opus is overkill for chat.
 
 ### docs/ Folder
-`docs/drafts/` and `docs/reference/` are gitignored — working content stays local. `docs/published/` is tracked — published content gets version controlled. See `~/Desktop/method/content-structure.md` for the convention.
+`docs/drafts/` and `docs/reference/` are gitignored — working content stays local. LinkedIn content and all publishing workflows moved to `~/Desktop/writing/` (Feb 12, 2026).
 
 ### Condition System
 The frontend sends a `condition` (clear, partly-cloudy, overcast, stormy, snow) based on local weather. CW's porch light glow intensity varies by condition. This is mostly visual — don't overthink it.
@@ -189,13 +190,10 @@ Claude Code stores conversations at:
 
 ### Starting a Session
 ```bash
-cd /Users/dereksimmons/Desktop/claudewill.io
-claude
+cw porch
 ```
 
 **First thing every session:** Run `/standup` — it reads HANDOFF.md, checks CW health, surfaces priorities, and asks what we're working on.
-
-Then the user says: "cw" or provides more context ("cw - ready to work on X")
 
 ### The Session
 ```
@@ -220,7 +218,7 @@ Skills live in `.claude/skills/`:
 | `/tracker` | Feature/work tracking (view, add, update) |
 | `/housekeeping` | Repo hygiene — loose files, stale dates, prompt integrity |
 | `/meeting` | Process transcript/notes into structured summary |
-| `/publish` | Format draft for platform distribution (Substack, LinkedIn, Reddit) |
+| `/recalibrate` | 7-question framework for any subject at a crossroads |
 | `/brief` | Morning analytics — conversations, content calendar, CW health |
 
 ### Resuming Context
