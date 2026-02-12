@@ -53,6 +53,7 @@ netlify/*.txt
 .netlify/
 SESSION_CLOSEOUT.md
 SESSION_ARCHIVE_JAN2026.md
+HANDOFF.md
 CLAUDE.md
 DEREK.md
 deno.lock
