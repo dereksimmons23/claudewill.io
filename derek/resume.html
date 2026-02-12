@@ -245,24 +245,193 @@
       }
     }
 
+    .skills-section {
+      display: none;
+    }
+
+    .skills-list {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--dim);
+    }
+
+    .references-note {
+      display: none;
+    }
+
+    .contact-buttons {
+      margin-bottom: 40px;
+    }
+
+    .contact-print {
+      display: none;
+    }
+
+    .summary-text {
+      font-size: 0.95rem;
+      color: var(--dim);
+      line-height: 1.8;
+    }
+
+    .print-btn {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--dim);
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .print-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
     @media print {
-      .porch-light, .back-link {
-        display: none;
+      .porch-light, .print-btn, .back-link,
+      .back-link-row, .contact-buttons {
+        display: none !important;
+      }
+
+      .contact-print {
+        display: block;
+        font-size: 9.5pt;
+        color: #555;
+        margin-bottom: 24px;
+      }
+
+      .contact-print a {
+        color: #555;
+        text-decoration: none;
       }
 
       body {
         background: white;
         color: black;
+        font-size: 10.5pt;
+        line-height: 1.5;
       }
 
       .container {
         max-width: 100%;
-        padding: 40px;
+        padding: 0;
+      }
+
+      h1 {
+        font-size: 18pt;
+        margin-bottom: 2px;
+      }
+
+      .tagline {
+        font-size: 10pt;
+        color: #444;
+        margin-bottom: 16px;
+      }
+
+      .section {
+        margin-bottom: 28px;
+      }
+
+      .section-title {
+        font-size: 9pt;
+        margin-bottom: 8px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #ccc;
+        color: #333;
+      }
+
+      .experience-item {
+        margin-bottom: 14px;
+        break-inside: avoid;
+      }
+
+      .job-title {
+        font-size: 10.5pt;
+      }
+
+      .date {
+        font-size: 9pt;
+      }
+
+      .organization {
+        font-size: 9.5pt;
+        margin-bottom: 4px;
+      }
+
+      .experience-list li {
+        font-size: 9.5pt;
+        color: #333;
+        margin-bottom: 2px;
+        position: relative;
+        padding-left: 12px;
+      }
+
+      .experience-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 7px;
+        width: 3px;
+        height: 3px;
+        background: #333;
+        border-radius: 50%;
+      }
+
+      .education p {
+        font-size: 9.5pt;
+        margin-bottom: 4px;
+      }
+
+      .summary-text {
+        font-size: 10pt;
+        color: #333;
+        line-height: 1.5;
       }
 
       .recommendation {
-        background: #f5f5f5;
-        border: 1px solid #ddd;
+        background: none;
+        border: none;
+        padding: 0;
+        margin-bottom: 28px;
+        break-inside: avoid;
+      }
+
+      .recommendation-text {
+        font-size: 15pt;
+        font-style: normal;
+        color: #333;
+        line-height: 1.7;
+        margin-bottom: 0;
+      }
+
+      .skills-section {
+        display: block;
+      }
+
+      .skills-list {
+        font-size: 10pt;
+        color: #333;
+      }
+
+      .references-note {
+        display: block;
+        font-family: var(--font-sans);
+        font-size: 9.5pt;
+        color: #555;
+        margin-top: 32px;
+        font-style: italic;
+      }
+
+      .section:last-child .section-title {
+        margin-bottom: 28px;
+      }
+
+      footer {
+        display: none;
       }
     }
   </style>
@@ -272,20 +441,24 @@
   <div class="porch-light"></div>
 
   <div class="container">
-    <a href="/derek" class="back-link">
-      <span>←</span> Back to Derek
-    </a>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
+      <a href="/derek" class="back-link" style="margin-bottom: 0;">
+        <span>←</span> Back to Derek
+      </a>
+      <button onclick="window.print()" class="print-btn">Print / Save PDF</button>
+    </div>
 
     <h1>Derek Simmons</h1>
-    <p class="tagline">Designs the process and trusts the players.</p>
-
+    <p class="tagline">Founder, CW Strategies LLC</p>
+    <div class="connect-links contact-buttons">
+      <a href="mailto:derek@claudewill.io">Email</a>
+      <a href="https://www.linkedin.com/in/dereksimm/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/dereksimmons23" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="contact-print"><a href="mailto:derek@claudewill.io">derek@claudewill.io</a> · <a href="https://www.linkedin.com/in/dereksimm/">linkedin.com/in/dereksimm</a> · <a href="https://github.com/dereksimmons23">github.com/dereksimmons23</a></p>
     <div class="section">
-      <h2 class="section-title">Connect</h2>
-      <div class="connect-links">
-        <a href="https://www.linkedin.com/in/dereksimm/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/dereksimmons23" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://derek4thecws.substack.com" target="_blank" rel="noopener">Substack</a>
-      </div>
+      <h2 class="section-title">Summary</h2>
+      <p class="summary-text">Three decades in media, sports, and technology. Made two newspapers the best in the world. First and only Chief Creative Officer and Vice President at the Star Tribune. Generated $20M+ in revenue during a pandemic in a declining industry. Now building the systems organizations need to scale — with AI — at CW Strategies.</p>
     </div>
 
     <div class="section">
@@ -293,13 +466,15 @@
 
       <div class="experience-item">
         <div class="job-header">
-          <span class="job-title">Founder & Principal Consultant</span>
+          <span class="job-title">Founder</span>
           <span class="date">Nov 2024 - Present</span>
         </div>
-        <div class="organization">CW Strategies | AI Strategy and Media Transformation</div>
+        <div class="organization">CW Strategies LLC</div>
         <ul class="experience-list">
-          <li>AI strategy and media transformation consulting for organizations navigating complexity and change</li>
-          <li>Building CW's Porch, The Standard, and related AI frameworks</li>
+          <li>Built AI-native business designing processes organizations need to scale</li>
+          <li>Active client engagement: strategy, audience development, AI integration, operations</li>
+          <li>Created AI conversation platform for CW Strategies at claudewill.io</li>
+          <li>Built portfolio of applications, agents, content systems, and training platforms</li>
         </ul>
       </div>
 
@@ -354,24 +529,28 @@
       </div>
     </div>
 
+    <div class="section skills-section">
+      <h2 class="section-title">Skills</h2>
+      <p class="skills-list">AI Strategy · Media Transformation · Revenue Growth · Audience Development · Content Operations · Digital Product · Team Leadership · Cross-Functional Management · Visual Journalism · Brand Strategy</p>
+    </div>
+
     <div class="section">
-      <h2 class="section-title">Recommendations</h2>
+      <h2 class="section-title">Colleagues on Derek Simmons</h2>
 
       <div class="recommendation">
-        <p class="recommendation-text">"Derek consistently demonstrated exceptional strategic thinking and cross-functional leadership capabilities essential for executive-level roles... He was instrumental in developing revenue-generating initiatives that contributed to the generation of more than $20 million in revenue."</p>
-        <p class="recommender"><strong>Michelle Mueller</strong><br>Senior Vice President, Human Resources</p>
+        <p class="recommendation-text">"Consistently demonstrated exceptional strategic thinking and cross-functional leadership capabilities essential for executive-level roles... Instrumental in developing revenue-generating initiatives that contributed to the generation of more than $20 million in revenue."</p>
       </div>
 
       <div class="recommendation">
-        <p class="recommendation-text">"Derek has been crucial to the Star Tribune's uncommon success and stability in a perilous era... He is not a leader who merely manages whatever arises - he keeps daring to break new ground."</p>
-        <p class="recommender"><strong>Rene Sanchez</strong><br>Executive Editor and Vice President</p>
+        <p class="recommendation-text">"Crucial to the Star Tribune's uncommon success and stability in a perilous era... Not a leader who merely manages whatever arises - keeps daring to break new ground."</p>
       </div>
 
       <div class="recommendation">
-        <p class="recommendation-text">"Derek may be the most productive and innovative person I know... He's a born strategist... He sees the big picture while keeping a firm grasp on the details."</p>
-        <p class="recommender"><strong>Monica Moses</strong><br>Executive Director, Product Innovation</p>
+        <p class="recommendation-text">"May be the most productive and innovative person I know... A born strategist... Sees the big picture while keeping a firm grasp on the details."</p>
       </div>
     </div>
+
+    <p class="references-note">Recommendations available upon request.</p>
 
     <footer>
       <p>Built by <a href="/derek">Derek</a> with Claude · &copy; 2026 <a href="/strategies">CW Strategies</a> LLC</p>
