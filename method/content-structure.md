@@ -68,7 +68,7 @@ Published content is never gitignored.
 
 ## Content Calendar
 
-`~/Desktop/method/content-calendar.md` is the shared ledger across projects.
+`~/Desktop/claudewill.io/method/content-calendar.md` is the shared ledger across projects.
 
 Both writing/ and claudewill.io reference it. When you publish something, log it. When you're planning what to write next, check it. Keeps LinkedIn and Substack from stepping on each other.
 

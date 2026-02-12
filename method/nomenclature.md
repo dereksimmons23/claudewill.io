@@ -146,9 +146,9 @@ CW Strategies
 
 | What | Where |
 |------|-------|
-| Method docs | `~/Desktop/method/` |
-| Content structure | `~/Desktop/method/content-structure.md` |
-| Content calendar | `~/Desktop/method/content-calendar.md` |
+| Method docs | `~/Desktop/claudewill.io/method/` |
+| Content structure | `~/Desktop/claudewill.io/method/content-structure.md` |
+| Content calendar | `~/Desktop/claudewill.io/method/content-calendar.md` |
 | CW Standard | Everywhere (governs all projects) |
 | Tools (CW features) | `claudewill.io/netlify/functions/cw-prompt/tools/` |
 | Skills (workflows) | `.claude/skills/` per project |
