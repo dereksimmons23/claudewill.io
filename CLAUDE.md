@@ -71,7 +71,6 @@ claudewill.io/
 ├── privacy.html            # Privacy policy
 ├── terms.html              # Terms of use
 ├── HANDOFF.md              # Session state (read by /standup)
-├── TRACKER.md              # Feature/experiment tracking
 ├── site-registry.json      # Page/subdomain registry for CW
 ├── css/                    # Stylesheets
 ├── js/
@@ -93,6 +92,13 @@ claudewill.io/
 │           ├── site-knowledge.md # The Stable, pages
 │           ├── tools/       # CW conversation tools: sizing, trade, recalibrate, etc.
 │           └── guardrails/  # Safety, hallucination, political
+├── method/                 # CW Method — publishable methodology docs
+│   ├── README.md           # Method overview
+│   ├── start.md            # How to show up
+│   ├── work.md             # How to do the work
+│   ├── finish.md           # How to leave it clean
+│   ├── decide.md           # How to see clearly (four lenses)
+│   └── templates/          # CLAUDE.md, HANDOFF.md, SKILL.md templates
 ├── worker/                 # CW Brief Cloudflare worker
 ├── .claude/
 │   └── skills/             # Claude Code workflow skills (gitignored)
@@ -109,7 +115,7 @@ claudewill.io/
     └── reference/           # Gitignored — research, old concepts
 ```
 
-**Note:** LinkedIn content and publishing workflows live in `~/Desktop/writing/`. CDN client deliverables live in `~/Desktop/cdn/`. This repo is the product — CW's Porch, business presence, prompt system.
+**Note:** LinkedIn content, publishing workflows, and TRACKER.md live in `~/Desktop/writing/`. Client deliverables live in `~/Desktop/clients/cascadia/`. CW Method docs live in `method/` as publishable site content. This repo is the product — CW's Porch, business presence, prompt system, methodology.
 
 ---
 
