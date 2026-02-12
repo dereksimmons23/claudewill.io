@@ -134,28 +134,18 @@ async function generateBrief(env) {
 
   lines.push('');
 
-  // --- Slam Dunks from HANDOFF.md ---
+  // --- Slam Dunks from KV ---
   try {
-    const handoffResponse = await fetch('https://raw.githubusercontent.com/dereksimmons23/claudewill.io/main/HANDOFF.md');
-    if (handoffResponse.ok) {
-      const handoff = await handoffResponse.text();
-      const slamMatch = handoff.match(/\*\*Slam Dunks\*\*[^\n]*\n\n\|[^\n]+\n\|[^\n]+\n((?:\|[^\n]+\n)*)/);
-      if (slamMatch) {
-        const rows = slamMatch[1].trim().split('\n').filter(r => r.startsWith('|'));
-        if (rows.length > 0) {
-          lines.push('**Slam Dunks:**');
-          for (const row of rows) {
-            const cols = row.split('|').map(c => c.trim()).filter(Boolean);
-            if (cols.length >= 4) {
-              lines.push(`- ${cols[0]}. ${cols[1]} → ${cols[2]}`);
-            }
-          }
-          lines.push('_(say "dunk N" in Claude Code to execute)_');
-        }
+    const dunks = JSON.parse(await env.CW_STATE.get('slamDunks') || '[]');
+    if (dunks.length > 0) {
+      lines.push('**Slam Dunks:**');
+      for (let i = 0; i < dunks.length; i++) {
+        lines.push(`- ${i + 1}. ${dunks[i].task} → ${dunks[i].criteria}`);
       }
+      lines.push('_(say "dunk N" in Claude Code to execute)_');
     }
   } catch (e) {
-    // Silently skip if GitHub fetch fails — not critical
+    // Silently skip if KV read fails
   }
 
   lines.push('');
@@ -291,19 +281,42 @@ async function handleRequest(request, env) {
     return json({ success: slackSent, brief: result.brief });
   }
 
+  // GET /slam-dunks — current slam dunks
+  if (url.pathname === '/slam-dunks' && request.method === 'GET') {
+    const dunks = JSON.parse(await env.CW_STATE.get('slamDunks') || '[]');
+    return json({ dunks });
+  }
+
+  // POST /slam-dunks — update slam dunks [{ task, files, criteria, confidence }]
+  if (url.pathname === '/slam-dunks' && request.method === 'POST') {
+    const body = await request.json();
+    const dunks = Array.isArray(body) ? body : body.dunks || [];
+    await env.CW_STATE.put('slamDunks', JSON.stringify(dunks));
+    await logActivity(env, 'slam_dunks_updated', { count: dunks.length });
+    return json({ success: true, count: dunks.length });
+  }
+
+  // DELETE /slam-dunks — clear all slam dunks
+  if (url.pathname === '/slam-dunks' && request.method === 'DELETE') {
+    await env.CW_STATE.put('slamDunks', '[]');
+    await logActivity(env, 'slam_dunks_cleared', {});
+    return json({ success: true });
+  }
+
   // GET /state — debug
   if (url.pathname === '/state') {
     const state = {
       lastLinkedInPost: await env.CW_STATE.get('lastLinkedInPost'),
       lastSubstackPost: await env.CW_STATE.get('lastSubstackPost'),
       linkedinFollowers: await env.CW_STATE.get('linkedinFollowers'),
+      slamDunksCount: JSON.parse(await env.CW_STATE.get('slamDunks') || '[]').length,
       contentLogCount: JSON.parse(await env.CW_STATE.get('contentLog') || '[]').length,
       activityLogCount: JSON.parse(await env.CW_STATE.get('activityLog') || '[]').length,
     };
     return json(state);
   }
 
-  return json({ error: 'not found', endpoints: ['/health', '/brief', '/brief/text', '/brief/slack', '/content', '/content/linkedin', '/content/substack', '/followers', '/activity-log', '/state'] }, 404);
+  return json({ error: 'not found', endpoints: ['/health', '/brief', '/brief/text', '/brief/slack', '/content', '/content/linkedin', '/content/substack', '/followers', '/slam-dunks', '/activity-log', '/state'] }, 404);
 }
 
 // --- Cron Handler ---
