@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Consulting Services Agreement | CW Strategies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text: #1a1a2e;
+      --text-secondary: #4a4a5a;
+      --bg: #ffffff;
+      --bg-subtle: #f7f7f9;
+      --border: #e2e2e8;
+      --accent: #2d3142;
+      --accent-light: #4f5d75;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page { max-width: 720px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+
+    /* Header */
+    .doc-header { border-bottom: 2px solid var(--accent); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+    .doc-header .brand { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.25rem; }
+    .doc-header .brand a { color: inherit; text-decoration: none; }
+    .doc-header .brand a:hover { text-decoration: underline; }
+    .doc-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.2; color: var(--accent); margin-bottom: 0.5rem; }
+    .doc-header .parties { font-size: 0.95rem; color: var(--text-secondary); font-weight: 500; }
+
+    /* Sections */
+    section { margin-bottom: 2rem; }
+    h2 { font-size: 1rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); margin-bottom: 1rem; }
+    h3 { font-size: 0.95rem; font-weight: 600; color: var(--accent); margin-bottom: 0.5rem; margin-top: 1.25rem; }
+    h3:first-child { margin-top: 0; }
+    p { margin-bottom: 0.75rem; }
+    strong { font-weight: 600; }
+
+    /* Key terms */
+    .key-terms { background: var(--bg-subtle); border-left: 3px solid var(--accent); padding: 1.25rem 1.5rem; margin: 1rem 0 1.5rem; }
+    .key-terms dl { display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 1.25rem; font-size: 0.9rem; }
+    .key-terms dt { font-weight: 600; color: var(--accent); }
+    .key-terms dd { margin: 0; }
+
+    /* Legal */
+    .legal-section { margin-bottom: 1.25rem; }
+    .legal-section p { font-size: 0.9rem; line-height: 1.65; }
+    .subsection { margin-top: 0.75rem; margin-bottom: 0.75rem; }
+    .subsection-title { font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
+    ol, ul { padding-left: 1.5rem; margin-bottom: 0.75rem; }
+    li { margin-bottom: 0.35rem; font-size: 0.9rem; }
+
+    /* Exhibit */
+    .exhibit { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 2px solid var(--accent); }
+    .exhibit h2 { font-size: 1.125rem; }
+    .scope-item { margin-bottom: 1rem; }
+    .scope-item h4 { font-size: 0.9rem; font-weight: 600; color: var(--accent); margin-bottom: 0.25rem; }
+    .scope-item p, .scope-item ul { font-size: 0.85rem; color: var(--text-secondary); }
+
+    /* Signatures */
+    .signatures {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .sig-block { font-size: 0.85rem; }
+
+    .sig-block .sig-label {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .sig-area {
+      border-bottom: 1px solid var(--text);
+      min-height: 2.75rem;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      margin-bottom: 0.25rem;
+    }
+
+    .sig-area.unsigned {
+      background: var(--bg-subtle);
+      border-bottom-style: dashed;
+      cursor: pointer;
+    }
+
+    .sig-area.unsigned:hover { background: var(--border); }
+
+    .sig-prompt {
+      font-size: 0.7rem;
+      color: var(--accent-light);
+      padding: 0.75rem 0.5rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    .sig-input {
+      font-family: 'Caveat', cursive;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--accent);
+      border: none;
+      background: transparent;
+      outline: none;
+      width: 100%;
+      padding: 0.15rem 0.25rem;
+    }
+
+    .sig-rendered {
+      font-family: 'Caveat', cursive;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--accent);
+      padding: 0.15rem 0.25rem;
+    }
+
+    .sig-block .sig-name { font-weight: 600; margin-top: 0.5rem; }
+    .sig-block .sig-title { color: var(--text-secondary); font-size: 0.8rem; }
+
+    .sig-block .sig-date { margin-top: 1rem; }
+    .sig-date-value {
+      border-bottom: 1px solid var(--text);
+      min-height: 1.5rem;
+      width: 60%;
+      margin-bottom: 0.15rem;
+      font-size: 0.85rem;
+      padding: 0.1rem 0;
+    }
+    .sig-block .sig-date-label { font-size: 0.75rem; color: var(--text-secondary); }
+
+    .sig-actions { margin-top: 0.75rem; }
+
+    .sig-btn {
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.35rem 1rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .sig-btn:hover { background: var(--accent-light); }
+
+    .sig-locked {
+      font-size: 0.7rem;
+      color: var(--accent-light);
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    /* Download */
+    .download-bar {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+    }
+
+    .download-btn {
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.5rem 1.5rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .download-btn:hover { background: var(--accent-light); }
+
+    .download-note {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+    }
+
+    /* Notice addresses */
+    .notice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 0.75rem; }
+    .notice-block { font-size: 0.85rem; }
+    .notice-block .notice-label { font-weight: 600; font-size: 0.8rem; margin-bottom: 0.25rem; }
+    .notice-block p { font-size: 0.85rem; margin-bottom: 0.15rem; line-height: 1.5; }
+
+    /* Footer */
+    .doc-footer { margin-top: 3rem; padding-top: 1rem; border-top: 2px solid var(--accent); font-size: 0.75rem; color: var(--text-secondary); }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem; }
+    .doc-footer .brand-footer a { font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-light); text-decoration: none; }
+    .doc-footer .brand-footer a:hover { text-decoration: underline; }
+
+    /* Gate */
+    .gate { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem; }
+    .gate .gate-brand { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 2rem; }
+    .gate .gate-brand a { color: inherit; text-decoration: none; }
+    .gate h2 { font-size: 1.125rem; font-weight: 600; color: var(--accent); text-transform: none; letter-spacing: 0; border: none; padding: 0; margin-bottom: 0.5rem; }
+    .gate p { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+    .gate-form { display: flex; gap: 0.5rem; align-items: center; }
+    .gate-input { font-family: inherit; font-size: 0.95rem; padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: 4px; outline: none; width: 160px; text-align: center; letter-spacing: 0.05em; }
+    .gate-input:focus { border-color: var(--accent); }
+    .gate-submit { font-family: inherit; font-size: 0.85rem; font-weight: 600; padding: 0.5rem 1.25rem; background: var(--accent); color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    .gate-submit:hover { background: var(--accent-light); }
+    .gate-error { margin-top: 0.75rem; font-size: 0.8rem; color: #c0392b; visibility: hidden; }
+    .gate-error.visible { visibility: visible; }
+    .hidden { display: none; }
+
+    /* Print */
+    .print-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--bg-subtle); border-top: 1px solid var(--border); padding: 0.75rem; text-align: center; z-index: 100; }
+    .print-btn { background: var(--accent); color: #fff; border: none; padding: 0.5rem 1.5rem; font-family: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; border-radius: 4px; }
+    .print-btn:hover { background: var(--accent-light); }
+
+    @media print {
+      .print-bar, .sig-actions, .download-bar { display: none; }
+      body { font-size: 10pt; line-height: 1.45; }
+      .page { max-width: none; padding: 0; margin: 0; }
+      .doc-header { margin-bottom: 1rem; padding-bottom: 0.75rem; }
+      .doc-header h1 { font-size: 16pt; }
+      h2 { font-size: 10pt; page-break-after: avoid; }
+      h3 { page-break-after: avoid; }
+      section { margin-bottom: 1rem; }
+      .key-terms { background: var(--bg-subtle) !important; border-left: 3px solid var(--accent) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .signatures { page-break-inside: avoid; }
+      .exhibit { page-break-before: always; }
+      .sig-area.unsigned { background: transparent; border-bottom-style: solid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="gate" id="gate">
+    <div class="gate-brand"><a href="https://claudewill.io/strategies">CW Strategies</a></div>
+    <h2>Access Required</h2>
+    <p>Enter the access code to view this document.</p>
+    <div class="gate-form">
+      <input type="text" class="gate-input" id="gate-code" placeholder="Access code" autocomplete="off" autofocus>
+      <button class="gate-submit" onclick="checkAccess()">View</button>
+    </div>
+    <p class="gate-error" id="gate-error">Invalid access code. Please try again.</p>
+  </div>
+
+  <div class="page hidden" id="content">
+    <header class="doc-header">
+      <div class="brand"><a href="https://claudewill.io/strategies">CW Strategies</a></div>
+      <h1>Consulting Services Agreement</h1>
+      <p class="parties">CW Strategies LLC &amp; Cascadia Newspaper Company, LLC</p>
+      <p class="parties" style="margin-top: 0.35rem; font-size: 0.8rem; color: var(--text-secondary);">Confidential</p>
+    </header>
+
+    <div class="key-terms">
+      <dl>
+        <dt>Effective Date</dt>
+        <dd>April 1, 2026</dd>
+        <dt>Structure</dt>
+        <dd>Continuing monthly engagement</dd>
+        <dt>Compensation</dt>
+        <dd>$10,000 per month</dd>
+        <dt>Termination</dt>
+        <dd>30 days written notice from either party</dd>
+        <dt>December</dt>
+        <dd>No services or billing</dd>
+      </dl>
+    </div>
+
+    <section>
+      <h2>Agreement</h2>
+
+      <div class="legal-section">
+        <h3>1. Engagement</h3>
+        <p>Cascadia Newspaper Company, LLC ("Company") engages CW Strategies LLC ("Consultant") to provide consulting services as described in the attached <strong>Exhibit A</strong> (the "Services"). Consultant accepts such engagement. The Company acknowledges that Consultant's services are not exclusive and that Consultant may provide services to other clients.</p>
+      </div>
+
+      <div class="legal-section">
+        <h3>2. Term</h3>
+        <p>This Agreement is effective as of <strong>April 1, 2026</strong> and continues on a month-to-month basis until terminated by either party in accordance with Section 8. No services will be provided and no compensation will be due during the month of December.</p>
+      </div>
+
+      <div class="legal-section">
+        <h3>3. Compensation</h3>
+        <p>The Company will pay Consultant a fixed fee of <strong>Ten Thousand Dollars ($10,000)</strong> per month for services provided under this Agreement. Compensation will be paid electronically on the last business day of each month.</p>
+      </div>
+
+      <div class="legal-section">
+        <h3>4. Expense Reimbursement</h3>
+        <p>The Company will reimburse Consultant for all reasonable out-of-pocket expenses incurred in the performance of services under this Agreement, provided such expenses have been preapproved by the Publisher. Consultant will not be entitled to any employee benefits.</p>
+      </div>
+
+      <div class="legal-section">
+        <h3>5. Company Contact</h3>
+        <p>Consultant's primary contact with the Company will be Cynthia L. Pope, Publisher.</p>
+      </div>
+
+      <div class="legal-section">
+        <h3>6. Attention and Effort</h3>
+        <p>Consultant will devote reasonable time and effort to the Services and will skillfully serve the Company's interests during the term of this Agreement. The Company acknowledges that Consultant is not exclusive to the Company and may pursue other projects or services independently.</p>
+      </div>
+
+      <div class="legal-section">
+        <h3>7. Limitations on Authority</h3>
+        <p>Unless the Company has given Consultant specific prior written authority, Consultant may not:</p>
+        <ol type="a">
+          <li>Enter into any contract binding on the Company;</li>
+          <li>Retain attorneys, consultants, or other persons on behalf of the Company;</li>
+          <li>Pledge the credit of the Company;</li>
+          <li>Waive, release, compromise, or settle any claim held by or against the Company; or</li>
+          <li>Incur expenditures beyond reasonable out-of-pocket expenses reimbursed under Section 4.</li>
+        </ol>
+      </div>
+
+      <div class="legal-section">
+        <h3>8. Termination</h3>
+        <p>Either party may terminate this Agreement by providing <strong>30 days written notice</strong> to the other party. Upon termination, the Company will pay Consultant for all services rendered through the effective date of termination. Consultant will provide reasonable transition support during the notice period.</p>
+      </div>
+
+      <div class="legal-section">
+        <h3>9. Confidentiality</h3>
+
+        <div class="subsection">
+          <p class="subsection-title">9.1 Confidential Information</p>
+          <p>Confidential Information means all proprietary information of the Company which derives independent economic value from its secrecy, including research data, business plans, methods, techniques, and processes disclosed to or developed by Consultant during this engagement. Confidential Information does not include information that: (i) is publicly known at the time of disclosure; (ii) becomes publicly known through no fault of Consultant; or (iii) Consultant is required to disclose by law.</p>
+        </div>
+
+        <div class="subsection">
+          <p class="subsection-title">9.2 Non-Disclosure</p>
+          <p>Consultant agrees not to disclose or use any Confidential Information, during or after this engagement, except as required by the performance of services.</p>
+        </div>
+
+        <div class="subsection">
+          <p class="subsection-title">9.3 Third-Party Obligations</p>
+          <p>Consultant will not disclose to the Company any information subject to third-party confidentiality obligations. Consultant warrants that all work product created under this Agreement is original and will not infringe any proprietary rights of third parties.</p>
+        </div>
+
+        <div class="subsection">
+          <p class="subsection-title">9.4 Work Product</p>
+          <p>Work product produced under this Agreement is the property of the Company.</p>
+        </div>
+
+        <div class="subsection">
+          <p class="subsection-title">9.5 Survival</p>
+          <p>The provisions of this Section 9 survive termination of this Agreement.</p>
+        </div>
+      </div>
+
+      <div class="legal-section">
+        <h3>10. Independent Contractor</h3>
+        <p>The relationship between Consultant and the Company is that of independent contractors. Neither party's employees, officers, or agents are to be considered employees, officers, or agents of the other.</p>
+      </div>
+
+      <div class="legal-section">
+        <h3>11. Assignment</h3>
+        <p>This Agreement is personal to Consultant and may not be assigned without the Company's written consent.</p>
+      </div>
+
+      <div class="legal-section">
+        <h3>12. Notices</h3>
+        <p>All notices will be in writing, delivered by certified mail or email to the addresses below:</p>
+
+        <div class="notice-grid">
+          <div class="notice-block">
+            <p class="notice-label">Consultant:</p>
+            <p>CW Strategies LLC</p>
+            <p>Derek Simmons</p>
+            <p>3610 Bailey Ridge Circle</p>
+            <p>Woodbury, MN 55125</p>
+            <p>simmons.derek@gmail.com</p>
+          </div>
+          <div class="notice-block">
+            <p class="notice-label">Company:</p>
+            <p>Cascadia Newspaper Company, LLC</p>
+            <p>Cynthia L. Pope, Publisher</p>
+            <p>1329 N State Street, Suite 201</p>
+            <p>Bellingham, WA 98250</p>
+            <p>cpope05@gmail.com</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="legal-section">
+        <h3>13. Amendments</h3>
+        <p>No modification of this Agreement will be valid unless in writing and signed by both parties.</p>
+      </div>
+
+      <div class="legal-section">
+        <h3>14. Governing Law</h3>
+        <p>This Agreement will be governed by the laws of the state of Washington. Venue for all disputes will be a court of competent jurisdiction in Whatcom County, Washington.</p>
+      </div>
+
+      <div class="legal-section">
+        <h3>15. Entire Agreement</h3>
+        <p>This Agreement constitutes the entire agreement between the parties and supersedes all prior agreements and understandings with respect to the subject matter hereof. This Agreement may be executed in counterparts. Electronic signatures are binding.</p>
+      </div>
+    </section>
+
+    <div class="signatures">
+      <div class="sig-block" id="sig-consultant">
+        <div class="sig-label">Consultant</div>
+        <div class="sig-area unsigned" id="sig-area-consultant" onclick="startSigning('consultant')">
+          <span class="sig-prompt">Click to sign</span>
+        </div>
+        <div class="sig-name">Derek Simmons</div>
+        <div class="sig-title">CW Strategies LLC</div>
+        <div class="sig-date">
+          <div class="sig-date-value" id="sig-date-consultant"></div>
+          <div class="sig-date-label">Date</div>
+        </div>
+        <div class="sig-actions" id="sig-actions-consultant" style="display:none;">
+          <button class="sig-btn" onclick="lockSignature('consultant')">Sign</button>
+        </div>
+      </div>
+
+      <div class="sig-block" id="sig-company">
+        <div class="sig-label">Company</div>
+        <div class="sig-area unsigned" id="sig-area-company" onclick="startSigning('company')">
+          <span class="sig-prompt">Click to sign</span>
+        </div>
+        <div class="sig-name">Cynthia L. Pope</div>
+        <div class="sig-title">Publisher, Cascadia Newspaper Company, LLC</div>
+        <div class="sig-date">
+          <div class="sig-date-value" id="sig-date-company"></div>
+          <div class="sig-date-label">Date</div>
+        </div>
+        <div class="sig-actions" id="sig-actions-company" style="display:none;">
+          <button class="sig-btn" onclick="lockSignature('company')">Sign</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="download-bar" id="download-bar" style="display:none;">
+      <button class="download-btn" onclick="downloadSigned()">Download Signed Copy</button>
+      <p class="download-note">Downloads a self-contained HTML file with signatures.</p>
+    </div>
+
+    <div class="exhibit">
+      <h2>Exhibit A — Scope of Services</h2>
+
+      <p>Consultant provides digital strategy, operations, and creative direction for the Company's publishing products and business systems. The engagement spans five areas:</p>
+
+      <div class="scope-item">
+        <h4>1. Magazine Art Direction &amp; Production</h4>
+        <p>Creative direction, production coordination, and cross-team facilitation for Cascadia Life magazine. On-site visits as mutually agreed for production milestones.</p>
+      </div>
+
+      <div class="scope-item">
+        <h4>2. Platform &amp; Technology Strategy</h4>
+        <p>Evaluation, migration planning, and vendor management for newsletter, subscription, and content management systems.</p>
+      </div>
+
+      <div class="scope-item">
+        <h4>3. Revenue Strategy</h4>
+        <p>Paid content, advertising, and sponsorship strategy for print and digital products.</p>
+      </div>
+
+      <div class="scope-item">
+        <h4>4. Project Coordination</h4>
+        <p>Cross-team coordination, timeline management, and organizational consulting across active workstreams.</p>
+      </div>
+
+      <div class="scope-item">
+        <h4>5. Strategic Planning</h4>
+        <p>Budgeting, contract review, capacity building, and long-range planning. Standing check-ins with Publisher.</p>
+      </div>
+
+      <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-secondary);">Specific priorities shift with the business. The scope above describes the role, not a fixed task list. Active workstreams are managed through regular check-ins between Consultant and Publisher.</p>
+    </div>
+
+    <footer class="doc-footer">
+      <div class="footer-row">
+        <span class="brand-footer"><a href="https://claudewill.io/strategies">CW Strategies</a></span>
+        <span>Derek Simmons &middot; simmons.derek@gmail.com &middot; (213) 327-5683</span>
+      </div>
+    </footer>
+  </div>
+
+  <div class="print-bar hidden" id="print-bar">
+    <button class="print-btn" onclick="window.print()">Print this document</button>
+  </div>
+
+  <script>
+    // Access gate
+    const ACCESS_CODE = 'CDN2026';
+    const STORAGE_KEY = 'cw_access_agreement';
+
+    function checkAccess() {
+      const input = document.getElementById('gate-code');
+      if (input.value.trim().toUpperCase() === ACCESS_CODE) {
+        sessionStorage.setItem(STORAGE_KEY, 'granted');
+        reveal();
+      } else {
+        document.getElementById('gate-error').classList.add('visible');
+        input.value = '';
+        input.focus();
+      }
+    }
+
+    function reveal() {
+      document.getElementById('gate').classList.add('hidden');
+      document.getElementById('content').classList.remove('hidden');
+      document.getElementById('print-bar').classList.remove('hidden');
+    }
+
+    if (sessionStorage.getItem(STORAGE_KEY) === 'granted') {
+      reveal();
+    } else {
+      setTimeout(function() { document.getElementById('gate-code').focus(); }, 100);
+    }
+
+    document.getElementById('gate-code').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') checkAccess();
+    });
+
+    // Signing
+    const signatures = { consultant: null, company: null };
+
+    function formatDate() {
+      const d = new Date();
+      const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+    }
+
+    function startSigning(party) {
+      const area = document.getElementById('sig-area-' + party);
+      if (signatures[party]) return; // already signed
+
+      area.classList.remove('unsigned');
+      area.onclick = null;
+      area.innerHTML = '<input type="text" class="sig-input" id="sig-input-' + party + '" placeholder="Type your full name" autofocus>';
+
+      const input = document.getElementById('sig-input-' + party);
+      input.focus();
+
+      // Show sign button
+      document.getElementById('sig-actions-' + party).style.display = 'block';
+
+      // Fill date
+      document.getElementById('sig-date-' + party).textContent = formatDate();
+
+      // Enter key signs
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && input.value.trim()) lockSignature(party);
+      });
+    }
+
+    function lockSignature(party) {
+      const input = document.getElementById('sig-input-' + party);
+      const name = input.value.trim();
+      if (!name) return;
+
+      signatures[party] = { name: name, date: formatDate() };
+
+      // Replace input with rendered signature
+      const area = document.getElementById('sig-area-' + party);
+      area.innerHTML = '<span class="sig-rendered">' + name + '</span>';
+
+      // Hide sign button, show locked message
+      const actions = document.getElementById('sig-actions-' + party);
+      actions.innerHTML = '<p class="sig-locked">Signed electronically ' + formatDate() + '</p>';
+
+      // Show download if at least one signature
+      checkDownload();
+    }
+
+    function checkDownload() {
+      if (signatures.consultant || signatures.company) {
+        document.getElementById('download-bar').style.display = 'block';
+      }
+    }
+
+    function downloadSigned() {
+      // Clone the document and bake signatures into static HTML
+      const html = document.documentElement.cloneNode(true);
+
+      // Remove gate, scripts, print bar, download bar
+      const gate = html.querySelector('#gate');
+      if (gate) gate.remove();
+
+      const scripts = html.querySelectorAll('script');
+      scripts.forEach(s => s.remove());
+
+      const printBar = html.querySelector('.print-bar');
+      if (printBar) printBar.remove();
+
+      const dlBar = html.querySelector('.download-bar');
+      if (dlBar) dlBar.remove();
+
+      // Remove sig-actions
+      html.querySelectorAll('.sig-actions').forEach(el => el.remove());
+
+      // Make content visible
+      const content = html.querySelector('#content');
+      if (content) content.classList.remove('hidden');
+
+      // Remove hidden class definition and gate styles aren't needed
+      // but leaving them in doesn't hurt
+
+      // Add print button back (static)
+      const body = html.querySelector('body');
+      const staticPrint = document.createElement('div');
+      staticPrint.className = 'print-bar';
+      staticPrint.innerHTML = '<button class="print-btn" onclick="window.print()">Print this document</button>';
+      body.appendChild(staticPrint);
+
+      // Generate file
+      const blob = new Blob(['<!DOCTYPE html>\n' + html.outerHTML], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+
+      let filename = 'CW_Strategies_Agreement_CDN_2026';
+      if (signatures.consultant && signatures.company) {
+        filename += '_fully_executed';
+      } else if (signatures.consultant) {
+        filename += '_signed_consultant';
+      } else if (signatures.company) {
+        filename += '_signed_company';
+      }
+      a.download = filename + '.html';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
