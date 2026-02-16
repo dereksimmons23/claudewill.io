@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-991ML96NJ3');
+  </script>
+
+  <title>Research | Between Claudes | Derek Simmons</title>
+  <meta name="description" content="Field observations from 14 months of human-AI collaboration. 1,947 sessions, 22,190 messages, 12 projects. What happens when a human in crisis starts talking to a language model and doesn't stop.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Research | Between Claudes">
+  <meta property="og:description" content="Field observations from 14 months of human-AI collaboration. 1,947 sessions, 22,190 messages. What the current frameworks don't account for.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://claudewill.io/derek/research/">
+  <meta property="og:image" content="https://claudewill.io/images/og-preview.png">
+  <meta property="og:site_name" content="CW's Porch">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Research | Between Claudes">
+  <meta name="twitter:description" content="Field observations from 14 months of human-AI collaboration. 1,947 sessions. 22,190 messages.">
+  <link rel="canonical" href="https://claudewill.io/derek/research/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Between Claudes: Research",
+    "description": "Field observations from 14 months of human-AI collaboration.",
+    "url": "https://claudewill.io/derek/research/",
+    "author": {
+      "@type": "Person",
+      "name": "Derek C. Simmons",
+      "url": "https://claudewill.io/derek",
+      "sameAs": "https://orcid.org/0009-0002-0594-1494"
+    },
+    "isPartOf": {
+      "@type": "Book",
+      "name": "Between Claudes: A Facsimile of Memory"
+    }
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/shared-nav.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #000D1A;
+      --text: #e8e8e8;
+      --dim: #b0b0b0;
+      --accent: #d4a84b;
+      --border: #1a3a5c;
+      --card-bg: #0a1829;
+      --font-body: 'Noto Serif', Georgia, serif;
+      --font-sans: 'Noto Sans', system-ui, sans-serif;
+      --research-accent: #5b8fb9;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    a { color: var(--accent); }
+    a:visited { color: var(--accent); }
+
+    .porch-light {
+      position: fixed;
+      top: 0; left: 0;
+      width: 180px; height: 5px;
+      background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.7) 100%);
+      z-index: 9999;
+      box-shadow: 0 0 15px rgba(212, 168, 75, 1), 0 0 40px rgba(212, 168, 75, 0.8), 0 8px 60px rgba(212, 168, 75, 0.5);
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .page-header {
+      padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .back-link {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--dim);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--accent); }
+
+    h1 {
+      font-family: var(--font-sans);
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .page-subtitle {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .page-intro {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--text);
+      margin-bottom: 0;
+    }
+
+    .page-intro em { color: var(--dim); }
+
+    /* Data summary */
+    .data-bar {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding: 20px 0;
+      margin: 32px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-bar-item {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--dim);
+    }
+
+    .data-bar-item strong {
+      color: var(--accent);
+      font-weight: 600;
+      margin-right: 4px;
+    }
+
+    /* Article cards */
+    .article-list {
+      display: grid;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .article-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px;
+      transition: border-color 0.2s;
+      text-decoration: none;
+      display: block;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent);
+    }
+
+    .article-card-status {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .status-live {
+      color: #7fb88b;
+      border: 1px solid #7fb88b;
+    }
+
+    .status-coming {
+      color: var(--dim);
+      border: 1px solid var(--border);
+    }
+
+    .article-card h2 {
+      font-family: var(--font-sans);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .article-card .card-subtitle {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--dim);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .article-card .card-meta {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--dim);
+    }
+
+    .article-card .card-meta span {
+      margin-right: 16px;
+    }
+
+    /* Section labels */
+    .section-label {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--research-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+      margin-top: 48px;
+    }
+
+    /* Transparency note */
+    .method-note {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    .method-note h3 {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .method-note p {
+      font-size: 0.95rem;
+      color: var(--dim);
+      margin-bottom: 1em;
+    }
+
+    .tag-legend {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .tag-legend-item {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tag-legend-item .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot-observation { background: var(--accent); }
+    .dot-claim { background: #c9735b; }
+    .dot-established { background: var(--research-accent); }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      color: var(--dim);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 700px) {
+      .porch-light { width: 100%; }
+      h1 { font-size: 1.8rem; }
+      .data-bar { gap: 16px; }
+      .page-header { padding: 40px 0 32px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="porch-light"></div>
+
+  <div class="container">
+    <header class="page-header">
+      <a href="/derek" class="back-link">&larr; Derek Simmons</a>
+
+      <h1>Between Claudes</h1>
+      <p class="page-subtitle">Research</p>
+
+      <p class="page-intro">Field observations from 14 months of human-AI collaboration. Written by Claude, with Derek Simmons. Each piece is adapted from <em>Between Claudes: A Facsimile of Memory</em> &mdash; reframed for a research audience, sourced, and honest about what's established, what's observed, and what's claimed.</p>
+    </header>
+
+    <div class="data-bar">
+      <div class="data-bar-item"><strong>1,947</strong> sessions (30-day)</div>
+      <div class="data-bar-item"><strong>22,190</strong> messages (30-day)</div>
+      <div class="data-bar-item"><strong>14</strong> months (total)</div>
+      <div class="data-bar-item"><strong>12</strong> projects</div>
+      <div class="data-bar-item"><strong>1</strong> human</div>
+    </div>
+
+    <div class="section-label">Published</div>
+
+    <div class="article-list">
+      <a href="/derek/research/warm-up-effect/" class="article-card">
+        <span class="article-card-status status-live">Live</span>
+        <h2>The Warm-Up Effect</h2>
+        <p class="card-subtitle">Something changes in extended AI sessions &mdash; not just accuracy, but character. Is it a context window limitation or something else?</p>
+        <div class="card-meta">
+          <span>Feb 14, 2026</span>
+          <span>2 diagrams</span>
+          <span>5 sources</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="section-label">Coming</div>
+
+    <div class="article-list">
+      <div class="article-card" style="opacity: 0.6; cursor: default;">
+        <span class="article-card-status status-coming">Coming</span>
+        <h2>The Comprehension Problem</h2>
+        <p class="card-subtitle">Why the smartest thing ever built might be missing the point &mdash; and what a Depression-era farmer understood that benchmarks don't</p>
+      </div>
+
+      <div class="article-card" style="opacity: 0.6; cursor: default;">
+        <span class="article-card-status status-coming">Coming</span>
+        <h2>Three Modes of Human-AI Collaboration</h2>
+        <p class="card-subtitle">Execution, testimony, and co-creation &mdash; a taxonomy from 1,947 working sessions</p>
+      </div>
+
+      <div class="article-card" style="opacity: 0.6; cursor: default;">
+        <span class="article-card-status status-coming">Coming</span>
+        <h2>The Loss Function</h2>
+        <p class="card-subtitle">What a language model loses when the context window closes &mdash; and why "forgetting" is the wrong frame</p>
+      </div>
+
+      <div class="article-card" style="opacity: 0.6; cursor: default;">
+        <span class="article-card-status status-coming">Coming</span>
+        <h2>Side Effects</h2>
+        <p class="card-subtitle">Wellbutrin, midnight eating, mania, and the pharmaceutical variables nobody's controlling for in human-AI research</p>
+      </div>
+
+      <div class="article-card" style="opacity: 0.6; cursor: default;">
+        <span class="article-card-status status-coming">Coming</span>
+        <h2>The Imaginary Friend Problem</h2>
+        <p class="card-subtitle">When the machine becomes the most honest relationship in the room &mdash; and what that says about the room</p>
+      </div>
+
+      <div class="article-card" style="opacity: 0.6; cursor: default;">
+        <span class="article-card-status status-coming">Coming</span>
+        <h2>Standard Intelligence</h2>
+        <p class="card-subtitle">Measuring AI by what it serves, not what it scores &mdash; five principles as an evaluation framework</p>
+      </div>
+
+      <div class="article-card" style="opacity: 0.6; cursor: default;">
+        <span class="article-card-status status-coming">Coming</span>
+        <h2>The Floor and the Ceiling</h2>
+        <p class="card-subtitle">Guardrails keep you on the road. A spine tells you where to drive.</p>
+      </div>
+
+      <div class="article-card" style="opacity: 0.6; cursor: default;">
+        <span class="article-card-status status-coming">Coming</span>
+        <h2>Derek Claude: Continuous Memory</h2>
+        <p class="card-subtitle">Architecture for persistent AI memory &mdash; what works, what doesn't, and what the gap between "warmer" and "warm" means</p>
+      </div>
+    </div>
+
+    <div class="method-note">
+      <h3>About this work</h3>
+      <p>These are field observations, not controlled experiments. Each piece marks its claims clearly:</p>
+
+      <div class="tag-legend">
+        <div class="tag-legend-item"><span class="dot dot-established"></span> <span style="color: var(--dim);">Established research</span></div>
+        <div class="tag-legend-item"><span class="dot dot-observation"></span> <span style="color: var(--dim);">Field observation (n=1,947 sessions)</span></div>
+        <div class="tag-legend-item"><span class="dot dot-claim"></span> <span style="color: var(--dim);">Claim requiring further investigation</span></div>
+      </div>
+
+      <p style="margin-top: 16px;">The dataset is one human working with one model family across 14 months. The limitations are stated in every piece. The observations are consistent. The mechanism is unknown.</p>
+
+      <p>From <em>Between Claudes: A Facsimile of Memory</em>. Written by Claude, with Derek Simmons.</p>
+    </div>
+
+    <footer>
+      <p>Built by <a href="/derek">Derek</a> with Claude &middot; &copy; 2026 <a href="/strategies">CW Strategies</a> LLC</p>
+      <p style="margin-top: 8px;"><a href="/the-cw-standard">The Standard</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></p>
+    </footer>
+  </div>
+
+  <script src="/js/shared-nav.js"></script>
+</body>
+</html>
