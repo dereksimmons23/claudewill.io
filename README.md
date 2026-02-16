@@ -30,7 +30,7 @@ CW is powered by [Anthropic's Claude Haiku](https://www.anthropic.com/) and guid
 
 ## Who Built This
 
-**Derek Simmons** grew up in a tiny trailer in a one-stoplight town in Kansas. He spent 30 years in media — helped make two newspapers the best in the world ([Los Angeles Times](https://claudewill.io/derek), [Star Tribune](https://claudewill.io/derek)), generated $20M+ in revenue, became the Star Tribune's first and only Chief Creative Officer/VP. Got fired anyway. Now he builds AI frameworks for organizations navigating complexity.
+**Derek Simmons** grew up in a tiny trailer in a one-stoplight town in Kansas. He spent 30 years in media — helped make two newspapers the best in the world ([Los Angeles Times](https://claudewill.io/derek), [Star Tribune](https://claudewill.io/derek)), generated $20M+ in revenue, became the Star Tribune's first and only Chief Creative Officer/VP. Got fired anyway. Now he builds operational infrastructure for organizations scaling faster than their systems at [CW Strategies](https://claudewill.io/strategies).
 
 His grandfather was Claude William Simmons. His middle name is Claude. His son's middle name is Claude. The AI is named Claude. That's not a coincidence.
 
@@ -69,15 +69,18 @@ His grandfather was Claude William Simmons. His middle name is Claude. His son's
 
 ```
 claudewill.io/
-├── index.html                    # Main chat interface
-├── story.html                    # The Story (4 chapters)
+├── index.html                    # Main chat interface (CW's Porch)
 ├── derek.html                    # Derek's bio, Q&A, career history
+├── strategies.html               # CW Strategies consulting practice
+├── story.html                    # The Story (4 chapters)
 ├── the-cw-standard.html          # The 5 principles
+├── stable.html                   # The Stable (product portfolio)
+├── mirae.html                    # Site guide / AI assistant
 ├── privacy.html                  # Privacy policy
 ├── terms.html                    # Terms of use
-├── llms.txt                      # LLM-readable site description
+├── llms.txt                      # LLM-readable site description (GEO)
 ├── sitemap.xml                   # Sitemap
-├── robots.txt                    # Crawler permissions
+├── robots.txt                    # Crawler permissions (LLM-friendly)
 ├── netlify/
 │   └── functions/
 │       └── cw.js                 # System prompt + Anthropic API
