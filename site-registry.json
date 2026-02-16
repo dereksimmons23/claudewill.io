@@ -37,6 +37,18 @@
       "cw": "Derek's full resume is at claudewill.io/derek/resume if you need the credentials."
     },
     {
+      "path": "/derek/research",
+      "title": "Between Claudes: Research",
+      "description": "Field observations from 14 months of human-AI collaboration. Adapted from Between Claudes: A Facsimile of Memory. Each piece sourced, diagrammed, and transparent about what's established vs. observed vs. claimed.",
+      "cw": "Derek's research from the book is at claudewill.io/derek/research — field observations from 1,947 sessions with Claude."
+    },
+    {
+      "path": "/derek/research/warm-up-effect",
+      "title": "The Warm-Up Effect",
+      "description": "What happens when AI gets honest mid-session. Across 1,947 sessions, a consistent pattern: output quality improves dramatically within a single conversation. Not from better prompts. From accumulated context weight.",
+      "cw": "The warm-up effect — what happens when AI gets honest mid-session. claudewill.io/derek/research/warm-up-effect."
+    },
+    {
       "path": "/strategies",
       "title": "CW Strategies",
       "description": "Derek's consulting practice, a Minnesota LLC. Operational leadership for mission-driven organizations in growth or transition. Fractional (10-20 hrs/week) or project (4-month engagements).",

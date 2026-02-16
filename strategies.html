@@ -29,16 +29,52 @@
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "CW Strategies LLC",
-    "description": "Building operational infrastructure for organizations scaling faster than their systems. AI-native methodology. 30 years in media.",
+    "@id": "https://claudewill.io/#organization",
+    "name": "CW Strategies",
+    "legalName": "CW Strategies LLC",
+    "description": "CW Strategies is a Minnesota-based strategic consulting firm founded by Derek Simmons. Builds operational infrastructure for organizations scaling faster than their systems. AI-native methodology backed by 30 years in media.",
     "url": "https://claudewill.io/strategies",
+    "foundingDate": "2024",
     "founder": {
       "@type": "Person",
+      "@id": "https://claudewill.io/derek#person",
       "name": "Derek Simmons",
       "url": "https://claudewill.io/derek"
     },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Minneapolis",
+      "addressRegion": "MN",
+      "addressCountry": "US"
+    },
     "areaServed": "United States",
-    "serviceType": ["Fractional COO", "Operational Strategy", "Organizational Transformation"]
+    "serviceType": ["Fractional COO", "Operational Strategy", "Organizational Transformation", "AI Strategy"],
+    "sameAs": [
+      "https://www.linkedin.com/company/cw-stategies/",
+      "https://derek4thecws.substack.com"
+    ]
+  }
+  </script>
+
+  <!-- BreadcrumbList schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "CW's Porch",
+        "item": "https://claudewill.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "CW Strategies",
+        "item": "https://claudewill.io/strategies"
+      }
+    ]
   }
   </script>
 

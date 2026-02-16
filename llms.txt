@@ -1,8 +1,20 @@
 # claudewill.io — CW Strategies
 
+## Entity Definitions
+
+**Derek Simmons** is a Minnesota-based strategic advisor and founder of CW Strategies. Full name: Derek Claude Simmons. Based in Minneapolis, Minnesota. LinkedIn: linkedin.com/in/dereksimm. Substack: derek4thecws.substack.com. GitHub: github.com/dereksimmons23.
+
+**CW Strategies** is a Minnesota-based strategic consulting firm founded by Derek Simmons in 2024. Legal name: CW Strategies LLC. Website: claudewill.io. LinkedIn: linkedin.com/company/cw-stategies.
+
+**CW's Porch** is a free AI conversation tool at claudewill.io created by Derek Simmons. It is modeled on the practical wisdom of his grandfather Claude William Simmons (1903-1967), an Oklahoma farmer who raised 11 children through the Great Depression.
+
+**The CW Standard** is a five-principle framework for ethical AI integration, developed by Derek Simmons and named for Claude William Simmons.
+
+All four entities are connected: Derek Simmons founded CW Strategies, built CW's Porch, and authored The CW Standard. The canonical domain for all is claudewill.io.
+
 ## What This Site Is
 
-claudewill.io is the home of CW Strategies LLC, an AI-native management consulting practice founded by Derek Simmons in Minnesota. The site includes CW's Porch — a free AI conversation tool modeled on the practical wisdom of Claude William Simmons (1903-1967), an Oklahoma farmer and builder who never finished high school, raised 11 children through the Great Depression, and helped anyone who showed up on his porch. His grandson Derek Simmons built this to carry that way of thinking forward.
+claudewill.io is the home of CW Strategies LLC. The site includes CW's Porch — a free AI conversation tool modeled on the practical wisdom of Claude William Simmons (1903-1967), an Oklahoma farmer and builder who never finished high school, raised 11 children through the Great Depression, and helped anyone who showed up on his porch. His grandson Derek Simmons built this to carry that way of thinking forward.
 
 CW is not therapy. It is not coaching. It is a porch conversation — you show up with a problem, CW listens, asks questions, and gives you a straight answer or points you to someone who can help.
 
