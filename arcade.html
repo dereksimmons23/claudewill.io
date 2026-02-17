@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-991ML96NJ3');
+  </script>
+  <title>The Arcade | CW</title>
+  <meta name="description" content="Three games on the porch. No quarters required. Fence Mender, Porch Light, Quarter Bounce.">
+  <meta property="og:title" content="The Arcade | CW">
+  <meta property="og:description" content="Three games on the porch. No quarters required.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://claudewill.io/arcade">
+  <meta property="og:image" content="https://claudewill.io/images/og-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Arcade | CW">
+  <meta name="twitter:description" content="Three games on the porch. No quarters required.">
+  <link rel="canonical" href="https://claudewill.io/arcade">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "The Arcade",
+    "description": "Three mini-games built for the porch",
+    "url": "https://claudewill.io/arcade",
+    "publisher": {
+      "@type": "Organization",
+      "name": "CW Strategies LLC",
+      "url": "https://claudewill.io/strategies"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "CW's Porch",
+        "item": "https://claudewill.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "The Stable",
+        "item": "https://claudewill.io/stable"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "The Arcade",
+        "item": "https://claudewill.io/arcade"
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="/css/shared-nav.css">
+  <link rel="stylesheet" href="/css/arcade.css">
+
+  <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="porch-light"></div>
+
+  <div class="container">
+    <header class="header">
+      <a href="/stable" class="back-link">&larr; The Stable</a>
+      <h1>The Arcade</h1>
+      <p class="tagline">Some problems need a porch conversation. Some just need a quarter.</p>
+    </header>
+
+    <!-- Game Selection -->
+    <section id="arcade-grid" class="arcade-grid">
+      <div class="section-label">Pick a Game</div>
+
+      <div class="game-cards">
+        <button type="button" class="game-card" data-game="fence-mender">
+          <span class="game-card-info">
+            <span class="game-card-name">Fence Mender</span>
+            <span class="game-card-desc">Catch the posts. Build the fence. CW was a builder — you should be too.</span>
+          </span>
+          <span class="game-card-meta">
+            <span class="game-card-score" id="score-fence-mender"></span>
+            <span class="game-card-play">Play &rarr;</span>
+          </span>
+        </button>
+
+        <button type="button" class="game-card" data-game="porch-light">
+          <span class="game-card-info">
+            <span class="game-card-name">Porch Light</span>
+            <span class="game-card-desc">Keep the light burning. Lightning bugs are coming. One tap to push them back.</span>
+          </span>
+          <span class="game-card-meta">
+            <span class="game-card-score" id="score-porch-light"></span>
+            <span class="game-card-play">Play &rarr;</span>
+          </span>
+        </button>
+
+        <button type="button" class="game-card" data-game="the-route">
+          <span class="game-card-info">
+            <span class="game-card-name">The Route</span>
+            <span class="game-card-desc">Deliver the paper. Don't miss a porch. 30 years in newspapers started somewhere.</span>
+          </span>
+          <span class="game-card-meta">
+            <span class="game-card-score" id="score-the-route"></span>
+            <span class="game-card-play">Play &rarr;</span>
+          </span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Active Game Container -->
+    <section id="game-container" class="game-container" style="display: none;">
+      <div class="game-header">
+        <button type="button" id="game-back" class="game-back-btn">&larr; Back</button>
+        <div class="game-title" id="game-title"></div>
+        <div class="game-score-display" id="game-score-display"></div>
+      </div>
+      <div class="game-canvas-wrapper">
+        <canvas id="game-canvas"></canvas>
+      </div>
+      <div class="game-controls-hint" id="game-controls-hint"></div>
+    </section>
+
+    <!-- Game Over Overlay -->
+    <div id="game-over-overlay" class="game-over-overlay" style="display: none;">
+      <div class="game-over-content">
+        <div class="game-over-message" id="game-over-message"></div>
+        <div class="game-over-score" id="game-over-score"></div>
+        <div class="game-over-best" id="game-over-best"></div>
+        <div class="game-over-actions">
+          <button type="button" id="game-retry" class="game-btn-primary">Again</button>
+          <button type="button" id="game-quit" class="game-btn-secondary">Back to Arcade</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leaderboard -->
+    <section id="leaderboard" class="leaderboard">
+      <div class="section-label">Your High Scores</div>
+      <table class="leaderboard-table">
+        <tbody id="leaderboard-body"></tbody>
+      </table>
+    </section>
+
+    <footer>
+      <p>Built by <a href="/derek">Derek</a> with Claude · &copy; 2026 <a href="/strategies">CW Strategies</a> LLC</p>
+      <p style="margin-top: 8px;"><a href="/the-cw-standard">The Standard</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p>
+    </footer>
+  </div>
+
+  <script src="/js/shared-nav.js"></script>
+  <script src="/js/arcade/arcade.js" defer></script>
+</body>
+</html>

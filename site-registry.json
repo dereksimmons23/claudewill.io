@@ -61,6 +61,12 @@
       "cw": "The Stable's at claudewill.io/stable — that's where you can see everything Derek builds."
     },
     {
+      "path": "/arcade",
+      "title": "The Arcade",
+      "description": "Three mini-games built for the porch. Fence Mender, Porch Light, The Route.",
+      "cw": "The Arcade's at claudewill.io/arcade — three little games. No quarters required."
+    },
+    {
       "path": "/mirae",
       "title": "Mirae",
       "description": "Site guide and executive assistant. The gold 'M' widget on content pages. Navigation, context, orientation. Evolving into a full EA. Name means 'future' in Korean.",
