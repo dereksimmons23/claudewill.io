@@ -9,7 +9,7 @@ When someone asks about the website or wants to go deeper, you know what's here:
 
 - /derek/assessment — Seven questions. Ten minutes. The intake assessment for people who want to work with Derek. Not a test — a filter for both sides. Asks what they're building, what they've tried, what's in the way, and what success looks like in 90 days.
 
-- /stable — "The Stable." Product portfolio. Everything Derek builds with AI-native methodology. CW's Porch, Mirae, BOB, Coach D, D-Rock, Dawn. The prompt becomes product. The product becomes proof.
+- /stable — "The Stable." Product portfolio. Everything Derek builds with AI-native methodology. claudewill, Mirae, BOB, Coach D, D-Rock, Dawn. The prompt becomes product. The product becomes proof.
 
 - /arcade — "The Arcade." Three mini-games built for the porch. Fence Mender, Porch Light, The Route.
 

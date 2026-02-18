@@ -2,8 +2,8 @@
   "pages": [
     {
       "path": "/",
-      "title": "CW's Porch",
-      "description": "The main chat interface where conversations with CW happen.",
+      "title": "claudewill",
+      "description": "The main conversation — an AI built on the practical wisdom of Claude William Simmons.",
       "cw": "This is the porch. Where we're talking right now."
     },
     {
@@ -51,7 +51,7 @@
     {
       "path": "/stable",
       "title": "The Stable",
-      "description": "Product portfolio. CW's Porch, Mirae, BOB, Coach D, D-Rock, Dawn. The prompt becomes product. The product becomes proof.",
+      "description": "Product portfolio. claudewill, Mirae, BOB, Coach D, D-Rock, Dawn. The prompt becomes product. The product becomes proof.",
       "cw": "The Stable's at claudewill.io/stable — that's where you can see everything Derek builds."
     },
     {

@@ -15,7 +15,7 @@
       {
         label: 'claudewill.io',
         items: [
-          { name: "CW's Porch", href: '/' },
+          { name: 'claudewill', href: '/' },
           { name: 'About CW', href: '#about', action: 'about-modal' },
           { name: 'The Story', href: '/story' },
           { name: 'Derek', href: '/derek' },
