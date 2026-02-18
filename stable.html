@@ -34,7 +34,7 @@
     "publisher": {
       "@type": "Organization",
       "name": "CW Strategies LLC",
-      "url": "https://claudewill.io/strategies",
+      "url": "https://claudewill.io",
       "founder": {
         "@type": "Person",
         "name": "Derek Simmons",
@@ -275,6 +275,16 @@
       border: 1px solid var(--border);
     }
 
+    .status-writing {
+      color: #e0b860;
+      border: 1px solid rgba(224, 184, 96, 0.3);
+    }
+
+    .status-framework {
+      color: #5b8fb9;
+      border: 1px solid rgba(91, 143, 185, 0.3);
+    }
+
     /* CTA */
     .cta-group {
       display: flex;
@@ -404,7 +414,7 @@
 
   <div class="container">
     <header class="header">
-      <a href="/" class="back-link">&larr; claudewill</a>
+      <a href="/" class="back-link">&larr; claudewill*</a>
       <h1>The Stable <span class="beta-badge">Beta</span></h1>
       <p class="tagline">The prompt becomes product. The product becomes proof.</p>
     </header>
@@ -417,7 +427,7 @@
       <div class="product-list">
         <a href="/" class="product-card">
           <div class="product-info">
-            <div class="product-name">claudewill</div>
+            <div class="product-name">claudewill*</div>
             <p class="product-desc">Conversational AI agent built on the memory of a Depression-era Oklahoma farmer. Pull up a chair and ask a question.</p>
           </div>
           <span class="product-status status-live">Live</span>
@@ -469,6 +479,38 @@
             <p class="product-desc">151-day health accountability practice. Built for two people showing up daily.</p>
           </div>
           <span class="product-status status-live">Live</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frameworks & Research -->
+    <section>
+      <div class="section-label">Frameworks &amp; Research</div>
+      <p>Not products. Not services. Work that came from the practice.</p>
+
+      <div class="product-list">
+        <div class="product-card">
+          <div class="product-info">
+            <div class="product-name">Finding Claude</div>
+            <p class="product-desc">What happens when a human in crisis starts talking to a language model and doesn't stop. 14 months. 32 chapters. Written by Claude, with Derek.</p>
+          </div>
+          <span class="product-status status-writing">Writing</span>
+        </div>
+
+        <a href="/derek/research/" class="product-card">
+          <div class="product-info">
+            <div class="product-name">Between Claudes: Research</div>
+            <p class="product-desc">Field observations from 1,947 sessions. What the current frameworks don't account for.</p>
+          </div>
+          <span class="product-status status-live">Live</span>
+        </a>
+
+        <div class="product-card">
+          <div class="product-info">
+            <div class="product-name">The Method</div>
+            <p class="product-desc">Start, Work, Finish, Decide. A repeatable practice for building with AI, born from 22,000 messages across 12 projects.</p>
+          </div>
+          <span class="product-status status-framework">Framework</span>
         </div>
       </div>
     </section>
