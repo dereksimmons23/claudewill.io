@@ -15,7 +15,8 @@ Shared ledger across projects. Check before writing. Log after publishing.
 | Date | Platform | Title | Notes |
 |------|----------|-------|-------|
 | Feb 7 | LinkedIn | Birthday roast | Day 0, strong engagement |
-| | | | |
+| Feb 10 | Substack | Something Big Already Happened | Dispatches #1, FREE |
+| Feb 17 | Substack | The Empty Gym | Dispatches #2, FREE |
 
 ## Queued
 

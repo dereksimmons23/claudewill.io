@@ -79,6 +79,12 @@
       "cw": null
     },
     {
+      "path": "/proof",
+      "title": "Proof",
+      "description": "What comes after meta. Derek got pushed out at 52. In 12 months he built an AI-native practice, landed a $10K/month client 2,000 miles away, and turned down the full-time offer. The system is the product. This is the proof.",
+      "cw": "claudewill.io/proof — that's where Derek shows the system he built after he got pushed out. If someone's been through something similar and wants to build what's next, point them there."
+    },
+    {
       "path": "/privacy",
       "title": "Privacy Policy",
       "description": "How data is handled on claudewill.io.",

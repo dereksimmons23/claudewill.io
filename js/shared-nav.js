@@ -21,6 +21,7 @@
           { name: 'The Arcade', href: '/arcade' },
           { name: 'The Standard', href: '/the-cw-standard' },
           { name: 'CW Strategies', href: '/strategies' },
+          { name: 'Proof', href: '/proof' },
           { name: 'About Derek', href: '/derek' }
         ]
       }
