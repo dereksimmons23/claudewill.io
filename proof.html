@@ -14,7 +14,7 @@
   </script>
 
   <title>Proof | What Comes After Meta</title>
-  <meta name="description" content="I got pushed out at 52 after 30 years in media. In 12 months I built an AI-native practice, landed a $10K/month client 2,000 miles away, and turned down the full-time offer. Here's the system.">
+  <meta name="description" content="Position eliminated at 52. In 12 months I built an AI-native practice, landed a $10K/month client 2,000 miles away, and turned down the full-time offer. Here's the system.">
   <meta property="og:title" content="Proof | What Comes After Meta">
   <meta property="og:description" content="Position eliminated at 52. Built the system. Landed the client. Turned down full-time. Here's how.">
   <meta property="og:type" content="website">
@@ -81,8 +81,10 @@
       --accent: #d4a84b;
       --border: #1a3a5c;
       --card-bg: #0a1829;
+      --terminal-bg: #060e18;
       --font-body: 'Noto Serif', Georgia, serif;
       --font-sans: 'Noto Sans', system-ui, sans-serif;
+      --font-mono: 'SF Mono', 'Fira Code', 'Consolas', monospace;
     }
 
     html {
@@ -153,8 +155,8 @@
     }
 
     .tagline {
-      font-size: 1.15rem;
-      line-height: 1.9;
+      font-size: 1.05rem;
+      line-height: 1.8;
       color: var(--dim);
     }
 
@@ -177,14 +179,6 @@
       margin-bottom: 24px;
     }
 
-    h2 {
-      font-family: var(--font-sans);
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 16px;
-    }
-
     p {
       margin-bottom: 1.5em;
     }
@@ -193,101 +187,115 @@
       margin-bottom: 0;
     }
 
-    .lead {
-      font-size: 1.25rem;
-      line-height: 1.9;
-    }
-
-    /* Fork paths */
-    .fork-path {
-      background: var(--card-bg);
+    /* Terminal blocks */
+    .terminal {
+      background: var(--terminal-bg);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 28px;
-      margin-bottom: 16px;
+      padding: 20px 24px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.7;
+      overflow-x: auto;
+      margin-bottom: 12px;
     }
 
-    .fork-path h3 {
-      font-family: var(--font-sans);
-      font-size: 1.1rem;
+    .terminal .line {
+      white-space: pre;
+    }
+
+    .terminal .prompt {
+      color: var(--accent);
       font-weight: 600;
-      color: var(--text);
-      margin-bottom: 8px;
     }
 
-    .fork-path p {
-      font-size: 0.95rem;
+    .terminal .output {
       color: var(--dim);
+    }
+
+    .terminal .highlight {
+      color: var(--text);
+    }
+
+    .terminal .blank {
+      height: 0.5em;
+    }
+
+    .terminal-caption {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: #6a7a8a;
+      margin-bottom: 28px;
+      margin-top: 4px;
+    }
+
+    .terminal-caption:last-child {
       margin-bottom: 0;
     }
 
-    .fork-path.chosen {
-      border-color: var(--accent);
-    }
-
-    .fork-path.chosen h3 {
-      color: var(--accent);
-    }
-
-    /* System details */
-    .system-item {
-      padding: 16px 0;
-      border-bottom: 1px solid rgba(26, 58, 92, 0.5);
-    }
-
-    .system-item:last-child {
-      border-bottom: none;
-    }
-
-    .system-item code {
-      font-family: 'SF Mono', 'Fira Code', monospace;
-      font-size: 0.9rem;
-      color: var(--accent);
-      background: rgba(212, 168, 75, 0.1);
-      padding: 2px 8px;
-      border-radius: 3px;
-    }
-
-    .system-item .label {
-      font-family: var(--font-sans);
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-
-    .system-item .detail {
-      font-size: 0.95rem;
-      color: var(--dim);
-    }
-
-    /* Method steps */
-    .method-grid {
+    /* Portfolio grid */
+    .portfolio-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 16px;
       margin-top: 24px;
     }
 
-    .method-step {
+    .portfolio-item {
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 24px;
+      padding: 20px;
+      text-decoration: none;
+      transition: border-color 0.2s;
+      display: block;
     }
 
-    .method-step h3 {
+    a.portfolio-item:hover {
+      border-color: var(--accent);
+    }
+
+    .portfolio-name {
       font-family: var(--font-sans);
       font-size: 1rem;
       font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .portfolio-domain {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
       color: var(--accent);
       margin-bottom: 8px;
     }
 
-    .method-step p {
-      font-size: 0.9rem;
+    .portfolio-desc {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
       color: var(--dim);
-      margin-bottom: 0;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .portfolio-status {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .portfolio-status.live {
+      color: #4ade80;
+    }
+
+    .portfolio-status.soon {
+      color: #6a7a8a;
+    }
+
+    .no-link {
+      cursor: default;
     }
 
     /* Results grid */
@@ -320,138 +328,68 @@
       line-height: 1.5;
     }
 
-    /* Service steps */
-    .service-steps {
+    /* Method grid */
+    .method-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
       margin-top: 24px;
     }
 
-    .service-step {
-      display: flex;
-      gap: 20px;
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(26, 58, 92, 0.5);
+    .method-step {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
     }
 
-    .service-step:last-child {
-      border-bottom: none;
-    }
-
-    .step-number {
-      font-family: var(--font-sans);
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--accent);
-      min-width: 32px;
-    }
-
-    .step-content h3 {
+    .method-step h3 {
       font-family: var(--font-sans);
       font-size: 1rem;
       font-weight: 600;
-      color: var(--text);
-      margin-bottom: 4px;
+      color: var(--accent);
+      margin-bottom: 8px;
     }
 
-    .step-content p {
-      font-size: 0.95rem;
+    .method-step p {
+      font-size: 0.9rem;
       color: var(--dim);
       margin-bottom: 0;
     }
 
-    /* Contact form */
-    .contact-form {
-      max-width: 480px;
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 48px 0;
     }
 
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      font-family: var(--font-sans);
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--dim);
-      margin-bottom: 8px;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: 12px 16px;
-      font-family: var(--font-sans);
-      font-size: 1rem;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      color: var(--text);
-      transition: border-color 0.2s;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    .form-group select {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23b0b0b0' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 16px center;
-      padding-right: 40px;
-    }
-
-    .form-group select option {
-      background: var(--card-bg);
-      color: var(--text);
-    }
-
-    .btn-submit {
+    .cta-btn {
+      display: inline-block;
       background: var(--accent);
       color: var(--bg);
       border: none;
-      padding: 14px 28px;
+      padding: 16px 32px;
       font-family: var(--font-sans);
       font-size: 1rem;
       font-weight: 600;
       border-radius: 6px;
-      cursor: pointer;
+      text-decoration: none;
       transition: background 0.2s;
     }
 
-    .btn-submit:hover {
+    .cta-btn:hover {
       background: #e0b860;
     }
 
-    .btn-submit:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
+    .cta-btn:visited {
+      color: var(--bg);
     }
 
-    .form-status {
+    .cta-note {
       font-family: var(--font-sans);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      color: var(--dim);
       margin-top: 16px;
-      display: none;
-    }
-
-    .form-status.success {
-      color: #4ade80;
-      display: block;
-    }
-
-    .form-status.error {
-      color: #cc6666;
-      display: block;
     }
 
     /* The line */
@@ -509,6 +447,15 @@
       .results-grid {
         grid-template-columns: 1fr 1fr;
       }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .terminal {
+        font-size: 0.75rem;
+        padding: 16px;
+      }
     }
 
     @media print {
@@ -536,96 +483,100 @@
     <header class="header">
       <a href="/" class="back-link">&larr; CW's Porch</a>
       <h1>Proof</h1>
-      <p class="tagline">What comes after meta.</p>
+      <p class="tagline">Position eliminated at 52. Thirty years in media. In 12 months I built all of this.</p>
     </header>
 
-    <!-- THE CALL -->
+    <!-- THE SYSTEM -->
     <section>
-      <div class="section-label">The Call</div>
-      <p class="lead">You got the call. Position eliminated. Thirty years of work reduced to a meeting that lasted less than an hour.</p>
-      <p>Or maybe it wasn't a call. Maybe it was a slow fade. The title got smaller. The seat at the table moved farther from the center. The org chart changed and your name wasn't on it.</p>
-      <p>Either way, you're here now. Fifty-something. Decades of expertise. A professional identity that just ended. And a world full of advice from people who haven't been where you are.</p>
-      <p>I have.</p>
+      <div class="section-label">The System</div>
+
+      <div class="terminal">
+        <div class="line"><span class="prompt">$</span> cw</div>
+        <div class="line output"></div>
+        <div class="line output">  porch       CW's Porch + Strategies</div>
+        <div class="line output">  cascadia    Cascadia Daily News &mdash; $10K/month</div>
+        <div class="line output">  bob         Battle o' Brackets</div>
+        <div class="line output">  coach       Coach D &mdash; 157 drills</div>
+        <div class="line output">  dawn        Health accountability</div>
+        <div class="line output">  hancock     Anonymous storyteller</div>
+        <div class="line output">  sss claude  The book</div>
+        <div class="line output">  dc          Session memory system</div>
+      </div>
+      <p class="terminal-caption">One command. Any project. The whole practice from one terminal.</p>
+
+      <div class="terminal">
+        <div class="line"><span class="prompt">$</span> /standup</div>
+        <div class="line output"></div>
+        <div class="line highlight">Ecosystem Standup &mdash; Wednesday</div>
+        <div class="line output"></div>
+        <div class="line output">Business:</div>
+        <div class="line output">  Cascadia     Active    Mid-term assessment Thursday</div>
+        <div class="line output">  Coach D      Live      157 drills, revenue active</div>
+        <div class="line output"></div>
+        <div class="line output">Portfolio:</div>
+        <div class="line output">  claudewill   Live      /proof shipping today</div>
+        <div class="line output">  BOB          v2.9.6    March Madness approaching</div>
+        <div class="line output"></div>
+        <div class="line highlight">Recommendation: Start with Cascadia. It pays the bills.</div>
+      </div>
+      <p class="terminal-caption">Every morning. Read the board. Pick the work.</p>
+
+      <div class="terminal">
+        <div class="line"><span class="prompt">$</span> /eod</div>
+        <div class="line output"></div>
+        <div class="line output">Session: claudewill.io &mdash; 2h 14m</div>
+        <div class="line output">Commits: 3 &middot; Files: 7</div>
+        <div class="line output"></div>
+        <div class="line output">&check; HANDOFF.md updated</div>
+        <div class="line output">&check; Memory saved &rarr; Supabase</div>
+        <div class="line output">&check; Tomorrow: Test intake, update CW prompt</div>
+        <div class="line output"></div>
+        <div class="line highlight">Clean exit.</div>
+      </div>
+      <p class="terminal-caption">Every session ends clean. Next one starts warm.</p>
     </section>
 
-    <!-- THE FORK -->
+    <!-- THE PORTFOLIO -->
     <section>
-      <div class="section-label">The Fork</div>
-      <p>Everyone who gets pushed out at 50 stares at the same three paths. I stared at all three.</p>
+      <div class="section-label">The Portfolio</div>
+      <p>Built with the same system. Click any of them.</p>
 
-      <div class="fork-path">
-        <h3>Get Hired Again</h3>
-        <p>Apply to jobs designed for people 15 years younger. Translate 30 years of experience into keywords an algorithm can parse. Compete on salary against people with lower mortgages. Watch your inbox fill with silence. 64% of workers over 50 report age discrimination. The average 55-64 year old spends 27 weeks unemployed &mdash; four times longer than younger workers.</p>
-      </div>
-
-      <div class="fork-path">
-        <h3>Consult</h3>
-        <p>Trade your expertise for hourly rates. Build a slide deck. Network. Pitch. Chase invoices. It works &mdash; if you can land the first client. And the second. And if you can build a system that doesn't depend on you being in the room for every conversation.</p>
-      </div>
-
-      <div class="fork-path chosen">
-        <h3>Build</h3>
-        <p>Take everything you know and build a practice around it. Not a job. Not a gig. A system that works when you're not watching. That serves clients from anywhere. That runs on your terms, not someone else's org chart. This is the hardest path. It's also the one where you own what you build.</p>
-      </div>
-
-      <p style="margin-top: 24px;">I chose all three. Applied to jobs. Landed consulting work. And built the system underneath all of it. The system is what made the rest work.</p>
-    </section>
-
-    <!-- WHAT I BUILT -->
-    <section>
-      <div class="section-label">What I Built</div>
-      <p>October 2024, my position was eliminated after 30 years in media. First Chief Creative Officer at a top-10 US newspaper. Generated $20 million during a pandemic. None of it mattered when the spreadsheet changed.</p>
-      <p>In 12 months, I built an AI-native consulting practice from scratch. Not by reading about AI. By building with it &mdash; every day, every session, every project.</p>
-
-      <p>Here's what the system actually looks like:</p>
-
-      <div class="system-item">
-        <div class="label">One command, ten projects</div>
-        <div class="detail"><code>cw [project]</code> &mdash; switches context instantly. Client work, product builds, personal projects, writing. Each one has its own identity file, its own state, its own session history. One person, one CLI, the whole board.</div>
-      </div>
-
-      <div class="system-item">
-        <div class="label">Sessions that remember</div>
-        <div class="detail">Every session starts warm. The system loads the last three session memories and the current project state automatically. No re-explaining. No "where were we?" Every session ends by writing what happened to a database. The next one picks up where this one left off.</div>
-      </div>
-
-      <div class="system-item">
-        <div class="label">Morning standup, evening handoff</div>
-        <div class="detail">Same discipline I used leading 55-person newsroom teams. Show up, read the board, pick the work, do the work, hand off clean. The material changed. The work ethic didn't.</div>
-      </div>
-
-      <div class="system-item">
-        <div class="label">Reusable workflows</div>
-        <div class="detail">Meeting processing. Deliverable tracking. Content distribution. Project scaffolding. Health checks. End-of-day documentation. Not scripts on a shelf &mdash; rituals that run every day across every project.</div>
-      </div>
-
-      <div class="system-item">
-        <div class="label">The method</div>
-        <div class="detail">Start. Work. Finish. Decide. Four steps. Know where you are. Do the work. Leave it clean. Look from multiple angles. Simple enough to remember. Rigorous enough to build a practice on.</div>
-      </div>
-    </section>
-
-    <!-- THE METHOD -->
-    <section>
-      <div class="section-label">The Method</div>
-      <p>Everything runs on four steps. They work for a morning session, a client engagement, or a career rebuild.</p>
-
-      <div class="method-grid">
-        <div class="method-step">
-          <h3>Start</h3>
-          <p>Know where you are. Read the board. What's active? What's stale? What needs attention today? Don't start working until you know the landscape.</p>
+      <div class="portfolio-grid">
+        <a href="/" class="portfolio-item">
+          <div class="portfolio-name">CW's Porch</div>
+          <div class="portfolio-domain">claudewill.io</div>
+          <div class="portfolio-desc">AI grandfather on a porch</div>
+          <div class="portfolio-status live">Live</div>
+        </a>
+        <a href="https://bob.claudewill.io" class="portfolio-item" target="_blank" rel="noopener">
+          <div class="portfolio-name">BOB</div>
+          <div class="portfolio-domain">bob.claudewill.io</div>
+          <div class="portfolio-desc">Party bracket game</div>
+          <div class="portfolio-status live">Live</div>
+        </a>
+        <a href="https://coach.claudewill.io" class="portfolio-item" target="_blank" rel="noopener">
+          <div class="portfolio-name">Coach D</div>
+          <div class="portfolio-domain">coach.claudewill.io</div>
+          <div class="portfolio-desc">Basketball training + AI coach</div>
+          <div class="portfolio-status live">Live</div>
+        </a>
+        <a href="/stable" class="portfolio-item">
+          <div class="portfolio-name">The Stable</div>
+          <div class="portfolio-domain">claudewill.io/stable</div>
+          <div class="portfolio-desc">Full portfolio &rarr;</div>
+          <div class="portfolio-status live">Live</div>
+        </a>
+        <div class="portfolio-item no-link">
+          <div class="portfolio-name">D-Rock</div>
+          <div class="portfolio-domain">d-rock.claudewill.io</div>
+          <div class="portfolio-desc">Voice-only AI DJ</div>
+          <div class="portfolio-status soon">Coming Soon</div>
         </div>
-        <div class="method-step">
-          <h3>Work</h3>
-          <p>Do the work. Not the planning about the work. Not the meeting about the work. The actual work. Build, ship, iterate. Call and response.</p>
-        </div>
-        <div class="method-step">
-          <h3>Finish</h3>
-          <p>Leave it clean. Document what happened. Hand off state so the next session &mdash; or the next person &mdash; can pick up without re-explaining. The handoff is part of the work.</p>
-        </div>
-        <div class="method-step">
-          <h3>Decide</h3>
-          <p>Look from multiple angles. Business lens. Quality lens. Connection lens. Pushback lens. Don't decide from one angle when the decision affects everything.</p>
+        <div class="portfolio-item no-link">
+          <div class="portfolio-name">Dawn</div>
+          <div class="portfolio-domain">dawn.claudewill.io</div>
+          <div class="portfolio-desc">Health accountability</div>
+          <div class="portfolio-status soon">Coming Soon</div>
         </div>
       </div>
     </section>
@@ -633,112 +584,66 @@
     <!-- THE PROOF -->
     <section>
       <div class="section-label">The Proof</div>
-      <p>This isn't theory. This is what happened when I used the system for 12 months.</p>
 
       <div class="results-grid">
         <div class="result-card">
           <div class="result-number">12</div>
-          <div class="result-label">Months from position eliminated to running a practice with paying clients</div>
+          <div class="result-label">Months from position eliminated to running practice</div>
         </div>
         <div class="result-card">
           <div class="result-number">$10K</div>
-          <div class="result-label">Monthly consulting retainer from a client 2,000 miles away</div>
+          <div class="result-label">Monthly retainer, client 2,000 miles away</div>
         </div>
         <div class="result-card">
           <div class="result-number">No</div>
-          <div class="result-label">Turned down the full-time offer. My life is in Minnesota. The system works from anywhere.</div>
+          <div class="result-label">Turned down the full-time offer</div>
         </div>
         <div class="result-card">
           <div class="result-number">10+</div>
-          <div class="result-label">Active projects managed from one terminal &mdash; client work, products, writing, personal</div>
+          <div class="result-label">Projects from one terminal</div>
         </div>
         <div class="result-card">
           <div class="result-number">7</div>
-          <div class="result-label">Live products built and shipped with the same system</div>
+          <div class="result-label">Live products shipped</div>
         </div>
         <div class="result-card">
           <div class="result-number">1</div>
-          <div class="result-label">System. Same method, same tools, same discipline. Everything runs through it.</div>
+          <div class="result-label">System runs all of it</div>
         </div>
       </div>
     </section>
 
-    <!-- THE ENGAGEMENT -->
+    <!-- HOW IT WORKS -->
     <section>
       <div class="section-label">How It Works</div>
-      <p>Every engagement starts with a conversation. No public price tag. No one-size package. I learn what you need, and we figure out the right scope together.</p>
-      <p>The pattern:</p>
+      <p>I build the system for your practice. Not a template. The working machine &mdash; customized, trained, handed off.</p>
 
-      <div class="service-steps">
-        <div class="service-step">
-          <div class="step-number">1</div>
-          <div class="step-content">
-            <h3>Assess</h3>
-            <p>Where are you? What happened? What are you trying to build? What's in the way? I've been where you are. I'll be straight about what I see.</p>
-          </div>
+      <div class="method-grid">
+        <div class="method-step">
+          <h3>Assess</h3>
+          <p>Where are you? What happened? What are you building toward?</p>
         </div>
-        <div class="service-step">
-          <div class="step-number">2</div>
-          <div class="step-content">
-            <h3>Build</h3>
-            <p>I set up the system for your practice. Your identity file. Your project structure. Your workflows. Your session discipline. Customized for what you're building, not a generic template.</p>
-          </div>
+        <div class="method-step">
+          <h3>Build</h3>
+          <p>Your system. Your workflows. Your session discipline.</p>
         </div>
-        <div class="service-step">
-          <div class="step-number">3</div>
-          <div class="step-content">
-            <h3>Train</h3>
-            <p>I show you how to run it. Morning standup. Work sessions. Handoffs. The method. Not a course you watch &mdash; working sessions where we build together until you've got it.</p>
-          </div>
+        <div class="method-step">
+          <h3>Train</h3>
+          <p>Working sessions until you've got it. Not a course.</p>
         </div>
-        <div class="service-step">
-          <div class="step-number">4</div>
-          <div class="step-content">
-            <h3>Handoff</h3>
-            <p>You own it. The system, the workflows, the method, everything. No retainer. No dependency. Same way I'd build anything &mdash; do the work, show you how, move on.</p>
-          </div>
+        <div class="method-step">
+          <h3>Handoff</h3>
+          <p>You own it. No retainer. No dependency.</p>
         </div>
       </div>
     </section>
 
     <!-- THE SEAT -->
-    <section>
+    <section class="cta-section">
       <div class="section-label">The Seat</div>
-      <h2>Pull up a chair.</h2>
-      <p>If you got pushed out and you're trying to figure out what's next &mdash; or you already know and need help building it &mdash; start here. Five questions. No pitch. Just a conversation.</p>
-
-      <form id="proof-form" class="contact-form">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required autocomplete="name">
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required autocomplete="email">
-        </div>
-        <div class="form-group">
-          <label for="situation">What happened?</label>
-          <textarea id="situation" name="situation" placeholder="Position eliminated, early retirement, restructured out &mdash; whatever it was, in your words."></textarea>
-        </div>
-        <div class="form-group">
-          <label for="building">What are you trying to build?</label>
-          <textarea id="building" name="building" placeholder="A consulting practice, a product, a new career direction &mdash; or 'I don't know yet' is fine too."></textarea>
-        </div>
-        <div class="form-group">
-          <label for="found">How did you find this?</label>
-          <select id="found" name="found">
-            <option value="" disabled selected>Select one</option>
-            <option value="linkedin">LinkedIn</option>
-            <option value="substack">Substack</option>
-            <option value="cw-porch">CW's Porch</option>
-            <option value="referral">Someone sent me</option>
-            <option value="search">Search</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <button type="submit" class="btn-submit" id="submit-btn">Start the conversation</button>
-        <div class="form-status" id="form-status"></div>
-      </form>
+      <p>If you got pushed out and you're building what's next, start here.</p>
+      <a href="/derek/assessment" class="cta-btn">Take the assessment</a>
+      <p class="cta-note">Seven questions. Ten minutes. Not a test &mdash; a filter for both of us.</p>
     </section>
 
     <!-- THE LINE -->
@@ -751,51 +656,6 @@
       <p style="margin-top: 8px;"><a href="/the-cw-standard">The Standard</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></p>
     </footer>
   </div>
-
-  <script>
-    // Form submission via fetch
-    document.getElementById('proof-form').addEventListener('submit', async function(e) {
-      e.preventDefault();
-
-      var btn = document.getElementById('submit-btn');
-      var status = document.getElementById('form-status');
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
-      status.className = 'form-status';
-      status.style.display = 'none';
-
-      var formData = {
-        name: document.getElementById('name').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        situation: document.getElementById('situation').value.trim(),
-        building_toward: document.getElementById('building').value.trim(),
-        found_via: document.getElementById('found').value
-      };
-
-      try {
-        var response = await fetch('/.netlify/functions/proof-intake', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
-        });
-
-        if (response.ok) {
-          status.textContent = "Got it. I'll be in touch within 48 hours.";
-          status.className = 'form-status success';
-          document.getElementById('proof-form').reset();
-        } else {
-          status.textContent = 'Something went wrong. Try again or email derek@claudewill.io.';
-          status.className = 'form-status error';
-        }
-      } catch (err) {
-        status.textContent = 'Something went wrong. Try again or email derek@claudewill.io.';
-        status.className = 'form-status error';
-      }
-
-      btn.disabled = false;
-      btn.textContent = 'Start the conversation';
-    });
-  </script>
 
   <script src="/js/mirae-widget.js" defer></script>
   <script src="/js/shared-nav.js"></script>
