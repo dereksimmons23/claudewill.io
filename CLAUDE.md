@@ -1,6 +1,6 @@
 # CLAUDE.md — claudewill.io
 
-**Last updated:** February 12, 2026
+**Last updated:** February 18, 2026
 **Status:** v1.0 LAUNCHED
 **Milestone:** CW's 123rd birthday — LIVE
 
@@ -15,13 +15,13 @@
 ### What Works
 - **Chat interface** — CW conversational agent on index.html
 - **Story page** — Full narrative at /story (4 chapters, lineage, photo)
-- **About modal** — Welcome to CW's Porch intro
+- **About modal** — Welcome to claudewill intro
 - **Supabase logging** — Conversations stored in `conversations` table
 - **Multilingual** — CW responds in user's language
 - **Safety** — Age gate, bot protection, crisis resources
 - **Accessibility** — WCAG 2.1 AA compliant
 - **Hallucination guardrails** — CW won't fabricate research/sources, admits limitations
-- **Site knowledge** — CW knows about /story, /the-cw-standard, /about, /derek
+- **Site knowledge** — CW knows about /story, /the-cw-standard, /derek (hub), /stable, /arcade
 - **Size This Up** — Guided 5-step problem-sizing flow (Define → Weight → Resources → Focus → Next Step)
 - **Constitutional thinking** — CW knows 5 constitutional frameworks (CW Standard, Anthropic, Declaration, US Constitution, others) and can help people think constitutionally
 - **Political topics** — CW distinguishes partisan fights (avoids) from constitutional principles (engages directly); can name constitutional violations without being partisan
@@ -63,17 +63,19 @@
 ### File Structure
 ```
 claudewill.io/
-├── index.html              # Main chat interface
-├── story.html              # The Story page (4 chapters)
-├── strategies.html         # CW Strategies page
-├── derek.html              # /derek professional bio + Q&A
+├── index.html              # Main chat interface (branded "claudewill")
+├── story.html              # The Story page (4 chapters, in nav)
+├── derek.html              # /derek — the hub: bio, proof, engagement, Q&A, story, work, contact
+├── stable.html             # /stable — product portfolio
 ├── the-cw-standard.html    # The 5 principles
+├── arcade.html             # /arcade — three mini-games (not in nav)
 ├── privacy.html            # Privacy policy
 ├── terms.html              # Terms of use
 ├── HANDOFF.md              # Session state (read by /standup)
 ├── site-registry.json      # Page/subdomain registry for CW
 ├── css/                    # Stylesheets
 ├── js/
+│   ├── shared-nav.js       # Global nav (5 items + About CW on homepage)
 │   └── chat-prompts-artifact.js  # Stage-based prompt chips
 ├── images/
 │   └── cw-family.png       # Family photo
@@ -89,7 +91,7 @@ claudewill.io/
 │           ├── cw-standard.md # The 5 principles
 │           ├── derek.md     # About Derek, methodology, CW Strategies
 │           ├── behaviors.md # How CW operates
-│           ├── site-knowledge.md # The Stable, pages
+│           ├── site-knowledge.md # Site pages, navigation
 │           ├── tools/       # CW conversation tools: sizing, trade, recalibrate, etc.
 │           └── guardrails/  # Safety, hallucination, political
 ├── method/                 # CW Method — publishable methodology docs
@@ -115,36 +117,27 @@ claudewill.io/
     └── reference/           # Gitignored — research, old concepts
 ```
 
-**Note:** LinkedIn content, publishing workflows, and TRACKER.md live in `~/Desktop/writing/`. Client deliverables live in `~/Desktop/clients/cascadia/`. CW Method docs live in `method/` as publishable site content. This repo is the product — CW's Porch, business presence, prompt system, methodology.
+**Deleted pages (Feb 18, 2026):** proof.html, strategies.html, mirae.html — content folded into /derek, 301 redirects in netlify.toml.
+
+**Note:** LinkedIn content, publishing workflows, and TRACKER.md live in `~/Desktop/writing/`. Client deliverables live in `~/Desktop/clients/cascadia/`. CW Method docs live in `method/` as publishable site content. This repo is the product — claudewill, business presence, prompt system, methodology.
 
 ---
 
-## Complexity Management
+## Prompt Architecture
 
-### Current State (Jan 24, 2026)
-- System prompt: ~450 lines in cw.js
-- Tools: Size This Up, Recalibrate, The Trade, Liberation Gravy, The Funnel Cake
-- Guardrails: hallucination prevention, political topics, referrals
-- Status: **Manageable but approaching threshold**
+System prompt is modular — broken into composable .md files in `netlify/functions/cw-prompt/`:
+- **persona.md** — Identity, voice, backstory, THE WILL
+- **family.md** — Family stories, Vernie interview data, genealogy
+- **cw-standard.md** — The 5 principles
+- **derek.md** — About Derek, methodology, CW Strategies
+- **behaviors.md** — How CW operates (instinct, not checklist)
+- **site-knowledge.md** — Site pages, navigation awareness
+- **tools/** — Size This Up, Recalibrate, The Trade, Liberation Gravy, The Funnel Cake
+- **guardrails/** — Safety, hallucination prevention, political topics, referrals
 
-### Triggers for Refactor
-If any of these happen, pause and restructure before adding more:
-1. **CW behaves inconsistently** — contradictory responses from conflicting instructions
-2. **Can't find things** — takes more than 30 seconds to locate a section in cw.js
-3. **Adding feels risky** — worried about breaking existing behavior
-4. **Persona dilution** — CW sounds like an instruction-follower, not a person
-5. **System prompt exceeds 600 lines** — arbitrary but useful tripwire
+Compiled at build time via `node scripts/compile-prompt.js` → `compiled-prompt.js` (gitignored, regenerated on deploy).
 
-### Check-ins
-- **After Founder's Package launch (Feb 7)**: Review cw.js, assess complexity, decide on refactor
-- **Before adding any new tool**: Ask "does this conflict with anything?" and "can we find everything?"
-- **Monthly**: Quick read-through of system prompt, prune anything unused
-
-### What Refactor Looks Like
-- Break prompt into composable sections (persona.md, tools/, guardrails/)
-- Assemble at runtime from separate files
-- Document the map of what's where
-- Test each tool in isolation
+Current size: ~45K chars, ~11K input tokens.
 
 ---
 
@@ -278,24 +271,27 @@ Environment variables in Netlify:
 
 ## Roadmap
 
-### Queued Work
-| Item | Target | Notes |
-|------|--------|-------|
-| Information Architecture | 2 weeks | Nav hierarchy, "The Stable" concept |
-| Founder's Story | Feb 7, 2026 | Derek's 53rd birthday |
-| Technical deep dive | TBD | How CW's Porch was built |
-| Email setup | ✅ Done | derek@, hello@, catch-all via ImprovMX → Gmail |
-| Content structure | Post-launch | Drafts/published folders, content calendar |
-| Distribution strategy | Post-launch | u/cwStrategies, go to existing subs, be useful |
-| bob.claudewill.io | TBD | BOB subdomain |
-| coach.claudewill.io | TBD | Coach D persona |
-| dawn.claudewill.io | TBD | Dawn's writing assistant |
+### Done
+| Item | Date | Notes |
+|------|------|-------|
+| Information Architecture | Feb 18 | 4 visitor paths, 5 nav items, /derek as hub |
+| Founder's Story | Feb 7 | Derek's 53rd birthday, roast published |
+| Email setup | Jan | derek@claudewill.io via Google Workspace |
+| Vernie Mode | Feb 11 | Family access gate, shared code, separate Supabase table |
+| Voice layer | Feb 11 | Two-voice Q&A on /derek (Derek + Rachel) |
+| The Stable | Feb 6 | Product portfolio at /stable |
+| The Arcade | Feb 17 | Three mini-games at /arcade |
+| bob.claudewill.io | Live | BOB subdomain |
+| coach.claudewill.io | Live | Coach D subdomain |
 
-### Post-MVP Ideas (see WISHLIST.md)
-- Family Mode (richer genealogy for family members)
-- Vernie agent (family historian)
-- Voice interface
-- Session memory
+### Open
+| Item | Notes |
+|------|-------|
+| method/ migration | Should move to derek-claude — methodology docs, not deployed site content |
+| Distribution strategy | u/cwStrategies, LinkedIn cadence, platform launch |
+| dawn.claudewill.io | Dawn subdomain — coming soon |
+| d-rock.claudewill.io | D-Rock subdomain — coming soon |
+| Brand identity | "Claude will." tagline, asteriskos mark, visual punch |
 
 ### Separate Build: Constitutional Layer
 A framework for AI agent reasoning about rules, trust, systems, and coordination. Shares principles with CW Standard but different interface — no persona, built for agent-to-agent use. CW's Porch stays simple (grandfather helping neighbors); the constitutional layer handles the infrastructure question of how AI agents should reason about:
@@ -347,20 +343,35 @@ git log --oneline -15
 
 ## URLs
 
-| Environment | URL |
-|-------------|-----|
+| Page | URL |
+|------|-----|
 | Production | https://claudewill.io |
-| Story | https://claudewill.io/story |
-| About CW | https://claudewill.io/about |
-| Derek | https://claudewill.io/derek |
-| Standard | https://claudewill.io/the-cw-standard |
+| The Story | https://claudewill.io/story |
+| Derek (hub) | https://claudewill.io/derek |
+| Assessment | https://claudewill.io/derek/assessment |
+| The Stable | https://claudewill.io/stable |
+| The Standard | https://claudewill.io/the-cw-standard |
+| The Arcade | https://claudewill.io/arcade |
 | Privacy | https://claudewill.io/privacy |
 | Terms | https://claudewill.io/terms |
 | GitHub | https://github.com/dereksimmons23/claudewill.io |
 
+**Redirects (301):** /strategies → /derek, /proof → /derek, /mirae → /
+
 ---
 
 ## Changelog
+
+### February 18, 2026 — Site Simplification + Rebrand
+- **15 pages → 11, 8 nav items → 5** — consolidated /proof and /strategies into /derek
+- **Homepage rebranded:** "CW's Porch" → "claudewill" — CW is the character, claudewill is the site
+- **New nav:** claudewill | The Story | Derek | The Stable | The Standard (+ About CW on homepage)
+- **/derek is now the hub:** bio, proof (4 number cards), engagement models (Fractional/Project), Q&A, story, work cards, contact
+- **Deleted pages:** proof.html, strategies.html, mirae.html — 301 redirects in netlify.toml
+- **The Story added to nav** — was the foundational page but missing from navigation
+- **The Arcade removed from nav** — still live, discoverable from CW or /stable
+- Prompt updated: site-knowledge.md, derek.md recompiled
+- Net: -1,364 lines of code
 
 ### January 28, 2026 — Liberation Gravy + The Funnel Cake
 - Added "Liberation Gravy" tool: guided flow for thinning out subscriptions/consumption
