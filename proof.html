@@ -81,7 +81,6 @@
       --accent: #d4a84b;
       --border: #1a3a5c;
       --card-bg: #0a1829;
-      --terminal-bg: #060e18;
       --font-body: 'Noto Serif', Georgia, serif;
       --font-sans: 'Noto Sans', system-ui, sans-serif;
       --font-mono: 'SF Mono', 'Fira Code', 'Consolas', monospace;
@@ -184,52 +183,6 @@
     }
 
     p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Terminal blocks */
-    .terminal {
-      background: var(--terminal-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 20px 24px;
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      line-height: 1.7;
-      overflow-x: auto;
-      margin-bottom: 12px;
-    }
-
-    .terminal .line {
-      white-space: pre;
-    }
-
-    .terminal .prompt {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .terminal .output {
-      color: var(--dim);
-    }
-
-    .terminal .highlight {
-      color: var(--text);
-    }
-
-    .terminal .blank {
-      height: 0.5em;
-    }
-
-    .terminal-caption {
-      font-family: var(--font-sans);
-      font-size: 0.85rem;
-      color: #6a7a8a;
-      margin-bottom: 28px;
-      margin-top: 4px;
-    }
-
-    .terminal-caption:last-child {
       margin-bottom: 0;
     }
 
@@ -485,56 +438,6 @@
       <h1>Proof</h1>
       <p class="tagline">Position eliminated at 52. Thirty years in media. In 12 months I built all of this.</p>
     </header>
-
-    <!-- THE SYSTEM -->
-    <section>
-      <div class="section-label">The System</div>
-
-      <div class="terminal">
-        <div class="line"><span class="prompt">$</span> cw</div>
-        <div class="line output"></div>
-        <div class="line output">  porch       CW's Porch + Strategies</div>
-        <div class="line output">  cascadia    Cascadia Daily News &mdash; $10K/month</div>
-        <div class="line output">  bob         Battle o' Brackets</div>
-        <div class="line output">  coach       Coach D &mdash; 157 drills</div>
-        <div class="line output">  dawn        Health accountability</div>
-        <div class="line output">  hancock     Anonymous storyteller</div>
-        <div class="line output">  sss claude  The book</div>
-        <div class="line output">  dc          Session memory system</div>
-      </div>
-      <p class="terminal-caption">One command. Any project. The whole practice from one terminal.</p>
-
-      <div class="terminal">
-        <div class="line"><span class="prompt">$</span> /standup</div>
-        <div class="line output"></div>
-        <div class="line highlight">Ecosystem Standup &mdash; Wednesday</div>
-        <div class="line output"></div>
-        <div class="line output">Business:</div>
-        <div class="line output">  Cascadia     Active    Mid-term assessment Thursday</div>
-        <div class="line output">  Coach D      Live      157 drills, revenue active</div>
-        <div class="line output"></div>
-        <div class="line output">Portfolio:</div>
-        <div class="line output">  claudewill   Live      /proof shipping today</div>
-        <div class="line output">  BOB          v2.9.6    March Madness approaching</div>
-        <div class="line output"></div>
-        <div class="line highlight">Recommendation: Start with Cascadia. It pays the bills.</div>
-      </div>
-      <p class="terminal-caption">Every morning. Read the board. Pick the work.</p>
-
-      <div class="terminal">
-        <div class="line"><span class="prompt">$</span> /eod</div>
-        <div class="line output"></div>
-        <div class="line output">Session: claudewill.io &mdash; 2h 14m</div>
-        <div class="line output">Commits: 3 &middot; Files: 7</div>
-        <div class="line output"></div>
-        <div class="line output">&check; HANDOFF.md updated</div>
-        <div class="line output">&check; Memory saved &rarr; Supabase</div>
-        <div class="line output">&check; Tomorrow: Test intake, update CW prompt</div>
-        <div class="line output"></div>
-        <div class="line highlight">Clean exit.</div>
-      </div>
-      <p class="terminal-caption">Every session ends clean. Next one starts warm.</p>
-    </section>
 
     <!-- THE PORTFOLIO -->
     <section>
