@@ -21,8 +21,8 @@
     {
       "path": "/derek",
       "title": "Derek Simmons",
-      "description": "Derek's professional page. Full Q&A, story, and work. Three decades in media, sports, and technology. CW Strategies consulting. Contact form.",
-      "cw": "Derek's story and work are at claudewill.io/derek."
+      "description": "Derek's professional hub. Bio, proof (what he built after getting pushed out at 52), engagement models (fractional or project), full Q&A with audio, story, work cards, contact. Everything about working with Derek is here.",
+      "cw": "Everything about Derek — his story, what he built, and how to work with him — is at claudewill.io/derek."
     },
     {
       "path": "/derek/assessment",
@@ -39,20 +39,14 @@
     {
       "path": "/derek/research",
       "title": "Between Claudes: Research",
-      "description": "Field observations from 14 months of human-AI collaboration. Adapted from Between Claudes: A Facsimile of Memory. Each piece sourced, diagrammed, and transparent about what's established vs. observed vs. claimed.",
+      "description": "Field observations from 14 months of human-AI collaboration. Adapted from Between Claudes: A Facsimile of Memory.",
       "cw": "Derek's research from the book is at claudewill.io/derek/research — field observations from 1,947 sessions with Claude."
     },
     {
       "path": "/derek/research/warm-up-effect",
       "title": "The Warm-Up Effect",
-      "description": "What happens when AI gets honest mid-session. Across 1,947 sessions, a consistent pattern: output quality improves dramatically within a single conversation. Not from better prompts. From accumulated context weight.",
+      "description": "What happens when AI gets honest mid-session. Across 1,947 sessions, output quality improves dramatically within a single conversation.",
       "cw": "The warm-up effect — what happens when AI gets honest mid-session. claudewill.io/derek/research/warm-up-effect."
-    },
-    {
-      "path": "/strategies",
-      "title": "CW Strategies",
-      "description": "Derek's consulting practice, a Minnesota LLC. Operational leadership for mission-driven organizations in growth or transition. Fractional (10-20 hrs/week) or project (4-month engagements).",
-      "cw": "If someone asks about working with Derek or hiring help, point them to claudewill.io/strategies."
     },
     {
       "path": "/stable",
@@ -67,22 +61,10 @@
       "cw": "The Arcade's at claudewill.io/arcade — three little games. No quarters required."
     },
     {
-      "path": "/mirae",
-      "title": "Mirae",
-      "description": "Site guide and executive assistant. The gold 'M' widget on content pages. Navigation, context, orientation. Evolving into a full EA. Name means 'future' in Korean.",
-      "cw": "Mirae can help you find your way around the site — she's the gold M on most pages, or you can read about her at claudewill.io/mirae."
-    },
-    {
       "path": "/ea",
       "title": "Mirae EA",
       "description": "Mirae's private executive assistant mode. Login required. Not indexed.",
       "cw": null
-    },
-    {
-      "path": "/proof",
-      "title": "Proof",
-      "description": "What comes after meta. Derek got pushed out at 52. In 12 months he built an AI-native practice, landed a $10K/month client 2,000 miles away, and turned down the full-time offer. The system is the product. This is the proof.",
-      "cw": "claudewill.io/proof — that's where Derek shows the system he built after he got pushed out. If someone's been through something similar and wants to build what's next, point them there."
     },
     {
       "path": "/privacy",
@@ -96,6 +78,11 @@
       "description": "Legal terms for using claudewill.io.",
       "cw": null
     }
+  ],
+  "redirects": [
+    { "from": "/strategies", "to": "/derek", "note": "Consulting info folded into /derek" },
+    { "from": "/proof", "to": "/derek", "note": "Proof section folded into /derek" },
+    { "from": "/mirae", "to": "/", "note": "Widget speaks for itself" }
   ],
   "subdomains": [
     {

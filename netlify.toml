@@ -27,6 +27,36 @@
   to = "/derek/assessment"
   status = 301
 
+[[redirects]]
+  from = "/strategies"
+  to = "/derek"
+  status = 301
+
+[[redirects]]
+  from = "/strategies.html"
+  to = "/derek"
+  status = 301
+
+[[redirects]]
+  from = "/proof"
+  to = "/derek"
+  status = 301
+
+[[redirects]]
+  from = "/proof.html"
+  to = "/derek"
+  status = 301
+
+[[redirects]]
+  from = "/mirae"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/mirae.html"
+  to = "/"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]

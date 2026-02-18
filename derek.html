@@ -389,6 +389,87 @@
       text-decoration: underline;
     }
 
+    /* Proof results grid */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .result-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .result-number {
+      font-family: var(--font-sans);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .result-label {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--dim);
+      line-height: 1.4;
+    }
+
+    /* Engagement models */
+    .models-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .model-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .model-card h3 {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .model-card p {
+      font-size: 0.9rem;
+      color: var(--dim);
+      margin-bottom: 0;
+    }
+
+    /* Assessment CTA */
+    .cta-assess {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 14px 28px;
+      background: var(--accent);
+      color: var(--bg);
+      text-decoration: none;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .cta-assess:visited {
+      color: var(--bg);
+    }
+
+    .cta-assess:hover {
+      background: #e0b860;
+    }
+
     /* Connect section */
     .connect-grid {
       display: grid;
@@ -583,6 +664,14 @@
       .connect-grid {
         grid-template-columns: 1fr;
       }
+
+      .results-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .models-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* Print */
@@ -669,6 +758,8 @@
   <nav class="sticky-nav" aria-label="Page sections">
     <div class="sticky-nav-inner">
       <a href="#bio">Bio</a>
+      <a href="#proof">Proof</a>
+      <a href="#engage">Engage</a>
       <a href="#conversation">Q&A</a>
       <a href="#story">Story</a>
       <a href="#work">Work</a>
@@ -685,9 +776,49 @@
         <button class="listen-btn" data-section="conversation" aria-label="Listen to Q&A"><span class="listen-icon">&#9654;</span> Q&A</button>
       </div>
       <p class="bio-lead">
-        Derek Simmons grew up in a tiny trailer in a one-stoplight town in Kansas and became a media company's first and only chief creative officer and vice president. He spent three decades in media, made two newspapers the best in the world, and generated $20M+ in revenue along the way. Now he builds operational infrastructure with AI at <a href="/strategies">CW Strategies</a>.
+        Derek Simmons grew up in a tiny trailer in a one-stoplight town in Kansas and became a media company's first and only chief creative officer and vice president. He spent three decades in media, made two newspapers the best in the world, and generated $20M+ in revenue along the way. Now he builds operational infrastructure with AI at CW Strategies.
       </p>
     </header>
+
+    <!-- The Proof -->
+    <section id="proof">
+      <div class="section-label">The Proof</div>
+      <p>Position eliminated at 52. In 12 months:</p>
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="result-number">$10K</div>
+          <div class="result-label">Monthly retainer, client 2,000 miles away</div>
+        </div>
+        <div class="result-card">
+          <div class="result-number">No</div>
+          <div class="result-label">Turned down the full-time offer</div>
+        </div>
+        <div class="result-card">
+          <div class="result-number">10+</div>
+          <div class="result-label">Projects from one terminal</div>
+        </div>
+        <div class="result-card">
+          <div class="result-number">7</div>
+          <div class="result-label">Live products shipped</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Together -->
+    <section id="engage">
+      <div class="section-label">Work Together</div>
+      <div class="models-grid">
+        <div class="model-card">
+          <h3>Fractional</h3>
+          <p>Embedded inside your team. 10&ndash;20 hours/week. Builds capacity, not dependency.</p>
+        </div>
+        <div class="model-card">
+          <h3>Project</h3>
+          <p>4 months. Define, build, transfer, exit. No retainer. You own everything.</p>
+        </div>
+      </div>
+      <a href="/derek/assessment" class="cta-assess">Start the assessment &rarr;</a>
+    </section>
 
     <!-- Q&A Section -->
     <section id="conversation">
@@ -893,12 +1024,6 @@
         </div>
 
         <div class="work-card">
-          <h3>CW Strategies</h3>
-          <p>Building operational infrastructure for organizations scaling faster than their systems. AI-native methodology. 30 years in media.</p>
-          <a href="/strategies">Learn more →</a>
-        </div>
-
-        <div class="work-card">
           <h3>The Standard</h3>
           <p>Five principles for organizations navigating complexity. Truth over comfort. Usefulness over purity. Transparency over reputation. People over systems. Agency over ideology.</p>
           <a href="/the-cw-standard">Read the principles →</a>
@@ -953,7 +1078,7 @@
     </section>
 
     <footer>
-      <p>Built by <a href="/derek">Derek</a> with Claude · &copy; 2026 <a href="/strategies">CW Strategies</a> LLC</p>
+      <p>Built by <a href="/derek">Derek</a> with Claude · &copy; 2026 CW Strategies LLC</p>
       <p style="margin-top: 8px;"><a href="/the-cw-standard">The Standard</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p>
     </footer>
   </div>
