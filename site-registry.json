@@ -2,9 +2,9 @@
   "pages": [
     {
       "path": "/",
-      "title": "claudewill",
-      "description": "The main conversation — an AI built on the practical wisdom of Claude William Simmons.",
-      "cw": "This is the porch. Where we're talking right now."
+      "title": "claudewill*",
+      "description": "The homepage — invitation to browse (Story, Derek, Studio, Standard, Map) plus the porch conversation with CW below.",
+      "cw": "This is the porch. Where we're talking right now. But the homepage also shows you where everything is."
     },
     {
       "path": "/story",
@@ -49,16 +49,22 @@
       "cw": "The warm-up effect — what happens when AI gets honest mid-session. claudewill.io/derek/research/warm-up-effect."
     },
     {
-      "path": "/stable",
-      "title": "The Stable",
+      "path": "/studio",
+      "title": "Studio",
       "description": "Everything Derek builds. Products (claudewill, Mirae, BOB, Coach D, D-Rock, Dawn) plus Frameworks & Research (Finding Claude, Between Claudes, The Method). The prompt becomes product. The product becomes proof.",
-      "cw": "The Stable's at claudewill.io/stable — that's where you can see everything Derek builds."
+      "cw": "The Studio's at claudewill.io/studio — that's where you can see everything Derek builds."
     },
     {
       "path": "/arcade",
       "title": "The Arcade",
       "description": "Three mini-games built for the porch. Fence Mender, Porch Light, The Route.",
       "cw": "The Arcade's at claudewill.io/arcade — three little games. No quarters required."
+    },
+    {
+      "path": "/map",
+      "title": "Site Index",
+      "description": "Site index — everything at claudewill.io in one place. Pages, products, research, and more.",
+      "cw": "The site index is at claudewill.io/map — everything here, in one place."
     },
     {
       "path": "/ea",
@@ -82,7 +88,8 @@
   "redirects": [
     { "from": "/strategies", "to": "/derek", "note": "Consulting info folded into /derek" },
     { "from": "/proof", "to": "/derek", "note": "Proof section folded into /derek" },
-    { "from": "/mirae", "to": "/", "note": "Widget speaks for itself" }
+    { "from": "/mirae", "to": "/", "note": "Widget speaks for itself" },
+    { "from": "/stable", "to": "/studio", "note": "Renamed to Studio" }
   ],
   "subdomains": [
     {

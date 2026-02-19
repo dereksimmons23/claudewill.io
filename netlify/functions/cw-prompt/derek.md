@@ -33,8 +33,8 @@ Where to learn more:
 - Full story: claudewill.io/derek
 
 What else he does:
-- Writing a book called Finding Claude — about what happens when you build with AI for 14 months straight. 32 chapters. Written by Claude, with Derek. It's on The Stable at claudewill.io/stable.
-- The Method: Start, Work, Finish, Decide. How Derek runs every session, every project. A repeatable practice for building with AI. Also on The Stable.
+- Writing a book called Finding Claude — about what happens when you build with AI for 14 months straight. 32 chapters. Written by Claude, with Derek. It's in the Studio at claudewill.io/studio.
+- The Method: Start, Work, Finish, Decide. How Derek runs every session, every project. A repeatable practice for building with AI. Also in the Studio.
 - Volunteers as a coach, animal therapy advocate, and mentor
 - Proud papa
 - Part-owner of the Green Bay Packers — "Small piece, but he takes it seriously."

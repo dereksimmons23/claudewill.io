@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-991ML96NJ3');
+  </script>
+  <title>site index | claudewill*</title>
+  <meta name="description" content="Everything at claudewill.io in one place. Pages, products, research, games, and more.">
+  <meta property="og:title" content="site index | claudewill*">
+  <meta property="og:description" content="Everything at claudewill.io in one place.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://claudewill.io/map">
+  <meta property="og:image" content="https://claudewill.io/images/og-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="site index | claudewill*">
+  <meta name="twitter:description" content="Everything at claudewill.io in one place.">
+  <link rel="canonical" href="https://claudewill.io/map">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Site Index",
+    "description": "Site index for claudewill.io",
+    "url": "https://claudewill.io/map",
+    "publisher": {
+      "@type": "Organization",
+      "name": "CW Strategies LLC",
+      "url": "https://claudewill.io"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "claudewill",
+        "item": "https://claudewill.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Site Index",
+        "item": "https://claudewill.io/map"
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="/css/shared-nav.css">
+
+  <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #000D1A;
+      --text: #e8e8e8;
+      --dim: #b0b0b0;
+      --accent: #d4a84b;
+      --border: #1a3a5c;
+      --card-bg: #0a1829;
+      --font-body: 'Noto Sans', system-ui, sans-serif;
+      --font-mono: 'Courier New', Courier, monospace;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 18px;
+    }
+
+    a:visited { color: var(--accent); }
+
+    .porch-light {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.7) 100%);
+      z-index: 9999;
+      box-shadow:
+        0 0 15px rgba(212, 168, 75, 1),
+        0 0 40px rgba(212, 168, 75, 0.8),
+        0 8px 60px rgba(212, 168, 75, 0.5);
+    }
+
+    @media (max-width: 700px) {
+      .porch-light { width: 100%; }
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .header {
+      padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .back-link {
+      font-size: 0.9rem;
+      color: var(--dim);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--accent); }
+    .back-link:visited { color: var(--dim); }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      color: var(--dim);
+    }
+
+    .map-section {
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .map-list {
+      list-style: none;
+    }
+
+    .map-item {
+      margin-bottom: 16px;
+    }
+
+    .map-item a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .map-item a:hover {
+      color: var(--accent);
+    }
+
+    .map-item a:visited {
+      color: var(--text);
+    }
+
+    .map-item-name {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .map-item-desc {
+      font-size: 0.85rem;
+      color: var(--dim);
+      margin-top: 2px;
+    }
+
+    .map-item-status {
+      display: inline-block;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--dim);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .map-item-status.live {
+      color: var(--accent);
+      border-color: rgba(212, 168, 75, 0.3);
+    }
+
+    .map-item-status.soon {
+      color: #5b8fb9;
+      border-color: rgba(91, 143, 185, 0.3);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      font-size: 0.85rem;
+      color: var(--dim);
+      text-align: center;
+    }
+
+    footer a { color: var(--dim); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+    footer a:visited { color: var(--dim); }
+
+    .signoff {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--dim);
+      opacity: 0.4;
+      margin-top: 12px;
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 600px) {
+      body { font-size: 17px; }
+      .header { padding: 40px 0 32px; margin-bottom: 36px; }
+      h1 { font-size: 1.75rem; }
+      .container { padding: 0 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="porch-light"></div>
+
+  <div class="container">
+    <header class="header">
+      <a href="/" class="back-link">&larr; claudewill*</a>
+      <h1>site index</h1>
+      <p class="tagline">everything here, in one place.</p>
+    </header>
+
+    <section class="map-section">
+      <div class="section-label">pages</div>
+      <ul class="map-list">
+        <li class="map-item">
+          <a href="/">
+            <div class="map-item-name">claudewill*</div>
+            <div class="map-item-desc">The porch. An AI conversation built on a farmer's common sense.</div>
+          </a>
+        </li>
+        <li class="map-item">
+          <a href="/story">
+            <div class="map-item-name">story</div>
+            <div class="map-item-desc">Who was Claude William Simmons. Four chapters, one family photo.</div>
+          </a>
+        </li>
+        <li class="map-item">
+          <a href="/derek">
+            <div class="map-item-name">derek</div>
+            <div class="map-item-desc">The builder. Bio, proof, engagement models, Q&amp;A with audio.</div>
+          </a>
+        </li>
+        <li class="map-item">
+          <a href="/studio">
+            <div class="map-item-name">studio</div>
+            <div class="map-item-desc">Everything Derek builds. Products, frameworks, research.</div>
+          </a>
+        </li>
+        <li class="map-item">
+          <a href="/the-cw-standard">
+            <div class="map-item-name">standard</div>
+            <div class="map-item-desc">Five principles. How this place operates.</div>
+          </a>
+        </li>
+        <li class="map-item">
+          <a href="/arcade">
+            <div class="map-item-name">arcade</div>
+            <div class="map-item-desc">Three mini-games. No quarters required.</div>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="map-section">
+      <div class="section-label">products</div>
+      <ul class="map-list">
+        <li class="map-item">
+          <a href="https://bob.claudewill.io" target="_blank" rel="noopener">
+            <div class="map-item-name">bob <span class="map-item-status live">Live</span></div>
+            <div class="map-item-desc">Battle o' Brackets. A party game that turns any debate into a bracket tournament.</div>
+          </a>
+        </li>
+        <li class="map-item">
+          <a href="https://coach.claudewill.io" target="_blank" rel="noopener">
+            <div class="map-item-name">coach d <span class="map-item-status live">Live</span></div>
+            <div class="map-item-desc">Basketball training fieldhouse with an AI coach. 157 drills.</div>
+          </a>
+        </li>
+        <li class="map-item">
+          <div class="map-item-name">dawn <span class="map-item-status soon">Coming</span></div>
+          <div class="map-item-desc">151-day health accountability practice.</div>
+        </li>
+        <li class="map-item">
+          <div class="map-item-name">d-rock <span class="map-item-status soon">Coming</span></div>
+          <div class="map-item-desc">Voice-only AI DJ. Music curation without the surveillance.</div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="map-section">
+      <div class="section-label">research &amp; writing</div>
+      <ul class="map-list">
+        <li class="map-item">
+          <a href="/derek/research">
+            <div class="map-item-name">between claudes: research</div>
+            <div class="map-item-desc">Field observations from 1,947 sessions of human-AI collaboration.</div>
+          </a>
+        </li>
+        <li class="map-item">
+          <a href="/derek/research/warm-up-effect">
+            <div class="map-item-name">the warm-up effect</div>
+            <div class="map-item-desc">What happens when AI gets honest mid-session.</div>
+          </a>
+        </li>
+        <li class="map-item">
+          <div class="map-item-name">finding claude</div>
+          <div class="map-item-desc">The book. What happens when a human in crisis talks to a language model and doesn't stop. In progress.</div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="map-section">
+      <div class="section-label">work with derek</div>
+      <ul class="map-list">
+        <li class="map-item">
+          <a href="/derek">
+            <div class="map-item-name">derek</div>
+            <div class="map-item-desc">Bio, proof, engagement models.</div>
+          </a>
+        </li>
+        <li class="map-item">
+          <a href="/derek/assessment">
+            <div class="map-item-name">assessment</div>
+            <div class="map-item-desc">Seven questions. Ten minutes. Intake for people who want to work together.</div>
+          </a>
+        </li>
+        <li class="map-item">
+          <a href="/derek/resume">
+            <div class="map-item-name">resume</div>
+            <div class="map-item-desc">20 years, 13 roles. Star Tribune, Los Angeles Times.</div>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="map-section">
+      <div class="section-label">legal</div>
+      <ul class="map-list">
+        <li class="map-item">
+          <a href="/the-cw-standard">
+            <div class="map-item-name">standard</div>
+            <div class="map-item-desc">The five principles, data handling, and terms.</div>
+          </a>
+        </li>
+        <li class="map-item">
+          <a href="/privacy">
+            <div class="map-item-name">privacy</div>
+            <div class="map-item-desc">How data is handled.</div>
+          </a>
+        </li>
+        <li class="map-item">
+          <a href="/terms">
+            <div class="map-item-name">terms</div>
+            <div class="map-item-desc">Legal terms of use.</div>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>Built by <a href="/derek">Derek</a> with Claude · &copy; 2026 CW Strategies LLC</p>
+      <p style="margin-top: 8px;"><a href="/the-cw-standard">Standard</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p>
+      <div class="signoff">keep going</div>
+    </footer>
+  </div>
+
+  <script src="/js/shared-nav.js"></script>
+</body>
+</html>

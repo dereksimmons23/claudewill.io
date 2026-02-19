@@ -1,5 +1,5 @@
 /**
- * Shared Nav — claudewill.io
+ * Shared Nav — claudewill*
  * Burger menu + slide-out drawer.
  * Self-contained. Drop into any page or subdomain.
  */
@@ -8,19 +8,24 @@
   'use strict';
 
   // ── Nav Configuration ──────────────────────────────
-  // Update this when subdomains launch.
 
-  const NAV_CONFIG = {
+  var NAV_CONFIG = {
     sections: [
       {
-        label: 'claudewill.io',
+        label: 'derek',
+        href: '/derek',
         items: [
-          { name: 'claudewill*', href: '/' },
-          { name: 'About CW', href: '#about', action: 'about-modal' },
-          { name: 'The Story', href: '/story' },
-          { name: 'Derek', href: '/derek' },
-          { name: 'The Stable', href: '/stable' },
-          { name: 'The Standard', href: '/the-cw-standard' }
+          { name: 'work with derek', href: '/derek/assessment' },
+          { name: 'research', href: '/derek/research' }
+        ]
+      },
+      {
+        label: 'products',
+        href: '/studio',
+        items: [
+          { name: 'bob', href: 'https://bob.claudewill.io' },
+          { name: 'coach d', href: 'https://coach.claudewill.io' },
+          { name: 'arcade', href: '/arcade' }
         ]
       }
     ]
@@ -32,7 +37,6 @@
     var path = window.location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
     var checkPath = href.replace(/\.html$/, '').replace(/\/$/, '') || '/';
 
-    // Subdomain check
     if (href.startsWith('http')) {
       return window.location.origin === new URL(href).origin;
     }
@@ -47,7 +51,12 @@
     btn.className = 'cw-nav-burger';
     btn.setAttribute('aria-label', 'Open navigation');
     btn.setAttribute('aria-expanded', 'false');
-    btn.innerHTML = '<span></span><span></span><span></span>';
+    var s1 = document.createElement('span');
+    var s2 = document.createElement('span');
+    var s3 = document.createElement('span');
+    btn.appendChild(s1);
+    btn.appendChild(s2);
+    btn.appendChild(s3);
     return btn;
   }
 
@@ -57,40 +66,29 @@
     drawer.setAttribute('role', 'navigation');
     drawer.setAttribute('aria-label', 'Site navigation');
 
+    // Wordmark
+    var wordmark = document.createElement('a');
+    wordmark.className = 'cw-nav-wordmark';
+    wordmark.href = '/';
+    wordmark.textContent = 'claudewill*';
+    drawer.appendChild(wordmark);
+
     NAV_CONFIG.sections.forEach(function (section) {
-      var label = document.createElement('div');
+      // Section label (clickable)
+      var label = document.createElement('a');
       label.className = 'cw-nav-section';
+      label.href = section.href;
       label.textContent = section.label;
+      if (isActive(section.href)) {
+        label.classList.add('active');
+      }
       drawer.appendChild(label);
 
       section.items.forEach(function (item) {
-        // Skip "About CW" on pages that don't have the modal
-        if (item.action === 'about-modal' && !document.getElementById('about-modal')) {
-          return;
-        }
-
         var a = document.createElement('a');
         a.className = 'cw-nav-link';
         a.textContent = item.name;
-
-        if (item.action === 'about-modal') {
-          a.href = '#';
-          a.addEventListener('click', function (e) {
-            e.preventDefault();
-            closeDrawer();
-            var modal = document.getElementById('about-modal');
-            if (modal) {
-              modal.hidden = false;
-              var modalClose = document.getElementById('modal-close');
-              if (modalClose) modalClose.focus();
-            }
-          });
-        } else if (item.live === false) {
-          a.classList.add('coming-soon');
-          a.removeAttribute('href');
-        } else {
-          a.href = item.href;
-        }
+        a.href = item.href;
 
         if (isActive(item.href)) {
           a.classList.add('active');
@@ -99,6 +97,16 @@
         drawer.appendChild(a);
       });
     });
+
+    // Site index link at bottom
+    var indexLink = document.createElement('a');
+    indexLink.className = 'cw-nav-map';
+    indexLink.href = '/map';
+    indexLink.textContent = 'site index';
+    if (isActive('/map')) {
+      indexLink.classList.add('active');
+    }
+    drawer.appendChild(indexLink);
 
     return drawer;
   }
@@ -144,12 +152,10 @@
     drawer = createDrawer();
     backdrop = createBackdrop();
 
-    // Append all to body (burger is fixed-position)
     document.body.appendChild(burger);
     document.body.appendChild(backdrop);
     document.body.appendChild(drawer);
 
-    // Events
     burger.addEventListener('click', toggleDrawer);
     backdrop.addEventListener('click', closeDrawer);
 
@@ -161,7 +167,6 @@
     });
   }
 
-  // Run on DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {

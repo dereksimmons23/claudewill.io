@@ -13,15 +13,16 @@
 ## Current State
 
 ### What Works
-- **Chat interface** — CW conversational agent on index.html
+- **Homepage** — Invitation layer (wordmark, rotating phrases, nav) + CW chat on index.html
 - **Story page** — Full narrative at /story (4 chapters, lineage, photo)
 - **About modal** — Welcome to claudewill intro
 - **Supabase logging** — Conversations stored in `conversations` table
 - **Multilingual** — CW responds in user's language
-- **Safety** — Age gate, bot protection, crisis resources
+- **Safety** — Bot protection, crisis resources, inline disclosure
 - **Accessibility** — WCAG 2.1 AA compliant
 - **Hallucination guardrails** — CW won't fabricate research/sources, admits limitations
-- **Site knowledge** — CW knows about /story, /the-cw-standard, /derek (hub), /stable, /arcade
+- **Site index** — Everything at claudewill.io in one place at /map
+- **Site knowledge** — CW knows about /story, /the-cw-standard, /derek (hub), /studio, /arcade, /map
 - **Size This Up** — Guided 5-step problem-sizing flow (Define → Weight → Resources → Focus → Next Step)
 - **Constitutional thinking** — CW knows 5 constitutional frameworks (CW Standard, Anthropic, Declaration, US Constitution, others) and can help people think constitutionally
 - **Political topics** — CW distinguishes partisan fights (avoids) from constitutional principles (engages directly); can name constitutional violations without being partisan
@@ -66,7 +67,8 @@ claudewill.io/
 ├── index.html              # Main chat interface (branded "claudewill")
 ├── story.html              # The Story page (4 chapters, in nav)
 ├── derek.html              # /derek — the hub: bio, proof, engagement, Q&A, story, work, contact
-├── stable.html             # /stable — product portfolio
+├── studio.html             # /studio — product portfolio
+├── map.html                # /map — site index
 ├── the-cw-standard.html    # The 5 principles
 ├── arcade.html             # /arcade — three mini-games (not in nav)
 ├── privacy.html            # Privacy policy
@@ -94,13 +96,6 @@ claudewill.io/
 │           ├── site-knowledge.md # Site pages, navigation
 │           ├── tools/       # CW conversation tools: sizing, trade, recalibrate, etc.
 │           └── guardrails/  # Safety, hallucination, political
-├── method/                 # CW Method — publishable methodology docs
-│   ├── README.md           # Method overview
-│   ├── start.md            # How to show up
-│   ├── work.md             # How to do the work
-│   ├── finish.md           # How to leave it clean
-│   ├── decide.md           # How to see clearly (four lenses)
-│   └── templates/          # CLAUDE.md, HANDOFF.md, SKILL.md templates
 ├── worker/                 # CW Brief Cloudflare worker
 ├── .claude/
 │   └── skills/             # Claude Code workflow skills (gitignored)
@@ -117,9 +112,9 @@ claudewill.io/
     └── reference/           # Gitignored — research, old concepts
 ```
 
-**Deleted pages (Feb 18, 2026):** proof.html, strategies.html, mirae.html — content folded into /derek, 301 redirects in netlify.toml.
+**Deleted pages (Feb 18, 2026):** proof.html, strategies.html, mirae.html — content folded into /derek, 301 redirects in netlify.toml. stable.html renamed to studio.html with 301 redirect.
 
-**Note:** LinkedIn content, publishing workflows, and TRACKER.md live in `~/Desktop/writing/`. Client deliverables live in `~/Desktop/clients/cascadia/`. CW Method docs live in `method/` as publishable site content. This repo is the product — claudewill, business presence, prompt system, methodology.
+**Note:** LinkedIn content, publishing workflows, and TRACKER.md live in `~/Desktop/writing/`. Client deliverables live in `~/Desktop/clients/cascadia/`. CW Method docs moved to `~/Desktop/derek-claude/method/`. This repo is the product — claudewill, business presence, prompt system.
 
 ---
 
@@ -287,11 +282,10 @@ Environment variables in Netlify:
 ### Open
 | Item | Notes |
 |------|-------|
-| method/ migration | Should move to derek-claude — methodology docs, not deployed site content |
 | Distribution strategy | u/cwStrategies, LinkedIn cadence, platform launch |
 | dawn.claudewill.io | Dawn subdomain — coming soon |
 | d-rock.claudewill.io | D-Rock subdomain — coming soon |
-| Brand identity | "Claude will." tagline, asteriskos mark, visual punch |
+| Brand identity | "keep going" tagline live, * wordmark device live, visual punch still needed |
 
 ### Separate Build: Constitutional Layer
 A framework for AI agent reasoning about rules, trust, systems, and coordination. Shares principles with CW Standard but different interface — no persona, built for agent-to-agent use. CW's Porch stays simple (grandfather helping neighbors); the constitutional layer handles the infrastructure question of how AI agents should reason about:
@@ -349,18 +343,30 @@ git log --oneline -15
 | The Story | https://claudewill.io/story |
 | Derek (hub) | https://claudewill.io/derek |
 | Assessment | https://claudewill.io/derek/assessment |
-| The Stable | https://claudewill.io/stable |
+| Studio | https://claudewill.io/studio |
+| Site Index | https://claudewill.io/map |
 | The Standard | https://claudewill.io/the-cw-standard |
 | The Arcade | https://claudewill.io/arcade |
 | Privacy | https://claudewill.io/privacy |
 | Terms | https://claudewill.io/terms |
 | GitHub | https://github.com/dereksimmons23/claudewill.io |
 
-**Redirects (301):** /strategies → /derek, /proof → /derek, /mirae → /
+**Redirects (301):** /strategies → /derek, /proof → /derek, /mirae → /, /stable → /studio
 
 ---
 
 ## Changelog
+
+### February 18, 2026 — The Invitation + Studio Rename
+- **Homepage redesigned** — invitation layer above the porch: wordmark (3.5rem), rotating "keep" phrases, stories·studio·standard nav, "whatcha need?" porch pointer
+- **Age gate removed** — disclosure folded into inline chat disclaimer (passive consent)
+- **Stable → Studio** — file renamed, 301 redirects, all references updated across 8+ files
+- **map.html created** — site index with all pages, products, research, legal
+- **Global nav rewritten** — three sections with subsections, asterisk hover device, all lowercase
+- **"keep going" signoff** — added to all 11 page footers
+- **Lowercase brand signature** — all navigation and headings lowercase
+- **method/ moved** — methodology docs moved to derek-claude (not deployed site content)
+- Prompt updated: site-knowledge.md and derek.md. Recompiled.
 
 ### February 18, 2026 — Site Simplification + Rebrand
 - **15 pages → 11, 8 nav items → 5** — consolidated /proof and /strategies into /derek

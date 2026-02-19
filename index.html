@@ -12,7 +12,7 @@
       gtag('js', new Date());
       gtag('config', 'G-991ML96NJ3');
     </script>
-    <title>claudewill</title>
+    <title>claudewill*</title>
     <meta name="description" content="Pull up a chair. An AI conversation built on the practical wisdom of Claude William Simmons (1903-1967). Direct answers. No fuss. Just help.">
     <meta property="og:title" content="claudewill">
     <meta property="og:description" content="Pull up a chair. An AI conversation built on the practical wisdom of Claude William Simmons (1903-1967). Direct answers. No fuss. Just help.">
@@ -192,8 +192,10 @@
             color: var(--text);
             line-height: 1.6;
             font-size: 18px;
-            height: 100vh;
-            overflow: hidden;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            html { scroll-behavior: smooth; }
         }
 
         /* Porch light - the warm glow that says someone's home */
@@ -245,9 +247,107 @@
                 width: 100%;
             }
         }
-        
+
+        /* ── The Invitation ─────────────────────── */
+        .invitation {
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .invitation-wordmark {
+            font-family: var(--font-mono);
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            letter-spacing: 0.04em;
+            text-shadow: 0 0 60px rgba(212, 168, 75, 0.5);
+            margin-bottom: 0.75rem;
+        }
+
+        .invitation-phrase {
+            font-family: var(--font-mono);
+            color: var(--dim);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.04em;
+            transition: opacity 0.4s ease;
+            min-height: 1.5em;
+        }
+
+        .invitation-nav {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .invitation-nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            padding: 0.25rem;
+            transition: color 0.2s;
+            letter-spacing: 0.02em;
+        }
+
+        .invitation-nav a:hover {
+            color: var(--accent);
+        }
+
+        .invitation-nav a:visited {
+            color: var(--text);
+        }
+
+        .nav-dot {
+            color: var(--dim);
+            opacity: 0.3;
+        }
+
+        .invitation-porch {
+            color: var(--dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.6;
+            transition: opacity 0.2s, color 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .invitation-porch:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .invitation-porch:visited {
+            color: var(--dim);
+        }
+
+        .invitation-arrow {
+            display: block;
+            font-size: 1.2rem;
+            animation: nudge 2.5s ease-in-out infinite;
+        }
+
+        @keyframes nudge {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(4px); }
+        }
+
+        /* ── The Porch ──────────────────────────── */
         .container {
             height: 100vh;
+            height: 100svh;
             display: flex;
             flex-direction: column;
             max-width: 700px;
@@ -265,7 +365,7 @@
         
         .wordmark {
             font-family: var(--font-mono);
-            font-size: 1.8rem;
+            font-size: 1.2rem;
             font-weight: bold;
             color: var(--accent);
             letter-spacing: 0.04em;
@@ -490,6 +590,15 @@
             font-size: 0.75rem;
             color: var(--dim);
         }
+
+        .signoff {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--dim);
+            opacity: 0.4;
+            margin-top: 0.75rem;
+            letter-spacing: 0.08em;
+        }
         
         .typing {
             display: inline-block;
@@ -596,19 +705,30 @@
         @media (max-width: 600px) {
             body {
                 font-size: 17px;
-                height: auto;
-                min-height: 100vh;
-                overflow: auto;
+            }
+            .invitation {
+                min-height: 100svh;
+                padding: 1.5rem 1rem;
+            }
+            .invitation-wordmark {
+                font-size: 2.5rem;
+            }
+            .invitation-phrase {
+                font-size: 0.9rem;
+                margin-bottom: 2rem;
+            }
+            .invitation-nav a {
+                font-size: 0.9rem;
             }
             .container {
                 padding: 0 1rem;
                 height: auto;
-                min-height: 100vh;
+                min-height: 100svh;
             }
             .header {
                 padding: 1.5rem 0 1rem;
             }
-            .wordmark { font-size: 1.5rem; }
+            .wordmark { font-size: 1rem; }
             .tagline { font-size: 0.85rem; margin-top: 0.35rem; }
             .chat-area {
                 padding: 1.5rem 0;
@@ -738,67 +858,6 @@
             border-top: 1px solid var(--border);
             padding-top: 1rem;
             margin-top: 1.5rem;
-        }
-
-        /* Age Gate */
-        .age-gate {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--bg);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-        }
-
-        .age-gate[hidden] {
-            display: none;
-        }
-
-        .age-gate-content {
-            max-width: 400px;
-            text-align: center;
-        }
-
-        .age-gate-title {
-            font-family: var(--font-mono);
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            letter-spacing: 0.1em;
-        }
-
-        .age-gate-text {
-            color: var(--dim);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .age-gate-btn {
-            background: transparent;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            padding: 0.875rem 2rem;
-            font-family: inherit;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .age-gate-btn:hover {
-            background: var(--accent);
-            color: var(--bg);
-        }
-
-        .age-gate-note {
-            margin-top: 1rem;
-            font-size: 0.8rem;
-            color: var(--dim);
         }
 
         /* Vernie Mode gate */
@@ -998,22 +1057,27 @@
     <!-- Porch light -->
     <div class="porch-light" aria-hidden="true"></div>
 
-    <!-- Age Gate -->
-    <div class="age-gate" id="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-gate-title">
-        <div class="age-gate-content">
-            <h1 class="age-gate-title" id="age-gate-title">claudewill<span class="asterisk">*</span></h1>
-            <p class="age-gate-text">This is a conversation with an AI. By continuing, you confirm you are 18 or older, or 13+ with parental consent.</p>
-            <button class="age-gate-btn" id="age-gate-btn">Continue</button>
-            <p class="age-gate-note">Your conversation is not stored after you leave.</p>
-        </div>
-    </div>
+    <a href="#porch" class="skip-link">Skip to conversation</a>
 
-    <a href="#chat" class="skip-link">Skip to conversation</a>
+    <!-- The Invitation -->
+    <section class="invitation">
+        <h1 class="invitation-wordmark">claudewill<span class="asterisk">*</span></h1>
+        <p class="invitation-phrase" id="invitation-phrase">* keep going</p>
+        <nav class="invitation-nav" aria-label="Main navigation">
+            <a href="/story">stories</a>
+            <span class="nav-dot" aria-hidden="true">·</span>
+            <a href="/studio">studio</a>
+            <span class="nav-dot" aria-hidden="true">·</span>
+            <a href="/the-cw-standard">standard</a>
+        </nav>
+        <a href="#porch" class="invitation-porch">whatcha need?<span class="invitation-arrow">↓</span></a>
+    </section>
 
-    <div class="container">
+    <!-- The Porch -->
+    <div class="container" id="porch">
         <header class="header" role="banner">
             <div>
-                <h1 class="wordmark">claudewill<span class="asterisk">*</span></h1>
+                <div class="wordmark">claudewill<span class="asterisk">*</span></div>
                 <p class="tagline" id="tagline"></p>
             </div>
         </header>
@@ -1041,14 +1105,15 @@
                 ></textarea>
                 <button class="send-btn" id="send" aria-label="Send message">Send</button>
             </div>
-            <div class="chat-disclaimer">Not professional advice. Crisis? <a href="https://988lifeline.org" target="_blank" rel="noopener">988</a> · <a href="https://www.crisistextline.org" target="_blank" rel="noopener">Text Line</a></div>
+            <div class="chat-disclaimer">AI conversation · 18+ (13+ with consent) · Not professional advice · Crisis? <a href="https://988lifeline.org" target="_blank" rel="noopener">988</a> · <a href="https://www.crisistextline.org" target="_blank" rel="noopener">Text Line</a></div>
         </div>
 
         <footer class="footer" role="contentinfo">
             Built by <a href="/derek">Derek</a> with Claude · &copy; 2026 CW Strategies LLC
-            <div style="margin-top: 0.4rem;"><a href="/the-cw-standard">The Standard</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <button class="family-link" id="family-link">Family?</button></div>
+            <div style="margin-top: 0.4rem;"><a href="/the-cw-standard">Standard</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <button class="family-link" id="family-link">Family?</button></div>
             <div class="vernie-indicator" id="vernie-indicator">Vernie Mode</div>
             <button class="vernie-exit" id="vernie-exit">Exit family mode</button>
+            <div class="signoff">keep going</div>
         </footer>
     </div>
 
@@ -1090,26 +1155,7 @@
         const input = document.getElementById('input');
         const send = document.getElementById('send');
         const prompts = document.getElementById('prompts');
-        const ageGate = document.getElementById('age-gate');
-        const ageGateBtn = document.getElementById('age-gate-btn');
         const honeypot = document.getElementById('hp-website');
-
-        // Age gate handling
-        const ageVerified = sessionStorage.getItem('cw-age-verified');
-        if (ageVerified) {
-            ageGate.hidden = true;
-        } else {
-            input.disabled = true;
-            send.disabled = true;
-        }
-
-        ageGateBtn.addEventListener('click', () => {
-            sessionStorage.setItem('cw-age-verified', 'true');
-            ageGate.hidden = true;
-            input.disabled = false;
-            send.disabled = false;
-            input.focus();
-        });
 
         // Conversation history for context
         let conversationHistory = [];
@@ -1494,8 +1540,6 @@
             });
         }
 
-        input.focus();
-
         // About modal
         const aboutModal = document.getElementById('about-modal');
         const modalClose = document.getElementById('modal-close');
@@ -1639,6 +1683,29 @@
             send.disabled = false;
             input.placeholder = 'What do you need?';
         });
+    </script>
+    <script>
+        // Invitation phrase rotation
+        const phrases = [
+            '* keep going',
+            '* keep talking',
+            '* keep building',
+            '* keep showing up',
+            '* keep asking',
+            '* keep your word'
+        ];
+        let phraseIndex = 0;
+        const phraseEl = document.getElementById('invitation-phrase');
+        if (phraseEl) {
+            setInterval(() => {
+                phraseEl.style.opacity = '0';
+                setTimeout(() => {
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    phraseEl.textContent = phrases[phraseIndex];
+                    phraseEl.style.opacity = '1';
+                }, 400);
+            }, 3500);
+        }
     </script>
     <script src="/js/shared-nav.js"></script>
 </body>
