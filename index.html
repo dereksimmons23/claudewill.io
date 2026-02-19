@@ -597,6 +597,9 @@
             color: var(--dim);
             opacity: 0.4;
             margin-top: 0.75rem;
+            cursor: default;
+            user-select: none;
+            transition: opacity 0.3s ease;
             letter-spacing: 0.08em;
         }
         
@@ -995,11 +998,26 @@
             border: none;
             font-family: inherit;
             font-size: inherit;
+            margin-top: 0.4rem;
+            display: inline-block;
         }
 
         .family-link:hover {
             opacity: 1;
             color: var(--accent);
+        }
+
+        .signoff:hover {
+            opacity: 0.7;
+        }
+
+        .signoff-star {
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .signoff:hover .signoff-star {
+            color: var(--accent);
+            text-shadow: 0 0 8px rgba(212, 168, 75, 0.6);
         }
 
         .vernie-exit {
@@ -1079,7 +1097,7 @@
     <div class="container" id="porch">
         <header class="header" role="banner">
             <div>
-                <div class="wordmark">claudewill<span class="asterisk">*</span></div>
+                <div class="wordmark">cw's porch</div>
                 <p class="tagline" id="tagline"></p>
             </div>
         </header>
@@ -1094,6 +1112,7 @@
                 <button class="prompt-chip" data-prompt="I'm stuck on something" aria-label="Ask: I'm stuck on something">I'm stuck</button>
                 <button class="prompt-chip" data-prompt="I need to make a decision" aria-label="Ask: I need to make a decision">Help me decide</button>
                 <button class="prompt-chip" data-prompt="What's the catch?" aria-label="Ask: What's the catch?">What's the catch?</button>
+                <button class="prompt-chip" data-prompt="__FAMILY__" aria-label="Family access">Family?</button>
             </div>
             <div class="input-row">
                 <!-- Honeypot field - bots fill this, humans don't see it -->
@@ -1111,11 +1130,11 @@
         </div>
 
         <footer class="footer" role="contentinfo">
-            Built by <a href="/derek">Derek</a> with Claude · &copy; 2026 CW Strategies LLC
-            <div style="margin-top: 0.4rem;"><a href="/the-cw-standard">Standard</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <button class="family-link" id="family-link">Family?</button></div>
+            <p class="footer-note">Built by <a href="/derek">Derek</a> with Claude · &copy; 2026 CW Strategies LLC</p>
+            <p class="footer-note"><a href="/the-cw-standard">Standard</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p>
             <div class="vernie-indicator" id="vernie-indicator">Vernie Mode</div>
             <button class="vernie-exit" id="vernie-exit">Exit family mode</button>
-            <div class="signoff">keep going</div>
+            <div class="signoff" id="signoff-easter"><span class="signoff-star">*</span> keep going</div>
         </footer>
     </div>
 
@@ -1173,7 +1192,8 @@
                 { text: "Who are you?", prompt: "Who are you?" },
                 { text: "I'm stuck", prompt: "I'm stuck on something" },
                 { text: "Help me decide", prompt: "I need to make a decision" },
-                { text: "What's the catch?", prompt: "What's the catch?" }
+                { text: "What's the catch?", prompt: "What's the catch?" },
+                { text: "Family?", prompt: "__FAMILY__" }
             ],
             early: [
                 { text: "Size this up", prompt: "I have a complex problem I need help sizing up. Can you walk me through your process?" },
@@ -1226,6 +1246,8 @@
                 chip.addEventListener('click', () => {
                     if (p.prompt === '__CONTACT_FORM__') {
                         showInlineContactForm();
+                    } else if (p.prompt === '__FAMILY__') {
+                        openVernieGate();
                     } else {
                         input.value = p.prompt;
                         sendMessage();
@@ -1569,7 +1591,6 @@
         });
 
         // === Vernie Mode ===
-        const familyLink = document.getElementById('family-link');
         const vernieGate = document.getElementById('vernie-gate');
         const vernieCodeInput = document.getElementById('vernie-code-input');
         const vernieSubmit = document.getElementById('vernie-submit');
@@ -1577,19 +1598,19 @@
         const vernieError = document.getElementById('vernie-error');
         const vernieExit = document.getElementById('vernie-exit');
 
-        // Check for existing Vernie session on load
-        const storedVernieCode = sessionStorage.getItem('cw-vernie-code');
-        if (storedVernieCode) {
-            activateVernieMode(storedVernieCode, true);
-        }
-
-        familyLink.addEventListener('click', () => {
+        function openVernieGate() {
             if (isVernieMode) return;
             vernieGate.hidden = false;
             vernieCodeInput.value = '';
             vernieError.textContent = '';
             vernieCodeInput.focus();
-        });
+        }
+
+        // Check for existing Vernie session on load
+        const storedVernieCode = sessionStorage.getItem('cw-vernie-code');
+        if (storedVernieCode) {
+            activateVernieMode(storedVernieCode, true);
+        }
 
         vernieCancel.addEventListener('click', () => {
             vernieGate.hidden = true;
@@ -1707,6 +1728,23 @@
                     phraseEl.style.opacity = '1';
                 }, 400);
             }, 3500);
+        }
+    </script>
+    <script>
+        // Signoff easter egg — click cycles through keep phrases
+        const signoffEl = document.getElementById('signoff-easter');
+        const keepPhrases = ['keep going', 'keep talking', 'keep building', 'keep showing up', 'keep asking', 'keep your word'];
+        let keepIndex = 0;
+        if (signoffEl) {
+            signoffEl.addEventListener('click', () => {
+                keepIndex = (keepIndex + 1) % keepPhrases.length;
+                signoffEl.style.opacity = '0';
+                setTimeout(() => {
+                    var star = signoffEl.querySelector('.signoff-star');
+                    if (star) star.nextSibling.textContent = ' ' + keepPhrases[keepIndex];
+                    signoffEl.style.opacity = '';
+                }, 200);
+            });
         }
     </script>
     <script src="/js/shared-nav.js"></script>

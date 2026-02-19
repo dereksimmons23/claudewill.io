@@ -216,6 +216,20 @@
   color: #d4a84b;
 }
 
+/* Shared Footer Utilities */
+.footer-note + .footer-note {
+  margin-top: 8px;
+}
+
+.signoff {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.75rem;
+  color: #b0b0b0;
+  opacity: 0.4;
+  margin-top: 12px;
+  letter-spacing: 0.08em;
+}
+
 /* Light theme variant (for privacy, terms, etc.) */
 [data-cw-nav-theme="light"] .cw-nav-burger span {
   background: #1a1a1a;
