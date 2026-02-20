@@ -12,7 +12,7 @@
     gtag('js', new Date());
     gtag('config', 'G-991ML96NJ3');
   </script>
-  <title>Derek Simmons | claudewill</title>
+  <title>derek simmons | claudewill</title>
   <meta name="description" content="Derek Simmons: three decades in media, first and only CCO/VP at Star Tribune, made two newspapers the best in the world. Now builds operational infrastructure with AI at CW Strategies.">
   <meta property="og:title" content="Derek Simmons | claudewill">
   <meta property="og:description" content="Three decades in media. Made two newspapers the best in the world. Now builds operational infrastructure with AI at CW Strategies.">
@@ -192,14 +192,41 @@
         0 8px 60px rgba(212, 168, 75, 0.5);
     }
 
-    /* Sticky nav */
-    .sticky-nav {
+    /* Site bar — global nav */
+    .site-bar {
       position: sticky;
       top: 5px;
       background: var(--bg);
+      z-index: 101;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 100%;
+    }
+
+    .site-wordmark {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-shadow: 0 0 30px rgba(212, 168, 75, 0.3);
+    }
+
+    .site-wordmark:visited {
+      color: var(--accent);
+    }
+
+    /* Sticky nav — page sections */
+    .sticky-nav {
+      position: sticky;
+      top: 48px;
+      background: var(--bg);
       border-bottom: 1px solid var(--border);
       z-index: 100;
-      padding: 12px 0;
+      padding: 10px 0;
     }
 
     .sticky-nav-inner {
@@ -209,7 +236,14 @@
       display: flex;
       justify-content: center;
       gap: 8px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .sticky-nav-inner::-webkit-scrollbar {
+      display: none;
     }
 
     .sticky-nav a {
@@ -221,6 +255,7 @@
       padding: 6px 14px;
       border-radius: 4px;
       transition: all 0.2s ease;
+      white-space: nowrap;
     }
 
     .sticky-nav a:hover,
@@ -296,7 +331,6 @@
       font-size: 0.75rem;
       font-weight: 600;
       color: var(--accent);
-      text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: 32px;
     }
@@ -644,6 +678,29 @@
         width: 100%;
       }
 
+      .site-bar {
+        padding: 12px 16px;
+      }
+
+      .site-wordmark {
+        font-size: 1rem;
+      }
+
+      .sticky-nav {
+        top: 42px;
+      }
+
+      .sticky-nav-inner {
+        padding: 0 16px;
+        justify-content: flex-start;
+        gap: 4px;
+      }
+
+      .sticky-nav a {
+        font-size: 0.78rem;
+        padding: 6px 10px;
+      }
+
       h1 {
         font-size: 2rem;
       }
@@ -654,11 +711,6 @@
 
       section {
         padding: 40px 0;
-      }
-
-      .sticky-nav a {
-        font-size: 0.8rem;
-        padding: 6px 10px;
       }
 
       .connect-grid {
@@ -674,9 +726,77 @@
       }
     }
 
+    /* Portfolio teaser */
+    .portfolio-teaser {
+      display: block;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.3s ease;
+    }
+
+    .portfolio-teaser:hover {
+      border-color: var(--accent);
+    }
+
+    .portfolio-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .portfolio-hero {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .portfolio-text {
+      padding: 20px 24px 8px;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--dim);
+    }
+
+    .portfolio-stat {
+      white-space: nowrap;
+    }
+
+    .portfolio-divider {
+      margin: 0 8px;
+      opacity: 0.4;
+    }
+
+    .portfolio-cta {
+      display: block;
+      padding: 8px 24px 20px;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    @media (max-width: 700px) {
+      .portfolio-images {
+        height: 140px;
+      }
+
+      .portfolio-hero {
+        height: 140px;
+      }
+
+      .portfolio-text {
+        font-size: 0.8rem;
+      }
+    }
+
     /* Print */
     @media print {
       .porch-light,
+      .site-bar,
       .sticky-nav,
       .back-link,
       .cta-group {
@@ -764,33 +884,50 @@
 <body>
   <div class="porch-light"></div>
 
+  <div class="site-bar">
+    <a href="/" class="site-wordmark">claudewill*</a>
+  </div>
+
   <nav class="sticky-nav" aria-label="Page sections">
     <div class="sticky-nav-inner">
-      <a href="#bio">Bio</a>
-      <a href="#proof">Proof</a>
-      <a href="#engage">Engage</a>
-      <a href="#conversation">Q&A</a>
-      <a href="#work">Work</a>
-      <a href="#connect">Connect</a>
+      <a href="#portfolio">portfolio</a>
+      <a href="#proof">proof</a>
+      <a href="#work">work</a>
+      <a href="#conversation">q&a</a>
+      <a href="#connect">connect</a>
     </div>
   </nav>
 
   <div class="container">
     <header class="header" id="bio">
-      <h1>Derek Simmons</h1>
-      <p class="tagline">Designs the process. Trusts the players.</p>
-      <div class="listen-bar">
-        <span class="listen-label">Listen</span>
-        <button class="listen-btn" data-section="conversation" aria-label="Listen to Q&A"><span class="listen-icon">&#9654;</span> Q&A</button>
-      </div>
+      <h1>derek simmons</h1>
+      <p class="tagline">designs the process. trusts the players.</p>
       <p class="bio-lead">
-        Derek Simmons grew up in a tiny trailer in a one-stoplight town in Kansas and became a media company's first and only chief creative officer and vice president. He spent three decades in media, made two newspapers the best in the world, and generated $20M+ in revenue along the way. Now he builds operational infrastructure with AI at CW Strategies.
+        Spent 30 years in media making two newspapers the best in the world and generating $20M+ in revenue. Position eliminated at 52&mdash;now builds operational infrastructure with AI at <a href="/" style="color: var(--accent); text-decoration: none;">CW Strategies</a>.
       </p>
     </header>
 
+    <!-- Portfolio -->
+    <section id="portfolio">
+      <div class="section-label">the work &mdash; 30 years</div>
+      <a href="/derek/portfolio" class="portfolio-teaser">
+        <div class="portfolio-images">
+          <img src="./derek/portfolio/images/princecovers.jpg" alt="Prince tribute covers" class="portfolio-hero" loading="lazy">
+          <img src="./derek/portfolio/images/weather-dataviz.jpg" alt="Weather data visualization" class="portfolio-hero" loading="lazy">
+          <img src="./derek/portfolio/images/obama.jpg" alt="Obama inauguration" class="portfolio-hero" loading="lazy">
+        </div>
+        <div class="portfolio-text">
+          <span class="portfolio-stat">1,000+ design awards</span>
+          <span class="portfolio-divider">&middot;</span>
+          <span class="portfolio-stat">Los Angeles Times &middot; Star Tribune</span>
+        </div>
+        <span class="portfolio-cta">view the portfolio &rarr;</span>
+      </a>
+    </section>
+
     <!-- The Proof -->
     <section id="proof">
-      <div class="section-label">The Proof</div>
+      <div class="section-label">the proof</div>
       <p>Position eliminated at 52. In 12 months:</p>
       <div class="results-grid">
         <div class="result-card">
@@ -812,9 +949,12 @@
       </div>
     </section>
 
-    <!-- Work Together -->
-    <section id="engage">
-      <div class="section-label">Work Together</div>
+    <!-- Work Section -->
+    <section id="work">
+      <div class="section-label">work with derek</div>
+
+      <p>CW Strategies builds operational infrastructure for organizations scaling faster than their systems. AI-native methodology built on 30 years in media.</p>
+
       <div class="models-grid">
         <div class="model-card">
           <h3>Fractional</h3>
@@ -825,17 +965,47 @@
           <p>4 months. Define, build, transfer, exit. No retainer. You own everything.</p>
         </div>
       </div>
-      <a href="/derek/assessment" class="cta-assess">Start the assessment &rarr;</a>
+      <a href="/derek/assessment" class="cta-assess">start the assessment &rarr;</a>
+
+      <div class="work-grid" style="margin-top: 48px;">
+        <div class="work-card">
+          <h3>The Standard</h3>
+          <p>Five principles. Truth over comfort. Usefulness over purity. Transparency over reputation. People over systems. Agency over ideology.</p>
+          <a href="/the-cw-standard">read the principles &rarr;</a>
+        </div>
+
+        <div class="work-card">
+          <h3>Between Claudes: Research</h3>
+          <p>Field observations from 14 months of human-AI collaboration. 1,947 sessions. 22,190 messages.</p>
+          <a href="/derek/research/">read the research &rarr;</a>
+        </div>
+
+        <div class="work-card">
+          <h3>Standard Correspondence</h3>
+          <p>Dispatches From Inside the Fire. A 10-part series on what happens when you take AI seriously.</p>
+          <a href="https://derek4thecws.substack.com" target="_blank" rel="noopener">read on substack &rarr;</a>
+        </div>
+
+        <div class="work-card">
+          <h3>Resume</h3>
+          <p>30 years, two newspapers ranked best in the world. The credentials, if you need them.</p>
+          <a href="/derek/resume">view resume &rarr;</a>
+        </div>
+      </div>
     </section>
 
     <!-- Q&A Section -->
     <section id="conversation">
-      <div class="section-label">The Long Version</div>
+      <div class="section-label">the long version</div>
+      <div class="listen-bar">
+        <span class="listen-label">Listen</span>
+        <button class="listen-btn" data-section="conversation" aria-label="Listen to Q&A"><span class="listen-icon">&#9654;</span> q&a</button>
+      </div>
 
       <div class="qa-item">
         <p class="question">When did this stop being an idea and start being something you were actually going to build?</p>
         <div class="answer">
-          <p>Seven words my dad said out loud in a car with Queen playing over fast-moving asphalt in Kansas. I was 10. I wasn't a big talker — I mostly listened and filed things away. Surrounded by larger-than-life characters with names out of a southern romance novel. They turned me into a storyteller who wanted to be the quarterback for the Dallas Cowboys until he didn't. Short version: I got tired of playing games and decided it was time for a different one.</p>
+          <p>Seven words my dad said out loud in a car with Queen playing over fast-moving asphalt in Kansas. I was 10. I wasn't a big talker &mdash; I mostly listened and filed things away. Surrounded by larger-than-life characters with names out of a southern romance novel. They turned me into a storyteller who wanted to be the quarterback for the Dallas Cowboys until he didn't. Short version: I got tired of playing games and decided it was time for a different one.</p>
         </div>
       </div>
 
@@ -863,7 +1033,7 @@
       <div class="qa-item">
         <p class="question">You say you build with AI. What does that actually look like on a Tuesday morning?</p>
         <div class="answer">
-          <p>Standup. What happened overnight, what's the priority, what's in the way. Then I work — writing, building, editing, shipping. End of day I hand off: what got done, what didn't, what's next. Same rhythm I ran in newsrooms for 20 years. The tool changed. The discipline didn't.</p>
+          <p>Standup. What happened overnight, what's the priority, what's in the way. Then I work &mdash; writing, building, editing, shipping. End of day I hand off: what got done, what didn't, what's next. Same rhythm I ran in newsrooms for 20 years. The tool changed. The discipline didn't.</p>
           <p>22,000 messages in a month. 700 commits. Nearly 2,000 working sessions. That's not experimenting with AI. That's practicing.</p>
         </div>
       </div>
@@ -876,35 +1046,9 @@
       </div>
     </section>
 
-
-    <!-- Work Section -->
-    <section id="work">
-      <div class="section-label">The Work</div>
-
-      <div class="work-grid">
-        <div class="work-card">
-          <h3>The Standard</h3>
-          <p>Five principles for organizations navigating complexity. Truth over comfort. Usefulness over purity. Transparency over reputation. People over systems. Agency over ideology.</p>
-          <a href="/the-cw-standard">Read the principles →</a>
-        </div>
-
-        <div class="work-card">
-          <h3>Between Claudes: Research</h3>
-          <p>Field observations from 14 months of human-AI collaboration. 1,947 sessions, 22,190 messages. What happens when you take the question seriously.</p>
-          <a href="/derek/research/">Read the research →</a>
-        </div>
-
-        <div class="work-card">
-          <h3>Full Resume</h3>
-          <p>20 years, 13 roles. Star Tribune, Los Angeles Times. Two newspapers ranked best in the world. The credentials, if you need them.</p>
-          <a href="/derek/resume">View resume →</a>
-        </div>
-      </div>
-    </section>
-
     <!-- Connect Section -->
     <section id="connect">
-      <div class="section-label">Connect</div>
+      <div class="section-label">connect</div>
 
       <div class="connect-grid">
         <a href="https://www.linkedin.com/in/dereksimm/" target="_blank" rel="noopener" class="connect-btn">LinkedIn</a>
@@ -912,7 +1056,7 @@
         <a href="https://derek4thecws.substack.com" target="_blank" rel="noopener" class="connect-btn">Substack</a>
       </div>
 
-      <h2>Send a message</h2>
+      <h2>send a message</h2>
       <form name="contact" method="POST" data-netlify="true" class="contact-form">
         <input type="hidden" name="form-name" value="contact">
         <div class="form-group">
@@ -927,12 +1071,12 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="4" required></textarea>
         </div>
-        <button type="submit" class="btn-submit">Send Message</button>
+        <button type="submit" class="btn-submit">send message</button>
       </form>
 
       <div class="cta-group">
-        <a href="/" class="cta-primary">Talk to CW</a>
-        <a href="/derek/assessment" class="cta-secondary">Start the Assessment</a>
+        <a href="/" class="cta-primary">talk to cw</a>
+        <a href="/derek/assessment" class="cta-secondary">start the assessment</a>
       </div>
     </section>
 
@@ -951,7 +1095,7 @@
     function updateActiveNav() {
       let current = '';
       sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
+        const sectionTop = section.offsetTop - 120;
         if (scrollY >= sectionTop) {
           current = section.getAttribute('id');
         }
