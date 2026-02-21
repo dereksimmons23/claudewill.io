@@ -50,22 +50,6 @@
       font-size: 18px;
     }
 
-    .porch-light {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 180px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.4) 100%);
-      z-index: 9999;
-    }
-
-    @media (max-width: 700px) {
-      .porch-light {
-        width: 100%;
-      }
-    }
-
     .container {
       max-width: 680px;
       margin: 0 auto;
@@ -213,7 +197,6 @@
     }
 
     @media print {
-      .porch-light { display: none; }
       body { background: white; color: black; }
       .container { max-width: 100%; }
       .header { border-bottom: 1px solid #ccc; }
@@ -237,7 +220,6 @@
   <link rel="stylesheet" href="/css/porch-widget.css">
 </head>
 <body>
-  <div class="porch-light" aria-hidden="true"></div>
 
   <div class="container">
     <header class="header">

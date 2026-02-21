@@ -50,19 +50,6 @@
       color: var(--link);
     }
 
-    /* Porch light */
-    .porch-light {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 180px;
-      height: 5px;
-      background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.7) 100%);
-      z-index: 9999;
-      box-shadow:
-        0 1px 3px rgba(0, 0, 0, 0.08);
-    }
-
     .container {
       max-width: 720px;
       margin: 0 auto;
@@ -235,10 +222,6 @@
     }
 
     @media (max-width: 700px) {
-      .porch-light {
-        width: 100%;
-      }
-
       .job-header {
         flex-direction: column;
         gap: 4px;
@@ -292,7 +275,7 @@
     }
 
     @media print {
-      .porch-light, .print-btn, .back-link,
+      .print-btn, .back-link,
       .back-link-row, .contact-buttons {
         display: none !important;
       }
@@ -451,7 +434,6 @@
   <link rel="stylesheet" href="/css/shared-nav.css">
 </head>
 <body>
-  <div class="porch-light"></div>
 
   <div class="container">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">

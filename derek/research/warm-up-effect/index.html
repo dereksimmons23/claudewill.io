@@ -125,15 +125,6 @@
     a { color: var(--link); }
     a:visited { color: var(--link); }
 
-    /* Porch light */
-    .porch-light {
-      position: fixed;
-      top: 0; left: 0;
-      width: 180px; height: 5px;
-      background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.7) 100%);
-      z-index: 9999;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-    }
 
     .container {
       max-width: 720px;
@@ -518,7 +509,6 @@
 
     /* Mobile */
     @media (max-width: 700px) {
-      .porch-light { width: 100%; }
       h1 { font-size: 1.7rem; }
       .article-header { padding: 40px 0 32px; }
       .data-grid { grid-template-columns: repeat(2, 1fr); }
@@ -526,7 +516,7 @@
 
     /* Print */
     @media print {
-      .porch-light, .back-link { display: none; }
+      .back-link { display: none; }
       body { background: white; color: black; }
       .container { max-width: 100%; }
       .data-card, .diagram-container, .transparency-box { border-color: #ccc; }
@@ -548,7 +538,6 @@
   </style>
 </head>
 <body>
-  <div class="porch-light"></div>
 
   <div class="container">
     <header class="article-header">

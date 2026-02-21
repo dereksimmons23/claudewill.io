@@ -36,18 +36,6 @@ a:visited {
   color: var(--accent);
 }
 
-/* ── Porch Light ───────────────────────────────────── */
-
-.porch-light {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 180px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.4) 100%);
-  z-index: 9999;
-}
-
 /* ── Layout ────────────────────────────────────────── */
 
 .container {
@@ -406,10 +394,6 @@ footer a:hover {
 /* ── Responsive ────────────────────────────────────── */
 
 @media (max-width: 700px) {
-  .porch-light {
-    width: 100%;
-  }
-
   h1 {
     font-size: 2rem;
   }
@@ -448,7 +432,6 @@ footer a:hover {
 }
 
 @media print {
-  .porch-light,
   .back-link,
   .game-container,
   .game-over-overlay {
