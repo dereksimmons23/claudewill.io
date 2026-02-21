@@ -153,84 +153,11 @@
 
         /* Center dropdown */
         .story-header-center {
-            position: relative;
-        }
-
-        .story-dropdown-toggle {
             font-family: var(--font);
             font-size: 0.9rem;
             font-weight: 600;
             color: var(--text);
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.25rem 0.5rem;
             letter-spacing: 0.04em;
-            transition: color 0.2s;
-        }
-
-        .story-dropdown-toggle .hw {
-            color: var(--accent);
-        }
-
-        .story-dropdown-toggle:hover {
-            color: var(--accent);
-        }
-
-        .story-dropdown-toggle::after {
-            content: ' \25BE';
-            font-size: 0.7rem;
-            color: var(--dim);
-        }
-
-        .story-dropdown-toggle[aria-expanded="true"]::after {
-            content: ' \25B4';
-        }
-
-        .story-dropdown {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 0.5rem 0;
-            min-width: 220px;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.2s, visibility 0.2s;
-            z-index: 1001;
-        }
-
-        .story-dropdown.open {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .story-dropdown a {
-            display: block;
-            padding: 0.4rem 1rem;
-            font-size: 0.85rem;
-            color: var(--text);
-            text-decoration: none;
-            transition: background 0.15s, color 0.15s;
-        }
-
-        .story-dropdown a:hover {
-            background: var(--border);
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .story-dropdown a.active {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        /* Right side — placeholder for hamburger (shared-nav.js injects it) */
-        .story-header-right {
-            width: 44px;
         }
 
         /* ── Reading progress ──────────────────────── */
@@ -501,14 +428,6 @@
                 font-size: 0.95rem;
             }
 
-            .story-dropdown-toggle {
-                font-size: 0.8rem;
-            }
-
-            .story-dropdown {
-                min-width: 180px;
-            }
-
             main {
                 padding: 1.5rem 0 2rem;
             }
@@ -585,21 +504,9 @@
     <!-- Story Header -->
     <header class="story-header" id="story-header">
         <a href="/" class="story-header-left">claudewill<span class="hw">*</span></a>
-
         <div class="story-header-center">
-            <button class="story-dropdown-toggle" id="dropdown-toggle" aria-expanded="false" aria-controls="story-dropdown">
-                <span class="hw">*</span> story
-            </button>
-            <nav class="story-dropdown" id="story-dropdown" aria-label="Story sections">
-                <a href="#who-was-cw">Who Was CW</a>
-                <a href="#on-the-porch">On the Porch</a>
-                <a href="#the-cw-standard">The CW Standard</a>
-                <a href="#how-this-got-built">How This Got Built</a>
-                <a href="#cw-strategies">CW Strategies</a>
-            </nav>
+            <button class="palette-trigger" aria-label="Open navigation"><span class="hw">*</span></button> the story
         </div>
-
-        <div class="story-header-right"></div>
     </header>
 
     <div class="container">
@@ -834,9 +741,9 @@
         updateProgress();
 
         // ── Sticky header auto-hide ───────────────
-        const header = document.getElementById('story-header');
-        let lastScrollY = 0;
-        let ticking = false;
+        var header = document.getElementById('story-header');
+        var lastScrollY = 0;
+        var ticking = false;
 
         function onScroll() {
             if (!ticking) {
@@ -844,8 +751,6 @@
                     var currentScrollY = window.scrollY;
                     if (currentScrollY > lastScrollY && currentScrollY > 200) {
                         header.classList.add('hidden');
-                        dropdown.classList.remove('open');
-                        toggle.setAttribute('aria-expanded', 'false');
                     } else {
                         header.classList.remove('hidden');
                     }
@@ -856,54 +761,6 @@
             }
         }
         window.addEventListener('scroll', onScroll, { passive: true });
-
-        // ── Dropdown nav ──────────────────────────
-        var toggle = document.getElementById('dropdown-toggle');
-        var dropdown = document.getElementById('story-dropdown');
-
-        toggle.addEventListener('click', function() {
-            var isOpen = dropdown.classList.toggle('open');
-            toggle.setAttribute('aria-expanded', isOpen);
-        });
-
-        // Close dropdown when clicking a link
-        var dropdownLinks = dropdown.querySelectorAll('a');
-        dropdownLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                dropdown.classList.remove('open');
-                toggle.setAttribute('aria-expanded', 'false');
-            });
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.story-header-center')) {
-                dropdown.classList.remove('open');
-                toggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-
-        // ── Highlight active section in dropdown ──
-        var articles = document.querySelectorAll('.article');
-
-        function updateActiveSection() {
-            var current = '';
-            articles.forEach(function(article) {
-                var rect = article.getBoundingClientRect();
-                if (rect.top <= 150) {
-                    current = article.id;
-                }
-            });
-            dropdownLinks.forEach(function(link) {
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
-            });
-        }
-        window.addEventListener('scroll', updateActiveSection, { passive: true });
-        updateActiveSection();
 
         // ── ElevenLabs voice playback ─────────────
         var currentAudio = null;

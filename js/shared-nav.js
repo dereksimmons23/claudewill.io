@@ -1,7 +1,7 @@
 /**
- * Shared Nav — claudewill*
- * Burger menu + slide-out drawer.
- * Self-contained. Drop into any page or subdomain.
+ * Command Palette — claudewill*
+ * Terminal-style navigation overlay.
+ * Self-contained. Drop into any page.
  */
 
 (function () {
@@ -20,8 +20,9 @@
         label: 'derek',
         href: '/derek',
         items: [
-          { name: 'work with derek', href: '/derek/assessment' },
-          { name: 'research', href: '/derek/research' }
+          { name: 'assessment', href: '/derek/assessment' },
+          { name: 'research', href: '/derek/research' },
+          { name: 'portfolio', href: '/derek/portfolio' }
         ]
       },
       {
@@ -47,132 +48,172 @@
     var path = window.location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
     var checkPath = href.replace(/\.html$/, '').replace(/\/$/, '') || '/';
 
-    if (href.startsWith('http')) {
-      return window.location.origin === new URL(href).origin;
+    if (href.indexOf('http') === 0) {
+      try {
+        return window.location.origin === new URL(href).origin;
+      } catch (e) {
+        return false;
+      }
     }
 
-    return path === checkPath;
+    // Handle hash links (e.g. /story#the-cw-standard)
+    var checkBase = checkPath.split('#')[0];
+    return path === checkBase || path === checkPath;
   }
 
-  // ── Build DOM ──────────────────────────────────────
+  // ── DOM Helpers ────────────────────────────────────
 
-  function createBurger() {
-    var btn = document.createElement('button');
-    btn.className = 'cw-nav-burger';
-    btn.setAttribute('aria-label', 'Open navigation');
-    btn.setAttribute('aria-expanded', 'false');
-    var s1 = document.createElement('span');
-    var s2 = document.createElement('span');
-    var s3 = document.createElement('span');
-    btn.appendChild(s1);
-    btn.appendChild(s2);
-    btn.appendChild(s3);
-    return btn;
+  function createArrow() {
+    var span = document.createElement('span');
+    span.className = 'cw-palette-arrow';
+    span.textContent = '>';
+    return span;
   }
 
-  function createDrawer() {
-    var drawer = document.createElement('nav');
-    drawer.className = 'cw-nav-drawer';
-    drawer.setAttribute('role', 'navigation');
-    drawer.setAttribute('aria-label', 'Site navigation');
+  // ── Build Palette Overlay ──────────────────────────
 
-    // Wordmark
-    var wordmark = document.createElement('a');
-    wordmark.className = 'cw-nav-wordmark';
-    wordmark.href = '/';
-    wordmark.textContent = 'claudewill*';
-    drawer.appendChild(wordmark);
+  function createOverlay() {
+    var overlay = document.createElement('div');
+    overlay.className = 'cw-palette';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-label', 'Site navigation');
+    overlay.setAttribute('aria-modal', 'true');
 
-    NAV_CONFIG.sections.forEach(function (section) {
-      // Section label (clickable)
-      var label = document.createElement('a');
-      label.className = 'cw-nav-section';
-      label.href = section.href;
-      label.textContent = section.label;
-      if (isActive(section.href)) {
-        label.classList.add('active');
-      }
-      drawer.appendChild(label);
+    var inner = document.createElement('div');
+    inner.className = 'cw-palette-inner';
 
-      section.items.forEach(function (item) {
-        var a = document.createElement('a');
-        a.className = 'cw-nav-link';
-        a.textContent = item.name;
-        a.href = item.href;
+    // Close button
+    var close = document.createElement('button');
+    close.className = 'cw-palette-close';
+    close.setAttribute('aria-label', 'Close navigation');
+    close.textContent = '\u00d7';
+    inner.appendChild(close);
 
-        if (isActive(item.href)) {
-          a.classList.add('active');
+    // Nav
+    var nav = document.createElement('nav');
+    nav.className = 'cw-palette-nav';
+
+    for (var i = 0; i < NAV_CONFIG.sections.length; i++) {
+      var section = NAV_CONFIG.sections[i];
+
+      var a = document.createElement('a');
+      a.className = 'cw-palette-section';
+      a.href = section.href;
+      a.appendChild(createArrow());
+      a.appendChild(document.createTextNode(' ' + section.label));
+      if (isActive(section.href)) a.classList.add('active');
+      nav.appendChild(a);
+
+      for (var j = 0; j < section.items.length; j++) {
+        var item = section.items[j];
+        var sub = document.createElement('a');
+        sub.className = 'cw-palette-item';
+        sub.href = item.href;
+
+        if (item.href.indexOf('http') === 0) {
+          sub.target = '_blank';
+          sub.rel = 'noopener';
         }
 
-        drawer.appendChild(a);
-      });
-    });
+        sub.appendChild(createArrow());
+        sub.appendChild(document.createTextNode(' ' + item.name));
+        if (isActive(item.href)) sub.classList.add('active');
+        nav.appendChild(sub);
+      }
+    }
 
-    // Site index link at bottom
+    inner.appendChild(nav);
+
+    // Site index
     var indexLink = document.createElement('a');
-    indexLink.className = 'cw-nav-map';
+    indexLink.className = 'cw-palette-index';
     indexLink.href = '/map';
     indexLink.textContent = 'site index';
-    if (isActive('/map')) {
-      indexLink.classList.add('active');
-    }
-    drawer.appendChild(indexLink);
+    if (isActive('/map')) indexLink.classList.add('active');
+    inner.appendChild(indexLink);
 
-    return drawer;
+    overlay.appendChild(inner);
+    return overlay;
   }
 
-  function createBackdrop() {
-    var backdrop = document.createElement('div');
-    backdrop.className = 'cw-nav-backdrop';
-    return backdrop;
+  function createFloatingTrigger() {
+    var btn = document.createElement('button');
+    btn.className = 'cw-palette-trigger';
+    btn.setAttribute('aria-label', 'Open navigation');
+    btn.textContent = '*';
+    return btn;
   }
 
   // ── State ──────────────────────────────────────────
 
-  var burger, drawer, backdrop;
+  var overlay;
+  var floatingTrigger;
+  var lastFocused;
 
-  function openDrawer() {
-    drawer.classList.add('open');
-    backdrop.classList.add('open');
-    burger.setAttribute('aria-expanded', 'true');
-    burger.setAttribute('aria-label', 'Close navigation');
+  function openPalette() {
+    lastFocused = document.activeElement;
+    overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
+
+    // Focus close button
+    var close = overlay.querySelector('.cw-palette-close');
+    if (close) close.focus();
+
+    // Hide porch widget if present
+    var widget = document.querySelector('.porch-widget');
+    if (widget) widget.style.display = 'none';
   }
 
-  function closeDrawer() {
-    drawer.classList.remove('open');
-    backdrop.classList.remove('open');
-    burger.setAttribute('aria-expanded', 'false');
-    burger.setAttribute('aria-label', 'Open navigation');
+  function closePalette() {
+    overlay.classList.remove('open');
     document.body.style.overflow = '';
-  }
 
-  function toggleDrawer() {
-    if (drawer.classList.contains('open')) {
-      closeDrawer();
-    } else {
-      openDrawer();
-    }
+    // Show porch widget again
+    var widget = document.querySelector('.porch-widget');
+    if (widget) widget.style.display = '';
+
+    // Return focus
+    if (lastFocused) lastFocused.focus();
   }
 
   // ── Init ───────────────────────────────────────────
 
   function init() {
-    burger = createBurger();
-    drawer = createDrawer();
-    backdrop = createBackdrop();
+    overlay = createOverlay();
+    document.body.appendChild(overlay);
 
-    document.body.appendChild(burger);
-    document.body.appendChild(backdrop);
-    document.body.appendChild(drawer);
+    // Wire close button
+    var closeBtn = overlay.querySelector('.cw-palette-close');
+    if (closeBtn) closeBtn.addEventListener('click', closePalette);
 
-    burger.addEventListener('click', toggleDrawer);
-    backdrop.addEventListener('click', closeDrawer);
+    // Check for page-level palette triggers (sticky header pages)
+    var headerTriggers = document.querySelectorAll('.palette-trigger');
 
+    if (headerTriggers.length === 0) {
+      // No header triggers — inject floating * button
+      floatingTrigger = createFloatingTrigger();
+      floatingTrigger.addEventListener('click', openPalette);
+      document.body.appendChild(floatingTrigger);
+    } else {
+      // Wire existing header triggers
+      for (var i = 0; i < headerTriggers.length; i++) {
+        headerTriggers[i].addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          openPalette();
+        });
+      }
+    }
+
+    // Backdrop click closes
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) closePalette();
+    });
+
+    // Escape closes
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && drawer.classList.contains('open')) {
-        closeDrawer();
-        burger.focus();
+      if (e.key === 'Escape' && overlay.classList.contains('open')) {
+        closePalette();
       }
     });
   }

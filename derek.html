@@ -210,83 +210,11 @@
     }
 
     .page-header-center {
-      position: relative;
-    }
-
-    .page-dropdown-toggle {
       font-family: var(--font);
       font-size: 0.9rem;
       font-weight: 600;
       color: var(--text);
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.25rem 0.5rem;
       letter-spacing: 0.04em;
-      transition: color 0.2s;
-    }
-
-    .page-dropdown-toggle .hw {
-      color: var(--accent);
-    }
-
-    .page-dropdown-toggle:hover {
-      color: var(--accent);
-    }
-
-    .page-dropdown-toggle::after {
-      content: ' \25BE';
-      font-size: 0.7rem;
-      color: var(--dim);
-    }
-
-    .page-dropdown-toggle[aria-expanded="true"]::after {
-      content: ' \25B4';
-    }
-
-    .page-dropdown {
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 0.5rem 0;
-      min-width: 220px;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.2s, visibility 0.2s;
-      z-index: 1001;
-    }
-
-    .page-dropdown.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .page-dropdown a {
-      display: block;
-      padding: 0.4rem 1rem;
-      font-size: 0.85rem;
-      color: var(--text);
-      text-decoration: none;
-      transition: background 0.15s, color 0.15s;
-    }
-
-    .page-dropdown a:hover {
-      background: var(--border);
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .page-dropdown a.active {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .page-header-right {
-      width: 44px;
     }
 
     /* ── Content ──────────────────────────────── */
@@ -598,14 +526,6 @@
         font-size: 0.95rem;
       }
 
-      .page-dropdown-toggle {
-        font-size: 0.8rem;
-      }
-
-      .page-dropdown {
-        min-width: 180px;
-      }
-
       main {
         padding: 1.5rem 0 2rem;
       }
@@ -658,22 +578,9 @@
   <!-- Page Header -->
   <header class="page-header" id="page-header">
     <a href="/" class="page-header-left">claudewill<span class="hw">*</span></a>
-
     <div class="page-header-center">
-      <button class="page-dropdown-toggle" id="dropdown-toggle" aria-expanded="false" aria-controls="page-dropdown">
-        <span class="hw">*</span> derek
-      </button>
-      <nav class="page-dropdown" id="page-dropdown" aria-label="Page sections">
-        <a href="#bio">about</a>
-        <a href="#inflection">free agent</a>
-        <a href="#work">what I build</a>
-        <a href="#story">asteriskos</a>
-        <a href="#writing">dispatches</a>
-        <a href="#connect">connect</a>
-      </nav>
+      <button class="palette-trigger" aria-label="Open navigation"><span class="hw">*</span></button> derek
     </div>
-
-    <div class="page-header-right"></div>
   </header>
 
   <div class="container">
@@ -780,39 +687,6 @@
           header.classList.remove('hidden');
         }
         lastY = y;
-      });
-    })();
-
-    // ── Dropdown toggle ─────────────────────────
-    (function() {
-      var toggle = document.getElementById('dropdown-toggle');
-      var dropdown = document.getElementById('page-dropdown');
-      if (!toggle || !dropdown) return;
-
-      toggle.addEventListener('click', function(e) {
-        e.stopPropagation();
-        var open = dropdown.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', open);
-      });
-
-      document.addEventListener('click', function() {
-        dropdown.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && dropdown.classList.contains('open')) {
-          dropdown.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-          toggle.focus();
-        }
-      });
-
-      dropdown.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
-          dropdown.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-        });
       });
     })();
 
