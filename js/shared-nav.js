@@ -25,8 +25,8 @@
         ]
       },
       {
-        label: 'our studio',
-        href: '/studio',
+        label: 'the workshop',
+        href: '/workshop',
         items: [
           { name: 'bob', href: 'https://bob.claudewill.io' },
           { name: 'coach d', href: 'https://coach.claudewill.io' },
@@ -34,7 +34,7 @@
         ]
       },
       {
-        label: 'standard',
+        label: 'the standard',
         href: '/story#the-cw-standard',
         items: []
       }

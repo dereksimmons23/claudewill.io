@@ -59,12 +59,22 @@
 
 [[redirects]]
   from = "/stable"
-  to = "/studio"
+  to = "/workshop"
   status = 301
 
 [[redirects]]
   from = "/stable.html"
-  to = "/studio"
+  to = "/workshop"
+  status = 301
+
+[[redirects]]
+  from = "/studio"
+  to = "/workshop"
+  status = 301
+
+[[redirects]]
+  from = "/studio.html"
+  to = "/workshop"
   status = 301
 
 [[redirects]]

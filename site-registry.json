@@ -49,10 +49,10 @@
       "cw": "The warm-up effect — what happens when AI gets honest mid-session. claudewill.io/derek/research/warm-up-effect."
     },
     {
-      "path": "/studio",
-      "title": "Studio",
-      "description": "Everything Derek builds. Products (claudewill, Mirae, BOB, Coach D, D-Rock, Dawn) plus Frameworks & Research (Finding Claude, Between Claudes, The Method). The prompt becomes product. The product becomes proof.",
-      "cw": "The Studio's at claudewill.io/studio — that's where you can see everything Derek builds."
+      "path": "/workshop",
+      "title": "the workshop",
+      "description": "Everything Derek builds. Products (claudewill, BOB, Coach D, D-Rock, Dawn) plus Frameworks & Research (Finding Claude, Between Claudes, The Method). The prompt becomes product. The product becomes proof.",
+      "cw": "The workshop's at claudewill.io/workshop. That's where you can see everything Derek builds."
     },
     {
       "path": "/arcade",
@@ -89,7 +89,8 @@
     { "from": "/strategies", "to": "/derek", "note": "Consulting info folded into /derek" },
     { "from": "/proof", "to": "/derek", "note": "Proof section folded into /derek" },
     { "from": "/mirae", "to": "/", "note": "Widget speaks for itself" },
-    { "from": "/stable", "to": "/studio", "note": "Renamed to Studio" }
+    { "from": "/stable", "to": "/workshop", "note": "Renamed to the workshop" },
+    { "from": "/studio", "to": "/workshop", "note": "Renamed to the workshop" }
   ],
   "subdomains": [
     {
