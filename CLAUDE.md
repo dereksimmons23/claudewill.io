@@ -1,8 +1,8 @@
 # CLAUDE.md — claudewill.io
 
-**Last updated:** February 18, 2026
-**Status:** v1.0 LAUNCHED
-**Milestone:** CW's 123rd birthday — LIVE
+**Last updated:** February 21, 2026
+**Status:** v2.0 — Visual Redesign Complete
+**Milestone:** 4-screen billboard, command palette, porch widget on every page
 
 > Pull up a chair. He's listening.
 
@@ -13,16 +13,18 @@
 ## Current State
 
 ### What Works
-- **Homepage** — Invitation layer (wordmark, rotating phrases, nav) + CW chat on index.html
+- **Homepage** — 4-screen billboard: invitation (wordmark, typewriter, nav), the story, the builder (assessment CTA), the standard (5 principles)
+- **Porch widget** — `cw> _` terminal trigger on every page including homepage. Slide-up chat panel connects to CW API. Vernie Mode via "family?" chip or `?family=true` URL parameter.
+- **Command palette** — Terminal-style nav overlay. Triggered by `*` in sticky headers or floating `*` button on other pages. Replaces hamburger drawer.
 - **Story page** — Full narrative at /story (4 chapters, lineage, photo)
-- **About modal** — Welcome to claudewill intro
+- **Library** — /library with 4 shelves: dispatches (Substack), research (Between Claudes), the book (Finding Claude), selected (coming)
 - **Supabase logging** — Conversations stored in `conversations` table
 - **Multilingual** — CW responds in user's language
 - **Safety** — Bot protection, crisis resources, inline disclosure
 - **Accessibility** — WCAG 2.1 AA compliant
 - **Hallucination guardrails** — CW won't fabricate research/sources, admits limitations
 - **Site index** — Everything at claudewill.io in one place at /map
-- **Site knowledge** — CW knows about /story, /the-cw-standard, /derek (hub), /studio, /arcade, /map
+- **Site knowledge** — CW knows about /story, /story#the-cw-standard, /derek, /workshop, /library, /arcade, /map
 - **Size This Up** — Guided 5-step problem-sizing flow (Define → Weight → Resources → Focus → Next Step)
 - **Constitutional thinking** — CW knows 5 constitutional frameworks (CW Standard, Anthropic, Declaration, US Constitution, others) and can help people think constitutionally
 - **Political topics** — CW distinguishes partisan fights (avoids) from constitutional principles (engages directly); can name constitutional violations without being partisan
@@ -39,7 +41,7 @@
 - "The Funnel Cake" tool (new, gathering feedback)
 
 ### Known Issues
-- None blocking launch
+- None blocking
 
 ---
 
@@ -64,21 +66,23 @@
 ### File Structure
 ```
 claudewill.io/
-├── index.html              # Main chat interface (branded "claudewill")
+├── index.html              # Homepage — 4-screen billboard + typewriter
 ├── story.html              # The Story page (4 chapters, in nav)
-├── derek.html              # /derek — the hub: bio, proof, engagement, Q&A, story, work, contact
-├── studio.html             # /studio — product portfolio
+├── derek.html              # /derek — the hub: bio, proof, engagement, writing, contact
+├── workshop.html           # /workshop — product portfolio (was studio)
+├── library.html            # /library — writing: dispatches, research, book, selected
 ├── map.html                # /map — site index
-├── the-cw-standard.html    # The 5 principles
 ├── arcade.html             # /arcade — three mini-games (not in nav)
 ├── privacy.html            # Privacy policy
 ├── terms.html              # Terms of use
 ├── HANDOFF.md              # Session state (read by /standup)
 ├── site-registry.json      # Page/subdomain registry for CW
-├── css/                    # Stylesheets
+├── css/
+│   ├── shared-nav.css      # Command palette + footer utilities
+│   └── porch-widget.css    # CW chat widget styles
 ├── js/
-│   ├── shared-nav.js       # Global nav (5 items + About CW on homepage)
-│   └── chat-prompts-artifact.js  # Stage-based prompt chips
+│   ├── shared-nav.js       # Command palette overlay (terminal-style nav)
+│   └── porch-widget.js     # CW chat widget (slide-up panel, API connection)
 ├── images/
 │   └── cw-family.png       # Family photo
 ├── scripts/
@@ -107,12 +111,20 @@ claudewill.io/
 │       ├── meeting/         # Transcript processing
 │       ├── recalibrate/     # 7-question framework
 │       └── brief/           # Morning analytics
+├── derek/
+│   ├── assessment.html     # 7-question intake
+│   ├── resume.html         # Professional resume
+│   ├── portfolio/          # Visual portfolio
+│   └── research/
+│       ├── index.html      # Between Claudes research hub
+│       └── warm-up-effect/ # First published article
 └── docs/
     ├── drafts/              # Gitignored — founders, planning, derek
+    ├── plans/               # Design docs and implementation plans
     └── reference/           # Gitignored — research, old concepts
 ```
 
-**Deleted pages (Feb 18, 2026):** proof.html, strategies.html, mirae.html — content folded into /derek, 301 redirects in netlify.toml. stable.html renamed to studio.html with 301 redirect.
+**Deleted pages:** proof.html, strategies.html, mirae.html (folded into /derek), the-cw-standard.html (content at /story#the-cw-standard). studio.html renamed to workshop.html. All have 301 redirects in netlify.toml.
 
 **Note:** LinkedIn content, publishing workflows, and TRACKER.md live in `~/Desktop/writing/`. Client deliverables live in `~/Desktop/clients/cascadia/`. CW Method docs moved to `~/Desktop/derek-claude/method/`. This repo is the product — claudewill, business presence, prompt system.
 
@@ -132,7 +144,7 @@ System prompt is modular — broken into composable .md files in `netlify/functi
 
 Compiled at build time via `node scripts/compile-prompt.js` → `compiled-prompt.js` (gitignored, regenerated on deploy).
 
-Current size: ~45K chars, ~11K input tokens.
+Current size: ~45.6K chars, ~11.6K input tokens.
 
 ---
 
@@ -144,12 +156,13 @@ Current size: ~45K chars, ~11K input tokens.
 | `netlify/functions/cw-prompt/*.md` | CW's personality (modular) | **Edit these, then compile** |
 | `netlify/functions/cw-prompt/index.js` | Prompt assembler | Tries compiled first, falls back to dynamic |
 | `scripts/compile-prompt.js` | Build step — compiles .md to JS | **Run after any prompt edit** |
-| `index.html` | Chat interface + About modal | Modal content at bottom of file |
-| `story.html` | The Story page | Noto Serif, progress bar, print styles |
-| `js/chat-prompts-artifact.js` | Prompt chips | Changes by conversation stage |
+| `index.html` | 4-screen billboard homepage | Typewriter JS inline, no chat code |
+| `story.html` | The Story page | Progress bar, print styles |
+| `js/shared-nav.js` | Command palette overlay | NAV_CONFIG defines all nav items |
+| `js/porch-widget.js` | CW chat widget | Connects to /.netlify/functions/cw, on every page |
+| `css/shared-nav.css` | Palette + footer utilities | .footer-note, .signoff, .hw classes |
+| `css/porch-widget.css` | Chat panel styles | Terminal trigger + slide-up panel |
 | `HANDOFF.md` | Session state for /standup | **Updated by /eod** |
-| `docs/drafts/` | Working content — founders, planning, derek | Gitignored — stays local |
-| `docs/reference/` | Research, old concepts | Gitignored — stays local |
 
 ---
 
@@ -166,11 +179,11 @@ CW's personality is modularized in `netlify/functions/cw-prompt/` — persona.md
 ### docs/ Folder
 `docs/drafts/` and `docs/reference/` are gitignored — working content stays local. LinkedIn content and all publishing workflows moved to `~/Desktop/writing/` (Feb 12, 2026).
 
-### Condition System
-The frontend sends a `condition` (clear, partly-cloudy, overcast, stormy, snow) based on local weather. CW's porch light glow intensity varies by condition. This is mostly visual — don't overthink it.
-
 ### Family Details
 CW hallucinated family details early on. Now the system prompt has strict guardrails. If someone reports hallucinations, check the system prompt section on family.
+
+### Porch Widget + Command Palette Z-Index
+Widget button: 9997. Chat panel: 9998. Command palette: 10000. When palette opens, widget hides. Escape closes both.
 
 ---
 
@@ -228,14 +241,16 @@ If context runs out, start fresh — `/standup` picks up from HANDOFF.md automat
 - **Direct voice** — Short sentences. No filler. Like CW would talk.
 
 ### Typography
-- **Noto Serif** — Body text on story.html (better long-form reading)
-- **Noto Sans** — UI elements, navigation
-- **Monospace** — Headers, CW wordmark (has that "hand-painted" feel)
+- **IBM Plex Mono** — Primary font everywhere (brand, nav, body, code)
+- **Monospace** — All text is monospace. Terminal aesthetic.
 
-### Colors
-- **Background:** #000D1A (midnight blue)
+### Colors (Light Theme)
+- **Background:** #fafaf8 (warm white)
+- **Text:** #0a1628 (midnight blue)
 - **Accent:** #d4a84b (gold)
-- **Text:** #f5f5f5 (light), #b0b0b0 (dim)
+- **Link:** #4a8ec2 (blue)
+- **Dim:** #6b7280 (gray)
+- **Border:** #e5e7eb
 
 ---
 
@@ -269,12 +284,13 @@ Environment variables in Netlify:
 ### Done
 | Item | Date | Notes |
 |------|------|-------|
+| Visual Redesign v2 | Feb 21 | 6 phases: workshop rename, command palette, porch widget, homepage billboard, research stats, library |
 | Information Architecture | Feb 18 | 4 visitor paths, 5 nav items, /derek as hub |
 | Founder's Story | Feb 7 | Derek's 53rd birthday, roast published |
 | Email setup | Jan | derek@claudewill.io via Google Workspace |
 | Vernie Mode | Feb 11 | Family access gate, shared code, separate Supabase table |
 | Voice layer | Feb 11 | Two-voice Q&A on /derek (Derek + Rachel) |
-| The Stable | Feb 6 | Product portfolio at /stable |
+| The Workshop | Feb 21 | Product portfolio (renamed from studio/stable) |
 | The Arcade | Feb 17 | Three mini-games at /arcade |
 | bob.claudewill.io | Live | BOB subdomain |
 | coach.claudewill.io | Live | Coach D subdomain |
@@ -285,7 +301,11 @@ Environment variables in Netlify:
 | Distribution strategy | u/cwStrategies, LinkedIn cadence, platform launch |
 | dawn.claudewill.io | Dawn subdomain — coming soon |
 | d-rock.claudewill.io | D-Rock subdomain — coming soon |
-| Brand identity | "keep going" tagline live, * wordmark device live, visual punch still needed |
+| Derek page content rewrite | Draft written, needs implementation in HTML |
+| Story page rewrite | Needs asteriskos, sharper articles |
+| Mobile testing | All pages, all new patterns (palette, widget, billboards) |
+| Portfolio rebuild | 33 → ~15 slides, animated category slideshows |
+| CW Remembers | Design approved Feb 19. Plan at `docs/plans/2026-02-19-cw-remembers-design.md` |
 
 ### Separate Build: Constitutional Layer
 A framework for AI agent reasoning about rules, trust, systems, and coordination. Shares principles with CW Standard but different interface — no persona, built for agent-to-agent use. CW's Porch stays simple (grandfather helping neighbors); the constitutional layer handles the infrastructure question of how AI agents should reason about:
@@ -326,6 +346,9 @@ git push origin main
 # No build step — just open index.html or use Netlify CLI
 netlify dev
 
+# Recompile prompt after editing .md files
+node scripts/compile-prompt.js
+
 # View recent commits
 git log --oneline -15
 
@@ -341,114 +364,79 @@ git log --oneline -15
 |------|-----|
 | Production | https://claudewill.io |
 | The Story | https://claudewill.io/story |
+| The Standard | https://claudewill.io/story#the-cw-standard |
 | Derek (hub) | https://claudewill.io/derek |
 | Assessment | https://claudewill.io/derek/assessment |
-| Studio | https://claudewill.io/studio |
+| The Workshop | https://claudewill.io/workshop |
+| Library | https://claudewill.io/library |
 | Site Index | https://claudewill.io/map |
-| The Standard | https://claudewill.io/the-cw-standard |
 | The Arcade | https://claudewill.io/arcade |
 | Privacy | https://claudewill.io/privacy |
 | Terms | https://claudewill.io/terms |
 | GitHub | https://github.com/dereksimmons23/claudewill.io |
 
-**Redirects (301):** /strategies → /derek, /proof → /derek, /mirae → /, /stable → /studio
+**Redirects (301):** /strategies → /derek, /proof → /derek, /mirae → /, /stable → /workshop, /studio → /workshop, /the-cw-standard → /story#the-cw-standard
 
 ---
 
 ## Changelog
 
+### February 21, 2026 — Visual Redesign v2
+6-phase redesign committed and pushed:
+- **Phase 1:** studio → the workshop (rename, redirects, prompt update). Footer cascade — "the standard" on all pages, two-line footer everywhere.
+- **Phase 2:** Command palette nav replaces hamburger drawer. Terminal-style overlay with `>` prefix, `*` trigger. Keyboard accessible.
+- **Phase 3:** Porch widget rewritten as full chat panel. `cw> _` trigger, slide-up panel, CW API connection, Vernie Mode via chip + URL param. On ALL pages including homepage.
+- **Phase 4:** Homepage rewritten as 4-screen billboard. Invitation → Story → Builder (assessment CTA) → Standard. Removed inline chat, about modal, vernie gate HTML, signoff easter egg, ~500 lines of chat JS. -1,132 lines net.
+- **Phase 5:** Research page live day counter. 5 hardcoded stats → 3 dynamic counters.
+- **Phase 6:** Library page at /library. 4 shelves: dispatches, research, the book, selected. Registered in nav, map, site-registry, prompt.
+- Prompt recompiled (45.6K chars standard, 28.7K chars vernie).
+
+### February 20, 2026 — Light Theme + Content Rewrite
+- Light theme cascade (15 files). Palette: #fafaf8 bg, #0a1628 text, #d4a84b accent.
+- IBM Plex Mono as sole font.
+- Story page redesign with sticky auto-hide header.
+- "claude will" typewriter tightened to 8 phrases.
+- Porch widget v1 (link-only, not chat).
+- Derek page content draft (not yet implemented in HTML).
+- Portfolio slideshow built (33 slides).
+
 ### February 18, 2026 — The Invitation + Studio Rename
-- **Homepage redesigned** — invitation layer above the porch: wordmark (3.5rem), rotating "keep" phrases, stories·studio·standard nav, "whatcha need?" porch pointer
+- **Homepage redesigned** — invitation layer above the porch: wordmark (3.5rem), rotating "keep" phrases
 - **Age gate removed** — disclosure folded into inline chat disclaimer (passive consent)
-- **Stable → Studio** — file renamed, 301 redirects, all references updated across 8+ files
+- **Stable → Studio** — file renamed, 301 redirects, all references updated
 - **map.html created** — site index with all pages, products, research, legal
 - **Global nav rewritten** — three sections with subsections, asterisk hover device, all lowercase
-- **"keep going" signoff** — added to all 11 page footers
-- **Lowercase brand signature** — all navigation and headings lowercase
-- **method/ moved** — methodology docs moved to derek-claude (not deployed site content)
+- **"keep going" signoff** — added to all page footers
 - Prompt updated: site-knowledge.md and derek.md. Recompiled.
 
 ### February 18, 2026 — Site Simplification + Rebrand
 - **15 pages → 11, 8 nav items → 5** — consolidated /proof and /strategies into /derek
-- **Homepage rebranded:** "CW's Porch" → "claudewill" — CW is the character, claudewill is the site
-- **New nav:** claudewill | The Story | Derek | The Stable | The Standard (+ About CW on homepage)
-- **/derek is now the hub:** bio, proof (4 number cards), engagement models (Fractional/Project), Q&A, story, work cards, contact
-- **Deleted pages:** proof.html, strategies.html, mirae.html — 301 redirects in netlify.toml
-- **The Story added to nav** — was the foundational page but missing from navigation
-- **The Arcade removed from nav** — still live, discoverable from CW or /stable
-- Prompt updated: site-knowledge.md, derek.md recompiled
-- Net: -1,364 lines of code
+- **Homepage rebranded:** "CW's Porch" → "claudewill"
+- **/derek is now the hub:** bio, proof, engagement models, Q&A, work cards, contact
+- **Deleted pages:** proof.html, strategies.html, mirae.html — 301 redirects
+- **The Arcade removed from nav** — still live, discoverable
 
 ### January 28, 2026 — Liberation Gravy + The Funnel Cake
 - Added "Liberation Gravy" tool: guided flow for thinning out subscriptions/consumption
-- 5-step process: Inventory → Gut Check → Milk vs Water → Cut → Add-Back
-- Rooted in Depression-era "Hoover gravy" history (water instead of milk)
-- Added crop rotation frame: subscribe/use/cancel/rotate instead of paying for everything
-- Added sharecropping trap: "subscribed to everything = paying landlords for fields you don't work"
 - Added "The Funnel Cake" tool: what "free" actually costs
-- Four costs of free: data, email, attention, peace
-- The cancellation gauntlet: guilt, discount, bundle, maze
-- CW's frame: "Sales barn had hustlers too — same game, better technology"
 - CW now knows the current date (birthday mode for Feb 7 and Jan 6)
-- Substack draft written for post-launch "countup" content
 
 ### January 24, 2026 — The Trade + Referral Intelligence
 - Added "The Trade" tool: 5-step guided reflection for people carrying traded dreams
-- Added "Pointing People in the Right Direction": conversational referrals (mental health, legal, medical, research, career, financial)
-- Pattern: name the category, acknowledge you're not it, give a starting point
-- Guardrails: "I'm not a therapist," "Who else have you talked to?", "This deserves a kitchen table"
+- Added "Pointing People in the Right Direction": conversational referrals
 
 ### January 20, 2026 — Model Upgrade
 - Upgraded from Claude Haiku 3.5 to Claude Haiku 4.5 (claude-haiku-4-5)
-- Haiku 3.5 deprecated by Anthropic on February 19, 2026
 
 ### January 11, 2026 — Constitutional Thinking
 - Added constitutional thinking framework to CW's system prompt
-- CW now knows 5 constitutional frameworks: CW Standard, Anthropic's constitution, Declaration of Independence, US Constitution/Bill of Rights, and notable frameworks (South Africa, Germany, UN Declaration)
-- Rewrote political topics handling: CW distinguishes partisan fights (avoids) from constitutional principles (engages directly)
-- CW can name constitutional violations without being partisan
-- Added Chapter 15 "The Fence" to Founder's Story draft
-- Excavated CW-Strategies folder (57 files cataloged)
 
 ### January 6, 2026 — v1.0 Launch
 - CW's 123rd birthday
 - Story page complete (4 chapters, lineage, family photo)
-- About modal updated
-- Reading experience enhancements (Noto Serif, progress bar, print styles)
 
-### December 17, 2024
-- Fact corrections (education language, dates)
-- Desktop scroll bug fixed
-- Porch light glow added
-- Origins card on /about
-- Vernie's 1985 interview in system prompt
-
-### December 14, 2024
-- Age gate (18+ or 13+ with parental consent)
-- Honeypot bot protection
-- Contextual prompt chips by conversation stage
-- Inline contact form
-- SEO/GEO schema.org structured data
-
-### December 13, 2024
-- Security hardening (CORS, input validation, rate limiting)
-- Hallucination prevention v1
-- Legal compliance (Privacy + Terms)
-- WCAG 2.1 AA accessibility
-
-### December 12, 2024
-- Noto Sans font, improved readability
-- Multilingual support
-- About modal
-- Porch light concept
-- Contact form (email protected)
-
-### December 8-11, 2024
-- Supabase logging infrastructure
-- Full legal compliance
-- Security headers (CSP, HSTS)
-- Analytics queries
-- /derek page
+### December 2024
+- Supabase logging, security hardening, legal compliance, accessibility, multilingual support, SEO/GEO schema, age gate, honeypot, prompt chips, contact form
 
 ---
 
@@ -460,7 +448,7 @@ git log --oneline -15
 **Jackson's birthday:** Look it up (don't hallucinate)
 
 **Haiku model:** claude-haiku-4-5
-**Opus model:** claude-opus-4-5-20251101 (Claude Code)
+**Opus model:** claude-opus-4-6 (Claude Code)
 
 **Cost:** ~$3-5/month (Netlify free, Supabase free, Haiku API)
 
