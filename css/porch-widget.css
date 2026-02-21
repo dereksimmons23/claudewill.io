@@ -1,0 +1,75 @@
+/* Porch Widget — the * is the porch light. It's always on. */
+
+.porch-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #0a1628;
+  border: none;
+  cursor: pointer;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: box-shadow 0.3s;
+  font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d4a84b;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(10, 22, 40, 0.3);
+  animation: porch-flicker 3s ease-in-out infinite;
+}
+
+.porch-widget:hover {
+  box-shadow:
+    0 2px 8px rgba(10, 22, 40, 0.3),
+    0 0 20px rgba(212, 168, 75, 0.4);
+  text-decoration: none;
+}
+
+.porch-widget:visited {
+  color: #d4a84b;
+}
+
+.porch-widget:focus-visible {
+  outline: 2px solid #d4a84b;
+  outline-offset: 2px;
+}
+
+@keyframes porch-flicker {
+  0%, 100% { color: #d4a84b; text-shadow: 0 0 6px rgba(212, 168, 75, 0.3); }
+  25% { color: #d4a84b; text-shadow: 0 0 10px rgba(212, 168, 75, 0.5); }
+  50% { color: #e0b860; text-shadow: 0 0 14px rgba(212, 168, 75, 0.6); }
+  75% { color: #d4a84b; text-shadow: 0 0 8px rgba(212, 168, 75, 0.35); }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .porch-widget {
+    bottom: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .porch-widget {
+    animation: none;
+    text-shadow: 0 0 8px rgba(212, 168, 75, 0.4);
+  }
+}
+
+/* Print */
+@media print {
+  .porch-widget {
+    display: none;
+  }
+}

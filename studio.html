@@ -70,7 +70,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -80,14 +80,14 @@
     }
 
     :root {
-      --bg: #000D1A;
-      --text: #e8e8e8;
-      --dim: #b0b0b0;
+      --bg: #fafaf8;
+      --text: #0a1628;
+      --dim: #6b7280;
       --accent: #d4a84b;
-      --border: #1a3a5c;
-      --card-bg: #0a1829;
-      --font-body: 'Noto Serif', Georgia, serif;
-      --font-sans: 'Noto Sans', system-ui, sans-serif;
+      --link: #4a8ec2;
+      --border: #e5e7eb;
+      --card-bg: #f3f4f6;
+      --font: 'IBM Plex Mono', 'Courier New', Courier, monospace;
     }
 
     html {
@@ -95,30 +95,98 @@
     }
 
     body {
-      font-family: var(--font-body);
+      font-family: var(--font);
       background: var(--bg);
       color: var(--text);
       line-height: 1.8;
-      font-size: 18px;
+      font-size: 16px;
+    }
+
+    a {
+      color: var(--link);
     }
 
     a:visited {
-      color: var(--accent);
+      color: var(--link);
     }
 
-    .porch-light {
-      position: fixed;
+    /* Sticky auto-hide header */
+    .page-header {
+      position: sticky;
       top: 0;
-      left: 0;
-      width: 180px;
-      height: 5px;
-      background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.7) 100%);
-      z-index: 9999;
-      box-shadow:
-        0 0 15px rgba(212, 168, 75, 1),
-        0 0 40px rgba(212, 168, 75, 0.8),
-        0 8px 60px rgba(212, 168, 75, 0.5);
+      z-index: 1000;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
     }
+    .page-header.hidden { transform: translateY(-100%); }
+    .page-header-left {
+      font-family: var(--font);
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .page-header-left:hover { text-decoration: none; opacity: 0.7; }
+    .page-header-left .hw { color: var(--accent); }
+    .page-header-center { position: relative; }
+    .page-dropdown-toggle {
+      font-family: var(--font);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.25rem 0.5rem;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .page-dropdown-toggle .hw { color: var(--accent); }
+    .page-dropdown-toggle:hover { color: var(--accent); }
+    .page-dropdown-toggle::after {
+      content: ' \25BE';
+      font-size: 0.7rem;
+      color: var(--dim);
+    }
+    .page-dropdown-toggle[aria-expanded="true"]::after { content: ' \25B4'; }
+    .page-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.5rem 0;
+      min-width: 220px;
+      box-shadow: 0 4px 12px rgba(10, 22, 40, 0.08);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+      z-index: 1001;
+    }
+    .page-dropdown.open { opacity: 1; visibility: visible; }
+    .page-dropdown a {
+      display: block;
+      padding: 0.4rem 1rem;
+      font-size: 0.85rem;
+      color: var(--text);
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .page-dropdown a:hover {
+      background: var(--border);
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .page-dropdown a.active { color: var(--accent); font-weight: 600; }
+    .page-header-right { width: 44px; }
 
     .container {
       max-width: 720px;
@@ -126,34 +194,17 @@
       padding: 0 24px 80px;
     }
 
-    .header {
-      padding: 60px 0 40px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 48px;
+    /* Intro */
+    .intro {
+      padding: 2rem 0 0;
+      margin-bottom: 0;
     }
-
-    .back-link {
-      font-family: var(--font-sans);
-      font-size: 0.9rem;
-      color: var(--dim);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 32px;
-      transition: color 0.2s;
-    }
-
-    .back-link:hover {
-      color: var(--accent);
-    }
-
-    h1 {
-      font-family: var(--font-sans);
-      font-size: 2.5rem;
+    .intro h1 {
+      font-family: var(--font);
+      font-size: 2.2rem;
       font-weight: 600;
       color: var(--text);
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       letter-spacing: -0.02em;
     }
 
@@ -164,21 +215,20 @@
       font-style: italic;
     }
 
-    .beta-badge {
-      display: inline-block;
-      font-family: var(--font-sans);
-      font-size: 0.65rem;
-      font-weight: 600;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      border: 1px solid var(--accent);
-      border-radius: 3px;
-      padding: 2px 8px;
-      margin-left: 12px;
-      vertical-align: middle;
-      position: relative;
-      top: -4px;
+    /* Focus states */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .page-header { transition: none; }
+    }
+
+    section[id] {
+      scroll-margin-top: 4rem;
     }
 
     section {
@@ -191,7 +241,7 @@
     }
 
     .section-label {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 0.75rem;
       font-weight: 600;
       color: var(--accent);
@@ -239,7 +289,7 @@
     }
 
     .product-name {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 1.1rem;
       font-weight: 600;
       color: var(--text);
@@ -254,35 +304,11 @@
     }
 
     .product-status {
-      font-family: var(--font-sans);
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      white-space: nowrap;
-      padding: 4px 10px;
-      border-radius: 3px;
-      flex-shrink: 0;
-    }
-
-    .status-live {
-      color: #4ade80;
-      border: 1px solid rgba(74, 222, 128, 0.3);
-    }
-
-    .status-early {
+      font-family: var(--font);
+      font-size: 0.75rem;
       color: var(--dim);
-      border: 1px solid var(--border);
-    }
-
-    .status-writing {
-      color: #e0b860;
-      border: 1px solid rgba(224, 184, 96, 0.3);
-    }
-
-    .status-framework {
-      color: #5b8fb9;
-      border: 1px solid rgba(91, 143, 185, 0.3);
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     /* CTA */
@@ -305,7 +331,7 @@
       background: var(--accent);
       color: var(--bg);
       text-decoration: none;
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 1rem;
       font-weight: 600;
       border-radius: 6px;
@@ -330,7 +356,7 @@
       border: 1px solid var(--border);
       color: var(--text);
       text-decoration: none;
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 1rem;
       font-weight: 500;
       border-radius: 6px;
@@ -350,7 +376,7 @@
       padding: 40px 0;
       text-align: center;
       color: var(--dim);
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 0.85rem;
     }
 
@@ -364,35 +390,17 @@
     }
 
     @media (max-width: 700px) {
-      .porch-light {
-        width: 100%;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      .header {
-        padding: 40px 0 32px;
-      }
-
-      section {
-        padding: 40px 0;
-      }
-
-      .product-card {
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .beta-badge {
-        margin-left: 8px;
-      }
+      .page-header { padding: 0.6rem 1rem; }
+      .page-header-left { font-size: 0.95rem; }
+      .page-dropdown-toggle { font-size: 0.8rem; }
+      .page-dropdown { min-width: 180px; }
+      .intro h1 { font-size: 1.8rem; }
+      section { padding: 40px 0; }
+      .product-card { flex-direction: column; gap: 12px; }
     }
 
     @media print {
-      .porch-light,
-      .back-link,
+      .page-header,
       .cta-group {
         display: none;
       }
@@ -407,29 +415,45 @@
       }
     }
 
-    .signoff {
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 0.75rem;
-      color: #b0b0b0;
-      opacity: 0.4;
-      margin-top: 12px;
-      letter-spacing: 0.08em;
+    .footer-note .hw {
+      color: var(--accent);
+    }
+
+    .footer-note a {
+      color: var(--link);
+    }
+
+    .footer-note a:hover {
+      color: var(--accent);
     }
   </style>
-  <link rel="stylesheet" href="/css/mirae-widget.css">
+  <link rel="stylesheet" href="/css/porch-widget.css">
 </head>
 <body>
-  <div class="porch-light"></div>
+  <header class="page-header" id="page-header">
+    <a href="/" class="page-header-left">claudewill<span class="hw">*</span></a>
+    <div class="page-header-center">
+      <button class="page-dropdown-toggle" id="dropdown-toggle" aria-expanded="false" aria-controls="page-dropdown">
+        <span class="hw">*</span> studio
+      </button>
+      <nav class="page-dropdown" id="page-dropdown" aria-label="Page sections">
+        <a href="#products">what we build</a>
+        <a href="#frameworks">frameworks</a>
+        <a href="#clients">for others</a>
+      </nav>
+    </div>
+    <div class="page-header-right"></div>
+  </header>
 
   <div class="container">
-    <header class="header">
-      <a href="/" class="back-link">&larr; claudewill*</a>
-      <h1>Studio <span class="beta-badge">Beta</span></h1>
+    <main>
+    <div class="intro">
+      <h1>Studio</h1>
       <p class="tagline">The prompt becomes product. The product becomes proof.</p>
-    </header>
+    </div>
 
     <!-- The Portfolio -->
-    <section>
+    <section id="products">
       <div class="section-label">What We Build</div>
       <p>Every product here was built with the same AI-native methodology: a system prompt, a set of principles, and the discipline to ship. Different problems, same practice.</p>
 
@@ -439,15 +463,7 @@
             <div class="product-name">claudewill*</div>
             <p class="product-desc">Conversational AI agent built on the memory of a Depression-era Oklahoma farmer. Pull up a chair and ask a question.</p>
           </div>
-          <span class="product-status status-live">Live</span>
-        </a>
-
-        <a href="/" class="product-card">
-          <div class="product-info">
-            <div class="product-name">Mirae</div>
-            <p class="product-desc">AI site guide and executive assistant. She knows the building. Name means "future" in Korean.</p>
-          </div>
-          <span class="product-status status-live">Live</span>
+          <span class="product-status">&gt; running</span>
         </a>
 
         <a href="https://bob.claudewill.io" class="product-card" target="_blank" rel="noopener">
@@ -455,7 +471,7 @@
             <div class="product-name">BOB</div>
             <p class="product-desc">Battle o' Brackets. A party game that turns any debate into a bracket tournament. No app required.</p>
           </div>
-          <span class="product-status status-live">Live</span>
+          <span class="product-status">&gt; running</span>
         </a>
 
         <a href="https://coach.claudewill.io" class="product-card" target="_blank" rel="noopener">
@@ -463,7 +479,7 @@
             <div class="product-name">Coach D</div>
             <p class="product-desc">Basketball training fieldhouse with an AI coach. 156 drills. Personalized skill progression.</p>
           </div>
-          <span class="product-status status-live">Live</span>
+          <span class="product-status">&gt; running</span>
         </a>
 
         <a href="/arcade" class="product-card">
@@ -471,7 +487,7 @@
             <div class="product-name">The Arcade</div>
             <p class="product-desc">Three games. No quarters required. Built for the porch.</p>
           </div>
-          <span class="product-status status-live">Live</span>
+          <span class="product-status">&gt; running</span>
         </a>
 
         <div class="product-card">
@@ -479,7 +495,7 @@
             <div class="product-name">D-Rock</div>
             <p class="product-desc">Voice-only AI DJ. Music curation without the surveillance.</p>
           </div>
-          <span class="product-status status-early">Early</span>
+          <span class="product-status">&gt; building</span>
         </div>
 
         <div class="product-card">
@@ -487,13 +503,13 @@
             <div class="product-name">Dawn</div>
             <p class="product-desc">151-day health accountability practice. Built for two people showing up daily.</p>
           </div>
-          <span class="product-status status-live">Live</span>
+          <span class="product-status">&gt; running</span>
         </div>
       </div>
     </section>
 
     <!-- Frameworks & Research -->
-    <section>
+    <section id="frameworks">
       <div class="section-label">Frameworks &amp; Research</div>
       <p>Not products. Not services. Work that came from the practice.</p>
 
@@ -503,7 +519,7 @@
             <div class="product-name">Finding Claude</div>
             <p class="product-desc">What happens when a human in crisis starts talking to a language model and doesn't stop. 14 months. 32 chapters. Written by Claude, with Derek.</p>
           </div>
-          <span class="product-status status-writing">Writing</span>
+          <span class="product-status">&gt; writing</span>
         </div>
 
         <a href="/derek/research/" class="product-card">
@@ -511,7 +527,7 @@
             <div class="product-name">Between Claudes: Research</div>
             <p class="product-desc">Field observations from 1,947 sessions. What the current frameworks don't account for.</p>
           </div>
-          <span class="product-status status-live">Live</span>
+          <span class="product-status">&gt; running</span>
         </a>
 
         <div class="product-card">
@@ -519,13 +535,13 @@
             <div class="product-name">The Method</div>
             <p class="product-desc">Start, Work, Finish, Decide. A repeatable practice for building with AI, born from 22,000 messages across 12 projects.</p>
           </div>
-          <span class="product-status status-framework">Framework</span>
+          <span class="product-status">&gt; shipped</span>
         </div>
       </div>
     </section>
 
     <!-- For Others -->
-    <section>
+    <section id="clients">
       <div class="section-label">What We Build for Others</div>
       <p>The same methodology that built this portfolio gets applied to client problems. The system prompt becomes the product spec. The skills framework becomes the workflow. The daily practice becomes the delivery cadence.</p>
       <p>Derek doesn't hand you a strategy deck. He builds the system, transfers ownership, and gets out of the way.</p>
@@ -536,14 +552,54 @@
       </div>
     </section>
 
+    </main>
+
     <footer class="footer">
-      <p class="footer-note">Built by <a href="/derek">Derek</a> with Claude · &copy; 2026 CW Strategies LLC</p>
-      <p class="footer-note"><a href="/the-cw-standard">Standard</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p>
-      <div class="signoff">keep going</div>
+      <p class="footer-note">Built by <a href="/derek">Derek</a><span class="hw">*</span><a href="/derek#claude">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
+      <p class="footer-note"><a href="/story#the-cw-standard">standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
     </footer>
   </div>
 
-  <script src="/js/mirae-widget.js" defer></script>
+  <script>
+    (function() {
+      var header = document.getElementById('page-header');
+      var lastY = 0;
+      window.addEventListener('scroll', function() {
+        var y = window.scrollY;
+        if (y > lastY && y > 60) { header.classList.add('hidden'); }
+        else { header.classList.remove('hidden'); }
+        lastY = y;
+      });
+    })();
+    (function() {
+      var toggle = document.getElementById('dropdown-toggle');
+      var dropdown = document.getElementById('page-dropdown');
+      if (!toggle || !dropdown) return;
+      toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var open = dropdown.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+      });
+      document.addEventListener('click', function() {
+        dropdown.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && dropdown.classList.contains('open')) {
+          dropdown.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.focus();
+        }
+      });
+      dropdown.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          dropdown.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
+  <script src="/js/porch-widget.js" defer></script>
   <script src="/js/shared-nav.js"></script>
 </body>
 </html>

@@ -7,17 +7,17 @@
 }
 
 :root {
-  --bg: #000D1A;
-  --text: #e8e8e8;
-  --dim: #b0b0b0;
+  --bg: #fafaf8;
+  --text: #0a1628;
+  --dim: #6b7280;
   --accent: #d4a84b;
   --accent-bright: #e0b860;
-  --border: #1a3a5c;
-  --card-bg: #0a1829;
+  --link: #4a8ec2;
+  --border: #e5e7eb;
+  --card-bg: #f3f4f6;
   --danger: #cc6666;
   --success: #4ade80;
-  --font-body: 'Noto Serif', Georgia, serif;
-  --font-sans: 'Noto Sans', system-ui, sans-serif;
+  --font: 'IBM Plex Mono', 'Courier New', Courier, monospace;
 }
 
 html {
@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font);
   background: var(--bg);
   color: var(--text);
   line-height: 1.8;
@@ -43,13 +43,9 @@ a:visited {
   top: 0;
   left: 0;
   width: 180px;
-  height: 5px;
-  background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.7) 100%);
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.4) 100%);
   z-index: 9999;
-  box-shadow:
-    0 0 15px rgba(212, 168, 75, 1),
-    0 0 40px rgba(212, 168, 75, 0.8),
-    0 8px 60px rgba(212, 168, 75, 0.5);
 }
 
 /* ── Layout ────────────────────────────────────────── */
@@ -67,7 +63,7 @@ a:visited {
 }
 
 .back-link {
-  font-family: var(--font-sans);
+  font-family: var(--font);
   font-size: 0.9rem;
   color: var(--dim);
   text-decoration: none;
@@ -83,7 +79,7 @@ a:visited {
 }
 
 h1 {
-  font-family: var(--font-sans);
+  font-family: var(--font);
   font-size: 2.5rem;
   font-weight: 600;
   color: var(--text);
@@ -108,7 +104,7 @@ section:last-of-type {
 }
 
 .section-label {
-  font-family: var(--font-sans);
+  font-family: var(--font);
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--accent);
@@ -154,7 +150,7 @@ section:last-of-type {
 
 .game-card-name {
   display: block;
-  font-family: var(--font-sans);
+  font-family: var(--font);
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text);
@@ -178,7 +174,7 @@ section:last-of-type {
 }
 
 .game-card-score {
-  font-family: var(--font-sans);
+  font-family: var(--font);
   font-size: 0.7rem;
   color: var(--accent);
   text-transform: uppercase;
@@ -190,7 +186,7 @@ section:last-of-type {
 }
 
 .game-card-play {
-  font-family: var(--font-sans);
+  font-family: var(--font);
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--accent);
@@ -212,7 +208,7 @@ section:last-of-type {
 }
 
 .game-back-btn {
-  font-family: var(--font-sans);
+  font-family: var(--font);
   font-size: 0.85rem;
   color: var(--dim);
   background: none;
@@ -227,14 +223,14 @@ section:last-of-type {
 }
 
 .game-title {
-  font-family: var(--font-sans);
+  font-family: var(--font);
   font-size: 1rem;
   font-weight: 600;
   color: var(--text);
 }
 
 .game-score-display {
-  font-family: var(--font-sans);
+  font-family: var(--font);
   font-size: 0.9rem;
   color: var(--accent);
   font-weight: 600;
@@ -256,7 +252,7 @@ section:last-of-type {
 }
 
 .game-controls-hint {
-  font-family: var(--font-sans);
+  font-family: var(--font);
   font-size: 0.75rem;
   color: var(--dim);
   text-align: center;
@@ -271,7 +267,7 @@ section:last-of-type {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 13, 26, 0.9);
+  background: rgba(10, 22, 40, 0.85);
   z-index: 9998;
   display: flex;
   align-items: center;
@@ -285,15 +281,15 @@ section:last-of-type {
 }
 
 .game-over-message {
-  font-family: var(--font-serif);
+  font-family: var(--font);
   font-size: 1.4rem;
-  color: var(--text);
+  color: #f5f5f5;
   margin-bottom: 16px;
   line-height: 1.5;
 }
 
 .game-over-score {
-  font-family: var(--font-sans);
+  font-family: var(--font);
   font-size: 2.5rem;
   font-weight: 600;
   color: var(--accent);
@@ -301,9 +297,9 @@ section:last-of-type {
 }
 
 .game-over-best {
-  font-family: var(--font-sans);
+  font-family: var(--font);
   font-size: 0.85rem;
-  color: var(--dim);
+  color: #b0b0b0;
   margin-bottom: 40px;
 }
 
@@ -319,7 +315,7 @@ section:last-of-type {
   color: var(--bg);
   border: none;
   border-radius: 6px;
-  font-family: var(--font-sans);
+  font-family: var(--font);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -333,10 +329,10 @@ section:last-of-type {
 .game-btn-secondary {
   padding: 14px 32px;
   background: transparent;
-  color: var(--text);
-  border: 1px solid var(--border);
+  color: #f5f5f5;
+  border: 1px solid rgba(255,255,255,0.2);
   border-radius: 6px;
-  font-family: var(--font-sans);
+  font-family: var(--font);
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
@@ -360,7 +356,7 @@ section:last-of-type {
 }
 
 .leaderboard-table td {
-  font-family: var(--font-sans);
+  font-family: var(--font);
   font-size: 0.9rem;
   padding: 12px 0;
   border-bottom: 1px solid var(--border);
@@ -382,7 +378,7 @@ section:last-of-type {
 }
 
 .leaderboard-empty {
-  font-family: var(--font-sans);
+  font-family: var(--font);
   font-size: 0.9rem;
   color: var(--dim);
 }
@@ -393,17 +389,18 @@ footer {
   padding: 40px 0;
   text-align: center;
   color: var(--dim);
-  font-family: var(--font-sans);
+  font-family: var(--font);
   font-size: 0.85rem;
 }
 
 footer a {
-  color: var(--accent);
+  color: var(--dim);
   text-decoration: none;
 }
 
 footer a:hover {
-  text-decoration: underline;
+  color: var(--accent);
+  text-decoration: none;
 }
 
 /* ── Responsive ────────────────────────────────────── */

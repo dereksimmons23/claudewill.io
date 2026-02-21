@@ -24,9 +24,14 @@
   display: block;
   width: 22px;
   height: 2px;
-  background: #f0f0f0;
+  background: #0a1628;
   border-radius: 1px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
+}
+
+/* X state — lines go white when drawer is open */
+.cw-nav-burger[aria-expanded="true"] span {
+  background: #fafaf8;
 }
 
 .cw-nav-burger[aria-expanded="true"] span:nth-child(1) {
@@ -45,7 +50,8 @@
 .cw-nav-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(10, 22, 40, 0.3);
+  backdrop-filter: blur(2px);
   z-index: 9999;
   opacity: 0;
   visibility: hidden;
@@ -65,8 +71,7 @@
   bottom: 0;
   width: 320px;
   max-width: 100vw;
-  background: rgba(8, 8, 12, 0.96);
-  backdrop-filter: blur(20px);
+  background: #0a1628;
   z-index: 10000;
   transform: translateX(100%);
   transition: transform 0.3s ease;
@@ -82,13 +87,12 @@
 
 /* Wordmark */
 .cw-nav-wordmark {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
   font-size: 1.4rem;
   font-weight: bold;
   color: #d4a84b;
   text-decoration: none;
   letter-spacing: 0.04em;
-  text-shadow: 0 0 40px rgba(212, 168, 75, 0.4);
   margin-bottom: 2.5rem;
   display: block;
 }
@@ -99,15 +103,15 @@
 
 /* Section Labels (clickable) */
 .cw-nav-section {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
   font-size: 0.95rem;
   font-weight: bold;
-  color: #e0e0e0;
+  color: #f0f0f0;
   text-decoration: none;
   letter-spacing: 0.04em;
   margin-bottom: 0.75rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: block;
   transition: color 0.2s ease;
 }
@@ -121,7 +125,7 @@
 }
 
 .cw-nav-section:visited {
-  color: #e0e0e0;
+  color: #f0f0f0;
 }
 
 .cw-nav-section.active {
@@ -131,9 +135,9 @@
 /* Nav Links (subsections) */
 .cw-nav-link {
   display: block;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
   font-size: 0.85rem;
-  color: #b0b0b0;
+  color: #9ca3af;
   text-decoration: none;
   padding: 0.4rem 0 0.4rem 1rem;
   transition: color 0.2s ease;
@@ -159,7 +163,7 @@
 }
 
 .cw-nav-link:visited {
-  color: #b0b0b0;
+  color: #9ca3af;
 }
 
 .cw-nav-link.active {
@@ -174,7 +178,7 @@
 
 /* Coming Soon Items */
 .cw-nav-link.coming-soon {
-  color: #444;
+  color: #374151;
   pointer-events: none;
   cursor: default;
 }
@@ -182,7 +186,7 @@
 .cw-nav-link.coming-soon::after {
   content: 'soon';
   font-size: 0.6rem;
-  color: #444;
+  color: #374151;
   margin-left: 0.75rem;
   letter-spacing: 0.1em;
 }
@@ -194,9 +198,9 @@
 
 /* Map link at bottom */
 .cw-nav-map {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
   font-size: 0.8rem;
-  color: #666;
+  color: #6b7280;
   text-decoration: none;
   margin-top: auto;
   padding-top: 2rem;
@@ -209,7 +213,7 @@
 }
 
 .cw-nav-map:visited {
-  color: #666;
+  color: #6b7280;
 }
 
 .cw-nav-map.active {
@@ -222,17 +226,12 @@
 }
 
 .signoff {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
   font-size: 0.75rem;
-  color: #b0b0b0;
+  color: #6b7280;
   opacity: 0.4;
   margin-top: 12px;
   letter-spacing: 0.08em;
-}
-
-/* Light theme variant (for privacy, terms, etc.) */
-[data-cw-nav-theme="light"] .cw-nav-burger span {
-  background: #1a1a1a;
 }
 
 /* Mobile */

@@ -166,7 +166,7 @@
     <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -174,74 +174,57 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         :root {
-            --bg: #000D1A;
-            --text: #e8e8e8;
-            --dim: #b0b0b0;
+            --bg: #fafaf8;
+            --text: #0a1628;
+            --dim: #6b7280;
             --accent: #d4a84b;
-            --border: #0d2840;
-            --input-bg: #001428;
-            --font-body: 'Noto Sans', system-ui, sans-serif;
-            --font-mono: 'Courier New', Courier, monospace;
+            --link: #4a8ec2;
+            --border: #e5e7eb;
+            --input-bg: #f3f4f6;
+            --hover-bg: #f0f1f3;
+            --error: #b91c1c;
+            --font: 'IBM Plex Mono', 'Courier New', Courier, monospace;
         }
 
         body {
-            font-family: var(--font-body);
+            font-family: var(--font);
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
-            font-size: 18px;
+            font-size: 16px;
         }
 
         @media (prefers-reduced-motion: no-preference) {
             html { scroll-behavior: smooth; }
         }
 
-        /* Porch light - the warm glow that says someone's home */
+        /* Porch light — thin gold line, expands on focus */
         .porch-light {
             position: fixed;
             top: 0;
             left: 0;
-            width: 180px;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.7) 100%);
+            width: 120px;
+            height: 2px;
+            background: var(--accent);
             z-index: 9999;
-            box-shadow:
-                0 0 15px rgba(212, 168, 75, 1),
-                0 0 40px rgba(212, 168, 75, 0.8),
-                0 8px 60px rgba(212, 168, 75, 0.5),
-                0 15px 100px rgba(212, 168, 75, 0.3);
-            transition: box-shadow 0.6s ease, width 0.3s ease;
+            transition: width 0.6s ease;
         }
 
-        /* Condition-aware porch light intensity */
-        body[data-condition="night"] .porch-light {
-            box-shadow:
-                0 0 30px rgba(212, 168, 75, 0.6),
-                0 4px 40px rgba(212, 168, 75, 0.35),
-                0 8px 80px rgba(212, 168, 75, 0.15);
-        }
-        body[data-condition="dusk"] .porch-light {
-            box-shadow:
-                0 0 25px rgba(212, 168, 75, 0.5),
-                0 4px 35px rgba(212, 168, 75, 0.3),
-                0 8px 70px rgba(212, 168, 75, 0.12);
-        }
-        body[data-condition="dawn"] .porch-light {
-            box-shadow:
-                0 0 22px rgba(212, 168, 75, 0.45),
-                0 4px 32px rgba(212, 168, 75, 0.25),
-                0 8px 65px rgba(212, 168, 75, 0.1);
-        }
-        body[data-condition="storm"] .porch-light {
-            box-shadow:
-                0 0 35px rgba(212, 168, 75, 0.7),
-                0 4px 50px rgba(212, 168, 75, 0.4),
-                0 8px 90px rgba(212, 168, 75, 0.2);
+        body:has(.input-area:focus-within) .porch-light {
+            width: 100%;
         }
 
-        /* Mobile: full width porch light above header */
+        body.vernie-mode .porch-light {
+            width: 200px;
+            height: 3px;
+        }
+
+        body.vernie-mode:has(.input-area:focus-within) .porch-light {
+            width: 100%;
+        }
+
         @media (max-width: 700px) {
             .porch-light {
                 width: 100%;
@@ -260,24 +243,62 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .invitation-wordmark {
-            font-family: var(--font-mono);
-            font-size: 3.5rem;
-            font-weight: bold;
+        /* Porch star */
+        .porch-star {
+            font-family: var(--font);
+            font-size: 5rem;
             color: var(--accent);
-            letter-spacing: 0.04em;
-            text-shadow: 0 0 60px rgba(212, 168, 75, 0.5);
+            line-height: 1;
+            margin-bottom: 2rem;
+            animation: starlight 3s ease-in-out infinite;
+        }
+
+        @keyframes starlight {
+            0%, 100% { opacity: 0.4; text-shadow: 0 0 8px rgba(212, 168, 75, 0); }
+            50% { opacity: 1; text-shadow: 0 0 20px rgba(212, 168, 75, 0.3); }
+        }
+
+        .invitation-wordmark {
+            font-family: var(--font);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: 0.02em;
             margin-bottom: 0.75rem;
         }
 
+        .invitation-wordmark .asterisk {
+            color: var(--accent);
+        }
+
         .invitation-phrase {
-            font-family: var(--font-mono);
+            font-family: var(--font);
             color: var(--dim);
-            font-size: 1rem;
+            font-size: 0.95rem;
             margin-bottom: 2.5rem;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.02em;
             transition: opacity 0.4s ease;
             min-height: 1.5em;
+        }
+
+        .phrase-star {
+            color: var(--accent);
+        }
+
+        /* Typewriter cursor */
+        .typewriter-cursor {
+            display: inline-block;
+            width: 0.55em;
+            height: 1.1em;
+            background: var(--dim);
+            margin-left: 2px;
+            vertical-align: text-bottom;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         .invitation-nav {
@@ -292,15 +313,15 @@
         .invitation-nav a {
             color: var(--text);
             text-decoration: none;
-            font-family: var(--font-mono);
-            font-size: 0.95rem;
+            font-family: var(--font);
+            font-size: 0.9rem;
             padding: 0.25rem;
             transition: color 0.2s;
             letter-spacing: 0.02em;
         }
 
         .invitation-nav a:hover {
-            color: var(--accent);
+            color: var(--link);
         }
 
         .invitation-nav a:visited {
@@ -309,24 +330,25 @@
 
         .nav-dot {
             color: var(--dim);
-            opacity: 0.3;
+            opacity: 0.4;
         }
 
         .invitation-porch {
             color: var(--dim);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             opacity: 0.6;
             transition: opacity 0.2s, color 0.2s;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 0.5rem;
+            letter-spacing: 0.02em;
         }
 
         .invitation-porch:hover {
             opacity: 1;
-            color: var(--accent);
+            color: var(--text);
         }
 
         .invitation-porch:visited {
@@ -336,12 +358,6 @@
         .invitation-arrow {
             display: block;
             font-size: 1.2rem;
-            animation: nudge 2.5s ease-in-out infinite;
-        }
-
-        @keyframes nudge {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(4px); }
         }
 
         /* ── The Porch ──────────────────────────── */
@@ -354,7 +370,7 @@
             margin: 0 auto;
             padding: 0 1.5rem;
         }
-        
+
         .header {
             padding: 2rem 0 1rem;
             display: flex;
@@ -362,18 +378,17 @@
             align-items: baseline;
             border-bottom: 1px solid var(--border);
         }
-        
+
         .wordmark {
-            font-family: var(--font-mono);
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--accent);
-            letter-spacing: 0.04em;
-            text-shadow: 0 0 40px rgba(212, 168, 75, 0.4);
-            transition: text-shadow 0.6s ease;
+            font-family: var(--font);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: 0.02em;
         }
 
         .asterisk {
+            color: var(--accent);
             font-size: 0.75em;
             position: relative;
             top: -0.1em;
@@ -381,7 +396,7 @@
         }
 
         .tagline {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             color: var(--dim);
             margin-top: 0.5rem;
             font-weight: 400;
@@ -395,12 +410,12 @@
         }
 
         .condition {
-            font-size: 0.75rem;
-            color: #999;
+            font-size: 0.7rem;
+            color: var(--dim);
             text-transform: uppercase;
             letter-spacing: 0.1em;
         }
-        
+
         main {
             flex: 1;
             min-height: 0;
@@ -410,134 +425,106 @@
 
         .chat-area {
             flex: 1;
-            min-height: 0; /* Required for flex child with overflow */
+            min-height: 0;
             overflow-y: auto;
             padding: 2rem 0;
         }
-        
+
         .message {
             margin-bottom: 2rem;
         }
-        
+
         .message-label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--dim);
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: 0.5rem;
         }
-        
+
         .message-text {
             color: var(--text);
             white-space: pre-wrap;
+            font-size: 0.95rem;
+            line-height: 1.7;
         }
-        
+
         .message.cw .message-text {
             border-left: 2px solid var(--accent);
             padding-left: 1rem;
         }
-        
+
         .message.you .message-text {
-            border-left: 2px solid var(--dim);
+            border-left: 2px solid var(--border);
             padding-left: 1rem;
-            color: #999;
+            color: var(--dim);
         }
-        
+
         .message.error .message-text {
-            border-left: 2px solid #8b0000;
+            border-left: 2px solid var(--error);
             padding-left: 1rem;
-            color: #cc6666;
+            color: var(--error);
         }
-        
+
         .input-area {
             padding: 1.5rem 0;
             border-top: 1px solid var(--border);
-            transition: border-color 0.5s ease;
+            transition: border-color 0.3s ease;
         }
 
         .input-area:focus-within {
-            border-color: rgba(212, 168, 75, 0.3);
+            border-color: var(--accent);
         }
 
-        body:has(.input-area:focus-within) .wordmark {
-            text-shadow: 0 0 60px rgba(212, 168, 75, 0.65);
-        }
-
-        /* Condition-aware glow intensity (porch light matters more in darkness) */
-        body[data-condition="night"] .wordmark {
-            text-shadow: 0 0 50px rgba(212, 168, 75, 0.55);
-        }
-        body[data-condition="dusk"] .wordmark {
-            text-shadow: 0 0 45px rgba(212, 168, 75, 0.5);
-        }
-        body[data-condition="dawn"] .wordmark {
-            text-shadow: 0 0 42px rgba(212, 168, 75, 0.42);
-        }
-        body[data-condition="clear"] .wordmark {
-            text-shadow: 0 0 40px rgba(212, 168, 75, 0.38);
-        }
-        body[data-condition="storm"] .wordmark {
-            text-shadow: 0 0 55px rgba(212, 168, 75, 0.6);
-        }
-
-        /* Focus state overrides condition */
-        body:has(.input-area:focus-within)[data-condition="night"] .wordmark,
-        body:has(.input-area:focus-within)[data-condition="dusk"] .wordmark,
-        body:has(.input-area:focus-within)[data-condition="dawn"] .wordmark,
-        body:has(.input-area:focus-within)[data-condition="clear"] .wordmark,
-        body:has(.input-area:focus-within)[data-condition="storm"] .wordmark {
-            text-shadow: 0 0 65px rgba(212, 168, 75, 0.7);
-        }
-        
         .input-row {
             display: flex;
             gap: 1rem;
             align-items: flex-end;
         }
-        
+
         .input-field {
             flex: 1;
             background: var(--input-bg);
             border: 1px solid var(--border);
             color: var(--text);
             padding: 0.75rem 1rem;
-            font-family: inherit;
-            font-size: 1rem;
+            font-family: var(--font);
+            font-size: 0.95rem;
             resize: none;
             min-height: 48px;
             max-height: 150px;
             line-height: 1.5;
-            transition: border-color 0.5s ease, box-shadow 0.5s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .input-field:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 20px rgba(212, 168, 75, 0.15);
+            box-shadow: 0 0 0 3px rgba(212, 168, 75, 0.1);
         }
-        
+
         .input-field::placeholder {
             color: var(--dim);
         }
-        
+
         .send-btn {
             background: transparent;
-            border: 1px solid var(--border);
-            color: var(--dim);
+            border: 1px solid var(--text);
+            color: var(--text);
             padding: 0.75rem 1.5rem;
-            font-family: inherit;
-            font-size: 0.875rem;
+            font-family: var(--font);
+            font-size: 0.8rem;
             cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
             transition: all 0.2s;
         }
-        
+
         .send-btn:hover {
             border-color: var(--accent);
             color: var(--accent);
         }
-        
+
         .send-btn:disabled {
             opacity: 0.3;
             cursor: not-allowed;
@@ -545,54 +532,51 @@
 
         .chat-disclaimer {
             text-align: left;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--dim);
             opacity: 0.6;
             padding: 6px 0 2px calc(1px + 1rem);
         }
 
         .chat-disclaimer a {
-            color: var(--dim);
+            color: var(--link);
             text-decoration: none;
         }
 
         .chat-disclaimer a:hover {
-            color: var(--accent);
-        }
-
-        .chat-disclaimer a:visited {
-            color: var(--dim);
+            text-decoration: underline;
         }
 
         .footer {
             padding: 1rem 0;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--dim);
             border-top: 1px solid var(--border);
             text-align: center;
         }
-        
+
         .footer a {
-            color: var(--dim);
+            color: var(--link);
             text-decoration: none;
+            transition: color 0.2s;
         }
-        
+
         .footer a:hover {
-            color: var(--accent);
+            text-decoration: underline;
         }
 
         .footer a:visited {
-            color: var(--dim);
+            color: var(--link);
         }
 
         .disclaimer {
             margin-top: 0.5rem;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--dim);
         }
 
         .signoff {
-            font-family: var(--font-mono);
+            font-family: var(--font);
             font-size: 0.75rem;
             color: var(--dim);
             opacity: 0.4;
@@ -602,34 +586,46 @@
             transition: opacity 0.3s ease;
             letter-spacing: 0.08em;
         }
-        
+
+        .signoff:hover {
+            opacity: 0.7;
+        }
+
+        .signoff-star {
+            transition: color 0.3s ease;
+        }
+
+        .signoff:hover .signoff-star {
+            color: var(--accent);
+        }
+
         .typing {
             display: inline-block;
         }
-        
+
         .typing::after {
             content: '...';
             animation: dots 1.5s infinite;
         }
-        
+
         @keyframes dots {
             0%, 20% { content: '.'; }
             40% { content: '..'; }
             60%, 100% { content: '...'; }
         }
-        
+
         .chat-area::-webkit-scrollbar {
             width: 4px;
         }
-        
+
         .chat-area::-webkit-scrollbar-track {
-            background: var(--bg);
+            background: transparent;
         }
-        
+
         .chat-area::-webkit-scrollbar-thumb {
             background: var(--border);
         }
-        
+
         .prompts {
             display: flex;
             gap: 0.5rem;
@@ -637,39 +633,39 @@
             justify-content: center;
             padding: 0 0 1rem 0;
         }
-        
+
         .prompts.hidden {
             display: none;
         }
-        
+
         .prompt-chip {
-            background: var(--input-bg);
+            background: transparent;
             border: 1px solid var(--border);
-            color: var(--dim);
-            padding: 0.625rem 1.125rem;
-            font-family: inherit;
-            font-size: 0.9rem;
+            color: var(--text);
+            padding: 0.5rem 1rem;
+            font-family: var(--font);
+            font-size: 0.8rem;
             cursor: pointer;
             transition: all 0.2s;
-            border-radius: 2px;
+            letter-spacing: 0.02em;
         }
 
         .prompt-chip:hover {
             border-color: var(--accent);
             color: var(--accent);
         }
-        
+
         /* Skip navigation link */
         .skip-link {
             position: absolute;
             top: -40px;
             left: 0;
             background: var(--accent);
-            color: var(--bg);
+            color: #fff;
             padding: 0.5rem 1rem;
             text-decoration: none;
             z-index: 100;
-            font-family: inherit;
+            font-family: var(--font);
         }
 
         .skip-link:focus {
@@ -707,21 +703,25 @@
 
         @media (max-width: 600px) {
             body {
-                font-size: 17px;
+                font-size: 15px;
             }
             .invitation {
                 min-height: 100svh;
                 padding: 1.5rem 1rem;
             }
+            .porch-star {
+                font-size: 4rem;
+                margin-bottom: 1.5rem;
+            }
             .invitation-wordmark {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             .invitation-phrase {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
                 margin-bottom: 2rem;
             }
             .invitation-nav a {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
             .container {
                 padding: 0 1rem;
@@ -731,8 +731,8 @@
             .header {
                 padding: 1.5rem 0 1rem;
             }
-            .wordmark { font-size: 1rem; }
-            .tagline { font-size: 0.85rem; margin-top: 0.35rem; }
+            .wordmark { font-size: 0.95rem; }
+            .tagline { font-size: 0.8rem; margin-top: 0.35rem; }
             .chat-area {
                 padding: 1.5rem 0;
                 min-height: 40vh;
@@ -759,15 +759,12 @@
                 white-space: nowrap;
             }
             .prompt-chip {
-                padding: 0.75rem 1rem;
-                font-size: 0.95rem;
+                padding: 0.625rem 0.875rem;
+                font-size: 0.85rem;
             }
             .footer {
-                font-size: 0.75rem;
-                padding: 0.75rem 0;
-            }
-            .disclaimer {
                 font-size: 0.7rem;
+                padding: 0.75rem 0;
             }
         }
 
@@ -776,15 +773,15 @@
             background: transparent;
             border: none;
             color: var(--dim);
-            font-family: inherit;
-            font-size: 0.9rem;
+            font-family: var(--font);
+            font-size: 0.85rem;
             cursor: pointer;
             padding: 0.25rem 0;
             transition: color 0.2s;
         }
 
         .about-link:hover {
-            color: var(--accent);
+            color: var(--link);
         }
 
         /* Modal styles */
@@ -794,7 +791,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(10, 22, 40, 0.6);
+            backdrop-filter: blur(4px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -807,7 +805,7 @@
         }
 
         .modal-content {
-            background: var(--input-bg);
+            background: var(--bg);
             border: 1px solid var(--border);
             max-width: 480px;
             width: 100%;
@@ -833,22 +831,23 @@
         }
 
         .modal-content h2 {
-            font-family: var(--font-mono);
-            color: var(--accent);
-            font-size: 1.5rem;
+            font-family: var(--font);
+            color: var(--text);
+            font-size: 1.3rem;
             margin-bottom: 0.25rem;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.02em;
         }
 
         .modal-subtitle {
             color: var(--dim);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             margin-bottom: 1.5rem;
         }
 
         .modal-body p {
             margin-bottom: 1rem;
             line-height: 1.7;
+            font-size: 0.9rem;
         }
 
         .modal-body p:last-child {
@@ -857,7 +856,7 @@
 
         .modal-note {
             color: var(--dim);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             border-top: 1px solid var(--border);
             padding-top: 1rem;
             margin-top: 1.5rem;
@@ -870,7 +869,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(10, 22, 40, 0.6);
+            backdrop-filter: blur(4px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -883,7 +883,7 @@
         }
 
         .vernie-gate-content {
-            background: var(--input-bg);
+            background: var(--bg);
             border: 1px solid var(--border);
             max-width: 360px;
             width: 100%;
@@ -892,16 +892,16 @@
         }
 
         .vernie-gate-content h2 {
-            font-family: var(--font-mono);
-            color: var(--accent);
-            font-size: 1.25rem;
+            font-family: var(--font);
+            color: var(--text);
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.02em;
         }
 
         .vernie-gate-content p {
             color: var(--dim);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-bottom: 1.25rem;
             line-height: 1.6;
         }
@@ -909,10 +909,10 @@
         .vernie-code-input {
             width: 100%;
             padding: 0.75rem 1rem;
-            background: var(--bg);
+            background: var(--input-bg);
             border: 1px solid var(--border);
             color: var(--text);
-            font-family: var(--font-mono);
+            font-family: var(--font);
             font-size: 1rem;
             text-align: center;
             letter-spacing: 0.15em;
@@ -922,12 +922,12 @@
         .vernie-code-input:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 20px rgba(212, 168, 75, 0.15);
+            box-shadow: 0 0 0 3px rgba(212, 168, 75, 0.1);
         }
 
         .vernie-error {
-            color: #cc6666;
-            font-size: 0.8rem;
+            color: var(--error);
+            font-size: 0.75rem;
             margin-bottom: 1rem;
             min-height: 1.2em;
         }
@@ -937,16 +937,18 @@
             border: 1px solid var(--accent);
             color: var(--accent);
             padding: 0.75rem 2rem;
-            font-family: inherit;
-            font-size: 0.9rem;
+            font-family: var(--font);
+            font-size: 0.8rem;
             cursor: pointer;
             transition: all 0.2s;
             margin-right: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
         }
 
         .vernie-submit:hover {
             background: var(--accent);
-            color: var(--bg);
+            color: #fff;
         }
 
         .vernie-cancel {
@@ -954,19 +956,22 @@
             border: 1px solid var(--border);
             color: var(--dim);
             padding: 0.75rem 1.5rem;
-            font-family: inherit;
-            font-size: 0.9rem;
+            font-family: var(--font);
+            font-size: 0.8rem;
             cursor: pointer;
             transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
         }
 
         .vernie-cancel:hover {
             border-color: var(--dim);
+            color: var(--text);
         }
 
         .vernie-indicator {
             display: none;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -978,16 +983,6 @@
             display: block;
         }
 
-        body.vernie-mode .porch-light {
-            background: linear-gradient(90deg, #d4a84b 0%, rgba(232, 188, 95, 0.8) 50%, rgba(212, 168, 75, 0.5) 100%);
-            width: 240px;
-            box-shadow:
-                0 0 20px rgba(232, 188, 95, 1),
-                0 0 50px rgba(232, 188, 95, 0.7),
-                0 8px 80px rgba(232, 188, 95, 0.4),
-                0 15px 120px rgba(232, 188, 95, 0.2);
-        }
-
         .family-link {
             color: var(--dim);
             text-decoration: none;
@@ -996,7 +991,7 @@
             cursor: pointer;
             background: none;
             border: none;
-            font-family: inherit;
+            font-family: var(--font);
             font-size: inherit;
             margin-top: 0.4rem;
             display: inline-block;
@@ -1007,28 +1002,15 @@
             color: var(--accent);
         }
 
-        .signoff:hover {
-            opacity: 0.7;
-        }
-
-        .signoff-star {
-            transition: color 0.3s ease, text-shadow 0.3s ease;
-        }
-
-        .signoff:hover .signoff-star {
-            color: var(--accent);
-            text-shadow: 0 0 8px rgba(212, 168, 75, 0.6);
-        }
-
         .vernie-exit {
             display: none;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--dim);
             opacity: 0.5;
             cursor: pointer;
             background: none;
             border: none;
-            font-family: inherit;
+            font-family: var(--font);
             transition: opacity 0.2s;
         }
 
@@ -1038,12 +1020,6 @@
 
         body.vernie-mode .vernie-exit {
             display: inline;
-        }
-
-        @media (max-width: 700px) {
-            body.vernie-mode .porch-light {
-                width: 100%;
-            }
         }
 
         /* Honeypot - hidden from humans */
@@ -1063,6 +1039,11 @@
                 content: '...';
             }
 
+            .typewriter-cursor {
+                animation: none;
+                opacity: 1;
+            }
+
             * {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
@@ -1079,18 +1060,19 @@
 
     <!-- The Invitation -->
     <section class="invitation">
-        <h1 class="invitation-wordmark">claudewill<span class="asterisk">*</span></h1>
-        <p class="invitation-phrase" id="invitation-phrase">* keep going</p>
+        <div class="porch-star" aria-hidden="true">*</div>
+        <h1 class="invitation-wordmark">claudewill</h1>
+        <p class="invitation-phrase" id="invitation-phrase">claude will <span id="typed-text"></span><span class="typewriter-cursor" aria-hidden="true"></span></p>
         <nav class="invitation-nav" aria-label="Main navigation">
-            <a href="/story">stories</a>
-            <span class="nav-dot" aria-hidden="true">·</span>
+            <a href="/story">the story</a>
+            <span class="nav-dot" aria-hidden="true">&middot;</span>
             <a href="/derek">derek</a>
-            <span class="nav-dot" aria-hidden="true">·</span>
-            <a href="/studio">studio</a>
-            <span class="nav-dot" aria-hidden="true">·</span>
-            <a href="/the-cw-standard">standard</a>
+            <span class="nav-dot" aria-hidden="true">&middot;</span>
+            <a href="/studio">our studio</a>
+            <span class="nav-dot" aria-hidden="true">&middot;</span>
+            <a href="/story#the-cw-standard">standard</a>
         </nav>
-        <a href="#porch" class="invitation-porch">whatcha need?<span class="invitation-arrow">↓</span></a>
+        <a href="#porch" class="invitation-porch">whatcha thinking?<span class="invitation-arrow">&darr;</span></a>
     </section>
 
     <!-- The Porch -->
@@ -1126,15 +1108,14 @@
                 ></textarea>
                 <button class="send-btn" id="send" aria-label="Send message">Send</button>
             </div>
-            <div class="chat-disclaimer">AI conversation · 18+ (13+ with consent) · Not professional advice · Crisis? <a href="https://988lifeline.org" target="_blank" rel="noopener">988</a> · <a href="https://www.crisistextline.org" target="_blank" rel="noopener">Text Line</a></div>
+            <div class="chat-disclaimer">AI conversation &middot; not professional advice</div>
         </div>
 
         <footer class="footer" role="contentinfo">
-            <p class="footer-note">Built by <a href="/derek">Derek</a> with Claude · &copy; 2026 CW Strategies LLC</p>
-            <p class="footer-note"><a href="/the-cw-standard">Standard</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p>
+            <p class="footer-note"><a href="/derek">derek</a> &middot; <a href="/story#the-cw-standard">standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
             <div class="vernie-indicator" id="vernie-indicator">Vernie Mode</div>
             <button class="vernie-exit" id="vernie-exit">Exit family mode</button>
-            <div class="signoff" id="signoff-easter"><span class="signoff-star">*</span> keep going</div>
+            <div class="signoff" id="signoff-easter"><span class="signoff-star">*</span> cw strategies 2026</div>
         </footer>
     </div>
 
@@ -1163,10 +1144,10 @@
             <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
             <h2 id="modal-title">Welcome to claudewill<span class="asterisk">*</span>.</h2>
             <div class="modal-body">
-                <p>Claude William Simmons was a farmer, railroad worker, father of 11, and maybe briefly a moonshiner. Sixth-grade education but a doctorate in common sense. He died in 1967, 5½ years before his grandson Derek was born.</p>
-                <p>Derek built this for straight answers through conversation — a way to help the way he thinks CW would have.</p>
+                <p>Claude William Simmons was a farmer, railroad worker, father of 11, and maybe briefly a moonshiner. Sixth-grade education but a doctorate in common sense. He died in 1967, 5&frac12; years before his grandson Derek was born.</p>
+                <p>Derek built this for straight answers through conversation &mdash; a way to help the way he thinks CW would have.</p>
                 <p class="modal-note">Ask anything. CW will give you a straight answer or point you elsewhere.</p>
-                <p style="margin-top: 1rem;"><a href="/story" style="color: var(--accent); text-decoration: none;">The Story →</a></p>
+                <p style="margin-top: 1rem;"><a href="/story" style="color: var(--link); text-decoration: none;">The Story &rarr;</a></p>
             </div>
         </div>
     </div>
@@ -1178,7 +1159,6 @@
         const prompts = document.getElementById('prompts');
         const honeypot = document.getElementById('hp-website');
 
-        // Conversation history for context
         let conversationHistory = [];
         let currentCondition = 'clear';
         let conversationEnded = false;
@@ -1186,7 +1166,6 @@
         let derekMentioned = false;
         let isVernieMode = false;
 
-        // Contextual prompts based on conversation stage
         const promptSets = {
             start: [
                 { text: "Who are you?", prompt: "Who are you?" },
@@ -1228,7 +1207,6 @@
         }
 
         function updatePrompts() {
-            // No prompt chips in Vernie Mode — family talks freely
             if (isVernieMode) {
                 prompts.classList.add('hidden');
                 return;
@@ -1236,12 +1214,12 @@
             const stage = getPromptStage();
             const currentPrompts = promptSets[stage];
 
-            prompts.innerHTML = '';
+            prompts.textContent = '';
             currentPrompts.forEach(p => {
                 const chip = document.createElement('button');
                 chip.className = 'prompt-chip';
                 chip.setAttribute('data-prompt', p.prompt);
-                chip.setAttribute('aria-label', `Ask: ${p.text}`);
+                chip.setAttribute('aria-label', 'Ask: ' + p.text);
                 chip.textContent = p.text;
                 chip.addEventListener('click', () => {
                     if (p.prompt === '__CONTACT_FORM__') {
@@ -1270,51 +1248,45 @@
             }
         }
 
-        // Generate or retrieve session ID
         let sessionId = sessionStorage.getItem('cw-session-id');
         if (!sessionId) {
             sessionId = Date.now().toString(36) + Math.random().toString(36).substr(2);
             sessionStorage.setItem('cw-session-id', sessionId);
         }
 
-        // Conditions based on time (internal, not shown to user)
         function setCondition() {
             const hour = new Date().getHours();
             const rand = Math.random();
-            
+
             let mode;
             if (rand < 0.08) mode = 'storm';
             else if (hour >= 5 && hour < 7) mode = 'dawn';
             else if (hour >= 7 && hour < 17) mode = 'clear';
             else if (hour >= 17 && hour < 20) mode = 'dusk';
             else mode = 'night';
-            
+
             currentCondition = mode;
             document.body.dataset.condition = mode;
             return mode;
         }
 
-        // CW's greeting based on time of day
         function getGreeting() {
             const hour = new Date().getHours();
             if (hour >= 5 && hour < 12) return 'Morning.';
             if (hour >= 12 && hour < 17) return 'Afternoon.';
             return 'Evening.';
         }
-        
+
         setCondition();
 
-        // Set tagline based on first visit vs returning + condition
         function setTagline() {
             const taglineEl = document.getElementById('tagline');
             const hasVisited = localStorage.getItem('cw-has-visited');
 
             if (!hasVisited) {
-                // First visit: the hook
                 taglineEl.textContent = 'Before there was Claude AI, there was Claude William.';
                 localStorage.setItem('cw-has-visited', 'true');
             } else {
-                // Returning visitor: condition-based
                 const taglines = {
                     dawn: "The porch light's on. He's up early.",
                     clear: "He's on the porch. Got a minute?",
@@ -1325,87 +1297,86 @@
                 taglineEl.textContent = taglines[currentCondition] || taglines.clear;
             }
 
-            // Trigger fade-in after content is set
             requestAnimationFrame(() => {
                 taglineEl.classList.add('visible');
             });
         }
 
         setTagline();
-
-        // Show CW's greeting on load
         addMessage('cw', getGreeting());
 
-        // Screen reader announcement
         function announceMessage(who, text) {
             const announcement = document.createElement('div');
             announcement.className = 'sr-only';
             announcement.setAttribute('role', 'status');
             announcement.setAttribute('aria-live', 'polite');
-            announcement.textContent = `${who === 'cw' ? 'CW' : 'You'}: ${text}`;
+            announcement.textContent = (who === 'cw' ? 'CW' : 'You') + ': ' + text;
             document.body.appendChild(announcement);
-
-            // Remove after announced
             setTimeout(() => announcement.remove(), 1000);
         }
 
-        function addMessage(who, text, isError = false) {
+        function addMessage(who, text, isError) {
             const msg = document.createElement('div');
-            msg.className = `message ${who}${isError ? ' error' : ''}`;
-            msg.innerHTML = `
-                <div class="message-label">${who === 'cw' ? 'CW' : 'You'}</div>
-                <div class="message-text">${escapeHtml(text)}</div>
-            `;
+            msg.className = 'message ' + who + (isError ? ' error' : '');
+
+            const label = document.createElement('div');
+            label.className = 'message-label';
+            label.textContent = who === 'cw' ? 'CW' : 'You';
+
+            const body = document.createElement('div');
+            body.className = 'message-text';
+            body.textContent = text;
+
+            msg.appendChild(label);
+            msg.appendChild(body);
             chat.appendChild(msg);
             chat.scrollTop = chat.scrollHeight;
-
-            // Announce to screen readers
             announceMessage(who, text);
         }
-        
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-        
+
         function showTyping() {
             const msg = document.createElement('div');
             msg.className = 'message cw';
             msg.id = 'typing';
-            msg.innerHTML = `
-                <div class="message-label">CW</div>
-                <div class="message-text"><span class="typing"></span></div>
-            `;
+
+            const label = document.createElement('div');
+            label.className = 'message-label';
+            label.textContent = 'CW';
+
+            const body = document.createElement('div');
+            body.className = 'message-text';
+            const span = document.createElement('span');
+            span.className = 'typing';
+            body.appendChild(span);
+
+            msg.appendChild(label);
+            msg.appendChild(body);
             chat.appendChild(msg);
             chat.scrollTop = chat.scrollHeight;
         }
-        
+
         function removeTyping() {
             const t = document.getElementById('typing');
             if (t) t.remove();
         }
-        
+
         async function sendMessage() {
             const text = input.value.trim();
             if (!text) return;
 
-            // Honeypot check - if filled, silently reject (bot detected)
             if (honeypot && honeypot.value) {
                 input.value = '';
                 return;
             }
 
-            // Increment exchange count and update prompts
             exchangeCount++;
             updatePrompts();
-            
-            // Check if conversation was ended
+
             if (conversationEnded) {
                 addMessage('cw', "We're done here.", false);
                 return;
             }
-            
+
             addMessage('you', text);
             input.value = '';
             input.style.height = 'auto';
@@ -1415,13 +1386,12 @@
             input.disabled = true;
 
             showTyping();
-            
-            // Add user message to history
+
             conversationHistory.push({
                 role: 'user',
                 content: text
             });
-            
+
             try {
                 const response = await fetch('/.netlify/functions/cw', {
                     method: 'POST',
@@ -1435,11 +1405,11 @@
                         vernieCode: isVernieMode ? sessionStorage.getItem('cw-vernie-code') : undefined
                     })
                 });
-                
+
                 const data = await response.json();
-                
+
                 removeTyping();
-                
+
                 if (response.status === 429) {
                     addMessage('cw', data.response || 'Easy there. Give me a minute.', false);
                 } else if (data.error && !data.response) {
@@ -1448,16 +1418,13 @@
                     const cwResponse = data.response;
                     addMessage('cw', cwResponse);
 
-                    // Add CW response to history
                     conversationHistory.push({
                         role: 'assistant',
                         content: cwResponse
                     });
 
-                    // Check if CW mentioned Derek/contact form
                     checkForDerekMention(cwResponse);
 
-                    // Check if CW ended the conversation
                     if (cwResponse.toLowerCase().includes("we're done here") ||
                         cwResponse.toLowerCase().includes("we are done here")) {
                         conversationEnded = true;
@@ -1468,7 +1435,7 @@
                         return;
                     }
                 }
-                
+
             } catch (error) {
                 removeTyping();
                 addMessage('cw', 'Connection problem. Try again.', true);
@@ -1479,22 +1446,21 @@
             input.disabled = false;
             input.focus();
         }
-        
+
         send.addEventListener('click', sendMessage);
-        
+
         input.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
                 sendMessage();
             }
         });
-        
+
         input.addEventListener('input', () => {
             input.style.height = 'auto';
             input.style.height = Math.min(input.scrollHeight, 150) + 'px';
         });
-        
-        // Initial prompt chip handlers (will be replaced by updatePrompts)
+
         document.querySelectorAll('.prompt-chip').forEach(chip => {
             chip.addEventListener('click', () => {
                 input.value = chip.dataset.prompt;
@@ -1502,69 +1468,91 @@
             });
         });
 
-        // Inline contact form
         function showInlineContactForm() {
-            // Hide prompts while form is shown
             prompts.classList.add('hidden');
 
-            const formHtml = `
-                <div class="message cw">
-                    <div class="message-label">CW</div>
-                    <div class="message-text">
-                        <form id="inline-contact-form" style="margin-top: 0.5rem;">
-                            <div style="margin-bottom: 0.75rem;">
-                                <input type="text" name="name" placeholder="Your name" required
-                                    style="width: 100%; padding: 0.5rem; background: var(--input-bg); border: 1px solid var(--border); color: var(--text); font-family: inherit; font-size: 0.9rem;">
-                            </div>
-                            <div style="margin-bottom: 0.75rem;">
-                                <input type="email" name="email" placeholder="Your email" required
-                                    style="width: 100%; padding: 0.5rem; background: var(--input-bg); border: 1px solid var(--border); color: var(--text); font-family: inherit; font-size: 0.9rem;">
-                            </div>
-                            <div style="margin-bottom: 0.75rem;">
-                                <textarea name="message" placeholder="What would you like to discuss with Derek?" rows="3" required
-                                    style="width: 100%; padding: 0.5rem; background: var(--input-bg); border: 1px solid var(--border); color: var(--text); font-family: inherit; font-size: 0.9rem; resize: vertical;"></textarea>
-                            </div>
-                            <input type="hidden" name="form-name" value="inline-contact">
-                            <button type="submit" style="background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 0.5rem 1rem; font-family: inherit; font-size: 0.85rem; cursor: pointer;">Send to Derek</button>
-                            <button type="button" id="cancel-contact" style="background: transparent; border: 1px solid var(--border); color: var(--dim); padding: 0.5rem 1rem; font-family: inherit; font-size: 0.85rem; cursor: pointer; margin-left: 0.5rem;">Cancel</button>
-                        </form>
-                    </div>
-                </div>
-            `;
+            const wrapper = document.createElement('div');
+            wrapper.className = 'message cw';
 
-            chat.insertAdjacentHTML('beforeend', formHtml);
+            const label = document.createElement('div');
+            label.className = 'message-label';
+            label.textContent = 'CW';
+
+            const body = document.createElement('div');
+            body.className = 'message-text';
+
+            const form = document.createElement('form');
+            form.id = 'inline-contact-form';
+            form.style.marginTop = '0.5rem';
+
+            const fields = [
+                { tag: 'input', type: 'text', name: 'name', placeholder: 'Your name' },
+                { tag: 'input', type: 'email', name: 'email', placeholder: 'Your email' },
+                { tag: 'textarea', name: 'message', placeholder: 'What would you like to discuss with Derek?', rows: 3 }
+            ];
+
+            fields.forEach(f => {
+                const div = document.createElement('div');
+                div.style.marginBottom = '0.75rem';
+                const el = document.createElement(f.tag);
+                if (f.type) el.type = f.type;
+                el.name = f.name;
+                el.placeholder = f.placeholder;
+                el.required = true;
+                el.style.cssText = 'width:100%;padding:0.5rem;background:var(--input-bg);border:1px solid var(--border);color:var(--text);font-family:var(--font);font-size:0.85rem;';
+                if (f.rows) { el.rows = f.rows; el.style.resize = 'vertical'; }
+                div.appendChild(el);
+                form.appendChild(div);
+            });
+
+            const hidden = document.createElement('input');
+            hidden.type = 'hidden';
+            hidden.name = 'form-name';
+            hidden.value = 'inline-contact';
+            form.appendChild(hidden);
+
+            const submitBtn = document.createElement('button');
+            submitBtn.type = 'submit';
+            submitBtn.textContent = 'Send to Derek';
+            submitBtn.style.cssText = 'background:transparent;border:1px solid var(--accent);color:var(--accent);padding:0.5rem 1rem;font-family:var(--font);font-size:0.8rem;cursor:pointer;text-transform:uppercase;letter-spacing:0.06em;';
+            form.appendChild(submitBtn);
+
+            const cancelBtn = document.createElement('button');
+            cancelBtn.type = 'button';
+            cancelBtn.textContent = 'Cancel';
+            cancelBtn.style.cssText = 'background:transparent;border:1px solid var(--border);color:var(--dim);padding:0.5rem 1rem;font-family:var(--font);font-size:0.8rem;cursor:pointer;margin-left:0.5rem;text-transform:uppercase;letter-spacing:0.06em;';
+            form.appendChild(cancelBtn);
+
+            body.appendChild(form);
+            wrapper.appendChild(label);
+            wrapper.appendChild(body);
+            chat.appendChild(wrapper);
             chat.scrollTop = chat.scrollHeight;
 
-            const form = document.getElementById('inline-contact-form');
-            const cancelBtn = document.getElementById('cancel-contact');
-
             cancelBtn.addEventListener('click', () => {
-                form.closest('.message').remove();
+                wrapper.remove();
                 updatePrompts();
             });
 
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const formData = new FormData(form);
-
                 try {
                     await fetch('/', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                         body: new URLSearchParams(formData).toString()
                     });
-
-                    form.closest('.message').remove();
+                    wrapper.remove();
                     addMessage('cw', "Message sent. Derek will be in touch.");
                     updatePrompts();
-                } catch (error) {
+                } catch (err) {
                     addMessage('cw', "Couldn't send that. Try the form at claudewill.io/derek.", true);
                     updatePrompts();
                 }
             });
         }
 
-        // About modal
         const aboutModal = document.getElementById('about-modal');
         const modalClose = document.getElementById('modal-close');
 
@@ -1577,15 +1565,12 @@
             aboutModal.hidden = true;
         }
 
-
         modalClose.addEventListener('click', closeModal);
 
-        // Close on overlay click
         aboutModal.addEventListener('click', (e) => {
             if (e.target === aboutModal) closeModal();
         });
 
-        // Close on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && !aboutModal.hidden) closeModal();
         });
@@ -1606,7 +1591,6 @@
             vernieCodeInput.focus();
         }
 
-        // Check for existing Vernie session on load
         const storedVernieCode = sessionStorage.getItem('cw-vernie-code');
         if (storedVernieCode) {
             activateVernieMode(storedVernieCode, true);
@@ -1659,8 +1643,7 @@
                     vernieGate.hidden = true;
                     activateVernieMode(code, false);
 
-                    // Clear existing conversation and show CW's family greeting
-                    chat.innerHTML = '';
+                    chat.textContent = '';
                     conversationHistory = [
                         { role: 'user', content: 'Family is here.' },
                         { role: 'assistant', content: data.response }
@@ -1684,7 +1667,7 @@
             prompts.classList.add('hidden');
 
             if (isRestore) {
-                chat.innerHTML = '';
+                chat.textContent = '';
                 conversationHistory = [];
                 exchangeCount = 0;
                 addMessage('cw', 'Family porch is open. Who am I talking to?');
@@ -1695,7 +1678,7 @@
             isVernieMode = false;
             sessionStorage.removeItem('cw-vernie-code');
             document.body.classList.remove('vernie-mode');
-            chat.innerHTML = '';
+            chat.textContent = '';
             conversationHistory = [];
             exchangeCount = 0;
             derekMentioned = false;
@@ -1708,40 +1691,67 @@
         });
     </script>
     <script>
-        // Invitation phrase rotation
-        const phrases = [
-            '* keep going',
-            '* keep talking',
-            '* keep building',
-            '* keep showing up',
-            '* keep asking',
-            '* keep your word'
+        // Typewriter effect — * stays constant, words type in character by character
+        const typedPhrases = [
+            'find a way',
+            'keep going',
+            'listen first',
+            'make mistakes',
+            'push changes',
+            'pull insights',
+            'build things',
+            'ask why'
         ];
-        let phraseIndex = 0;
-        const phraseEl = document.getElementById('invitation-phrase');
-        if (phraseEl) {
-            setInterval(() => {
-                phraseEl.style.opacity = '0';
-                setTimeout(() => {
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                    phraseEl.textContent = phrases[phraseIndex];
-                    phraseEl.style.opacity = '1';
-                }, 400);
-            }, 3500);
+        let tpIndex = 0;
+        let tpChar = 0;
+        let tpDeleting = false;
+        const typedEl = document.getElementById('typed-text');
+
+        function typeStep() {
+            if (!typedEl) return;
+            const current = typedPhrases[tpIndex];
+
+            if (!tpDeleting) {
+                tpChar++;
+                typedEl.textContent = current.substring(0, tpChar);
+
+                if (tpChar === current.length) {
+                    // Pause at full phrase, then delete
+                    setTimeout(() => { tpDeleting = true; typeStep(); }, 2500);
+                    return;
+                }
+                setTimeout(typeStep, 80);
+            } else {
+                tpChar--;
+                typedEl.textContent = current.substring(0, tpChar);
+
+                if (tpChar === 0) {
+                    tpDeleting = false;
+                    tpIndex = (tpIndex + 1) % typedPhrases.length;
+                    setTimeout(typeStep, 400);
+                    return;
+                }
+                setTimeout(typeStep, 40);
+            }
+        }
+
+        // Start typing the first phrase
+        if (typedEl) {
+            setTimeout(typeStep, 800);
         }
     </script>
     <script>
-        // Signoff easter egg — click cycles through keep phrases
+        // Signoff easter egg — click cycles through "i am" phrases, then back to copyright
         const signoffEl = document.getElementById('signoff-easter');
-        const keepPhrases = ['keep going', 'keep talking', 'keep building', 'keep showing up', 'keep asking', 'keep your word'];
-        let keepIndex = 0;
+        const signoffPhrases = ['claude will find a way', 'claude will keep going', 'claude will listen first', 'claude will make mistakes', 'claude will push changes', 'claude will pull insights', 'claude will build things', 'claude will ask why', 'cw strategies 2026'];
+        let signoffIndex = signoffPhrases.length - 1; // start on copyright
         if (signoffEl) {
             signoffEl.addEventListener('click', () => {
-                keepIndex = (keepIndex + 1) % keepPhrases.length;
+                signoffIndex = (signoffIndex + 1) % signoffPhrases.length;
                 signoffEl.style.opacity = '0';
                 setTimeout(() => {
                     var star = signoffEl.querySelector('.signoff-star');
-                    if (star) star.nextSibling.textContent = ' ' + keepPhrases[keepIndex];
+                    if (star && star.nextSibling) star.nextSibling.textContent = ' ' + signoffPhrases[signoffIndex];
                     signoffEl.style.opacity = '';
                 }, 200);
             });

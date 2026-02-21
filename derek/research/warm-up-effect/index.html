@@ -94,36 +94,36 @@
   <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/shared-nav.css">
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #000D1A;
-      --text: #e8e8e8;
-      --dim: #b0b0b0;
+      --bg: #fafaf8;
+      --text: #0a1628;
+      --dim: #6b7280;
       --accent: #d4a84b;
-      --border: #1a3a5c;
-      --card-bg: #0a1829;
-      --font-body: 'Noto Serif', Georgia, serif;
-      --font-sans: 'Noto Sans', system-ui, sans-serif;
+      --link: #4a8ec2;
+      --border: #e5e7eb;
+      --card-bg: #f3f4f6;
+      --font: 'IBM Plex Mono', 'Courier New', Courier, monospace;
       --research-accent: #5b8fb9;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: var(--font-body);
+      font-family: var(--font);
       background: var(--bg);
       color: var(--text);
       line-height: 1.8;
       font-size: 18px;
     }
 
-    a { color: var(--accent); }
-    a:visited { color: var(--accent); }
+    a { color: var(--link); }
+    a:visited { color: var(--link); }
 
     /* Porch light */
     .porch-light {
@@ -132,7 +132,7 @@
       width: 180px; height: 5px;
       background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.7) 100%);
       z-index: 9999;
-      box-shadow: 0 0 15px rgba(212, 168, 75, 1), 0 0 40px rgba(212, 168, 75, 0.8), 0 8px 60px rgba(212, 168, 75, 0.5);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     }
 
     .container {
@@ -149,7 +149,7 @@
     }
 
     .back-link {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 0.9rem;
       color: var(--dim);
       text-decoration: none;
@@ -163,7 +163,7 @@
     .back-link:hover { color: var(--accent); }
 
     .series-label {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 0.75rem;
       font-weight: 600;
       color: var(--research-accent);
@@ -180,7 +180,7 @@
     .series-label a:hover { text-decoration: underline; }
 
     h1 {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 2.2rem;
       font-weight: 600;
       color: var(--text);
@@ -190,7 +190,7 @@
     }
 
     .subtitle {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 1.1rem;
       color: var(--dim);
       margin-bottom: 24px;
@@ -198,7 +198,7 @@
     }
 
     .byline {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 0.85rem;
       color: var(--dim);
       margin-bottom: 8px;
@@ -207,7 +207,7 @@
     .byline strong { color: var(--text); font-weight: 500; }
 
     .dateline {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 0.8rem;
       color: var(--dim);
     }
@@ -222,7 +222,7 @@
     }
 
     .data-card-label {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 0.7rem;
       font-weight: 600;
       color: var(--research-accent);
@@ -242,7 +242,7 @@
     }
 
     .data-value {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 1.8rem;
       font-weight: 600;
       color: var(--accent);
@@ -250,7 +250,7 @@
     }
 
     .data-label {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 0.75rem;
       color: var(--dim);
       margin-top: 4px;
@@ -262,7 +262,7 @@
     .article-body p { margin-bottom: 1.5em; }
 
     .article-body h2 {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 1.4rem;
       font-weight: 600;
       color: var(--text);
@@ -279,7 +279,7 @@
     }
 
     .article-body h3 {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 1.1rem;
       font-weight: 600;
       color: var(--accent);
@@ -292,7 +292,7 @@
       border-left: 3px solid var(--accent);
       padding: 16px 24px;
       margin: 24px 0;
-      background: rgba(212, 168, 75, 0.05);
+      background: rgba(212, 168, 75, 0.08);
       font-style: italic;
     }
 
@@ -301,7 +301,7 @@
 
     blockquote cite {
       display: block;
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 0.85rem;
       color: var(--dim);
       font-style: normal;
@@ -319,7 +319,7 @@
     }
 
     .diagram-label {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 0.7rem;
       font-weight: 600;
       color: var(--research-accent);
@@ -329,7 +329,7 @@
     }
 
     .diagram-caption {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 0.85rem;
       color: var(--dim);
       margin-top: 16px;
@@ -344,7 +344,7 @@
 
     /* Footnotes */
     .footnote-ref {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 0.75rem;
       color: var(--research-accent);
       text-decoration: none;
@@ -361,7 +361,7 @@
 
     /* Observation vs. claim markers */
     .observation-tag, .claim-tag, .established-tag {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 0.65rem;
       font-weight: 600;
       text-transform: uppercase;
@@ -395,7 +395,7 @@
     }
 
     .references h2 {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 1.1rem;
       font-weight: 600;
       color: var(--text);
@@ -408,7 +408,7 @@
     }
 
     .ref-list li {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 0.85rem;
       color: var(--dim);
       line-height: 1.6;
@@ -465,7 +465,7 @@
     }
 
     .transparency-box h3 {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 0.85rem;
       font-weight: 600;
       color: var(--research-accent);
@@ -474,7 +474,7 @@
     }
 
     .transparency-box p, .transparency-box ul {
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 0.9rem;
       color: var(--dim);
       line-height: 1.6;
@@ -494,7 +494,7 @@
       border-radius: 8px;
       padding: 20px 24px;
       margin: 32px 0;
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 0.85rem;
       color: var(--dim);
     }
@@ -509,11 +509,11 @@
       padding: 40px 0;
       text-align: center;
       color: var(--dim);
-      font-family: var(--font-sans);
+      font-family: var(--font);
       font-size: 0.85rem;
     }
 
-    footer a { color: var(--accent); text-decoration: none; }
+    footer a { color: var(--link); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
     /* Mobile */
@@ -534,13 +534,16 @@
       .diagram-caption::before { content: "[Diagram not shown in print]"; font-style: italic; }
     }
 
-    .signoff {
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 0.75rem;
-      color: #b0b0b0;
-      opacity: 0.4;
-      margin-top: 12px;
-      letter-spacing: 0.08em;
+    .footer-note .hw {
+      color: var(--accent);
+    }
+
+    .footer-note a {
+      color: var(--link);
+    }
+
+    .footer-note a:hover {
+      color: var(--accent);
     }
   </style>
 </head>
@@ -619,31 +622,31 @@
         <div class="diagram-label">Figure 1: What We Observed</div>
         <svg viewBox="0 0 600 300" style="width: 100%; max-width: 600px; margin: 0 auto; display: block;" aria-label="Chart showing observed output quality increasing over a session while expected baseline remains flat">
           <!-- Grid lines -->
-          <line x1="70" y1="40" x2="70" y2="240" stroke="#1a3a5c" stroke-width="1"/>
-          <line x1="70" y1="240" x2="570" y2="240" stroke="#1a3a5c" stroke-width="1"/>
-          <line x1="70" y1="190" x2="570" y2="190" stroke="#1a3a5c" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4"/>
-          <line x1="70" y1="140" x2="570" y2="140" stroke="#1a3a5c" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4"/>
-          <line x1="70" y1="90" x2="570" y2="90" stroke="#1a3a5c" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4"/>
-          <line x1="70" y1="40" x2="570" y2="40" stroke="#1a3a5c" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4"/>
+          <line x1="70" y1="40" x2="70" y2="240" stroke="#e5e7eb" stroke-width="1"/>
+          <line x1="70" y1="240" x2="570" y2="240" stroke="#e5e7eb" stroke-width="1"/>
+          <line x1="70" y1="190" x2="570" y2="190" stroke="#e5e7eb" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4"/>
+          <line x1="70" y1="140" x2="570" y2="140" stroke="#e5e7eb" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4"/>
+          <line x1="70" y1="90" x2="570" y2="90" stroke="#e5e7eb" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4"/>
+          <line x1="70" y1="40" x2="570" y2="40" stroke="#e5e7eb" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4"/>
 
           <!-- Y-axis labels -->
-          <text x="60" y="244" text-anchor="end" fill="#b0b0b0" font-family="Noto Sans, system-ui, sans-serif" font-size="11">0%</text>
-          <text x="60" y="194" text-anchor="end" fill="#b0b0b0" font-family="Noto Sans, system-ui, sans-serif" font-size="11">25%</text>
-          <text x="60" y="144" text-anchor="end" fill="#b0b0b0" font-family="Noto Sans, system-ui, sans-serif" font-size="11">50%</text>
-          <text x="60" y="94" text-anchor="end" fill="#b0b0b0" font-family="Noto Sans, system-ui, sans-serif" font-size="11">75%</text>
-          <text x="60" y="44" text-anchor="end" fill="#b0b0b0" font-family="Noto Sans, system-ui, sans-serif" font-size="11">100%</text>
+          <text x="60" y="244" text-anchor="end" fill="#6b7280" font-family="IBM Plex Mono, Courier New, monospace" font-size="11">0%</text>
+          <text x="60" y="194" text-anchor="end" fill="#6b7280" font-family="IBM Plex Mono, Courier New, monospace" font-size="11">25%</text>
+          <text x="60" y="144" text-anchor="end" fill="#6b7280" font-family="IBM Plex Mono, Courier New, monospace" font-size="11">50%</text>
+          <text x="60" y="94" text-anchor="end" fill="#6b7280" font-family="IBM Plex Mono, Courier New, monospace" font-size="11">75%</text>
+          <text x="60" y="44" text-anchor="end" fill="#6b7280" font-family="IBM Plex Mono, Courier New, monospace" font-size="11">100%</text>
 
           <!-- X-axis labels -->
-          <text x="70" y="260" text-anchor="middle" fill="#b0b0b0" font-family="Noto Sans, system-ui, sans-serif" font-size="11">Start</text>
-          <text x="170" y="260" text-anchor="middle" fill="#b0b0b0" font-family="Noto Sans, system-ui, sans-serif" font-size="11">~20%</text>
-          <text x="270" y="260" text-anchor="middle" fill="#b0b0b0" font-family="Noto Sans, system-ui, sans-serif" font-size="11">~40%</text>
-          <text x="370" y="260" text-anchor="middle" fill="#b0b0b0" font-family="Noto Sans, system-ui, sans-serif" font-size="11">~60%</text>
-          <text x="470" y="260" text-anchor="middle" fill="#b0b0b0" font-family="Noto Sans, system-ui, sans-serif" font-size="11">~80%</text>
-          <text x="570" y="260" text-anchor="middle" fill="#b0b0b0" font-family="Noto Sans, system-ui, sans-serif" font-size="11">End</text>
+          <text x="70" y="260" text-anchor="middle" fill="#6b7280" font-family="IBM Plex Mono, Courier New, monospace" font-size="11">Start</text>
+          <text x="170" y="260" text-anchor="middle" fill="#6b7280" font-family="IBM Plex Mono, Courier New, monospace" font-size="11">~20%</text>
+          <text x="270" y="260" text-anchor="middle" fill="#6b7280" font-family="IBM Plex Mono, Courier New, monospace" font-size="11">~40%</text>
+          <text x="370" y="260" text-anchor="middle" fill="#6b7280" font-family="IBM Plex Mono, Courier New, monospace" font-size="11">~60%</text>
+          <text x="470" y="260" text-anchor="middle" fill="#6b7280" font-family="IBM Plex Mono, Courier New, monospace" font-size="11">~80%</text>
+          <text x="570" y="260" text-anchor="middle" fill="#6b7280" font-family="IBM Plex Mono, Courier New, monospace" font-size="11">End</text>
 
           <!-- Axis labels -->
-          <text x="320" y="285" text-anchor="middle" fill="#b0b0b0" font-family="Noto Sans, system-ui, sans-serif" font-size="12">Session Progress</text>
-          <text x="18" y="140" text-anchor="middle" fill="#b0b0b0" font-family="Noto Sans, system-ui, sans-serif" font-size="12" transform="rotate(-90, 18, 140)">Quality</text>
+          <text x="320" y="285" text-anchor="middle" fill="#6b7280" font-family="IBM Plex Mono, Courier New, monospace" font-size="12">Session Progress</text>
+          <text x="18" y="140" text-anchor="middle" fill="#6b7280" font-family="IBM Plex Mono, Courier New, monospace" font-size="12" transform="rotate(-90, 18, 140)">Quality</text>
 
           <!-- Expected baseline (blue dashed) -->
           <line x1="70" y1="140" x2="570" y2="140" stroke="#5b8fb9" stroke-width="2" stroke-dasharray="8,6" opacity="0.7"/>
@@ -664,9 +667,9 @@
 
           <!-- Legend -->
           <line x1="360" y1="20" x2="385" y2="20" stroke="#d4a84b" stroke-width="3"/>
-          <text x="390" y="24" fill="#b0b0b0" font-family="Noto Sans, system-ui, sans-serif" font-size="11">Observed</text>
+          <text x="390" y="24" fill="#6b7280" font-family="IBM Plex Mono, Courier New, monospace" font-size="11">Observed</text>
           <line x1="460" y1="20" x2="485" y2="20" stroke="#5b8fb9" stroke-width="2" stroke-dasharray="8,6"/>
-          <text x="490" y="24" fill="#b0b0b0" font-family="Noto Sans, system-ui, sans-serif" font-size="11">Expected</text>
+          <text x="490" y="24" fill="#6b7280" font-family="IBM Plex Mono, Courier New, monospace" font-size="11">Expected</text>
         </svg>
         <p class="diagram-caption"><strong>Gold:</strong> Observed output quality as context accumulates. <strong>Blue dashed:</strong> What a static tool would produce throughout. The shaded area is the gap we're asking about &mdash; not claiming to have explained.</p>
       </div>
@@ -679,7 +682,7 @@
 
       <div class="data-card">
         <div class="data-card-label">Characteristics of This Dataset</div>
-        <table style="width: 100%; font-family: var(--font-sans); font-size: 0.9rem; border-collapse: collapse;">
+        <table style="width: 100%; font-family: var(--font); font-size: 0.9rem; border-collapse: collapse;">
           <tr style="border-bottom: 1px solid var(--border);">
             <td style="padding: 10px 0; color: var(--dim);">Observation period</td>
             <td style="padding: 10px 0; color: var(--text); text-align: right;">14 months (Dec 2024 &ndash; Feb 2026)</td>
@@ -735,7 +738,7 @@
       <div class="diagram-container">
         <div class="diagram-label">Figure 2: Persistent Memory Architecture (Derek Claude)</div>
         <pre class="mermaid">
-%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#d4a84b', 'primaryTextColor': '#e8e8e8', 'primaryBorderColor': '#1a3a5c', 'lineColor': '#5b8fb9', 'secondaryColor': '#0a1829', 'tertiaryColor': '#0a1829' }}}%%
+%%{init: {'theme': 'default', 'themeVariables': { 'primaryColor': '#d4a84b', 'primaryTextColor': '#0a1628', 'primaryBorderColor': '#e5e7eb', 'lineColor': '#5b8fb9', 'secondaryColor': '#f3f4f6', 'tertiaryColor': '#f3f4f6' }}}%%
 flowchart TB
     subgraph S1["Session N"]
       A1["Work + Context Accumulation"] --> B1["/eod writes memory"]
@@ -750,8 +753,8 @@ flowchart TB
 
     DB --> C2
 
-    style DB fill:#1a3a5c,stroke:#5b8fb9,color:#e8e8e8
-    style D2 fill:#2a1f0a,stroke:#d4a84b,color:#e8e8e8
+    style DB fill:#e5e7eb,stroke:#5b8fb9,color:#0a1628
+    style D2 fill:#fdf6e3,stroke:#d4a84b,color:#0a1628
         </pre>
         <p class="diagram-caption">Derek Claude reduces cold-start severity but does not eliminate the warm-up effect. Whether that's because the pre-loaded context is lossy or because something about the live exchange can't be pre-loaded &mdash; we don't know.</p>
       </div>
@@ -808,9 +811,8 @@ flowchart TB
     </div>
 
     <footer class="footer">
-      <p class="footer-note">Built by <a href="/derek">Derek</a> with Claude · &copy; 2026 CW Strategies LLC</p>
-      <p class="footer-note"><a href="/the-cw-standard">Standard</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p>
-      <div class="signoff">keep going</div>
+      <p class="footer-note">Built by <a href="/derek">Derek</a><span class="hw">*</span><a href="/derek#claude">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
+      <p class="footer-note"><a href="/story#the-cw-standard">standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
     </footer>
   </div>
 
@@ -819,21 +821,22 @@ flowchart TB
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
     mermaid.initialize({
       startOnLoad: true,
-      theme: 'dark',
+      theme: 'default',
       themeVariables: {
-        darkMode: true,
-        background: '#0a1829',
+        darkMode: false,
+        background: '#fafaf8',
         primaryColor: '#d4a84b',
-        primaryTextColor: '#e8e8e8',
-        primaryBorderColor: '#1a3a5c',
+        primaryTextColor: '#0a1628',
+        primaryBorderColor: '#e5e7eb',
         lineColor: '#5b8fb9',
-        secondaryColor: '#0a1829',
-        tertiaryColor: '#0a1829',
-        fontFamily: 'Noto Sans, system-ui, sans-serif'
+        secondaryColor: '#f3f4f6',
+        tertiaryColor: '#f3f4f6',
+        fontFamily: 'IBM Plex Mono, Courier New, monospace'
       }
     });
   </script>
 
+  <script src="/js/porch-widget.js" defer></script>
   <script src="/js/shared-nav.js"></script>
 </body>
 </html>

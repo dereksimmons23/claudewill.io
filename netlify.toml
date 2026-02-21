@@ -67,6 +67,16 @@
   to = "/studio"
   status = 301
 
+[[redirects]]
+  from = "/the-cw-standard"
+  to = "/story"
+  status = 301
+
+[[redirects]]
+  from = "/the-cw-standard.html"
+  to = "/story"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]

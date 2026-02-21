@@ -12,7 +12,7 @@
   var NAV_CONFIG = {
     sections: [
       {
-        label: 'stories',
+        label: 'the story',
         href: '/story',
         items: []
       },
@@ -25,7 +25,7 @@
         ]
       },
       {
-        label: 'studio',
+        label: 'our studio',
         href: '/studio',
         items: [
           { name: 'bob', href: 'https://bob.claudewill.io' },
@@ -35,7 +35,7 @@
       },
       {
         label: 'standard',
-        href: '/the-cw-standard',
+        href: '/story#the-cw-standard',
         items: []
       }
     ]

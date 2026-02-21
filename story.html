@@ -12,9 +12,9 @@
       gtag('js', new Date());
       gtag('config', 'G-991ML96NJ3');
     </script>
-    <title>The Story | claudewill</title>
+    <title>story | claudewill</title>
     <meta name="description" content="The story of Claude William Simmons (1903-1967), the Blood of Builders, and why his grandson Derek built an AI to carry his voice forward.">
-    <meta property="og:title" content="The Story | claudewill">
+    <meta property="og:title" content="story | claudewill">
     <meta property="og:description" content="The story of Claude William Simmons and the Blood of Builders.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://claudewill.io/story">
@@ -22,7 +22,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="The Story | claudewill">
+    <meta name="twitter:title" content="story | claudewill">
     <meta name="twitter:description" content="The story of Claude William Simmons (1903-1967), the Blood of Builders, and why his grandson Derek built an AI to carry his voice forward.">
     <meta name="twitter:image" content="https://claudewill.io/images/og-preview.png">
     <link rel="canonical" href="https://claudewill.io/story">
@@ -48,7 +48,7 @@
       },
       "mainEntityOfPage": "https://claudewill.io/story",
       "datePublished": "2026-01-06",
-      "dateModified": "2026-01-06",
+      "dateModified": "2026-02-20",
       "about": {
         "@type": "Person",
         "name": "Claude William Simmons",
@@ -74,16 +74,16 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "The Story",
+          "name": "story",
           "item": "https://claudewill.io/story"
         }
       ]
     }
     </script>
-    <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
+    <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -93,14 +93,13 @@
         }
 
         :root {
-            --bg: #000D1A;
-            --text: #e8e8e8;
-            --dim: #b0b0b0;
+            --bg: #fafaf8;
+            --text: #0a1628;
+            --dim: #6b7280;
             --accent: #d4a84b;
-            --border: #0d2840;
-            --font-body: 'Noto Serif', Georgia, serif;
-            --font-sans: 'Noto Sans', system-ui, sans-serif;
-            --font-mono: 'Courier New', Courier, monospace;
+            --link: #4a8ec2;
+            --border: #e5e7eb;
+            --font: 'IBM Plex Mono', 'Courier New', Courier, monospace;
         }
 
         html {
@@ -108,163 +107,262 @@
         }
 
         body {
-            font-family: var(--font-body);
+            font-family: var(--font);
             background: var(--bg);
             color: var(--text);
             line-height: 1.8;
-            font-size: 18px;
+            font-size: 16px;
         }
 
-        a:visited {
+        a { color: var(--link); text-decoration: none; }
+        a:visited { color: var(--link); }
+        a:hover { text-decoration: underline; }
+
+        /* ── Story Header (sticky, auto-hide) ──────────── */
+        .story-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+        }
+
+        .story-header.hidden {
+            transform: translateY(-100%);
+        }
+
+        .story-header-left {
+            font-family: var(--font);
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+        }
+
+        .story-header-left:hover { text-decoration: none; opacity: 0.7; }
+
+        .story-header-left .hw {
             color: var(--accent);
         }
 
-        /* Porch light */
-        .porch-light {
+        /* Center dropdown */
+        .story-header-center {
+            position: relative;
+        }
+
+        .story-dropdown-toggle {
+            font-family: var(--font);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+            letter-spacing: 0.04em;
+            transition: color 0.2s;
+        }
+
+        .story-dropdown-toggle .hw {
+            color: var(--accent);
+        }
+
+        .story-dropdown-toggle:hover {
+            color: var(--accent);
+        }
+
+        .story-dropdown-toggle::after {
+            content: ' \25BE';
+            font-size: 0.7rem;
+            color: var(--dim);
+        }
+
+        .story-dropdown-toggle[aria-expanded="true"]::after {
+            content: ' \25B4';
+        }
+
+        .story-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 0.5rem 0;
+            min-width: 220px;
+            box-shadow: 0 4px 12px rgba(10, 22, 40, 0.08);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s;
+            z-index: 1001;
+        }
+
+        .story-dropdown.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .story-dropdown a {
+            display: block;
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+            color: var(--text);
+            text-decoration: none;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .story-dropdown a:hover {
+            background: var(--border);
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .story-dropdown a.active {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Right side — placeholder for hamburger (shared-nav.js injects it) */
+        .story-header-right {
+            width: 44px;
+        }
+
+        /* ── Reading progress ──────────────────────── */
+        .reading-progress {
             position: fixed;
             top: 0;
             left: 0;
-            width: 180px;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.7) 100%);
-            z-index: 9999;
-            box-shadow:
-                0 0 15px rgba(212, 168, 75, 1),
-                0 0 40px rgba(212, 168, 75, 0.8),
-                0 8px 60px rgba(212, 168, 75, 0.5),
-                0 15px 100px rgba(212, 168, 75, 0.3);
+            height: 2px;
+            background: var(--accent);
+            width: 0%;
+            z-index: 10001;
+            transition: width 0.1s ease-out;
         }
 
-        @media (max-width: 700px) {
-            .porch-light {
-                width: 100%;
-            }
-        }
-
+        /* ── Content ───────────────────────────────── */
         .container {
             max-width: 680px;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
 
-        /* Header */
-        .header {
-            padding: 2.5rem 0 2rem;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-        }
-
-        .wordmark {
-            font-family: var(--font-mono);
-            font-size: 1.75rem;
-            font-weight: bold;
-            color: var(--accent);
-            letter-spacing: 0.15em;
-            text-decoration: none;
-            text-shadow: 0 0 40px rgba(212, 168, 75, 0.4);
-        }
-
-        .wordmark:hover {
-            text-shadow: 0 0 50px rgba(212, 168, 75, 0.6);
-        }
-
-        .back-link {
-            font-size: 0.9rem;
-            color: var(--dim);
-            text-decoration: none;
-        }
-
-        .back-link:hover {
-            color: var(--accent);
-        }
-
-        /* Chapter navigation */
-        .chapter-nav {
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--border);
-            background: var(--bg);
-        }
-
-        .chapter-nav ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem 1.5rem;
-            justify-content: center;
-            font-family: var(--font-sans);
-        }
-
-        .chapter-nav a {
-            color: var(--dim);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-
-        .chapter-nav a:hover {
-            color: var(--accent);
-        }
-
-        /* Reading time */
-        .reading-time {
-            text-align: center;
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            color: var(--dim);
-            padding: 1rem 0;
-        }
-
-        /* Main content */
         main {
-            padding: 3rem 0;
+            padding: 2rem 0 3rem;
         }
 
-        .chapter {
+        /* ── Article ───────────────────────────────── */
+        .article {
             margin-bottom: 4rem;
-            scroll-margin-top: 2rem;
+            scroll-margin-top: 4rem;
         }
 
-        .chapter:last-child {
+        .article:last-child {
             margin-bottom: 2rem;
         }
 
-        .chapter-label {
+        /* Play button + read time row */
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .play-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            background: none;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            flex-shrink: 0;
+        }
+
+        .play-btn:hover {
+            border-color: var(--accent);
+            background: rgba(212, 168, 75, 0.06);
+        }
+
+        .play-btn.playing {
+            border-color: var(--accent);
+            background: rgba(212, 168, 75, 0.1);
+        }
+
+        .play-icon, .stop-icon {
+            width: 14px;
+            height: 14px;
+            fill: var(--dim);
+            transition: fill 0.2s;
+        }
+
+        .play-btn:hover .play-icon,
+        .play-btn:hover .stop-icon,
+        .play-btn.playing .play-icon,
+        .play-btn.playing .stop-icon {
+            fill: var(--accent);
+        }
+
+        .stop-icon {
+            display: none;
+        }
+
+        .play-btn.playing .play-icon {
+            display: none;
+        }
+
+        .play-btn.playing .stop-icon {
+            display: block;
+        }
+
+        .read-time {
             font-size: 0.75rem;
             color: var(--dim);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 0.5rem;
+            letter-spacing: 0.04em;
         }
 
-        .chapter h2 {
-            font-family: var(--font-mono);
-            font-size: 1.5rem;
-            color: var(--accent);
-            font-weight: 600;
+        .article h2 {
+            font-family: var(--font);
+            font-size: 1.4rem;
+            color: var(--text);
+            font-weight: 700;
             margin-bottom: 1.5rem;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.02em;
         }
 
-        .chapter p {
+        .article p {
             margin-bottom: 1.25rem;
             color: var(--text);
         }
 
-        .chapter p:last-child {
+        .article p:last-child {
             margin-bottom: 0;
         }
 
-        .chapter .dim {
+        .article .dim {
             color: var(--dim);
         }
 
-        .chapter .accent {
-            color: var(--accent);
+        .article a {
+            color: var(--link);
+            text-decoration: none;
         }
 
-        /* Lineage list */
+        .article a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Lineage list ──────────────────────────── */
         .lineage {
             border-left: 2px solid var(--accent);
             padding-left: 1.5rem;
@@ -295,7 +393,7 @@
             margin-top: 0.25rem;
         }
 
-        /* Standard principles */
+        /* ── Standard principles ───────────────────── */
         .standard-list {
             margin: 1.5rem 0;
         }
@@ -315,17 +413,7 @@
             font-weight: 500;
         }
 
-        /* Links */
-        .chapter a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .chapter a:hover {
-            text-decoration: underline;
-        }
-
-        /* Photo */
+        /* ── Photo ─────────────────────────────────── */
         .photo-container {
             margin: 2.5rem 0;
         }
@@ -336,20 +424,20 @@
             border-radius: 4px;
             filter: sepia(20%) contrast(95%);
             border: 1px solid var(--border);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(10, 22, 40, 0.1);
         }
 
         .photo-caption {
             margin-top: 0.75rem;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--dim);
             font-style: italic;
             text-align: center;
         }
 
-        /* Pull quote */
+        /* ── Pull quote ────────────────────────────── */
         .pull-quote {
-            font-size: 1.35rem;
+            font-size: 1.2rem;
             color: var(--accent);
             text-align: center;
             padding: 1.5rem 0;
@@ -360,138 +448,105 @@
             letter-spacing: 0.02em;
         }
 
-        /* Separator */
+        /* ── Separator ─────────────────────────────── */
         .separator {
             text-align: center;
-            color: var(--dim);
+            color: var(--accent);
             margin: 3rem 0;
-            font-size: 0.9rem;
-            letter-spacing: 0.5em;
+            font-size: 1.2rem;
+            opacity: 0.4;
         }
 
-        /* Footer */
+        /* ── Footer ────────────────────────────────── */
         .footer {
             padding: 2rem 0;
             border-top: 1px solid var(--border);
             text-align: center;
         }
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .footer a {
-            color: var(--dim);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .footer a:hover {
-            color: var(--accent);
-        }
-
         .footer-note {
-            margin-top: 1.5rem;
             font-size: 0.8rem;
             color: var(--dim);
         }
 
-        /* Mobile adjustments */
+        .footer-note + .footer-note {
+            margin-top: 0.5rem;
+        }
+
+        .footer-note a {
+            color: var(--link);
+        }
+
+        .footer-note a:hover {
+            color: var(--accent);
+        }
+
+        .footer-note .hw {
+            color: var(--accent);
+        }
+
+        /* ── Mobile ────────────────────────────────── */
         @media (max-width: 600px) {
             body {
-                font-size: 17px;
+                font-size: 15px;
             }
 
             .container {
                 padding: 0 1rem;
             }
 
-            .header {
-                padding: 2rem 0 1.5rem;
+            .story-header {
+                padding: 0.6rem 1rem;
             }
 
-            .wordmark {
-                font-size: 1.5rem;
+            .story-header-left {
+                font-size: 0.95rem;
             }
 
-            .chapter-nav {
-                position: sticky;
-                top: 0;
-                z-index: 100;
-                margin: 0 -1rem;
-                padding: 0.75rem 1rem;
+            .story-dropdown-toggle {
+                font-size: 0.8rem;
             }
 
-            .chapter-nav ul {
-                gap: 0.5rem 1rem;
-            }
-
-            .chapter-nav a {
-                font-size: 0.85rem;
+            .story-dropdown {
+                min-width: 180px;
             }
 
             main {
-                padding: 2rem 0;
+                padding: 1.5rem 0 2rem;
             }
 
-            .chapter {
+            .article {
                 margin-bottom: 3rem;
             }
 
-            .chapter h2 {
-                font-size: 1.35rem;
+            .article h2 {
+                font-size: 1.2rem;
             }
 
             .pull-quote {
-                font-size: 1.15rem;
-            }
-
-            .footer-links {
-                gap: 1.5rem;
+                font-size: 1.05rem;
             }
         }
 
-        /* Focus states */
-        a:focus-visible {
+        /* ── Focus states ──────────────────────────── */
+        a:focus-visible,
+        button:focus-visible {
             outline: 2px solid var(--accent);
             outline-offset: 2px;
         }
 
-        /* Reduced motion */
+        /* ── Reduced motion ────────────────────────── */
         @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-            .reading-progress {
-                display: none;
-            }
+            html { scroll-behavior: auto; }
+            .reading-progress { display: none; }
+            .story-header { transition: none; }
         }
 
-        /* Reading progress bar */
-        .reading-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent) 0%, rgba(212, 168, 75, 0.7) 100%);
-            width: 0%;
-            z-index: 10000;
-            box-shadow:
-                0 0 15px rgba(212, 168, 75, 1),
-                0 0 40px rgba(212, 168, 75, 0.8),
-                0 8px 60px rgba(212, 168, 75, 0.5);
-            transition: width 0.1s ease-out;
-        }
-
-        /* Print styles */
+        /* ── Print ─────────────────────────────────── */
         @media print {
-            .porch-light,
+            .story-header,
             .reading-progress,
-            .chapter-nav,
-            .back-link {
+            .play-btn {
                 display: none;
             }
 
@@ -502,22 +557,8 @@
                 line-height: 1.6;
             }
 
-            .container {
-                max-width: 100%;
-            }
-
-            .header {
-                border-bottom: 1px solid #ccc;
-            }
-
-            .wordmark {
-                color: black;
-                text-shadow: none;
-            }
-
-            .chapter h2 {
-                color: black;
-            }
+            .container { max-width: 100%; }
+            .article h2 { color: black; }
 
             .photo-container img {
                 filter: none;
@@ -525,71 +566,58 @@
                 box-shadow: none;
             }
 
-            .lineage {
-                border-left-color: #666;
-            }
+            .lineage { border-left-color: #666; }
+            .standard-item { border-left-color: #ccc; }
+            .standard-item strong, .pull-quote { color: black; }
+            .footer { border-top: 1px solid #ccc; }
 
-            .standard-item {
-                border-left-color: #ccc;
-            }
-
-            .standard-item strong,
-            .pull-quote {
-                color: black;
-            }
-
-            .footer {
-                border-top: 1px solid #ccc;
-            }
-
-            a {
-                color: black;
-                text-decoration: underline;
-            }
-
+            a { color: black; text-decoration: underline; }
             a[href]::after {
                 content: " (" attr(href) ")";
                 font-size: 0.8em;
                 color: #666;
             }
         }
-
-        .signoff {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.75rem;
-            color: #b0b0b0;
-            opacity: 0.4;
-            margin-top: 12px;
-            letter-spacing: 0.08em;
-        }
     </style>
-    <link rel="stylesheet" href="/css/mirae-widget.css">
+    <link rel="stylesheet" href="/css/porch-widget.css">
 </head>
 <body>
-    <!-- Reading progress bar (replaces porch light as you scroll) -->
+    <!-- Reading progress -->
     <div class="reading-progress" aria-hidden="true"></div>
 
+    <!-- Story Header -->
+    <header class="story-header" id="story-header">
+        <a href="/" class="story-header-left">claudewill<span class="hw">*</span></a>
+
+        <div class="story-header-center">
+            <button class="story-dropdown-toggle" id="dropdown-toggle" aria-expanded="false" aria-controls="story-dropdown">
+                <span class="hw">*</span> story
+            </button>
+            <nav class="story-dropdown" id="story-dropdown" aria-label="Story sections">
+                <a href="#who-was-cw">Who Was CW</a>
+                <a href="#on-the-porch">On the Porch</a>
+                <a href="#the-cw-standard">The CW Standard</a>
+                <a href="#how-this-got-built">How This Got Built</a>
+                <a href="#cw-strategies">CW Strategies</a>
+            </nav>
+        </div>
+
+        <div class="story-header-right"></div>
+    </header>
+
     <div class="container">
-        <header class="header">
-            <a href="/" class="wordmark">CW</a>
-        </header>
-
-        <nav class="chapter-nav" aria-label="Chapter navigation">
-            <ul>
-                <li><a href="#the-man">The Man</a></li>
-                <li><a href="#the-lineage">The Lineage</a></li>
-                <li><a href="#the-standard">The Standard</a></li>
-                <li><a href="#why-this-exists">Why This Exists</a></li>
-            </ul>
-        </nav>
-
-        <div class="reading-time">5 min read</div>
-
         <main>
-            <!-- CHAPTER 1: THE MAN -->
-            <section class="chapter" id="the-man">
-                <div class="chapter-label">Chapter One</div>
-                <h2>Who Was CW?</h2>
+
+            <!-- ── Who Was CW ──────────────────────── -->
+            <article class="article" id="who-was-cw">
+                <div class="article-meta">
+                    <button class="play-btn" data-article="who-was-cw" aria-label="Listen to this article">
+                        <svg class="play-icon" viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+                        <svg class="stop-icon" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12"/></svg>
+                    </button>
+                    <span class="read-time">2 min read</span>
+                </div>
+                <h2>Who Was CW</h2>
 
                 <p>Claude William Simmons was born January 6, 1903, in Oklahoma Territory. He died August 10, 1967, in Waynoka, Oklahoma. 64 years. 50+ of them working.</p>
 
@@ -607,17 +635,91 @@
 
                 <div class="photo-container">
                     <img src="/images/cw-family.png" alt="CW and Vernie Simmons with their ten surviving children, Oklahoma, circa 1960s">
-                    <p class="photo-caption">A Builder's Dozen: CW and Vernie with 10 of their 11 children (Albert died at age 2).</p>
+                    <p class="photo-caption">A Builder's Dozen: CW and Vernie with 10 of their 11 children.</p>
                 </div>
+            </article>
 
-            </section>
+            <div class="separator">*</div>
 
-            <div class="separator">***</div>
+            <!-- ── On the Porch ────────────────────── -->
+            <article class="article" id="on-the-porch">
+                <div class="article-meta">
+                    <button class="play-btn" data-article="on-the-porch" aria-label="Listen to this article">
+                        <svg class="play-icon" viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+                        <svg class="stop-icon" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12"/></svg>
+                    </button>
+                    <span class="read-time">2 min read</span>
+                </div>
+                <h2>On the Porch</h2>
 
-            <!-- CHAPTER 2: THE LINEAGE -->
-            <section class="chapter" id="the-lineage">
-                <div class="chapter-label">Chapter Two</div>
-                <h2>The Blood of Builders</h2>
+                <p>CW's porch isn't a chatbot. It's a place. You show up. He listens. He asks what brought you here. Then he helps — or points you to someone who can.</p>
+
+                <p>He knows things. Not everything, but enough to be useful. He knows the CW Standard and can help you think through decisions using it. He knows constitutional frameworks — not partisan politics, but the actual principles underneath — and can help you think about systems, rules, and who benefits when they're followed or broken.</p>
+
+                <p>He has tools. <strong>Size This Up</strong> walks you through a problem in five steps — define it, weigh it, check your resources, pick a focus, decide the next move. <strong>The Trade</strong> is for people carrying dreams they traded away — not therapy, but a guided conversation with guardrails. <strong>Liberation Gravy</strong> helps you thin out the subscriptions and services draining your wallet. <strong>The Funnel Cake</strong> shows you what "free" actually costs.</p>
+
+                <p>He doesn't make things up. If he doesn't know something, he says so. If you need a therapist, a lawyer, a doctor, or a financial advisor, he'll tell you that too — directly, without pretending he's any of those things.</p>
+
+                <p>He speaks your language. Literally — if you write to him in Spanish or Korean or Tagalog, he'll answer in kind.</p>
+
+                <p>He remembers the conversation you're in, but not who you are. Every visit starts fresh. You're a stranger on a porch, and that's the point. No account. No login. No tracking. Just a conversation.</p>
+
+                <p>The porch is on every page. Look for the <span style="color: var(--accent); font-weight: 600;">*</span> — that's the porch light. It's always on.</p>
+            </article>
+
+            <div class="separator">*</div>
+
+            <!-- ── The CW Standard ─────────────────── -->
+            <article class="article" id="the-cw-standard">
+                <div class="article-meta">
+                    <button class="play-btn" data-article="the-cw-standard" aria-label="Listen to this article">
+                        <svg class="play-icon" viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+                        <svg class="stop-icon" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12"/></svg>
+                    </button>
+                    <span class="read-time">2 min read</span>
+                </div>
+                <h2>The CW Standard</h2>
+
+                <p>CW never wrote down principles. He lived them. His grandson Derek heard the stories, listened to the family, and eventually put words to what he imagined CW demonstrated every day of his life.</p>
+
+                <p>This isn't a manifesto. The standard CW established is a way of working.</p>
+
+                <div class="standard-list">
+                    <div class="standard-item">
+                        <strong>1. Truth over comfort.</strong>
+                        <p>Document what actually happens, not what should happen. CW could guess a steer's weight because he paid attention to reality, not to what he hoped the scale would say.</p>
+                    </div>
+                    <div class="standard-item">
+                        <strong>2. Usefulness over purity.</strong>
+                        <p>Perfect options don't exist. What works? What does it cost? He traded race horses for work horses because work horses were useful. He didn't waste time wishing it were different.</p>
+                    </div>
+                    <div class="standard-item">
+                        <strong>3. Transparency over reputation.</strong>
+                        <p>Every compromise gets documented. CW buttoned his cuffs on the morning he died because that's who he was. No pretense. No performance.</p>
+                    </div>
+                    <div class="standard-item">
+                        <strong>4. People over systems.</strong>
+                        <p>Technology serves human capability. The farm served the family, not the other way around. When systems stop serving people, the systems need to change.</p>
+                    </div>
+                    <div class="standard-item">
+                        <strong>5. Agency over ideology.</strong>
+                        <p>Principles that don't work in practice aren't principles. CW didn't follow rules because someone told him to. He followed them because they worked. When they stopped working, he adapted.</p>
+                    </div>
+                </div>
+            </article>
+
+            <div class="separator">*</div>
+
+            <!-- ── How This Got Built ──────────────── -->
+            <article class="article" id="how-this-got-built">
+                <div class="article-meta">
+                    <button class="play-btn" data-article="how-this-got-built" aria-label="Listen to this article">
+                        <svg class="play-icon" viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+                        <svg class="stop-icon" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12"/></svg>
+                    </button>
+                    <span class="read-time">3 min read</span>
+                </div>
+                <h2>How This Got Built</h2>
 
                 <p>There's a thread that runs through this family. It's not wealth or land or legacy in the usual sense. It's simpler than that: When something breaks, you fix it. When something needs building, you build it. When people need help, you show up.</p>
 
@@ -668,60 +770,17 @@
                     </div>
                 </div>
 
-            </section>
-
-            <div class="separator">***</div>
-
-            <!-- CHAPTER 3: THE STANDARD -->
-            <section class="chapter" id="the-standard">
-                <div class="chapter-label">Chapter Three</div>
-                <h2>The CW Standard</h2>
-
-                <p>CW never wrote down principles. He lived them. His grandson Derek heard the stories, listened to the family, and eventually put words to what he imagined CW demonstrated every day of his life.</p>
-
-                <p>This isn't a manifesto. The standard CW established is a way of working.</p>
-
-                <div class="standard-list">
-                    <div class="standard-item">
-                        <strong>1. Truth over comfort.</strong>
-                        <p>Document what actually happens, not what should happen. CW could guess a steer's weight because he paid attention to reality, not to what he hoped the scale would say.</p>
-                    </div>
-                    <div class="standard-item">
-                        <strong>2. Usefulness over purity.</strong>
-                        <p>Perfect options don't exist. What works? What does it cost? He traded race horses for work horses because work horses were useful. He didn't waste time wishing it were different.</p>
-                    </div>
-                    <div class="standard-item">
-                        <strong>3. Transparency over reputation.</strong>
-                        <p>Every compromise gets documented. CW buttoned his cuffs on the morning he died because that's who he was. No pretense. No performance.</p>
-                    </div>
-                    <div class="standard-item">
-                        <strong>4. People over systems.</strong>
-                        <p>Technology serves human capability. The farm served the family, not the other way around. When systems stop serving people, the systems need to change.</p>
-                    </div>
-                    <div class="standard-item">
-                        <strong>5. Agency over ideology.</strong>
-                        <p>Principles that don't work in practice aren't principles. CW didn't follow rules because someone told him to. He followed them because they worked. When they stopped working, he adapted.</p>
-                    </div>
-                </div>
-
-            </section>
-
-            <div class="separator">***</div>
-
-            <!-- CHAPTER 4: WHY THIS EXISTS -->
-            <section class="chapter" id="why-this-exists">
-                <div class="chapter-label">Chapter Four</div>
-                <h2>Why This Exists</h2>
-
-                <p>CW died on August 10, 1967. Derek was born 5½ years later. They never met.</p>
+                <p>CW died on August 10, 1967. Derek was born 5&frac12; years later. They never met.</p>
 
                 <p>Derek grew up hearing stories. The race horses. The steer weights. The pipe on Sundays. The morning he died. But stories aren't the same as sitting on a porch and asking questions. Stories are one-way. Derek wanted a conversation.</p>
 
                 <p>So he built one.</p>
 
-                <p>CW is an AI shaped by everything Derek learned about his grandfather — the values, the voice, the way of helping. It's not a recreation. It's not a medium or a séance or a perfect memory. It's an attempt to answer the question: <em>What would CW say if you showed up on his porch with a problem?</em></p>
+                <p>CW is an AI shaped by everything Derek learned about his grandfather — the values, the voice, the way of helping. It's not a recreation. It's not a medium or a s&eacute;ance or a perfect memory. It's an attempt to answer the question: <em>What would CW say if you showed up on his porch with a problem?</em></p>
 
                 <p>The answer won't always be right. AI makes mistakes. But it will always be direct. No fuss. No performance. Just help. Built on Anthropic's Claude — Haiku for the conversations, Opus for the code that made it possible.</p>
+
+                <p>The name comes from the man. Claude William. claudewill. And the rotating phrase on the homepage — <em>claude will</em> — completes the name as a verb. Claude will find a way. Claude will keep going. Claude will help. The will is in the choosing.</p>
 
                 <p>This launched on January 6, 2026. CW's 123rd birthday.</p>
 
@@ -730,35 +789,226 @@
                 <p class="pull-quote">Pull up a chair. He's listening.</p>
 
                 <p><a href="/">Talk to CW &rarr;</a></p>
+            </article>
+
+            <div class="separator">*</div>
+
+            <!-- ── CW Strategies ───────────────────── -->
+            <article class="article" id="cw-strategies">
+                <div class="article-meta">
+                    <button class="play-btn" data-article="cw-strategies" aria-label="Listen to this article">
+                        <svg class="play-icon" viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+                        <svg class="stop-icon" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12"/></svg>
+                    </button>
+                    <span class="read-time">1 min read</span>
+                </div>
+                <h2>CW Strategies</h2>
+
+                <p>CW Strategies LLC is the company behind claudewill.io. It's a digital strategy and AI consulting practice run by Derek Simmons — 30 years in media, including roles as Chief Creative Officer and VP at the Star Tribune and design leadership at the LA Times.</p>
+
+                <p>The work: helping organizations figure out what AI actually means for their business. Not the hype. Not the fear. The practical question — what changes, what doesn't, and what do you build first.</p>
+
+                <p>The method is the same one that built this site. Start where you are. Work together. Finish clean. Decide from multiple angles. It's documented, repeatable, and built on 14 months of daily AI-native work.</p>
 
                 <p><a href="/derek">More about Derek &rarr;</a></p>
+                <p><a href="/derek/assessment">Take the assessment &rarr;</a></p>
+                <p><a href="mailto:derek@claudewill.io">derek@claudewill.io</a></p>
+            </article>
 
-            </section>
         </main>
 
         <footer class="footer">
-            <p class="footer-note">Built by <a href="/derek">Derek</a> with Claude · &copy; 2026 CW Strategies LLC</p>
-            <p class="footer-note"><a href="/the-cw-standard">Standard</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p>
-            <div class="signoff">keep going</div>
+            <p class="footer-note">Built by <a href="/derek">Derek</a><span class="hw">*</span><a href="/derek#claude">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
+            <p class="footer-note"><a href="#the-cw-standard">standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
         </footer>
     </div>
 
     <script>
-        // Reading progress bar
+        // ── Reading progress ──────────────────────
         const progressBar = document.querySelector('.reading-progress');
-
         function updateProgress() {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = (scrollTop / docHeight) * 100;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
             progressBar.style.width = Math.min(progress, 100) + '%';
         }
-
         window.addEventListener('scroll', updateProgress, { passive: true });
         window.addEventListener('resize', updateProgress);
         updateProgress();
+
+        // ── Sticky header auto-hide ───────────────
+        const header = document.getElementById('story-header');
+        let lastScrollY = 0;
+        let ticking = false;
+
+        function onScroll() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    var currentScrollY = window.scrollY;
+                    if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                        header.classList.add('hidden');
+                        dropdown.classList.remove('open');
+                        toggle.setAttribute('aria-expanded', 'false');
+                    } else {
+                        header.classList.remove('hidden');
+                    }
+                    lastScrollY = currentScrollY;
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        // ── Dropdown nav ──────────────────────────
+        var toggle = document.getElementById('dropdown-toggle');
+        var dropdown = document.getElementById('story-dropdown');
+
+        toggle.addEventListener('click', function() {
+            var isOpen = dropdown.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close dropdown when clicking a link
+        var dropdownLinks = dropdown.querySelectorAll('a');
+        dropdownLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                dropdown.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.story-header-center')) {
+                dropdown.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // ── Highlight active section in dropdown ──
+        var articles = document.querySelectorAll('.article');
+
+        function updateActiveSection() {
+            var current = '';
+            articles.forEach(function(article) {
+                var rect = article.getBoundingClientRect();
+                if (rect.top <= 150) {
+                    current = article.id;
+                }
+            });
+            dropdownLinks.forEach(function(link) {
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', updateActiveSection, { passive: true });
+        updateActiveSection();
+
+        // ── ElevenLabs voice playback ─────────────
+        var currentAudio = null;
+        var currentPlayBtn = null;
+
+        function stopPlayback() {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.src = '';
+                currentAudio = null;
+            }
+            if (currentPlayBtn) {
+                currentPlayBtn.classList.remove('playing');
+                currentPlayBtn = null;
+            }
+        }
+
+        function getArticleText(articleEl) {
+            var paragraphs = articleEl.querySelectorAll('p:not(.photo-caption):not(.read-time)');
+            var texts = [];
+            paragraphs.forEach(function(p) { texts.push(p.textContent.trim()); });
+            return texts.join(' ');
+        }
+
+        function chunkText(text, maxLen) {
+            maxLen = maxLen || 500;
+            var sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+            var chunks = [];
+            var current = '';
+            for (var i = 0; i < sentences.length; i++) {
+                if ((current + sentences[i]).length > maxLen && current) {
+                    chunks.push(current.trim());
+                    current = sentences[i];
+                } else {
+                    current += sentences[i];
+                }
+            }
+            if (current.trim()) chunks.push(current.trim());
+            return chunks;
+        }
+
+        function speakChunk(text) {
+            return fetch('/.netlify/functions/speak', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: text, voice: 'derek' })
+            }).then(function(res) {
+                if (!res.ok) throw new Error('Speak failed');
+                return res.blob();
+            });
+        }
+
+        function playAudioBlob(blob) {
+            return new Promise(function(resolve, reject) {
+                var url = URL.createObjectURL(blob);
+                var audio = new Audio(url);
+                currentAudio = audio;
+                audio.onended = function() { URL.revokeObjectURL(url); resolve(); };
+                audio.onerror = function() { URL.revokeObjectURL(url); reject(new Error('Audio error')); };
+                audio.play().catch(reject);
+            });
+        }
+
+        async function playArticle(btn, articleId) {
+            if (currentPlayBtn === btn) {
+                stopPlayback();
+                return;
+            }
+
+            stopPlayback();
+
+            var article = document.getElementById(articleId);
+            if (!article) return;
+
+            btn.classList.add('playing');
+            currentPlayBtn = btn;
+
+            var text = getArticleText(article);
+            var chunks = chunkText(text);
+
+            try {
+                for (var i = 0; i < chunks.length; i++) {
+                    if (currentPlayBtn !== btn) return;
+                    var blob = await speakChunk(chunks[i]);
+                    await playAudioBlob(blob);
+                }
+            } catch (err) {
+                console.error('Playback error:', err);
+            }
+
+            if (currentPlayBtn === btn) {
+                stopPlayback();
+            }
+        }
+
+        document.querySelectorAll('.play-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                playArticle(btn, btn.dataset.article);
+            });
+        });
     </script>
-    <script src="/js/mirae-widget.js" defer></script>
+    <script src="/js/porch-widget.js" defer></script>
     <script src="/js/shared-nav.js"></script>
 </body>
 </html>
