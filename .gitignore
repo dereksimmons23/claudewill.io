@@ -21,6 +21,9 @@ build/
 coverage/
 netlify/functions/cw-prompt/compiled-prompt.js
 
+# Dev tools (brand workbench, etc.)
+dev/
+
 # Internal documentation and strategy (drafts + reference stay local, published is tracked)
 docs/drafts/
 docs/reference/
