@@ -55,6 +55,12 @@
       "cw": "The workshop's at claudewill.io/workshop. That's where you can see everything Derek builds."
     },
     {
+      "path": "/library",
+      "title": "Library",
+      "description": "Writing by Derek Simmons. Dispatches (Substack), research (Between Claudes), the book (Finding Claude), and selected posts.",
+      "cw": "The library's at claudewill.io/library — everything Derek writes. Dispatches, research, the book."
+    },
+    {
       "path": "/arcade",
       "title": "The Arcade",
       "description": "Three mini-games built for the porch. Fence Mender, Porch Light, The Route.",

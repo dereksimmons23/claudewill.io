@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-991ML96NJ3');
+  </script>
+  <title>library | claudewill*</title>
+  <meta name="description" content="Writing by Derek Simmons. Dispatches, research, the book, and more.">
+  <meta property="og:title" content="library | claudewill*">
+  <meta property="og:description" content="Writing by Derek Simmons. Dispatches, research, the book, and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://claudewill.io/library">
+  <meta property="og:image" content="https://claudewill.io/images/og-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="library | claudewill*">
+  <meta name="twitter:description" content="Writing by Derek Simmons. Dispatches, research, the book, and more.">
+  <link rel="canonical" href="https://claudewill.io/library">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "library",
+    "description": "Writing by Derek Simmons. Dispatches, research, the book, and more.",
+    "url": "https://claudewill.io/library",
+    "author": {
+      "@type": "Person",
+      "name": "Derek Simmons",
+      "url": "https://claudewill.io/derek"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CW Strategies LLC",
+      "url": "https://claudewill.io"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "claudewill",
+        "item": "https://claudewill.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "library",
+        "item": "https://claudewill.io/library"
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="/css/shared-nav.css">
+
+  <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #fafaf8;
+      --text: #0a1628;
+      --dim: #6b7280;
+      --accent: #d4a84b;
+      --link: #4a8ec2;
+      --border: #e5e7eb;
+      --card-bg: #f3f4f6;
+      --font: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    a {
+      color: var(--link);
+    }
+
+    a:visited {
+      color: var(--link);
+    }
+
+    /* Sticky auto-hide header */
+    .page-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
+    }
+    .page-header.hidden { transform: translateY(-100%); }
+    .page-header-left {
+      font-family: var(--font);
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .page-header-left:hover { text-decoration: none; opacity: 0.7; }
+    .page-header-left .hw { color: var(--accent); }
+    .page-header-center {
+      font-family: var(--font);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.04em;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* Intro */
+    .intro {
+      padding: 2rem 0 0;
+      margin-bottom: 0;
+    }
+    .intro h1 {
+      font-family: var(--font);
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .tagline {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: var(--dim);
+      font-style: italic;
+    }
+
+    /* Focus states */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .page-header { transition: none; }
+    }
+
+    section[id] {
+      scroll-margin-top: 4rem;
+    }
+
+    section {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-label {
+      font-family: var(--font);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+    }
+
+    p {
+      margin-bottom: 1.5em;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Shelf cards */
+    .shelf-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s;
+    }
+
+    a.shelf-card:hover {
+      border-color: var(--accent);
+    }
+
+    .shelf-info {
+      flex: 1;
+    }
+
+    .shelf-name {
+      font-family: var(--font);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .shelf-desc {
+      font-size: 0.95rem;
+      color: var(--dim);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .shelf-status {
+      font-family: var(--font);
+      font-size: 0.75rem;
+      color: var(--dim);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .shelf-status-active {
+      color: var(--accent);
+    }
+
+    .shelf-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      color: var(--dim);
+      font-family: var(--font);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-note .hw {
+      color: var(--accent);
+    }
+
+    .footer-note a {
+      color: var(--link);
+    }
+
+    .footer-note a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 700px) {
+      .page-header { padding: 0.6rem 1rem; }
+      .page-header-left { font-size: 0.95rem; }
+      .intro h1 { font-size: 1.8rem; }
+      section { padding: 40px 0; }
+      .shelf-card { flex-direction: column; gap: 12px; }
+    }
+
+    @media print {
+      .page-header {
+        display: none;
+      }
+
+      body {
+        background: white;
+        color: black;
+      }
+
+      .container {
+        max-width: 100%;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="/css/porch-widget.css">
+</head>
+<body>
+  <header class="page-header" id="page-header">
+    <a href="/" class="page-header-left">claudewill<span class="hw">*</span></a>
+    <div class="page-header-center">
+      <button class="palette-trigger" aria-label="Open navigation"><span class="hw">*</span></button> library
+    </div>
+  </header>
+
+  <div class="container">
+    <main>
+    <div class="intro">
+      <h1>library</h1>
+      <p class="tagline">What gets written down.</p>
+    </div>
+
+    <!-- Dispatches -->
+    <section id="dispatches">
+      <div class="section-label">dispatches</div>
+      <div class="shelf-list">
+        <a href="https://derek4thecws.substack.com" target="_blank" rel="noopener" class="shelf-card">
+          <div class="shelf-info">
+            <div class="shelf-name">Standard Correspondence</div>
+            <p class="shelf-desc">Dispatches from inside the fire. What happens when you take AI seriously. What breaks. What holds.</p>
+          </div>
+          <div class="shelf-status shelf-status-active">&gt; substack</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Research -->
+    <section id="research">
+      <div class="section-label">research</div>
+      <div class="shelf-list">
+        <a href="/derek/research" class="shelf-card">
+          <div class="shelf-info">
+            <div class="shelf-name">Between Claudes</div>
+            <p class="shelf-desc">Field observations from <span id="stat-days">---</span> days of human-AI collaboration. Adapted from the facsimile of memory.</p>
+          </div>
+          <div class="shelf-status shelf-status-active">&gt; live</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- The Book -->
+    <section id="book">
+      <div class="section-label">the book</div>
+      <div class="shelf-list">
+        <div class="shelf-card">
+          <div class="shelf-info">
+            <div class="shelf-name">Finding Claude</div>
+            <p class="shelf-desc">What happens when a human in crisis talks to a language model and doesn't stop. 32 chapters. In progress.</p>
+          </div>
+          <div class="shelf-status shelf-status-active">&gt; writing</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected -->
+    <section id="selected">
+      <div class="section-label">selected</div>
+      <div class="shelf-list">
+        <div class="shelf-card">
+          <div class="shelf-info">
+            <div class="shelf-name">Posts &amp; Articles</div>
+            <p class="shelf-desc">Individual pieces. Coming.</p>
+          </div>
+          <div class="shelf-status">&gt; coming</div>
+        </div>
+      </div>
+    </section>
+    </main>
+
+    <footer>
+      <p class="footer-note">Built by <a href="/derek">Derek</a><span class="hw">*</span><a href="/">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
+      <p class="footer-note"><a href="/story#the-cw-standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
+    </footer>
+  </div>
+
+  <!-- Live day counter -->
+  <script>
+    var start = new Date('2024-12-08');
+    var days = Math.floor((Date.now() - start.getTime()) / 86400000);
+    var el = document.getElementById('stat-days');
+    if (el) el.textContent = days.toLocaleString();
+  </script>
+
+  <!-- Auto-hide header on scroll -->
+  <script>
+    (function () {
+      var header = document.getElementById('page-header');
+      if (!header) return;
+      var lastY = 0;
+      window.addEventListener('scroll', function () {
+        var y = window.scrollY;
+        if (y > 80 && y > lastY) {
+          header.classList.add('hidden');
+        } else {
+          header.classList.remove('hidden');
+        }
+        lastY = y;
+      }, { passive: true });
+    })();
+  </script>
+
+  <script src="/js/porch-widget.js" defer></script>
+  <script src="/js/shared-nav.js"></script>
+</body>
+</html>

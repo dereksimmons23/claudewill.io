@@ -22,6 +22,7 @@
         items: [
           { name: 'assessment', href: '/derek/assessment' },
           { name: 'research', href: '/derek/research' },
+          { name: 'library', href: '/library' },
           { name: 'portfolio', href: '/derek/portfolio' }
         ]
       },
