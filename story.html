@@ -118,46 +118,9 @@
         a:visited { color: var(--link); }
         a:hover { text-decoration: underline; }
 
-        /* ── Story Header (sticky, auto-hide) ──────────── */
-        .story-header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: var(--bg);
+        /* page header — base in shared-nav.css, border here */
+        .page-header {
             border-bottom: 1px solid var(--border);
-            padding: 0.75rem 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: transform 0.3s ease;
-        }
-
-        .story-header.hidden {
-            transform: translateY(-100%);
-        }
-
-        .story-header-left {
-            font-family: var(--font);
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--text);
-            text-decoration: none;
-            letter-spacing: 0.04em;
-        }
-
-        .story-header-left:hover { text-decoration: none; opacity: 0.7; }
-
-        .story-header-left .hw {
-            color: var(--accent);
-        }
-
-        /* Center dropdown */
-        .story-header-center {
-            font-family: var(--font);
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text);
-            letter-spacing: 0.04em;
         }
 
         /* ── Reading progress ──────────────────────── */
@@ -420,13 +383,7 @@
                 padding: 0 1rem;
             }
 
-            .story-header {
-                padding: 0.6rem 1rem;
-            }
-
-            .story-header-left {
-                font-size: 0.95rem;
-            }
+            /* header styles in shared-nav.css */
 
             main {
                 padding: 1.5rem 0 2rem;
@@ -456,12 +413,11 @@
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
             .reading-progress { display: none; }
-            .story-header { transition: none; }
+            /* header reduced-motion in shared-nav.css */
         }
 
         /* ── Print ─────────────────────────────────── */
         @media print {
-            .story-header,
             .reading-progress,
             .play-btn {
                 display: none;
@@ -502,11 +458,19 @@
     <div class="reading-progress" aria-hidden="true"></div>
 
     <!-- Story Header -->
-    <header class="story-header" id="story-header">
-        <a href="/" class="story-header-left">claudewill<span class="hw">*</span></a>
-        <div class="story-header-center">
-            <button class="palette-trigger" aria-label="Open navigation"><span class="hw">*</span></button> the story
+    <header class="page-header" id="page-header">
+        <a href="/" class="page-header-left"><span class="header-short">cw</span><span class="header-full">claudewill</span><span class="hw">*</span></a>
+        <div class="page-header-center">
+            <button class="page-dropdown-toggle" aria-expanded="false" aria-haspopup="true">the story <span class="dropdown-caret">&#9662;</span></button>
+            <nav class="page-dropdown" aria-label="Page sections">
+                <a href="#who-was-cw">who was cw</a>
+                <a href="#on-the-porch">on the porch</a>
+                <a href="#the-cw-standard">the standard</a>
+                <a href="#how-this-got-built">how this got built</a>
+                <a href="#cw-strategies">cw strategies</a>
+            </nav>
         </div>
+        <button class="page-header-right palette-trigger" aria-label="Open navigation"><span class="hw">*</span> <span class="header-menu-label">menu</span></button>
     </header>
 
     <div class="container">
@@ -741,7 +705,7 @@
         updateProgress();
 
         // ── Sticky header auto-hide ───────────────
-        var header = document.getElementById('story-header');
+        var header = document.getElementById('page-header');
         var lastScrollY = 0;
         var ticking = false;
 

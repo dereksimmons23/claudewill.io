@@ -110,36 +110,9 @@
       color: var(--link);
     }
 
-    /* Sticky auto-hide header */
+    /* page header styles in shared-nav.css */
     .page-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: var(--bg);
       border-bottom: 1px solid var(--border);
-      padding: 0.75rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: transform 0.3s ease;
-    }
-    .page-header.hidden { transform: translateY(-100%); }
-    .page-header-left {
-      font-family: var(--font);
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: var(--text);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-    }
-    .page-header-left:hover { text-decoration: none; opacity: 0.7; }
-    .page-header-left .hw { color: var(--accent); }
-    .page-header-center {
-      font-family: var(--font);
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text);
-      letter-spacing: 0.04em;
     }
 
     .container {
@@ -178,7 +151,7 @@
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .page-header { transition: none; }
+      /* header reduced-motion in shared-nav.css */
     }
 
     section[id] {
@@ -344,15 +317,14 @@
     }
 
     @media (max-width: 700px) {
-      .page-header { padding: 0.6rem 1rem; }
-      .page-header-left { font-size: 0.95rem; }
+      /* header mobile in shared-nav.css */
       .intro h1 { font-size: 1.8rem; }
       section { padding: 40px 0; }
       .product-card { flex-direction: column; gap: 12px; }
     }
 
     @media print {
-      .page-header,
+      /* .page-header print in shared-nav.css */
       .cta-group {
         display: none;
       }
@@ -383,10 +355,16 @@
 </head>
 <body>
   <header class="page-header" id="page-header">
-    <a href="/" class="page-header-left">claudewill<span class="hw">*</span></a>
+    <a href="/" class="page-header-left"><span class="header-short">cw</span><span class="header-full">claudewill</span><span class="hw">*</span></a>
     <div class="page-header-center">
-      <button class="palette-trigger" aria-label="Open navigation"><span class="hw">*</span></button> the workshop
+      <button class="page-dropdown-toggle" aria-expanded="false" aria-haspopup="true">the workshop <span class="dropdown-caret">&#9662;</span></button>
+      <nav class="page-dropdown" aria-label="Page sections">
+        <a href="#products">products</a>
+        <a href="#frameworks">frameworks</a>
+        <a href="#clients">clients</a>
+      </nav>
     </div>
+    <button class="page-header-right palette-trigger" aria-label="Open navigation"><span class="hw">*</span> <span class="header-menu-label">menu</span></button>
   </header>
 
   <div class="container">

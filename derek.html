@@ -176,45 +176,9 @@
     a:visited { color: var(--link); }
     a:hover { text-decoration: underline; }
 
-    /* ── Page Header (sticky, auto-hide) ──────── */
+    /* page header styles in shared-nav.css */
     .page-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: var(--bg);
       border-bottom: 1px solid var(--border);
-      padding: 0.75rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: transform 0.3s ease;
-    }
-
-    .page-header.hidden {
-      transform: translateY(-100%);
-    }
-
-    .page-header-left {
-      font-family: var(--font);
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: var(--text);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-    }
-
-    .page-header-left:hover { text-decoration: none; opacity: 0.7; }
-
-    .page-header-left .hw {
-      color: var(--accent);
-    }
-
-    .page-header-center {
-      font-family: var(--font);
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text);
-      letter-spacing: 0.04em;
     }
 
     /* ── Content ──────────────────────────────── */
@@ -518,13 +482,7 @@
         padding: 0 1rem;
       }
 
-      .page-header {
-        padding: 0.6rem 1rem;
-      }
-
-      .page-header-left {
-        font-size: 0.95rem;
-      }
+      /* header mobile in shared-nav.css */
 
       main {
         padding: 1.5rem 0 2rem;
@@ -552,12 +510,12 @@
     /* ── Reduced motion ───────────────────────── */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .page-header { transition: none; }
+      /* header reduced-motion in shared-nav.css */
     }
 
     /* ── Print ────────────────────────────────── */
     @media print {
-      .page-header,
+      /* .page-header print in shared-nav.css */
       .bio-play {
         display: none;
       }
@@ -577,10 +535,19 @@
 <body>
   <!-- Page Header -->
   <header class="page-header" id="page-header">
-    <a href="/" class="page-header-left">claudewill<span class="hw">*</span></a>
+    <a href="/" class="page-header-left"><span class="header-short">cw</span><span class="header-full">claudewill</span><span class="hw">*</span></a>
     <div class="page-header-center">
-      <button class="palette-trigger" aria-label="Open navigation"><span class="hw">*</span></button> derek
+      <button class="page-dropdown-toggle" aria-expanded="false" aria-haspopup="true">derek <span class="dropdown-caret">&#9662;</span></button>
+      <nav class="page-dropdown" aria-label="Page sections">
+        <a href="#bio">bio</a>
+        <a href="#inflection">inflection point</a>
+        <a href="#work">the work</a>
+        <a href="#story">the story</a>
+        <a href="#writing">the writing</a>
+        <a href="#connect">connect</a>
+      </nav>
     </div>
+    <button class="page-header-right palette-trigger" aria-label="Open navigation"><span class="hw">*</span> <span class="header-menu-label">menu</span></button>
   </header>
 
   <div class="container">

@@ -168,10 +168,20 @@
   var floatingTrigger;
   var lastFocused;
 
+  function closePageDropdown() {
+    var dropdown = document.querySelector('.page-dropdown');
+    var toggle = document.querySelector('.page-dropdown-toggle');
+    if (dropdown) dropdown.classList.remove('open');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+  }
+
   function openPalette() {
     lastFocused = document.activeElement;
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
+
+    // Close page dropdown if open
+    closePageDropdown();
 
     // Focus close button
     var close = overlay.querySelector('.cw-palette-close');
@@ -228,10 +238,55 @@
       if (e.target === overlay) closePalette();
     });
 
-    // Escape closes
+    // ── Page Dropdown (section nav in sticky headers) ──
+    var dropdownToggle = document.querySelector('.page-dropdown-toggle');
+    var dropdown = document.querySelector('.page-dropdown');
+
+    if (dropdownToggle && dropdown) {
+      dropdownToggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var isOpen = dropdown.classList.contains('open');
+        if (isOpen) {
+          closePageDropdown();
+        } else {
+          dropdown.classList.add('open');
+          dropdownToggle.setAttribute('aria-expanded', 'true');
+        }
+      });
+
+      // Close on outside click
+      document.addEventListener('click', function (e) {
+        if (!dropdownToggle.contains(e.target) && !dropdown.contains(e.target)) {
+          closePageDropdown();
+        }
+      });
+
+      // Dropdown links close dropdown on click
+      var dropdownLinks = dropdown.querySelectorAll('a');
+      for (var k = 0; k < dropdownLinks.length; k++) {
+        dropdownLinks[k].addEventListener('click', function () {
+          closePageDropdown();
+        });
+      }
+
+      // Close on scroll
+      window.addEventListener('scroll', function () {
+        if (dropdown.classList.contains('open')) {
+          closePageDropdown();
+        }
+      });
+    }
+
+    // Escape closes palette or dropdown
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && overlay.classList.contains('open')) {
-        closePalette();
+      if (e.key === 'Escape') {
+        if (overlay.classList.contains('open')) {
+          closePalette();
+        } else if (dropdown && dropdown.classList.contains('open')) {
+          closePageDropdown();
+          if (dropdownToggle) dropdownToggle.focus();
+        }
       }
     });
   }
