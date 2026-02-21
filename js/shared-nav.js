@@ -64,6 +64,13 @@
 
   // ── DOM Helpers ────────────────────────────────────
 
+  function createStar() {
+    var span = document.createElement('span');
+    span.className = 'cw-palette-arrow';
+    span.textContent = '*';
+    return span;
+  }
+
   function createArrow() {
     var span = document.createElement('span');
     span.className = 'cw-palette-arrow';
@@ -100,7 +107,7 @@
       var a = document.createElement('a');
       a.className = 'cw-palette-section';
       a.href = section.href;
-      a.appendChild(createArrow());
+      a.appendChild(createStar());
       a.appendChild(document.createTextNode(' ' + section.label));
       if (isActive(section.href)) a.classList.add('active');
       nav.appendChild(a);
@@ -141,7 +148,17 @@
     var btn = document.createElement('button');
     btn.className = 'cw-palette-trigger';
     btn.setAttribute('aria-label', 'Open navigation');
-    btn.textContent = '*';
+
+    var star = document.createElement('span');
+    star.className = 'cw-palette-trigger-star';
+    star.textContent = '*';
+
+    var label = document.createElement('span');
+    label.className = 'cw-palette-trigger-label';
+    label.textContent = ' menu';
+
+    btn.appendChild(star);
+    btn.appendChild(label);
     return btn;
   }
 
