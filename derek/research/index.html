@@ -461,12 +461,15 @@
       </div>
 
       <div class="data-bar">
-        <div class="data-bar-item"><strong>1,947</strong> sessions (30-day)</div>
-        <div class="data-bar-item"><strong>22,190</strong> messages (30-day)</div>
-        <div class="data-bar-item"><strong>14</strong> months (total)</div>
-        <div class="data-bar-item"><strong>12</strong> projects</div>
+        <div class="data-bar-item"><strong id="stat-days">---</strong> days</div>
+        <div class="data-bar-item"><strong>1</strong> article</div>
         <div class="data-bar-item"><strong>1</strong> human</div>
       </div>
+      <script>
+        var start = new Date('2024-12-08');
+        var days = Math.floor((Date.now() - start.getTime()) / 86400000);
+        document.getElementById('stat-days').textContent = days.toLocaleString();
+      </script>
 
       <div class="section-label" id="published">Published</div>
 
