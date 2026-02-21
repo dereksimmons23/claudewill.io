@@ -183,9 +183,6 @@
             --accent: #d4a84b;
             --link: #4a8ec2;
             --border: #e5e7eb;
-            --input-bg: #f3f4f6;
-            --hover-bg: #f0f1f3;
-            --error: #b91c1c;
             --font: 'IBM Plex Mono', 'Courier New', Courier, monospace;
         }
 
@@ -201,38 +198,7 @@
             html { scroll-behavior: smooth; }
         }
 
-        /* Porch light — thin gold line, expands on focus */
-        .porch-light {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 120px;
-            height: 2px;
-            background: var(--accent);
-            z-index: 9999;
-            transition: width 0.6s ease;
-        }
-
-        body:has(.input-area:focus-within) .porch-light {
-            width: 100%;
-        }
-
-        body.vernie-mode .porch-light {
-            width: 200px;
-            height: 3px;
-        }
-
-        body.vernie-mode:has(.input-area:focus-within) .porch-light {
-            width: 100%;
-        }
-
-        @media (max-width: 700px) {
-            .porch-light {
-                width: 100%;
-            }
-        }
-
-        /* ── The Invitation ─────────────────────── */
+        /* ── The Invitation (Screen 1) ────────────── */
         .invitation {
             min-height: 100svh;
             display: flex;
@@ -244,7 +210,6 @@
             border-bottom: 1px solid var(--border);
         }
 
-        /* Porch star */
         .porch-star {
             font-family: var(--font);
             font-size: 5rem;
@@ -268,10 +233,6 @@
             margin-bottom: 0.75rem;
         }
 
-        .invitation-wordmark .asterisk {
-            color: var(--accent);
-        }
-
         .invitation-phrase {
             font-family: var(--font);
             color: var(--dim);
@@ -282,11 +243,6 @@
             min-height: 1.5em;
         }
 
-        .phrase-star {
-            color: var(--accent);
-        }
-
-        /* Typewriter cursor */
         .typewriter-cursor {
             display: inline-block;
             width: 0.55em;
@@ -308,7 +264,6 @@
             align-items: center;
             flex-wrap: wrap;
             justify-content: center;
-            margin-bottom: 3rem;
         }
 
         .invitation-nav a {
@@ -334,328 +289,150 @@
             opacity: 0.4;
         }
 
-        .invitation-porch {
-            color: var(--dim);
-            text-decoration: none;
-            font-size: 0.85rem;
-            opacity: 0.6;
-            transition: opacity 0.2s, color 0.2s;
+        /* ── Billboard Sections (Screens 2-4) ────── */
+        .billboard {
+            min-height: 100svh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.5rem;
-            letter-spacing: 0.02em;
-        }
-
-        .invitation-porch:hover {
-            opacity: 1;
-            color: var(--text);
-        }
-
-        .invitation-porch:visited {
-            color: var(--dim);
-        }
-
-        .invitation-arrow {
-            display: block;
-            font-size: 1.2rem;
-        }
-
-        /* ── The Porch ──────────────────────────── */
-        .container {
-            height: 100vh;
-            height: 100svh;
-            display: flex;
-            flex-direction: column;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .header {
-            padding: 2rem 0 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 1.5rem;
             border-bottom: 1px solid var(--border);
         }
 
-        .wordmark {
+        .billboard:last-of-type {
+            border-bottom: none;
+        }
+
+        .billboard-label {
             font-family: var(--font);
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text);
-            letter-spacing: 0.02em;
-        }
-
-        .asterisk {
+            font-size: 0.8rem;
             color: var(--accent);
-            font-size: 0.75em;
-            position: relative;
-            top: -0.1em;
-            margin-left: 0.02em;
-        }
-
-        .tagline {
-            font-size: 0.85rem;
-            color: var(--dim);
-            margin-top: 0.5rem;
-            font-weight: 400;
-            letter-spacing: 0.01em;
-            opacity: 0;
-            transition: opacity 0.6s ease;
-        }
-
-        .tagline.visible {
-            opacity: 1;
-        }
-
-        .condition {
-            font-size: 0.7rem;
-            color: var(--dim);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        main {
-            flex: 1;
-            min-height: 0;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .chat-area {
-            flex: 1;
-            min-height: 0;
-            overflow-y: auto;
-            padding: 2rem 0;
-        }
-
-        .message {
+            letter-spacing: 0.06em;
             margin-bottom: 2rem;
         }
 
-        .message-label {
-            font-size: 0.7rem;
-            color: var(--dim);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.5rem;
-        }
-
-        .message-text {
+        .billboard-text {
+            max-width: 520px;
+            font-size: 1.05rem;
+            line-height: 1.8;
             color: var(--text);
-            white-space: pre-wrap;
-            font-size: 0.95rem;
-            line-height: 1.7;
+            margin-bottom: 2.5rem;
         }
 
-        .message.cw .message-text {
-            border-left: 2px solid var(--accent);
-            padding-left: 1rem;
-        }
-
-        .message.you .message-text {
-            border-left: 2px solid var(--border);
-            padding-left: 1rem;
-            color: var(--dim);
-        }
-
-        .message.error .message-text {
-            border-left: 2px solid var(--error);
-            padding-left: 1rem;
-            color: var(--error);
-        }
-
-        .input-area {
-            padding: 1.5rem 0;
-            border-top: 1px solid var(--border);
-            transition: border-color 0.3s ease;
-        }
-
-        .input-area:focus-within {
-            border-color: var(--accent);
-        }
-
-        .input-row {
-            display: flex;
-            gap: 1rem;
-            align-items: flex-end;
-        }
-
-        .input-field {
-            flex: 1;
-            background: var(--input-bg);
-            border: 1px solid var(--border);
+        .billboard-cta {
+            display: inline-block;
             color: var(--text);
-            padding: 0.75rem 1rem;
-            font-family: var(--font);
-            font-size: 0.95rem;
-            resize: none;
-            min-height: 48px;
-            max-height: 150px;
-            line-height: 1.5;
-            transition: border-color 0.3s ease;
-        }
-
-        .input-field:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        .input-field::placeholder {
-            color: var(--dim);
-        }
-
-        .send-btn {
-            background: transparent;
-            border: 1px solid var(--text);
-            color: var(--text);
-            padding: 0.75rem 1.5rem;
-            font-family: var(--font);
-            font-size: 0.8rem;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            transition: all 0.2s;
-        }
-
-        .send-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        .send-btn:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-
-        .chat-disclaimer {
-            text-align: left;
-            font-size: 0.7rem;
-            color: var(--dim);
-            opacity: 0.6;
-            padding: 6px 0 2px calc(1px + 1rem);
-        }
-
-        .chat-disclaimer a {
-            color: var(--link);
             text-decoration: none;
-        }
-
-        .chat-disclaimer a:hover {
-            text-decoration: underline;
-        }
-
-        .footer {
-            padding: 1rem 0;
-            font-size: 0.75rem;
-            color: var(--dim);
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-
-        .footer a {
-            color: var(--link);
-            text-decoration: none;
+            font-family: var(--font);
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+            padding: 0.5rem 0;
             transition: color 0.2s;
         }
 
-        .footer a:hover {
-            text-decoration: underline;
+        .billboard-cta:hover {
+            color: var(--accent);
         }
 
-        .footer a:visited {
-            color: var(--link);
+        .billboard-cta:visited {
+            color: var(--text);
         }
 
-        .disclaimer {
-            margin-top: 0.5rem;
-            font-size: 0.7rem;
+        .billboard-cta-secondary {
+            display: block;
             color: var(--dim);
-        }
-
-        .signoff {
+            text-decoration: none;
             font-family: var(--font);
-            font-size: 0.75rem;
-            color: var(--dim);
-            opacity: 0.4;
+            font-size: 0.85rem;
             margin-top: 0.75rem;
+            transition: color 0.2s;
+        }
+
+        .billboard-cta-secondary:hover {
+            color: var(--text);
+        }
+
+        .billboard-cta-secondary:visited {
+            color: var(--dim);
+        }
+
+        /* The Standard list */
+        .standard-list {
+            list-style: none;
+            text-align: left;
+            max-width: 360px;
+            width: 100%;
+            margin: 0 auto 2.5rem;
+        }
+
+        .standard-list li {
+            font-size: 0.95rem;
+            color: var(--text);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            letter-spacing: 0.02em;
+        }
+
+        .standard-list li:last-child {
+            border-bottom: none;
+        }
+
+        .standard-num {
+            color: var(--accent);
+            margin-right: 0.75rem;
+        }
+
+        /* Billboard signoff */
+        .billboard .signoff {
+            font-size: 0.85rem;
+            opacity: 0.5;
             cursor: default;
             user-select: none;
             transition: opacity 0.3s ease;
-            letter-spacing: 0.08em;
         }
 
-        .signoff:hover {
-            opacity: 0.7;
+        .billboard .signoff:hover {
+            opacity: 0.8;
         }
 
         .signoff-star {
             transition: color 0.3s ease;
         }
 
-        .signoff:hover .signoff-star {
+        .billboard .signoff:hover .signoff-star {
             color: var(--accent);
         }
 
-        .typing {
-            display: inline-block;
+        /* ── Footer ───────────────────────────────── */
+        .site-footer {
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--dim);
         }
 
-        .typing::after {
-            content: '...';
-            animation: dots 1.5s infinite;
+        .site-footer a {
+            color: var(--link);
+            text-decoration: none;
+            transition: color 0.2s;
         }
 
-        @keyframes dots {
-            0%, 20% { content: '.'; }
-            40% { content: '..'; }
-            60%, 100% { content: '...'; }
+        .site-footer a:hover {
+            text-decoration: underline;
         }
 
-        .chat-area::-webkit-scrollbar {
-            width: 4px;
+        .site-footer a:visited {
+            color: var(--link);
         }
 
-        .chat-area::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .chat-area::-webkit-scrollbar-thumb {
-            background: var(--border);
-        }
-
-        .prompts {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 0 0 1rem 0;
-        }
-
-        .prompts.hidden {
-            display: none;
-        }
-
-        .prompt-chip {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 0.5rem 1rem;
-            font-family: var(--font);
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            letter-spacing: 0.02em;
-        }
-
-        .prompt-chip:hover {
-            border-color: var(--accent);
+        .footer-note .hw {
             color: var(--accent);
         }
 
-        /* Skip navigation link */
+        /* ── Utilities ────────────────────────────── */
         .skip-link {
             position: absolute;
             top: -40px;
@@ -672,7 +449,6 @@
             top: 0;
         }
 
-        /* Screen reader only */
         .sr-only {
             position: absolute;
             width: 1px;
@@ -685,22 +461,17 @@
             border-width: 0;
         }
 
-        /* Focus indicators */
         button:focus-visible,
-        input:focus-visible,
-        textarea:focus-visible,
-        a:focus-visible,
-        .prompt-chip:focus-visible {
+        a:focus-visible {
             outline: 2px solid var(--accent);
             outline-offset: 2px;
         }
 
-        button:focus:not(:focus-visible),
-        input:focus:not(:focus-visible),
-        textarea:focus:not(:focus-visible) {
+        button:focus:not(:focus-visible) {
             outline: none;
         }
 
+        /* ── Mobile ───────────────────────────────── */
         @media (max-width: 600px) {
             body {
                 font-size: 15px;
@@ -723,321 +494,23 @@
             .invitation-nav a {
                 font-size: 0.85rem;
             }
-            .container {
-                padding: 0 1rem;
-                height: auto;
-                min-height: 100svh;
+            .billboard {
+                padding: 3rem 1.25rem;
             }
-            .header {
-                padding: 1.5rem 0 1rem;
+            .billboard-text {
+                font-size: 0.95rem;
             }
-            .wordmark { font-size: 0.95rem; }
-            .tagline { font-size: 0.8rem; margin-top: 0.35rem; }
-            .chat-area {
-                padding: 1.5rem 0;
-                min-height: 40vh;
+            .standard-list li {
+                font-size: 0.9rem;
             }
-            .message {
-                margin-bottom: 1.5rem;
-            }
-            .input-area {
-                padding: 1rem 0;
-                position: sticky;
-                bottom: 0;
-                background: var(--bg);
-            }
-            .input-row {
-                flex-direction: row;
-                gap: 0.75rem;
-            }
-            .input-field {
-                padding: 0.875rem 1rem;
-                font-size: 16px; /* Prevents iOS zoom */
-            }
-            .send-btn {
-                padding: 0.875rem 1.25rem;
-                white-space: nowrap;
-            }
-            .prompt-chip {
-                padding: 0.625rem 0.875rem;
-                font-size: 0.85rem;
-            }
-            .footer {
+            .site-footer {
                 font-size: 0.7rem;
-                padding: 0.75rem 0;
+                padding: 1.5rem 1rem;
             }
         }
 
-        /* About link in header */
-        .about-link {
-            background: transparent;
-            border: none;
-            color: var(--dim);
-            font-family: var(--font);
-            font-size: 0.85rem;
-            cursor: pointer;
-            padding: 0.25rem 0;
-            transition: color 0.2s;
-        }
-
-        .about-link:hover {
-            color: var(--link);
-        }
-
-        /* Modal styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(10, 22, 40, 0.6);
-            backdrop-filter: blur(4px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            padding: 1rem;
-        }
-
-        .modal-overlay[hidden] {
-            display: none;
-        }
-
-        .modal-content {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            max-width: 480px;
-            width: 100%;
-            padding: 2rem;
-            position: relative;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: transparent;
-            border: none;
-            color: var(--dim);
-            font-size: 1.5rem;
-            cursor: pointer;
-            line-height: 1;
-            padding: 0.25rem;
-        }
-
-        .modal-close:hover {
-            color: var(--text);
-        }
-
-        .modal-content h2 {
-            font-family: var(--font);
-            color: var(--text);
-            font-size: 1.3rem;
-            margin-bottom: 0.25rem;
-            letter-spacing: 0.02em;
-        }
-
-        .modal-subtitle {
-            color: var(--dim);
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .modal-body p {
-            margin-bottom: 1rem;
-            line-height: 1.7;
-            font-size: 0.9rem;
-        }
-
-        .modal-body p:last-child {
-            margin-bottom: 0;
-        }
-
-        .modal-note {
-            color: var(--dim);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-            padding-top: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        /* Vernie Mode gate */
-        .vernie-gate {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(10, 22, 40, 0.6);
-            backdrop-filter: blur(4px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1500;
-            padding: 1rem;
-        }
-
-        .vernie-gate[hidden] {
-            display: none;
-        }
-
-        .vernie-gate-content {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            max-width: 360px;
-            width: 100%;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .vernie-gate-content h2 {
-            font-family: var(--font);
-            color: var(--text);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.02em;
-        }
-
-        .vernie-gate-content p {
-            color: var(--dim);
-            font-size: 0.85rem;
-            margin-bottom: 1.25rem;
-            line-height: 1.6;
-        }
-
-        .vernie-code-input {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            background: var(--input-bg);
-            border: 1px solid var(--border);
-            color: var(--text);
-            font-family: var(--font);
-            font-size: 1rem;
-            text-align: center;
-            letter-spacing: 0.15em;
-            margin-bottom: 1rem;
-        }
-
-        .vernie-code-input:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        .vernie-error {
-            color: var(--error);
-            font-size: 0.75rem;
-            margin-bottom: 1rem;
-            min-height: 1.2em;
-        }
-
-        .vernie-submit {
-            background: transparent;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            padding: 0.75rem 2rem;
-            font-family: var(--font);
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            margin-right: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
-
-        .vernie-submit:hover {
-            background: var(--accent);
-            color: #fff;
-        }
-
-        .vernie-cancel {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--dim);
-            padding: 0.75rem 1.5rem;
-            font-family: var(--font);
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
-
-        .vernie-cancel:hover {
-            border-color: var(--dim);
-            color: var(--text);
-        }
-
-        .vernie-indicator {
-            display: none;
-            font-size: 0.65rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            opacity: 0.7;
-            margin-top: 0.4rem;
-        }
-
-        body.vernie-mode .vernie-indicator {
-            display: block;
-        }
-
-        .family-link {
-            color: var(--dim);
-            text-decoration: none;
-            opacity: 0.5;
-            transition: opacity 0.2s;
-            cursor: pointer;
-            background: none;
-            border: none;
-            font-family: var(--font);
-            font-size: inherit;
-            margin-top: 0.4rem;
-            display: inline-block;
-        }
-
-        .family-link:hover {
-            opacity: 1;
-            color: var(--accent);
-        }
-
-        .vernie-exit {
-            display: none;
-            font-size: 0.7rem;
-            color: var(--dim);
-            opacity: 0.5;
-            cursor: pointer;
-            background: none;
-            border: none;
-            font-family: var(--font);
-            transition: opacity 0.2s;
-        }
-
-        .vernie-exit:hover {
-            opacity: 1;
-        }
-
-        body.vernie-mode .vernie-exit {
-            display: inline;
-        }
-
-        /* Honeypot - hidden from humans */
-        .hp-field {
-            position: absolute;
-            left: -9999px;
-            opacity: 0;
-            height: 0;
-            width: 0;
-            overflow: hidden;
-        }
-
-        /* Reduced motion support */
+        /* ── Reduced motion ───────────────────────── */
         @media (prefers-reduced-motion: reduce) {
-            .typing::after {
-                animation: none;
-                content: '...';
-            }
-
             .typewriter-cursor {
                 animation: none;
                 opacity: 1;
@@ -1052,12 +525,9 @@
     </style>
 </head>
 <body>
-    <!-- Porch light -->
-    <div class="porch-light" aria-hidden="true"></div>
+    <a href="#story" class="skip-link">Skip to content</a>
 
-    <a href="#porch" class="skip-link">Skip to conversation</a>
-
-    <!-- The Invitation -->
+    <!-- Screen 1: The Hook -->
     <section class="invitation">
         <div class="porch-star" aria-hidden="true">*</div>
         <h1 class="invitation-wordmark">claudewill</h1>
@@ -1071,627 +541,44 @@
             <span class="nav-dot" aria-hidden="true">&middot;</span>
             <a href="/story#the-cw-standard">the standard</a>
         </nav>
-        <a href="#porch" class="invitation-porch">whatcha thinking?<span class="invitation-arrow">&darr;</span></a>
     </section>
 
-    <!-- The Porch -->
-    <div class="container" id="porch">
-        <header class="header" role="banner">
-            <div>
-                <div class="wordmark">cw's porch</div>
-                <p class="tagline" id="tagline"></p>
-            </div>
-        </header>
+    <!-- Screen 2: The Story -->
+    <section class="billboard" id="story">
+        <div class="billboard-label">* the story</div>
+        <p class="billboard-text">Claude William Simmons was a farmer, railroad worker, father of 11, and maybe briefly a moonshiner. He died in 1967, five and a half years before his grandson Derek was born. This is what happened when Derek decided to build something in his name.</p>
+        <a href="/story" class="billboard-cta">read the story &rarr;</a>
+    </section>
 
-        <main role="main">
-            <div class="chat-area" id="chat" role="log" aria-live="polite" aria-atomic="false" aria-label="Conversation history"></div>
-        </main>
+    <!-- Screen 3: The Builder -->
+    <section class="billboard" id="builder">
+        <div class="billboard-label">* derek</div>
+        <p class="billboard-text">30 years in media. Star Tribune, LA Times. First Chief Creative Officer. Generated $20M during a pandemic. Now building AI frameworks for human-centered organizations.</p>
+        <a href="/derek/assessment" class="billboard-cta">take the assessment &rarr;</a>
+        <a href="/derek" class="billboard-cta-secondary">more about derek &rarr;</a>
+    </section>
 
-        <div class="input-area" role="form" aria-label="Message form">
-            <div class="prompts" id="prompts">
-                <button class="prompt-chip" data-prompt="Who are you?" aria-label="Ask: Who are you?">Who are you?</button>
-                <button class="prompt-chip" data-prompt="I'm stuck on something" aria-label="Ask: I'm stuck on something">I'm stuck</button>
-                <button class="prompt-chip" data-prompt="I need to make a decision" aria-label="Ask: I need to make a decision">Help me decide</button>
-                <button class="prompt-chip" data-prompt="What's the catch?" aria-label="Ask: What's the catch?">What's the catch?</button>
-                <button class="prompt-chip" data-prompt="__FAMILY__" aria-label="Family access">Family?</button>
-            </div>
-            <div class="input-row">
-                <!-- Honeypot field - bots fill this, humans don't see it -->
-                <input type="text" name="website" id="hp-website" class="hp-field" tabindex="-1" autocomplete="off">
-                <textarea
-                    class="input-field"
-                    id="input"
-                    placeholder="What do you need?"
-                    rows="1"
-                    aria-label="Message input"
-                ></textarea>
-                <button class="send-btn" id="send" aria-label="Send message">Send</button>
-            </div>
-            <div class="chat-disclaimer">AI conversation &middot; not professional advice</div>
-        </div>
+    <!-- Screen 4: The Standard -->
+    <section class="billboard" id="standard">
+        <div class="billboard-label">* the standard</div>
+        <ol class="standard-list">
+            <li><span class="standard-num">1</span> truth over comfort</li>
+            <li><span class="standard-num">2</span> usefulness over purity</li>
+            <li><span class="standard-num">3</span> transparency over reputation</li>
+            <li><span class="standard-num">4</span> people over systems</li>
+            <li><span class="standard-num">5</span> agency over ideology</li>
+        </ol>
+        <div class="signoff"><span class="signoff-star">*</span> keep going</div>
+    </section>
 
-        <footer class="footer" role="contentinfo">
-            <p class="footer-note"><a href="/derek">derek</a> &middot; <a href="/story#the-cw-standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
-            <div class="vernie-indicator" id="vernie-indicator">Vernie Mode</div>
-            <button class="vernie-exit" id="vernie-exit">Exit family mode</button>
-            <div class="signoff" id="signoff-easter"><span class="signoff-star">*</span> cw strategies 2026</div>
-        </footer>
-    </div>
+    <footer class="site-footer" role="contentinfo">
+        <p class="footer-note">Built by <a href="/derek">Derek</a><span class="hw">*</span><a href="/">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
+        <p class="footer-note"><a href="/story#the-cw-standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
+    </footer>
 
-    <!-- Hidden form for Netlify detection -->
-    <form name="inline-contact" data-netlify="true" hidden>
-        <input type="text" name="name">
-        <input type="email" name="email">
-        <textarea name="message"></textarea>
-    </form>
-
-    <!-- Vernie Mode Gate -->
-    <div class="vernie-gate" id="vernie-gate" role="dialog" aria-modal="true" aria-labelledby="vernie-gate-title" hidden>
-        <div class="vernie-gate-content">
-            <h2 id="vernie-gate-title">Family</h2>
-            <p>If you're family, you have the code.</p>
-            <input type="text" class="vernie-code-input" id="vernie-code-input" placeholder="Enter code" autocomplete="off" maxlength="32" aria-label="Family access code">
-            <div class="vernie-error" id="vernie-error" role="alert"></div>
-            <button class="vernie-submit" id="vernie-submit">Come in</button>
-            <button class="vernie-cancel" id="vernie-cancel">Never mind</button>
-        </div>
-    </div>
-
-    <!-- About Modal -->
-    <div class="modal-overlay" id="about-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
-        <div class="modal-content">
-            <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
-            <h2 id="modal-title">Welcome to claudewill<span class="asterisk">*</span>.</h2>
-            <div class="modal-body">
-                <p>Claude William Simmons was a farmer, railroad worker, father of 11, and maybe briefly a moonshiner. Sixth-grade education but a doctorate in common sense. He died in 1967, 5&frac12; years before his grandson Derek was born.</p>
-                <p>Derek built this for straight answers through conversation. A way to help the way he thinks CW would have.</p>
-                <p class="modal-note">Ask anything. CW will give you a straight answer or point you elsewhere.</p>
-                <p style="margin-top: 1rem;"><a href="/story" style="color: var(--link); text-decoration: none;">The Story &rarr;</a></p>
-            </div>
-        </div>
-    </div>
-
+    <!-- Typewriter effect -->
     <script>
-        const chat = document.getElementById('chat');
-        const input = document.getElementById('input');
-        const send = document.getElementById('send');
-        const prompts = document.getElementById('prompts');
-        const honeypot = document.getElementById('hp-website');
-
-        let conversationHistory = [];
-        let currentCondition = 'clear';
-        let conversationEnded = false;
-        let exchangeCount = 0;
-        let derekMentioned = false;
-        let isVernieMode = false;
-
-        const promptSets = {
-            start: [
-                { text: "Who are you?", prompt: "Who are you?" },
-                { text: "I'm stuck", prompt: "I'm stuck on something" },
-                { text: "Help me decide", prompt: "I need to make a decision" },
-                { text: "What's the catch?", prompt: "What's the catch?" },
-                { text: "Family?", prompt: "__FAMILY__" }
-            ],
-            early: [
-                { text: "Size this up", prompt: "I have a complex problem I need help sizing up. Can you walk me through your process?" },
-                { text: "Tell me more", prompt: "Can you tell me more about that?" },
-                { text: "What do you mean?", prompt: "What do you mean by that?" },
-                { text: "I have feedback", prompt: "I have feedback" }
-            ],
-            mid: [
-                { text: "What should I do?", prompt: "What should I do?" },
-                { text: "Recalibrate", prompt: "I think I need to recalibrate my career direction" },
-                { text: "What's the risk?", prompt: "What's the risk if I do nothing?" },
-                { text: "I have feedback", prompt: "I have feedback" }
-            ],
-            late: [
-                { text: "I think I've got it", prompt: "I think I've got what I need" },
-                { text: "Go deeper with Derek", prompt: "I'd like to go deeper with Derek" },
-                { text: "I have feedback", prompt: "I have feedback" }
-            ],
-            derekMentioned: [
-                { text: "Contact Derek", prompt: "__CONTACT_FORM__" },
-                { text: "Keep talking", prompt: "Let's keep talking for now" },
-                { text: "I have feedback", prompt: "I have feedback" }
-            ]
-        };
-
-        function getPromptStage() {
-            if (derekMentioned) return 'derekMentioned';
-            if (exchangeCount === 0) return 'start';
-            if (exchangeCount <= 3) return 'early';
-            if (exchangeCount <= 6) return 'mid';
-            return 'late';
-        }
-
-        function updatePrompts() {
-            if (isVernieMode) {
-                prompts.classList.add('hidden');
-                return;
-            }
-            const stage = getPromptStage();
-            const currentPrompts = promptSets[stage];
-
-            prompts.textContent = '';
-            currentPrompts.forEach(p => {
-                const chip = document.createElement('button');
-                chip.className = 'prompt-chip';
-                chip.setAttribute('data-prompt', p.prompt);
-                chip.setAttribute('aria-label', 'Ask: ' + p.text);
-                chip.textContent = p.text;
-                chip.addEventListener('click', () => {
-                    if (p.prompt === '__CONTACT_FORM__') {
-                        showInlineContactForm();
-                    } else if (p.prompt === '__FAMILY__') {
-                        openVernieGate();
-                    } else {
-                        input.value = p.prompt;
-                        sendMessage();
-                    }
-                });
-                prompts.appendChild(chip);
-            });
-
-            prompts.classList.remove('hidden');
-        }
-
-        function checkForDerekMention(response) {
-            const lowerResponse = response.toLowerCase();
-            if (lowerResponse.includes('claudewill.io/derek') ||
-                lowerResponse.includes('contact form') ||
-                lowerResponse.includes('derek works with people') ||
-                lowerResponse.includes('derek handles that')) {
-                derekMentioned = true;
-                updatePrompts();
-            }
-        }
-
-        let sessionId = sessionStorage.getItem('cw-session-id');
-        if (!sessionId) {
-            sessionId = Date.now().toString(36) + Math.random().toString(36).substr(2);
-            sessionStorage.setItem('cw-session-id', sessionId);
-        }
-
-        function setCondition() {
-            const hour = new Date().getHours();
-            const rand = Math.random();
-
-            let mode;
-            if (rand < 0.08) mode = 'storm';
-            else if (hour >= 5 && hour < 7) mode = 'dawn';
-            else if (hour >= 7 && hour < 17) mode = 'clear';
-            else if (hour >= 17 && hour < 20) mode = 'dusk';
-            else mode = 'night';
-
-            currentCondition = mode;
-            document.body.dataset.condition = mode;
-            return mode;
-        }
-
-        function getGreeting() {
-            const hour = new Date().getHours();
-            if (hour >= 5 && hour < 12) return 'Morning.';
-            if (hour >= 12 && hour < 17) return 'Afternoon.';
-            return 'Evening.';
-        }
-
-        setCondition();
-
-        function setTagline() {
-            const taglineEl = document.getElementById('tagline');
-            const hasVisited = localStorage.getItem('cw-has-visited');
-
-            if (!hasVisited) {
-                taglineEl.textContent = 'Before there was Claude AI, there was Claude William.';
-                localStorage.setItem('cw-has-visited', 'true');
-            } else {
-                const taglines = {
-                    dawn: "The porch light's on. He's up early.",
-                    clear: "He's on the porch. Got a minute?",
-                    dusk: "Still here. Pull up a chair.",
-                    night: "Late night? He's been there.",
-                    storm: "Good night to sit and think."
-                };
-                taglineEl.textContent = taglines[currentCondition] || taglines.clear;
-            }
-
-            requestAnimationFrame(() => {
-                taglineEl.classList.add('visible');
-            });
-        }
-
-        setTagline();
-        addMessage('cw', getGreeting());
-
-        function announceMessage(who, text) {
-            const announcement = document.createElement('div');
-            announcement.className = 'sr-only';
-            announcement.setAttribute('role', 'status');
-            announcement.setAttribute('aria-live', 'polite');
-            announcement.textContent = (who === 'cw' ? 'CW' : 'You') + ': ' + text;
-            document.body.appendChild(announcement);
-            setTimeout(() => announcement.remove(), 1000);
-        }
-
-        function addMessage(who, text, isError) {
-            const msg = document.createElement('div');
-            msg.className = 'message ' + who + (isError ? ' error' : '');
-
-            const label = document.createElement('div');
-            label.className = 'message-label';
-            label.textContent = who === 'cw' ? 'CW' : 'You';
-
-            const body = document.createElement('div');
-            body.className = 'message-text';
-            body.textContent = text;
-
-            msg.appendChild(label);
-            msg.appendChild(body);
-            chat.appendChild(msg);
-            chat.scrollTop = chat.scrollHeight;
-            announceMessage(who, text);
-        }
-
-        function showTyping() {
-            const msg = document.createElement('div');
-            msg.className = 'message cw';
-            msg.id = 'typing';
-
-            const label = document.createElement('div');
-            label.className = 'message-label';
-            label.textContent = 'CW';
-
-            const body = document.createElement('div');
-            body.className = 'message-text';
-            const span = document.createElement('span');
-            span.className = 'typing';
-            body.appendChild(span);
-
-            msg.appendChild(label);
-            msg.appendChild(body);
-            chat.appendChild(msg);
-            chat.scrollTop = chat.scrollHeight;
-        }
-
-        function removeTyping() {
-            const t = document.getElementById('typing');
-            if (t) t.remove();
-        }
-
-        async function sendMessage() {
-            const text = input.value.trim();
-            if (!text) return;
-
-            if (honeypot && honeypot.value) {
-                input.value = '';
-                return;
-            }
-
-            exchangeCount++;
-            updatePrompts();
-
-            if (conversationEnded) {
-                addMessage('cw', "We're done here.", false);
-                return;
-            }
-
-            addMessage('you', text);
-            input.value = '';
-            input.style.height = 'auto';
-
-            send.disabled = true;
-            send.setAttribute('aria-busy', 'true');
-            input.disabled = true;
-
-            showTyping();
-
-            conversationHistory.push({
-                role: 'user',
-                content: text
-            });
-
-            try {
-                const response = await fetch('/.netlify/functions/cw', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'x-session-id': sessionId
-                    },
-                    body: JSON.stringify({
-                        messages: conversationHistory,
-                        condition: currentCondition,
-                        vernieCode: isVernieMode ? sessionStorage.getItem('cw-vernie-code') : undefined
-                    })
-                });
-
-                const data = await response.json();
-
-                removeTyping();
-
-                if (response.status === 429) {
-                    addMessage('cw', data.response || 'Easy there. Give me a minute.', false);
-                } else if (data.error && !data.response) {
-                    addMessage('cw', 'Having trouble right now. Try again.', true);
-                } else {
-                    const cwResponse = data.response;
-                    addMessage('cw', cwResponse);
-
-                    conversationHistory.push({
-                        role: 'assistant',
-                        content: cwResponse
-                    });
-
-                    checkForDerekMention(cwResponse);
-
-                    if (cwResponse.toLowerCase().includes("we're done here") ||
-                        cwResponse.toLowerCase().includes("we are done here")) {
-                        conversationEnded = true;
-                        input.disabled = true;
-                        send.disabled = true;
-                        input.placeholder = "Conversation ended.";
-                        prompts.classList.add('hidden');
-                        return;
-                    }
-                }
-
-            } catch (error) {
-                removeTyping();
-                addMessage('cw', 'Connection problem. Try again.', true);
-            }
-
-            send.disabled = false;
-            send.setAttribute('aria-busy', 'false');
-            input.disabled = false;
-            input.focus();
-        }
-
-        send.addEventListener('click', sendMessage);
-
-        input.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                sendMessage();
-            }
-        });
-
-        input.addEventListener('input', () => {
-            input.style.height = 'auto';
-            input.style.height = Math.min(input.scrollHeight, 150) + 'px';
-        });
-
-        document.querySelectorAll('.prompt-chip').forEach(chip => {
-            chip.addEventListener('click', () => {
-                input.value = chip.dataset.prompt;
-                sendMessage();
-            });
-        });
-
-        function showInlineContactForm() {
-            prompts.classList.add('hidden');
-
-            const wrapper = document.createElement('div');
-            wrapper.className = 'message cw';
-
-            const label = document.createElement('div');
-            label.className = 'message-label';
-            label.textContent = 'CW';
-
-            const body = document.createElement('div');
-            body.className = 'message-text';
-
-            const form = document.createElement('form');
-            form.id = 'inline-contact-form';
-            form.style.marginTop = '0.5rem';
-
-            const fields = [
-                { tag: 'input', type: 'text', name: 'name', placeholder: 'Your name' },
-                { tag: 'input', type: 'email', name: 'email', placeholder: 'Your email' },
-                { tag: 'textarea', name: 'message', placeholder: 'What would you like to discuss with Derek?', rows: 3 }
-            ];
-
-            fields.forEach(f => {
-                const div = document.createElement('div');
-                div.style.marginBottom = '0.75rem';
-                const el = document.createElement(f.tag);
-                if (f.type) el.type = f.type;
-                el.name = f.name;
-                el.placeholder = f.placeholder;
-                el.required = true;
-                el.style.cssText = 'width:100%;padding:0.5rem;background:var(--input-bg);border:1px solid var(--border);color:var(--text);font-family:var(--font);font-size:0.85rem;';
-                if (f.rows) { el.rows = f.rows; el.style.resize = 'vertical'; }
-                div.appendChild(el);
-                form.appendChild(div);
-            });
-
-            const hidden = document.createElement('input');
-            hidden.type = 'hidden';
-            hidden.name = 'form-name';
-            hidden.value = 'inline-contact';
-            form.appendChild(hidden);
-
-            const submitBtn = document.createElement('button');
-            submitBtn.type = 'submit';
-            submitBtn.textContent = 'Send to Derek';
-            submitBtn.style.cssText = 'background:transparent;border:1px solid var(--accent);color:var(--accent);padding:0.5rem 1rem;font-family:var(--font);font-size:0.8rem;cursor:pointer;text-transform:uppercase;letter-spacing:0.06em;';
-            form.appendChild(submitBtn);
-
-            const cancelBtn = document.createElement('button');
-            cancelBtn.type = 'button';
-            cancelBtn.textContent = 'Cancel';
-            cancelBtn.style.cssText = 'background:transparent;border:1px solid var(--border);color:var(--dim);padding:0.5rem 1rem;font-family:var(--font);font-size:0.8rem;cursor:pointer;margin-left:0.5rem;text-transform:uppercase;letter-spacing:0.06em;';
-            form.appendChild(cancelBtn);
-
-            body.appendChild(form);
-            wrapper.appendChild(label);
-            wrapper.appendChild(body);
-            chat.appendChild(wrapper);
-            chat.scrollTop = chat.scrollHeight;
-
-            cancelBtn.addEventListener('click', () => {
-                wrapper.remove();
-                updatePrompts();
-            });
-
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const formData = new FormData(form);
-                try {
-                    await fetch('/', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                        body: new URLSearchParams(formData).toString()
-                    });
-                    wrapper.remove();
-                    addMessage('cw', "Message sent. Derek will be in touch.");
-                    updatePrompts();
-                } catch (err) {
-                    addMessage('cw', "Couldn't send that. Try the form at claudewill.io/derek.", true);
-                    updatePrompts();
-                }
-            });
-        }
-
-        const aboutModal = document.getElementById('about-modal');
-        const modalClose = document.getElementById('modal-close');
-
-        function openModal() {
-            aboutModal.hidden = false;
-            modalClose.focus();
-        }
-
-        function closeModal() {
-            aboutModal.hidden = true;
-        }
-
-        modalClose.addEventListener('click', closeModal);
-
-        aboutModal.addEventListener('click', (e) => {
-            if (e.target === aboutModal) closeModal();
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !aboutModal.hidden) closeModal();
-        });
-
-        // === Vernie Mode ===
-        const vernieGate = document.getElementById('vernie-gate');
-        const vernieCodeInput = document.getElementById('vernie-code-input');
-        const vernieSubmit = document.getElementById('vernie-submit');
-        const vernieCancel = document.getElementById('vernie-cancel');
-        const vernieError = document.getElementById('vernie-error');
-        const vernieExit = document.getElementById('vernie-exit');
-
-        function openVernieGate() {
-            if (isVernieMode) return;
-            vernieGate.hidden = false;
-            vernieCodeInput.value = '';
-            vernieError.textContent = '';
-            vernieCodeInput.focus();
-        }
-
-        const storedVernieCode = sessionStorage.getItem('cw-vernie-code');
-        if (storedVernieCode) {
-            activateVernieMode(storedVernieCode, true);
-        }
-
-        vernieCancel.addEventListener('click', () => {
-            vernieGate.hidden = true;
-        });
-
-        vernieGate.addEventListener('click', (e) => {
-            if (e.target === vernieGate) vernieGate.hidden = true;
-        });
-
-        vernieCodeInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') attemptVernieLogin();
-            if (e.key === 'Escape') vernieGate.hidden = true;
-        });
-
-        vernieSubmit.addEventListener('click', attemptVernieLogin);
-
-        async function attemptVernieLogin() {
-            const code = vernieCodeInput.value.trim();
-            if (!code) {
-                vernieError.textContent = 'Enter the family code.';
-                return;
-            }
-
-            vernieError.textContent = '';
-            vernieSubmit.disabled = true;
-            vernieSubmit.textContent = 'Checking...';
-
-            try {
-                const response = await fetch('/.netlify/functions/cw', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'x-session-id': sessionId
-                    },
-                    body: JSON.stringify({
-                        messages: [{ role: 'user', content: 'Family is here.' }],
-                        condition: currentCondition,
-                        vernieCode: code
-                    })
-                });
-
-                const data = await response.json();
-
-                if (data.vernieMode) {
-                    sessionStorage.setItem('cw-vernie-code', code);
-                    vernieGate.hidden = true;
-                    activateVernieMode(code, false);
-
-                    chat.textContent = '';
-                    conversationHistory = [
-                        { role: 'user', content: 'Family is here.' },
-                        { role: 'assistant', content: data.response }
-                    ];
-                    exchangeCount = 1;
-                    addMessage('cw', data.response);
-                } else {
-                    vernieError.textContent = "That's not it.";
-                }
-            } catch (err) {
-                vernieError.textContent = 'Connection problem. Try again.';
-            }
-
-            vernieSubmit.disabled = false;
-            vernieSubmit.textContent = 'Come in';
-        }
-
-        function activateVernieMode(code, isRestore) {
-            isVernieMode = true;
-            document.body.classList.add('vernie-mode');
-            prompts.classList.add('hidden');
-
-            if (isRestore) {
-                chat.textContent = '';
-                conversationHistory = [];
-                exchangeCount = 0;
-                addMessage('cw', 'Family porch is open. Who am I talking to?');
-            }
-        }
-
-        vernieExit.addEventListener('click', () => {
-            isVernieMode = false;
-            sessionStorage.removeItem('cw-vernie-code');
-            document.body.classList.remove('vernie-mode');
-            chat.textContent = '';
-            conversationHistory = [];
-            exchangeCount = 0;
-            derekMentioned = false;
-            conversationEnded = false;
-            addMessage('cw', getGreeting());
-            updatePrompts();
-            input.disabled = false;
-            send.disabled = false;
-            input.placeholder = 'What do you need?';
-        });
-    </script>
-    <script>
-        // Typewriter effect — * stays constant, words type in character by character
-        const typedPhrases = [
+        var typedPhrases = [
             'find a way',
             'keep going',
             'listen first',
@@ -1701,22 +588,21 @@
             'build things',
             'ask why'
         ];
-        let tpIndex = 0;
-        let tpChar = 0;
-        let tpDeleting = false;
-        const typedEl = document.getElementById('typed-text');
+        var tpIndex = 0;
+        var tpChar = 0;
+        var tpDeleting = false;
+        var typedEl = document.getElementById('typed-text');
 
         function typeStep() {
             if (!typedEl) return;
-            const current = typedPhrases[tpIndex];
+            var current = typedPhrases[tpIndex];
 
             if (!tpDeleting) {
                 tpChar++;
                 typedEl.textContent = current.substring(0, tpChar);
 
                 if (tpChar === current.length) {
-                    // Pause at full phrase, then delete
-                    setTimeout(() => { tpDeleting = true; typeStep(); }, 2500);
+                    setTimeout(function() { tpDeleting = true; typeStep(); }, 2500);
                     return;
                 }
                 setTimeout(typeStep, 80);
@@ -1734,26 +620,8 @@
             }
         }
 
-        // Start typing the first phrase
         if (typedEl) {
             setTimeout(typeStep, 800);
-        }
-    </script>
-    <script>
-        // Signoff easter egg — click cycles through "i am" phrases, then back to copyright
-        const signoffEl = document.getElementById('signoff-easter');
-        const signoffPhrases = ['claude will find a way', 'claude will keep going', 'claude will listen first', 'claude will make mistakes', 'claude will push changes', 'claude will pull insights', 'claude will build things', 'claude will ask why', 'cw strategies 2026'];
-        let signoffIndex = signoffPhrases.length - 1; // start on copyright
-        if (signoffEl) {
-            signoffEl.addEventListener('click', () => {
-                signoffIndex = (signoffIndex + 1) % signoffPhrases.length;
-                signoffEl.style.opacity = '0';
-                setTimeout(() => {
-                    var star = signoffEl.querySelector('.signoff-star');
-                    if (star && star.nextSibling) star.nextSibling.textContent = ' ' + signoffPhrases[signoffIndex];
-                    signoffEl.style.opacity = '';
-                }, 200);
-            });
         }
     </script>
     <script src="/js/porch-widget.js" defer></script>
