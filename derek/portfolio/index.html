@@ -195,7 +195,227 @@
       margin-top: 16px;
     }
 
-    /* Work slide */
+    /* ── Category Slideshow ─────────────────────── */
+
+    .category-slideshow {
+      position: relative;
+      max-width: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .category-header {
+      text-align: center;
+      margin-bottom: 12px;
+      flex-shrink: 0;
+    }
+
+    .category-label {
+      font-family: var(--font);
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+    }
+
+    .category-title {
+      font-family: var(--font);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .category-meta {
+      font-family: var(--font);
+      font-size: 0.8rem;
+      color: var(--dim);
+      margin-top: 2px;
+    }
+
+    /* Inner carousel */
+    .carousel-viewport {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 0;
+      width: 100%;
+      max-height: calc(100vh - 240px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
+
+    .carousel-item.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .carousel-item img {
+      max-width: min(100%, 1200px);
+      max-height: calc(100vh - 300px);
+      object-fit: contain;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .carousel-item iframe {
+      width: min(100%, 800px);
+      aspect-ratio: 16/9;
+      border: none;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .carousel-item .item-caption {
+      font-family: var(--font);
+      font-size: 0.8rem;
+      color: var(--dim);
+      text-align: center;
+      margin-top: 8px;
+      max-width: 720px;
+      line-height: 1.5;
+    }
+
+    .carousel-item .item-caption a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .carousel-item .item-caption a:hover {
+      text-decoration: underline;
+    }
+
+    /* Work grid inside carousel */
+    .carousel-item .work-grid {
+      display: grid;
+      gap: 8px;
+      max-height: calc(100vh - 300px);
+      max-width: min(100%, 1200px);
+      width: 100%;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .carousel-item .work-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 0;
+      background: transparent;
+    }
+
+    .carousel-item .work-grid.grid-2x3 {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      max-width: min(100%, 960px);
+    }
+
+    .carousel-item .work-grid.grid-2x2 {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      max-width: min(100%, 720px);
+    }
+
+    .carousel-item .work-grid.grid-1x3 {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr;
+      max-width: min(100%, 960px);
+    }
+
+    /* Carousel dots */
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 12px;
+      flex-shrink: 0;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .carousel-dot.active {
+      background: var(--accent);
+      transform: scale(1.2);
+    }
+
+    .carousel-dot:hover {
+      background: var(--accent);
+    }
+
+    .carousel-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    .carousel-arrow {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--dim);
+      font-family: var(--font);
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .carousel-arrow:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .carousel-count {
+      font-family: var(--font);
+      font-size: 0.7rem;
+      color: var(--dim);
+    }
+
+    /* Auto-play indicator */
+    .auto-indicator {
+      font-family: var(--font);
+      font-size: 0.65rem;
+      color: var(--dim);
+      opacity: 0.5;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    /* ── Single work slide (kept for standalone items) ── */
+
     .slide-work {
       max-width: 100%;
       max-height: 100%;
@@ -220,54 +440,12 @@
       padding: 16px;
     }
 
-    .slide-work .work-image-container video {
-      max-width: min(100%, 1000px);
-      max-height: calc(100vh - 200px);
-    }
-
-    /* Video embeds */
     .slide-work .work-image-container iframe {
       width: min(100%, 800px);
       aspect-ratio: 16/9;
       border: none;
       background: #fff;
       padding: 16px;
-    }
-
-    /* Work grid — multi-image layouts within a single slide */
-    .work-grid {
-      display: grid;
-      gap: 8px;
-      max-height: calc(100vh - 200px);
-      max-width: min(100%, 1200px);
-      width: 100%;
-      background: #fff;
-      padding: 16px;
-      border-radius: 0;
-    }
-
-    .work-grid img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .work-grid.grid-2x3 {
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      max-width: min(100%, 960px);
-    }
-
-    .work-grid.grid-2x2 {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      max-width: min(100%, 720px);
-    }
-
-    .work-grid.grid-1x3 {
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 1fr;
-      max-width: min(100%, 960px);
     }
 
     .slide-work .work-caption {
@@ -382,30 +560,7 @@
       z-index: 100;
     }
 
-    /* Mobile */
-    @media (max-width: 700px) {
-      .slide-title h1 { font-size: 1.8rem; }
-      .slide-title .stats { gap: 24px; flex-wrap: wrap; }
-      .slide-title .stat-number { font-size: 1.4rem; }
-      .slide-divider blockquote { font-size: 1.1rem; }
-      .nav-arrow { font-size: 1.5rem; padding: 12px; }
-      .nav-arrow.prev { left: 0; }
-      .nav-arrow.next { right: 0; }
-      .slide-work .work-image-container img { max-height: calc(100vh - 220px); }
-      .work-grid.grid-2x3 {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-      }
-      .work-grid.grid-1x3 {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(3, auto);
-        max-width: 320px;
-      }
-      .slide-work .work-image-container iframe {
-        width: calc(100vw - 48px);
-      }
-    }
-
+    /* Footer */
     .footer-note .hw {
       color: var(--accent);
     }
@@ -416,6 +571,41 @@
 
     .footer-note a:hover {
       color: var(--accent);
+    }
+
+    /* ── Mobile ─────────────────────────────────── */
+
+    @media (max-width: 700px) {
+      .slide-title h1 { font-size: 1.8rem; }
+      .slide-title .stats { gap: 24px; flex-wrap: wrap; }
+      .slide-title .stat-number { font-size: 1.4rem; }
+      .slide-divider blockquote { font-size: 1.1rem; }
+      .nav-arrow { font-size: 1.5rem; padding: 12px; }
+      .nav-arrow.prev { left: 0; }
+      .nav-arrow.next { right: 0; }
+      .carousel-item img { max-height: calc(100vh - 340px); }
+      .carousel-item .work-grid.grid-2x3 {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+      }
+      .carousel-item .work-grid.grid-1x3 {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+        max-width: 320px;
+      }
+      .carousel-item iframe {
+        width: calc(100vw - 48px);
+      }
+      .category-title { font-size: 0.9rem; }
+      .carousel-dots { gap: 6px; }
+      .carousel-dot { width: 6px; height: 6px; }
+    }
+
+    @media (max-width: 375px) {
+      .slide { padding: 52px 16px 0; }
+      .top-bar { padding: 10px 16px; }
+      .category-header { margin-bottom: 8px; }
+      .carousel-item img { max-height: calc(100vh - 360px); }
     }
   </style>
   <link rel="stylesheet" href="/css/porch-widget.css">
@@ -434,7 +624,7 @@
   <div class="deck" id="deck">
 
     <!-- =============================================
-         TITLE SLIDE
+         SLIDE 1: TITLE
          ============================================= -->
     <div class="slide active" data-index="0">
       <div class="slide-title">
@@ -458,12 +648,12 @@
             <div class="stat-label">Years</div>
           </div>
         </div>
-        <p class="start-hint">arrow keys or tap to navigate</p>
+        <p class="start-hint">arrow keys or tap to navigate &middot; slideshows auto-advance</p>
       </div>
     </div>
 
     <!-- =============================================
-         LOS ANGELES TIMES DIVIDER
+         SLIDE 2: LA TIMES DIVIDER
          ============================================= -->
     <div class="slide" data-index="1">
       <div class="slide-divider">
@@ -472,350 +662,377 @@
       </div>
     </div>
 
-    <!-- LA TIMES WORK SLIDES -->
+    <!-- =============================================
+         SLIDE 3: LA TIMES — SPORTS
+         ============================================= -->
     <div class="slide" data-index="2">
-      <div class="slide-work">
-        <div class="work-image-container">
-          <div class="work-grid grid-2x3">
-            <img src="images/olympics-covers/oly-cover-1.png" alt="Beijing 2008 Olympic Cover 1" loading="lazy">
-            <img src="images/olympics-covers/oly-cover-2.png" alt="Beijing 2008 Olympic Cover 2" loading="lazy">
-            <img src="images/olympics-covers/oly-cover-3.png" alt="Beijing 2008 Olympic Cover 3" loading="lazy">
-            <img src="images/olympics-covers/oly-cover-4.png" alt="Beijing 2008 Olympic Cover 4" loading="lazy">
-            <img src="images/olympics-covers/oly-cover-5.png" alt="Beijing 2008 Olympic Cover 5" loading="lazy">
-            <img src="images/olympics-covers/oly-cover-6.png" alt="Beijing 2008 Olympic Cover 6" loading="lazy">
+      <div class="category-slideshow" data-autoplay="5000">
+        <div class="category-header">
+          <div class="category-label">Los Angeles Times &middot; Sports</div>
+        </div>
+        <div class="carousel-viewport">
+
+          <div class="carousel-item active">
+            <div class="work-grid grid-2x3">
+              <img src="images/olympics-covers/oly-cover-1.png" alt="Beijing 2008 Olympic Cover 1" loading="lazy">
+              <img src="images/olympics-covers/oly-cover-2.png" alt="Beijing 2008 Olympic Cover 2" loading="lazy">
+              <img src="images/olympics-covers/oly-cover-3.png" alt="Beijing 2008 Olympic Cover 3" loading="lazy">
+              <img src="images/olympics-covers/oly-cover-4.png" alt="Beijing 2008 Olympic Cover 4" loading="lazy">
+              <img src="images/olympics-covers/oly-cover-5.png" alt="Beijing 2008 Olympic Cover 5" loading="lazy">
+              <img src="images/olympics-covers/oly-cover-6.png" alt="Beijing 2008 Olympic Cover 6" loading="lazy">
+            </div>
+            <div class="item-caption">Beijing 2008 Olympic Covers. Section front series. Athletes photographed against California landscapes.</div>
           </div>
-        </div>
-        <div class="work-caption">
-          <div class="work-title">Beijing 2008 Olympic Covers</div>
-          <div class="work-meta">Los Angeles Times. Section front series. Six covers, athletes photographed against California landscapes.</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="slide" data-index="3">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/obama.jpg" alt="Making History" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">Making History</div>
-          <div class="work-meta">Los Angeles Times, January 2009. The inauguration of Barack Hussein Obama. Illustration by studio artist.</div>
-        </div>
-      </div>
-    </div>
+          <div class="carousel-item">
+            <img src="images/lakerscelticsillo.jpg" alt="NBA Finals: A Rivalry Returns" loading="lazy">
+            <div class="item-caption">NBA Finals: A Rivalry Returns. June 2008. Lakers vs. Celtics. 21 years since the last meeting.</div>
+          </div>
 
-    <div class="slide" data-index="4">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/lakerscelticsillo.jpg" alt="NBA Finals: A Rivalry Returns" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">NBA Finals: A Rivalry Returns</div>
-          <div class="work-meta">Los Angeles Times, June 2008. Lakers vs. Celtics. 21 years since the last meeting.</div>
-        </div>
-      </div>
-    </div>
+          <div class="carousel-item">
+            <img src="images/nbapreview.jpg" alt="NBA Preview: A-Listers" loading="lazy">
+            <div class="item-caption">NBA Preview: A-Listers. October 2012. Lakers and Clippers on the red carpet.</div>
+          </div>
 
-    <div class="slide" data-index="5">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/nbapreview.jpg" alt="NBA Preview: A-Listers" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">NBA Preview: A-Listers</div>
-          <div class="work-meta">Los Angeles Times, October 2012. Lakers and Clippers on the red carpet. Hollywood meets basketball.</div>
-        </div>
-      </div>
-    </div>
+          <div class="carousel-item">
+            <img src="images/footballpreview.jpg" alt="Football Preview: Collision Course" loading="lazy">
+            <div class="item-caption">Football Preview: Collision Course. September 2007. USC and UCLA schedule as illustrated roadmap.</div>
+          </div>
 
-    <div class="slide" data-index="6">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/footballpreview.jpg" alt="Football Preview: Collision Course" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">Football Preview: Collision Course</div>
-          <div class="work-meta">Los Angeles Times, September 2007. USC and UCLA schedule as illustrated roadmap.</div>
         </div>
-      </div>
-    </div>
-
-    <div class="slide" data-index="7">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/woodenposter.jpg" alt="John Wooden, 1910-2010" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">John Wooden, 1910 &ndash; 2010</div>
-          <div class="work-meta">Los Angeles Times, June 2010. Tribute page. The coach and every trophy he ever won.</div>
+        <div class="carousel-nav">
+          <button class="carousel-arrow" data-dir="prev">&lsaquo;</button>
+          <div class="carousel-dots"></div>
+          <span class="carousel-count"></span>
+          <button class="carousel-arrow" data-dir="next">&rsaquo;</button>
         </div>
-      </div>
-    </div>
-
-    <div class="slide" data-index="8">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/OSCARSPOSTER.jpg" alt="The 82nd Academy Awards" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">The 82nd Academy Awards</div>
-          <div class="work-meta">Los Angeles Times, March 2010. Red carpet panoramic spread.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide" data-index="9">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/wildfires-photography.png" alt="San Diego at the Mercy of Flames" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">San Diego at the Mercy of Flames</div>
-          <div class="work-meta">Los Angeles Times, October 2007. Southern California wildfires. Double-truck spread.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide" data-index="10">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/seasidedeath.jpg" alt="Death in a Seaside Paradise" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">Death in a Seaside Paradise</div>
-          <div class="work-meta">Los Angeles Times, December 2007. La Jolla surfer killing investigation. Aerial paddle-out memorial.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide" data-index="11">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/howwemetLAaffairs.jpg" alt="There's No Mistaking Love" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">There&rsquo;s No Mistaking Love</div>
-          <div class="work-meta">Los Angeles Times, June 2013. L.A. Affairs column. Written by Derek Simmons. How a newspaper typo led to a marriage.</div>
-        </div>
+        <div class="auto-indicator">auto-advances</div>
       </div>
     </div>
 
     <!-- =============================================
-         STAR TRIBUNE DIVIDER
+         SLIDE 4: LA TIMES — CULTURE & EVENTS
          ============================================= -->
-    <div class="slide" data-index="12">
+    <div class="slide" data-index="3">
+      <div class="category-slideshow" data-autoplay="5000">
+        <div class="category-header">
+          <div class="category-label">Los Angeles Times &middot; Culture & Events</div>
+        </div>
+        <div class="carousel-viewport">
+
+          <div class="carousel-item active">
+            <img src="images/obama.jpg" alt="Making History" loading="lazy">
+            <div class="item-caption">Making History. January 2009. The inauguration of Barack Hussein Obama. Illustration by studio artist.</div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="images/woodenposter.jpg" alt="John Wooden, 1910-2010" loading="lazy">
+            <div class="item-caption">John Wooden, 1910&ndash;2010. June 2010. Tribute page. The coach and every trophy he ever won.</div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="images/OSCARSPOSTER.jpg" alt="The 82nd Academy Awards" loading="lazy">
+            <div class="item-caption">The 82nd Academy Awards. March 2010. Red carpet panoramic spread.</div>
+          </div>
+
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-arrow" data-dir="prev">&lsaquo;</button>
+          <div class="carousel-dots"></div>
+          <span class="carousel-count"></span>
+          <button class="carousel-arrow" data-dir="next">&rsaquo;</button>
+        </div>
+        <div class="auto-indicator">auto-advances</div>
+      </div>
+    </div>
+
+    <!-- =============================================
+         SLIDE 5: LA TIMES — FEATURE JOURNALISM
+         ============================================= -->
+    <div class="slide" data-index="4">
+      <div class="category-slideshow" data-autoplay="5000">
+        <div class="category-header">
+          <div class="category-label">Los Angeles Times &middot; Feature Journalism</div>
+        </div>
+        <div class="carousel-viewport">
+
+          <div class="carousel-item active">
+            <img src="images/wildfires-photography.png" alt="San Diego at the Mercy of Flames" loading="lazy">
+            <div class="item-caption">San Diego at the Mercy of Flames. October 2007. Southern California wildfires. Double-truck spread.</div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="images/seasidedeath.jpg" alt="Death in a Seaside Paradise" loading="lazy">
+            <div class="item-caption">Death in a Seaside Paradise. December 2007. La Jolla surfer killing investigation. Aerial paddle-out memorial.</div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="images/howwemetLAaffairs.jpg" alt="There's No Mistaking Love" loading="lazy">
+            <div class="item-caption">There&rsquo;s No Mistaking Love. June 2013. L.A. Affairs column. Written by Derek Simmons. How a newspaper typo led to a marriage.</div>
+          </div>
+
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-arrow" data-dir="prev">&lsaquo;</button>
+          <div class="carousel-dots"></div>
+          <span class="carousel-count"></span>
+          <button class="carousel-arrow" data-dir="next">&rsaquo;</button>
+        </div>
+        <div class="auto-indicator">auto-advances</div>
+      </div>
+    </div>
+
+    <!-- =============================================
+         SLIDE 6: STAR TRIBUNE DIVIDER
+         ============================================= -->
+    <div class="slide" data-index="5">
       <div class="slide-divider">
         <div class="divider-label">Star Tribune, 2013 &ndash; 2024</div>
         <blockquote>Art is never finished, only abandoned. Abandoned for us because of deadlines.</blockquote>
       </div>
     </div>
 
-    <!-- STAR TRIBUNE WORK SLIDES -->
-    <div class="slide" data-index="13">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/sochi-cover.png" alt="Sochi 2014: Torch Bearers" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">Sochi 2014: Torch Bearers</div>
-          <div class="work-meta">Star Tribune, February 2014. 27 Minnesota Olympians in a mosaic torch. Illustration by Michael Hogue.</div>
+    <!-- =============================================
+         SLIDE 7: STAR TRIBUNE — SIGNATURE MOMENTS
+         ============================================= -->
+    <div class="slide" data-index="6">
+      <div class="category-slideshow" data-autoplay="5000">
+        <div class="category-header">
+          <div class="category-label">Star Tribune &middot; Signature Moments</div>
         </div>
-      </div>
-    </div>
+        <div class="carousel-viewport">
 
-    <div class="slide" data-index="14">
-      <div class="slide-work">
-        <div class="work-image-container">
-          <div class="work-grid grid-2x2">
-            <img src="images/prince-covers/prince-cover-1.png" alt="Prince Cover 1" loading="lazy">
-            <img src="images/prince-covers/prince-cover-2.png" alt="Prince Cover 2" loading="lazy">
-            <img src="images/prince-covers/prince-cover-3.png" alt="Prince Cover 3" loading="lazy">
-            <img src="images/prince-covers/prince-cover-4.png" alt="Prince Cover 4" loading="lazy">
+          <div class="carousel-item active">
+            <img src="images/sochi-cover.png" alt="Sochi 2014: Torch Bearers" loading="lazy">
+            <div class="item-caption">Sochi 2014: Torch Bearers. February 2014. 27 Minnesota Olympians in a mosaic torch. Illustration by Michael Hogue.</div>
           </div>
-        </div>
-        <div class="work-caption">
-          <div class="work-title">Prince: Remembering a Minnesota Icon</div>
-          <div class="work-meta">Star Tribune, May 2016. Four special section covers. 12-page tribute.</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="slide" data-index="15">
-      <div class="slide-work">
-        <div class="work-image-container">
-          <iframe src="https://www.youtube.com/embed/M6tn3Q7i7-c" title="Prince Commemorative Special Sections" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="work-caption">
-          <div class="work-title">Prince Commemorative Special Sections</div>
-          <div class="work-meta">Star Tribune. Video walkthrough of the four Prince tribute sections.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide" data-index="16">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/election-wave-cover.png" alt="Election Wave" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">Trump Wave</div>
-          <div class="work-meta">Star Tribune, November 9, 2016. 28 pages of election coverage. The front page of a historic night.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide" data-index="17">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/bees.jpg" alt="Nature's Dying Migrant Worker" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">Nature&rsquo;s Dying Migrant Worker</div>
-          <div class="work-meta">Star Tribune, June 2014. Bees at the Brink investigative series. Colony collapse and the food supply.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide" data-index="18">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/sugar-illustration.png" alt="Sugar: Our National Obsession" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">Sugar: Our National Obsession</div>
-          <div class="work-meta">Star Tribune. Health investigation. Illustration-driven data journalism.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide" data-index="19">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/disabled.jpg" alt="How Minnesota Fails the Disabled" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">How Minnesota Fails the Disabled</div>
-          <div class="work-meta">Star Tribune, November 2015. Investigative series, Part 1. Accountability journalism.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide" data-index="20">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/heartland-to-jihad-digital-illustration.png" alt="From the Heartland to Jihad" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">From the Heartland to Jihad</div>
-          <div class="work-meta">Star Tribune. Investigative series on radicalization and recruitment in the Somali-American community.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide" data-index="21">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/the-fatal-61-seconds.png" alt="The Fatal 61 Seconds" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">The Fatal 61 Seconds</div>
-          <div class="work-meta">Star Tribune, 2016. Panel-by-panel visual reconstruction of the Jamar Clark shooting. Illustrations by Rafa Alvarez, Milan.</div>
-          <a href="https://www.startribune.com/61seconds" target="_blank" rel="noopener" class="work-link">view project &rarr;</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide" data-index="22">
-      <div class="slide-work">
-        <div class="work-image-container">
-          <iframe src="https://www.youtube.com/embed/wwa6xT7gWWo" title="Solitary Confinement Series" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="work-caption">
-          <div class="work-title">Solitary Confinement Series</div>
-          <div class="work-meta">Star Tribune. Multimedia investigation into solitary confinement in Minnesota prisons.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide" data-index="23">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/stmag-cover.png" alt="Star Tribune Magazine" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">Star Tribune Magazine</div>
-          <div class="work-meta">Star Tribune, October 2017. Mississippi River headwaters. Launched and led the magazine.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide" data-index="24">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/stmag-cover-spread.png" alt="Star Tribune Magazine Spread" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">Star Tribune Magazine. Full Spread</div>
-          <div class="work-meta">Star Tribune, October 2017. The complete cover spread. Mississippi River headwaters to the Gulf.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide" data-index="25">
-      <div class="slide-work">
-        <div class="work-image-container">
-          <iframe src="https://www.youtube.com/embed/rAHuwFMmJwQ" title="Star Tribune 150th Anniversary" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="work-caption">
-          <div class="work-title">Star Tribune 150th Anniversary</div>
-          <div class="work-meta">Star Tribune. Video commemorating 150 years of the Star Tribune.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide" data-index="26">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/weather-dataviz.png" alt="A Warmer, Wetter Minnesota" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">A Warmer, Wetter Minnesota</div>
-          <div class="work-meta">Star Tribune, January 2017. Year-in-review climate data visualization. Every day, every degree.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide" data-index="27">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/election-dataviz.png" alt="Minnesota Moves Right" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">Minnesota Moves Right</div>
-          <div class="work-meta">Star Tribune, November 2016. Election data visualization. Every county, every shift.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide" data-index="28">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/stadium-spread.jpg" alt="Now Appearing on the Horizon" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">Now Appearing on the Horizon</div>
-          <div class="work-meta">Star Tribune. U.S. Bank Stadium preview. Broadsheet-scale architectural rendering.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide" data-index="29">
-      <div class="slide-work">
-        <div class="work-image-container">
-          <div class="work-grid grid-2x3">
-            <img src="images/state-fair-tshirts/statefair-tshirt1.png" alt="State Fair T-Shirt 1" loading="lazy">
-            <img src="images/state-fair-tshirts/statefair-tshirt2.png" alt="State Fair T-Shirt 2" loading="lazy">
-            <img src="images/state-fair-tshirts/statefair-tshirt3.png" alt="State Fair T-Shirt 3" loading="lazy">
-            <img src="images/state-fair-tshirts/statefair-tshirt4.png" alt="State Fair T-Shirt 4" loading="lazy">
-            <img src="images/state-fair-tshirts/statefair-tshirt5.png" alt="State Fair T-Shirt 5" loading="lazy">
-            <img src="images/state-fair-tshirts/statefair-tshirt6.png" alt="State Fair T-Shirt 6" loading="lazy">
+          <div class="carousel-item">
+            <div class="work-grid grid-2x2">
+              <img src="images/prince-covers/prince-cover-1.png" alt="Prince Cover 1" loading="lazy">
+              <img src="images/prince-covers/prince-cover-2.png" alt="Prince Cover 2" loading="lazy">
+              <img src="images/prince-covers/prince-cover-3.png" alt="Prince Cover 3" loading="lazy">
+              <img src="images/prince-covers/prince-cover-4.png" alt="Prince Cover 4" loading="lazy">
+            </div>
+            <div class="item-caption">Prince: Remembering a Minnesota Icon. May 2016. Four special section covers. 12-page tribute.</div>
           </div>
-        </div>
-        <div class="work-caption">
-          <div class="work-title">State Fair Collection</div>
-          <div class="work-meta">Star Tribune, 2016. Consumer product design. Revenue-generating t-shirt line.</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="slide" data-index="30">
-      <div class="slide-work">
-        <div class="work-image-container">
-          <div class="work-grid grid-1x3">
-            <img src="images/vr-app/vr-app-1.png" alt="Star Tribune VR App Screenshot 1" loading="lazy">
-            <img src="images/vr-app/vr-app-2.png" alt="Star Tribune VR App Screenshot 2" loading="lazy">
-            <img src="images/vr-app/vr-app-3.png" alt="Star Tribune VR App Screenshot 3" loading="lazy">
+          <div class="carousel-item">
+            <img src="images/election-wave-cover.png" alt="Trump Wave" loading="lazy">
+            <div class="item-caption">Trump Wave. November 9, 2016. 28 pages of election coverage. The front page of a historic night.</div>
           </div>
-        </div>
-        <div class="work-caption">
-          <div class="work-title">Star Tribune VR</div>
-          <div class="work-meta">Star Tribune. Virtual reality app launch. Digital product design and emerging platform.</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="slide" data-index="31">
-      <div class="slide-work">
-        <div class="work-image-container"><img src="images/state-of-wonders.jpg" alt="State of Wonders" loading="lazy"></div>
-        <div class="work-caption">
-          <div class="work-title">State of Wonders</div>
-          <div class="work-meta">Star Tribune. Coffee table book. Photography by Brian Peterson.</div>
         </div>
+        <div class="carousel-nav">
+          <button class="carousel-arrow" data-dir="prev">&lsaquo;</button>
+          <div class="carousel-dots"></div>
+          <span class="carousel-count"></span>
+          <button class="carousel-arrow" data-dir="next">&rsaquo;</button>
+        </div>
+        <div class="auto-indicator">auto-advances</div>
       </div>
     </div>
 
     <!-- =============================================
-         END SLIDE
+         SLIDE 8: STAR TRIBUNE — INVESTIGATIVE
          ============================================= -->
-    <div class="slide" data-index="32">
+    <div class="slide" data-index="7">
+      <div class="category-slideshow" data-autoplay="5000">
+        <div class="category-header">
+          <div class="category-label">Star Tribune &middot; Investigative Journalism</div>
+        </div>
+        <div class="carousel-viewport">
+
+          <div class="carousel-item active">
+            <img src="images/bees.jpg" alt="Nature's Dying Migrant Worker" loading="lazy">
+            <div class="item-caption">Nature&rsquo;s Dying Migrant Worker. June 2014. Bees at the Brink investigative series. Colony collapse and the food supply.</div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="images/sugar-illustration.png" alt="Sugar: Our National Obsession" loading="lazy">
+            <div class="item-caption">Sugar: Our National Obsession. Health investigation. Illustration-driven data journalism.</div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="images/disabled.jpg" alt="How Minnesota Fails the Disabled" loading="lazy">
+            <div class="item-caption">How Minnesota Fails the Disabled. November 2015. Investigative series, Part 1. Accountability journalism.</div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="images/heartland-to-jihad-digital-illustration.png" alt="From the Heartland to Jihad" loading="lazy">
+            <div class="item-caption">From the Heartland to Jihad. Investigative series on radicalization and recruitment in the Somali-American community.</div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="images/the-fatal-61-seconds.png" alt="The Fatal 61 Seconds" loading="lazy">
+            <div class="item-caption">The Fatal 61 Seconds. 2016. Panel-by-panel visual reconstruction of the Jamar Clark shooting. <a href="https://www.startribune.com/61seconds" target="_blank" rel="noopener">view project &rarr;</a></div>
+          </div>
+
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-arrow" data-dir="prev">&lsaquo;</button>
+          <div class="carousel-dots"></div>
+          <span class="carousel-count"></span>
+          <button class="carousel-arrow" data-dir="next">&rsaquo;</button>
+        </div>
+        <div class="auto-indicator">auto-advances</div>
+      </div>
+    </div>
+
+    <!-- =============================================
+         SLIDE 9: STAR TRIBUNE — MULTIMEDIA
+         ============================================= -->
+    <div class="slide" data-index="8">
+      <div class="category-slideshow" data-autoplay="8000">
+        <div class="category-header">
+          <div class="category-label">Star Tribune &middot; Multimedia</div>
+        </div>
+        <div class="carousel-viewport">
+
+          <div class="carousel-item active">
+            <iframe src="https://www.youtube.com/embed/M6tn3Q7i7-c" title="Prince Commemorative Special Sections" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <div class="item-caption">Prince Commemorative Special Sections. Video walkthrough of the four Prince tribute sections.</div>
+          </div>
+
+          <div class="carousel-item">
+            <iframe src="https://www.youtube.com/embed/wwa6xT7gWWo" title="Solitary Confinement Series" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <div class="item-caption">Solitary Confinement Series. Multimedia investigation into solitary confinement in Minnesota prisons.</div>
+          </div>
+
+          <div class="carousel-item">
+            <iframe src="https://www.youtube.com/embed/rAHuwFMmJwQ" title="Star Tribune 150th Anniversary" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <div class="item-caption">Star Tribune 150th Anniversary. Video commemorating 150 years of the Star Tribune.</div>
+          </div>
+
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-arrow" data-dir="prev">&lsaquo;</button>
+          <div class="carousel-dots"></div>
+          <span class="carousel-count"></span>
+          <button class="carousel-arrow" data-dir="next">&rsaquo;</button>
+        </div>
+        <div class="auto-indicator">auto-advances</div>
+      </div>
+    </div>
+
+    <!-- =============================================
+         SLIDE 10: STAR TRIBUNE — DATA VISUALIZATION
+         ============================================= -->
+    <div class="slide" data-index="9">
+      <div class="category-slideshow" data-autoplay="5000">
+        <div class="category-header">
+          <div class="category-label">Star Tribune &middot; Data Visualization</div>
+        </div>
+        <div class="carousel-viewport">
+
+          <div class="carousel-item active">
+            <img src="images/weather-dataviz.png" alt="A Warmer, Wetter Minnesota" loading="lazy">
+            <div class="item-caption">A Warmer, Wetter Minnesota. January 2017. Year-in-review climate data visualization. Every day, every degree.</div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="images/election-dataviz.png" alt="Minnesota Moves Right" loading="lazy">
+            <div class="item-caption">Minnesota Moves Right. November 2016. Election data visualization. Every county, every shift.</div>
+          </div>
+
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-arrow" data-dir="prev">&lsaquo;</button>
+          <div class="carousel-dots"></div>
+          <span class="carousel-count"></span>
+          <button class="carousel-arrow" data-dir="next">&rsaquo;</button>
+        </div>
+        <div class="auto-indicator">auto-advances</div>
+      </div>
+    </div>
+
+    <!-- =============================================
+         SLIDE 11: STAR TRIBUNE — MAGAZINE & FEATURES
+         ============================================= -->
+    <div class="slide" data-index="10">
+      <div class="category-slideshow" data-autoplay="5000">
+        <div class="category-header">
+          <div class="category-label">Star Tribune &middot; Magazine & Features</div>
+        </div>
+        <div class="carousel-viewport">
+
+          <div class="carousel-item active">
+            <img src="images/stmag-cover.png" alt="Star Tribune Magazine" loading="lazy">
+            <div class="item-caption">Star Tribune Magazine. October 2017. Mississippi River headwaters. Launched and led the magazine.</div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="images/stmag-cover-spread.png" alt="Star Tribune Magazine Spread" loading="lazy">
+            <div class="item-caption">Star Tribune Magazine. Full Spread. Mississippi River headwaters to the Gulf.</div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="images/stadium-spread.jpg" alt="Now Appearing on the Horizon" loading="lazy">
+            <div class="item-caption">Now Appearing on the Horizon. U.S. Bank Stadium preview. Broadsheet-scale architectural rendering.</div>
+          </div>
+
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-arrow" data-dir="prev">&lsaquo;</button>
+          <div class="carousel-dots"></div>
+          <span class="carousel-count"></span>
+          <button class="carousel-arrow" data-dir="next">&rsaquo;</button>
+        </div>
+        <div class="auto-indicator">auto-advances</div>
+      </div>
+    </div>
+
+    <!-- =============================================
+         SLIDE 12: STAR TRIBUNE — PRODUCTS & INNOVATION
+         ============================================= -->
+    <div class="slide" data-index="11">
+      <div class="category-slideshow" data-autoplay="5000">
+        <div class="category-header">
+          <div class="category-label">Star Tribune &middot; Products & Innovation</div>
+        </div>
+        <div class="carousel-viewport">
+
+          <div class="carousel-item active">
+            <div class="work-grid grid-2x3">
+              <img src="images/state-fair-tshirts/statefair-tshirt1.png" alt="State Fair T-Shirt 1" loading="lazy">
+              <img src="images/state-fair-tshirts/statefair-tshirt2.png" alt="State Fair T-Shirt 2" loading="lazy">
+              <img src="images/state-fair-tshirts/statefair-tshirt3.png" alt="State Fair T-Shirt 3" loading="lazy">
+              <img src="images/state-fair-tshirts/statefair-tshirt4.png" alt="State Fair T-Shirt 4" loading="lazy">
+              <img src="images/state-fair-tshirts/statefair-tshirt5.png" alt="State Fair T-Shirt 5" loading="lazy">
+              <img src="images/state-fair-tshirts/statefair-tshirt6.png" alt="State Fair T-Shirt 6" loading="lazy">
+            </div>
+            <div class="item-caption">State Fair Collection. 2016. Consumer product design. Revenue-generating t-shirt line.</div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="work-grid grid-1x3">
+              <img src="images/vr-app/vr-app-1.png" alt="Star Tribune VR App Screenshot 1" loading="lazy">
+              <img src="images/vr-app/vr-app-2.png" alt="Star Tribune VR App Screenshot 2" loading="lazy">
+              <img src="images/vr-app/vr-app-3.png" alt="Star Tribune VR App Screenshot 3" loading="lazy">
+            </div>
+            <div class="item-caption">Star Tribune VR. Virtual reality app launch. Digital product design and emerging platform.</div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="images/state-of-wonders.jpg" alt="State of Wonders" loading="lazy">
+            <div class="item-caption">State of Wonders. Coffee table book. Photography by Brian Peterson.</div>
+          </div>
+
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-arrow" data-dir="prev">&lsaquo;</button>
+          <div class="carousel-dots"></div>
+          <span class="carousel-count"></span>
+          <button class="carousel-arrow" data-dir="next">&rsaquo;</button>
+        </div>
+        <div class="auto-indicator">auto-advances</div>
+      </div>
+    </div>
+
+    <!-- =============================================
+         SLIDE 13: END
+         ============================================= -->
+    <div class="slide" data-index="12">
       <div class="slide-end">
         <h2>The work continues.</h2>
         <p>Now building operational infrastructure with AI at CW Strategies. Same instinct, different tools.</p>
@@ -833,7 +1050,7 @@
   </div>
 
   <script>
-    // Slideshow engine
+    // ── Main Slideshow Engine ─────────────────────────────
     var current = 0;
     var allSlides = document.querySelectorAll('.slide');
     var total = allSlides.length;
@@ -845,6 +1062,10 @@
     function goTo(index) {
       if (index < 0 || index >= total) return;
       allSlides[current].classList.remove('active');
+
+      // Stop autoplay on the slide we're leaving
+      stopCarouselAutoplay(allSlides[current]);
+
       current = index;
       allSlides[current].classList.add('active');
       counter.textContent = (current + 1) + ' / ' + total;
@@ -852,11 +1073,21 @@
       prevBtn.classList.toggle('hidden', current === 0);
       nextBtn.classList.toggle('hidden', current === total - 1);
 
+      // Start autoplay on the slide we're entering
+      startCarouselAutoplay(allSlides[current]);
+
       // Pause videos on other slides
       allSlides.forEach(function(s, i) {
         if (i !== current) {
-          var v = s.querySelector('video');
-          if (v) v.pause();
+          var iframes = s.querySelectorAll('iframe');
+          iframes.forEach(function(iframe) {
+            // Reload iframe to stop video (YouTube doesn't respond to postMessage reliably)
+            var src = iframe.src;
+            if (src) {
+              iframe.src = '';
+              iframe.src = src;
+            }
+          });
         }
       });
     }
@@ -882,7 +1113,7 @@
       }
     });
 
-    // Touch swipe
+    // Touch swipe for main slides
     var touchStartX = 0;
     var touchStartY = 0;
     var deckEl = document.getElementById('deck');
@@ -901,16 +1132,133 @@
       }
     }, { passive: true });
 
-    // Click to advance (not on videos, iframes, or links)
+    // Click to advance (not on carousels, videos, iframes, or links)
     deckEl.addEventListener('click', function(e) {
       var tag = e.target.tagName;
       if (tag === 'VIDEO' || tag === 'IFRAME' || tag === 'A' || tag === 'BUTTON') return;
+
+      // Don't advance main slide if clicking inside a carousel
+      if (e.target.closest('.category-slideshow')) return;
+
       var rect = deckEl.getBoundingClientRect();
       var x = e.clientX - rect.left;
       if (x > rect.width / 2) goTo(current + 1);
       else goTo(current - 1);
     });
+
+
+    // ── Category Carousel Engine ──────────────────────────
+
+    var carouselTimers = new Map();
+
+    function initCarousel(slideshow) {
+      var items = slideshow.querySelectorAll('.carousel-item');
+      var dotsContainer = slideshow.querySelector('.carousel-dots');
+      var countEl = slideshow.querySelector('.carousel-count');
+      var currentItem = 0;
+
+      if (items.length <= 1) {
+        // Hide nav if only one item
+        var nav = slideshow.querySelector('.carousel-nav');
+        var autoInd = slideshow.querySelector('.auto-indicator');
+        if (nav) nav.style.display = 'none';
+        if (autoInd) autoInd.style.display = 'none';
+        return;
+      }
+
+      // Build dots
+      for (var i = 0; i < items.length; i++) {
+        var dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Item ' + (i + 1));
+        dot.dataset.index = i;
+        dot.addEventListener('click', function() {
+          goToItem(parseInt(this.dataset.index));
+        });
+        dotsContainer.appendChild(dot);
+      }
+
+      // Update count
+      if (countEl) {
+        countEl.textContent = '1 / ' + items.length;
+      }
+
+      function goToItem(index) {
+        items[currentItem].classList.remove('active');
+        var dots = dotsContainer.querySelectorAll('.carousel-dot');
+        dots[currentItem].classList.remove('active');
+
+        currentItem = index;
+        if (currentItem < 0) currentItem = items.length - 1;
+        if (currentItem >= items.length) currentItem = 0;
+
+        items[currentItem].classList.add('active');
+        dots[currentItem].classList.add('active');
+
+        if (countEl) {
+          countEl.textContent = (currentItem + 1) + ' / ' + items.length;
+        }
+      }
+
+      // Arrow buttons
+      var arrows = slideshow.querySelectorAll('.carousel-arrow');
+      arrows.forEach(function(arrow) {
+        arrow.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var dir = this.dataset.dir;
+          if (dir === 'prev') goToItem(currentItem - 1);
+          else goToItem(currentItem + 1);
+
+          // Reset autoplay timer on manual nav
+          resetAutoplay(slideshow);
+        });
+      });
+
+      // Store goToItem reference for autoplay
+      slideshow._goToItem = goToItem;
+      slideshow._getCurrentItem = function() { return currentItem; };
+      slideshow._getItemCount = function() { return items.length; };
+    }
+
+    function startCarouselAutoplay(slide) {
+      var slideshow = slide.querySelector('.category-slideshow[data-autoplay]');
+      if (!slideshow || !slideshow._goToItem) return;
+
+      var interval = parseInt(slideshow.dataset.autoplay) || 5000;
+      var timer = setInterval(function() {
+        var next = (slideshow._getCurrentItem() + 1) % slideshow._getItemCount();
+        slideshow._goToItem(next);
+      }, interval);
+
+      carouselTimers.set(slideshow, timer);
+    }
+
+    function stopCarouselAutoplay(slide) {
+      var slideshow = slide.querySelector('.category-slideshow[data-autoplay]');
+      if (!slideshow) return;
+
+      var timer = carouselTimers.get(slideshow);
+      if (timer) {
+        clearInterval(timer);
+        carouselTimers.delete(slideshow);
+      }
+    }
+
+    function resetAutoplay(slideshow) {
+      var slide = slideshow.closest('.slide');
+      if (slide) {
+        stopCarouselAutoplay(slide);
+        startCarouselAutoplay(slide);
+      }
+    }
+
+    // Initialize all carousels
+    document.querySelectorAll('.category-slideshow').forEach(initCarousel);
+
+    // Start autoplay on the first slide if it has a carousel
+    startCarouselAutoplay(allSlides[current]);
   </script>
+  <script src="/js/cw-link-renderer.js"></script>
   <script src="/js/porch-widget.js" defer></script>
 </body>
 </html>

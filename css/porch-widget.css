@@ -149,6 +149,22 @@
   font-weight: 600;
 }
 
+/* Links inside CW messages (rendered by cw-link-renderer.js) */
+.porch-msg-cw a {
+  color: #d4a84b;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.porch-msg-cw a:hover {
+  border-bottom-color: #d4a84b;
+}
+
+.porch-msg-cw a:visited {
+  color: #d4a84b;
+}
+
 .porch-msg-you {
   color: #9ca3af;
   align-self: flex-end;

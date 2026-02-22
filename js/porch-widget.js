@@ -205,7 +205,13 @@
 
     var msg = document.createElement('div');
     msg.className = 'porch-msg porch-msg-' + sender;
-    msg.textContent = text;
+    // CW responses: render clickable links via CWLinkRenderer (sanitized, CW output only)
+    // User messages: always textContent (no HTML interpretation)
+    if (sender === 'cw' && window.CWLinkRenderer) {
+      msg.innerHTML = window.CWLinkRenderer.render(text);
+    } else {
+      msg.textContent = text;
+    }
     messages.appendChild(msg);
     messages.scrollTop = messages.scrollHeight;
   }
