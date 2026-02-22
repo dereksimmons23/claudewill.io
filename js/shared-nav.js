@@ -12,32 +12,18 @@
   var NAV_CONFIG = {
     sections: [
       {
+        label: 'derek',
+        href: '/derek',
+        items: []
+      },
+      {
         label: 'the story',
         href: '/story',
         items: []
       },
       {
-        label: 'derek',
-        href: '/derek',
-        items: [
-          { name: 'assessment', href: '/derek/assessment' },
-          { name: 'research', href: '/derek/research' },
-          { name: 'library', href: '/library' },
-          { name: 'portfolio', href: '/derek/portfolio' }
-        ]
-      },
-      {
-        label: 'the workshop',
-        href: '/workshop',
-        items: [
-          { name: 'bob', href: 'https://bob.claudewill.io' },
-          { name: 'coach d', href: 'https://coach.claudewill.io' },
-          { name: 'arcade', href: '/arcade' }
-        ]
-      },
-      {
-        label: 'the standard',
-        href: '/story#the-cw-standard',
+        label: 'work with me',
+        href: '/work-with-me',
         items: []
       }
     ]

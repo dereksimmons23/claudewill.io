@@ -3,8 +3,8 @@
     {
       "path": "/",
       "title": "claudewill*",
-      "description": "The homepage — invitation to browse (Story, Derek, Studio, Standard, Map) plus the porch conversation with CW below.",
-      "cw": "This is the porch. Where we're talking right now. But the homepage also shows you where everything is."
+      "description": "The homepage — three screens: invitation with typewriter, Derek introduction, and the CW Standard.",
+      "cw": "This is the porch. Where we're talking right now."
     },
     {
       "path": "/story",
@@ -21,8 +21,14 @@
     {
       "path": "/derek",
       "title": "Derek Simmons",
-      "description": "Derek's professional hub. Bio, proof, engagement models (fractional or project), Q&A with audio, work cards, contact.",
-      "cw": "Everything about Derek — his story, what he built, and how to work with him — is at claudewill.io/derek."
+      "description": "Derek's personal page. Bio, the naming story, writing, and contact form.",
+      "cw": "Everything about Derek — his story, what he's writing, how to reach him — is at claudewill.io/derek."
+    },
+    {
+      "path": "/work-with-me",
+      "title": "Work With Me",
+      "description": "AI strategy consulting. The engagement model, proof, and assessment form. The conversion page.",
+      "cw": "If you're interested in working with Derek, head to claudewill.io/work-with-me. That's where the assessment is."
     },
     {
       "path": "/derek/assessment",

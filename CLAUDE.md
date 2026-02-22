@@ -1,8 +1,8 @@
 # CLAUDE.md — claudewill.io
 
 **Last updated:** February 22, 2026
-**Status:** v2.1 — The Kitchen + Model Routing
-**Milestone:** Private command center, Opus/Haiku routing, CW Link Renderer
+**Status:** v2.2 — The Funnel
+**Milestone:** /work-with-me conversion page, 3-item nav, homepage redesign
 
 > Pull up a chair. He's listening.
 
@@ -13,9 +13,10 @@
 ## Current State
 
 ### What Works
-- **Homepage** — 4-screen billboard: invitation (wordmark, typewriter, nav), the story, the builder (assessment CTA), the standard (5 principles)
+- **Homepage** — 3-screen billboard: invitation (claudewill* with clickable asterisk, typewriter), Derek intro, the standard (5 clickable principles)
+- **Work With Me** — /work-with-me: THE conversion page. Pitch (the work, the model), proof (testimonials), embedded assessment form. The funnel endpoint.
 - **Porch widget** — `cw> _` terminal trigger on every page including homepage. Slide-up chat panel connects to CW API. Vernie Mode via "family?" chip or `?family=true` URL parameter.
-- **Command palette** — Terminal-style nav overlay. Triggered by `*` in sticky headers or floating `*` button on other pages. Replaces hamburger drawer.
+- **Command palette** — Terminal-style nav overlay with 3 items: derek, the story, work with me. Triggered by `*` in sticky headers or floating `*` button on other pages.
 - **Story page** — Full narrative at /story (4 chapters, lineage, photo)
 - **Library** — /library with 4 shelves: dispatches (Substack), research (Between Claudes), the book (Finding Claude), selected (coming)
 - **Supabase logging** — Conversations stored in `conversations` table
@@ -24,7 +25,7 @@
 - **Accessibility** — WCAG 2.1 AA compliant
 - **Hallucination guardrails** — CW won't fabricate research/sources, admits limitations
 - **Site index** — Everything at claudewill.io in one place at /map
-- **Site knowledge** — CW knows about /story, /story#the-cw-standard, /derek, /workshop, /library, /arcade, /map
+- **Site knowledge** — CW knows about /story, /derek, /work-with-me, /workshop, /library, /arcade, /map
 - **Size This Up** — Guided 5-step problem-sizing flow (Define → Weight → Resources → Focus → Next Step)
 - **Constitutional thinking** — CW knows 5 constitutional frameworks (CW Standard, Anthropic, Declaration, US Constitution, others) and can help people think constitutionally
 - **Political topics** — CW distinguishes partisan fights (avoids) from constitutional principles (engages directly); can name constitutional violations without being partisan
@@ -70,9 +71,10 @@
 ### File Structure
 ```
 claudewill.io/
-├── index.html              # Homepage — 4-screen billboard + typewriter
+├── index.html              # Homepage — 3-screen billboard (invitation, derek, standard)
+├── work-with-me.html       # Work With Me — THE conversion page (pitch + assessment)
 ├── story.html              # The Story page (4 chapters, in nav)
-├── derek.html              # /derek — the hub: bio, proof, engagement, writing, contact
+├── derek.html              # /derek — personal page: bio, little star, writing, contact
 ├── workshop.html           # /workshop — product portfolio (was studio)
 ├── library.html            # /library — writing: dispatches, research, book, selected
 ├── map.html                # /map — site index
@@ -302,6 +304,7 @@ Environment variables in Netlify:
 ### Done
 | Item | Date | Notes |
 |------|------|-------|
+| The Funnel | Feb 22 | /work-with-me, 3-item nav, homepage redesign, derek trimmed |
 | The Kitchen | Feb 22 | Private command center, model routing, Kitchen CW persona |
 | CW Link Renderer | Feb 22 | Clickable links in CW chat across all pages |
 | Portfolio Rebuild | Feb 22 | 33→13 slides, animated category slideshows |
@@ -322,7 +325,6 @@ Environment variables in Netlify:
 | Distribution strategy | u/cwStrategies, LinkedIn cadence, platform launch |
 | dawn.claudewill.io | Dawn subdomain — coming soon |
 | d-rock.claudewill.io | D-Rock subdomain — coming soon |
-| Derek page content rewrite | Draft written, needs implementation in HTML |
 | Story page rewrite | Needs asteriskos, sharper articles |
 | Mobile testing | All pages, all new patterns (palette, widget, billboards) |
 | CW Remembers | Design approved Feb 19. Plan at `docs/plans/2026-02-19-cw-remembers-design.md` |
@@ -385,7 +387,8 @@ git log --oneline -15
 | Production | https://claudewill.io |
 | The Story | https://claudewill.io/story |
 | The Standard | https://claudewill.io/story#the-cw-standard |
-| Derek (hub) | https://claudewill.io/derek |
+| Derek | https://claudewill.io/derek |
+| Work With Me | https://claudewill.io/work-with-me |
 | Assessment | https://claudewill.io/derek/assessment |
 | The Workshop | https://claudewill.io/workshop |
 | Library | https://claudewill.io/library |
@@ -400,6 +403,13 @@ git log --oneline -15
 ---
 
 ## Changelog
+
+### February 22, 2026 — The Funnel
+- **Work With Me** — /work-with-me: THE conversion page. Pitch → proof → assessment form. One page, full funnel.
+- **Homepage redesign** — 4 screens → 3. Invitation (claudewill* with clickable asterisk, 4 typewriter phrases), Derek intro, the standard (clickable principles).
+- **Nav simplified** — 4 sections with subsections → 3 flat links: derek, the story, work with me.
+- **Derek page trimmed** — Removed engagement pitch, recommendations, what I build. Kept bio, little star, dispatches, contact. First button now "work with me →".
+- **CW knows /work-with-me** — site-knowledge.md updated, prompt recompiled. CW points potential clients to /work-with-me.
 
 ### February 22, 2026 — The Kitchen + HANDOFF Items
 - **The Kitchen** — Private command center at /kitchen. Auth gate, 4-panel dashboard (Brief, Pulse, Content Stage, Decisions Queue). Kitchen CW runs on Opus with sous chef persona.
