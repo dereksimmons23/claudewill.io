@@ -103,9 +103,8 @@ try {
 
   VERNIE_PROMPT = vernieSections.filter(s => s.trim()).join('\n\n');
 
-  // Kitchen Mode prompt (operational, lean)
+  // Kitchen Mode prompt (operational, lean — no persona.md, kitchen.md defines identity)
   const kitchenSections = [
-    readPromptFile('persona.md'),
     readPromptFile('kitchen.md'),
     readPromptFile('derek.md'),
     readPromptFile('guardrails/hallucination.md'),

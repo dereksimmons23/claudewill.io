@@ -95,8 +95,8 @@ const vernieSections = [
 const VERNIE_PROMPT = vernieSections.filter(s => s.trim()).join('\n\n');
 
 // Kitchen Mode prompt (operational, lean — sous chef for Derek)
+// No persona.md — kitchen.md defines who CW is here. persona.md is porch behavior.
 const kitchenSections = [
-  readPromptFile('persona.md'),
   readPromptFile('kitchen.md'),
   readPromptFile('derek.md'),
   readPromptFile('guardrails/hallucination.md'),
