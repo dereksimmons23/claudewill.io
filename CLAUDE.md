@@ -1,8 +1,8 @@
 # CLAUDE.md — claudewill.io
 
-**Last updated:** February 21, 2026
-**Status:** v2.0 — Visual Redesign Complete
-**Milestone:** 4-screen billboard, command palette, porch widget on every page
+**Last updated:** February 22, 2026
+**Status:** v2.1 — The Kitchen + Model Routing
+**Milestone:** Private command center, Opus/Haiku routing, CW Link Renderer
 
 > Pull up a chair. He's listening.
 
@@ -33,6 +33,9 @@
 - **Referral intelligence** — CW points people to the right resources conversationally (mental health, legal, medical, research, career, financial)
 - **Liberation Gravy** — Guided flow for thinning out subscriptions/consumption (Inventory → Gut Check → Milk vs Water → Cut → Add-Back), includes crop rotation frame (subscribe/use/cancel/rotate) and sharecropping trap warning
 - **The Funnel Cake** — What "free" actually costs (data, email, attention, peace) + the cancellation gauntlet (guilt, discount, bundle, maze)
+- **The Kitchen** — Private command center at /kitchen. Auth gate + 4-panel dashboard. Kitchen CW runs on Opus as sous chef.
+- **Model routing** — Kitchen→Opus, Porch→Haiku, Vernie→Haiku. Smart routing in cw.js.
+- **CW Link Renderer** — CW chat responses render clickable links (markdown + bare URLs) on all pages.
 
 ### What's Experimental
 - "Size This Up" tool (gathering feedback)
@@ -53,7 +56,8 @@
 | Frontend | Static HTML/CSS/JS | No framework, vanilla JS |
 | Hosting | Netlify | Auto-deploys from main branch |
 | API | Netlify Functions | Serverless, cw.js handles all requests |
-| AI | Anthropic Haiku | claude-haiku-4-5 for conversations |
+| AI | Anthropic Haiku | claude-haiku-4-5 for Porch/Vernie conversations |
+| AI | Anthropic Opus | claude-opus-4-20250514 for Kitchen conversations |
 | Database | Supabase | PostgreSQL, free tier |
 | Development | Claude Code (Opus) | This conversation |
 
@@ -73,15 +77,19 @@ claudewill.io/
 ├── library.html            # /library — writing: dispatches, research, book, selected
 ├── map.html                # /map — site index
 ├── arcade.html             # /arcade — three mini-games (not in nav)
+├── kitchen/
+│   └── index.html          # The Kitchen (auth gate + dashboard, private)
 ├── privacy.html            # Privacy policy
 ├── terms.html              # Terms of use
 ├── HANDOFF.md              # Session state (read by /standup)
 ├── site-registry.json      # Page/subdomain registry for CW
 ├── css/
 │   ├── shared-nav.css      # Command palette + footer utilities
-│   └── porch-widget.css    # CW chat widget styles
+│   ├── porch-widget.css    # CW chat widget styles
+│   └── kitchen.css         # Kitchen dark theme styles
 ├── js/
 │   ├── shared-nav.js       # Command palette overlay (terminal-style nav)
+│   ├── cw-link-renderer.js # Clickable links in CW chat responses
 │   └── porch-widget.js     # CW chat widget (slide-up panel, API connection)
 ├── images/
 │   └── cw-family.png       # Family photo
@@ -90,6 +98,7 @@ claudewill.io/
 ├── netlify/
 │   └── functions/
 │       ├── cw.js            # API handler + Anthropic call
+│       ├── kitchen-data.js  # Kitchen dashboard data API
 │       └── cw-prompt/       # Modular system prompt
 │           ├── index.js     # Assembler (compiled → fallback)
 │           ├── persona.md   # Identity, voice, backstory
@@ -98,6 +107,7 @@ claudewill.io/
 │           ├── derek.md     # About Derek, methodology, CW Strategies
 │           ├── behaviors.md # How CW operates
 │           ├── site-knowledge.md # Site pages, navigation
+│           ├── kitchen.md   # Kitchen CW persona (sous chef)
 │           ├── tools/       # CW conversation tools: sizing, trade, recalibrate, etc.
 │           └── guardrails/  # Safety, hallucination, political
 ├── worker/                 # CW Brief Cloudflare worker
@@ -162,6 +172,8 @@ Current size: ~45.6K chars, ~11.6K input tokens.
 | `js/porch-widget.js` | CW chat widget | Connects to /.netlify/functions/cw, on every page |
 | `css/shared-nav.css` | Palette + footer utilities | .footer-note, .signoff, .hw classes |
 | `css/porch-widget.css` | Chat panel styles | Terminal trigger + slide-up panel |
+| `netlify/functions/kitchen-data.js` | Kitchen dashboard data aggregator | Auth-gated, fetches from CW Brief worker + Supabase |
+| `js/cw-link-renderer.js` | Renders clickable links in CW messages | Loaded before porch-widget.js on all pages |
 | `HANDOFF.md` | Session state for /standup | **Updated by /eod** |
 
 ---
@@ -181,6 +193,12 @@ CW's personality is modularized in `netlify/functions/cw-prompt/` — persona.md
 
 ### Family Details
 CW hallucinated family details early on. Now the system prompt has strict guardrails. If someone reports hallucinations, check the system prompt section on family.
+
+### Kitchen vs Porch Prompts
+Kitchen CW does NOT include persona.md — that's porch behavior (site navigation, visitor handling). kitchen.md defines the sous chef identity standalone. If Kitchen CW starts directing Derek to website pages, persona.md probably leaked back in.
+
+### Model Routing
+cw.js routes models: Kitchen → Opus (claude-opus-4-20250514, 1500 tokens), Porch → Haiku (claude-haiku-4-5, 500 tokens), Vernie → Haiku (500 tokens). Kitchen requires valid kitchenCode. If Kitchen gets wrong model, check mode/kitchenCode parsing in cw.js.
 
 ### Porch Widget + Command Palette Z-Index
 Widget button: 9997. Chat panel: 9998. Command palette: 10000. When palette opens, widget hides. Escape closes both.
@@ -284,6 +302,9 @@ Environment variables in Netlify:
 ### Done
 | Item | Date | Notes |
 |------|------|-------|
+| The Kitchen | Feb 22 | Private command center, model routing, Kitchen CW persona |
+| CW Link Renderer | Feb 22 | Clickable links in CW chat across all pages |
+| Portfolio Rebuild | Feb 22 | 33→13 slides, animated category slideshows |
 | Visual Redesign v2 | Feb 21 | 6 phases: workshop rename, command palette, porch widget, homepage billboard, research stats, library |
 | Information Architecture | Feb 18 | 4 visitor paths, 5 nav items, /derek as hub |
 | Founder's Story | Feb 7 | Derek's 53rd birthday, roast published |
@@ -304,7 +325,6 @@ Environment variables in Netlify:
 | Derek page content rewrite | Draft written, needs implementation in HTML |
 | Story page rewrite | Needs asteriskos, sharper articles |
 | Mobile testing | All pages, all new patterns (palette, widget, billboards) |
-| Portfolio rebuild | 33 → ~15 slides, animated category slideshows |
 | CW Remembers | Design approved Feb 19. Plan at `docs/plans/2026-02-19-cw-remembers-design.md` |
 
 ### Separate Build: Constitutional Layer
@@ -381,6 +401,13 @@ git log --oneline -15
 
 ## Changelog
 
+### February 22, 2026 — The Kitchen + HANDOFF Items
+- **The Kitchen** — Private command center at /kitchen. Auth gate, 4-panel dashboard (Brief, Pulse, Content Stage, Decisions Queue). Kitchen CW runs on Opus with sous chef persona.
+- **Model routing** — cw.js routes Kitchen→Opus, Porch→Haiku, Vernie→Haiku. Kitchen auth validated server-side.
+- **CW Link Renderer** — CW chat responses now render clickable links on all pages. js/cw-link-renderer.js loaded before porch-widget.js.
+- **Portfolio rebuild** — 33 slides → 13 with animated category slideshows at /derek/portfolio.
+- Kitchen prompt compiled: 11.9K chars (vs 45.6K standard, 28.7K vernie).
+
 ### February 21, 2026 — Visual Redesign v2
 6-phase redesign committed and pushed:
 - **Phase 1:** studio → the workshop (rename, redirects, prompt update). Footer cascade — "the standard" on all pages, two-line footer everywhere.
@@ -447,8 +474,9 @@ git log --oneline -15
 **Derek's birthday:** February 7, 1973
 **Jackson's birthday:** Look it up (don't hallucinate)
 
-**Haiku model:** claude-haiku-4-5
-**Opus model:** claude-opus-4-6 (Claude Code)
+**Haiku model:** claude-haiku-4-5 (Porch, Vernie)
+**Opus model:** claude-opus-4-20250514 (Kitchen CW)
+**Opus model (build):** claude-opus-4-6 (Claude Code)
 
 **Cost:** ~$3-5/month (Netlify free, Supabase free, Haiku API)
 

@@ -198,7 +198,7 @@
             html { scroll-behavior: smooth; }
         }
 
-        /* ── The Invitation (Screen 1) ────────────── */
+        /* ── Screen 1: The Invitation ────────────── */
         .invitation {
             min-height: 100svh;
             display: flex;
@@ -208,20 +208,7 @@
             text-align: center;
             padding: 2rem 1.5rem;
             border-bottom: 1px solid var(--border);
-        }
-
-        .porch-star {
-            font-family: var(--font);
-            font-size: 5rem;
-            color: var(--accent);
-            line-height: 1;
-            margin-bottom: 2rem;
-            animation: starlight 3s ease-in-out infinite;
-        }
-
-        @keyframes starlight {
-            0%, 100% { opacity: 0.4; text-shadow: 0 0 8px rgba(212, 168, 75, 0); }
-            50% { opacity: 1; text-shadow: 0 0 20px rgba(212, 168, 75, 0.3); }
+            position: relative;
         }
 
         .invitation-wordmark {
@@ -233,11 +220,25 @@
             margin-bottom: 0.75rem;
         }
 
+        .wordmark-star {
+            color: var(--accent);
+            text-decoration: none;
+            transition: text-shadow 0.3s ease;
+        }
+
+        .wordmark-star:hover {
+            text-shadow: 0 0 20px rgba(212, 168, 75, 0.4);
+        }
+
+        .wordmark-star:visited {
+            color: var(--accent);
+        }
+
         .invitation-phrase {
             font-family: var(--font);
             color: var(--dim);
             font-size: 0.95rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.5rem;
             letter-spacing: 0.02em;
             transition: opacity 0.4s ease;
             min-height: 1.5em;
@@ -258,38 +259,41 @@
             50% { opacity: 0; }
         }
 
-        .invitation-nav {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .invitation-nav a {
-            color: var(--text);
-            text-decoration: none;
-            font-family: var(--font);
+        .invitation-line {
+            color: var(--dim);
             font-size: 0.9rem;
-            padding: 0.25rem;
-            transition: color 0.2s;
             letter-spacing: 0.02em;
         }
 
-        .invitation-nav a:hover {
-            color: var(--link);
-        }
-
-        .invitation-nav a:visited {
-            color: var(--text);
-        }
-
-        .nav-dot {
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
             color: var(--dim);
-            opacity: 0.4;
+            opacity: 0.3;
+            font-family: var(--font);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s, opacity 0.3s;
+            animation: hint-float 3s ease-in-out infinite;
         }
 
-        /* ── Billboard Sections (Screens 2-4) ────── */
+        .scroll-hint:hover {
+            color: var(--accent);
+            opacity: 1;
+        }
+
+        .scroll-hint:visited {
+            color: var(--dim);
+        }
+
+        @keyframes hint-float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(4px); }
+        }
+
+        /* ── Billboard Sections (Screens 2-3) ────── */
         .billboard {
             min-height: 100svh;
             display: flex;
@@ -313,14 +317,6 @@
             margin-bottom: 2rem;
         }
 
-        .billboard-text {
-            max-width: 520px;
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--text);
-            margin-bottom: 2.5rem;
-        }
-
         .billboard-cta {
             display: inline-block;
             color: var(--text);
@@ -340,43 +336,79 @@
             color: var(--text);
         }
 
-        .billboard-cta-secondary {
-            display: block;
-            color: var(--dim);
-            text-decoration: none;
+        /* ── Screen 2: Derek ─────────────────────── */
+        .derek-star {
             font-family: var(--font);
-            font-size: 0.85rem;
-            margin-top: 0.75rem;
-            transition: color 0.2s;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
         }
 
-        .billboard-cta-secondary:hover {
+        .derek-intro {
+            max-width: 520px;
+            margin-bottom: 2rem;
+        }
+
+        .derek-name {
+            font-size: 1.05rem;
+            font-weight: 600;
             color: var(--text);
+            margin-bottom: 0.25rem;
         }
 
-        .billboard-cta-secondary:visited {
+        .derek-summary {
+            font-size: 1.05rem;
             color: var(--dim);
         }
 
-        /* The Standard list */
+        .derek-quote {
+            font-size: 1rem;
+            color: var(--dim);
+            font-style: italic;
+            max-width: 460px;
+            padding-left: 1rem;
+            border-left: 2px solid var(--accent);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            text-align: left;
+        }
+
+        /* ── Screen 3: The Standard ──────────────── */
         .standard-list {
             list-style: none;
             text-align: left;
-            max-width: 360px;
+            max-width: 400px;
             width: 100%;
             margin: 0 auto 2.5rem;
         }
 
         .standard-list li {
-            font-size: 0.95rem;
-            color: var(--text);
-            padding: 0.6rem 0;
             border-bottom: 1px solid var(--border);
-            letter-spacing: 0.02em;
         }
 
         .standard-list li:last-child {
             border-bottom: none;
+        }
+
+        .standard-list a {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.6rem 0;
+            letter-spacing: 0.02em;
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .standard-list a:visited {
+            color: var(--text);
+        }
+
+        @media (hover: hover) {
+            .standard-list a:hover {
+                color: var(--accent);
+                transform: translateX(4px);
+            }
         }
 
         .standard-num {
@@ -384,32 +416,37 @@
             margin-right: 0.75rem;
         }
 
-        /* Billboard signoff */
-        .billboard .signoff {
+        /* Signoff as link */
+        .signoff-link {
+            font-family: var(--font);
             font-size: 0.85rem;
+            color: var(--dim);
+            text-decoration: none;
             opacity: 0.5;
-            cursor: default;
-            user-select: none;
             transition: opacity 0.3s ease;
+            letter-spacing: 0.08em;
         }
 
-        .billboard .signoff:hover {
+        .signoff-link:hover {
             opacity: 0.8;
+        }
+
+        .signoff-link:visited {
+            color: var(--dim);
+        }
+
+        .signoff-link:hover .signoff-star {
+            color: var(--accent);
         }
 
         .signoff-star {
             transition: color 0.3s ease;
         }
 
-        .billboard .signoff:hover .signoff-star {
-            color: var(--accent);
-        }
-
         /* ── Footer ───────────────────────────────── */
         .site-footer {
-            padding: 2rem 1.5rem;
+            padding: 1.5rem 1.5rem;
             text-align: center;
-            border-top: 1px solid var(--border);
             font-size: 0.75rem;
             color: var(--dim);
         }
@@ -480,27 +517,26 @@
                 min-height: 100svh;
                 padding: 1.5rem 1rem;
             }
-            .porch-star {
-                font-size: 4rem;
-                margin-bottom: 1.5rem;
-            }
             .invitation-wordmark {
                 font-size: 2.2rem;
             }
             .invitation-phrase {
                 font-size: 0.85rem;
-                margin-bottom: 2rem;
             }
-            .invitation-nav a {
-                font-size: 0.85rem;
+            .invitation-line {
+                font-size: 0.8rem;
             }
             .billboard {
                 padding: 3rem 1.25rem;
             }
-            .billboard-text {
+            .derek-name,
+            .derek-summary {
                 font-size: 0.95rem;
             }
-            .standard-list li {
+            .derek-quote {
+                font-size: 0.9rem;
+            }
+            .standard-list a {
                 font-size: 0.9rem;
             }
             .site-footer {
@@ -516,6 +552,14 @@
                 opacity: 1;
             }
 
+            .scroll-hint {
+                animation: none;
+            }
+
+            .standard-list a {
+                transition: none;
+            }
+
             * {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
@@ -525,49 +569,38 @@
     </style>
 </head>
 <body>
-    <a href="#story" class="skip-link">Skip to content</a>
+    <a href="#derek" class="skip-link">Skip to content</a>
 
-    <!-- Screen 1: The Hook -->
-    <section class="invitation">
-        <div class="porch-star" aria-hidden="true">*</div>
-        <h1 class="invitation-wordmark">claudewill</h1>
+    <!-- Screen 1: The Invitation -->
+    <section class="invitation" id="top">
+        <h1 class="invitation-wordmark">claudewill<a href="#derek" class="wordmark-star" aria-label="Meet Derek">*</a></h1>
         <p class="invitation-phrase" id="invitation-phrase">claude will <span id="typed-text"></span><span class="typewriter-cursor" aria-hidden="true"></span></p>
-        <nav class="invitation-nav" aria-label="Main navigation">
-            <a href="/story">the story</a>
-            <span class="nav-dot" aria-hidden="true">&middot;</span>
-            <a href="/derek">derek</a>
-            <span class="nav-dot" aria-hidden="true">&middot;</span>
-            <a href="/workshop">the workshop</a>
-            <span class="nav-dot" aria-hidden="true">&middot;</span>
-            <a href="/story#the-cw-standard">the standard</a>
-        </nav>
+        <p class="invitation-line">Pull up a chair. He's listening.</p>
+        <a href="#derek" class="scroll-hint" aria-label="Scroll to next section">*</a>
     </section>
 
-    <!-- Screen 2: The Story -->
-    <section class="billboard" id="story">
-        <div class="billboard-label">* the story</div>
-        <p class="billboard-text">Claude William Simmons was a farmer, railroad worker, father of 11, and maybe briefly a moonshiner. He died in 1967, five and a half years before his grandson Derek was born. This is what happened when Derek decided to build something in his name.</p>
-        <a href="/story" class="billboard-cta">read the story &rarr;</a>
+    <!-- Screen 2: Derek -->
+    <section class="billboard" id="derek">
+        <div class="derek-star" aria-hidden="true">*</div>
+        <div class="derek-intro">
+            <p class="derek-name">Derek Simmons. Coach, builder, storyteller.</p>
+            <p class="derek-summary">Three decades in media. Now building with AI.</p>
+        </div>
+        <p class="derek-quote">&ldquo;I&rsquo;d ask him to draft three solutions and he&rsquo;d come back with five.&rdquo;</p>
+        <a href="/derek" class="billboard-cta">more about derek &rarr;</a>
     </section>
 
-    <!-- Screen 3: The Builder -->
-    <section class="billboard" id="builder">
-        <div class="billboard-label">* derek</div>
-        <p class="billboard-text">&ldquo;I&rsquo;d ask him to draft three solutions and he&rsquo;d come back with five.&rdquo;</p>
-        <a href="/derek" class="billboard-cta">meet derek &rarr;</a>
-    </section>
-
-    <!-- Screen 4: The Standard -->
+    <!-- Screen 3: The Standard -->
     <section class="billboard" id="standard">
         <div class="billboard-label">* the standard</div>
         <ol class="standard-list">
-            <li><span class="standard-num">1</span> truth over comfort</li>
-            <li><span class="standard-num">2</span> usefulness over purity</li>
-            <li><span class="standard-num">3</span> transparency over reputation</li>
-            <li><span class="standard-num">4</span> people over systems</li>
-            <li><span class="standard-num">5</span> agency over ideology</li>
+            <li><a href="/story#the-cw-standard"><span class="standard-num">1</span> truth over comfort</a></li>
+            <li><a href="/story#the-cw-standard"><span class="standard-num">2</span> usefulness over purity</a></li>
+            <li><a href="/story#the-cw-standard"><span class="standard-num">3</span> transparency over reputation</a></li>
+            <li><a href="/story#the-cw-standard"><span class="standard-num">4</span> people over systems</a></li>
+            <li><a href="/story#the-cw-standard"><span class="standard-num">5</span> agency over ideology</a></li>
         </ol>
-        <div class="signoff"><span class="signoff-star">*</span> keep going</div>
+        <a href="#top" class="signoff-link" aria-label="Back to top"><span class="signoff-star">*</span> keep going</a>
     </section>
 
     <footer class="site-footer" role="contentinfo">
@@ -579,11 +612,7 @@
     <script>
         var typedPhrases = [
             'find a way',
-            'keep going',
             'listen first',
-            'make mistakes',
-            'push changes',
-            'pull insights',
             'build things',
             'ask why'
         ];
