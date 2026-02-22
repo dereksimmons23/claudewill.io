@@ -164,10 +164,14 @@
       margin-bottom: 1rem;
     }
 
+    /* h2::before removed — too many asterisks */
+
     .summary-text {
       font-size: 0.95rem;
       color: var(--dim);
       line-height: 1.8;
+      border-left: 2px solid var(--link);
+      padding-left: 1rem;
     }
 
     .skills-list {
@@ -176,9 +180,37 @@
       line-height: 1.8;
     }
 
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .skill-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      font-size: 0.8rem;
+      color: var(--dim);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .skill-tag:hover {
+      border-color: var(--link);
+      color: var(--link);
+    }
+
     /* ── Experience ──────────────────────────── */
     .experience-item {
       margin-bottom: 1.75rem;
+    }
+
+    .job-title::before {
+      content: '* ';
+      color: var(--accent);
+      font-weight: 700;
     }
 
     .experience-item:last-child {
@@ -201,7 +233,7 @@
 
     .date {
       font-size: 0.85rem;
-      color: var(--dim);
+      color: var(--link);
       white-space: nowrap;
     }
 
@@ -213,6 +245,8 @@
 
     .experience-list {
       list-style: none;
+      border-left: 2px solid var(--link);
+      padding-left: 16px;
     }
 
     .experience-list li {
@@ -302,9 +336,11 @@
 
     /* ── Print ─────────────────────────────────── */
     @media print {
-      .page-header, .intro-buttons, footer, .footer {
+      .page-header, .intro-buttons, .contact-line, footer, .footer {
         display: none !important;
       }
+
+      /* .hw removed from name in HTML */
 
       .contact-line-print {
         display: block !important;
@@ -337,7 +373,7 @@
       }
 
       .resume-intro {
-        margin-bottom: 14px;
+        margin-bottom: 12px;
         padding-bottom: 0;
         border-bottom: none;
       }
@@ -359,20 +395,10 @@
         letter-spacing: 0.02em;
       }
 
-      .contact-line {
-        font-family: var(--font-sans);
-        font-size: 8pt;
-        color: #111;
-        margin-bottom: 14px;
-      }
-
-      .contact-line a {
-        color: #111;
-        text-decoration: none;
-      }
+      /* .contact-line hidden in print — .contact-line-print replaces it */
 
       .section {
-        margin-bottom: 14px;
+        margin-bottom: 12px;
         padding-bottom: 0;
         border-bottom: none;
       }
@@ -389,11 +415,15 @@
         color: #000;
       }
 
+      /* h2::before already removed from screen styles */
+
       .summary-text {
         font-family: var(--font-sans);
         font-size: 9pt;
         color: #111;
         line-height: 1.45;
+        border-left: none;
+        padding-left: 0;
       }
 
       .skills-list {
@@ -403,9 +433,41 @@
         line-height: 1.45;
       }
 
+      .skills-tags {
+        display: block;
+      }
+
+      .skill-tag {
+        display: inline;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        font-family: var(--font-sans);
+        font-size: 8.5pt;
+        color: #111;
+        white-space: normal;
+      }
+
+      .skill-tag::after {
+        content: ' \00B7 ';
+      }
+
+      .skill-tag:last-child::after {
+        content: '';
+      }
+
       .experience-item {
-        margin-bottom: 11px;
+        margin-bottom: 9px;
         break-inside: avoid;
+      }
+
+      .job-title::before {
+        content: none;
+      }
+
+      .experience-list {
+        border-left: none;
+        padding-left: 0;
       }
 
       .job-title {
@@ -458,7 +520,7 @@
       .recommendation {
         border-left: 1.5px solid #555;
         padding-left: 10px;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
         break-inside: avoid;
       }
 
@@ -524,7 +586,20 @@
 
       <div class="section" id="competencies">
         <h2>core competencies</h2>
-        <p class="skills-list">AI Strategy &amp; Integration &middot; Digital Transformation &middot; Revenue Growth &middot; Audience Development &middot; Product Strategy &middot; Content Operations &middot; Cross-Functional Leadership &middot; Team Building &middot; Brand Strategy &middot; Visual Storytelling &middot; Media Innovation &middot; Change Management</p>
+        <div class="skills-tags">
+          <span class="skill-tag">AI Strategy &amp; Integration</span>
+          <span class="skill-tag">Digital Transformation</span>
+          <span class="skill-tag">Revenue Growth</span>
+          <span class="skill-tag">Audience Development</span>
+          <span class="skill-tag">Product Strategy</span>
+          <span class="skill-tag">Content Operations</span>
+          <span class="skill-tag">Cross-Functional Leadership</span>
+          <span class="skill-tag">Team Building</span>
+          <span class="skill-tag">Brand Strategy</span>
+          <span class="skill-tag">Visual Storytelling</span>
+          <span class="skill-tag">Media Innovation</span>
+          <span class="skill-tag">Change Management</span>
+        </div>
       </div>
 
       <div class="section" id="experience">
@@ -560,8 +635,8 @@
 
         <div class="experience-item">
           <div class="job-header">
-            <span class="job-title">Chief Creative Officer &amp; Vice President</span>
-            <span class="date">Jun 2017 &ndash; Feb 2023</span>
+            <span class="job-title">Chief Creative Officer &amp; VP / AME, Visuals</span>
+            <span class="date">Dec 2013 &ndash; Feb 2023</span>
           </div>
           <div class="organization">Star Tribune Media Company, Minneapolis, MN</div>
           <ul class="experience-list">
