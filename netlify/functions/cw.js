@@ -4,7 +4,7 @@
 
 const Anthropic = require('@anthropic-ai/sdk');
 const { createClient } = require('@supabase/supabase-js');
-const { SYSTEM_PROMPT, VERNIE_PROMPT } = require('./cw-prompt');
+const { SYSTEM_PROMPT, VERNIE_PROMPT, KITCHEN_PROMPT } = require('./cw-prompt');
 
 // Initialize Supabase client (only if env vars are present)
 let supabase = null;
@@ -152,7 +152,7 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    let { messages, condition, vernieCode } = JSON.parse(event.body);
+    let { messages, condition, vernieCode, mode, kitchenCode } = JSON.parse(event.body);
 
     if (!messages || !Array.isArray(messages)) {
       return {
@@ -233,15 +233,39 @@ exports.handler = async (event, context) => {
       dateContext += `\nToday is your birthday. January 6, 1903. You can mention it if someone asks what day it is, but don't make it about you.`;
     }
 
-    // Validate Vernie Mode access
-    const isVernieMode = vernieCode && vernieCode === process.env.VERNIE_CODE;
-    const basePrompt = isVernieMode ? VERNIE_PROMPT : SYSTEM_PROMPT;
+    // Mode routing: kitchen > vernie > porch (default)
+    const isKitchenMode = mode === 'kitchen' && kitchenCode && kitchenCode === process.env.KITCHEN_CODE;
+    const isVernieMode = !isKitchenMode && vernieCode && vernieCode === process.env.VERNIE_CODE;
+
+    // Reject kitchen mode with bad auth (don't fall through to expensive model)
+    if (mode === 'kitchen' && !isKitchenMode) {
+      return {
+        statusCode: 401,
+        headers,
+        body: JSON.stringify({ error: 'Kitchen access denied', response: 'Wrong key.' })
+      };
+    }
+
+    let basePrompt, selectedModel, maxTokens;
+    if (isKitchenMode) {
+      basePrompt = KITCHEN_PROMPT;
+      selectedModel = 'claude-opus-4-20250514';
+      maxTokens = 1500;
+    } else if (isVernieMode) {
+      basePrompt = VERNIE_PROMPT;
+      selectedModel = 'claude-haiku-4-5';
+      maxTokens = 500;
+    } else {
+      basePrompt = SYSTEM_PROMPT;
+      selectedModel = 'claude-haiku-4-5';
+      maxTokens = 500;
+    }
 
     const systemWithCondition = basePrompt + dateContext + `\nCurrent condition: ${condition || 'clear'}`;
 
     const response = await client.messages.create({
-      model: 'claude-haiku-4-5',
-      max_tokens: 500,
+      model: selectedModel,
+      max_tokens: maxTokens,
       system: systemWithCondition,
       messages: messages
     });
@@ -257,7 +281,7 @@ exports.handler = async (event, context) => {
     logConversation({
       userMessage,
       cwResponse,
-      condition: condition || 'clear',
+      condition: isKitchenMode ? 'kitchen' : (condition || 'clear'),
       sessionId,
       ipHash,
       tokenUsage: {
@@ -273,6 +297,8 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({
         response: cwResponse,
         vernieMode: isVernieMode,
+        kitchenMode: isKitchenMode,
+        model: selectedModel,
         usage: {
           input_tokens: response.usage.input_tokens,
           output_tokens: response.usage.output_tokens

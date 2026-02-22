@@ -14,6 +14,9 @@
   var panelOpen = false;
   var sending = false;
 
+  // Kitchen mode config (set by /kitchen page before this script loads)
+  var kitchenConfig = window.CW_KITCHEN_CONFIG || null;
+
   // Check URL parameter for Vernie mode
   if (window.location.search.indexOf('family=true') !== -1) {
     isVernieMode = true;
@@ -29,7 +32,7 @@
 
     var prompt = document.createElement('span');
     prompt.className = 'porch-widget-prompt';
-    prompt.textContent = 'cw> ';
+    prompt.textContent = kitchenConfig ? 'cw> kitchen ' : 'cw> ';
 
     var cursor = document.createElement('span');
     cursor.className = 'porch-widget-cursor';
@@ -61,7 +64,7 @@
 
     var title = document.createElement('div');
     title.className = 'porch-panel-title';
-    title.textContent = "cw's porch";
+    title.textContent = kitchenConfig ? "the kitchen" : "cw's porch";
 
     var closeBtn = document.createElement('button');
     closeBtn.className = 'porch-panel-close';
@@ -105,10 +108,11 @@
 
     panel.appendChild(gate);
 
-    // Prompt chips
+    // Prompt chips (hidden in kitchen mode — Derek doesn't need starter prompts)
     var chips = document.createElement('div');
     chips.className = 'porch-panel-chips';
     chips.id = 'porch-chips';
+    if (kitchenConfig) chips.style.display = 'none';
 
     var chipData = [
       { label: 'who are you?', prompt: 'Who are you?' },
@@ -182,7 +186,8 @@
     // Add welcome message if first open
     var messages = document.getElementById('porch-messages');
     if (messages && messages.children.length === 0) {
-      addMessage('cw', "Pull up a chair. What's on your mind?");
+      var welcome = kitchenConfig ? kitchenConfig.welcomeMessage : "Pull up a chair. What's on your mind?";
+      addMessage('cw', welcome);
     }
   }
 
@@ -342,6 +347,12 @@
     var body = {
       messages: conversationHistory
     };
+
+    // Kitchen mode — send mode + auth code
+    if (kitchenConfig) {
+      body.mode = 'kitchen';
+      body.kitchenCode = kitchenConfig.getCode();
+    }
 
     if (isVernieMode) {
       body.vernieCode = sessionStorage.getItem('cw-vernie-code');

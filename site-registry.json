@@ -79,6 +79,12 @@
       "cw": null
     },
     {
+      "path": "/kitchen",
+      "title": "The Kitchen",
+      "description": "Private command center. Access code required.",
+      "cw": null
+    },
+    {
       "path": "/privacy",
       "title": "Privacy Policy",
       "description": "How data is handled on claudewill.io.",
