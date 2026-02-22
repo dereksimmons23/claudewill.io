@@ -12,13 +12,15 @@
     gtag('js', new Date());
     gtag('config', 'G-991ML96NJ3');
   </script>
-  <title>Resume | Derek Simmons</title>
-  <meta name="description" content="Derek Simmons: 20 years, 13 roles. Star Tribune CCO/VP. Los Angeles Times Deputy Design Director. Two newspapers ranked best in the world.">
+  <title>resume | claudewill*</title>
+  <meta name="description" content="Derek Simmons — AI strategy, digital transformation, media executive. 30 years, 4 Pulitzer contributions, $20M+ revenue. Minneapolis, MN.">
   <link rel="canonical" href="https://claudewill.io/derek/resume">
   <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/shared-nav.css">
+  <link rel="stylesheet" href="/css/porch-widget.css">
 
   <style>
     * {
@@ -34,72 +36,153 @@
       --accent: #d4a84b;
       --link: #4a8ec2;
       --border: #e5e7eb;
-      --card-bg: #f3f4f6;
       --font: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+      --font-sans: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+      --font-serif: 'Noto Serif', Georgia, 'Times New Roman', serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: var(--font);
       background: var(--bg);
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.8;
       font-size: 16px;
     }
 
-    a:visited {
-      color: var(--link);
-    }
+    a { color: var(--link); text-decoration: none; }
+    a:visited { color: var(--link); }
+    a:hover { text-decoration: underline; }
 
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 60px 24px 80px;
-    }
-
-    .back-link {
-      font-size: 0.9rem;
-      color: var(--dim);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 32px;
-      transition: color 0.2s;
-    }
-
-    .back-link:hover {
-      color: var(--accent);
-    }
-
-    h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .tagline {
-      color: var(--dim);
-      font-size: 1rem;
-      margin-bottom: 40px;
-    }
-
-    .section {
-      margin-bottom: 48px;
-    }
-
-    .section-title {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 20px;
-      padding-bottom: 8px;
+    /* page header styles in shared-nav.css */
+    .page-header {
       border-bottom: 1px solid var(--border);
     }
 
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    main {
+      padding: 2rem 0 3rem;
+    }
+
+    /* ── Intro ────────────────────────────────── */
+    .resume-intro {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .resume-intro h1 {
+      font-family: var(--font);
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-line {
+      font-size: 0.85rem;
+      color: var(--dim);
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-line a { color: var(--dim); }
+    .contact-line a:hover { color: var(--accent); text-decoration: none; }
+
+    .intro-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .intro-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      text-decoration: none;
+      font-family: var(--font);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .intro-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .intro-btn:visited {
+      color: var(--text);
+    }
+
+    .intro-btn:visited:hover {
+      color: var(--accent);
+    }
+
+    /* ── Sections ────────────────────────────── */
+    .section {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section[id] {
+      scroll-margin-top: 4rem;
+    }
+
+    .section h2 {
+      font-family: var(--font);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .summary-text {
+      font-size: 0.95rem;
+      color: var(--dim);
+      line-height: 1.8;
+    }
+
+    .skills-list {
+      font-size: 0.9rem;
+      color: var(--dim);
+      line-height: 1.8;
+    }
+
+    /* ── Experience ──────────────────────────── */
     .experience-item {
-      margin-bottom: 28px;
+      margin-bottom: 1.75rem;
+    }
+
+    .experience-item:last-child {
+      margin-bottom: 0;
     }
 
     .job-header {
@@ -119,12 +202,13 @@
     .date {
       font-size: 0.85rem;
       color: var(--dim);
+      white-space: nowrap;
     }
 
     .organization {
       font-size: 0.9rem;
       color: var(--dim);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .experience-list {
@@ -134,7 +218,7 @@
     .experience-list li {
       font-size: 0.9rem;
       color: var(--dim);
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       padding-left: 16px;
       position: relative;
     }
@@ -143,83 +227,71 @@
       content: "";
       position: absolute;
       left: 0;
-      top: 10px;
+      top: 11px;
       width: 4px;
       height: 4px;
       background: var(--accent);
       border-radius: 50%;
     }
 
+    /* ── Education ───────────────────────────── */
     .education p {
       font-size: 0.95rem;
       color: var(--dim);
-      margin-bottom: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .education p:last-child {
+      margin-bottom: 0;
     }
 
     .education strong {
       color: var(--text);
     }
 
+    /* ── Quotes ──────────────────────────────── */
     .recommendation {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 24px;
-      margin-bottom: 20px;
+      border-left: 2px solid var(--accent);
+      padding-left: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .recommendation:last-of-type {
+      margin-bottom: 0;
     }
 
     .recommendation-text {
-      font-style: italic;
-      color: var(--dim);
-      margin-bottom: 12px;
       font-size: 0.95rem;
+      color: var(--dim);
       line-height: 1.7;
     }
 
-    .recommender {
+    .references-note {
       font-size: 0.85rem;
       color: var(--dim);
+      font-style: italic;
+      margin-top: 1.25rem;
     }
 
-    .recommender strong {
-      color: var(--text);
-    }
-
-    .connect-links {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .connect-links a {
-      padding: 10px 20px;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: all 0.2s;
-    }
-
-    .connect-links a:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    footer {
-      margin-top: 48px;
-      padding-top: 24px;
+    /* ── Footer ──────────────────────────────── */
+    .footer {
+      padding: 2rem 0;
       border-top: 1px solid var(--border);
       text-align: center;
-      color: var(--dim);
-      font-size: 0.85rem;
     }
 
-    footer a {
-      color: var(--link);
-      text-decoration: none;
+    .footer-note {
+      font-size: 0.8rem;
+      color: var(--dim);
     }
+
+    .footer-note + .footer-note {
+      margin-top: 0.5rem;
+    }
+
+    .footer-note a { color: var(--link); }
+    .footer-note a:hover { color: var(--accent); text-decoration: none; }
+    .footer-note .hw { color: var(--accent); }
 
     @media (max-width: 700px) {
       .job-header {
@@ -228,75 +300,31 @@
       }
     }
 
-    .skills-section {
-      display: none;
-    }
-
-    .skills-list {
-      font-family: var(--font);
-      font-size: 0.9rem;
-      color: var(--dim);
-    }
-
-    .references-note {
-      display: none;
-    }
-
-    .contact-buttons {
-      margin-bottom: 40px;
-    }
-
-    .contact-print {
-      display: none;
-    }
-
-    .summary-text {
-      font-size: 0.95rem;
-      color: var(--dim);
-      line-height: 1.8;
-    }
-
-    .print-btn {
-      font-family: var(--font);
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--dim);
-      background: transparent;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 8px 16px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .print-btn:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-    }
-
+    /* ── Print ─────────────────────────────────── */
     @media print {
-      .print-btn, .back-link,
-      .back-link-row, .contact-buttons {
+      .page-header, .intro-buttons, footer, .footer {
         display: none !important;
       }
 
-      .contact-print {
-        display: block;
-        font-size: 9.5pt;
-        color: #555;
-        margin-bottom: 24px;
+      .contact-line-print {
+        display: block !important;
+        font-family: var(--font-sans);
+        font-size: 8pt;
+        color: #111;
+        margin-bottom: 14px;
       }
 
-      .contact-print a {
-        color: #555;
+      .contact-line-print a {
+        color: #111;
         text-decoration: none;
       }
 
       body {
         background: white;
-        color: black;
-        font-size: 10.5pt;
-        line-height: 1.5;
+        color: #111;
+        font-family: var(--font-sans);
+        font-size: 9.5pt;
+        line-height: 1.45;
       }
 
       .container {
@@ -304,251 +332,290 @@
         padding: 0;
       }
 
-      h1 {
-        font-size: 18pt;
-        margin-bottom: 2px;
+      main {
+        padding: 0;
       }
 
-      .tagline {
-        font-size: 10pt;
-        color: #444;
-        margin-bottom: 16px;
+      .resume-intro {
+        margin-bottom: 14px;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .resume-intro h1 {
+        font-family: var(--font-serif);
+        font-size: 19pt;
+        font-weight: 600;
+        color: #000;
+        margin-bottom: 1px;
+      }
+
+      .subtitle {
+        font-family: var(--font-sans);
+        font-size: 9pt;
+        font-weight: 500;
+        color: #111;
+        margin-bottom: 1px;
+        letter-spacing: 0.02em;
+      }
+
+      .contact-line {
+        font-family: var(--font-sans);
+        font-size: 8pt;
+        color: #111;
+        margin-bottom: 14px;
+      }
+
+      .contact-line a {
+        color: #111;
+        text-decoration: none;
       }
 
       .section {
-        margin-bottom: 28px;
+        margin-bottom: 14px;
+        padding-bottom: 0;
+        border-bottom: none;
       }
 
-      .section-title {
+      .section h2 {
+        font-family: var(--font-sans);
+        font-size: 8pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 5px;
+        padding-bottom: 2px;
+        border-bottom: 1.5px solid #000;
+        color: #000;
+      }
+
+      .summary-text {
+        font-family: var(--font-sans);
         font-size: 9pt;
-        margin-bottom: 8px;
-        padding-bottom: 4px;
-        border-bottom: 1px solid #ccc;
-        color: #333;
+        color: #111;
+        line-height: 1.45;
+      }
+
+      .skills-list {
+        font-family: var(--font-sans);
+        font-size: 8.5pt;
+        color: #111;
+        line-height: 1.45;
       }
 
       .experience-item {
-        margin-bottom: 14px;
+        margin-bottom: 11px;
         break-inside: avoid;
       }
 
       .job-title {
-        font-size: 10.5pt;
+        font-family: var(--font-serif);
+        font-size: 10pt;
+        font-weight: 600;
+        color: #000;
       }
 
       .date {
-        font-size: 9pt;
+        font-family: var(--font-sans);
+        font-size: 8pt;
+        color: #111;
       }
 
       .organization {
-        font-size: 9.5pt;
-        margin-bottom: 4px;
+        font-family: var(--font-sans);
+        font-size: 8.5pt;
+        font-style: italic;
+        color: #111;
+        margin-bottom: 2px;
       }
 
       .experience-list li {
-        font-size: 9.5pt;
-        color: #333;
-        margin-bottom: 2px;
-        position: relative;
-        padding-left: 12px;
+        font-family: var(--font-sans);
+        font-size: 8.5pt;
+        color: #111;
+        margin-bottom: 1px;
+        padding-left: 10px;
       }
 
       .experience-list li::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 7px;
+        top: 5px;
         width: 3px;
         height: 3px;
-        background: #333;
-        border-radius: 50%;
+        background: #111;
       }
 
       .education p {
-        font-size: 9.5pt;
-        margin-bottom: 4px;
+        font-family: var(--font-sans);
+        font-size: 8.5pt;
+        color: #111;
+        margin-bottom: 2px;
       }
 
-      .summary-text {
-        font-size: 10pt;
-        color: #333;
-        line-height: 1.5;
+      .education strong {
+        color: #000;
       }
 
       .recommendation {
-        background: none;
-        border: none;
-        padding: 0;
-        margin-bottom: 28px;
+        border-left: 1.5px solid #555;
+        padding-left: 10px;
+        margin-bottom: 8px;
         break-inside: avoid;
       }
 
       .recommendation-text {
-        font-size: 15pt;
-        font-style: normal;
-        color: #333;
-        line-height: 1.7;
-        margin-bottom: 0;
-      }
-
-      .skills-section {
-        display: block;
-      }
-
-      .skills-list {
-        font-size: 10pt;
-        color: #333;
+        font-family: var(--font-serif);
+        font-size: 9pt;
+        font-style: italic;
+        color: #111;
+        line-height: 1.45;
       }
 
       .references-note {
-        display: block;
-        font-family: var(--font);
-        font-size: 9.5pt;
-        color: #555;
-        margin-top: 32px;
-        font-style: italic;
+        font-family: var(--font-sans);
+        font-size: 8pt;
+        color: #111;
       }
 
-      .section:last-child .section-title {
-        margin-bottom: 28px;
+      /* Keep quotes section together */
+      .section:last-of-type {
+        break-inside: avoid;
       }
-
-      footer {
-        display: none;
-      }
-    }
-
-    .footer-note .hw {
-      color: var(--accent);
-    }
-
-    .footer-note a {
-      color: var(--link);
-    }
-
-    .footer-note a:hover {
-      color: var(--accent);
     }
   </style>
-  <link rel="stylesheet" href="/css/porch-widget.css">
-  <link rel="stylesheet" href="/css/shared-nav.css">
 </head>
 <body>
 
+  <!-- Sticky header — matches derek page pattern -->
+  <header class="page-header">
+    <a href="/" class="page-header-left" aria-label="Home">cw<span class="hw">*</span></a>
+    <div class="page-dropdown-wrapper">
+      <button class="page-dropdown-toggle" aria-expanded="false" aria-haspopup="true">resume <span class="dropdown-caret">&#9662;</span></button>
+      <nav class="page-dropdown" aria-label="Page sections">
+        <a href="#summary">summary</a>
+        <a href="#competencies">competencies</a>
+        <a href="#experience">experience</a>
+        <a href="#education">education</a>
+        <a href="#quotes">what colleagues say</a>
+      </nav>
+    </div>
+    <button class="page-header-right palette-trigger" aria-label="Open navigation"><span class="hw">*</span> <span class="header-menu-label">menu</span></button>
+  </header>
+
   <div class="container">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
-      <a href="/derek" class="back-link" style="margin-bottom: 0;">
-        <span>←</span> Back to Derek
-      </a>
-      <button onclick="window.print()" class="print-btn">Print / Save PDF</button>
-    </div>
-
-    <h1>Derek Simmons</h1>
-    <p class="tagline">Founder, CW Strategies LLC</p>
-    <div class="connect-links contact-buttons">
-      <a href="mailto:derek@claudewill.io">Email</a>
-      <a href="https://www.linkedin.com/in/dereksimm/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/dereksimmons23" target="_blank" rel="noopener">GitHub</a>
-    </div>
-    <p class="contact-print"><a href="mailto:derek@claudewill.io">derek@claudewill.io</a> · <a href="https://www.linkedin.com/in/dereksimm/">linkedin.com/in/dereksimm</a> · <a href="https://github.com/dereksimmons23">github.com/dereksimmons23</a></p>
-    <div class="section">
-      <h2 class="section-title">Summary</h2>
-      <p class="summary-text">Three decades in media, sports, and technology. Made two newspapers the best in the world. First and only Chief Creative Officer and Vice President at the Star Tribune. Generated $20M+ in revenue during a pandemic in a declining industry. Now building the systems organizations need to scale with AI at CW Strategies.</p>
-    </div>
-
-    <div class="section">
-      <h2 class="section-title">Experience</h2>
-
-      <div class="experience-item">
-        <div class="job-header">
-          <span class="job-title">Founder</span>
-          <span class="date">Nov 2024 - Present</span>
+    <main>
+      <!-- Intro -->
+      <div class="resume-intro">
+        <h1>Derek Simmons</h1>
+        <p class="subtitle">AI Strategy &middot; Digital Transformation &middot; Media Executive</p>
+        <p class="contact-line">Minneapolis, MN</p>
+        <p class="contact-line-print" style="display: none;">Minneapolis, MN &middot; <a href="mailto:derek@claudewill.io">derek@claudewill.io</a> &middot; <a href="https://www.linkedin.com/in/dereksimm/">linkedin.com/in/dereksimm</a> &middot; <a href="https://github.com/dereksimmons23">github.com/dereksimmons23</a></p>
+        <div class="intro-buttons">
+          <a href="mailto:derek@claudewill.io" class="intro-btn">email</a>
+          <a href="https://www.linkedin.com/in/dereksimm/" target="_blank" rel="noopener" class="intro-btn">linkedin</a>
+          <a href="https://github.com/dereksimmons23" target="_blank" rel="noopener" class="intro-btn">github</a>
+          <button onclick="window.print()" class="intro-btn">print / save pdf</button>
         </div>
-        <div class="organization">CW Strategies LLC</div>
-        <ul class="experience-list">
-          <li>Built AI-native business designing processes organizations need to scale</li>
-          <li>Active client engagement: strategy, audience development, AI integration, operations</li>
-          <li>Created AI conversation platform for CW Strategies at claudewill.io</li>
-          <li>Built portfolio of applications, agents, content systems, and training platforms</li>
-        </ul>
       </div>
 
-      <div class="experience-item">
-        <div class="job-header">
-          <span class="job-title">Executive Director, New Products & Digital Strategy</span>
-          <span class="date">Feb 2023 - Oct 2024</span>
+      <div class="section" id="summary">
+        <h2>summary</h2>
+        <p class="summary-text">Executive with 30 years in media, digital strategy, and AI. Led teams of 55+ across editorial, product, and revenue. Generated $20M+ at the Star Tribune as its first and only Chief Creative Officer. Contributed to 4 Pulitzer Prize-winning teams. Now consulting on AI strategy and building AI-native products at CW Strategies.</p>
+      </div>
+
+      <div class="section" id="competencies">
+        <h2>core competencies</h2>
+        <p class="skills-list">AI Strategy &amp; Integration &middot; Digital Transformation &middot; Revenue Growth &middot; Audience Development &middot; Product Strategy &middot; Content Operations &middot; Cross-Functional Leadership &middot; Team Building &middot; Brand Strategy &middot; Visual Storytelling &middot; Media Innovation &middot; Change Management</p>
+      </div>
+
+      <div class="section" id="experience">
+        <h2>experience</h2>
+
+        <div class="experience-item">
+          <div class="job-header">
+            <span class="job-title">Founder &amp; Principal Consultant</span>
+            <span class="date">Nov 2024 &ndash; Present</span>
+          </div>
+          <div class="organization">CW Strategies LLC, Minneapolis, MN</div>
+          <ul class="experience-list">
+            <li>Founded AI strategy consultancy serving media and mid-market organizations</li>
+            <li>Delivering strategy, audience development, and AI integration for active clients</li>
+            <li>Built AI conversation platform, training apps, and content systems from concept to production</li>
+            <li>Developed repeatable methodology: assess, build capacity, transfer ownership, exit</li>
+          </ul>
         </div>
-        <div class="organization">Star Tribune Media Company, Minneapolis</div>
-        <ul class="experience-list">
-          <li>Championed AI strategy establishing integration and innovation roadmap</li>
-          <li>Served on senior leadership team redefining company mission, values, and digital presence</li>
-          <li>Led digital-product evolution driving significant audience and revenue growth</li>
-          <li>Launched franchises generating seven-figure annual sponsorship support for journalism</li>
-        </ul>
-      </div>
 
-      <div class="experience-item">
-        <div class="job-header">
-          <span class="job-title">Chief Creative Officer & Vice President</span>
-          <span class="date">Jun 2017 - Feb 2023</span>
+        <div class="experience-item">
+          <div class="job-header">
+            <span class="job-title">Executive Director, New Products &amp; Digital Strategy</span>
+            <span class="date">Feb 2023 &ndash; Oct 2024</span>
+          </div>
+          <div class="organization">Star Tribune Media Company, Minneapolis, MN</div>
+          <ul class="experience-list">
+            <li>Led enterprise AI strategy, integration roadmap, and governance framework</li>
+            <li>Senior leadership team redefining company mission, values, and digital presence</li>
+            <li>Led digital product evolution driving audience and subscription revenue growth</li>
+            <li>Launched sponsored content franchises generating seven-figure annual revenue</li>
+          </ul>
         </div>
-        <div class="organization">Star Tribune Media Company, Minneapolis</div>
-        <ul class="experience-list">
-          <li>First and only CCO/VP in company history</li>
-          <li>Directed multiyear transformation integrating data-driven content and audience development</li>
-          <li>Achieved Pulitzer recognition for investigative projects and Top 3 worldwide design ranking</li>
-          <li>Generated $20M+ in subscription, sponsorship, and advertising revenue</li>
-          <li>Led 55-person editorial and creative teams across digital, mobile, print, and event platforms</li>
-        </ul>
-      </div>
 
-      <div class="experience-item">
-        <div class="job-header">
-          <span class="job-title">Deputy Design Director</span>
-          <span class="date">Mar 2007 - Dec 2013</span>
+        <div class="experience-item">
+          <div class="job-header">
+            <span class="job-title">Chief Creative Officer &amp; Vice President</span>
+            <span class="date">Jun 2017 &ndash; Feb 2023</span>
+          </div>
+          <div class="organization">Star Tribune Media Company, Minneapolis, MN</div>
+          <ul class="experience-list">
+            <li>First and only CCO/VP in 150-year company history; created the role</li>
+            <li>Generated $20M+ in subscription, sponsorship, and advertising revenue</li>
+            <li>Led 55-person team across digital, mobile, print, and events</li>
+            <li>Pulitzer recognition, Top 3 worldwide design ranking (Society for News Design)</li>
+          </ul>
         </div>
-        <div class="organization">Los Angeles Times Communications</div>
-        <ul class="experience-list">
-          <li>Achieved No. 1 worldwide design ranking (SND) for six consecutive years</li>
-          <li>Contributed to Pulitzer Prize team recognition for investigative and multimedia projects</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="section">
-      <h2 class="section-title">Education</h2>
-      <div class="education">
-        <p><strong>B.S., Journalism & Mass Communication</strong>, Kansas State University</p>
-        <p><strong>Executive Certificate, Customer Experience</strong>, Minnesota State University Mankato</p>
-        <p><strong>Executive Training</strong>, Poynter Institute, Yale University, Leiden University</p>
-      </div>
-    </div>
-
-    <div class="section skills-section">
-      <h2 class="section-title">Skills</h2>
-      <p class="skills-list">AI Strategy · Media Transformation · Revenue Growth · Audience Development · Content Operations · Digital Product · Team Leadership · Cross-Functional Management · Visual Journalism · Brand Strategy</p>
-    </div>
-
-    <div class="section">
-      <h2 class="section-title">Colleagues on Derek Simmons</h2>
-
-      <div class="recommendation">
-        <p class="recommendation-text">"Consistently demonstrated exceptional strategic thinking and cross-functional leadership capabilities essential for executive-level roles... Instrumental in developing revenue-generating initiatives that contributed to the generation of more than $20 million in revenue."</p>
+        <div class="experience-item">
+          <div class="job-header">
+            <span class="job-title">Deputy Design Director</span>
+            <span class="date">Mar 2007 &ndash; Dec 2013</span>
+          </div>
+          <div class="organization">Los Angeles Times, Los Angeles, CA</div>
+          <ul class="experience-list">
+            <li>No. 1 worldwide design ranking (SND) for six consecutive years</li>
+            <li>Pulitzer Prize contributions for investigative and multimedia work</li>
+            <li>Led visual journalism teams through digital transition and platform expansion</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="recommendation">
-        <p class="recommendation-text">"Crucial to the Star Tribune's uncommon success and stability in a perilous era... Not a leader who merely manages whatever arises - keeps daring to break new ground."</p>
+      <div class="section" id="education">
+        <h2>education</h2>
+        <div class="education">
+          <p><strong>B.S., Journalism &amp; Mass Communication</strong> &mdash; Kansas State University</p>
+          <p><strong>Executive Certificate, Customer Experience</strong> &mdash; Minnesota State University Mankato</p>
+          <p><strong>Executive Training</strong> &mdash; Poynter Institute &middot; Yale University &middot; Leiden University</p>
+        </div>
       </div>
 
-      <div class="recommendation">
-        <p class="recommendation-text">"May be the most productive and innovative person I know... A born strategist... Sees the big picture while keeping a firm grasp on the details."</p>
-      </div>
-    </div>
+      <div class="section" id="quotes">
+        <h2>what colleagues say</h2>
 
-    <p class="references-note">Recommendations available upon request.</p>
+        <div class="recommendation">
+          <p class="recommendation-text">&ldquo;I could not have imagined a better partner.&rdquo;</p>
+        </div>
+
+        <div class="recommendation">
+          <p class="recommendation-text">&ldquo;A forceful agent for change. Congenial, smart, diplomatic but also inspiring.&rdquo;</p>
+        </div>
+
+        <div class="recommendation">
+          <p class="recommendation-text">&ldquo;A leader needs to articulate a vision, bring it to life, then share credit. This is what Derek does.&rdquo;</p>
+        </div>
+
+        <p class="references-note">Full recommendations and references available upon request.</p>
+      </div>
+    </main>
 
     <footer class="footer">
-      <p class="footer-note">Built by <a href="/derek">Derek</a><span class="hw">*</span><a href="/derek#claude">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
+      <p class="footer-note">Built by <a href="/derek">Derek</a><span class="hw">*</span><a href="/">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
       <p class="footer-note"><a href="/story#the-cw-standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
     </footer>
   </div>
