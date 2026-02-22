@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="/css/shared-nav.css">
   <link rel="stylesheet" href="/css/kitchen.css">
   <link rel="stylesheet" href="/css/porch-widget.css">
 </head>
@@ -35,45 +36,54 @@
   <!-- Dashboard (hidden until auth) -->
   <div id="kitchen-dashboard" class="kitchen-dashboard" style="display: none;">
 
-    <header class="kitchen-header">
-      <div class="kitchen-header-label">the kitchen*</div>
-      <div class="kitchen-header-meta">back of the house</div>
-      <div class="kitchen-header-status">
-        <span class="kitchen-header-dot"></span>
-        <span id="kitchen-status-text">live</span>
+    <header class="page-header" id="page-header">
+      <a href="/" class="page-header-left"><span class="header-short">cw</span><span class="header-full">claudewill</span><span class="hw">*</span></a>
+      <div class="page-header-center">
+        <span class="kitchen-page-label">the kitchen</span>
       </div>
-      <button id="kitchen-refresh" class="kitchen-refresh-btn">refresh</button>
+      <button class="page-header-right palette-trigger" aria-label="Open navigation"><span class="hw">*</span> <span class="header-menu-label">menu</span></button>
     </header>
 
-    <main class="kitchen-grid">
+    <div class="container">
+      <main>
+        <div class="kitchen-toolbar">
+          <div class="kitchen-status">
+            <span class="kitchen-status-dot"></span>
+            <span id="kitchen-status-text">live</span>
+          </div>
+          <button id="kitchen-refresh" class="kitchen-refresh-btn">refresh</button>
+        </div>
 
-      <section class="kitchen-panel" id="panel-brief">
-        <h2 class="panel-title">the brief*</h2>
-        <div class="panel-body loading" id="brief-content">loading brief...</div>
-      </section>
+        <div class="kitchen-grid">
 
-      <section class="kitchen-panel" id="panel-pulse">
-        <h2 class="panel-title">the pulse*</h2>
-        <div class="panel-body loading" id="pulse-content">loading metrics...</div>
-      </section>
+          <section class="kitchen-panel" id="panel-brief">
+            <h2 class="panel-title">the brief*</h2>
+            <div class="panel-body loading" id="brief-content">loading brief...</div>
+          </section>
 
-      <section class="kitchen-panel" id="panel-content">
-        <h2 class="panel-title">content stage*</h2>
-        <div class="panel-body loading" id="content-content">loading calendar...</div>
-      </section>
+          <section class="kitchen-panel" id="panel-pulse">
+            <h2 class="panel-title">the pulse*</h2>
+            <div class="panel-body loading" id="pulse-content">loading metrics...</div>
+          </section>
 
-      <section class="kitchen-panel" id="panel-decisions">
-        <h2 class="panel-title">decisions queue*</h2>
-        <div class="panel-body loading" id="decisions-content">loading queue...</div>
-      </section>
+          <section class="kitchen-panel" id="panel-content">
+            <h2 class="panel-title">content stage*</h2>
+            <div class="panel-body loading" id="content-content">loading calendar...</div>
+          </section>
 
-    </main>
+          <section class="kitchen-panel" id="panel-decisions">
+            <h2 class="panel-title">decisions queue*</h2>
+            <div class="panel-body loading" id="decisions-content">loading queue...</div>
+          </section>
 
-    <footer class="kitchen-footer">
-      <p class="kitchen-footer-note">
-        built by <a href="/derek">derek</a>*<a href="/">claude</a>
-      </p>
-    </footer>
+        </div>
+      </main>
+
+      <footer>
+        <p class="footer-note">Built by <a href="/derek">Derek</a><span class="hw">*</span><a href="/">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
+        <p class="footer-note"><a href="/story#the-cw-standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
+      </footer>
+    </div>
 
   </div>
 
@@ -106,7 +116,7 @@
 
     function showDashboard() {
       gate.style.display = 'none';
-      dashboard.style.display = 'flex';
+      dashboard.style.display = 'block';
       loadDashboard();
     }
 
@@ -304,6 +314,24 @@
   })();
   </script>
 
+  <!-- Auto-hide header on scroll -->
+  <script>
+    (function () {
+      var header = document.getElementById('page-header');
+      if (!header) return;
+      var lastY = 0;
+      window.addEventListener('scroll', function () {
+        var y = window.scrollY;
+        if (y > 80 && y > lastY) {
+          header.classList.add('hidden');
+        } else {
+          header.classList.remove('hidden');
+        }
+        lastY = y;
+      }, { passive: true });
+    })();
+  </script>
+
   <!-- CW Widget (Kitchen Mode) -->
   <script>
     window.CW_KITCHEN_CONFIG = {
@@ -317,6 +345,7 @@
   </script>
   <script src="/js/cw-link-renderer.js"></script>
   <script src="/js/porch-widget.js" defer></script>
+  <script src="/js/shared-nav.js"></script>
 
 </body>
 </html>

@@ -1,5 +1,8 @@
 /* Kitchen — back of the house
-   Dark theme: same DNA as the porch widget, applied to the full page. */
+   Same house, lights turned down.
+   Overrides CSS variables so shared-nav.css and page structure go dark. */
+
+/* ── Dark theme variables ─────────────────────────── */
 
 .kitchen-page {
   --bg: #0a1628;
@@ -9,6 +12,7 @@
   --accent: #d4a84b;
   --link: #4a8ec2;
   --border: rgba(255,255,255,0.08);
+  --card-bg: #0f1f3a;
   --success: #22c55e;
   --warn: #f59e0b;
   --error: #ef4444;
@@ -21,6 +25,92 @@
   margin: 0;
   line-height: 1.6;
   font-size: 15px;
+}
+
+/* ── Dark overrides for shared-nav elements ───────── */
+
+.kitchen-page .page-header {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.kitchen-page .page-header-left {
+  color: var(--text);
+}
+
+.kitchen-page .page-header-left:visited {
+  color: var(--text);
+}
+
+.kitchen-page .page-header-center {
+  color: var(--text);
+}
+
+.kitchen-page .page-header-right.palette-trigger {
+  color: var(--text);
+}
+
+.kitchen-page .page-dropdown {
+  background: var(--surface);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.kitchen-page .page-dropdown a {
+  color: var(--dim);
+}
+
+.kitchen-page .page-dropdown a:visited {
+  color: var(--dim);
+}
+
+.kitchen-page .page-dropdown a:hover {
+  color: var(--accent);
+}
+
+/* Page label in header center */
+.kitchen-page-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* ── Container ────────────────────────────────────── */
+
+.kitchen-page .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* ── Footer dark overrides ────────────────────────── */
+
+.kitchen-page footer {
+  text-align: center;
+  padding: 2rem 0 1rem;
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+.kitchen-page .footer-note {
+  font-size: 0.7rem;
+  color: var(--dim);
+  margin: 0;
+}
+
+.kitchen-page .footer-note + .footer-note {
+  margin-top: 8px;
+}
+
+.kitchen-page .footer-note a {
+  color: var(--dim);
+  text-decoration: none;
+}
+
+.kitchen-page .footer-note a:hover {
+  color: var(--accent);
+}
+
+.kitchen-page .footer-note .hw {
+  color: var(--accent);
 }
 
 /* ── Auth Gate ─────────────────────────────────────── */
@@ -55,7 +145,7 @@
   width: 100%;
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 12px 16px;
   font-family: var(--font);
   font-size: 1rem;
@@ -83,44 +173,24 @@
   min-height: 1.2em;
 }
 
-/* ── Dashboard ─────────────────────────────────────── */
+/* ── Toolbar (status + refresh) ───────────────────── */
 
-.kitchen-dashboard {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.kitchen-header {
+.kitchen-toolbar {
   display: flex;
   align-items: center;
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid var(--border);
-  gap: 1rem;
+  justify-content: space-between;
+  padding: 1.5rem 0 1rem;
 }
 
-.kitchen-header-label {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--accent);
-  white-space: nowrap;
-}
-
-.kitchen-header-meta {
-  font-size: 0.75rem;
-  color: var(--dim);
-  flex: 1;
-}
-
-.kitchen-header-status {
+.kitchen-status {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: var(--dim);
 }
 
-.kitchen-header-dot {
+.kitchen-status-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -131,14 +201,13 @@
 .kitchen-refresh-btn {
   background: none;
   border: 1px solid rgba(212, 168, 75, 0.2);
-  border-radius: 6px;
+  border-radius: 4px;
   color: var(--accent);
   font-family: var(--font);
   font-size: 0.7rem;
-  padding: 5px 12px;
+  padding: 4px 12px;
   cursor: pointer;
   transition: border-color 0.2s;
-  white-space: nowrap;
 }
 
 .kitchen-refresh-btn:hover {
@@ -151,14 +220,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  padding: 1rem 1.5rem;
-  flex: 1;
 }
 
 .kitchen-panel {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -290,34 +357,6 @@
   line-height: 1.7;
 }
 
-.brief-text strong,
-.brief-text b {
-  color: var(--accent);
-}
-
-/* ── Footer ────────────────────────────────────────── */
-
-.kitchen-footer {
-  padding: 0.75rem 1.5rem;
-  border-top: 1px solid var(--border);
-  text-align: center;
-}
-
-.kitchen-footer-note {
-  font-size: 0.65rem;
-  color: var(--dim);
-  margin: 0;
-}
-
-.kitchen-footer-note a {
-  color: var(--dim);
-  text-decoration: none;
-}
-
-.kitchen-footer-note a:hover {
-  color: var(--accent);
-}
-
 /* ── Porch widget overrides on kitchen page ────────── */
 
 .kitchen-page .porch-widget-prompt {
@@ -336,18 +375,10 @@
 @media (max-width: 700px) {
   .kitchen-grid {
     grid-template-columns: 1fr;
-    padding: 0.75rem 1rem;
   }
 
-  .kitchen-header {
-    padding: 0.75rem 1rem;
-    flex-wrap: wrap;
-  }
-
-  .kitchen-header-meta {
-    order: 3;
-    flex-basis: 100%;
-    margin-top: 0.25rem;
+  .kitchen-page .container {
+    padding: 0 16px 80px;
   }
 
   .kitchen-panel {
@@ -358,10 +389,6 @@
 @media (max-width: 400px) {
   .kitchen-page {
     font-size: 14px;
-  }
-
-  .kitchen-header-label {
-    font-size: 0.9rem;
   }
 }
 
