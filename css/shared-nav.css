@@ -401,6 +401,7 @@
     --accent: #d4a84b;
     --link: #6ba8d4;
     --border: rgba(255, 255, 255, 0.08);
+    --card-bg: #0f1f3a;
   }
 
   .page-dropdown {
