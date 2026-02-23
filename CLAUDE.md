@@ -1,8 +1,8 @@
 # CLAUDE.md — claudewill.io
 
 **Last updated:** February 22, 2026
-**Status:** v2.2 — The Funnel
-**Milestone:** /work-with-me conversion page, 3-item nav, homepage redesign
+**Status:** v2.3 — Mobile + Dark Mode + Readability
+**Milestone:** Mobile polish, dark mode, homepage energy, content density, font sizing
 
 > Pull up a chair. He's listening.
 
@@ -38,6 +38,10 @@
 - **The Kitchen** — Private command center at /kitchen. Auth gate + 4-panel dashboard. Kitchen CW runs on Opus as sous chef.
 - **Model routing** — Kitchen→Opus, Porch→Haiku, Vernie→Haiku. Smart routing in cw.js.
 - **CW Link Renderer** — CW chat responses render clickable links (markdown + bare URLs) on all pages.
+- **Dark mode** — `prefers-color-scheme: dark` override in shared-nav.css. One `body`-level media query overrides all page variables. All 15 pages get dark mode automatically. Kitchen already dark — no conflict.
+- **Mobile polish** — Porch panel full-screen takeover on mobile (≤700px). Header shows `claudewill*` static (no hover animation on touch). Chip/CTA wrapping fixed. Close button enlarged for touch targets.
+- **Homepage energy** — Scroll reveals (IntersectionObserver, fade up with staggered delays), gold gradient dividers, ambient radial glow from porch light, CTAs with gold border + glow hover. Respects prefers-reduced-motion.
+- **Readability** — Body copy 1rem across all reading pages. Mobile base 16px (no shrink). Nothing below 0.75rem. Content density tuned on derek + story pages (more breathing room between paragraphs/sections).
 
 ### What's Experimental
 - "Size This Up" tool (gathering feedback)
@@ -173,7 +177,7 @@ Current size: ~45.6K chars, ~11.6K input tokens.
 | `story.html` | The Story page | Progress bar, print styles |
 | `js/shared-nav.js` | Command palette overlay | NAV_CONFIG defines all nav items |
 | `js/porch-widget.js` | CW chat widget | Connects to /.netlify/functions/cw, on every page |
-| `css/shared-nav.css` | Palette + footer utilities | .footer-note, .signoff, .hw classes |
+| `css/shared-nav.css` | Palette + footer + dark mode + mobile header | Dark mode override, mobile static header, .footer-note, .hw |
 | `css/porch-widget.css` | Chat panel styles | Terminal trigger + slide-up panel |
 | `netlify/functions/kitchen-data.js` | Kitchen dashboard data aggregator | Auth-gated, fetches from CW Brief worker + Supabase |
 | `js/cw-link-renderer.js` | Renders clickable links in CW messages | Loaded before porch-widget.js on all pages |
@@ -328,7 +332,7 @@ Environment variables in Netlify:
 | dawn.claudewill.io | Dawn subdomain — coming soon |
 | d-rock.claudewill.io | D-Rock subdomain — coming soon |
 | Story page rewrite | Needs asteriskos, sharper articles |
-| Mobile testing | All pages, all new patterns (palette, widget, billboards) |
+| Mobile testing | Fixed Feb 22. Verify all fixes at 375px across multiple pages. |
 | Privacy policy update | Add memory/visitor token disclosure |
 
 ### Separate Build: Constitutional Layer
@@ -405,6 +409,14 @@ git log --oneline -15
 ---
 
 ## Changelog
+
+### February 22, 2026 — Mobile Polish + Dark Mode + Readability
+- **Mobile fixes** — Porch full-screen takeover (inset: 0, 100% width/height, ≤700px breakpoint). Header `claudewill*` shown static on mobile (no hover on touch). Chip `white-space: nowrap` + smaller size. Derek CTAs stack vertically on mobile. Close button enlarged.
+- **Dark mode** — `prefers-color-scheme: dark` override in shared-nav.css on `body` (not `:root` — inline styles would override). All 15 pages. `--card-bg: #0f1f3a` for card-based pages. Kitchen already dark — no conflict.
+- **Homepage energy** — Scroll reveals (IntersectionObserver, `.reveal` class, staggered delays). Gold gradient dividers (`border-image`). Ambient glow (`radial-gradient` from porch light). CTAs restyled with gold border + glow hover. Respects `prefers-reduced-motion`.
+- **Content density** — Homepage intro 30 words → 12. Derek bio paragraph → 3 scannable `<li>` items. derek.html paragraph spacing 0.75rem → 1.25rem, section spacing 2.5rem → 3rem. story.html paragraph spacing 1.25rem → 1.5rem, lineage/standard items wider.
+- **Font sizes** — Body copy 0.95rem → 1rem on all reading pages (index, derek, story, work-with-me, workshop, library, map). Mobile base stays 16px (was dropping to 15px). Porch chat 0.85rem → 0.9rem. Nothing below 0.75rem anywhere.
+- **7 commits:** b9e6ba3e, 3fbfbe9a, 427e1b1a, 593102fb, 0853da02, 79ab365f, + earlier session
 
 ### February 22, 2026 — CW Remembers + Homepage Redesign
 - **CW Remembers** — Visitor identity and memory system. UUID visitor token, Supabase tables (visitors, visitor_notes), session summarization via Haiku, name detection, returning visitor context injected into CW's system prompt. Memory behavior in behaviors.md. Porch mode only.
