@@ -13,19 +13,19 @@
     gtag('config', 'G-991ML96NJ3');
   </script>
   <title>work with me | claudewill</title>
-  <meta name="description" content="AI strategy consulting for organizations navigating digital transformation. Retainer-based engagements. Build capacity, transfer ownership, exit clean.">
+  <meta name="description" content="AI-native coaching for teams. Build capacity, transfer ownership, exit clean. CW Strategies.">
   <meta property="og:title" content="Work With Me | claudewill">
-  <meta property="og:description" content="AI strategy consulting. Build capacity, transfer ownership, exit clean.">
+  <meta property="og:description" content="AI-native coaching for teams. Build capacity, transfer ownership, exit clean.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://claudewill.io/work-with-me">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Work With Me | claudewill">
-  <meta name="twitter:description" content="AI strategy consulting. Build capacity, transfer ownership, exit clean.">
+  <meta name="twitter:description" content="AI-native coaching for teams. Build capacity, transfer ownership, exit clean.">
   <link rel="canonical" href="https://claudewill.io/work-with-me">
   <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/shared-nav.css">
 
   <!-- Schema.org -->
@@ -34,7 +34,7 @@
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "CW Strategies",
-    "description": "AI strategy consulting for organizations navigating digital transformation.",
+    "description": "AI-native coaching for teams navigating digital transformation.",
     "url": "https://claudewill.io/work-with-me",
     "provider": {
       "@type": "Person",
@@ -59,8 +59,13 @@
       --dim: #6b7280;
       --accent: #d4a84b;
       --link: #4a8ec2;
+      --blue: #6ba8d4;
       --border: #e5e7eb;
       --card-bg: #f3f4f6;
+      --navy: #0a1628;
+      --navy-border: #1e293b;
+      --navy-dim: #9ca3af;
+      --navy-text: #f0f0f0;
       --font: 'IBM Plex Mono', 'Courier New', Courier, monospace;
     }
 
@@ -76,111 +81,349 @@
     a:visited { color: var(--link); }
     a:hover { color: var(--accent); }
 
-    .container {
-      max-width: 680px;
+    /* ── Full-width sections ─────────────────── */
+
+    .band {
+      width: 100%;
+      padding: 80px 24px;
+    }
+
+    .band-inner {
+      max-width: 720px;
       margin: 0 auto;
-      padding: 0 24px 80px;
     }
 
-    main {
-      padding: 2rem 0;
+    .band--navy {
+      background: var(--navy);
+      color: var(--navy-text);
     }
 
-    /* ── Sections ────────────────────────────── */
-    .section {
-      padding: 48px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section:last-of-type {
-      border-bottom: none;
-    }
-
-    .section h2 {
-      font-family: var(--font);
-      font-size: 1.4rem;
-      font-weight: 700;
+    .band--light {
+      background: var(--bg);
       color: var(--text);
-      margin-bottom: 1.5rem;
     }
 
-    .section p {
+    .band h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .band p {
+      font-size: 1rem;
+      line-height: 1.8;
       margin-bottom: 1.25rem;
     }
 
-    .section p:last-child {
+    .band p:last-child {
       margin-bottom: 0;
     }
 
-    /* ── The Model (phases) ──────────────────── */
-    .phase {
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
+    /* ── Problem section ─────────────────────── */
+
+    .problem-list {
+      list-style: none;
+      margin-top: 32px;
     }
 
-    .phase:last-child {
-      border-bottom: none;
+    .problem-list li {
+      font-size: 1rem;
+      line-height: 1.6;
+      padding: 10px 0;
+      padding-left: 24px;
+      position: relative;
+      color: var(--navy-dim);
     }
 
-    .phase-num {
+    .problem-list li::before {
+      content: '\2014';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .problem-kicker {
+      margin-top: 40px;
+      font-size: 1rem;
+      color: var(--navy-text);
+    }
+
+    /* ── Standard section ────────────────────── */
+
+    .standard-list {
+      list-style: none;
+      display: grid;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .standard-list li {
+      font-size: 1rem;
+      line-height: 1.7;
+      padding-left: 28px;
+      position: relative;
+    }
+
+    .standard-list li::before {
+      content: '*';
+      position: absolute;
+      left: 0;
       color: var(--accent);
       font-weight: 700;
-      margin-right: 8px;
+      font-size: 1.1rem;
     }
 
-    .phase-name {
+    .standard-list li strong {
+      color: var(--accent);
+    }
+
+    /* ── Method section ──────────────────────── */
+
+    .method-phases {
+      display: grid;
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .method-phase {
+      border-left: 2px solid var(--accent);
+      padding-left: 24px;
+    }
+
+    .method-phase h3 {
+      color: var(--accent);
+      font-size: 1.1rem;
       font-weight: 600;
+      text-transform: lowercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
     }
 
-    .phase-desc {
-      color: var(--dim);
+    .method-phase p {
       font-size: 0.95rem;
+      color: var(--navy-dim);
+      line-height: 1.7;
+    }
+
+    .method-footer {
+      margin-top: 40px;
+      font-size: 0.95rem;
+      color: var(--navy-dim);
+      border-top: 1px solid var(--navy-border);
+      padding-top: 20px;
+    }
+
+    .method-footer strong {
+      color: var(--navy-text);
+    }
+
+    /* ── Proof section ───────────────────────── */
+
+    .proof-quotes {
+      font-size: 0.95rem;
+      color: var(--link);
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .proof-intro {
+      font-size: 1rem;
+      color: var(--dim);
+      margin-bottom: 32px;
+    }
+
+    .proof-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 32px;
+    }
+
+    .proof-table th {
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--dim);
+      padding: 10px 0;
+      border-bottom: 2px solid var(--text);
+    }
+
+    .proof-table th:last-child {
+      text-align: right;
+    }
+
+    .proof-table td {
+      font-size: 0.95rem;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .proof-table td:last-child {
+      font-weight: 600;
+      color: var(--text);
+      text-align: right;
+      padding-left: 24px;
+      width: 180px;
+      white-space: nowrap;
+    }
+
+    .proof-total td {
+      border-top: 2px solid var(--text);
+      border-bottom: none;
+      padding-top: 16px;
+      font-weight: 700;
+    }
+
+    .proof-total td:last-child {
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    .proof-investment td {
+      border-bottom: none;
+      color: var(--dim);
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+
+    .proof-investment td:last-child {
+      color: var(--dim);
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+
+    .proof-bottom {
+      background: var(--navy);
+      color: var(--navy-text);
+      padding: 20px 24px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border-radius: 4px;
+    }
+
+    .proof-bottom strong {
+      color: var(--accent);
+    }
+
+    .proof-scale {
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: var(--dim);
+    }
+
+    /* ── Derek section ───────────────────────── */
+
+    .who-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin: 40px 0;
+    }
+
+    .who-stat {
+      border-left: 2px solid var(--accent);
+      padding-left: 16px;
+    }
+
+    .who-stat .number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+
+    .who-stat .label {
+      font-size: 0.85rem;
+      color: var(--navy-dim);
       margin-top: 4px;
     }
 
-    .pricing-signal {
-      margin-top: 24px;
-      padding: 16px;
-      background: var(--card-bg);
-      border-left: 2px solid var(--accent);
+    .who-quote {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--blue);
+      font-style: italic;
+      margin-top: 40px;
+      padding-left: 20px;
+      border-left: 2px solid var(--blue);
+    }
+
+    /* ── Engage section ──────────────────────── */
+
+    .models {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .model-card {
+      border: 1px solid var(--border);
+      padding: 28px;
+      border-radius: 4px;
+    }
+
+    .model-card .model-type {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .model-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .model-card p {
       font-size: 0.9rem;
+      line-height: 1.7;
       color: var(--dim);
     }
 
-    /* ── Quotes ──────────────────────────────── */
-    .quotes {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      margin-bottom: 1.5rem;
+    .model-card ul {
+      list-style: none;
+      margin-top: 12px;
     }
 
-    .quote {
+    .model-card ul li {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--dim);
+      padding: 3px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .model-card ul li::before {
+      content: '*';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .models-footer {
+      margin-top: 32px;
       font-size: 1rem;
       color: var(--dim);
-      line-height: 1.7;
-      padding-left: 1rem;
-      border-left: 2px solid var(--accent);
-    }
-
-    .stats-line {
-      font-size: 0.9rem;
-      color: var(--dim);
-      margin-bottom: 1rem;
-    }
-
-    .section-cta {
-      display: inline-block;
-      font-size: 0.85rem;
-      color: var(--link);
-      text-decoration: none;
-    }
-
-    .section-cta:hover {
-      color: var(--accent);
     }
 
     /* ── Assessment Form ─────────────────────── */
+
+    .form-section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
     .form-intro {
       color: var(--dim);
       margin-bottom: 32px;
@@ -307,7 +550,7 @@
 
     /* ── Footer ──────────────────────────────── */
     .footer {
-      padding: 2rem 0;
+      padding: 2rem 24px;
       border-top: 1px solid var(--border);
       text-align: center;
     }
@@ -321,25 +564,18 @@
       margin-top: 0.5rem;
     }
 
-    .footer-note a {
-      color: var(--link);
-    }
-
-    .footer-note a:hover {
-      color: var(--accent);
-    }
-
-    .footer-note .hw {
-      color: var(--accent);
-    }
+    .footer-note a { color: var(--link); }
+    .footer-note a:hover { color: var(--accent); }
+    .footer-note .hw { color: var(--accent); }
 
     /* ── Mobile ──────────────────────────────── */
     @media (max-width: 600px) {
       body { font-size: 16px; }
-      .container { padding: 0 1rem 60px; }
-      main { padding: 1.5rem 0 2rem; }
-      .section { padding: 32px 0; }
-      .section h2 { font-size: 1.2rem; }
+      .band { padding: 60px 20px; }
+      .band h2 { font-size: 1.3rem; }
+      .who-stats { grid-template-columns: 1fr; }
+      .models { grid-template-columns: 1fr; }
+      .form-section { padding: 60px 20px; }
     }
 
     /* ── Focus ───────────────────────────────── */
@@ -360,16 +596,47 @@
       html { scroll-behavior: smooth; }
     }
 
+    /* ── Print button ────────────────────────── */
+
+    .print-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      font-family: var(--font);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--dim);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 8px 14px;
+      cursor: pointer;
+      z-index: 90;
+      transition: border-color 0.2s, color 0.2s;
+      letter-spacing: 0.04em;
+    }
+
+    .print-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
     /* ── Print ───────────────────────────────── */
     @media print {
-      .section { break-inside: avoid; }
+      .band { break-inside: avoid; }
+      .print-btn { display: none; }
+      .page-header { display: none; }
+      .footer { display: none; }
+      #cw-porch-trigger { display: none; }
+      #cw-porch-panel { display: none; }
+      .form-section { display: none; }
     }
   </style>
   <link rel="stylesheet" href="/css/porch-widget.css">
 </head>
 <body>
   <!-- Skip link -->
-  <a href="#the-work" class="skip-link sr-only">Skip to content</a>
+  <a href="#problem" class="skip-link sr-only">Skip to content</a>
 
   <!-- Page Header -->
   <header class="page-header" id="page-header">
@@ -377,150 +644,291 @@
     <div class="page-header-center">
       <button class="page-dropdown-toggle" aria-expanded="false" aria-haspopup="true">work with me <span class="dropdown-caret">&#9662;</span></button>
       <nav class="page-dropdown" aria-label="Page sections">
-        <a href="#the-work">the work</a>
-        <a href="#the-model">the model</a>
-        <a href="#the-proof">the proof</a>
+        <a href="#problem">the problem</a>
+        <a href="#standard">the standard</a>
+        <a href="#method">the method</a>
+        <a href="#proof">the proof</a>
+        <a href="#derek">derek</a>
+        <a href="#engage">two ways in</a>
         <a href="#start">start</a>
       </nav>
     </div>
     <button class="page-header-right palette-trigger" aria-label="Open navigation">menu</button>
   </header>
 
-  <div class="container">
-    <main>
+  <!-- ════════════════════════════════════════ -->
+  <!-- THE PROBLEM                             -->
+  <!-- ════════════════════════════════════════ -->
+  <section class="band band--navy" id="problem">
+    <div class="band-inner">
+      <h2>Your team knows AI matters.<br>They don't know where to start.</h2>
+      <ul class="problem-list">
+        <li>Built custom tools. Zero adoption.</li>
+        <li>Bought enterprise licenses. Nobody logs in.</li>
+        <li>Published an AI policy. Nobody read it.</li>
+        <li>Did presentations. Sent surveys. Nothing changed.</li>
+      </ul>
+      <p class="problem-kicker">The devil isn't in the details. It's in the approach.</p>
+    </div>
+  </section>
 
-      <!-- The Work -->
-      <div class="section" id="the-work">
-        <h2>the work</h2>
-        <p>Organizations know they need AI. Most don&rsquo;t know where to start. The ones that try usually start with the tools and skip the thinking. Six weeks later they&rsquo;re right back where they began.</p>
-        <p>I coach teams through the transition. Not the software. The strategy. How to know what&rsquo;s working, what&rsquo;s not, and what to do about it.</p>
-        <p>A media company had a million-dollar revenue gap and six weeks of circular conversations. Four days later they had decisions with owners and timelines. The CEO said &ldquo;No more talking. We are moving.&rdquo;</p>
-        <p>That&rsquo;s what I do. I unstick things.</p>
+  <!-- ════════════════════════════════════════ -->
+  <!-- THE STANDARD                            -->
+  <!-- ════════════════════════════════════════ -->
+  <section class="band band--light" id="standard">
+    <div class="band-inner">
+      <h2>The standard that works</h2>
+      <ul class="standard-list">
+        <li><strong>People over systems.</strong> Your team isn't the obstacle. They're the reason any of this matters.</li>
+        <li><strong>Truth over comfort.</strong> If the tool doesn't fit, I'll say so. If the strategy is wrong, you'll hear it.</li>
+        <li><strong>Usefulness over purity.</strong> It doesn't have to be elegant. It has to work on Monday morning.</li>
+        <li><strong>Transparency over reputation.</strong> You see everything I build. No black boxes. No proprietary mystery.</li>
+        <li><strong>Agency over ideology.</strong> Your organization decides what AI does here. Not the vendor. Not the hype cycle.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- THE METHOD                              -->
+  <!-- ════════════════════════════════════════ -->
+  <section class="band band--navy" id="method">
+    <div class="band-inner">
+      <h2>How we work</h2>
+      <div class="method-phases">
+        <div class="method-phase">
+          <h3>build</h3>
+          <p>Assess where you are. Identify what's working and what isn't. Build AI workflows and strategic frameworks tailored to your team and your problems.</p>
+        </div>
+        <div class="method-phase">
+          <h3>transfer</h3>
+          <p>Train the team. Document everything. Make the system theirs. The goal is a team that runs the second month with less support than the first.</p>
+        </div>
+        <div class="method-phase">
+          <h3>exit</h3>
+          <p>Leave. A good consultant builds capacity, not dependency. If the work only works when I'm in the room, it doesn't work.</p>
+        </div>
+      </div>
+      <div class="method-footer">
+        <strong>Timeline:</strong> A day, a month, a quarter. <strong>Billing:</strong> Retainer or project-based.
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- THE PROOF                               -->
+  <!-- ════════════════════════════════════════ -->
+  <section class="band band--light" id="proof">
+    <div class="band-inner">
+      <h2>The proof</h2>
+      <p class="proof-quotes">"Thank god you're a team player, Derek." &middot; "You make us feel less crazy."</p>
+      <p class="proof-intro">Hired for a one-month organizational audit. Six months later, we'd outgrown every scope.</p>
+      <table class="proof-table">
+        <thead>
+          <tr>
+            <th>Line item</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Contract savings (vendor negotiation)</td>
+            <td>$18,000</td>
+          </tr>
+          <tr>
+            <td>New revenue launched (Q1, on pace)</td>
+            <td>$14,000</td>
+          </tr>
+          <tr>
+            <td>Costs avoided (UX, PM, art direction, platform strategy)</td>
+            <td>$30,000+</td>
+          </tr>
+          <tr>
+            <td>Recurring annual platform savings unlocked</td>
+            <td>$7,000&ndash;$18,000</td>
+          </tr>
+          <tr>
+            <td>Strategic decisions supported</td>
+            <td>19</td>
+          </tr>
+          <tr>
+            <td>Written deliverables produced</td>
+            <td>14</td>
+          </tr>
+          <tr class="proof-total">
+            <td>Total financial return (Q1)</td>
+            <td>$62,000+</td>
+          </tr>
+          <tr class="proof-investment">
+            <td>Q1 investment</td>
+            <td>$30,000</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="proof-bottom">
+        Month one ROI: <strong>250&ndash;450%</strong>. Every phase earned the next. <strong>The math isn't close.</strong>
+      </div>
+      <p class="proof-scale">The paid content system built during this engagement is modeled to generate $200K annually at scale.</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- DEREK                                   -->
+  <!-- ════════════════════════════════════════ -->
+  <section class="band band--navy" id="derek">
+    <div class="band-inner">
+      <h2>Derek Simmons</h2>
+      <p style="color: var(--navy-dim); max-width: 640px;">
+        30 years in media. Star Tribune, LA Times. First and only Chief Creative Officer and VP in the Star Tribune's 150-year history. $20M generated during a pandemic. Four Pulitzer Prize-winning teams. Kansas State journalism degree. Now building with AI full-time.
+      </p>
+      <div class="who-stats">
+        <div class="who-stat">
+          <div class="number">30</div>
+          <div class="label">years in media</div>
+        </div>
+        <div class="who-stat">
+          <div class="number">$20M+</div>
+          <div class="label">revenue generated</div>
+        </div>
+        <div class="who-stat">
+          <div class="number">4</div>
+          <div class="label">Pulitzer Prize teams</div>
+        </div>
+        <div class="who-stat">
+          <div class="number">2,000+</div>
+          <div class="label">AI working sessions</div>
+        </div>
+      </div>
+      <blockquote class="who-quote">
+        "A forceful agent for change. Congenial, smart, diplomatic but also inspiring."
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- TWO WAYS IN                             -->
+  <!-- ════════════════════════════════════════ -->
+  <section class="band band--light" id="engage">
+    <div class="band-inner">
+      <h2>Two ways in</h2>
+      <div class="models">
+        <div class="model-card">
+          <div class="model-type">Fractional Leadership</div>
+          <h3>Embedded strategy</h3>
+          <p>10-20 hours per week. Retainer. I become part of your team &mdash; strategy, operations, AI integration, decision support.</p>
+          <ul>
+            <li>AI workflow design</li>
+            <li>Platform and vendor strategy</li>
+            <li>Revenue and audience development</li>
+            <li>Organizational coaching</li>
+          </ul>
+        </div>
+        <div class="model-card">
+          <div class="model-type">Team Training</div>
+          <h3>Practical AI skills</h3>
+          <p>2-3 sessions for your team. Not theory. Hands-on workflows they'll actually use &mdash; research, writing support, document analysis, guardrails.</p>
+          <ul>
+            <li>Tool-agnostic (works with what you have)</li>
+            <li>Ethical frameworks included</li>
+            <li>Built for skeptical teams</li>
+            <li>Customized to your newsroom</li>
+          </ul>
+        </div>
+      </div>
+      <p class="models-footer">Both start the same way: a conversation about where you are and where you want to be.</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- START (Assessment Form)                 -->
+  <!-- ════════════════════════════════════════ -->
+  <div class="form-section" id="start">
+    <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1.5rem;">Start</h2>
+    <p class="form-intro">Before we talk, a few questions. This isn&rsquo;t a test. It&rsquo;s a filter for both of us. Take 10 minutes. Be honest. There are no wrong answers, but vague ones tell me you&rsquo;re not ready.</p>
+
+    <form action="/.netlify/functions/intake" method="POST" id="intake-form">
+
+      <div class="question">
+        <label for="name">Your name <span class="required">*</span></label>
+        <input type="text" id="name" name="name" required>
       </div>
 
-      <!-- The Model -->
-      <div class="section" id="the-model">
-        <h2>the model</h2>
-        <p>Four months. Build the capacity. Transfer the ownership. Exit clean.</p>
-
-        <div class="phase">
-          <div><span class="phase-num">1</span> <span class="phase-name">build</span></div>
-          <p class="phase-desc">Assess where you are. Identify what&rsquo;s working. Build the AI workflows and strategic frameworks that fit your organization.</p>
-        </div>
-        <div class="phase">
-          <div><span class="phase-num">2</span> <span class="phase-name">transfer</span></div>
-          <p class="phase-desc">Train your team. Document everything. Make it theirs. The goal is capability, not dependency.</p>
-        </div>
-        <div class="phase">
-          <div><span class="phase-num">3</span> <span class="phase-name">exit</span></div>
-          <p class="phase-desc">Leave. If you need us permanently attached, we haven&rsquo;t done our job.</p>
-        </div>
-
-        <div class="pricing-signal">Retainer-based engagements. No hourly billing. No scope creep. Let&rsquo;s talk about what fits.</div>
+      <div class="question">
+        <label for="email">Email <span class="required">*</span></label>
+        <input type="email" id="email" name="email" required>
       </div>
 
-      <!-- The Proof -->
-      <div class="section" id="the-proof">
-        <h2>the proof</h2>
-        <div class="quotes">
-          <p class="quote">&ldquo;I could not have imagined a better partner.&rdquo;</p>
-          <p class="quote">&ldquo;I&rsquo;d ask him to draft three solutions and he&rsquo;d come back with five.&rdquo;</p>
-          <p class="quote">&ldquo;A forceful agent for change. Congenial, smart, diplomatic but also inspiring.&rdquo;</p>
+      <div class="question">
+        <label for="building">What are you trying to build? <span class="required">*</span></label>
+        <p class="hint">Not &ldquo;what&rsquo;s your goal.&rdquo; What are you actually trying to build? A practice? A team capability? A system? Be specific.</p>
+        <textarea id="building" name="building" required></textarea>
+      </div>
+
+      <div class="question">
+        <label for="tried">What have you already tried?</label>
+        <p class="hint">What tools have you experimented with? What worked? What didn&rsquo;t? If &ldquo;nothing yet,&rdquo; tell me why now.</p>
+        <textarea id="tried" name="tried"></textarea>
+      </div>
+
+      <div class="question">
+        <label for="constraint">What&rsquo;s the constraint? <span class="required">*</span></label>
+        <p class="hint">Time. Budget. Team buy-in. Technical knowledge. Fear of looking stupid. Overwhelm. What&rsquo;s yours?</p>
+        <textarea id="constraint" name="constraint" required></textarea>
+      </div>
+
+      <div class="question">
+        <label for="success">What does success look like in 90 days? <span class="required">*</span></label>
+        <p class="hint">Be concrete. What&rsquo;s different in your work, your team, your organization if this engagement works?</p>
+        <textarea id="success" name="success" required></textarea>
+      </div>
+
+      <div class="question">
+        <label for="why-me">Why me?</label>
+        <p class="hint">How did you find me? What made you fill this out instead of closing the tab?</p>
+        <textarea id="why-me" name="why_me"></textarea>
+      </div>
+
+      <div class="question">
+        <label>What kind of engagement are you looking for? <span class="required">*</span></label>
+        <p class="hint">Select all that apply.</p>
+        <div class="checkbox-group">
+          <div class="checkbox-item">
+            <input type="checkbox" id="type-1on1" name="engagement_type" value="1on1">
+            <label for="type-1on1"><strong>1:1 Coaching.</strong> I want to develop my own practice with a guide</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="type-team" name="engagement_type" value="team">
+            <label for="type-team"><strong>Team Engagement.</strong> My team/org needs to build capacity together</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="type-strategic" name="engagement_type" value="strategic">
+            <label for="type-strategic"><strong>Strategic Consulting.</strong> We need help with a larger implementation</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="type-unsure" name="engagement_type" value="unsure">
+            <label for="type-unsure"><strong>Not sure yet.</strong> I need help figuring that out</label>
+          </div>
         </div>
-        <p class="stats-line">30 years in media. $20M generated. Star Tribune, LA Times.</p>
-        <a href="/derek" class="section-cta">more about derek &rarr;</a>
       </div>
 
-      <!-- Start (Assessment Form) -->
-      <div class="section" id="start">
-        <h2>start</h2>
-        <p class="form-intro">Before we talk, a few questions. This isn&rsquo;t a test. It&rsquo;s a filter for both of us. Take 10 minutes. Be honest. There are no wrong answers, but vague ones tell me you&rsquo;re not ready.</p>
-
-        <form action="/.netlify/functions/intake" method="POST" id="intake-form">
-
-          <div class="question">
-            <label for="name">Your name <span class="required">*</span></label>
-            <input type="text" id="name" name="name" required>
-          </div>
-
-          <div class="question">
-            <label for="email">Email <span class="required">*</span></label>
-            <input type="email" id="email" name="email" required>
-          </div>
-
-          <div class="question">
-            <label for="building">What are you trying to build? <span class="required">*</span></label>
-            <p class="hint">Not &ldquo;what&rsquo;s your goal.&rdquo; What are you actually trying to build? A practice? A team capability? A system? Be specific.</p>
-            <textarea id="building" name="building" required></textarea>
-          </div>
-
-          <div class="question">
-            <label for="tried">What have you already tried?</label>
-            <p class="hint">What tools have you experimented with? What worked? What didn&rsquo;t? If &ldquo;nothing yet,&rdquo; tell me why now.</p>
-            <textarea id="tried" name="tried"></textarea>
-          </div>
-
-          <div class="question">
-            <label for="constraint">What&rsquo;s the constraint? <span class="required">*</span></label>
-            <p class="hint">Time. Budget. Team buy-in. Technical knowledge. Fear of looking stupid. Overwhelm. What&rsquo;s yours?</p>
-            <textarea id="constraint" name="constraint" required></textarea>
-          </div>
-
-          <div class="question">
-            <label for="success">What does success look like in 90 days? <span class="required">*</span></label>
-            <p class="hint">Be concrete. What&rsquo;s different in your work, your team, your organization if this engagement works?</p>
-            <textarea id="success" name="success" required></textarea>
-          </div>
-
-          <div class="question">
-            <label for="why-me">Why me?</label>
-            <p class="hint">How did you find me? What made you fill this out instead of closing the tab?</p>
-            <textarea id="why-me" name="why_me"></textarea>
-          </div>
-
-          <div class="question">
-            <label>What kind of engagement are you looking for? <span class="required">*</span></label>
-            <p class="hint">Select all that apply.</p>
-            <div class="checkbox-group">
-              <div class="checkbox-item">
-                <input type="checkbox" id="type-1on1" name="engagement_type" value="1on1">
-                <label for="type-1on1"><strong>1:1 Coaching.</strong> I want to develop my own practice with a guide</label>
-              </div>
-              <div class="checkbox-item">
-                <input type="checkbox" id="type-team" name="engagement_type" value="team">
-                <label for="type-team"><strong>Team Engagement.</strong> My team/org needs to build capacity together</label>
-              </div>
-              <div class="checkbox-item">
-                <input type="checkbox" id="type-strategic" name="engagement_type" value="strategic">
-                <label for="type-strategic"><strong>Strategic Consulting.</strong> We need help with a larger implementation</label>
-              </div>
-              <div class="checkbox-item">
-                <input type="checkbox" id="type-unsure" name="engagement_type" value="unsure">
-                <label for="type-unsure"><strong>Not sure yet.</strong> I need help figuring that out</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="question">
-            <label for="anything-else">Anything else I should know?</label>
-            <p class="hint">Context matters. Situation, timeline, constraints. Whatever helps.</p>
-            <textarea id="anything-else" name="anything_else"></textarea>
-          </div>
-
-          <button type="submit" class="btn-submit">Submit Assessment</button>
-
-          <p class="after-submit">I&rsquo;ll review your answers within 48 hours. If there&rsquo;s a fit, I&rsquo;ll reach out. If not, I&rsquo;ll tell you that too. No ghosting.</p>
-
-        </form>
+      <div class="question">
+        <label for="anything-else">Anything else I should know?</label>
+        <p class="hint">Context matters. Situation, timeline, constraints. Whatever helps.</p>
+        <textarea id="anything-else" name="anything_else"></textarea>
       </div>
 
-    </main>
+      <button type="submit" class="btn-submit">Submit Assessment</button>
 
-    <footer class="footer">
-      <p class="footer-note">Built by <a href="/derek">Derek</a><span class="hw">*</span><a href="/">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
-      <p class="footer-note"><a href="/story#the-cw-standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
-    </footer>
+      <p class="after-submit">I&rsquo;ll review your answers within 48 hours. If there&rsquo;s a fit, I&rsquo;ll reach out. If not, I&rsquo;ll tell you that too. No ghosting.</p>
+
+    </form>
   </div>
+
+  <button class="print-btn" onclick="window.print()" aria-label="Save as PDF">save as pdf</button>
+
+  <footer class="footer">
+    <p class="footer-note">Built by <a href="/derek">Derek</a><span class="hw">*</span><a href="/">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
+    <p class="footer-note"><a href="/story#the-cw-standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
+  </footer>
 
   <!-- Auto-hide header on scroll -->
   <script>
