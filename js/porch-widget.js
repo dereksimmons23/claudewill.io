@@ -419,6 +419,13 @@
     });
   }
 
+  // Expose API for external triggers (e.g. homepage invitation CTA)
+  window.CW_PORCH = {
+    open: function () {
+      if (panel) openPanel();
+    }
+  };
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {

@@ -200,7 +200,7 @@
 
         /* ── Screen 1: The Invitation ────────────── */
         .invitation {
-            min-height: 100svh;
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -211,34 +211,47 @@
             position: relative;
         }
 
-        .invitation-wordmark {
+        .porch-light {
             font-family: var(--font);
-            font-size: 3rem;
+            font-size: 48px;
             font-weight: 700;
-            color: var(--text);
-            letter-spacing: 0.02em;
-            margin-bottom: 0.75rem;
-        }
-
-        .wordmark-star {
             color: var(--accent);
-            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 16px rgba(212, 168, 75, 0.5), 0 0 40px rgba(212, 168, 75, 0.2);
             transition: text-shadow 0.3s ease;
         }
 
-        .wordmark-star:hover {
-            text-shadow: 0 0 20px rgba(212, 168, 75, 0.4);
+        .porch-light:hover {
+            text-shadow: 0 0 24px rgba(212, 168, 75, 0.7), 0 0 60px rgba(212, 168, 75, 0.3);
         }
 
-        .wordmark-star:visited {
-            color: var(--accent);
+        .invitation-wordmark {
+            font-family: var(--font);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: 0.04em;
+            margin-bottom: 1.5rem;
+        }
+
+        .invitation-intro {
+            font-family: var(--font);
+            font-size: 0.95rem;
+            color: var(--dim);
+            max-width: 480px;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
         }
 
         .invitation-phrase {
             font-family: var(--font);
             color: var(--dim);
             font-size: 0.95rem;
-            margin-bottom: 1.5rem;
             letter-spacing: 0.02em;
             transition: opacity 0.4s ease;
             min-height: 1.5em;
@@ -259,39 +272,14 @@
             50% { opacity: 0; }
         }
 
-        .invitation-line {
-            color: var(--dim);
-            font-size: 0.9rem;
-            letter-spacing: 0.02em;
+        /* Hide porch widget + floating menu on screen 1 */
+        body.screen-1-visible .porch-widget,
+        body.screen-1-visible .cw-palette-trigger {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
         }
 
-        .scroll-hint {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--dim);
-            opacity: 0.3;
-            font-family: var(--font);
-            font-size: 1.5rem;
-            text-decoration: none;
-            transition: color 0.3s, opacity 0.3s;
-            animation: hint-float 3s ease-in-out infinite;
-        }
-
-        .scroll-hint:hover {
-            color: var(--accent);
-            opacity: 1;
-        }
-
-        .scroll-hint:visited {
-            color: var(--dim);
-        }
-
-        @keyframes hint-float {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(4px); }
-        }
 
         /* ── Billboard Sections (Screens 2-3) ────── */
         .billboard {
@@ -521,17 +509,20 @@
                 font-size: 15px;
             }
             .invitation {
-                min-height: 100svh;
+                min-height: 85vh;
                 padding: 1.5rem 1rem;
             }
+            .porch-light {
+                font-size: 36px;
+            }
             .invitation-wordmark {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
+            }
+            .invitation-intro {
+                font-size: 0.85rem;
             }
             .invitation-phrase {
                 font-size: 0.85rem;
-            }
-            .invitation-line {
-                font-size: 0.8rem;
             }
             .billboard {
                 padding: 3rem 1.25rem;
@@ -559,10 +550,6 @@
                 opacity: 1;
             }
 
-            .scroll-hint {
-                animation: none;
-            }
-
             .standard-list a {
                 transition: none;
             }
@@ -580,10 +567,10 @@
 
     <!-- Screen 1: The Invitation -->
     <section class="invitation" id="top">
-        <h1 class="invitation-wordmark">claudewill<a href="#derek" class="wordmark-star" aria-label="Meet Derek">*</a></h1>
+        <button class="porch-light" id="porch-light" aria-label="Open CW's Porch">*</button>
+        <div class="invitation-wordmark">claudewill</div>
+        <p class="invitation-intro">hi, i'm derek. i named this place after my grandfather — claude william simmons, an oklahoma farmer who gave straight answers and left the porch light on. welcome.</p>
         <p class="invitation-phrase" id="invitation-phrase">claude will <span id="typed-text"></span><span class="typewriter-cursor" aria-hidden="true"></span></p>
-        <p class="invitation-line">Pull up a chair. He's listening.</p>
-        <a href="#derek" class="scroll-hint" aria-label="Scroll to next section">*</a>
     </section>
 
     <!-- Screen 2: Derek -->
@@ -621,10 +608,10 @@
     <!-- Typewriter effect -->
     <script>
         var typedPhrases = [
-            'find a way',
             'listen first',
-            'build things',
-            'ask why'
+            'speak directly',
+            'find a way',
+            'keep going'
         ];
         var tpIndex = 0;
         var tpChar = 0;
@@ -661,6 +648,32 @@
         if (typedEl) {
             setTimeout(typeStep, 800);
         }
+    </script>
+    <!-- Porch light easter egg → open porch widget -->
+    <script>
+        document.getElementById('porch-light').addEventListener('click', function () {
+            if (window.CW_PORCH && window.CW_PORCH.open) {
+                window.CW_PORCH.open();
+            }
+        });
+    </script>
+    <!-- Hide porch widget + menu trigger on screen 1 -->
+    <script>
+        (function () {
+            document.body.classList.add('screen-1-visible');
+            var invitation = document.getElementById('top');
+            if (!invitation || !('IntersectionObserver' in window)) return;
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.intersectionRatio < 0.5) {
+                        document.body.classList.remove('screen-1-visible');
+                    } else {
+                        document.body.classList.add('screen-1-visible');
+                    }
+                });
+            }, { threshold: [0, 0.5] });
+            observer.observe(invitation);
+        })();
     </script>
     <script src="/js/cw-link-renderer.js"></script>
     <script src="/js/porch-widget.js" defer></script>

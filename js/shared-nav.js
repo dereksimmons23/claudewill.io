@@ -134,17 +134,7 @@
     var btn = document.createElement('button');
     btn.className = 'cw-palette-trigger';
     btn.setAttribute('aria-label', 'Open navigation');
-
-    var star = document.createElement('span');
-    star.className = 'cw-palette-trigger-star';
-    star.textContent = '*';
-
-    var label = document.createElement('span');
-    label.className = 'cw-palette-trigger-label';
-    label.textContent = ' menu';
-
-    btn.appendChild(star);
-    btn.appendChild(label);
+    btn.textContent = 'menu';
     return btn;
   }
 

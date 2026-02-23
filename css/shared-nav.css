@@ -80,18 +80,6 @@
   margin-right: 0.25rem;
 }
 
-/* Floating trigger label */
-.cw-palette-trigger-star {
-  color: #d4a84b;
-}
-
-.cw-palette-trigger-label {
-  color: #6b7280;
-  font-size: 0.8rem;
-  font-weight: 500;
-  margin-left: 0.25rem;
-}
-
 /* Sub-items (indented) */
 .cw-palette-item {
   font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
@@ -138,16 +126,16 @@
   border: none;
   cursor: pointer;
   font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #d4a84b;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--dim, #6b7280);
   padding: 0.25rem 0.5rem;
   line-height: 1;
-  transition: opacity 0.2s;
+  transition: color 0.2s;
 }
 
 .cw-palette-trigger:hover {
-  opacity: 0.7;
+  color: var(--accent, #d4a84b);
 }
 
 /* ── Header Palette Trigger (sticky header pages) ── */
@@ -156,16 +144,16 @@
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
-  color: #d4a84b;
+  color: var(--dim, #6b7280);
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
-  transition: opacity 0.2s;
+  transition: color 0.2s;
 }
 
 .palette-trigger:hover {
-  opacity: 0.7;
+  color: var(--accent, #d4a84b);
 }
 
 /* ── Page Header (sticky, auto-hide) ─────────── */
@@ -194,6 +182,7 @@
   color: var(--text, #0a1628);
   text-decoration: none;
   letter-spacing: 0.04em;
+  min-width: 12ch;
 }
 
 .page-header-left:visited { color: var(--text, #0a1628); }
@@ -303,33 +292,21 @@
 .page-dropdown a:visited { color: var(--dim, #6b7280); }
 .page-dropdown a:hover { color: var(--accent, #d4a84b); }
 
-/* Right: * menu trigger */
+/* Right: menu trigger */
 .page-header-right.palette-trigger {
   font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
   font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text, #0a1628);
+  font-weight: 500;
+  color: var(--dim, #6b7280);
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.2rem;
   transition: color 0.2s;
 }
 
 .page-header-right.palette-trigger:hover {
-  opacity: 1;
   color: var(--accent, #d4a84b);
-}
-
-.page-header-right .hw {
-  color: var(--accent, #d4a84b);
-}
-
-.header-menu-label {
-  font-weight: 500;
 }
 
 /* ── Shared Footer Utilities ─────────────────── */

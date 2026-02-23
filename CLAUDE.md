@@ -13,7 +13,7 @@
 ## Current State
 
 ### What Works
-- **Homepage** — 3-screen billboard: invitation (claudewill* with clickable asterisk, typewriter), Derek intro, the standard (5 clickable principles)
+- **Homepage** — 3-screen billboard: porch light (gold asterisk easter egg → opens porch), claudewill wordmark, Derek's welcome intro, "claude will ___" typewriter (listen first, speak directly, find a way, keep going). Screen 2: Derek intro. Screen 3: the standard (5 clickable principles). Porch widget + menu trigger hidden on screen 1 via IntersectionObserver, appear on scroll.
 - **Work With Me** — /work-with-me: THE conversion page. Pitch (the work, the model), proof (testimonials), embedded assessment form. The funnel endpoint.
 - **Porch widget** — `cw> _` terminal trigger on every page including homepage. Slide-up chat panel connects to CW API. Vernie Mode via "family?" chip or `?family=true` URL parameter.
 - **Command palette** — Terminal-style nav overlay with 3 items: derek, the story, work with me. Triggered by `*` in sticky headers or floating `*` button on other pages.
@@ -404,9 +404,10 @@ git log --oneline -15
 
 ## Changelog
 
-### February 22, 2026 — The Funnel
+### February 22, 2026 — The Funnel + Homepage Screen 1
+- **Homepage screen 1 redesign** — Porch light (48px gold asterisk with glow, easter egg → opens porch widget), stacked claudewill wordmark, Derek's welcome intro, "claude will ___" typewriter (listen first, speak directly, find a way, keep going). 85vh so screen 2 peeks. Porch widget + floating menu trigger hidden on screen 1 via IntersectionObserver.
+- **Global header fix** — Simplified menu trigger: removed asterisk from all 8 page headers, just says "menu" in dim gray. Fixed `cw*` → `claudewill*` hover animation pushing center content (`min-width: 12ch`). Consistent styling hierarchy: bold brand left, 600-weight page title center, dim gray menu right.
 - **Work With Me** — /work-with-me: THE conversion page. Pitch → proof → assessment form. One page, full funnel.
-- **Homepage redesign** — 4 screens → 3. Invitation (claudewill* with clickable asterisk, 4 typewriter phrases), Derek intro, the standard (clickable principles).
 - **Nav simplified** — 4 sections with subsections → 3 flat links: derek, the story, work with me.
 - **Derek page trimmed** — Removed engagement pitch, recommendations, what I build. Kept bio, little star, dispatches, contact. First button now "work with me →".
 - **CW knows /work-with-me** — site-knowledge.md updated, prompt recompiled. CW points potential clients to /work-with-me.
