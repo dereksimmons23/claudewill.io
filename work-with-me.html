@@ -96,11 +96,17 @@
     .band--navy {
       background: var(--navy);
       color: var(--navy-text);
+      --s-text: var(--navy-text);
+      --s-dim: var(--navy-dim);
+      --s-border: var(--navy-border);
     }
 
     .band--light {
       background: var(--bg);
       color: var(--text);
+      --s-text: var(--text);
+      --s-dim: var(--dim);
+      --s-border: var(--border);
     }
 
     .band h2 {
@@ -133,7 +139,7 @@
       padding: 10px 0;
       padding-left: 24px;
       position: relative;
-      color: var(--navy-dim);
+      color: var(--s-dim);
     }
 
     .problem-list li::before {
@@ -146,7 +152,7 @@
     .problem-kicker {
       margin-top: 40px;
       font-size: 1rem;
-      color: var(--navy-text);
+      color: var(--s-text);
     }
 
     /* ── Standard section ────────────────────── */
@@ -202,20 +208,20 @@
 
     .method-phase p {
       font-size: 0.95rem;
-      color: var(--navy-dim);
+      color: var(--s-dim);
       line-height: 1.7;
     }
 
     .method-footer {
       margin-top: 40px;
       font-size: 0.95rem;
-      color: var(--navy-dim);
-      border-top: 1px solid var(--navy-border);
+      color: var(--s-dim);
+      border-top: 1px solid var(--s-border);
       padding-top: 20px;
     }
 
     .method-footer strong {
-      color: var(--navy-text);
+      color: var(--s-text);
     }
 
     /* ── Proof section ───────────────────────── */
@@ -229,7 +235,7 @@
 
     .proof-intro {
       font-size: 1rem;
-      color: var(--dim);
+      color: var(--s-dim);
       margin-bottom: 32px;
     }
 
@@ -245,9 +251,9 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: var(--dim);
+      color: var(--s-dim);
       padding: 10px 0;
-      border-bottom: 2px solid var(--text);
+      border-bottom: 2px solid var(--s-text);
     }
 
     .proof-table th:last-child {
@@ -257,13 +263,13 @@
     .proof-table td {
       font-size: 0.95rem;
       padding: 12px 0;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--s-border);
       vertical-align: top;
     }
 
     .proof-table td:last-child {
       font-weight: 600;
-      color: var(--text);
+      color: var(--s-text);
       text-align: right;
       padding-left: 24px;
       width: 180px;
@@ -271,7 +277,7 @@
     }
 
     .proof-total td {
-      border-top: 2px solid var(--text);
+      border-top: 2px solid var(--s-text);
       border-bottom: none;
       padding-top: 16px;
       font-weight: 700;
@@ -284,20 +290,20 @@
 
     .proof-investment td {
       border-bottom: none;
-      color: var(--dim);
+      color: var(--s-dim);
       font-weight: 400;
       font-size: 0.9rem;
     }
 
     .proof-investment td:last-child {
-      color: var(--dim);
+      color: var(--s-dim);
       font-weight: 400;
       font-size: 0.9rem;
     }
 
     .proof-bottom {
-      background: var(--navy);
-      color: var(--navy-text);
+      background: var(--bg);
+      color: var(--text);
       padding: 20px 24px;
       font-size: 0.95rem;
       line-height: 1.6;
@@ -311,7 +317,7 @@
     .proof-scale {
       margin-top: 16px;
       font-size: 0.85rem;
-      color: var(--dim);
+      color: var(--s-dim);
     }
 
     /* ── Derek section ───────────────────────── */
@@ -337,7 +343,7 @@
 
     .who-stat .label {
       font-size: 0.85rem;
-      color: var(--navy-dim);
+      color: var(--s-dim);
       margin-top: 4px;
     }
 
@@ -361,7 +367,7 @@
     }
 
     .model-card {
-      border: 1px solid var(--border);
+      border: 1px solid var(--s-border);
       padding: 28px;
       border-radius: 4px;
     }
@@ -378,14 +384,14 @@
     .model-card h3 {
       font-size: 1.05rem;
       font-weight: 600;
-      color: var(--text);
+      color: var(--s-text);
       margin-bottom: 12px;
     }
 
     .model-card p {
       font-size: 0.9rem;
       line-height: 1.7;
-      color: var(--dim);
+      color: var(--s-dim);
     }
 
     .model-card ul {
@@ -396,7 +402,7 @@
     .model-card ul li {
       font-size: 0.9rem;
       line-height: 1.7;
-      color: var(--dim);
+      color: var(--s-dim);
       padding: 3px 0;
       padding-left: 20px;
       position: relative;
@@ -413,7 +419,7 @@
     .models-footer {
       margin-top: 32px;
       font-size: 1rem;
-      color: var(--dim);
+      color: var(--s-dim);
     }
 
     /* ── Assessment Form ─────────────────────── */
@@ -671,6 +677,47 @@
       border-color: rgba(212, 168, 75, 0.6);
     }
 
+    /* ── CTA closing slide (PDF only) ────────── */
+
+    .cta-slide {
+      text-align: center;
+      display: none;
+    }
+
+    .cta-mark {
+      font-size: 64px;
+      color: var(--accent);
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 40px;
+      text-shadow:
+        0 0 20px rgba(212, 168, 75, 0.4),
+        0 0 60px rgba(212, 168, 75, 0.15);
+    }
+
+    .cta-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .cta-links li {
+      font-size: 1.1rem;
+    }
+
+    .cta-links a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    .cta-links .cta-email {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
     /* ── Print ───────────────────────────────── */
     @media print {
       body {
@@ -686,6 +733,8 @@
       .porch-widget { display: none !important; }
       #cw-porch-trigger { display: none !important; }
       #cw-porch-panel { display: none !important; }
+
+      .cta-slide { display: flex !important; }
 
       .cover {
         min-height: 0;
@@ -794,7 +843,7 @@
   <!-- ════════════════════════════════════════ -->
   <!-- THE PROBLEM                             -->
   <!-- ════════════════════════════════════════ -->
-  <section class="band band--navy" id="problem">
+  <section class="band band--light" id="problem">
     <div class="band-inner">
       <h2>Your team knows AI matters.<br>They don't know where to start.</h2>
       <ul class="problem-list">
@@ -810,7 +859,7 @@
   <!-- ════════════════════════════════════════ -->
   <!-- THE STANDARD                            -->
   <!-- ════════════════════════════════════════ -->
-  <section class="band band--light" id="standard">
+  <section class="band band--navy" id="standard">
     <div class="band-inner">
       <h2>The standard that works</h2>
       <ul class="standard-list">
@@ -826,7 +875,7 @@
   <!-- ════════════════════════════════════════ -->
   <!-- THE METHOD                              -->
   <!-- ════════════════════════════════════════ -->
-  <section class="band band--navy" id="method">
+  <section class="band band--light" id="method">
     <div class="band-inner">
       <h2>How we work</h2>
       <div class="method-phases">
@@ -852,7 +901,7 @@
   <!-- ════════════════════════════════════════ -->
   <!-- THE PROOF                               -->
   <!-- ════════════════════════════════════════ -->
-  <section class="band band--light" id="proof">
+  <section class="band band--navy" id="proof">
     <div class="band-inner">
       <h2>The proof</h2>
       <p class="proof-quotes">"Thank god you're a team player, Derek." &middot; "You make us feel less crazy."</p>
@@ -909,10 +958,10 @@
   <!-- ════════════════════════════════════════ -->
   <!-- DEREK                                   -->
   <!-- ════════════════════════════════════════ -->
-  <section class="band band--navy" id="derek">
+  <section class="band band--light" id="derek">
     <div class="band-inner">
       <h2>Derek Simmons</h2>
-      <p style="color: var(--navy-dim); max-width: 640px;">
+      <p style="color: var(--s-dim); max-width: 640px;">
         30 years in media. Star Tribune, LA Times. First and only Chief Creative Officer and VP in the Star Tribune's 150-year history. $20M generated during a pandemic. Four Pulitzer Prize-winning teams. Kansas State journalism degree. Now building with AI full-time.
       </p>
       <div class="who-stats">
@@ -942,7 +991,7 @@
   <!-- ════════════════════════════════════════ -->
   <!-- TWO WAYS IN                             -->
   <!-- ════════════════════════════════════════ -->
-  <section class="band band--light" id="engage">
+  <section class="band band--navy" id="engage">
     <div class="band-inner">
       <h2>Two ways in</h2>
       <div class="models">
@@ -970,6 +1019,20 @@
         </div>
       </div>
       <p class="models-footer">Both start the same way: a conversation about where you are and where you want to be.</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- CTA (PDF closing slide, hidden on web)  -->
+  <!-- ════════════════════════════════════════ -->
+  <section class="band band--light cta-slide">
+    <div class="band-inner">
+      <div class="cta-mark">*</div>
+      <h2>Let's talk.</h2>
+      <ul class="cta-links">
+        <li><a href="https://claudewill.io/work-with-me">claudewill.io/work-with-me</a></li>
+        <li><a href="mailto:derek@claudewill.io" class="cta-email">derek@claudewill.io</a></li>
+      </ul>
     </div>
   </section>
 
