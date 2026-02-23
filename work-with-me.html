@@ -596,39 +596,126 @@
       html { scroll-behavior: smooth; }
     }
 
-    /* ── Print button ────────────────────────── */
+    /* ── Cover section ────────────────────────── */
 
-    .print-btn {
-      position: fixed;
-      bottom: 24px;
-      left: 24px;
-      font-family: var(--font);
-      font-size: 0.85rem;
-      font-weight: 400;
-      color: var(--accent);
-      background: var(--navy);
-      border: 1px solid rgba(212, 168, 75, 0.2);
-      border-radius: 24px;
-      padding: 10px 18px;
-      cursor: pointer;
-      z-index: 90;
-      transition: border-color 0.3s;
-      line-height: 1;
+    .cover {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
     }
 
-    .print-btn:hover {
+    .cover-mark {
+      font-size: 96px;
+      color: var(--accent);
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 48px;
+      text-shadow:
+        0 0 20px rgba(212, 168, 75, 0.4),
+        0 0 60px rgba(212, 168, 75, 0.15);
+    }
+
+    .cover-name {
+      font-size: clamp(24px, 3.5vw, 40px);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+      color: var(--navy-text);
+    }
+
+    .cover-tagline {
+      font-size: clamp(16px, 2vw, 22px);
+      font-weight: 300;
+      color: var(--navy-dim);
+      letter-spacing: 0.04em;
+    }
+
+    .cover-footer {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cover-url {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--navy-dim);
+      letter-spacing: 0.06em;
+    }
+
+    .cover-pdf {
+      font-family: var(--font);
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--accent);
+      background: transparent;
+      border: 1px solid rgba(212, 168, 75, 0.25);
+      border-radius: 24px;
+      padding: 8px 20px;
+      cursor: pointer;
+      transition: border-color 0.3s;
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+
+    .cover-pdf:hover {
       border-color: rgba(212, 168, 75, 0.6);
     }
 
     /* ── Print ───────────────────────────────── */
     @media print {
-      .band { break-inside: avoid; }
-      .print-btn { display: none; }
-      .page-header { display: none; }
-      .footer { display: none; }
-      #cw-porch-trigger { display: none; }
-      #cw-porch-panel { display: none; }
-      .form-section { display: none; }
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page-header { display: none !important; }
+      .footer { display: none !important; }
+      .form-section { display: none !important; }
+      .cover-pdf { display: none !important; }
+      .porch-widget { display: none !important; }
+      #cw-porch-trigger { display: none !important; }
+      #cw-porch-panel { display: none !important; }
+
+      .cover {
+        min-height: 0;
+        height: 100vh;
+        page-break-after: always;
+      }
+
+      .band {
+        page-break-inside: avoid;
+        page-break-after: always;
+        min-height: 0;
+        padding: 48px 40px;
+      }
+
+      .band:last-of-type {
+        page-break-after: auto;
+      }
+
+      .band--navy {
+        background: var(--navy) !important;
+        color: var(--navy-text) !important;
+      }
+
+      .band--light {
+        background: var(--bg) !important;
+        color: var(--text) !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .cover-mark { font-size: 64px; }
     }
   </style>
   <link rel="stylesheet" href="/css/porch-widget.css">
@@ -640,6 +727,7 @@
     <div class="page-header-center">
       <button class="page-dropdown-toggle" aria-expanded="false" aria-haspopup="true">work with me <span class="dropdown-caret">&#9662;</span></button>
       <nav class="page-dropdown" aria-label="Page sections">
+        <a href="#cover">cw strategies</a>
         <a href="#problem">the problem</a>
         <a href="#standard">the standard</a>
         <a href="#method">the method</a>
@@ -651,6 +739,21 @@
     </div>
     <button class="page-header-right palette-trigger" aria-label="Open navigation">menu</button>
   </header>
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- COVER                                   -->
+  <!-- ════════════════════════════════════════ -->
+  <section class="band band--navy cover" id="cover">
+    <div class="band-inner">
+      <div class="cover-mark">*</div>
+      <div class="cover-name">CW Strategies</div>
+      <div class="cover-tagline">ai-native coaching for teams</div>
+    </div>
+    <div class="cover-footer">
+      <button class="cover-pdf" onclick="window.print()">save as pdf</button>
+      <div class="cover-url">claudewill.io</div>
+    </div>
+  </section>
 
   <!-- ════════════════════════════════════════ -->
   <!-- THE PROBLEM                             -->
@@ -918,8 +1021,6 @@
 
     </form>
   </div>
-
-  <button class="print-btn" onclick="window.print()" aria-label="Save as PDF">save as pdf</button>
 
   <footer class="footer">
     <p class="footer-note">Built by <a href="/derek">Derek</a><span class="hw">*</span><a href="/">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
