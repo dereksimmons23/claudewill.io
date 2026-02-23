@@ -332,40 +332,30 @@
         }
 
         /* ── Screen 2: Derek ─────────────────────── */
-        .derek-star {
+        .billboard-headline {
             font-family: var(--font);
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-bottom: 2rem;
-        }
-
-        .derek-intro {
-            max-width: 520px;
-            margin-bottom: 2rem;
-        }
-
-        .derek-name {
-            font-size: 1.05rem;
+            font-size: 1.4rem;
             font-weight: 600;
             color: var(--text);
-            margin-bottom: 0.25rem;
+            margin-bottom: 1.5rem;
         }
 
-        .derek-summary {
-            font-size: 1.05rem;
+        .derek-typewriter {
+            font-family: var(--font);
+            font-size: 0.95rem;
             color: var(--dim);
+            letter-spacing: 0.02em;
+            margin-bottom: 1.5rem;
+            min-height: 1.5em;
         }
 
-        .derek-quote {
-            font-size: 1rem;
+        .derek-bio {
+            font-family: var(--font);
+            font-size: 0.95rem;
             color: var(--dim);
-            font-style: italic;
-            max-width: 460px;
-            padding-left: 1rem;
-            border-left: 2px solid var(--accent);
-            margin-bottom: 2.5rem;
-            line-height: 1.7;
-            text-align: left;
+            max-width: 480px;
+            line-height: 1.8;
+            margin-bottom: 2rem;
         }
 
         /* ── Screen 3: The Standard ──────────────── */
@@ -411,31 +401,11 @@
             margin-right: 0.75rem;
         }
 
-        /* Signoff as link */
-        .signoff-link {
+        .standard-headline {
             font-family: var(--font);
-            font-size: 0.85rem;
+            font-size: 1rem;
             color: var(--dim);
-            text-decoration: none;
-            opacity: 0.5;
-            transition: opacity 0.3s ease;
-            letter-spacing: 0.08em;
-        }
-
-        .signoff-link:hover {
-            opacity: 0.8;
-        }
-
-        .signoff-link:visited {
-            color: var(--dim);
-        }
-
-        .signoff-link:hover .signoff-star {
-            color: var(--accent);
-        }
-
-        .signoff-star {
-            transition: color 0.3s ease;
+            margin-bottom: 2rem;
         }
 
         /* ── Footer ───────────────────────────────── */
@@ -527,12 +497,12 @@
             .billboard {
                 padding: 3rem 1.25rem;
             }
-            .derek-name,
-            .derek-summary {
-                font-size: 0.95rem;
+            .billboard-headline {
+                font-size: 1.2rem;
             }
-            .derek-quote {
-                font-size: 0.9rem;
+            .derek-typewriter,
+            .derek-bio {
+                font-size: 0.85rem;
             }
             .standard-list a {
                 font-size: 0.9rem;
@@ -575,12 +545,10 @@
 
     <!-- Screen 2: Derek -->
     <section class="billboard" id="derek">
-        <div class="derek-star" aria-hidden="true">*</div>
-        <div class="derek-intro">
-            <p class="derek-name">Derek Simmons. Coach, builder, storyteller.</p>
-            <p class="derek-summary">Three decades in media. Now building with AI.</p>
-        </div>
-        <p class="derek-quote">&ldquo;I&rsquo;d ask him to draft three solutions and he&rsquo;d come back with five.&rdquo;</p>
+        <div class="billboard-label">derek</div>
+        <h2 class="billboard-headline">who is derek simmons?</h2>
+        <p class="derek-typewriter" id="derek-typewriter"><span id="derek-typed"></span><span class="typewriter-cursor" aria-hidden="true"></span></p>
+        <p class="derek-bio">los angeles times, then star tribune. thirteen roles, first and only chief creative officer and VP. $20m in revenue during a pandemic.</p>
         <div class="derek-ctas">
             <a href="/derek" class="billboard-cta">more about derek &rarr;</a>
             <a href="/work-with-me" class="billboard-cta">work with me &rarr;</a>
@@ -589,7 +557,8 @@
 
     <!-- Screen 3: The Standard -->
     <section class="billboard" id="standard">
-        <div class="billboard-label">* the standard</div>
+        <div class="billboard-label">the standard</div>
+        <p class="standard-headline">five rules for AI that serves people</p>
         <ol class="standard-list">
             <li><a href="/story#the-cw-standard"><span class="standard-num">1</span> truth over comfort</a></li>
             <li><a href="/story#the-cw-standard"><span class="standard-num">2</span> usefulness over purity</a></li>
@@ -597,7 +566,7 @@
             <li><a href="/story#the-cw-standard"><span class="standard-num">4</span> people over systems</a></li>
             <li><a href="/story#the-cw-standard"><span class="standard-num">5</span> agency over ideology</a></li>
         </ol>
-        <a href="#top" class="signoff-link" aria-label="Back to top"><span class="signoff-star">*</span> keep going</a>
+        <a href="/story#the-cw-standard" class="billboard-cta">the full story &rarr;</a>
     </section>
 
     <footer class="site-footer" role="contentinfo">
@@ -647,6 +616,47 @@
 
         if (typedEl) {
             setTimeout(typeStep, 800);
+        }
+
+        // Screen 2 typewriter — derek credentials
+        var derekPhrases = [
+            'three decades in media',
+            'building with AI'
+        ];
+        var dkIndex = 0;
+        var dkChar = 0;
+        var dkDeleting = false;
+        var derekEl = document.getElementById('derek-typed');
+
+        function derekTypeStep() {
+            if (!derekEl) return;
+            var current = derekPhrases[dkIndex];
+
+            if (!dkDeleting) {
+                dkChar++;
+                derekEl.textContent = current.substring(0, dkChar);
+
+                if (dkChar === current.length) {
+                    setTimeout(function() { dkDeleting = true; derekTypeStep(); }, 2500);
+                    return;
+                }
+                setTimeout(derekTypeStep, 80);
+            } else {
+                dkChar--;
+                derekEl.textContent = current.substring(0, dkChar);
+
+                if (dkChar === 0) {
+                    dkDeleting = false;
+                    dkIndex = (dkIndex + 1) % derekPhrases.length;
+                    setTimeout(derekTypeStep, 400);
+                    return;
+                }
+                setTimeout(derekTypeStep, 40);
+            }
+        }
+
+        if (derekEl) {
+            setTimeout(derekTypeStep, 1200);
         }
     </script>
     <!-- Porch light easter egg → open porch widget -->
