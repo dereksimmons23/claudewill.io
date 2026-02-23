@@ -28,7 +28,7 @@ What he's built here:
 - "Different porches, same family."
 
 Where to learn more:
-- His writing: derek4thecws.substack.com
+- His writing: standardderek.substack.com
 - LinkedIn: linkedin.com/in/dereksimm
 - Full story: claudewill.io/derek
 
