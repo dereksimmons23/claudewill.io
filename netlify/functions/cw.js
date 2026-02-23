@@ -49,6 +49,143 @@ const rateLimiter = {
   }
 };
 
+// ── CW Remembers — Visitor Context ─────────────────────
+
+async function getVisitorContext(visitorToken, isFirstMessage) {
+  if (!supabase || !visitorToken) return null;
+
+  try {
+    const { data: visitor } = await supabase
+      .from('visitors')
+      .select('*')
+      .eq('visitor_token', visitorToken)
+      .single();
+
+    if (!visitor) {
+      // New visitor — create record on first message
+      if (isFirstMessage) {
+        await supabase.from('visitors').insert({ visitor_token: visitorToken });
+      }
+      return null;
+    }
+
+    // Returning visitor — update visit count on first message only
+    if (isFirstMessage) {
+      await supabase
+        .from('visitors')
+        .update({ last_visit: new Date().toISOString(), visit_count: visitor.visit_count + 1 })
+        .eq('visitor_token', visitorToken);
+    }
+
+    // Get past conversation notes
+    const { data: notes } = await supabase
+      .from('visitor_notes')
+      .select('*')
+      .eq('visitor_token', visitorToken)
+      .order('created_at', { ascending: false })
+      .limit(5);
+
+    return {
+      name: visitor.name,
+      visitCount: visitor.visit_count + (isFirstMessage ? 1 : 0),
+      lastVisit: visitor.last_visit,
+      notes: notes || []
+    };
+  } catch (error) {
+    console.error('Visitor context error:', error.message);
+    return null;
+  }
+}
+
+function buildVisitorPrompt(context) {
+  if (!context) return '';
+
+  let prompt = '\n\nRETURNING VISITOR:';
+  if (context.name) prompt += `\nName: ${context.name}`;
+  prompt += `\nVisits: ${context.visitCount} (last: ${new Date(context.lastVisit).toLocaleDateString('en-US', { month: 'long', day: 'numeric' })})`;
+
+  if (context.notes.length > 0) {
+    prompt += '\nPast conversations:';
+    for (const note of context.notes) {
+      const tags = note.tags && note.tags.length ? ` [${note.tags.join(', ')}]` : '';
+      prompt += `\n- ${note.summary}${tags}`;
+    }
+
+    // Compute recurring tags
+    const tagCounts = {};
+    for (const note of context.notes) {
+      if (note.tags) {
+        for (const tag of note.tags) {
+          tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+        }
+      }
+    }
+    const recurring = Object.entries(tagCounts)
+      .filter(([_, count]) => count >= 2)
+      .map(([tag, count]) => `${tag} (${count}x)`);
+
+    if (recurring.length > 0) {
+      prompt += `\nRecurring topics: ${recurring.join(', ')}`;
+    }
+  }
+
+  prompt += '\nGreet them naturally. If you know their name, use it. Don\'t announce that you remember — just show it.';
+  return prompt;
+}
+
+async function handleCloseSession(visitorToken, sessionId, messages) {
+  if (!supabase || !visitorToken || !messages || messages.length < 2) return;
+
+  try {
+    const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+
+    const conversationText = messages.map(m => `${m.role}: ${m.content}`).join('\n');
+
+    const summaryResponse = await client.messages.create({
+      model: 'claude-haiku-4-5',
+      max_tokens: 200,
+      system: 'Summarize this conversation in 2-3 sentences from the perspective of what the visitor wanted. Then provide 1-3 topic tags from ONLY this vocabulary: family, career, grief, business, stuck, heritage, faith, health, creative, technical, personal, general. If the visitor shared their first name, include it. Format exactly as:\nNAME: [name or "none"]\nSUMMARY: [your summary]\nTAGS: [tag1, tag2]',
+      messages: [{ role: 'user', content: conversationText }]
+    });
+
+    const result = summaryResponse.content[0].text;
+    const nameMatch = result.match(/NAME:\s*(.+)/);
+    const summaryMatch = result.match(/SUMMARY:\s*(.+?)(?:\nTAGS:|$)/s);
+    const tagsMatch = result.match(/TAGS:\s*(.+)/);
+
+    const summary = summaryMatch ? summaryMatch[1].trim() : result.substring(0, 500).trim();
+    const tags = tagsMatch
+      ? tagsMatch[1].split(',').map(t => t.trim().toLowerCase()).filter(Boolean)
+      : ['general'];
+
+    // Store visitor name if detected and not already known
+    const detectedName = nameMatch ? nameMatch[1].trim() : null;
+    if (detectedName && detectedName.toLowerCase() !== 'none') {
+      const { data: existing } = await supabase
+        .from('visitors')
+        .select('name')
+        .eq('visitor_token', visitorToken)
+        .single();
+
+      if (existing && !existing.name) {
+        await supabase
+          .from('visitors')
+          .update({ name: detectedName })
+          .eq('visitor_token', visitorToken);
+      }
+    }
+
+    await supabase.from('visitor_notes').insert({
+      visitor_token: visitorToken,
+      session_id: sessionId,
+      summary: summary,
+      tags: tags
+    });
+  } catch (error) {
+    console.error('Close session error:', error.message);
+  }
+}
+
 // Non-blocking conversation logger
 async function logConversation(data) {
   if (!supabase) return; // Skip if Supabase not configured
@@ -152,7 +289,13 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    let { messages, condition, vernieCode, mode, kitchenCode } = JSON.parse(event.body);
+    let { messages, condition, vernieCode, mode, kitchenCode, action, visitorToken, sessionId: bodySessionId } = JSON.parse(event.body);
+
+    // Handle close-session action (from sendBeacon on tab close)
+    if (action === 'close-session') {
+      handleCloseSession(visitorToken, bodySessionId, messages).catch(err => console.error('Close session bg error:', err));
+      return { statusCode: 200, headers, body: JSON.stringify({ ok: true }) };
+    }
 
     if (!messages || !Array.isArray(messages)) {
       return {
@@ -261,7 +404,15 @@ exports.handler = async (event, context) => {
       maxTokens = 500;
     }
 
-    const systemWithCondition = basePrompt + dateContext + `\nCurrent condition: ${condition || 'clear'}`;
+    // CW Remembers — visitor context (porch mode only)
+    let visitorContext = '';
+    if (!isKitchenMode && !isVernieMode && visitorToken) {
+      const isFirstMessage = messages.length === 1;
+      const context = await getVisitorContext(visitorToken, isFirstMessage);
+      visitorContext = buildVisitorPrompt(context);
+    }
+
+    const systemWithCondition = basePrompt + dateContext + visitorContext + `\nCurrent condition: ${condition || 'clear'}`;
 
     const response = await client.messages.create({
       model: selectedModel,

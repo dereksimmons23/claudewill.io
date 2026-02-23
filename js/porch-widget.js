@@ -14,6 +14,18 @@
   var panelOpen = false;
   var sending = false;
 
+  // ── Visitor Identity ────────────────────────────────
+
+  var visitorToken = localStorage.getItem('cw-visitor-token');
+  if (!visitorToken) {
+    visitorToken = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = Math.random() * 16 | 0;
+      var v = c === 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+    localStorage.setItem('cw-visitor-token', visitorToken);
+  }
+
   // Kitchen mode config (set by /kitchen page before this script loads)
   var kitchenConfig = window.CW_KITCHEN_CONFIG || null;
 
@@ -351,7 +363,8 @@
     });
 
     var body = {
-      messages: conversationHistory
+      messages: conversationHistory,
+      visitorToken: visitorToken
     };
 
     // Kitchen mode — send mode + auth code
@@ -401,6 +414,19 @@
       }
     });
   }
+
+  // ── Session Close ────────────────────────────────────
+
+  window.addEventListener('beforeunload', function () {
+    if (conversationHistory.length < 2) return;
+    var blob = new Blob([JSON.stringify({
+      action: 'close-session',
+      visitorToken: visitorToken,
+      sessionId: sessionId,
+      messages: conversationHistory
+    })], { type: 'application/json' });
+    navigator.sendBeacon('/.netlify/functions/cw', blob);
+  });
 
   // ── Init ───────────────────────────────────────────
 
