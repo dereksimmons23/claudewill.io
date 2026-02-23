@@ -318,7 +318,7 @@
 
 /* ── Mobile ──────────────────────────────────── */
 
-@media (max-width: 480px) {
+@media (max-width: 700px) {
   .porch-widget {
     bottom: 16px;
     right: 16px;
@@ -327,12 +327,26 @@
   }
 
   .porch-panel {
-    bottom: 0;
-    right: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
-    height: 85vh;
-    border-radius: 12px 12px 0 0;
+    height: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .porch-panel-close {
+    font-size: 1.6rem;
+    padding: 8px 12px;
+  }
+
+  .porch-panel-textarea {
+    font-size: 1rem;
+  }
+
+  .porch-chip {
+    white-space: nowrap;
+    font-size: 0.7rem;
+    padding: 5px 10px;
   }
 }
 

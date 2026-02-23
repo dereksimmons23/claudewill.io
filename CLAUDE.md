@@ -19,6 +19,7 @@
 - **Command palette** — Terminal-style nav overlay with 3 items: derek, the story, work with me. Triggered by `*` in sticky headers or floating `*` button on other pages.
 - **Story page** — Full narrative at /story (4 chapters, lineage, photo)
 - **Library** — /library with 4 shelves: dispatches (Substack), research (Between Claudes), the book (Finding Claude), selected (coming)
+- **CW Remembers** — Visitor memory. UUID token in localStorage, Supabase `visitors` + `visitor_notes` tables. Returning visitors get context injected into CW's prompt (name, visit count, past conversation summaries, recurring tags). Session summarized by Haiku on tab close. Name detected and stored automatically. Porch mode only.
 - **Supabase logging** — Conversations stored in `conversations` table
 - **Multilingual** — CW responds in user's language
 - **Safety** — Bot protection, crisis resources, inline disclosure
@@ -306,6 +307,7 @@ Environment variables in Netlify:
 |------|------|-------|
 | The Funnel | Feb 22 | /work-with-me, 3-item nav, homepage redesign, derek trimmed |
 | The Kitchen | Feb 22 | Private command center, model routing, Kitchen CW persona |
+| CW Remembers | Feb 22 | Visitor memory: UUID token, session summarization, name detection, returning visitor context |
 | CW Link Renderer | Feb 22 | Clickable links in CW chat across all pages |
 | Portfolio Rebuild | Feb 22 | 33→13 slides, animated category slideshows |
 | Visual Redesign v2 | Feb 21 | 6 phases: workshop rename, command palette, porch widget, homepage billboard, research stats, library |
@@ -327,7 +329,7 @@ Environment variables in Netlify:
 | d-rock.claudewill.io | D-Rock subdomain — coming soon |
 | Story page rewrite | Needs asteriskos, sharper articles |
 | Mobile testing | All pages, all new patterns (palette, widget, billboards) |
-| CW Remembers | Design approved Feb 19. Plan at `docs/plans/2026-02-19-cw-remembers-design.md` |
+| Privacy policy update | Add memory/visitor token disclosure |
 
 ### Separate Build: Constitutional Layer
 A framework for AI agent reasoning about rules, trust, systems, and coordination. Shares principles with CW Standard but different interface — no persona, built for agent-to-agent use. CW's Porch stays simple (grandfather helping neighbors); the constitutional layer handles the infrastructure question of how AI agents should reason about:
@@ -403,6 +405,10 @@ git log --oneline -15
 ---
 
 ## Changelog
+
+### February 22, 2026 — CW Remembers + Homepage Redesign
+- **CW Remembers** — Visitor identity and memory system. UUID visitor token, Supabase tables (visitors, visitor_notes), session summarization via Haiku, name detection, returning visitor context injected into CW's system prompt. Memory behavior in behaviors.md. Porch mode only.
+- **Homepage screens 2-3** — Screen 2: derek label, question headline, typewriter credentials, short bio, two CTAs. Screen 3: the standard label, headline, five principles, "the full story" link. Removed quote, decorative star, and "keep going" signoff. All lowercase.
 
 ### February 22, 2026 — The Funnel + Homepage Screen 1
 - **Homepage screen 1 redesign** — Porch light (48px gold asterisk with glow, easter egg → opens porch widget), stacked claudewill wordmark, Derek's welcome intro, "claude will ___" typewriter (listen first, speak directly, find a way, keep going). 85vh so screen 2 peeks. Porch widget + floating menu trigger hidden on screen 1 via IntersectionObserver.

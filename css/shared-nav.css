@@ -350,6 +350,17 @@
     font-size: 0.95rem;
   }
 
+  /* No hover on touch — show claudewill* static */
+  .header-short {
+    max-width: 0;
+    opacity: 0;
+  }
+
+  .header-full {
+    max-width: 12ch;
+    opacity: 1;
+  }
+
   .page-header-center {
     font-size: 0.8rem;
   }
