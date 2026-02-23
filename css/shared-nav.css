@@ -390,6 +390,25 @@
   .page-dropdown { transition: none; }
 }
 
+/* ── Dark Mode ───────────────────────────────── */
+/* Override on body so it wins over :root in inline <style> */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --bg: #0a1628;
+    --text: #e0e0e0;
+    --dim: #6b7280;
+    --accent: #d4a84b;
+    --link: #6ba8d4;
+    --border: rgba(255, 255, 255, 0.08);
+  }
+
+  .page-dropdown {
+    background: #0f1f3a;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+}
+
 /* ── Print ───────────────────────────────────── */
 
 @media print {
