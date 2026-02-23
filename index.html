@@ -359,11 +359,16 @@
 
         .derek-bio {
             font-family: var(--font);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--dim);
-            max-width: 480px;
-            line-height: 1.8;
+            list-style: none;
+            text-align: center;
+            padding: 0;
             margin-bottom: 2rem;
+        }
+
+        .derek-bio li {
+            padding: 0.25rem 0;
         }
 
         /* ── Screen 3: The Standard ──────────────── */
@@ -388,7 +393,7 @@
             font-size: 0.95rem;
             color: var(--text);
             text-decoration: none;
-            padding: 0.6rem 0;
+            padding: 0.85rem 0;
             letter-spacing: 0.02em;
             transition: color 0.2s, transform 0.2s;
         }
@@ -573,7 +578,7 @@
     <section class="invitation" id="top">
         <button class="porch-light" id="porch-light" aria-label="Open CW's Porch">*</button>
         <div class="invitation-wordmark">claudewill</div>
-        <p class="invitation-intro">hi, i'm derek. i named this place after my grandfather — claude william simmons, an oklahoma farmer who gave straight answers and left the porch light on. welcome.</p>
+        <p class="invitation-intro">named after my grandfather — an oklahoma farmer who left the porch light on.</p>
         <p class="invitation-phrase" id="invitation-phrase">claude will <span id="typed-text"></span><span class="typewriter-cursor" aria-hidden="true"></span></p>
     </section>
 
@@ -582,7 +587,11 @@
         <div class="billboard-label reveal">derek</div>
         <h2 class="billboard-headline reveal reveal-delay-1">who is derek simmons?</h2>
         <p class="derek-typewriter reveal reveal-delay-2" id="derek-typewriter"><span id="derek-typed"></span><span class="typewriter-cursor" aria-hidden="true"></span></p>
-        <p class="derek-bio reveal reveal-delay-2">los angeles times, then star tribune. thirteen roles, first and only chief creative officer and VP. $20m in revenue during a pandemic.</p>
+        <ul class="derek-bio reveal reveal-delay-2">
+            <li>los angeles times. star tribune.</li>
+            <li>first chief creative officer and VP</li>
+            <li>$20m in revenue during a pandemic</li>
+        </ul>
         <div class="derek-ctas reveal reveal-delay-3">
             <a href="/derek" class="billboard-cta">more about derek &rarr;</a>
             <a href="/work-with-me" class="billboard-cta">work with me &rarr;</a>
