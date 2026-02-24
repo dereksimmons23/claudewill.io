@@ -279,7 +279,7 @@ function main() {
       stack: [
         { name: 'Claude Code (Opus 4.6)', role: 'Working partner — builds, writes, thinks' },
         { name: 'Claude Haiku 4.5', role: 'Porch conversations + session memory' },
-        { name: 'Gemini 2.0 Flash', role: 'Industry brief (Google Search grounded)' },
+        { name: 'Gemini 2.5 Flash', role: 'Industry brief (Google Search grounded)' },
         { name: 'Perplexity', role: 'Research brief (deep search)' },
         { name: 'Mistral', role: 'Code review' },
         { name: 'Netlify', role: 'Hosting + serverless functions' },

@@ -47,7 +47,7 @@ Focus on:
 Be specific: names, companies, dates, dollar amounts. Skip hype and speculation — focus on real product launches, policy changes, funding rounds, and industry shifts. Lead with what matters most to a solo AI consultant.`
 
   try {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`
 
     const res = await fetch(url, {
       method: 'POST',
@@ -100,7 +100,7 @@ Be specific: names, companies, dates, dollar amounts. Skip hype and speculation 
     }
 
     report += `## Details\n`
-    report += `Model: gemini-2.0-flash (Google Search grounded)\n`
+    report += `Model: gemini-2.5-flash (Google Search grounded)\n`
     report += `Sources: ${sources.length}\n`
 
     writeReport(report)
