@@ -277,7 +277,7 @@ function main() {
     projects,
     ecosystem: {
       stack: [
-        { name: 'Claude Code (Opus 4.6)', role: 'Working partner — builds, writes, thinks' },
+        { name: 'Claude Code (Opus 4.6)', role: 'The engine — builds, writes, thinks ($100/mo)' },
         { name: 'Claude Haiku 4.5', role: 'Porch conversations + session memory' },
         { name: 'Gemini 2.5 Flash', role: 'Industry brief (Google Search grounded)' },
         { name: 'Perplexity', role: 'Research brief (deep search)' },
@@ -288,7 +288,7 @@ function main() {
         { name: 'GitHub Actions', role: 'Overnight agent scheduler' },
         { name: 'ElevenLabs', role: 'Voice synthesis (BOB, Coach D)' },
       ],
-      monthlyCost: '$25-50',
+      monthlyCost: '~$125',
       method: {
         session: 'standup → work → eod. Every project, every day.',
         memory: 'CLAUDE.md defines identity. HANDOFF.md tracks state between sessions.',

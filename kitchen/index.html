@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>the kitchen | claudewill*</title>
-  <meta name="description" content="How one person runs a consulting practice with AI. The crew, the agents, the overnight work — all of it.">
+  <meta name="description" content="How one person runs a consulting practice with AI. The crew, the agents, the overnight work, the whole system. Everything here is real.">
 
   <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,14 @@
   <header class="page-header" id="page-header">
     <a href="/" class="page-header-left"><span class="header-short">cw</span><span class="header-full">claudewill</span><span class="hw">*</span></a>
     <div class="page-header-center">
-      <span class="kitchen-page-label">the kitchen</span>
+      <button class="page-dropdown-toggle" aria-expanded="false" aria-haspopup="true">the kitchen <span class="dropdown-caret">&#9662;</span></button>
+      <nav class="page-dropdown" aria-label="Page sections">
+        <a href="#overnight">while you slept</a>
+        <a href="#crew">the crew</a>
+        <a href="#board">the board</a>
+        <a href="#stack">the stack</a>
+        <a href="#method">the method</a>
+      </nav>
     </div>
     <button class="page-header-right palette-trigger" aria-label="Open navigation">menu</button>
   </header>
@@ -37,64 +44,63 @@
       <!-- Hero -->
       <div class="kitchen-hero">
         <h1 class="kitchen-title">the kitchen<span class="hw">*</span></h1>
-        <p class="kitchen-subtitle">How one person runs a consulting practice with AI.</p>
-        <div class="kitchen-meta">
-          <span class="kitchen-status">
-            <span class="kitchen-status-dot" id="status-dot"></span>
-            <span id="status-text">loading...</span>
-          </span>
+        <p class="kitchen-hook">How one person runs a consulting practice with AI.</p>
+        <p class="kitchen-hook-sub">Everything below is real. Updated every morning at 5 AM.</p>
+        <span class="kitchen-updated">
+          <span class="kitchen-status-dot" id="status-dot"></span>
+          <span id="status-text">loading...</span>
+        </span>
+      </div>
+
+      <!-- While You Slept -->
+      <section class="kitchen-section" id="overnight">
+        <h2 class="section-label">while you slept*</h2>
+        <p class="section-intro">Every morning at 5 AM CST, four agents go to work. They audit the site, scan the industry, pull research, and review the code. By the time the laptop opens, the briefing is ready.</p>
+        <div id="overnight-content">
+          <div class="loading-state">checking agents...</div>
         </div>
-      </div>
+      </section>
 
-      <!-- Panel Grid -->
-      <div class="kitchen-grid">
+      <!-- The Crew -->
+      <section class="kitchen-section" id="crew">
+        <h2 class="section-label">the crew*</h2>
+        <p class="section-intro">During the day, four lenses evaluate every decision. They run in parallel. They disagree. That's the point.</p>
+        <div id="crew-content">
+          <div class="loading-state">loading crew...</div>
+        </div>
+      </section>
 
-        <!-- 1. Overnight Report -->
-        <section class="kitchen-panel panel-wide" id="panel-overnight">
-          <h2 class="panel-title">the overnight report*</h2>
-          <div class="panel-body" id="overnight-content">
-            <div class="loading-state">checking agents...</div>
-          </div>
-        </section>
+      <!-- The Board -->
+      <section class="kitchen-section" id="board">
+        <h2 class="section-label">the board*</h2>
+        <p class="section-intro" id="board-intro">loading...</p>
+        <div id="board-content">
+          <div class="loading-state">loading projects...</div>
+        </div>
+      </section>
 
-        <!-- 2. The Crew -->
-        <section class="kitchen-panel" id="panel-crew">
-          <h2 class="panel-title">the crew*</h2>
-          <div class="panel-body" id="crew-content">
-            <div class="loading-state">loading crew...</div>
-          </div>
-        </section>
+      <!-- The Stack -->
+      <section class="kitchen-section" id="stack">
+        <h2 class="section-label">the stack*</h2>
+        <p class="section-intro">The tools that run the practice. Most of the free tiers. The expensive part is the one that does the thinking.</p>
+        <div id="stack-content">
+          <div class="loading-state">loading stack...</div>
+        </div>
+      </section>
 
-        <!-- 3. The Board -->
-        <section class="kitchen-panel" id="panel-board">
-          <h2 class="panel-title">the board*</h2>
-          <div class="panel-body" id="board-content">
-            <div class="loading-state">loading projects...</div>
-          </div>
-        </section>
+      <!-- The Method -->
+      <section class="kitchen-section" id="method">
+        <h2 class="section-label">the method*</h2>
+        <p class="section-intro">Every day starts the same way. Every session follows the same rhythm. The consistency is the system.</p>
+        <div id="method-content">
+          <div class="loading-state">loading method...</div>
+        </div>
+      </section>
 
-        <!-- 4. The Stack -->
-        <section class="kitchen-panel" id="panel-stack">
-          <h2 class="panel-title">the stack*</h2>
-          <div class="panel-body" id="stack-content">
-            <div class="loading-state">loading stack...</div>
-          </div>
-        </section>
-
-        <!-- 5. The Method -->
-        <section class="kitchen-panel" id="panel-method">
-          <h2 class="panel-title">the method*</h2>
-          <div class="panel-body" id="method-content">
-            <div class="loading-state">loading method...</div>
-          </div>
-        </section>
-
-      </div>
-
-      <!-- Bottom Note -->
-      <div class="kitchen-note">
-        <p>This page updates every morning at 5 AM CST when the overnight agents run. The data is real. The agents are real. The practice is ongoing.</p>
-        <p>Interested in how this could work for your organization? <a href="/work-with-me">Let's talk.</a></p>
+      <!-- CTA -->
+      <div class="kitchen-cta">
+        <p>This is what Derek teaches clients to build. Not this exact system — their own version, for their problems, with their team. What took 14 months to learn takes a few hours to teach.</p>
+        <a href="/work-with-me">let's talk &#8594;</a>
       </div>
 
     </main>
@@ -112,7 +118,7 @@
 
     var DATA_URL = '/kitchen-data.json';
 
-    // ── DOM Helpers ──────────────────────────────────
+    // ── Helpers ──────────────────────────────────────
 
     function el(id) { return document.getElementById(id); }
 
@@ -120,26 +126,11 @@
       while (node.firstChild) node.removeChild(node.firstChild);
     }
 
-    function div(cls, text) {
-      var d = document.createElement('div');
-      if (cls) d.className = cls;
-      if (text !== undefined) d.textContent = text;
-      return d;
-    }
-
-    function span(cls, text) {
-      var s = document.createElement('span');
-      if (cls) s.className = cls;
-      if (text !== undefined) s.textContent = text;
-      return s;
-    }
-
-    function link(href, text, cls) {
-      var a = document.createElement('a');
-      a.href = href;
-      a.textContent = text;
-      if (cls) a.className = cls;
-      return a;
+    function make(tag, cls, text) {
+      var e = document.createElement(tag);
+      if (cls) e.className = cls;
+      if (text !== undefined) e.textContent = text;
+      return e;
     }
 
     function timeAgo(isoStr) {
@@ -153,90 +144,119 @@
       return days + 'd ago';
     }
 
-    // ── Panel Renderers ─────────────────────────────
+    function firstSentence(str, max) {
+      if (!str) return '';
+      // Strip markdown bold
+      var clean = str.replace(/\*\*/g, '');
+      // Get first sentence
+      var match = clean.match(/^[^.!?]+[.!?]/);
+      var s = match ? match[0] : clean;
+      if (max && s.length > max) s = s.substring(0, max).replace(/\s+\S*$/, '') + '...';
+      return s;
+    }
+
+    // ── Overnight ────────────────────────────────────
 
     function renderOvernight(agents) {
       var container = el('overnight-content');
       clear(container);
 
       var keys = ['siteAudit', 'gemini', 'research', 'codeReview'];
+      var names = {
+        siteAudit: 'site audit',
+        gemini: 'industry brief',
+        research: 'research brief',
+        codeReview: 'code review'
+      };
+      var allOk = true;
+
       for (var i = 0; i < keys.length; i++) {
         var agent = agents[keys[i]];
         if (!agent) continue;
 
-        var card = div('agent-card');
+        if (agent.status !== 'ok') allOk = false;
 
-        // Header row
-        var header = div('agent-header');
-        var dot = span('agent-dot ' + (agent.status === 'ok' ? 'dot-ok' : agent.status === 'flags' ? 'dot-flags' : 'dot-off'));
-        header.appendChild(dot);
-        header.appendChild(span('agent-name', agent.name));
-        header.appendChild(span('agent-time', timeAgo(agent.lastRun)));
-        card.appendChild(header);
+        var row = make('div', 'overnight-row');
 
-        // Summary
-        card.appendChild(div('agent-summary', agent.summary));
+        var dot = make('span', 'overnight-dot ' + (agent.status === 'ok' ? 'dot-ok' : agent.status === 'flags' ? 'dot-flags' : 'dot-off'));
+        row.appendChild(dot);
+
+        row.appendChild(make('span', 'overnight-name', names[keys[i]]));
+        row.appendChild(make('span', 'overnight-summary', firstSentence(agent.summary, 120)));
+
+        container.appendChild(row);
 
         // Flags
         if (agent.flags && agent.flags.length > 0) {
-          var flagList = div('agent-flags');
+          var flagBox = make('div', 'overnight-flags');
           for (var f = 0; f < agent.flags.length; f++) {
-            flagList.appendChild(div('agent-flag', agent.flags[f]));
+            flagBox.appendChild(make('div', 'overnight-flag', agent.flags[f]));
           }
-          card.appendChild(flagList);
+          container.appendChild(flagBox);
         }
-
-        container.appendChild(card);
       }
+
+      var footer = make('div', 'overnight-footer');
+      if (allOk) {
+        footer.textContent = 'All clear. Nothing required attention.';
+      } else {
+        footer.textContent = 'Flagged items above need review.';
+      }
+      container.appendChild(footer);
     }
+
+    // ── Crew ─────────────────────────────────────────
 
     function renderCrew(data) {
       var container = el('crew-content');
       clear(container);
 
       // Thinking lenses
-      var lensLabel = div('crew-section-label', 'thinking lenses');
-      container.appendChild(lensLabel);
+      container.appendChild(make('div', 'crew-group-label', 'thinking lenses'));
 
       var lenses = [
-        { name: '/earn', desc: 'Business lens — revenue, clients, ROI' },
-        { name: '/connect', desc: 'Cross-project lens — patterns, synergies' },
-        { name: '/sharpen', desc: 'Quality lens — voice, consistency, brand' },
-        { name: '/challenge', desc: 'Pushback lens — simplify, question, prioritize' }
+        { name: '/earn', desc: 'Business — revenue, clients, ROI' },
+        { name: '/connect', desc: 'Cross-project — patterns, synergies' },
+        { name: '/sharpen', desc: 'Quality — voice, consistency, brand' },
+        { name: '/challenge', desc: 'Pushback — simplify, question, prioritize' }
       ];
 
       for (var i = 0; i < lenses.length; i++) {
-        var row = div('crew-row');
-        row.appendChild(span('crew-name', lenses[i].name));
-        row.appendChild(span('crew-desc', lenses[i].desc));
+        var row = make('div', 'crew-row');
+        row.appendChild(make('span', 'crew-name', lenses[i].name));
+        row.appendChild(make('span', 'crew-desc', lenses[i].desc));
         container.appendChild(row);
       }
 
-      // Operational agents
-      var agentLabel = div('crew-section-label', 'overnight agents');
-      container.appendChild(agentLabel);
+      // Overnight agents
+      container.appendChild(make('div', 'crew-group-label', 'overnight agents'));
 
       var agents = data.agents;
       var agentList = [
-        { key: 'siteAudit', cmd: '/audit' },
-        { key: 'gemini', cmd: '/industry' },
-        { key: 'research', cmd: '/research' },
-        { key: 'codeReview', cmd: '/codecheck' }
+        { key: 'siteAudit', cmd: '/audit', label: 'Site Audit' },
+        { key: 'gemini', cmd: '/industry', label: 'Industry Brief' },
+        { key: 'research', cmd: '/research', label: 'Research Brief' },
+        { key: 'codeReview', cmd: '/codecheck', label: 'Code Review' }
       ];
 
       for (var j = 0; j < agentList.length; j++) {
         var a = agents[agentList[j].key];
         if (!a) continue;
-        var arow = div('crew-row');
-        var adot = span('agent-dot-inline ' + (a.status === 'ok' ? 'dot-ok' : a.status === 'flags' ? 'dot-flags' : 'dot-off'));
+        var arow = make('div', 'crew-row');
+        var adot = make('span', 'crew-dot ' + (a.status === 'ok' ? 'dot-ok' : a.status === 'flags' ? 'dot-flags' : 'dot-off'));
         arow.appendChild(adot);
-        arow.appendChild(span('crew-name', agentList[j].cmd));
-        arow.appendChild(span('crew-desc', a.name + (a.lastRun ? ' — ' + timeAgo(a.lastRun) : ' — not yet active')));
+        arow.appendChild(make('span', 'crew-name', agentList[j].cmd));
+        arow.appendChild(make('span', 'crew-desc', agentList[j].label + (a.lastRun ? ' — ' + timeAgo(a.lastRun) : '')));
         container.appendChild(arow);
       }
     }
 
+    // ── Board ────────────────────────────────────────
+
     function renderBoard(projects) {
+      var intro = el('board-intro');
+      intro.textContent = 'Right now, the practice is running ' + projects.length + ' projects.';
+
       var container = el('board-content');
       clear(container);
 
@@ -248,24 +268,23 @@
         var items = projects.filter(function (p) { return p.category === cat; });
         if (items.length === 0) continue;
 
-        container.appendChild(div('board-category', labels[cat]));
+        container.appendChild(make('div', 'board-category', labels[cat]));
 
         for (var i = 0; i < items.length; i++) {
-          var row = div('board-row');
-          var nameCol = div('board-name');
-          nameCol.appendChild(span('', items[i].name));
-          var statusBadge = span('board-status ' + (
-            items[i].status === 'Active client' ? 'status-active' :
-            items[i].status === 'Live' || items[i].status === 'Autonomous' ? 'status-live' :
-            'status-other'
-          ), items[i].status);
-          nameCol.appendChild(statusBadge);
-          row.appendChild(nameCol);
-          row.appendChild(div('board-note', items[i].note));
+          var row = make('div', 'board-row');
+          var nameEl = make('div', 'board-name');
+          nameEl.appendChild(make('span', '', items[i].name));
+          var statusCls = items[i].status === 'Active client' ? 'status-active' :
+            (items[i].status === 'Live' || items[i].status === 'Autonomous') ? 'status-live' : 'status-other';
+          nameEl.appendChild(make('span', 'board-status ' + statusCls, items[i].status));
+          row.appendChild(nameEl);
+          row.appendChild(make('div', 'board-note', items[i].note));
           container.appendChild(row);
         }
       }
     }
+
+    // ── Stack ────────────────────────────────────────
 
     function renderStack(ecosystem) {
       var container = el('stack-content');
@@ -273,17 +292,19 @@
 
       var stack = ecosystem.stack;
       for (var i = 0; i < stack.length; i++) {
-        var row = div('stack-row');
-        row.appendChild(span('stack-name', stack[i].name));
-        row.appendChild(span('stack-role', stack[i].role));
+        var row = make('div', 'stack-row');
+        row.appendChild(make('span', 'stack-name', stack[i].name));
+        row.appendChild(make('span', 'stack-role', stack[i].role));
         container.appendChild(row);
       }
 
-      var cost = div('stack-cost');
-      cost.appendChild(span('stack-cost-label', 'total monthly cost'));
-      cost.appendChild(span('stack-cost-value', ecosystem.monthlyCost));
+      var cost = make('div', 'stack-cost');
+      cost.appendChild(make('span', 'stack-cost-label', 'total monthly cost'));
+      cost.appendChild(make('span', 'stack-cost-value', ecosystem.monthlyCost));
       container.appendChild(cost);
     }
+
+    // ── Method ───────────────────────────────────────
 
     function renderMethod(ecosystem) {
       var container = el('method-content');
@@ -301,12 +322,14 @@
 
       for (var i = 0; i < keys.length; i++) {
         if (!method[keys[i]]) continue;
-        var row = div('method-row');
-        row.appendChild(div('method-label', labels[keys[i]]));
-        row.appendChild(div('method-desc', method[keys[i]]));
+        var row = make('div', 'method-row');
+        row.appendChild(make('div', 'method-label', labels[keys[i]]));
+        row.appendChild(make('div', 'method-desc', method[keys[i]]));
         container.appendChild(row);
       }
     }
+
+    // ── Status ───────────────────────────────────────
 
     function updateStatus(data) {
       var dot = el('status-dot');
@@ -318,10 +341,8 @@
         return;
       }
 
-      var ago = timeAgo(data.lastUpdated);
-      text.textContent = 'updated ' + ago;
+      text.textContent = 'updated ' + timeAgo(data.lastUpdated);
 
-      // Check if any agent has flags
       var hasFlags = false;
       var agents = data.agents || {};
       for (var key in agents) {
@@ -331,7 +352,7 @@
       dot.className = 'kitchen-status-dot ' + (hasFlags ? 'dot-flags' : 'dot-ok');
     }
 
-    // ── Load and Render ─────────────────────────────
+    // ── Load ─────────────────────────────────────────
 
     function loadKitchen() {
       fetch(DATA_URL)
@@ -354,7 +375,7 @@
             var p = el(panels[i]);
             if (p) {
               clear(p);
-              p.appendChild(div('empty-state', 'Data unavailable. The overnight agents may not have run yet.'));
+              p.appendChild(make('div', 'empty-state', 'Data unavailable. The overnight agents may not have run yet.'));
             }
           }
         });
