@@ -1,38 +1,45 @@
 {
-  "lastUpdated": "2026-02-24T15:59:27.193Z",
+  "lastUpdated": "2026-02-24T18:49:25.541Z",
   "agents": {
     "siteAudit": {
       "name": "Site Audit",
-      "lastRun": "2026-02-24T15:59:27.193Z",
+      "lastRun": "2026-02-24T18:49:25.541Z",
       "status": "ok",
-      "summary": "All 11 pages responding. Average response: 344ms.",
+      "summary": "All 11 pages responding. Average response: 423ms.",
       "flags": [],
       "details": [
-        "https://claudewill.io/ — 200 363ms",
-        "https://claudewill.io/derek — 200 414ms",
-        "https://claudewill.io/story — 200 302ms",
-        "https://claudewill.io/work-with-me — 200 418ms",
-        "https://claudewill.io/workshop — 200 289ms",
-        "https://claudewill.io/library — 200 288ms",
-        "https://claudewill.io/map — 200 291ms",
-        "https://claudewill.io/privacy — 200 401ms",
-        "https://claudewill.io/terms — 200 297ms",
-        "https://claudewill.io/kitchen — 200 430ms",
-        "https://claudewill.io/arcade — 200 292ms",
-        "Coach D (https://coach.claudewill.io) — 200 306ms",
-        "BOB (https://bob.claudewill.io) — 200 313ms"
+        "https://claudewill.io/ — 200 335ms",
+        "https://claudewill.io/derek — 200 440ms",
+        "https://claudewill.io/story — 200 271ms",
+        "https://claudewill.io/work-with-me — 200 447ms",
+        "https://claudewill.io/workshop — 200 451ms",
+        "https://claudewill.io/library — 200 443ms",
+        "https://claudewill.io/map — 200 456ms",
+        "https://claudewill.io/privacy — 200 438ms",
+        "https://claudewill.io/terms — 200 429ms",
+        "https://claudewill.io/kitchen — 200 503ms",
+        "https://claudewill.io/arcade — 200 440ms",
+        "Coach D (https://coach.claudewill.io) — 200 311ms",
+        "BOB (https://bob.claudewill.io) — 200 291ms"
       ]
     },
     "research": {
       "name": "Research Brief",
-      "lastRun": "2026-02-24T15:59:27.193Z",
+      "lastRun": "2026-02-24T18:49:25.541Z",
       "status": "not-configured",
       "summary": "No research brief report found.",
       "sources": []
     },
+    "gemini": {
+      "name": "Industry Brief",
+      "lastRun": "2026-02-24T18:49:25.541Z",
+      "status": "not-configured",
+      "summary": "No industry brief report found.",
+      "sources": []
+    },
     "codeReview": {
       "name": "Code Review",
-      "lastRun": "2026-02-24T15:59:27.193Z",
+      "lastRun": "2026-02-24T18:49:25.541Z",
       "status": "not-configured",
       "summary": "No code review report found."
     }
@@ -98,8 +105,12 @@
         "role": "Porch conversations + session memory"
       },
       {
+        "name": "Gemini 2.0 Flash",
+        "role": "Industry brief (Google Search grounded)"
+      },
+      {
         "name": "Perplexity",
-        "role": "Overnight research briefs"
+        "role": "Research brief (deep search)"
       },
       {
         "name": "Mistral",

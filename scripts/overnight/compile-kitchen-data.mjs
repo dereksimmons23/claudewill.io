@@ -128,6 +128,58 @@ function parseResearchBrief(content) {
   }
 }
 
+function parseGeminiBrief(content) {
+  if (!content) {
+    return {
+      name: 'Industry Brief',
+      lastRun: new Date().toISOString(),
+      status: 'not-configured',
+      summary: 'No industry brief report found.',
+      sources: [],
+    }
+  }
+
+  const sources = []
+  let status = 'ok'
+  let summary = ''
+
+  // Check if not configured
+  if (content.includes('not configured') || content.includes('no API key')) {
+    status = 'not-configured'
+    summary = 'Gemini agent not configured — add GEMINI_API_KEY to GitHub secrets.'
+    return { name: 'Industry Brief', lastRun: new Date().toISOString(), status, summary, sources }
+  }
+
+  // Check if agent errored
+  if (content.includes('Agent error')) {
+    status = 'error'
+    summary = 'Industry brief agent encountered an error.'
+    return { name: 'Industry Brief', lastRun: new Date().toISOString(), status, summary, sources }
+  }
+
+  // Extract findings as summary (first ~200 chars)
+  const findingsSection = content.match(/## Findings\n([\s\S]*?)(?=\n## )/)?.[1] || ''
+  const cleanFindings = findingsSection.trim()
+  summary = cleanFindings.length > 200
+    ? cleanFindings.slice(0, 200).replace(/\s+\S*$/, '') + '...'
+    : cleanFindings
+
+  // Extract sources
+  const sourcesSection = content.match(/## Sources\n([\s\S]*?)(?=\n## |$)/)?.[1] || ''
+  const sourceLines = sourcesSection.match(/- .+/g) || []
+  for (const line of sourceLines) {
+    sources.push(line.replace(/^- /, ''))
+  }
+
+  return {
+    name: 'Industry Brief',
+    lastRun: new Date().toISOString(),
+    status,
+    summary: summary || 'Industry brief complete.',
+    sources,
+  }
+}
+
 function parseCodeReview(content) {
   if (!content) {
     return {
@@ -201,11 +253,13 @@ function main() {
   // Read reports
   const siteAuditContent = readReport('site-audit.md')
   const researchBriefContent = readReport('research-brief.md')
+  const geminiBriefContent = readReport('gemini-brief.md')
   const codeReviewContent = readReport('code-review.md')
 
   // Parse reports
   const siteAudit = parseSiteAudit(siteAuditContent)
   const research = parseResearchBrief(researchBriefContent)
+  const gemini = parseGeminiBrief(geminiBriefContent)
   const codeReview = parseCodeReview(codeReviewContent)
 
   // Load projects
@@ -217,6 +271,7 @@ function main() {
     agents: {
       siteAudit,
       research,
+      gemini,
       codeReview,
     },
     projects,
@@ -224,7 +279,8 @@ function main() {
       stack: [
         { name: 'Claude Code (Opus 4.6)', role: 'Working partner — builds, writes, thinks' },
         { name: 'Claude Haiku 4.5', role: 'Porch conversations + session memory' },
-        { name: 'Perplexity', role: 'Overnight research briefs' },
+        { name: 'Gemini 2.0 Flash', role: 'Industry brief (Google Search grounded)' },
+        { name: 'Perplexity', role: 'Research brief (deep search)' },
         { name: 'Mistral', role: 'Code review' },
         { name: 'Netlify', role: 'Hosting + serverless functions' },
         { name: 'Supabase', role: 'Database + logging' },
@@ -249,6 +305,7 @@ function main() {
   // Log summary
   console.log(`  Site Audit: ${siteAudit.status}`)
   console.log(`  Research: ${research.status}`)
+  console.log(`  Industry: ${gemini.status}`)
   console.log(`  Code Review: ${codeReview.status}`)
   console.log(`  Projects: ${projects.length}`)
 }

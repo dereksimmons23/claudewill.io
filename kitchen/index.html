@@ -159,7 +159,7 @@
       var container = el('overnight-content');
       clear(container);
 
-      var keys = ['siteAudit', 'research', 'codeReview'];
+      var keys = ['siteAudit', 'gemini', 'research', 'codeReview'];
       for (var i = 0; i < keys.length; i++) {
         var agent = agents[keys[i]];
         if (!agent) continue;
@@ -219,6 +219,7 @@
       var agents = data.agents;
       var agentList = [
         { key: 'siteAudit', cmd: '/audit' },
+        { key: 'gemini', cmd: '/industry' },
         { key: 'research', cmd: '/research' },
         { key: 'codeReview', cmd: '/codecheck' }
       ];
