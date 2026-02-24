@@ -1,40 +1,38 @@
 {
-  "lastUpdated": "2026-02-24T19:04:57.944Z",
+  "lastUpdated": "2026-02-24T19:07:03.936Z",
   "agents": {
     "siteAudit": {
       "name": "Site Audit",
-      "lastRun": "2026-02-24T19:04:57.943Z",
+      "lastRun": "2026-02-24T19:07:03.936Z",
       "status": "flags",
-      "summary": "5/11 pages up. 6 down.",
+      "summary": "7/11 pages up. 4 down.",
       "flags": [
         "https://claudewill.io/ is DOWN (23)",
         "https://claudewill.io/derek is DOWN (23)",
-        "https://claudewill.io/library is DOWN (fetch failed)",
-        "https://claudewill.io/map is DOWN (fetch failed)",
-        "https://claudewill.io/privacy is DOWN (fetch failed)",
-        "https://claudewill.io/terms is DOWN (fetch failed)"
+        "https://claudewill.io/workshop is DOWN (fetch failed)",
+        "https://claudewill.io/library is DOWN (fetch failed)"
       ],
       "details": [
         "https://claudewill.io/ — DOWN: 23",
         "https://claudewill.io/derek — DOWN: 23",
-        "https://claudewill.io/story — 200 305ms",
-        "https://claudewill.io/work-with-me — 200 393ms",
-        "https://claudewill.io/workshop — 200 551ms",
+        "https://claudewill.io/story — 200 178ms",
+        "https://claudewill.io/work-with-me — 200 162ms",
+        "https://claudewill.io/workshop — DOWN: fetch failed",
         "https://claudewill.io/library — DOWN: fetch failed",
-        "https://claudewill.io/map — DOWN: fetch failed",
-        "https://claudewill.io/privacy — DOWN: fetch failed",
-        "https://claudewill.io/terms — DOWN: fetch failed",
-        "https://claudewill.io/kitchen — 200 729ms",
-        "https://claudewill.io/arcade — 200 352ms",
-        "Coach D (https://coach.claudewill.io) — 200 502ms",
-        "BOB (https://bob.claudewill.io) — 200 755ms"
+        "https://claudewill.io/map — 200 168ms",
+        "https://claudewill.io/privacy — 200 156ms",
+        "https://claudewill.io/terms — 200 188ms",
+        "https://claudewill.io/kitchen — 200 253ms",
+        "https://claudewill.io/arcade — 200 447ms",
+        "Coach D (https://coach.claudewill.io) — 200 235ms",
+        "BOB (https://bob.claudewill.io) — 200 250ms"
       ]
     },
     "research": {
       "name": "Research Brief",
-      "lastRun": "2026-02-24T19:04:57.943Z",
+      "lastRun": "2026-02-24T19:07:03.936Z",
       "status": "ok",
-      "summary": "No significant AI industry developments matching the specified focus areas occurred in the last 24 hours (since February 23, 2026, 7 PM UTC). Available sources discuss 2026 tool recommendations and...",
+      "summary": "**No significant AI industry developments reported in the last 24 hours (since February 23, 2026, 7 PM UTC) matching the specified focus areas.**\n\nSearch results highlight ongoing 2026 trends and...",
       "sources": [
         "https://www.auxi.ai/blog/ai-tools-for-consultants",
         "https://www.sembly.ai/blog/must-have-ai-tools-for-successful-consultants/",
@@ -49,21 +47,16 @@
     },
     "gemini": {
       "name": "Industry Brief",
-      "lastRun": "2026-02-24T19:04:57.943Z",
+      "lastRun": "2026-02-24T19:07:03.936Z",
       "status": "ok",
-      "summary": "Here's your concise morning brief on the most significant AI industry developments from the last 24 hours:\n\n**Morning Brief: AI Industry Developments (February 24, 2026)**\n\n**1. AI Consulting and...",
-      "sources": [
-        "[aibusiness.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHSkf9cmmASh-ze2q9rlnYEyqxqEFY1iJlT9X-dFuWeizkN5GxTa9IABq2tgEvByIZKqi4cFLE99RC2sc4FrGcaqvJY4fpvj0U4SBdH6o2C5vmFPlgl1pID0wOeLXiKB_6MYrHSimcOdgUuy1ej18rSFP2qp3MbSK7eCK8VY6sQzqidR5rqAEt0RUeVE5k=)",
-        "[t2conline.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEP52-tiCM0eo_-z1rERU7qwPW_7VMJIoML1pqid4LOK-zF7irSEUeDNGM_99YkBDOZB-akJeDkMgKYwPC2vrknv9h1cdII75xZ_KNCadNKEUBBiTJQKClJUYjakvnxUIOb1r2XWHGA21cRKpaO99UDt5iR-MJ7KvOf72rRgfPqgvtrQ7OYNnk9uhelSV1Y8m6Mz1f29cj7jax5haXVLSbuLDke0FfCwB5ryDejAax6Jw==)",
-        "[cio.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF39VJShHO-cv2nYc6jTQkuaQ_lAqhwlw63p8omWYCZbH_ZmI8QqYmGNrZH-djVC2khJE2P0dU1gMlHxtzXGhCrwDOKsdCFFqsSaYyFuMxpE9rSDvJOy4awl9hcvWCixlUp2O1bXYoB0vVctZNOagVUHyo4V681Y3lXknu5cpumh2FbgRoQg8UcAYRdHAMTM4FK5YBTPlocUatm6mDwKJyJaKjX4oMjddqnDKZcqhGbyXdm51ZuTA==)",
-        "[pwc.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGjMlPnBSq2uJtXEy9mKO6y2Vi69wz_vlBjpFtIgR2Y96en4fdjbax-53l9tiV0jHdZ2SPE2EuNCYlWS1xKkOxR7CdASNkgQ7LrZlRlLN2wyC9I6Oe4lI5zkvszhhdzr1g7xNhluH74SBEu7K-FDjsObGotEnJM7u4tu7Y-Kcti9nY=)"
-      ]
+      "summary": "Here's your concise morning brief on the most significant AI industry developments from the last 24 hours:\n\n**1. AI Consulting and Services**\n\nThe AI consulting landscape is undergoing significant...",
+      "sources": []
     },
     "codeReview": {
       "name": "Code Review",
-      "lastRun": "2026-02-24T19:04:57.944Z",
-      "status": "not-configured",
-      "summary": "Mistral agent not configured — add MISTRAL_API_KEY to GitHub secrets."
+      "lastRun": "2026-02-24T19:07:03.936Z",
+      "status": "ok",
+      "summary": "Everything looks clean. No security issues, performance problems, accessibility concerns, or broken patterns detected in the provided diffs. The changes appear to be well-structured and maintain the..."
     }
   },
   "projects": [
