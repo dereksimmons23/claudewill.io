@@ -1,48 +1,40 @@
 {
-  "lastUpdated": "2026-02-24T15:58:19.106Z",
+  "lastUpdated": "2026-02-24T15:59:27.193Z",
   "agents": {
     "siteAudit": {
       "name": "Site Audit",
-      "lastRun": "2026-02-24T15:58:19.106Z",
-      "status": "flags",
-      "summary": "5/11 pages up. 6 down.",
-      "flags": [
-        "https://claudewill.io/ is DOWN (23)",
-        "https://claudewill.io/derek is DOWN (23)",
-        "https://claudewill.io/work-with-me is DOWN (23)",
-        "https://claudewill.io/map is DOWN (fetch failed)",
-        "https://claudewill.io/privacy is DOWN (23)",
-        "https://claudewill.io/kitchen is DOWN (23)",
-        "Coach D is DOWN (23)"
-      ],
+      "lastRun": "2026-02-24T15:59:27.193Z",
+      "status": "ok",
+      "summary": "All 11 pages responding. Average response: 344ms.",
+      "flags": [],
       "details": [
-        "https://claudewill.io/ — DOWN: 23",
-        "https://claudewill.io/derek — DOWN: 23",
-        "https://claudewill.io/story — 200 455ms",
-        "https://claudewill.io/work-with-me — DOWN: 23",
-        "https://claudewill.io/workshop — 200 475ms",
-        "https://claudewill.io/library — 200 601ms",
-        "https://claudewill.io/map — DOWN: fetch failed",
-        "https://claudewill.io/privacy — DOWN: 23",
-        "https://claudewill.io/terms — 200 809ms",
-        "https://claudewill.io/kitchen — DOWN: 23",
-        "https://claudewill.io/arcade — 200 529ms",
-        "Coach D (https://coach.claudewill.io) — DOWN: 23",
-        "BOB (https://bob.claudewill.io) — 200 1603ms"
+        "https://claudewill.io/ — 200 363ms",
+        "https://claudewill.io/derek — 200 414ms",
+        "https://claudewill.io/story — 200 302ms",
+        "https://claudewill.io/work-with-me — 200 418ms",
+        "https://claudewill.io/workshop — 200 289ms",
+        "https://claudewill.io/library — 200 288ms",
+        "https://claudewill.io/map — 200 291ms",
+        "https://claudewill.io/privacy — 200 401ms",
+        "https://claudewill.io/terms — 200 297ms",
+        "https://claudewill.io/kitchen — 200 430ms",
+        "https://claudewill.io/arcade — 200 292ms",
+        "Coach D (https://coach.claudewill.io) — 200 306ms",
+        "BOB (https://bob.claudewill.io) — 200 313ms"
       ]
     },
     "research": {
       "name": "Research Brief",
-      "lastRun": "2026-02-24T15:58:19.106Z",
+      "lastRun": "2026-02-24T15:59:27.193Z",
       "status": "not-configured",
-      "summary": "Perplexity agent not configured — add PERPLEXITY_API_KEY to GitHub secrets.",
+      "summary": "No research brief report found.",
       "sources": []
     },
     "codeReview": {
       "name": "Code Review",
-      "lastRun": "2026-02-24T15:58:19.106Z",
+      "lastRun": "2026-02-24T15:59:27.193Z",
       "status": "not-configured",
-      "summary": "Mistral agent not configured — add MISTRAL_API_KEY to GitHub secrets."
+      "summary": "No code review report found."
     }
   },
   "projects": [
