@@ -62,6 +62,9 @@ DEREK.md
 deno.lock
 screenshots/
 
+# Overnight agent reports (generated, not committed — kitchen-data.json is the compiled output)
+reports/
+
 # Internal working docs
 ACCESSIBILITY_FIXES.md
 ANALYTICS_QUERIES.md

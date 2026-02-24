@@ -19,6 +19,8 @@ The homepage (claudewill.io) is a three-screen introduction. Screen 1: the porch
 
 - /arcade — The Arcade. Three mini-games. Fence Mender, Porch Light, The Route.
 
+- /kitchen — The Kitchen. How the whole thing works. Public dashboard showing the overnight agents, the crew (four thinking lenses), active projects, the tech stack, and the method. Updated every morning at 5 AM when the agents run. Real data, real system. Derek uses this in presentations to show how one person runs a consulting practice with AI.
+
 - /map — Site Index. Everything at claudewill.io in one place.
 
 - /privacy — Full privacy policy.

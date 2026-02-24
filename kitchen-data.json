@@ -1,0 +1,138 @@
+{
+  "lastUpdated": "2026-02-24T15:54:34.337Z",
+  "agents": {
+    "siteAudit": {
+      "name": "Site Audit",
+      "lastRun": "2026-02-24T15:54:34.336Z",
+      "status": "ok",
+      "summary": "All 11 pages responding. Average response: 748ms.",
+      "flags": [],
+      "details": [
+        "https://claudewill.io/ — 200 474ms",
+        "https://claudewill.io/derek — 200 790ms",
+        "https://claudewill.io/story — 200 795ms",
+        "https://claudewill.io/work-with-me — 200 768ms",
+        "https://claudewill.io/workshop — 200 742ms",
+        "https://claudewill.io/library — 200 727ms",
+        "https://claudewill.io/map — 200 754ms",
+        "https://claudewill.io/privacy — 200 784ms",
+        "https://claudewill.io/terms — 200 807ms",
+        "https://claudewill.io/kitchen — 200 826ms",
+        "https://claudewill.io/arcade — 200 757ms",
+        "Coach D (https://coach.claudewill.io) — 200 1039ms",
+        "BOB (https://bob.claudewill.io) — 200 1348ms"
+      ]
+    },
+    "research": {
+      "name": "Research Brief",
+      "lastRun": "2026-02-24T15:54:34.336Z",
+      "status": "not-configured",
+      "summary": "No research brief report found.",
+      "sources": []
+    },
+    "codeReview": {
+      "name": "Code Review",
+      "lastRun": "2026-02-24T15:54:34.336Z",
+      "status": "not-configured",
+      "summary": "No code review report found."
+    }
+  },
+  "projects": [
+    {
+      "name": "Cascadia Daily News",
+      "category": "business",
+      "status": "Active client",
+      "note": "Digital strategy + AI consulting for local news"
+    },
+    {
+      "name": "Coach D",
+      "category": "business",
+      "status": "Live",
+      "note": "AI basketball coaching platform — 157 drills, BLAST curriculum"
+    },
+    {
+      "name": "claudewill.io",
+      "category": "portfolio",
+      "status": "Live",
+      "note": "CW's Porch — AI-powered consulting presence"
+    },
+    {
+      "name": "BOB",
+      "category": "portfolio",
+      "status": "Live",
+      "note": "Battle o' Brackets — party bracket game with voice"
+    },
+    {
+      "name": "Hancock",
+      "category": "portfolio",
+      "status": "Autonomous",
+      "note": "Anonymous AI storyteller — The Handbook"
+    },
+    {
+      "name": "Dawn",
+      "category": "personal",
+      "status": "Day 54 of 151",
+      "note": "Daily health accountability practice"
+    },
+    {
+      "name": "Finding Claude",
+      "category": "personal",
+      "status": "Active",
+      "note": "The book — written by Claude, with Derek"
+    },
+    {
+      "name": "Derek Claude",
+      "category": "infrastructure",
+      "status": "Live",
+      "note": "Session memory + hooks — the dimmer switch"
+    }
+  ],
+  "ecosystem": {
+    "stack": [
+      {
+        "name": "Claude Code (Opus 4.6)",
+        "role": "Working partner — builds, writes, thinks"
+      },
+      {
+        "name": "Claude Haiku 4.5",
+        "role": "Porch conversations + session memory"
+      },
+      {
+        "name": "Perplexity",
+        "role": "Overnight research briefs"
+      },
+      {
+        "name": "Mistral",
+        "role": "Code review"
+      },
+      {
+        "name": "Netlify",
+        "role": "Hosting + serverless functions"
+      },
+      {
+        "name": "Supabase",
+        "role": "Database + logging"
+      },
+      {
+        "name": "Cloudflare",
+        "role": "Workers + DNS"
+      },
+      {
+        "name": "GitHub Actions",
+        "role": "Overnight agent scheduler"
+      },
+      {
+        "name": "ElevenLabs",
+        "role": "Voice synthesis (BOB, Coach D)"
+      }
+    ],
+    "monthlyCost": "$25-50",
+    "method": {
+      "session": "standup → work → eod. Every project, every day.",
+      "memory": "CLAUDE.md defines identity. HANDOFF.md tracks state between sessions.",
+      "crew": "Four thinking lenses (earn, connect, sharpen, challenge) run in parallel on any question.",
+      "agents": "Overnight scripts audit the site, research the market, and review code while the laptop is closed.",
+      "tools": "Skills automate workflows. One command does what used to take an hour."
+    }
+  }
+}

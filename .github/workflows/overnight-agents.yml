@@ -1,0 +1,110 @@
+name: Overnight Agents
+
+on:
+  schedule:
+    # 11:00 UTC = 5:00 AM CST
+    - cron: '0 11 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  site-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run site audit
+        run: node scripts/overnight/site-audit.mjs
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: site-audit-report
+          path: reports/site-audit.md
+          retention-days: 30
+
+  research-brief:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run research brief
+        env:
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+        run: node scripts/overnight/research-brief.mjs
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: research-brief-report
+          path: reports/research-brief.md
+          retention-days: 30
+
+  code-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run code review
+        env:
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+        run: node scripts/overnight/code-review.mjs
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: code-review-report
+          path: reports/code-review.md
+          retention-days: 30
+
+  compile:
+    runs-on: ubuntu-latest
+    needs: [site-audit, research-brief, code-review]
+    if: always()
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Download site audit report
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: site-audit-report
+          path: reports/
+
+      - name: Download research brief report
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: research-brief-report
+          path: reports/
+
+      - name: Download code review report
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: code-review-report
+          path: reports/
+
+      - name: Compile kitchen-data.json
+        run: node scripts/overnight/compile-kitchen-data.mjs
+
+      - name: Commit and push kitchen-data.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add kitchen-data.json
+          git diff --cached --quiet || git commit -m "chore: update kitchen-data.json from overnight agents"
+          git push

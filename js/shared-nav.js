@@ -25,6 +25,11 @@
         label: 'work with me',
         href: '/work-with-me',
         items: []
+      },
+      {
+        label: 'the kitchen',
+        href: '/kitchen',
+        items: []
       }
     ]
   };

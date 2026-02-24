@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>kitchen | claudewill*</title>
-  <meta name="robots" content="noindex, nofollow">
+  <title>the kitchen | claudewill*</title>
+  <meta name="description" content="How one person runs a consulting practice with AI. The crew, the agents, the overnight work — all of it.">
 
   <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,302 +14,352 @@
   <link rel="stylesheet" href="/css/shared-nav.css">
   <link rel="stylesheet" href="/css/kitchen.css">
   <link rel="stylesheet" href="/css/porch-widget.css">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="the kitchen — claudewill*">
+  <meta property="og:description" content="How one person runs a consulting practice with AI. The crew, the agents, the overnight work — all of it.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://claudewill.io/kitchen">
 </head>
 <body class="kitchen-page">
 
-  <!-- Auth Gate -->
-  <div id="kitchen-gate" class="kitchen-gate">
-    <div class="kitchen-gate-inner">
-      <div class="kitchen-gate-label">cw> kitchen</div>
-      <p class="kitchen-gate-sub">private entrance</p>
-      <input
-        id="kitchen-code-input"
-        type="password"
-        autocomplete="off"
-        placeholder="code"
-        maxlength="32"
-      >
-      <div id="kitchen-error" class="kitchen-error"></div>
+  <header class="page-header" id="page-header">
+    <a href="/" class="page-header-left"><span class="header-short">cw</span><span class="header-full">claudewill</span><span class="hw">*</span></a>
+    <div class="page-header-center">
+      <span class="kitchen-page-label">the kitchen</span>
     </div>
-  </div>
+    <button class="page-header-right palette-trigger" aria-label="Open navigation">menu</button>
+  </header>
 
-  <!-- Dashboard (hidden until auth) -->
-  <div id="kitchen-dashboard" class="kitchen-dashboard" style="display: none;">
+  <div class="container">
+    <main>
 
-    <header class="page-header" id="page-header">
-      <a href="/" class="page-header-left"><span class="header-short">cw</span><span class="header-full">claudewill</span><span class="hw">*</span></a>
-      <div class="page-header-center">
-        <span class="kitchen-page-label">the kitchen</span>
+      <!-- Hero -->
+      <div class="kitchen-hero">
+        <h1 class="kitchen-title">the kitchen<span class="hw">*</span></h1>
+        <p class="kitchen-subtitle">How one person runs a consulting practice with AI.</p>
+        <div class="kitchen-meta">
+          <span class="kitchen-status">
+            <span class="kitchen-status-dot" id="status-dot"></span>
+            <span id="status-text">loading...</span>
+          </span>
+        </div>
       </div>
-      <button class="page-header-right palette-trigger" aria-label="Open navigation">menu</button>
-    </header>
 
-    <div class="container">
-      <main>
-        <div class="kitchen-toolbar">
-          <div class="kitchen-status">
-            <span class="kitchen-status-dot"></span>
-            <span id="kitchen-status-text">live</span>
+      <!-- Panel Grid -->
+      <div class="kitchen-grid">
+
+        <!-- 1. Overnight Report -->
+        <section class="kitchen-panel panel-wide" id="panel-overnight">
+          <h2 class="panel-title">the overnight report*</h2>
+          <div class="panel-body" id="overnight-content">
+            <div class="loading-state">checking agents...</div>
           </div>
-          <button id="kitchen-refresh" class="kitchen-refresh-btn">refresh</button>
-        </div>
+        </section>
 
-        <div class="kitchen-grid">
+        <!-- 2. The Crew -->
+        <section class="kitchen-panel" id="panel-crew">
+          <h2 class="panel-title">the crew*</h2>
+          <div class="panel-body" id="crew-content">
+            <div class="loading-state">loading crew...</div>
+          </div>
+        </section>
 
-          <section class="kitchen-panel" id="panel-brief">
-            <h2 class="panel-title">the brief*</h2>
-            <div class="panel-body loading" id="brief-content">loading brief...</div>
-          </section>
+        <!-- 3. The Board -->
+        <section class="kitchen-panel" id="panel-board">
+          <h2 class="panel-title">the board*</h2>
+          <div class="panel-body" id="board-content">
+            <div class="loading-state">loading projects...</div>
+          </div>
+        </section>
 
-          <section class="kitchen-panel" id="panel-pulse">
-            <h2 class="panel-title">the pulse*</h2>
-            <div class="panel-body loading" id="pulse-content">loading metrics...</div>
-          </section>
+        <!-- 4. The Stack -->
+        <section class="kitchen-panel" id="panel-stack">
+          <h2 class="panel-title">the stack*</h2>
+          <div class="panel-body" id="stack-content">
+            <div class="loading-state">loading stack...</div>
+          </div>
+        </section>
 
-          <section class="kitchen-panel" id="panel-content">
-            <h2 class="panel-title">content stage*</h2>
-            <div class="panel-body loading" id="content-content">loading calendar...</div>
-          </section>
+        <!-- 5. The Method -->
+        <section class="kitchen-panel" id="panel-method">
+          <h2 class="panel-title">the method*</h2>
+          <div class="panel-body" id="method-content">
+            <div class="loading-state">loading method...</div>
+          </div>
+        </section>
 
-          <section class="kitchen-panel" id="panel-decisions">
-            <h2 class="panel-title">decisions queue*</h2>
-            <div class="panel-body loading" id="decisions-content">loading queue...</div>
-          </section>
+      </div>
 
-        </div>
-      </main>
+      <!-- Bottom Note -->
+      <div class="kitchen-note">
+        <p>This page updates every morning at 5 AM CST when the overnight agents run. The data is real. The agents are real. The practice is ongoing.</p>
+        <p>Interested in how this could work for your organization? <a href="/work-with-me">Let's talk.</a></p>
+      </div>
 
-      <footer>
-        <p class="footer-note">Built by <a href="/derek">Derek</a><span class="hw">*</span><a href="/">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
-        <p class="footer-note"><a href="/story#the-cw-standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
-      </footer>
-    </div>
+    </main>
 
+    <footer>
+      <p class="footer-note">Built by <a href="/derek">Derek</a><span class="hw">*</span><a href="/">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
+      <p class="footer-note"><a href="/story#the-cw-standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
+    </footer>
   </div>
 
-  <!-- Kitchen Scripts -->
+  <!-- Kitchen Data Loader -->
   <script>
   (function () {
     'use strict';
 
-    var gate = document.getElementById('kitchen-gate');
-    var dashboard = document.getElementById('kitchen-dashboard');
-    var codeInput = document.getElementById('kitchen-code-input');
-    var errorEl = document.getElementById('kitchen-error');
-    var refreshBtn = document.getElementById('kitchen-refresh');
+    var DATA_URL = '/kitchen-data.json';
 
-    function getCode() {
-      return sessionStorage.getItem('cw-kitchen-code') || '';
+    // ── DOM Helpers ──────────────────────────────────
+
+    function el(id) { return document.getElementById(id); }
+
+    function clear(node) {
+      while (node.firstChild) node.removeChild(node.firstChild);
     }
 
-    function verifyCode(code) {
-      return fetch('/.netlify/functions/kitchen-data', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'verify', kitchenCode: code })
-      }).then(function (res) {
-        return res.ok;
-      }).catch(function () {
-        return false;
-      });
+    function div(cls, text) {
+      var d = document.createElement('div');
+      if (cls) d.className = cls;
+      if (text !== undefined) d.textContent = text;
+      return d;
     }
 
-    function showDashboard() {
-      gate.style.display = 'none';
-      dashboard.style.display = 'block';
-      loadDashboard();
+    function span(cls, text) {
+      var s = document.createElement('span');
+      if (cls) s.className = cls;
+      if (text !== undefined) s.textContent = text;
+      return s;
     }
 
-    function showGate(msg) {
-      gate.style.display = 'flex';
-      dashboard.style.display = 'none';
-      if (msg) errorEl.textContent = msg;
-      sessionStorage.removeItem('cw-kitchen-code');
+    function link(href, text, cls) {
+      var a = document.createElement('a');
+      a.href = href;
+      a.textContent = text;
+      if (cls) a.className = cls;
+      return a;
     }
 
-    var existingCode = getCode();
-    if (existingCode) {
-      verifyCode(existingCode).then(function (ok) {
-        if (ok) showDashboard();
-        else showGate('');
-      });
+    function timeAgo(isoStr) {
+      if (!isoStr) return 'never';
+      var diff = Date.now() - new Date(isoStr).getTime();
+      var mins = Math.floor(diff / 60000);
+      if (mins < 60) return mins + 'm ago';
+      var hrs = Math.floor(mins / 60);
+      if (hrs < 24) return hrs + 'h ago';
+      var days = Math.floor(hrs / 24);
+      return days + 'd ago';
     }
 
-    codeInput.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        var code = codeInput.value.trim();
-        if (!code) return;
-        errorEl.textContent = '';
-        verifyCode(code).then(function (ok) {
-          if (ok) {
-            sessionStorage.setItem('cw-kitchen-code', code);
-            showDashboard();
-          } else {
-            errorEl.textContent = 'wrong key.';
-            codeInput.value = '';
-            codeInput.focus();
+    // ── Panel Renderers ─────────────────────────────
+
+    function renderOvernight(agents) {
+      var container = el('overnight-content');
+      clear(container);
+
+      var keys = ['siteAudit', 'research', 'codeReview'];
+      for (var i = 0; i < keys.length; i++) {
+        var agent = agents[keys[i]];
+        if (!agent) continue;
+
+        var card = div('agent-card');
+
+        // Header row
+        var header = div('agent-header');
+        var dot = span('agent-dot ' + (agent.status === 'ok' ? 'dot-ok' : agent.status === 'flags' ? 'dot-flags' : 'dot-off'));
+        header.appendChild(dot);
+        header.appendChild(span('agent-name', agent.name));
+        header.appendChild(span('agent-time', timeAgo(agent.lastRun)));
+        card.appendChild(header);
+
+        // Summary
+        card.appendChild(div('agent-summary', agent.summary));
+
+        // Flags
+        if (agent.flags && agent.flags.length > 0) {
+          var flagList = div('agent-flags');
+          for (var f = 0; f < agent.flags.length; f++) {
+            flagList.appendChild(div('agent-flag', agent.flags[f]));
+          }
+          card.appendChild(flagList);
+        }
+
+        container.appendChild(card);
+      }
+    }
+
+    function renderCrew(data) {
+      var container = el('crew-content');
+      clear(container);
+
+      // Thinking lenses
+      var lensLabel = div('crew-section-label', 'thinking lenses');
+      container.appendChild(lensLabel);
+
+      var lenses = [
+        { name: '/earn', desc: 'Business lens — revenue, clients, ROI' },
+        { name: '/connect', desc: 'Cross-project lens — patterns, synergies' },
+        { name: '/sharpen', desc: 'Quality lens — voice, consistency, brand' },
+        { name: '/challenge', desc: 'Pushback lens — simplify, question, prioritize' }
+      ];
+
+      for (var i = 0; i < lenses.length; i++) {
+        var row = div('crew-row');
+        row.appendChild(span('crew-name', lenses[i].name));
+        row.appendChild(span('crew-desc', lenses[i].desc));
+        container.appendChild(row);
+      }
+
+      // Operational agents
+      var agentLabel = div('crew-section-label', 'overnight agents');
+      container.appendChild(agentLabel);
+
+      var agents = data.agents;
+      var agentList = [
+        { key: 'siteAudit', cmd: '/audit' },
+        { key: 'research', cmd: '/research' },
+        { key: 'codeReview', cmd: '/codecheck' }
+      ];
+
+      for (var j = 0; j < agentList.length; j++) {
+        var a = agents[agentList[j].key];
+        if (!a) continue;
+        var arow = div('crew-row');
+        var adot = span('agent-dot-inline ' + (a.status === 'ok' ? 'dot-ok' : a.status === 'flags' ? 'dot-flags' : 'dot-off'));
+        arow.appendChild(adot);
+        arow.appendChild(span('crew-name', agentList[j].cmd));
+        arow.appendChild(span('crew-desc', a.name + (a.lastRun ? ' — ' + timeAgo(a.lastRun) : ' — not yet active')));
+        container.appendChild(arow);
+      }
+    }
+
+    function renderBoard(projects) {
+      var container = el('board-content');
+      clear(container);
+
+      var categories = ['business', 'portfolio', 'personal', 'infrastructure'];
+      var labels = { business: 'business', portfolio: 'portfolio', personal: 'personal', infrastructure: 'infrastructure' };
+
+      for (var c = 0; c < categories.length; c++) {
+        var cat = categories[c];
+        var items = projects.filter(function (p) { return p.category === cat; });
+        if (items.length === 0) continue;
+
+        container.appendChild(div('board-category', labels[cat]));
+
+        for (var i = 0; i < items.length; i++) {
+          var row = div('board-row');
+          var nameCol = div('board-name');
+          nameCol.appendChild(span('', items[i].name));
+          var statusBadge = span('board-status ' + (
+            items[i].status === 'Active client' ? 'status-active' :
+            items[i].status === 'Live' || items[i].status === 'Autonomous' ? 'status-live' :
+            'status-other'
+          ), items[i].status);
+          nameCol.appendChild(statusBadge);
+          row.appendChild(nameCol);
+          row.appendChild(div('board-note', items[i].note));
+          container.appendChild(row);
+        }
+      }
+    }
+
+    function renderStack(ecosystem) {
+      var container = el('stack-content');
+      clear(container);
+
+      var stack = ecosystem.stack;
+      for (var i = 0; i < stack.length; i++) {
+        var row = div('stack-row');
+        row.appendChild(span('stack-name', stack[i].name));
+        row.appendChild(span('stack-role', stack[i].role));
+        container.appendChild(row);
+      }
+
+      var cost = div('stack-cost');
+      cost.appendChild(span('stack-cost-label', 'total monthly cost'));
+      cost.appendChild(span('stack-cost-value', ecosystem.monthlyCost));
+      container.appendChild(cost);
+    }
+
+    function renderMethod(ecosystem) {
+      var container = el('method-content');
+      clear(container);
+
+      var method = ecosystem.method;
+      var keys = ['session', 'memory', 'crew', 'agents', 'tools'];
+      var labels = {
+        session: 'the session',
+        memory: 'the memory',
+        crew: 'the crew',
+        agents: 'the agents',
+        tools: 'the tools'
+      };
+
+      for (var i = 0; i < keys.length; i++) {
+        if (!method[keys[i]]) continue;
+        var row = div('method-row');
+        row.appendChild(div('method-label', labels[keys[i]]));
+        row.appendChild(div('method-desc', method[keys[i]]));
+        container.appendChild(row);
+      }
+    }
+
+    function updateStatus(data) {
+      var dot = el('status-dot');
+      var text = el('status-text');
+
+      if (!data || !data.lastUpdated) {
+        dot.className = 'kitchen-status-dot dot-off';
+        text.textContent = 'no data';
+        return;
+      }
+
+      var ago = timeAgo(data.lastUpdated);
+      text.textContent = 'updated ' + ago;
+
+      // Check if any agent has flags
+      var hasFlags = false;
+      var agents = data.agents || {};
+      for (var key in agents) {
+        if (agents[key].status === 'flags') hasFlags = true;
+      }
+
+      dot.className = 'kitchen-status-dot ' + (hasFlags ? 'dot-flags' : 'dot-ok');
+    }
+
+    // ── Load and Render ─────────────────────────────
+
+    function loadKitchen() {
+      fetch(DATA_URL)
+        .then(function (res) {
+          if (!res.ok) throw new Error('Failed to load kitchen data');
+          return res.json();
+        })
+        .then(function (data) {
+          updateStatus(data);
+          renderOvernight(data.agents || {});
+          renderCrew(data);
+          renderBoard(data.projects || []);
+          renderStack(data.ecosystem || {});
+          renderMethod(data.ecosystem || {});
+        })
+        .catch(function () {
+          updateStatus(null);
+          var panels = ['overnight-content', 'crew-content', 'board-content', 'stack-content', 'method-content'];
+          for (var i = 0; i < panels.length; i++) {
+            var p = el(panels[i]);
+            if (p) {
+              clear(p);
+              p.appendChild(div('empty-state', 'Data unavailable. The overnight agents may not have run yet.'));
+            }
           }
         });
-      }
-    });
-
-    if (codeInput && !existingCode) codeInput.focus();
-
-    // Dashboard data loading
-    function loadDashboard() {
-      var code = getCode();
-      if (!code) return showGate('Session expired.');
-
-      fetch('/.netlify/functions/kitchen-data', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'all', kitchenCode: code })
-      })
-      .then(function (res) {
-        if (res.status === 401) { showGate('Session expired.'); return null; }
-        return res.json();
-      })
-      .then(function (data) {
-        if (!data) return;
-        renderBrief(data.panels.brief);
-        renderPulse(data.panels.pulse);
-        renderContent(data.panels.content);
-        renderDecisions(data.panels.decisions);
-      })
-      .catch(function () {
-        setPanel('brief-content', 'error', 'Failed to load. Try refreshing.');
-      });
     }
 
-    // Safe DOM helpers — no innerHTML, prevents XSS
-    function clearEl(el) {
-      while (el.firstChild) el.removeChild(el.firstChild);
-    }
-
-    function setPanel(id, cls, text) {
-      var el = document.getElementById(id);
-      if (!el) return;
-      el.className = 'panel-body' + (cls ? ' ' + cls : '');
-      clearEl(el);
-      el.textContent = text;
-    }
-
-    function createDiv(className, textContent) {
-      var div = document.createElement('div');
-      if (className) div.className = className;
-      if (textContent !== undefined) div.textContent = textContent;
-      return div;
-    }
-
-    function createSpan(className, textContent) {
-      var span = document.createElement('span');
-      if (className) span.className = className;
-      if (textContent !== undefined) span.textContent = textContent;
-      return span;
-    }
-
-    // Panel renderers using safe DOM methods
-    function renderBrief(brief) {
-      var el = document.getElementById('brief-content');
-      el.className = 'panel-body';
-      clearEl(el);
-
-      if (typeof brief === 'string' && brief) {
-        var pre = createDiv('brief-text', brief);
-        el.appendChild(pre);
-      } else if (brief && typeof brief === 'object') {
-        var pre2 = createDiv('brief-text', JSON.stringify(brief, null, 2));
-        el.appendChild(pre2);
-      } else {
-        el.appendChild(createDiv('empty-state', 'No brief available. Worker may be offline.'));
-      }
-    }
-
-    function renderPulse(pulse) {
-      var el = document.getElementById('pulse-content');
-      el.className = 'panel-body';
-      clearEl(el);
-
-      if (!pulse || pulse.total === '\u2014') {
-        el.appendChild(createDiv('empty-state', 'Pulse data unavailable.'));
-        return;
-      }
-
-      el.appendChild(makeStatRow('total conversations', pulse.total));
-      el.appendChild(makeStatRow('last 24h messages', pulse.last24h.messages));
-      el.appendChild(makeStatRow('last 24h sessions', pulse.last24h.sessions));
-      el.appendChild(makeStatRow('last 7d messages', pulse.last7d.messages));
-      el.appendChild(makeStatRow('last 7d sessions', pulse.last7d.sessions));
-      el.appendChild(makeStatRow('avg/day', pulse.avgPerDay));
-    }
-
-    function makeStatRow(label, value) {
-      var row = createDiv('pulse-stat');
-      row.appendChild(createSpan('pulse-label', label));
-      row.appendChild(createSpan('pulse-value', String(value)));
-      return row;
-    }
-
-    function renderContent(content) {
-      var el = document.getElementById('content-content');
-      el.className = 'panel-body';
-      clearEl(el);
-
-      if (!content || content.note) {
-        el.appendChild(createDiv('empty-state', content && content.note ? content.note : 'Content data unavailable.'));
-        return;
-      }
-
-      if (content.lastPost) {
-        var daysSince = Math.floor((Date.now() - new Date(content.lastPost).getTime()) / (1000 * 60 * 60 * 24));
-        var cls = daysSince <= 2 ? 'recent' : daysSince <= 5 ? 'due' : 'overdue';
-        el.appendChild(makeContentRow('linkedin', daysSince + 'd ago', cls));
-      } else {
-        el.appendChild(makeContentRow('linkedin', 'no data', 'due'));
-      }
-
-      el.appendChild(makeContentRow('substack', 'check manually', 'due'));
-      el.appendChild(makeContentRow('dispatches', '#3 due feb 24', ''));
-    }
-
-    function makeContentRow(platform, daysText, cls) {
-      var row = createDiv('content-row');
-      row.appendChild(createSpan('content-platform', platform));
-      row.appendChild(createSpan('content-days' + (cls ? ' ' + cls : ''), daysText));
-      return row;
-    }
-
-    function renderDecisions(decisions) {
-      var el = document.getElementById('decisions-content');
-      el.className = 'panel-body';
-      clearEl(el);
-
-      if (!decisions || !Array.isArray(decisions) || decisions.length === 0) {
-        el.appendChild(createDiv('empty-state', 'Nothing in the queue. Clear pass.'));
-        return;
-      }
-
-      for (var i = 0; i < decisions.length; i++) {
-        var d = decisions[i];
-        var item = createDiv('decision-item');
-        item.appendChild(createDiv('decision-task', d.task || String(d)));
-        if (d.criteria) {
-          item.appendChild(createDiv('decision-meta', d.criteria));
-        }
-        el.appendChild(item);
-      }
-    }
-
-    // Refresh handler
-    if (refreshBtn) {
-      refreshBtn.addEventListener('click', function () {
-        ['brief-content', 'pulse-content', 'content-content', 'decisions-content'].forEach(function (id) {
-          setPanel(id, 'loading', 'refreshing...');
-        });
-        loadDashboard();
-      });
-    }
+    loadKitchen();
 
   })();
   </script>
@@ -332,17 +382,7 @@
     })();
   </script>
 
-  <!-- CW Widget (Kitchen Mode) -->
-  <script>
-    window.CW_KITCHEN_CONFIG = {
-      mode: 'kitchen',
-      getCode: function () {
-        return sessionStorage.getItem('cw-kitchen-code');
-      },
-      label: 'cw> kitchen',
-      welcomeMessage: "Back of the house. What are we working on?"
-    };
-  </script>
+  <!-- Porch Widget -->
   <script src="/js/cw-link-renderer.js"></script>
   <script src="/js/porch-widget.js" defer></script>
   <script src="/js/shared-nav.js"></script>

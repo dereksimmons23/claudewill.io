@@ -1,6 +1,5 @@
-/* Kitchen — back of the house
-   Same house, lights turned down.
-   Overrides CSS variables so shared-nav.css and page structure go dark. */
+/* Kitchen — how the sausage gravy gets made
+   Public dashboard. Dark theme. Terminal aesthetic. */
 
 /* ── Dark theme variables ─────────────────────────── */
 
@@ -67,7 +66,6 @@
   color: var(--accent);
 }
 
-/* Page label in header center */
 .kitchen-page-label {
   font-size: 0.9rem;
   font-weight: 600;
@@ -76,7 +74,7 @@
 /* ── Container ────────────────────────────────────── */
 
 .kitchen-page .container {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 0 24px 80px;
 }
@@ -113,73 +111,38 @@
   color: var(--accent);
 }
 
-/* ── Auth Gate ─────────────────────────────────────── */
+/* ── Hero ─────────────────────────────────────────── */
 
-.kitchen-gate {
+.kitchen-hero {
+  padding: 3rem 0 2rem;
+  text-align: center;
+}
+
+.kitchen-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.kitchen-title .hw {
+  color: var(--accent);
+}
+
+.kitchen-subtitle {
+  font-size: 0.9rem;
+  color: var(--dim);
+  margin: 0 0 1.5rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kitchen-meta {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 2rem;
-}
-
-.kitchen-gate-inner {
-  max-width: 320px;
-  width: 100%;
-  text-align: center;
-}
-
-.kitchen-gate-label {
-  font-size: 1.1rem;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-}
-
-.kitchen-gate-sub {
-  font-size: 0.8rem;
-  color: var(--dim);
-  margin-bottom: 2rem;
-}
-
-#kitchen-code-input {
-  width: 100%;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 4px;
-  padding: 12px 16px;
-  font-family: var(--font);
-  font-size: 1rem;
-  color: #f0f0f0;
-  text-align: center;
-  letter-spacing: 0.25em;
-  outline: none;
-  transition: border-color 0.2s;
-  box-sizing: border-box;
-}
-
-#kitchen-code-input:focus {
-  border-color: rgba(212, 168, 75, 0.4);
-}
-
-#kitchen-code-input::placeholder {
-  color: rgba(255,255,255,0.2);
-  letter-spacing: 0.3em;
-}
-
-.kitchen-error {
-  color: var(--error);
-  font-size: 0.8rem;
-  margin-top: 0.75rem;
-  min-height: 1.2em;
-}
-
-/* ── Toolbar (status + refresh) ───────────────────── */
-
-.kitchen-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem 0 1rem;
+  gap: 8px;
 }
 
 .kitchen-status {
@@ -194,27 +157,16 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--success);
   flex-shrink: 0;
 }
 
-.kitchen-refresh-btn {
-  background: none;
-  border: 1px solid rgba(212, 168, 75, 0.2);
-  border-radius: 4px;
-  color: var(--accent);
-  font-family: var(--font);
-  font-size: 0.7rem;
-  padding: 4px 12px;
-  cursor: pointer;
-  transition: border-color 0.2s;
-}
+/* ── Status Dots (shared) ─────────────────────────── */
 
-.kitchen-refresh-btn:hover {
-  border-color: rgba(212, 168, 75, 0.5);
-}
+.dot-ok { background: var(--success); }
+.dot-flags { background: var(--warn); }
+.dot-off { background: var(--dim); }
 
-/* ── Panel Grid ────────────────────────────────────── */
+/* ── Panel Grid ───────────────────────────────────── */
 
 .kitchen-grid {
   display: grid;
@@ -229,7 +181,11 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  min-height: 200px;
+  min-height: 180px;
+}
+
+.panel-wide {
+  grid-column: 1 / -1;
 }
 
 .panel-title {
@@ -252,94 +208,10 @@
   overflow-y: auto;
 }
 
-.panel-body.loading {
+.loading-state {
   color: var(--dim);
   font-style: italic;
-}
-
-.panel-body.error {
-  color: var(--error);
-}
-
-/* ── Pulse Stats ───────────────────────────────────── */
-
-.pulse-stat {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-}
-
-.pulse-stat:last-child {
-  border-bottom: none;
-}
-
-.pulse-label {
-  color: var(--dim);
-  font-size: 0.75rem;
-}
-
-.pulse-value {
-  color: var(--text);
-  font-weight: 600;
-  font-size: 0.85rem;
-}
-
-.pulse-value.good { color: var(--success); }
-.pulse-value.warn { color: var(--warn); }
-.pulse-value.error { color: var(--error); }
-
-/* ── Content Stage ─────────────────────────────────── */
-
-.content-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-}
-
-.content-row:last-child {
-  border-bottom: none;
-}
-
-.content-platform {
-  color: var(--dim);
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.content-days {
-  font-weight: 600;
-  font-size: 0.8rem;
-}
-
-.content-days.recent { color: var(--success); }
-.content-days.due { color: var(--warn); }
-.content-days.overdue { color: var(--error); }
-
-/* ── Decisions ─────────────────────────────────────── */
-
-.decision-item {
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-}
-
-.decision-item:last-child {
-  border-bottom: none;
-}
-
-.decision-task {
-  color: var(--text);
-  font-size: 0.8rem;
-  margin-bottom: 4px;
-}
-
-.decision-meta {
-  color: var(--dim);
-  font-size: 0.7rem;
+  padding: 0.5rem 0;
 }
 
 .empty-state {
@@ -348,33 +220,287 @@
   padding: 1rem 0;
 }
 
-/* ── Brief Panel ───────────────────────────────────── */
+/* ── Overnight Report Panel ───────────────────────── */
 
-.brief-text {
-  white-space: pre-wrap;
-  word-wrap: break-word;
+.agent-card {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.agent-card:last-child {
+  border-bottom: none;
+}
+
+.agent-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.agent-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.agent-dot-inline {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.agent-name {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--text);
+}
+
+.agent-time {
+  margin-left: auto;
+  font-size: 0.7rem;
+  color: var(--dim);
+}
+
+.agent-summary {
   font-size: 0.78rem;
+  color: var(--dim);
+  padding-left: 16px;
+}
+
+.agent-flags {
+  margin-top: 6px;
+  padding-left: 16px;
+}
+
+.agent-flag {
+  font-size: 0.75rem;
+  color: var(--warn);
+  padding: 2px 0;
+}
+
+.agent-flag::before {
+  content: '! ';
+  font-weight: 700;
+}
+
+/* ── Crew Panel ───────────────────────────────────── */
+
+.crew-section-label {
+  font-size: 0.7rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 8px 0 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  margin-bottom: 4px;
+}
+
+.crew-section-label:first-child {
+  padding-top: 0;
+}
+
+.crew-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 0.78rem;
+}
+
+.crew-name {
+  color: var(--text);
+  font-weight: 600;
+  white-space: nowrap;
+  min-width: 90px;
+}
+
+.crew-desc {
+  color: var(--dim);
+  font-size: 0.75rem;
+}
+
+/* ── Board Panel ──────────────────────────────────── */
+
+.board-category {
+  font-size: 0.7rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 8px 0 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  margin-bottom: 4px;
+}
+
+.board-category:first-child {
+  padding-top: 0;
+}
+
+.board-row {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+}
+
+.board-row:last-child {
+  border-bottom: none;
+}
+
+.board-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.board-status {
+  font-size: 0.65rem;
+  font-weight: 400;
+  padding: 1px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.status-active {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--success);
+}
+
+.status-live {
+  background: rgba(74, 142, 194, 0.15);
+  color: var(--link);
+}
+
+.status-other {
+  background: rgba(107, 114, 128, 0.15);
+  color: var(--dim);
+}
+
+.board-note {
+  font-size: 0.75rem;
+  color: var(--dim);
+  padding-left: 0;
+}
+
+/* ── Stack Panel ──────────────────────────────────── */
+
+.stack-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  gap: 12px;
+}
+
+.stack-row:last-child {
+  border-bottom: none;
+}
+
+.stack-name {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.stack-role {
+  font-size: 0.72rem;
+  color: var(--dim);
+  text-align: right;
+}
+
+.stack-cost {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0 4px;
+  margin-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.stack-cost-label {
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.stack-cost-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ── Method Panel ─────────────────────────────────── */
+
+.method-row {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.method-row:last-child {
+  border-bottom: none;
+}
+
+.method-label {
+  font-size: 0.72rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.method-desc {
+  font-size: 0.78rem;
+  color: var(--dim);
+  line-height: 1.6;
+}
+
+/* ── Bottom Note ──────────────────────────────────── */
+
+.kitchen-note {
+  text-align: center;
+  padding: 2.5rem 0 1rem;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.kitchen-note p {
+  font-size: 0.78rem;
+  color: var(--dim);
+  margin: 0 0 0.75rem;
   line-height: 1.7;
 }
 
-/* ── Porch widget overrides on kitchen page ────────── */
+.kitchen-note a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.kitchen-note a:hover {
+  text-decoration: underline;
+}
+
+/* ── Porch widget overrides ───────────────────────── */
 
 .kitchen-page .porch-widget-prompt {
-  color: var(--success);
+  color: var(--accent);
 }
 
-.kitchen-page .porch-panel-title::after {
-  content: ' (kitchen)';
-  color: var(--success);
-  font-size: 0.7rem;
-  font-weight: 400;
-}
-
-/* ── Mobile ────────────────────────────────────────── */
+/* ── Mobile ───────────────────────────────────────── */
 
 @media (max-width: 700px) {
   .kitchen-grid {
     grid-template-columns: 1fr;
+  }
+
+  .panel-wide {
+    grid-column: 1;
   }
 
   .kitchen-page .container {
@@ -382,7 +508,24 @@
   }
 
   .kitchen-panel {
-    min-height: 160px;
+    min-height: 140px;
+  }
+
+  .kitchen-hero {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .kitchen-title {
+    font-size: 1.5rem;
+  }
+
+  .stack-row {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .stack-role {
+    text-align: left;
   }
 }
 
@@ -392,7 +535,7 @@
   }
 }
 
-/* No printing the kitchen */
+/* No printing sensitive data */
 @media print {
   .kitchen-page { display: none; }
 }
