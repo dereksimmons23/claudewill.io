@@ -3,29 +3,24 @@
   "agents": {
     "siteAudit": {
       "name": "Site Audit",
-      "lastRun": "2026-02-24T19:07:03.936Z",
-      "status": "flags",
-      "summary": "7/11 pages up. 4 down.",
-      "flags": [
-        "https://claudewill.io/ is DOWN (23)",
-        "https://claudewill.io/derek is DOWN (23)",
-        "https://claudewill.io/workshop is DOWN (fetch failed)",
-        "https://claudewill.io/library is DOWN (fetch failed)"
-      ],
+      "lastRun": "2026-02-24T19:15:00.000Z",
+      "status": "ok",
+      "summary": "All 11 pages responding. Average response: 317ms.",
+      "flags": [],
       "details": [
-        "https://claudewill.io/ — DOWN: 23",
-        "https://claudewill.io/derek — DOWN: 23",
-        "https://claudewill.io/story — 200 178ms",
-        "https://claudewill.io/work-with-me — 200 162ms",
-        "https://claudewill.io/workshop — DOWN: fetch failed",
-        "https://claudewill.io/library — DOWN: fetch failed",
-        "https://claudewill.io/map — 200 168ms",
-        "https://claudewill.io/privacy — 200 156ms",
-        "https://claudewill.io/terms — 200 188ms",
-        "https://claudewill.io/kitchen — 200 253ms",
-        "https://claudewill.io/arcade — 200 447ms",
-        "Coach D (https://coach.claudewill.io) — 200 235ms",
-        "BOB (https://bob.claudewill.io) — 200 250ms"
+        "https://claudewill.io/ — 200 354ms",
+        "https://claudewill.io/derek — 200 296ms",
+        "https://claudewill.io/story — 200 296ms",
+        "https://claudewill.io/work-with-me — 200 316ms",
+        "https://claudewill.io/workshop — 200 330ms",
+        "https://claudewill.io/library — 200 323ms",
+        "https://claudewill.io/map — 200 292ms",
+        "https://claudewill.io/privacy — 200 319ms",
+        "https://claudewill.io/terms — 200 324ms",
+        "https://claudewill.io/kitchen — 200 342ms",
+        "https://claudewill.io/arcade — 200 291ms",
+        "Coach D (https://coach.claudewill.io) — 200 283ms",
+        "BOB (https://bob.claudewill.io) — 200 336ms"
       ]
     },
     "research": {
