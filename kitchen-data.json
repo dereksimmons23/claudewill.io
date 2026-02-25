@@ -1,64 +1,57 @@
 {
-  "lastUpdated": "2026-02-25T11:19:35.481Z",
+  "lastUpdated": "2026-02-25T18:40:43.203Z",
   "agents": {
     "siteAudit": {
       "name": "Site Audit",
-      "lastRun": "2026-02-25T11:19:35.481Z",
+      "lastRun": "2026-02-25T18:40:43.203Z",
       "status": "flags",
-      "summary": "4/11 pages up. 7 down.",
+      "summary": "8/11 pages up. 3 down.",
       "flags": [
         "https://claudewill.io/ is DOWN (23)",
         "https://claudewill.io/derek is DOWN (23)",
-        "https://claudewill.io/work-with-me is DOWN (fetch failed)",
-        "https://claudewill.io/library is DOWN (fetch failed)",
-        "https://claudewill.io/map is DOWN (fetch failed)",
-        "https://claudewill.io/privacy is DOWN (fetch failed)",
-        "https://claudewill.io/arcade is DOWN (23)",
-        "Coach D is DOWN (fetch failed)"
+        "https://claudewill.io/story is DOWN (23)"
       ],
       "details": [
         "https://claudewill.io/ — DOWN: 23",
         "https://claudewill.io/derek — DOWN: 23",
-        "https://claudewill.io/story — 200 521ms",
-        "https://claudewill.io/work-with-me — DOWN: fetch failed",
-        "https://claudewill.io/workshop — 200 517ms",
-        "https://claudewill.io/library — DOWN: fetch failed",
-        "https://claudewill.io/map — DOWN: fetch failed",
-        "https://claudewill.io/privacy — DOWN: fetch failed",
-        "https://claudewill.io/terms — 200 690ms",
-        "https://claudewill.io/kitchen — 200 1840ms",
-        "https://claudewill.io/arcade — DOWN: 23",
-        "Coach D (https://coach.claudewill.io) — DOWN: fetch failed",
-        "BOB (https://bob.claudewill.io) — 200 899ms"
+        "https://claudewill.io/story — DOWN: 23",
+        "https://claudewill.io/work-with-me — 200 373ms",
+        "https://claudewill.io/workshop — 200 383ms",
+        "https://claudewill.io/library — 200 346ms",
+        "https://claudewill.io/map — 200 374ms",
+        "https://claudewill.io/privacy — 200 502ms",
+        "https://claudewill.io/terms — 200 434ms",
+        "https://claudewill.io/kitchen — 200 467ms",
+        "https://claudewill.io/arcade — 200 477ms",
+        "Coach D (https://coach.claudewill.io) — 200 385ms",
+        "BOB (https://bob.claudewill.io) — 200 1257ms"
       ]
     },
     "research": {
       "name": "Research Brief",
-      "lastRun": "2026-02-25T11:19:35.481Z",
+      "lastRun": "2026-02-25T18:40:43.203Z",
       "status": "ok",
-      "summary": "I cannot provide developments from the last 24 hours because the search results available are dated up to February 5, 2026 (the Claude Opus 4.6 release announcement), with most content from earlier...",
+      "summary": "I cannot provide developments from the last 24 hours (since February 24, 6 PM UTC) based on these search results. The most recent content available is from early-to-mid February 2026, which is 10+...",
       "sources": [
         "https://www.auxi.ai/blog/ai-tools-for-consultants",
         "https://www.sembly.ai/blog/must-have-ai-tools-for-successful-consultants/",
-        "https://www.primeai.solutions/blog/best-ai-tools-for-business",
-        "https://www.altahq.com/post/top-ai-tools-for-sales-prospecting-in-2026-a-comprehensive-guide",
-        "https://amiko.consulting/en/ai-trends-for-the-second-week-of-february-2026-a-wave-of-change-in-the-manufacturing-industry/",
-        "https://peoplemanagingpeople.com/hr-strategy/2026-ai-strategy/",
         "https://porath.consulting/en/articles/ai-february-2026-what-im-seeing-in-the-wild/",
-        "https://www.paconsulting.com/newsroom/agconnect-three-trends-that-will-drive-more-ai-value-in-2026-5-february-2026",
-        "https://stellium.consulting/articles/news/ai-strategy-consulting/"
+        "https://whitehat-seo.co.uk/blog/ai-marketing-tools-in-2026",
+        "https://stellium.consulting/articles/news/ai-strategy-consulting/",
+        "https://amiko.consulting/en/ai-trends-for-the-second-week-of-february-2026-a-wave-of-change-in-the-manufacturing-industry/",
+        "https://www.paconsulting.com/newsroom/agconnect-three-trends-that-will-drive-more-ai-value-in-2026-5-february-2026"
       ]
     },
     "gemini": {
       "name": "Industry Brief",
-      "lastRun": "2026-02-25T11:19:35.481Z",
+      "lastRun": "2026-02-25T18:40:43.203Z",
       "status": "ok",
-      "summary": "Here is a concise morning brief on the most significant AI industry developments from the last 24 hours, tailored for a solo AI consultant:\n\n**CW Strategies Morning Brief: AI Industry Developments...",
+      "summary": "Here's your concise morning brief on the most significant AI industry developments from the last 24 hours, tailored for a solo AI consultant:\n\n**CW Strategies Morning Brief: AI Industry Developments...",
       "sources": []
     },
     "codeReview": {
       "name": "Code Review",
-      "lastRun": "2026-02-25T11:19:35.481Z",
+      "lastRun": "2026-02-25T18:40:43.203Z",
       "status": "ok",
       "summary": "Everything looks clean. No security issues, performance problems, accessibility concerns, or broken patterns detected in the provided diffs."
     }
