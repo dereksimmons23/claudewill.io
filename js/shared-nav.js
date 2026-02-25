@@ -12,23 +12,18 @@
   var NAV_CONFIG = {
     sections: [
       {
-        label: 'derek',
-        href: '/derek',
-        items: []
-      },
-      {
         label: 'the story',
         href: '/story',
         items: []
       },
       {
-        label: 'work with me',
-        href: '/work-with-me',
+        label: 'the kitchen',
+        href: '/kitchen',
         items: []
       },
       {
-        label: 'the kitchen',
-        href: '/kitchen',
+        label: 'derek',
+        href: '/derek',
         items: []
       }
     ]
@@ -122,14 +117,6 @@
     }
 
     inner.appendChild(nav);
-
-    // Site index
-    var indexLink = document.createElement('a');
-    indexLink.className = 'cw-palette-index';
-    indexLink.href = '/map';
-    indexLink.textContent = 'site index';
-    if (isActive('/map')) indexLink.classList.add('active');
-    inner.appendChild(indexLink);
 
     overlay.appendChild(inner);
     return overlay;
