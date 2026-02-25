@@ -19,12 +19,12 @@
 
 [[redirects]]
   from = "/intake"
-  to = "/derek/assessment"
+  to = "/work-with-me"
   status = 301
 
 [[redirects]]
   from = "/intake.html"
-  to = "/derek/assessment"
+  to = "/work-with-me"
   status = 301
 
 [[redirects]]
@@ -59,22 +59,62 @@
 
 [[redirects]]
   from = "/stable"
-  to = "/workshop"
+  to = "/kitchen"
   status = 301
 
 [[redirects]]
   from = "/stable.html"
-  to = "/workshop"
+  to = "/kitchen"
   status = 301
 
 [[redirects]]
   from = "/studio"
-  to = "/workshop"
+  to = "/kitchen"
   status = 301
 
 [[redirects]]
   from = "/studio.html"
-  to = "/workshop"
+  to = "/kitchen"
+  status = 301
+
+[[redirects]]
+  from = "/workshop"
+  to = "/kitchen"
+  status = 301
+
+[[redirects]]
+  from = "/workshop.html"
+  to = "/kitchen"
+  status = 301
+
+[[redirects]]
+  from = "/library"
+  to = "/derek"
+  status = 301
+
+[[redirects]]
+  from = "/library.html"
+  to = "/derek"
+  status = 301
+
+[[redirects]]
+  from = "/map"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/map.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/derek/assessment"
+  to = "/work-with-me"
+  status = 301
+
+[[redirects]]
+  from = "/derek/assessment.html"
+  to = "/work-with-me"
   status = 301
 
 [[redirects]]
