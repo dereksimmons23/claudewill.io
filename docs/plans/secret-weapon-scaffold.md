@@ -187,15 +187,15 @@ Every other consultant's site has a contact form. This one has a conversation.
 
 ---
 
-## Sequence
+## Sequence (all complete — Feb 24, 2026)
 
-1. **Kitchen v2 — narrative redesign.** The biggest lift. Everything else points here.
-2. **/work-with-me content pass.** Method, Two Ways In, proof line, Derek story, subline.
-3. **/derek update.** 14-month story, /kitchen link, absorb /story lines, research link.
-4. **Nav update.** Three items: the story, the kitchen, derek.
-5. **Kill/redirect.** Library, map, assessment, workshop.
-6. **Pitch deck.** Match the new content, add Kitchen reference.
-7. **Embargo.** Stop redesigning. Start distributing.
+1. ~~**Kitchen v2 — narrative redesign.**~~ Done. "While you slept" framing, section nav, CTA to /work-with-me.
+2. ~~**/work-with-me content pass.**~~ Done. Method rewritten, Two Ways In filled, 14-month story, Kitchen links, subline.
+3. ~~**/derek update.**~~ Done. 14-month story, Kitchen link, research in dropdown nav.
+4. ~~**Nav update.**~~ Done. Three items: the story, the kitchen, derek.
+5. ~~**Kill/redirect.**~~ Done. library→derek, map→/, workshop→kitchen, assessment→work-with-me, stable/studio→kitchen.
+6. ~~**Pitch deck.**~~ Done. Kitchen link on PDF closing slide.
+7. **Embargo.** In effect. Stop redesigning. Start distributing.
 
 ---
 

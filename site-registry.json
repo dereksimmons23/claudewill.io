@@ -13,40 +13,28 @@
       "cw": "The story's at claudewill.io/story if you want to know more about where I came from."
     },
     {
-      "path": "/the-cw-standard",
-      "title": "The Standard",
-      "description": "How this place operates. The five principles, how we handle your data, and what you agree to when you use this site. Privacy and terms included.",
-      "cw": "The Standard covers how we operate — the five principles, data handling, and terms. It's at claudewill.io/the-cw-standard."
+      "path": "/kitchen",
+      "title": "The Kitchen",
+      "description": "How one person runs a consulting practice with AI. Overnight agents, the crew, the board, the stack, the method. Updated daily at 5 AM.",
+      "cw": "The Kitchen at claudewill.io/kitchen shows how the whole system works — the agents, the crew, the stack, the method."
     },
     {
       "path": "/derek",
       "title": "Derek Simmons",
-      "description": "Derek's personal page. Bio, the naming story, writing, and contact form.",
+      "description": "Derek's personal page. Bio, the 14-month story, the naming story, writing, and contact form.",
       "cw": "Everything about Derek — his story, what he's writing, how to reach him — is at claudewill.io/derek."
     },
     {
       "path": "/work-with-me",
       "title": "Work With Me",
-      "description": "AI strategy consulting. The engagement model, proof, and assessment form. The conversion page.",
+      "description": "AI strategy consulting. The engagement model, proof, assessment form. The conversion page. Not in nav — reached via CTAs.",
       "cw": "If you're interested in working with Derek, head to claudewill.io/work-with-me. That's where the assessment is."
-    },
-    {
-      "path": "/derek/assessment",
-      "title": "Assessment",
-      "description": "Seven questions. Ten minutes. Intake assessment for people who want to work with Derek. Not a test — a filter for both sides.",
-      "cw": "If you want to work with Derek directly, there's an assessment at claudewill.io/derek/assessment. Seven questions, ten minutes."
-    },
-    {
-      "path": "/derek/resume",
-      "title": "Resume",
-      "description": "Derek's full professional resume. 20 years, 13 roles. Star Tribune, Los Angeles Times.",
-      "cw": "Derek's full resume is at claudewill.io/derek/resume if you need the credentials."
     },
     {
       "path": "/derek/research",
       "title": "Between Claudes: Research",
-      "description": "Field observations from 14 months of human-AI collaboration. Adapted from Between Claudes: A Facsimile of Memory.",
-      "cw": "Derek's research from the book is at claudewill.io/derek/research — field observations from 1,947 sessions with Claude."
+      "description": "Field observations from 14 months of human-AI collaboration. Claude writes, Derek approves.",
+      "cw": "Derek's research is at claudewill.io/derek/research — field observations from 2,000+ sessions."
     },
     {
       "path": "/derek/research/warm-up-effect",
@@ -55,40 +43,16 @@
       "cw": "The warm-up effect — what happens when AI gets honest mid-session. claudewill.io/derek/research/warm-up-effect."
     },
     {
-      "path": "/workshop",
-      "title": "the workshop",
-      "description": "Everything Derek builds. Products (claudewill, BOB, Coach D, D-Rock, Dawn) plus Frameworks & Research (Finding Claude, Between Claudes, The Method). The prompt becomes product. The product becomes proof.",
-      "cw": "The workshop's at claudewill.io/workshop. That's where you can see everything Derek builds."
-    },
-    {
-      "path": "/library",
-      "title": "Library",
-      "description": "Writing by Derek Simmons. Dispatches (Substack), research (Between Claudes), the book (Finding Claude), and selected posts.",
-      "cw": "The library's at claudewill.io/library — everything Derek writes. Dispatches, research, the book."
+      "path": "/derek/resume",
+      "title": "Resume",
+      "description": "Derek's full professional resume. 30 years, Star Tribune, Los Angeles Times.",
+      "cw": "Derek's full resume is at claudewill.io/derek/resume if you need the credentials."
     },
     {
       "path": "/arcade",
       "title": "The Arcade",
-      "description": "Three mini-games built for the porch. Fence Mender, Porch Light, The Route.",
+      "description": "Three mini-games built for the porch. Fence Mender, Porch Light, The Route. Hidden — reward for the curious.",
       "cw": "The Arcade's at claudewill.io/arcade — three little games. No quarters required."
-    },
-    {
-      "path": "/map",
-      "title": "Site Index",
-      "description": "Site index — everything at claudewill.io in one place. Pages, products, research, and more.",
-      "cw": "The site index is at claudewill.io/map — everything here, in one place."
-    },
-    {
-      "path": "/ea",
-      "title": "Mirae EA",
-      "description": "Mirae's private executive assistant mode. Login required. Not indexed.",
-      "cw": null
-    },
-    {
-      "path": "/kitchen",
-      "title": "The Kitchen",
-      "description": "Private command center. Access code required.",
-      "cw": null
     },
     {
       "path": "/privacy",
@@ -107,8 +71,14 @@
     { "from": "/strategies", "to": "/derek", "note": "Consulting info folded into /derek" },
     { "from": "/proof", "to": "/derek", "note": "Proof section folded into /derek" },
     { "from": "/mirae", "to": "/", "note": "Widget speaks for itself" },
-    { "from": "/stable", "to": "/workshop", "note": "Renamed to the workshop" },
-    { "from": "/studio", "to": "/workshop", "note": "Renamed to the workshop" }
+    { "from": "/stable", "to": "/kitchen", "note": "Workshop → Kitchen" },
+    { "from": "/studio", "to": "/kitchen", "note": "Workshop → Kitchen" },
+    { "from": "/workshop", "to": "/kitchen", "note": "Products folded into Kitchen" },
+    { "from": "/library", "to": "/derek", "note": "Writing links on /derek" },
+    { "from": "/map", "to": "/", "note": "Simpler site doesn't need an index" },
+    { "from": "/derek/assessment", "to": "/work-with-me", "note": "Assessment lives on /work-with-me#start" },
+    { "from": "/intake", "to": "/work-with-me", "note": "Assessment lives on /work-with-me#start" },
+    { "from": "/the-cw-standard", "to": "/story", "note": "Standard lives on /story" }
   ],
   "subdomains": [
     {
@@ -121,23 +91,9 @@
     {
       "domain": "coach.claudewill.io",
       "title": "Coach D",
-      "description": "Basketball training fieldhouse with an AI coach. 156 drills. Personalized skill progression.",
+      "description": "Basketball training fieldhouse with an AI coach. 157 drills. Personalized skill progression.",
       "status": "live",
       "cw": "coach.claudewill.io — Coach D. Basketball training fieldhouse. Live."
-    },
-    {
-      "domain": "dawn.claudewill.io",
-      "title": "Dawn",
-      "description": "151-day health accountability practice. Built for two people showing up daily.",
-      "status": "coming-soon",
-      "cw": "dawn.claudewill.io — Dawn. Health accountability. Coming soon."
-    },
-    {
-      "domain": "d-rock.claudewill.io",
-      "title": "D-Rock",
-      "description": "Voice-only AI DJ. Music curation without the surveillance.",
-      "status": "coming-soon",
-      "cw": "d-rock.claudewill.io — D-Rock. An AI DJ. Coming soon."
     }
   ]
 }
