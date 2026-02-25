@@ -1,37 +1,30 @@
 {
-  "lastUpdated": "2026-02-25T18:40:43.203Z",
+  "lastUpdated": "2026-02-25T18:42:25.922Z",
   "agents": {
     "siteAudit": {
       "name": "Site Audit",
-      "lastRun": "2026-02-25T18:40:43.203Z",
-      "status": "flags",
-      "summary": "8/11 pages up. 3 down.",
-      "flags": [
-        "https://claudewill.io/ is DOWN (23)",
-        "https://claudewill.io/derek is DOWN (23)",
-        "https://claudewill.io/story is DOWN (23)"
-      ],
+      "lastRun": "2026-02-25T18:42:25.921Z",
+      "status": "ok",
+      "summary": "All 8 pages responding. Average response: 261ms.",
+      "flags": [],
       "details": [
-        "https://claudewill.io/ — DOWN: 23",
-        "https://claudewill.io/derek — DOWN: 23",
-        "https://claudewill.io/story — DOWN: 23",
-        "https://claudewill.io/work-with-me — 200 373ms",
-        "https://claudewill.io/workshop — 200 383ms",
-        "https://claudewill.io/library — 200 346ms",
-        "https://claudewill.io/map — 200 374ms",
-        "https://claudewill.io/privacy — 200 502ms",
-        "https://claudewill.io/terms — 200 434ms",
-        "https://claudewill.io/kitchen — 200 467ms",
-        "https://claudewill.io/arcade — 200 477ms",
-        "Coach D (https://coach.claudewill.io) — 200 385ms",
-        "BOB (https://bob.claudewill.io) — 200 1257ms"
+        "https://claudewill.io/ — 200 20ms",
+        "https://claudewill.io/derek — 200 84ms",
+        "https://claudewill.io/story — 200 420ms",
+        "https://claudewill.io/work-with-me — 200 308ms",
+        "https://claudewill.io/privacy — 200 323ms",
+        "https://claudewill.io/terms — 200 330ms",
+        "https://claudewill.io/kitchen — 200 538ms",
+        "https://claudewill.io/arcade — 200 67ms",
+        "Coach D (https://coach.claudewill.io) — 200 569ms",
+        "BOB (https://bob.claudewill.io) — 200 543ms"
       ]
     },
     "research": {
       "name": "Research Brief",
-      "lastRun": "2026-02-25T18:40:43.203Z",
+      "lastRun": "2026-02-25T18:42:25.921Z",
       "status": "ok",
-      "summary": "I cannot provide developments from the last 24 hours (since February 24, 6 PM UTC) based on these search results. The most recent content available is from early-to-mid February 2026, which is 10+...",
+      "summary": "**No confirmed AI industry developments reported in the last 24 hours (since February 25, 2026, ~6 AM UTC).** Available sources cover February 2026 trends and tools, with the most recent dated event...",
       "sources": [
         "https://www.auxi.ai/blog/ai-tools-for-consultants",
         "https://www.sembly.ai/blog/must-have-ai-tools-for-successful-consultants/",
@@ -44,14 +37,14 @@
     },
     "gemini": {
       "name": "Industry Brief",
-      "lastRun": "2026-02-25T18:40:43.203Z",
+      "lastRun": "2026-02-25T18:42:25.921Z",
       "status": "ok",
-      "summary": "Here's your concise morning brief on the most significant AI industry developments from the last 24 hours, tailored for a solo AI consultant:\n\n**CW Strategies Morning Brief: AI Industry Developments...",
+      "summary": "Here is a concise morning brief on the most significant AI industry developments from the last 24 hours, tailored for a solo AI consultant:\n\n**CW Strategies Morning Brief: February 25, 2026**\n\n**1....",
       "sources": []
     },
     "codeReview": {
       "name": "Code Review",
-      "lastRun": "2026-02-25T18:40:43.203Z",
+      "lastRun": "2026-02-25T18:42:25.921Z",
       "status": "ok",
       "summary": "Everything looks clean. No security issues, performance problems, accessibility concerns, or broken patterns detected in the provided diffs."
     }
