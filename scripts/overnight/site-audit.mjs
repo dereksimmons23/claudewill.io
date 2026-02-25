@@ -21,15 +21,13 @@ const REPORTS_DIR = join(REPO_ROOT, 'reports')
 
 const SITE = 'https://claudewill.io'
 
-// Pages to check — the actual public pages on claudewill.io
+// Pages to check — the actual live pages on claudewill.io
+// Dead pages removed Feb 25, 2026: /workshop, /library, /map (all 301 redirect, caused false flags)
 const PAGES = [
   '/',
   '/derek',
   '/story',
   '/work-with-me',
-  '/workshop',
-  '/library',
-  '/map',
   '/privacy',
   '/terms',
   '/kitchen',
@@ -45,7 +43,7 @@ const EXTERNAL_CHECKS = [
 // Thresholds
 const SLOW_MS = 3000
 
-async function checkPage(url) {
+async function checkPage(url, retries = 1) {
   const start = Date.now()
   try {
     const res = await fetch(url, {
@@ -62,6 +60,11 @@ async function checkPage(url) {
       finalUrl: res.url,
     }
   } catch (err) {
+    // Retry once after 15s to handle transient deploy windows
+    if (retries > 0) {
+      await new Promise(r => setTimeout(r, 15000))
+      return checkPage(url, retries - 1)
+    }
     return {
       url,
       status: 0,
