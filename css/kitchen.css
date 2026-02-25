@@ -320,6 +320,243 @@
   color: var(--dim);
 }
 
+/* ── Island (two chairs) ─────────────────────────── */
+
+.island-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.island-chair {
+  padding: 20px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 6px;
+}
+
+.island-chair-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+
+.island-chair-role {
+  font-size: 0.7rem;
+  color: var(--dim);
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+
+.island-stats {
+  margin-bottom: 14px;
+}
+
+.island-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 3px 0;
+}
+
+.island-stat-val {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.island-stat-label {
+  font-size: 0.7rem;
+  color: var(--dim);
+  text-transform: lowercase;
+}
+
+.island-sub-label {
+  font-size: 0.65rem;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 10px 0 6px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.island-proj-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 2px 0;
+}
+
+.island-proj-name {
+  font-size: 0.78rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.island-proj-count {
+  font-size: 0.7rem;
+  color: var(--dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.island-session-row {
+  padding: 3px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.island-session-row:last-child { border-bottom: none; }
+
+.island-session-proj {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text);
+  display: block;
+}
+
+.island-session-topics {
+  font-size: 0.7rem;
+  color: var(--dim);
+  display: block;
+  margin-top: 1px;
+}
+
+.island-tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 4px 0;
+}
+
+.island-tag {
+  font-size: 0.68rem;
+  color: var(--dim);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+.island-chair-desc {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.25);
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.island-empty {
+  font-size: 0.78rem;
+  color: var(--dim);
+  font-style: italic;
+  padding: 8px 0;
+}
+
+.island-updated {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.2);
+  margin-top: 8px;
+}
+
+/* ── Compulsion ──────────────────────────────────── */
+
+.compulsion-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.compulsion-stat {
+  text-align: center;
+  padding: 16px 8px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 6px;
+}
+
+.compulsion-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.compulsion-label {
+  font-size: 0.65rem;
+  color: var(--dim);
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.compulsion-breakdown-label {
+  font-size: 0.7rem;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 12px 0 8px;
+  border-top: 1px solid var(--border);
+}
+
+.compulsion-row {
+  display: grid;
+  grid-template-columns: 120px 1fr 60px;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 0;
+}
+
+.compulsion-proj {
+  font-size: 0.78rem;
+  color: var(--text);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.compulsion-bar-bg {
+  height: 4px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.compulsion-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.6s ease;
+}
+
+.compulsion-count {
+  font-size: 0.75rem;
+  color: var(--dim);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.compulsion-note {
+  font-size: 0.75rem;
+  color: var(--dim);
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  line-height: 1.6;
+}
+
+.compulsion-updated {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.2);
+  margin-top: 8px;
+}
+
 /* ── Stack ────────────────────────────────────────── */
 
 .stack-row {
@@ -449,6 +686,28 @@
 
   .overnight-flags {
     padding-left: 16px;
+  }
+
+  .island-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .island-chair {
+    padding: 16px;
+  }
+
+  .compulsion-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .compulsion-row {
+    grid-template-columns: 90px 1fr 50px;
+    gap: 8px;
+  }
+
+  .compulsion-proj {
+    font-size: 0.72rem;
   }
 
   .stack-row {
