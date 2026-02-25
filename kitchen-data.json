@@ -1,57 +1,66 @@
 {
-  "lastUpdated": "2026-02-24T19:07:03.936Z",
+  "lastUpdated": "2026-02-25T11:19:35.481Z",
   "agents": {
     "siteAudit": {
       "name": "Site Audit",
-      "lastRun": "2026-02-24T19:15:00.000Z",
-      "status": "ok",
-      "summary": "All 11 pages responding. Average response: 317ms.",
-      "flags": [],
+      "lastRun": "2026-02-25T11:19:35.481Z",
+      "status": "flags",
+      "summary": "4/11 pages up. 7 down.",
+      "flags": [
+        "https://claudewill.io/ is DOWN (23)",
+        "https://claudewill.io/derek is DOWN (23)",
+        "https://claudewill.io/work-with-me is DOWN (fetch failed)",
+        "https://claudewill.io/library is DOWN (fetch failed)",
+        "https://claudewill.io/map is DOWN (fetch failed)",
+        "https://claudewill.io/privacy is DOWN (fetch failed)",
+        "https://claudewill.io/arcade is DOWN (23)",
+        "Coach D is DOWN (fetch failed)"
+      ],
       "details": [
-        "https://claudewill.io/ — 200 354ms",
-        "https://claudewill.io/derek — 200 296ms",
-        "https://claudewill.io/story — 200 296ms",
-        "https://claudewill.io/work-with-me — 200 316ms",
-        "https://claudewill.io/workshop — 200 330ms",
-        "https://claudewill.io/library — 200 323ms",
-        "https://claudewill.io/map — 200 292ms",
-        "https://claudewill.io/privacy — 200 319ms",
-        "https://claudewill.io/terms — 200 324ms",
-        "https://claudewill.io/kitchen — 200 342ms",
-        "https://claudewill.io/arcade — 200 291ms",
-        "Coach D (https://coach.claudewill.io) — 200 283ms",
-        "BOB (https://bob.claudewill.io) — 200 336ms"
+        "https://claudewill.io/ — DOWN: 23",
+        "https://claudewill.io/derek — DOWN: 23",
+        "https://claudewill.io/story — 200 521ms",
+        "https://claudewill.io/work-with-me — DOWN: fetch failed",
+        "https://claudewill.io/workshop — 200 517ms",
+        "https://claudewill.io/library — DOWN: fetch failed",
+        "https://claudewill.io/map — DOWN: fetch failed",
+        "https://claudewill.io/privacy — DOWN: fetch failed",
+        "https://claudewill.io/terms — 200 690ms",
+        "https://claudewill.io/kitchen — 200 1840ms",
+        "https://claudewill.io/arcade — DOWN: 23",
+        "Coach D (https://coach.claudewill.io) — DOWN: fetch failed",
+        "BOB (https://bob.claudewill.io) — 200 899ms"
       ]
     },
     "research": {
       "name": "Research Brief",
-      "lastRun": "2026-02-24T19:07:03.936Z",
+      "lastRun": "2026-02-25T11:19:35.481Z",
       "status": "ok",
-      "summary": "**No significant AI industry developments reported in the last 24 hours (since February 23, 2026, 7 PM UTC) matching the specified focus areas.**\n\nSearch results highlight ongoing 2026 trends and...",
+      "summary": "I cannot provide developments from the last 24 hours because the search results available are dated up to February 5, 2026 (the Claude Opus 4.6 release announcement), with most content from earlier...",
       "sources": [
         "https://www.auxi.ai/blog/ai-tools-for-consultants",
         "https://www.sembly.ai/blog/must-have-ai-tools-for-successful-consultants/",
         "https://www.primeai.solutions/blog/best-ai-tools-for-business",
+        "https://www.altahq.com/post/top-ai-tools-for-sales-prospecting-in-2026-a-comprehensive-guide",
         "https://amiko.consulting/en/ai-trends-for-the-second-week-of-february-2026-a-wave-of-change-in-the-manufacturing-industry/",
-        "https://designforonline.com/5-ai-tools-you-should-know-about-in-2026/",
+        "https://peoplemanagingpeople.com/hr-strategy/2026-ai-strategy/",
         "https://porath.consulting/en/articles/ai-february-2026-what-im-seeing-in-the-wild/",
-        "https://hbr.org/sponsored/2026/02/a-blueprint-for-enterprise-wide-agentic-ai-transformation",
         "https://www.paconsulting.com/newsroom/agconnect-three-trends-that-will-drive-more-ai-value-in-2026-5-february-2026",
         "https://stellium.consulting/articles/news/ai-strategy-consulting/"
       ]
     },
     "gemini": {
       "name": "Industry Brief",
-      "lastRun": "2026-02-24T19:07:03.936Z",
+      "lastRun": "2026-02-25T11:19:35.481Z",
       "status": "ok",
-      "summary": "Here's your concise morning brief on the most significant AI industry developments from the last 24 hours:\n\n**1. AI Consulting and Services**\n\nThe AI consulting landscape is undergoing significant...",
+      "summary": "Here is a concise morning brief on the most significant AI industry developments from the last 24 hours, tailored for a solo AI consultant:\n\n**CW Strategies Morning Brief: AI Industry Developments...",
       "sources": []
     },
     "codeReview": {
       "name": "Code Review",
-      "lastRun": "2026-02-24T19:07:03.936Z",
+      "lastRun": "2026-02-25T11:19:35.481Z",
       "status": "ok",
-      "summary": "Everything looks clean. No security issues, performance problems, accessibility concerns, or broken patterns detected in the provided diffs. The changes appear to be well-structured and maintain the..."
+      "summary": "Everything looks clean. No security issues, performance problems, accessibility concerns, or broken patterns detected in the provided diffs."
     }
   },
   "projects": [
