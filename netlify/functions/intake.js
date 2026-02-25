@@ -43,13 +43,16 @@ ${submission.constraint_faced || '(not answered)'}
 4. What does success look like in 90 days?
 ${submission.success_90_days || '(not answered)'}
 
-5. Why me?
+5. How did you find me?
+${submission.how_found || '(not answered)'}
+
+6. Why me?
 ${submission.why_me || '(not answered)'}
 
-6. Engagement type:
+7. Engagement type:
 ${submission.engagement_type || '(not selected)'}
 
-7. Anything else?
+8. Anything else?
 ${submission.anything_else || '(not answered)'}
 
 ---
@@ -110,6 +113,7 @@ exports.handler = async (event) => {
       already_tried: data.tried || null,
       constraint_faced: data.constraint || null,
       success_90_days: data.success || null,
+      how_found: data.how_found || null,
       why_me: data.why_me || null,
       engagement_type: data.engagement_type || null,
       anything_else: data.anything_else || null,
