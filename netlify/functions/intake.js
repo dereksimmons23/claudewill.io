@@ -26,38 +26,16 @@ async function sendEmailNotification(submission) {
   }
 
   const emailBody = `
-New CW Strategies Intake Submission
+New CW Strategies Inquiry
 
 Name: ${submission.name}
 Email: ${submission.email}
 
-1. What are you trying to build?
+What are they trying to figure out?
 ${submission.trying_to_build || '(not answered)'}
-
-2. What have you already tried?
-${submission.already_tried || '(not answered)'}
-
-3. What's the constraint?
-${submission.constraint_faced || '(not answered)'}
-
-4. What does success look like in 90 days?
-${submission.success_90_days || '(not answered)'}
-
-5. How did you find me?
-${submission.how_found || '(not answered)'}
-
-6. Why me?
-${submission.why_me || '(not answered)'}
-
-7. Engagement type:
-${submission.engagement_type || '(not selected)'}
-
-8. Anything else?
-${submission.anything_else || '(not answered)'}
 
 ---
 Submitted: ${new Date().toISOString()}
-View in Supabase: https://supabase.com/dashboard/project/YOUR_PROJECT/editor
   `.trim();
 
   try {

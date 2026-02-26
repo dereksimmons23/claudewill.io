@@ -486,44 +486,6 @@
       resize: vertical;
     }
 
-    .checkbox-group {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .checkbox-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 16px;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      cursor: pointer;
-      transition: border-color 0.2s;
-    }
-
-    .checkbox-item:hover {
-      border-color: var(--accent);
-    }
-
-    .checkbox-item input[type="checkbox"] {
-      margin-top: 4px;
-      accent-color: var(--accent);
-    }
-
-    .checkbox-item label {
-      font-weight: 400;
-      margin-bottom: 0;
-      cursor: pointer;
-      color: var(--dim);
-    }
-
-    .checkbox-item label strong {
-      color: var(--text);
-    }
-
     .btn-submit {
       width: 100%;
       padding: 16px;
@@ -819,7 +781,7 @@
         <a href="#proof">the proof</a>
         <a href="#derek">derek</a>
         <a href="#engage">two ways in</a>
-        <a href="#start">start</a>
+        <a href="#start">start a conversation</a>
       </nav>
     </div>
     <button class="page-header-right palette-trigger" aria-label="Open navigation">menu</button>
@@ -1051,8 +1013,8 @@
   <!-- START (Assessment Form)                 -->
   <!-- ════════════════════════════════════════ -->
   <div class="form-section" id="start">
-    <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1.5rem;">Start</h2>
-    <p class="form-intro">Before we talk, a few questions. This isn&rsquo;t a test. It&rsquo;s a filter for both of us. Take 10 minutes. Be honest. There are no wrong answers, but vague ones tell me you&rsquo;re not ready.</p>
+    <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1.5rem;">Start a conversation</h2>
+    <p class="form-intro">Three fields. I&rsquo;ll follow up within 48 hours.</p>
 
     <form action="/.netlify/functions/intake" method="POST" id="intake-form">
 
@@ -1067,73 +1029,14 @@
       </div>
 
       <div class="question">
-        <label for="building">What are you trying to build? <span class="required">*</span></label>
-        <p class="hint">Not &ldquo;what&rsquo;s your goal.&rdquo; What are you actually trying to build? A practice? A team capability? A system? Be specific.</p>
+        <label for="building">What are you trying to figure out? <span class="required">*</span></label>
+        <p class="hint">A sentence is fine. We&rsquo;ll get into the details on a call.</p>
         <textarea id="building" name="building" required></textarea>
       </div>
 
-      <div class="question">
-        <label for="tried">What have you already tried?</label>
-        <p class="hint">What tools have you experimented with? What worked? What didn&rsquo;t? If &ldquo;nothing yet,&rdquo; tell me why now.</p>
-        <textarea id="tried" name="tried"></textarea>
-      </div>
+      <button type="submit" class="btn-submit">Send</button>
 
-      <div class="question">
-        <label for="constraint">What&rsquo;s the constraint? <span class="required">*</span></label>
-        <p class="hint">Time. Budget. Team buy-in. Technical knowledge. Fear of looking stupid. Overwhelm. What&rsquo;s yours?</p>
-        <textarea id="constraint" name="constraint" required></textarea>
-      </div>
-
-      <div class="question">
-        <label for="success">What does success look like in 90 days? <span class="required">*</span></label>
-        <p class="hint">Be concrete. What&rsquo;s different in your work, your team, your organization if this engagement works?</p>
-        <textarea id="success" name="success" required></textarea>
-      </div>
-
-      <div class="question">
-        <label for="how-found">How did you find me?</label>
-        <p class="hint">LinkedIn, referral, Google, word of mouth, something else?</p>
-        <input type="text" id="how-found" name="how_found">
-      </div>
-
-      <div class="question">
-        <label for="why-me">Why me?</label>
-        <p class="hint">What made you fill this out instead of closing the tab?</p>
-        <textarea id="why-me" name="why_me"></textarea>
-      </div>
-
-      <div class="question">
-        <label>What kind of engagement are you looking for? <span class="required">*</span></label>
-        <p class="hint">Select all that apply.</p>
-        <div class="checkbox-group">
-          <div class="checkbox-item">
-            <input type="checkbox" id="type-1on1" name="engagement_type" value="1on1">
-            <label for="type-1on1"><strong>1:1 Coaching.</strong> I want to develop my own practice with a guide</label>
-          </div>
-          <div class="checkbox-item">
-            <input type="checkbox" id="type-team" name="engagement_type" value="team">
-            <label for="type-team"><strong>Team Engagement.</strong> My team/org needs to build capacity together</label>
-          </div>
-          <div class="checkbox-item">
-            <input type="checkbox" id="type-strategic" name="engagement_type" value="strategic">
-            <label for="type-strategic"><strong>Strategic Consulting.</strong> We need help with a larger implementation</label>
-          </div>
-          <div class="checkbox-item">
-            <input type="checkbox" id="type-unsure" name="engagement_type" value="unsure">
-            <label for="type-unsure"><strong>Not sure yet.</strong> I need help figuring that out</label>
-          </div>
-        </div>
-      </div>
-
-      <div class="question">
-        <label for="anything-else">Anything else I should know?</label>
-        <p class="hint">Context matters. Situation, timeline, constraints. Whatever helps.</p>
-        <textarea id="anything-else" name="anything_else"></textarea>
-      </div>
-
-      <button type="submit" class="btn-submit">Submit Assessment</button>
-
-      <p class="after-submit">I&rsquo;ll review your answers within 48 hours. If there&rsquo;s a fit, I&rsquo;ll reach out. If not, I&rsquo;ll tell you that too. No ghosting.</p>
+      <p class="after-submit">No ghosting. If there&rsquo;s a fit, I&rsquo;ll reach out. If not, I&rsquo;ll tell you that too.</p>
 
     </form>
   </div>
