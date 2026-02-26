@@ -179,19 +179,37 @@
   font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
   font-size: 1.1rem;
   font-weight: bold;
-  color: var(--text, #0a1628);
-  text-decoration: none;
   letter-spacing: 0.04em;
   min-width: 12ch;
   flex: 1;
+  display: flex;
+  align-items: center;
 }
 
-.page-header-left:visited { color: var(--text, #0a1628); }
-.page-header-left:hover { text-decoration: none; opacity: 1; }
+.header-brand {
+  color: var(--text, #0a1628);
+  text-decoration: none;
+}
 
-.page-header-left .hw {
+.header-brand:visited { color: var(--text, #0a1628); }
+.header-brand:hover { text-decoration: none; opacity: 1; }
+
+.header-hallway {
   color: var(--accent, #d4a84b);
+  text-decoration: none;
 }
+
+.header-hallway:visited { color: var(--accent, #d4a84b); }
+.header-hallway:hover { opacity: 0.7; }
+.header-hallway:focus-visible { outline: 2px solid var(--accent, #d4a84b); outline-offset: 2px; }
+
+/* Keep .hw for footers */
+a.hw {
+  color: var(--accent, #d4a84b);
+  text-decoration: none;
+}
+a.hw:visited { color: var(--accent, #d4a84b); }
+a.hw:hover { opacity: 0.7; }
 
 .header-short,
 .header-full {
@@ -212,12 +230,12 @@
   opacity: 0;
 }
 
-.page-header-left:hover .header-short {
+.header-brand:hover .header-short {
   max-width: 0;
   opacity: 0;
 }
 
-.page-header-left:hover .header-full {
+.header-brand:hover .header-full {
   max-width: 12ch;
   opacity: 1;
 }

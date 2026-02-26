@@ -12,8 +12,8 @@
   var NAV_CONFIG = {
     sections: [
       {
-        label: 'the story',
-        href: '/story',
+        label: 'the porch',
+        href: '/',
         items: []
       },
       {
@@ -22,8 +22,13 @@
         items: []
       },
       {
-        label: 'derek',
+        label: 'the study',
         href: '/derek',
+        items: []
+      },
+      {
+        label: 'the workshop',
+        href: '/workshop',
         items: []
       }
     ]
