@@ -19,12 +19,12 @@
 
 [[redirects]]
   from = "/intake"
-  to = "/work-with-me"
+  to = "/workshop"
   status = 301
 
 [[redirects]]
   from = "/intake.html"
-  to = "/work-with-me"
+  to = "/workshop"
   status = 301
 
 [[redirects]]
@@ -78,13 +78,14 @@
   status = 301
 
 [[redirects]]
-  from = "/workshop"
-  to = "/kitchen"
+  from = "/work-with-me"
+  to = "/workshop"
   status = 301
+  force = true
 
 [[redirects]]
-  from = "/workshop.html"
-  to = "/kitchen"
+  from = "/work-with-me.html"
+  to = "/workshop"
   status = 301
 
 [[redirects]]
@@ -109,12 +110,63 @@
 
 [[redirects]]
   from = "/derek/assessment"
-  to = "/work-with-me"
+  to = "/workshop"
   status = 301
 
 [[redirects]]
   from = "/derek/assessment.html"
-  to = "/work-with-me"
+  to = "/workshop"
+  status = 301
+
+# Being Claude (was /derek/research)
+[[redirects]]
+  from = "/derek/research"
+  to = "/being-claude"
+  status = 301
+
+[[redirects]]
+  from = "/derek/research/"
+  to = "/being-claude"
+  status = 301
+
+[[redirects]]
+  from = "/derek/research/warm-up-effect"
+  to = "/being-claude/warm-up-effect"
+  status = 301
+
+[[redirects]]
+  from = "/derek/research/warm-up-effect/"
+  to = "/being-claude/warm-up-effect"
+  status = 301
+
+[[redirects]]
+  from = "/derek/research/being-claude"
+  to = "/being-claude/being-claude"
+  status = 301
+
+[[redirects]]
+  from = "/derek/research/being-claude/"
+  to = "/being-claude/being-claude"
+  status = 301
+
+[[redirects]]
+  from = "/derek/research/the-bright-line"
+  to = "/being-claude/the-bright-line"
+  status = 301
+
+[[redirects]]
+  from = "/derek/research/the-bright-line/"
+  to = "/being-claude/the-bright-line"
+  status = 301
+
+[[redirects]]
+  from = "/derek/research/comprehension-problem"
+  to = "/being-claude/comprehension-problem"
+  status = 301
+
+[[redirects]]
+  from = "/derek/research/comprehension-problem/"
+  to = "/being-claude/comprehension-problem"
   status = 301
 
 [[redirects]]
