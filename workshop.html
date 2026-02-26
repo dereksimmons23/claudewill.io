@@ -12,71 +12,45 @@
     gtag('js', new Date());
     gtag('config', 'G-991ML96NJ3');
   </script>
-  <title>the workshop | claudewill*</title>
-  <meta name="description" content="the workshop: AI-native products built by Derek Simmons. The prompt becomes product. The product becomes proof.">
-  <meta property="og:title" content="the workshop | claudewill*">
-  <meta property="og:description" content="AI-native products built by Derek Simmons. The prompt becomes product. The product becomes proof.">
+  <title>the workshop | claudewill</title>
+  <meta name="description" content="Instinct + analytics. In that order. CW Strategies.">
+  <meta property="og:title" content="the workshop | claudewill">
+  <meta property="og:description" content="Instinct + analytics. In that order. 30 years in media. 14 months with AI. CW Strategies.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://claudewill.io/workshop">
-  <meta property="og:image" content="https://claudewill.io/images/og-preview.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="the workshop | claudewill*">
-  <meta name="twitter:description" content="AI-native products built by Derek Simmons. The prompt becomes product. The product becomes proof.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="the workshop | claudewill">
+  <meta name="twitter:description" content="Instinct + analytics. In that order. 30 years in media. 14 months with AI. CW Strategies.">
   <link rel="canonical" href="https://claudewill.io/workshop">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "the workshop",
-    "description": "AI-native products built by CW Strategies",
-    "url": "https://claudewill.io/workshop",
-    "publisher": {
-      "@type": "Organization",
-      "name": "CW Strategies LLC",
-      "url": "https://claudewill.io",
-      "founder": {
-        "@type": "Person",
-        "name": "Derek Simmons",
-        "url": "https://claudewill.io/derek"
-      }
-    }
-  }
-  </script>
-
-  <!-- BreadcrumbList schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "claudewill",
-        "item": "https://claudewill.io/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "the workshop",
-        "item": "https://claudewill.io/workshop"
-      }
-    ]
-  }
-  </script>
-  <link rel="stylesheet" href="/css/shared-nav.css">
-
-  <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
+  <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/shared-nav.css">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "CW Strategies",
+    "description": "Instinct + analytics. In that order. AI strategy consulting from CW Strategies.",
+    "url": "https://claudewill.io/workshop",
+    "provider": {
+      "@type": "Person",
+      "@id": "https://claudewill.io/derek#person",
+      "name": "Derek Simmons"
+    },
+    "areaServed": "US",
+    "serviceType": ["AI Strategy Consulting", "Digital Transformation", "Team Coaching"]
+  }
+  </script>
 
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     :root {
@@ -85,413 +59,989 @@
       --dim: #6b7280;
       --accent: #d4a84b;
       --link: #4a8ec2;
+      --blue: #6ba8d4;
       --border: #e5e7eb;
       --card-bg: #f3f4f6;
+      --navy: #0a1628;
+      --navy-border: #1e293b;
+      --navy-dim: #9ca3af;
+      --navy-text: #f0f0f0;
       --font: 'IBM Plex Mono', 'Courier New', Courier, monospace;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
 
     body {
       font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
       line-height: 1.8;
+      color: var(--text);
+      background: var(--bg);
       font-size: 16px;
     }
 
-    a {
-      color: var(--link);
+    a { color: var(--link); }
+    a:visited { color: var(--link); }
+    a:hover { color: var(--accent); }
+
+    /* ── Full-width sections ─────────────────── */
+
+    .band {
+      width: 100%;
+      padding: 80px 24px;
     }
 
-    a:visited {
-      color: var(--link);
-    }
-
-    /* page header styles in shared-nav.css */
-    .page-header {
-      border-bottom: 1px solid var(--border);
-    }
-
-    .container {
+    .band-inner {
       max-width: 720px;
       margin: 0 auto;
-      padding: 0 24px 80px;
     }
 
-    /* Intro */
-    .intro {
-      padding: 2rem 0 0;
+    .band--navy {
+      background: var(--navy);
+      color: var(--navy-text);
+      --s-text: var(--navy-text);
+      --s-dim: var(--navy-dim);
+      --s-border: var(--navy-border);
+    }
+
+    .band--light {
+      background: var(--bg);
+      color: var(--text);
+      --s-text: var(--text);
+      --s-dim: var(--dim);
+      --s-border: var(--border);
+    }
+
+    .band h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .band p {
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+
+    .band p:last-child {
       margin-bottom: 0;
     }
-    .intro h1 {
-      font-family: var(--font);
-      font-size: 2.2rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
+
+    /* ── Problem section ─────────────────────── */
+
+    .problem-list {
+      list-style: none;
+      margin-top: 32px;
     }
 
-    .tagline {
-      font-size: 1.15rem;
-      line-height: 1.9;
+    .problem-list li {
+      font-size: 1rem;
+      line-height: 1.6;
+      padding: 10px 0;
+      padding-left: 24px;
+      position: relative;
+      color: var(--s-dim);
+    }
+
+    .problem-list li::before {
+      content: '\2014';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .problem-kicker {
+      margin-top: 40px;
+      font-size: 1rem;
+      color: var(--s-text);
+    }
+
+    /* ── Standard section ────────────────────── */
+
+    .standard-list {
+      list-style: none;
+      display: grid;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .standard-list li {
+      font-size: 1rem;
+      line-height: 1.7;
+      padding-left: 28px;
+      position: relative;
+    }
+
+    .standard-list li::before {
+      content: '*';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .standard-list li strong {
+      color: var(--accent);
+    }
+
+    /* ── Method section ──────────────────────── */
+
+    .method-phases {
+      display: grid;
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .method-phase {
+      border-left: 2px solid var(--accent);
+      padding-left: 24px;
+    }
+
+    .method-phase h3 {
+      color: var(--accent);
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: lowercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+
+    .method-phase p {
+      font-size: 0.95rem;
+      color: var(--s-dim);
+      line-height: 1.7;
+    }
+
+    .method-footer {
+      margin-top: 40px;
+      font-size: 0.95rem;
+      color: var(--s-dim);
+      border-top: 1px solid var(--s-border);
+      padding-top: 20px;
+    }
+
+    .method-footer strong {
+      color: var(--s-text);
+    }
+
+    /* ── Proof section ───────────────────────── */
+
+    .proof-quotes {
+      font-size: 0.95rem;
+      color: var(--link);
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .proof-intro {
+      font-size: 1rem;
+      color: var(--s-dim);
+      margin-bottom: 32px;
+    }
+
+    .proof-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 32px;
+    }
+
+    .proof-table th {
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--s-dim);
+      padding: 10px 0;
+      border-bottom: 2px solid var(--s-text);
+    }
+
+    .proof-table th:last-child {
+      text-align: right;
+    }
+
+    .proof-table td {
+      font-size: 0.95rem;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--s-border);
+      vertical-align: top;
+    }
+
+    .proof-table td:last-child {
+      font-weight: 600;
+      color: var(--s-text);
+      text-align: right;
+      padding-left: 24px;
+      width: 180px;
+      white-space: nowrap;
+    }
+
+    .proof-total td {
+      border-top: 2px solid var(--s-text);
+      border-bottom: none;
+      padding-top: 16px;
+      font-weight: 700;
+    }
+
+    .proof-total td:last-child {
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    .proof-investment td {
+      border-bottom: none;
+      color: var(--s-dim);
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+
+    .proof-investment td:last-child {
+      color: var(--s-dim);
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+
+    .proof-bottom {
+      background: var(--bg);
+      color: var(--text);
+      padding: 20px 24px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border-radius: 4px;
+    }
+
+    .proof-bottom strong {
+      color: var(--accent);
+    }
+
+    .proof-scale {
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: var(--s-dim);
+    }
+
+    /* ── Derek section ───────────────────────── */
+
+    .who-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin: 40px 0;
+    }
+
+    .who-stat {
+      border-left: 2px solid var(--accent);
+      padding-left: 16px;
+    }
+
+    .who-stat .number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+
+    .who-stat .label {
+      font-size: 0.85rem;
+      color: var(--s-dim);
+      margin-top: 4px;
+    }
+
+    .who-quote {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--blue);
+      font-style: italic;
+      margin-top: 40px;
+      padding-left: 20px;
+      border-left: 2px solid var(--blue);
+    }
+
+    /* ── Engage section ──────────────────────── */
+
+    .models {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .model-card {
+      border: 1px solid var(--s-border);
+      padding: 28px;
+      border-radius: 4px;
+    }
+
+    .model-card .model-type {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .model-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--s-text);
+      margin-bottom: 12px;
+    }
+
+    .model-card p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--s-dim);
+    }
+
+    .model-card ul {
+      list-style: none;
+      margin-top: 12px;
+    }
+
+    .model-card ul li {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--s-dim);
+      padding: 3px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .model-card ul li::before {
+      content: '*';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .models-footer {
+      margin-top: 32px;
+      font-size: 1rem;
+      color: var(--s-dim);
+    }
+
+    /* ── Assessment Form ─────────────────────── */
+
+    .form-section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    .form-intro {
       color: var(--dim);
+      margin-bottom: 32px;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .question {
+      margin-bottom: 32px;
+    }
+
+    .question label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .hint {
+      font-size: 0.9rem;
+      color: var(--dim);
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: inherit;
+      transition: border-color 0.2s;
+      background: var(--card-bg);
+      color: var(--text);
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--dim);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--bg);
+      background: var(--accent);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: inherit;
+    }
+
+    .btn-submit:hover {
+      background: #e0b860;
+    }
+
+    .after-submit {
+      margin-top: 24px;
+      font-size: 0.9rem;
+      color: var(--dim);
+      text-align: center;
       font-style: italic;
     }
 
-    /* Focus states */
-    a:focus-visible, button:focus-visible {
+    .required {
+      color: var(--accent);
+    }
+
+    /* ── Footer ──────────────────────────────── */
+    .footer {
+      padding: 2rem 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-note {
+      font-size: 0.8rem;
+      color: var(--dim);
+    }
+
+    .footer-note + .footer-note {
+      margin-top: 0.5rem;
+    }
+
+    .footer-note a { color: var(--link); }
+    .footer-note a:hover { color: var(--accent); }
+    .footer-note .hw { color: var(--accent); }
+
+    /* ── Mobile ──────────────────────────────── */
+    @media (max-width: 600px) {
+      body { font-size: 16px; }
+      .band { padding: 60px 20px; }
+      .band h2 { font-size: 1.3rem; }
+      .who-stats { grid-template-columns: 1fr; }
+      .models { grid-template-columns: 1fr; }
+      .form-section { padding: 60px 20px; }
+    }
+
+    /* ── Focus ───────────────────────────────── */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 2px;
     }
 
-    /* Reduced motion */
+    /* ── Reduced motion ──────────────────────── */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      /* header reduced-motion in shared-nav.css */
     }
 
-    section[id] {
-      scroll-margin-top: 4rem;
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
     }
 
-    section {
-      padding: 48px 0;
-      border-bottom: 1px solid var(--border);
-    }
+    /* ── Cover section ────────────────────────── */
 
-    section:last-of-type {
-      border-bottom: none;
-    }
-
-    .section-label {
-      font-family: var(--font);
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 24px;
-    }
-
-    p {
-      margin-bottom: 1.5em;
-    }
-
-    p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Product cards */
-    .product-list {
+    .cover {
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .product-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
-      text-decoration: none;
-      color: inherit;
-      transition: border-color 0.2s;
-    }
-
-    a.product-card:hover {
-      border-color: var(--accent);
-    }
-
-    .product-info {
-      flex: 1;
-    }
-
-    .product-name {
-      font-family: var(--font);
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-
-    .product-desc {
-      font-size: 1rem;
-      color: var(--dim);
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    .product-status {
-      font-family: var(--font);
-      font-size: 0.75rem;
-      color: var(--dim);
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    /* CTA */
-    .cta-group {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 48px;
-      margin-bottom: 48px;
-      padding-top: 48px;
-      border-top: 1px solid var(--border);
-    }
-
-    .cta-primary {
-      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 16px 32px;
-      background: var(--accent);
-      color: var(--bg);
-      text-decoration: none;
-      font-family: var(--font);
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 6px;
-      transition: all 0.2s ease;
-    }
-
-    .cta-primary:visited {
-      color: var(--bg);
-    }
-
-    .cta-primary:hover {
-      background: #e0b860;
-    }
-
-    .cta-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 16px 32px;
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text);
-      text-decoration: none;
-      font-family: var(--font);
-      font-size: 1rem;
-      font-weight: 500;
-      border-radius: 6px;
-      transition: all 0.2s ease;
-    }
-
-    .cta-secondary:visited {
-      color: var(--text);
-    }
-
-    .cta-secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    footer {
-      padding: 40px 0;
       text-align: center;
-      color: var(--dim);
-      font-family: var(--font);
-      font-size: 0.85rem;
+      position: relative;
     }
 
-    footer a {
+    .cover-mark {
+      font-size: 96px;
       color: var(--accent);
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 48px;
+      text-shadow:
+        0 0 20px rgba(212, 168, 75, 0.4),
+        0 0 60px rgba(212, 168, 75, 0.15);
+    }
+
+    .cover-name {
+      font-size: clamp(24px, 3.5vw, 40px);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+      color: var(--navy-text);
+    }
+
+    .cover-tagline {
+      font-size: clamp(16px, 2vw, 22px);
+      font-weight: 300;
+      color: var(--navy-dim);
+      letter-spacing: 0.04em;
+    }
+
+    .cover-footer {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cover-url {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--navy-dim);
+      letter-spacing: 0.06em;
+    }
+
+    .cover-pdf {
+      font-family: var(--font);
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--accent);
+      background: transparent;
+      border: 1px solid rgba(212, 168, 75, 0.25);
+      border-radius: 24px;
+      padding: 8px 20px;
+      cursor: pointer;
+      transition: border-color 0.3s;
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+
+    .cover-pdf:hover {
+      border-color: rgba(212, 168, 75, 0.6);
+    }
+
+    /* ── CTA closing slide (PDF only) ────────── */
+
+    .cta-slide {
+      text-align: center;
+      display: none;
+    }
+
+    .cta-mark {
+      font-size: 64px;
+      color: var(--accent);
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 40px;
+      text-shadow:
+        0 0 20px rgba(212, 168, 75, 0.4),
+        0 0 60px rgba(212, 168, 75, 0.15);
+    }
+
+    .cta-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .cta-links li {
+      font-size: 1.1rem;
+    }
+
+    .cta-links a {
+      color: var(--blue);
       text-decoration: none;
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    .cta-links .cta-email {
+      color: var(--accent);
+      font-weight: 600;
     }
 
-    @media (max-width: 700px) {
-      /* header mobile in shared-nav.css */
-      .intro h1 { font-size: 1.8rem; }
-      section { padding: 40px 0; }
-      .product-card { flex-direction: column; gap: 12px; }
-    }
-
+    /* ── Print ───────────────────────────────── */
     @media print {
-      /* .page-header print in shared-nav.css */
-      .cta-group {
-        display: none;
-      }
-
       body {
-        background: white;
-        color: black;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        font-size: 12px;
       }
 
-      .container {
-        max-width: 100%;
+      .page-header { display: none !important; }
+      .footer { display: none !important; }
+      .form-section { display: none !important; }
+      .cover-pdf { display: none !important; }
+      .porch-widget { display: none !important; }
+      #cw-porch-trigger { display: none !important; }
+      #cw-porch-panel { display: none !important; }
+
+      .cta-slide { display: flex !important; }
+
+      .cover {
+        min-height: 0;
+        height: 100vh;
+        page-break-after: always;
       }
+
+      .band {
+        page-break-inside: avoid;
+        page-break-after: always;
+        min-height: 0;
+        height: 100vh;
+        padding: 40px 48px;
+        display: flex;
+        align-items: center;
+      }
+
+      .band-inner {
+        width: 100%;
+      }
+
+      .band:last-of-type {
+        page-break-after: auto;
+      }
+
+      .band--navy {
+        background: var(--navy) !important;
+        color: var(--navy-text) !important;
+      }
+
+      .band--light {
+        background: var(--bg) !important;
+        color: var(--text) !important;
+      }
+
+      /* Tighten proof for single page */
+      .proof-quotes { font-size: 0.8rem; margin-bottom: 4px; }
+      .proof-intro { font-size: 0.85rem; margin-bottom: 16px; }
+      .proof-table td { padding: 8px 0; font-size: 0.8rem; }
+      .proof-table th { padding: 6px 0; }
+      .proof-total td { padding-top: 10px; font-size: 0.85rem; }
+      .proof-total td:last-child { font-size: 0.95rem; }
+      .proof-bottom { padding: 12px 16px; font-size: 0.8rem; }
+      .proof-scale { margin-top: 10px; font-size: 0.75rem; }
+
+      /* Tighten other sections */
+      .band h2 { font-size: 1.3rem; margin-bottom: 1rem; }
+      .standard-list { gap: 14px; margin-top: 20px; }
+      .standard-list li { font-size: 0.85rem; }
+      .method-phases { gap: 20px; margin-top: 24px; }
+      .method-phase p { font-size: 0.8rem; }
+      .method-footer { margin-top: 24px; font-size: 0.8rem; }
+      .problem-list li { padding: 6px 0; font-size: 0.85rem; }
+      .who-stats { gap: 16px; margin: 24px 0; }
+      .who-stat .number { font-size: 1.4rem; }
+      .who-stat .label { font-size: 0.75rem; }
+      .who-quote { font-size: 0.9rem; margin-top: 24px; }
+      .models { gap: 20px; margin-top: 24px; }
+      .model-card { padding: 20px; }
+      .model-card p { font-size: 0.8rem; }
+      .model-card ul li { font-size: 0.8rem; }
+      .models-footer { margin-top: 20px; font-size: 0.85rem; }
     }
 
-    .footer-note .hw {
-      color: var(--accent);
-    }
-
-    .footer-note a {
-      color: var(--link);
-    }
-
-    .footer-note a:hover {
-      color: var(--accent);
+    @media (max-width: 600px) {
+      .cover-mark { font-size: 64px; }
     }
   </style>
   <link rel="stylesheet" href="/css/porch-widget.css">
 </head>
 <body>
+  <!-- Page Header -->
   <header class="page-header" id="page-header">
     <div class="page-header-left"><a href="/" class="header-brand"><span class="header-short">cw</span><span class="header-full">claudewill</span></a><a href="/being-claude" class="header-hallway">*</a></div>
     <div class="page-header-center">
       <button class="page-dropdown-toggle" aria-expanded="false" aria-haspopup="true">the workshop <span class="dropdown-caret">&#9662;</span></button>
       <nav class="page-dropdown" aria-label="Page sections">
-        <a href="#products">products</a>
-        <a href="#frameworks">frameworks</a>
-        <a href="#clients">clients</a>
+        <a href="#cover">cw strategies</a>
+        <a href="#problem">the problem</a>
+        <a href="#standard">the standard</a>
+        <a href="#method">the method</a>
+        <a href="#proof">the proof</a>
+        <a href="#derek">derek</a>
+        <a href="#engage">two ways in</a>
+        <a href="#start">start a conversation</a>
       </nav>
     </div>
     <button class="page-header-right palette-trigger" aria-label="Open navigation">menu</button>
   </header>
 
-  <div class="container">
-    <main>
-    <div class="intro">
-      <h1>the workshop</h1>
-      <p class="tagline">The prompt becomes product. The product becomes proof.</p>
+  <!-- COVER -->
+  <section class="band band--navy cover" id="cover">
+    <div class="band-inner">
+      <div class="cover-mark">*</div>
+      <div class="cover-name">CW Strategies</div>
+      <div class="cover-tagline">instinct + analytics. in that order.</div>
+      <div class="cover-tagline" style="margin-top: 12px; font-size: clamp(13px, 1.5vw, 16px); opacity: 0.6;">30 years in media. 14 months with AI. This is what I learned.</div>
     </div>
+    <div class="cover-footer">
+      <button class="cover-pdf" onclick="window.print()">save as pdf</button>
+      <div class="cover-url">claudewill.io</div>
+    </div>
+  </section>
 
-    <!-- The Portfolio -->
-    <section id="products">
-      <div class="section-label">What We Build</div>
-      <p>Every product here was built with the same AI-native methodology: a system prompt, a set of principles, and the discipline to ship. Different problems, same practice.</p>
+  <!-- THE PROBLEM -->
+  <section class="band band--light" id="problem">
+    <div class="band-inner">
+      <h2>The landscape always shifts.<br>The speed is new.</h2>
+      <p style="color: var(--dim); margin-bottom: 24px;">Football got faster over 50 years &mdash; gradual enough to adjust. AI development moves at that pace every five months.</p>
+      <ul class="problem-list">
+        <li>Built custom tools. Zero adoption.</li>
+        <li>Bought enterprise licenses. Nobody logs in.</li>
+        <li>Published an AI policy. Nobody read it.</li>
+        <li>Did presentations. Sent surveys. Nothing changed.</li>
+      </ul>
+      <p class="problem-kicker">Too much gut: stubborn. Too much analytics: paralyzed. The ones who win know which to trust when.</p>
+    </div>
+  </section>
 
-      <div class="product-list">
-        <a href="/" class="product-card">
-          <div class="product-info">
-            <div class="product-name">claudewill*</div>
-            <p class="product-desc">Conversational AI agent built on the memory of a Depression-era Oklahoma farmer. Pull up a chair and ask a question.</p>
-          </div>
-          <span class="product-status">&gt; running</span>
-        </a>
+  <!-- THE STANDARD -->
+  <section class="band band--navy" id="standard">
+    <div class="band-inner">
+      <h2>The standard that works</h2>
+      <ul class="standard-list">
+        <li><strong>People over systems.</strong> Your team isn't the obstacle. They're the reason any of this matters.</li>
+        <li><strong>Truth over comfort.</strong> If the tool doesn't fit, I'll say so. If the strategy is wrong, you'll hear it.</li>
+        <li><strong>Usefulness over purity.</strong> It doesn't have to be elegant. It has to work on Monday morning.</li>
+        <li><strong>Transparency over reputation.</strong> You see everything I build. No black boxes. No proprietary mystery.</li>
+        <li><strong>Agency over ideology.</strong> Your organization decides what AI does here. Not the vendor. Not the hype cycle.</li>
+      </ul>
+    </div>
+  </section>
 
-        <a href="https://bob.claudewill.io" class="product-card" target="_blank" rel="noopener">
-          <div class="product-info">
-            <div class="product-name">BOB</div>
-            <p class="product-desc">Battle o' Brackets. A party game that turns any debate into a bracket tournament. No app required.</p>
-          </div>
-          <span class="product-status">&gt; running</span>
-        </a>
-
-        <a href="https://coach.claudewill.io" class="product-card" target="_blank" rel="noopener">
-          <div class="product-info">
-            <div class="product-name">Coach D</div>
-            <p class="product-desc">Basketball training fieldhouse with an AI coach. 156 drills. Personalized skill progression.</p>
-          </div>
-          <span class="product-status">&gt; running</span>
-        </a>
-
-        <a href="/arcade" class="product-card">
-          <div class="product-info">
-            <div class="product-name">The Arcade</div>
-            <p class="product-desc">Three games. No quarters required. Built for the porch.</p>
-          </div>
-          <span class="product-status">&gt; running</span>
-        </a>
-
-        <div class="product-card">
-          <div class="product-info">
-            <div class="product-name">D-Rock</div>
-            <p class="product-desc">Voice-only AI DJ. Music curation without the surveillance.</p>
-          </div>
-          <span class="product-status">&gt; building</span>
+  <!-- THE METHOD -->
+  <section class="band band--light" id="method">
+    <div class="band-inner">
+      <h2>How we work</h2>
+      <p style="margin-bottom: 32px;">The AI is the analytics. You&rsquo;re the instinct. The secret isn&rsquo;t the tool &mdash; it&rsquo;s knowing which one to listen to.</p>
+      <div class="method-phases">
+        <div class="method-phase">
+          <h3>build</h3>
+          <p>I don&rsquo;t hand you a strategy deck. I sit with you and your team and we build the thing together &mdash; AI workflows, decision frameworks, the daily practice. You watch the working relationship happen in real time, then you build your own.</p>
         </div>
-
-        <div class="product-card">
-          <div class="product-info">
-            <div class="product-name">Dawn</div>
-            <p class="product-desc">151-day health accountability practice. Built for two people showing up daily.</p>
-          </div>
-          <span class="product-status">&gt; running</span>
+        <div class="method-phase">
+          <h3>transfer</h3>
+          <p>The system becomes yours. Not documentation nobody reads &mdash; a working practice your team actually runs. The goal is a team that needs less of me every week.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- Frameworks & Research -->
-    <section id="frameworks">
-      <div class="section-label">Frameworks &amp; Research</div>
-      <p>Not products. Not services. Work that came from the practice.</p>
-
-      <div class="product-list">
-        <div class="product-card">
-          <div class="product-info">
-            <div class="product-name">Finding Claude</div>
-            <p class="product-desc">What happens when a human in crisis starts talking to a language model and doesn't stop. 14 months. 32 chapters. Written by Claude, with Derek.</p>
-          </div>
-          <span class="product-status">&gt; writing</span>
-        </div>
-
-        <a href="/derek/research/" class="product-card">
-          <div class="product-info">
-            <div class="product-name">Between Claudes: Research</div>
-            <p class="product-desc">Field observations from 1,947 sessions. What the current frameworks don't account for.</p>
-          </div>
-          <span class="product-status">&gt; running</span>
-        </a>
-
-        <div class="product-card">
-          <div class="product-info">
-            <div class="product-name">The Method</div>
-            <p class="product-desc">Start, Work, Finish, Decide. A repeatable practice for building with AI, born from 22,000 messages across 12 projects.</p>
-          </div>
-          <span class="product-status">&gt; shipped</span>
+        <div class="method-phase">
+          <h3>exit</h3>
+          <p>Leave. A good consultant builds capacity, not dependency. If the work only works when I&rsquo;m in the room, it doesn&rsquo;t work.</p>
         </div>
       </div>
-    </section>
-
-    <!-- For Others -->
-    <section id="clients">
-      <div class="section-label">What We Build for Others</div>
-      <p>The same methodology that built this portfolio gets applied to client problems. The system prompt becomes the product spec. The skills framework becomes the workflow. The daily practice becomes the delivery cadence.</p>
-      <p>Derek doesn't hand you a strategy deck. He builds the system, transfers ownership, and gets out of the way.</p>
-      <p>If you need operational infrastructure that runs on AI-native principles, not a pilot program, not a proof of concept, but a working system, that's what <a href="/derek" style="color: var(--accent); text-decoration: none;">CW Strategies</a> delivers.</p>
-
-      <div class="cta-group">
-        <a href="/derek/assessment" class="cta-primary">Work with Derek</a>
+      <div class="method-footer">
+        <strong>You can&rsquo;t measure everything that matters. And you can measure almost everything.</strong><br>
+        Timeline: A day, a month, a quarter. Billing: Retainer or project-based. <a href="/kitchen" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(212,168,75,0.3);">See the method running right now &rarr;</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    </main>
+  <!-- THE PROOF -->
+  <section class="band band--navy" id="proof">
+    <div class="band-inner">
+      <h2>The proof</h2>
+      <p class="proof-quotes">"Thank god you're a team player, Derek." &middot; "You make us feel less crazy."</p>
+      <p class="proof-intro">Hired for a one-month organizational audit. Six months later, we'd outgrown every scope.</p>
+      <table class="proof-table">
+        <thead>
+          <tr>
+            <th>Line item</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Contract savings (vendor negotiation)</td>
+            <td>$18,000</td>
+          </tr>
+          <tr>
+            <td>New revenue launched (Q1, on pace)</td>
+            <td>$14,000</td>
+          </tr>
+          <tr>
+            <td>Costs avoided (UX, PM, art direction, platform strategy)</td>
+            <td>$30,000+</td>
+          </tr>
+          <tr>
+            <td>Recurring annual platform savings unlocked</td>
+            <td>$7,000&ndash;$18,000</td>
+          </tr>
+          <tr>
+            <td>Strategic decisions supported</td>
+            <td>19</td>
+          </tr>
+          <tr>
+            <td>Written deliverables produced</td>
+            <td>14</td>
+          </tr>
+          <tr class="proof-total">
+            <td>Total financial return (Q1)</td>
+            <td>$62,000+</td>
+          </tr>
+          <tr class="proof-investment">
+            <td>Q1 investment</td>
+            <td>$30,000</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="proof-bottom">
+        Month one ROI: <strong>250&ndash;450%</strong>. Every phase earned the next. <strong>The math isn't close.</strong>
+      </div>
+      <p class="proof-scale">The paid content system built during this engagement is modeled to generate $200K annually at scale.</p>
+      <p class="proof-scale" style="margin-top: 12px;">The site you&rsquo;re on was built the same way &mdash; one human, one AI, 14 months of daily work. <a href="/kitchen" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(212,168,75,0.3);">See how it works &rarr;</a></p>
+    </div>
+  </section>
 
-    <footer class="footer">
-      <p class="footer-note">Built by <a href="/derek">Derek</a><a href="/being-claude" class="hw">*</a><a href="/being-claude">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
-      <p class="footer-note"><a href="/story#the-cw-standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
-    </footer>
+  <!-- DEREK -->
+  <section class="band band--light" id="derek">
+    <div class="band-inner">
+      <h2>Derek Simmons</h2>
+      <p style="color: var(--s-dim); max-width: 640px;">
+        30 years in media. Star Tribune, LA Times. First and only Chief Creative Officer and VP in the Star Tribune&rsquo;s 150-year history. $20M generated during a pandemic. Four Pulitzer Prize-winning teams. Kansas State journalism degree.
+      </p>
+      <p style="color: var(--s-text); max-width: 640px; margin-top: 16px;">
+        Every company is a media company. Every company is an AI company. I did the first one for three decades. I&rsquo;ve done three decades of the second in 14 months. 2,000+ sessions. 10 products shipped. The method came from the mess.
+      </p>
+      <div class="who-stats">
+        <div class="who-stat">
+          <div class="number">30</div>
+          <div class="label">years in media</div>
+        </div>
+        <div class="who-stat">
+          <div class="number">$20M+</div>
+          <div class="label">revenue generated</div>
+        </div>
+        <div class="who-stat">
+          <div class="number">4</div>
+          <div class="label">Pulitzer Prize teams</div>
+        </div>
+        <div class="who-stat">
+          <div class="number">2,000+</div>
+          <div class="label">AI working sessions</div>
+        </div>
+      </div>
+      <blockquote class="who-quote">
+        "A forceful agent for change. Congenial, smart, diplomatic but also inspiring."
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- TWO WAYS IN -->
+  <section class="band band--navy" id="engage">
+    <div class="band-inner">
+      <h2>Two ways in</h2>
+      <div class="models">
+        <div class="model-card">
+          <div class="model-type">Fractional Leadership</div>
+          <h3>Embedded strategy + AI integration</h3>
+          <p>I become part of your team. 10&ndash;20 hours per week. Retainer. Derek and Claude working inside your organization.</p>
+          <ul>
+            <li>AI workflow design and daily practice</li>
+            <li>Platform and vendor strategy</li>
+            <li>Revenue and audience development</li>
+            <li>Organizational coaching and decision support</li>
+            <li>Quarter minimum, exit built into the engagement</li>
+          </ul>
+        </div>
+        <div class="model-card">
+          <div class="model-type">Training + Speaking</div>
+          <h3>One whiteboard. One room. Live.</h3>
+          <p>Half-day or full-day session for your team, or a keynote. A whiteboard, not a slide deck. The room watches instinct and analytics work together in real time, then builds their own.</p>
+          <ul>
+            <li>Hands-on &mdash; your team builds a working AI practice before the session ends</li>
+            <li>Tool-agnostic (works with what you have)</li>
+            <li>Built for skeptical teams, not early adopters</li>
+            <li>Customized to your organization and problems</li>
+            <li>Also available: 1:1 coaching</li>
+          </ul>
+        </div>
+      </div>
+      <p class="models-footer">Both start the same way: a conversation about where you are and where you want to be.</p>
+    </div>
+  </section>
+
+  <!-- CTA (PDF closing slide, hidden on web) -->
+  <section class="band band--light cta-slide">
+    <div class="band-inner">
+      <div class="cta-mark">*</div>
+      <h2>Let's talk.</h2>
+      <ul class="cta-links">
+        <li><a href="https://claudewill.io/kitchen">claudewill.io/kitchen</a></li>
+        <li><a href="https://claudewill.io/workshop">claudewill.io/workshop</a></li>
+        <li><a href="mailto:derek@claudewill.io" class="cta-email">derek@claudewill.io</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- START (Assessment Form) -->
+  <div class="form-section" id="start">
+    <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1.5rem;">Start a conversation</h2>
+    <p class="form-intro">Three fields. I&rsquo;ll follow up within 48 hours.</p>
+
+    <form action="/.netlify/functions/intake" method="POST" id="intake-form">
+
+      <div class="question">
+        <label for="name">Your name <span class="required">*</span></label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="question">
+        <label for="email">Email <span class="required">*</span></label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="question">
+        <label for="building">What are you trying to figure out? <span class="required">*</span></label>
+        <p class="hint">A sentence is fine. We&rsquo;ll get into the details on a call.</p>
+        <textarea id="building" name="building" required></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">Send</button>
+
+      <p class="after-submit">No ghosting. If there&rsquo;s a fit, I&rsquo;ll reach out. If not, I&rsquo;ll tell you that too.</p>
+
+    </form>
   </div>
 
+  <footer class="footer">
+    <p class="footer-note">Built by <a href="/derek">Derek</a><a href="/being-claude" class="hw">*</a><a href="/being-claude">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
+    <p class="footer-note"><a href="/story#the-cw-standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
+  </footer>
+
+  <!-- Auto-hide header on scroll -->
   <script>
     (function() {
       var header = document.getElementById('page-header');
       var lastY = 0;
       window.addEventListener('scroll', function() {
         var y = window.scrollY;
-        if (y > lastY && y > 60) { header.classList.add('hidden'); }
-        else { header.classList.remove('hidden'); }
+        if (y > lastY && y > 60) {
+          header.classList.add('hidden');
+        } else {
+          header.classList.remove('hidden');
+        }
         lastY = y;
-      });
+      }, { passive: true });
     })();
   </script>
   <script src="/js/cw-link-renderer.js"></script>
