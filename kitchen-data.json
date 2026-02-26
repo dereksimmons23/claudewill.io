@@ -1,52 +1,57 @@
 {
-  "lastUpdated": "2026-02-25T18:42:25.922Z",
+  "lastUpdated": "2026-02-26T11:19:31.466Z",
   "agents": {
     "siteAudit": {
       "name": "Site Audit",
-      "lastRun": "2026-02-25T18:42:25.921Z",
+      "lastRun": "2026-02-26T11:19:31.466Z",
       "status": "ok",
-      "summary": "All 8 pages responding. Average response: 261ms.",
+      "summary": "All 8 pages responding. Average response: 345ms.",
       "flags": [],
       "details": [
-        "https://claudewill.io/ — 200 20ms",
-        "https://claudewill.io/derek — 200 84ms",
-        "https://claudewill.io/story — 200 420ms",
-        "https://claudewill.io/work-with-me — 200 308ms",
-        "https://claudewill.io/privacy — 200 323ms",
-        "https://claudewill.io/terms — 200 330ms",
-        "https://claudewill.io/kitchen — 200 538ms",
-        "https://claudewill.io/arcade — 200 67ms",
-        "Coach D (https://coach.claudewill.io) — 200 569ms",
-        "BOB (https://bob.claudewill.io) — 200 543ms"
+        "https://claudewill.io/ — 200 111ms",
+        "https://claudewill.io/derek — 200 283ms",
+        "https://claudewill.io/story — 200 290ms",
+        "https://claudewill.io/work-with-me — 200 412ms",
+        "https://claudewill.io/privacy — 200 82ms",
+        "https://claudewill.io/terms — 200 386ms",
+        "https://claudewill.io/kitchen — 200 660ms",
+        "https://claudewill.io/arcade — 200 537ms",
+        "Coach D (https://coach.claudewill.io) — 200 1159ms",
+        "BOB (https://bob.claudewill.io) — 200 1329ms"
       ]
     },
     "research": {
       "name": "Research Brief",
-      "lastRun": "2026-02-25T18:42:25.921Z",
+      "lastRun": "2026-02-26T11:19:31.466Z",
       "status": "ok",
-      "summary": "**No confirmed AI industry developments reported in the last 24 hours (since February 25, 2026, ~6 AM UTC).** Available sources cover February 2026 trends and tools, with the most recent dated event...",
+      "summary": "Based on the search results provided, I cannot identify developments from the last 24 hours (since February 25, 2026). The most recent dated content in these results is from early-to-mid February...",
       "sources": [
         "https://www.auxi.ai/blog/ai-tools-for-consultants",
         "https://www.sembly.ai/blog/must-have-ai-tools-for-successful-consultants/",
+        "https://amiko.consulting/en/ai-trends-for-the-second-week-of-february-2026-a-wave-of-change-in-the-manufacturing-industry/",
         "https://porath.consulting/en/articles/ai-february-2026-what-im-seeing-in-the-wild/",
         "https://whitehat-seo.co.uk/blog/ai-marketing-tools-in-2026",
         "https://stellium.consulting/articles/news/ai-strategy-consulting/",
-        "https://amiko.consulting/en/ai-trends-for-the-second-week-of-february-2026-a-wave-of-change-in-the-manufacturing-industry/",
         "https://www.paconsulting.com/newsroom/agconnect-three-trends-that-will-drive-more-ai-value-in-2026-5-february-2026"
       ]
     },
     "gemini": {
       "name": "Industry Brief",
-      "lastRun": "2026-02-25T18:42:25.921Z",
+      "lastRun": "2026-02-26T11:19:31.466Z",
       "status": "ok",
-      "summary": "Here is a concise morning brief on the most significant AI industry developments from the last 24 hours, tailored for a solo AI consultant:\n\n**CW Strategies Morning Brief: February 25, 2026**\n\n**1....",
-      "sources": []
+      "summary": "Here is a concise morning brief on the most significant AI industry developments from the last 24 hours, tailored for an AI consultant:\n\n**CW Strategies Morning Brief: AI Industry Developments...",
+      "sources": [
+        "[auxi.ai](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFoUMjsspqb3j88yaurv9YODx-Sw_e7io2p-r6fmsV9VirSUXgPPEpcv_TPXqdCoBgO_MAkGTFTDjAh0xfDN91Vli8S54dPuFwk_2w7HfyUQG4kLf2z06dbEUQ1DD0gPDCY728bG-4M8epaiFE=)",
+        "[aiagentsdirectory.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHcOPszIMIsu0J2yPWey8p2tJCI8aimMLYx0ovisbImbzdBFRSKiOsvqdQohHZvp9fULnYCmwwzpSuIKnmCLpBMQKl2s1M-TX5DpsY1vNw0q9qI_XuVm0Q-cSo9DTD1v0E2qpSMJLIdgnaRrYH22S5QuouyGfvgZAR95mRQJhnLjifI8dtx3UNXhu8=)",
+        "[greenice.net](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEFdoXF4QjZc9LfmYXz34AspdnzbCQSRj8hqHm23gTxR67QrToXMMfaGmu_gOXXuddvQBEwkt2sIPxmgxQqvGO0xZL8XC79AMhcL94e7fC13lZCKOLBpJXvPBxUJvSd9Wmy3Hv8n53hWnvpZ_k=)",
+        "[theguardian.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHMta1e6nELj8wqXeg5gOxjhKw00nNwhDxgcVmioP-2b7qK7PBQDeW0sF61983UM9cMvj2cYAt9ynM46hnXhwda0sPq0pBya5GkmYhg3aZH-x7dvkY_uPwNPPo5HU-JAcrbAh2rifYNOCd4jVXrGbD1fvkCm_HblpGe1Yu0H2Nj8CC59Ux3C-bRrctLIv0bx87rP6BLuN9_G23WsJmIrOAEfEGarM6LPlJaB9rh8BgSO46R2sQHrUuORfbset0=)"
+      ]
     },
     "codeReview": {
       "name": "Code Review",
-      "lastRun": "2026-02-25T18:42:25.921Z",
+      "lastRun": "2026-02-26T11:19:31.466Z",
       "status": "ok",
-      "summary": "Everything looks clean. No security issues, performance problems, accessibility concerns, or broken patterns detected in the provided diffs."
+      "summary": "Everything looks clean. No security issues, performance problems, accessibility issues, or broken patterns detected in the provided diffs."
     }
   },
   "projects": [
