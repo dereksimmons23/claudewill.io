@@ -28,6 +28,7 @@
     <div class="page-header-center">
       <button class="page-dropdown-toggle" aria-expanded="false" aria-haspopup="true">the kitchen <span class="dropdown-caret">&#9662;</span></button>
       <nav class="page-dropdown" aria-label="Page sections">
+        <a href="#pulse">the pulse</a>
         <a href="#overnight">while you slept</a>
         <a href="#crew">the crew</a>
         <a href="#island">the island</a>
@@ -54,10 +55,19 @@
         </span>
       </div>
 
+      <!-- The Pulse -->
+      <section class="kitchen-section" id="pulse">
+        <h2 class="section-label">the pulse*</h2>
+        <p class="section-intro">Daily analytics from the porch, the pipeline, and the work sessions.</p>
+        <div id="pulse-content">
+          <div class="loading-state">loading analytics...</div>
+        </div>
+      </section>
+
       <!-- While You Slept -->
       <section class="kitchen-section" id="overnight">
         <h2 class="section-label">while you slept*</h2>
-        <p class="section-intro">Every morning at 5 AM CST, four agents go to work. They audit the site, scan the industry, pull research, and review the code. By the time the laptop opens, the briefing is ready.</p>
+        <p class="section-intro">Every morning at 5 AM CST, seven agents go to work. They audit the site, pull analytics, scan for stale content, check the research pipeline, draft social posts, brief the industry, and review the code. By the time the laptop opens, the briefing is ready.</p>
         <div id="overnight-content">
           <div class="loading-state">checking agents...</div>
         </div>
@@ -181,9 +191,13 @@
       var container = el('overnight-content');
       clear(container);
 
-      var keys = ['siteAudit', 'gemini', 'research', 'codeReview'];
+      var keys = ['siteAudit', 'analytics', 'contentScan', 'researchStatus', 'socialDraft', 'gemini', 'research', 'codeReview'];
       var names = {
         siteAudit: 'site audit',
+        analytics: 'analytics',
+        contentScan: 'content scan',
+        researchStatus: 'research status',
+        socialDraft: 'social drafts',
         gemini: 'industry brief',
         research: 'research brief',
         codeReview: 'code review'
@@ -254,6 +268,10 @@
       var agents = data.agents;
       var agentList = [
         { key: 'siteAudit', cmd: '/audit', label: 'Site Audit' },
+        { key: 'analytics', cmd: '/analytics', label: 'Analytics' },
+        { key: 'contentScan', cmd: '/content-scan', label: 'Content Scan' },
+        { key: 'researchStatus', cmd: '/research-status', label: 'Research Status' },
+        { key: 'socialDraft', cmd: '/social-draft', label: 'Social Drafts' },
         { key: 'gemini', cmd: '/industry', label: 'Industry Brief' },
         { key: 'research', cmd: '/research', label: 'Research Brief' },
         { key: 'codeReview', cmd: '/codecheck', label: 'Code Review' }
@@ -530,6 +548,77 @@
 
     // ── Load ─────────────────────────────────────────
 
+    // ── Pulse (Analytics) ──────────────────────────────
+
+    function renderPulse(analytics) {
+      var container = el('pulse-content');
+      clear(container);
+
+      if (!analytics || analytics.status === 'not-configured') {
+        container.appendChild(make('div', 'empty-state', 'Analytics agent not configured yet.'));
+        return;
+      }
+
+      if (analytics.status === 'error') {
+        container.appendChild(make('div', 'empty-state', 'Analytics agent encountered an error.'));
+        return;
+      }
+
+      var m = analytics.metrics || {};
+
+      // Status + summary
+      var header = make('div', 'pulse-header');
+      var dotClass = analytics.status === 'ok' ? 'dot-ok' : analytics.status === 'flags' ? 'dot-flags' : 'dot-off';
+      header.appendChild(make('span', 'pulse-dot ' + dotClass));
+      header.appendChild(make('span', 'pulse-summary', analytics.summary || 'Analytics complete.'));
+      container.appendChild(header);
+
+      // Flags
+      if (analytics.flags && analytics.flags.length > 0) {
+        var flagBox = make('div', 'pulse-flags');
+        for (var f = 0; f < analytics.flags.length; f++) {
+          flagBox.appendChild(make('div', 'pulse-flag', analytics.flags[f]));
+        }
+        container.appendChild(flagBox);
+      }
+
+      // Metrics grid
+      var grid = make('div', 'pulse-grid');
+      var hasMetrics = false;
+
+      if (m.conversations) {
+        grid.appendChild(makePulseStat(String(m.conversations.week), 'conversations (7d)'));
+        grid.appendChild(makePulseStat(String(m.conversations.day), 'today'));
+        hasMetrics = true;
+      }
+      if (m.visitors) {
+        grid.appendChild(makePulseStat(String(m.visitors.total), 'visitors'));
+        hasMetrics = true;
+      }
+      if (m.derekTime) {
+        grid.appendChild(makePulseStat(m.derekTime.hours7d.toFixed(1) + 'h', 'derek (7d)'));
+        grid.appendChild(makePulseStat(String(m.derekTime.sessions7d), 'sessions (7d)'));
+        hasMetrics = true;
+      }
+      if (m.pipeline) {
+        grid.appendChild(makePulseStat(String(m.pipeline.count30d), 'intake (30d)'));
+        hasMetrics = true;
+      }
+      if (m.apiCost30d !== undefined) {
+        grid.appendChild(makePulseStat('$' + m.apiCost30d.toFixed(2), 'api cost (30d)'));
+        hasMetrics = true;
+      }
+
+      if (hasMetrics) container.appendChild(grid);
+    }
+
+    function makePulseStat(value, label) {
+      var cell = make('div', 'pulse-stat');
+      cell.appendChild(make('div', 'pulse-stat-value', value));
+      cell.appendChild(make('div', 'pulse-stat-label', label));
+      return cell;
+    }
+
     function loadKitchen() {
       fetch(DATA_URL)
         .then(function (res) {
@@ -538,6 +627,7 @@
         })
         .then(function (data) {
           updateStatus(data);
+          renderPulse(data.agents ? data.agents.analytics : null);
           renderOvernight(data.agents || {});
           renderCrew(data);
           renderBoard(data.projects || []);
@@ -546,7 +636,7 @@
         })
         .catch(function () {
           updateStatus(null);
-          var panels = ['overnight-content', 'crew-content', 'board-content', 'stack-content', 'method-content'];
+          var panels = ['pulse-content', 'overnight-content', 'crew-content', 'board-content', 'stack-content', 'method-content'];
           for (var i = 0; i < panels.length; i++) {
             var p = el(panels[i]);
             if (p) {

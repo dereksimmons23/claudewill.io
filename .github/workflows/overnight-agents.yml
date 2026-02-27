@@ -86,9 +86,82 @@ jobs:
           path: reports/code-review.md
           retention-days: 30
 
+  analytics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run analytics
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: node scripts/overnight/analytics.mjs
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: analytics-report
+          path: reports/analytics.md
+          retention-days: 30
+
+  content-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run content scan
+        run: node scripts/overnight/content-scan.mjs
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: content-scan-report
+          path: reports/content-scan.md
+          retention-days: 30
+
+  research-status:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run research status
+        run: node scripts/overnight/research-status.mjs
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: research-status-report
+          path: reports/research-status.md
+          retention-days: 30
+
+  social-draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run social draft
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node scripts/overnight/social-draft.mjs
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: social-draft-report
+          path: reports/social-draft.md
+          retention-days: 30
+
   compile:
     runs-on: ubuntu-latest
-    needs: [site-audit, research-brief, gemini-brief, code-review]
+    needs: [site-audit, research-brief, gemini-brief, code-review, analytics, content-scan, research-status, social-draft]
     if: always()
     steps:
       - uses: actions/checkout@v4
@@ -122,6 +195,34 @@ jobs:
         continue-on-error: true
         with:
           name: code-review-report
+          path: reports/
+
+      - name: Download analytics report
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: analytics-report
+          path: reports/
+
+      - name: Download content scan report
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: content-scan-report
+          path: reports/
+
+      - name: Download research status report
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: research-status-report
+          path: reports/
+
+      - name: Download social draft report
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: social-draft-report
           path: reports/
 
       - name: Compile kitchen-data.json

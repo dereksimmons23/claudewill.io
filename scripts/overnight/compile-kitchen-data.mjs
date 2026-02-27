@@ -233,6 +233,203 @@ function parseCodeReview(content) {
   }
 }
 
+function parseAnalytics(content) {
+  if (!content) {
+    return {
+      name: 'Analytics',
+      lastRun: new Date().toISOString(),
+      status: 'not-configured',
+      summary: 'No analytics report found.',
+      flags: [],
+      metrics: {},
+    }
+  }
+
+  let status = 'ok'
+  const flags = []
+  let summary = ''
+  const metrics = {}
+
+  if (content.includes('not configured') || content.includes('no Supabase')) {
+    status = 'not-configured'
+    summary = 'Analytics not configured — add SUPABASE_URL and SUPABASE_ANON_KEY to GitHub secrets.'
+    return { name: 'Analytics', lastRun: new Date().toISOString(), status, summary, flags, metrics }
+  }
+
+  if (content.includes('Agent error')) {
+    status = 'error'
+    summary = 'Analytics agent encountered an error.'
+    return { name: 'Analytics', lastRun: new Date().toISOString(), status, summary, flags, metrics }
+  }
+
+  // Extract flags
+  const flagsSection = content.match(/## Flags \(Decisions Needed\)\n([\s\S]*?)(?=\n## )/)?.[1] || ''
+  const flagLines = flagsSection.match(/- \[.\] .+/g) || []
+  for (const line of flagLines) flags.push(line.replace(/- \[.\] /, ''))
+  if (flags.length > 0) status = 'flags'
+
+  // Extract metrics from findings
+  const findingsSection = content.match(/## Findings\n([\s\S]*?)(?=\n## )/)?.[1] || ''
+
+  const convoMatch = findingsSection.match(/\*\*Conversations:\*\*\s*(\d+)\s*total.*?24h:\s*(\d+).*?7d:\s*(\d+).*?30d:\s*(\d+)/)
+  if (convoMatch) {
+    metrics.conversations = {
+      total: parseInt(convoMatch[1]),
+      day: parseInt(convoMatch[2]),
+      week: parseInt(convoMatch[3]),
+      month: parseInt(convoMatch[4]),
+    }
+  }
+
+  const visitorMatch = findingsSection.match(/\*\*Visitors:\*\*\s*(\d+)\s*total.*?(\d+)\s*new.*?(\d+)\s*returning.*?(\d+)\s*named/)
+  if (visitorMatch) {
+    metrics.visitors = {
+      total: parseInt(visitorMatch[1]),
+      new7d: parseInt(visitorMatch[2]),
+      returning: parseInt(visitorMatch[3]),
+      named: parseInt(visitorMatch[4]),
+    }
+  }
+
+  const pipelineMatch = findingsSection.match(/\*\*Pipeline:\*\*\s*(\d+)\s*intake.*?30d.*?(\d+)\s*this week.*?(\d+)\s*all time/)
+  if (pipelineMatch) {
+    metrics.pipeline = { count30d: parseInt(pipelineMatch[1]), count7d: parseInt(pipelineMatch[2]), total: parseInt(pipelineMatch[3]) }
+  }
+
+  const timeMatch = findingsSection.match(/\*\*Derek's time \(7d\):\*\*\s*([\d.]+)\s*hours.*?(\d+)\s*sessions/)
+  if (timeMatch) {
+    metrics.derekTime = { hours7d: parseFloat(timeMatch[1]), sessions7d: parseInt(timeMatch[2]) }
+  }
+
+  const costMatch = findingsSection.match(/\*\*Est\. API cost \(30d\):\*\*\s*\$([\d.]+)/)
+  if (costMatch) {
+    metrics.apiCost30d = parseFloat(costMatch[1])
+  }
+
+  // First finding line as summary
+  const findingLines = findingsSection.match(/\*\*.+?\*\*.*$/gm) || []
+  if (findingLines.length > 0) {
+    summary = findingLines[0].replace(/\*\*/g, '').trim()
+  }
+
+  return {
+    name: 'Analytics',
+    lastRun: new Date().toISOString(),
+    status,
+    summary: summary || 'Analytics complete.',
+    flags,
+    metrics,
+  }
+}
+
+function parseContentScan(content) {
+  if (!content) {
+    return {
+      name: 'Content Scan',
+      lastRun: new Date().toISOString(),
+      status: 'not-configured',
+      summary: 'No content scan report found.',
+      flags: [],
+    }
+  }
+
+  const flags = []
+  let status = 'ok'
+  let summary = ''
+
+  const flagsSection = content.match(/## Flags \(Decisions Needed\)\n([\s\S]*?)(?=\n## )/)?.[1] || ''
+  const flagLines = flagsSection.match(/- \[.\] .+/g) || []
+  for (const line of flagLines) flags.push(line.replace(/- \[.\] /, ''))
+  if (flags.length > 0) status = 'flags'
+
+  const findingsSection = content.match(/## Findings\n([\s\S]*?)(?=\n## )/)?.[1] || ''
+  const firstLine = findingsSection.trim().split('\n')[0]
+  summary = firstLine || 'Content scan complete.'
+
+  return {
+    name: 'Content Scan',
+    lastRun: new Date().toISOString(),
+    status,
+    summary,
+    flags,
+  }
+}
+
+function parseResearchStatus(content) {
+  if (!content) {
+    return {
+      name: 'Research Status',
+      lastRun: new Date().toISOString(),
+      status: 'not-configured',
+      summary: 'No research status report found.',
+      flags: [],
+    }
+  }
+
+  const flags = []
+  let status = 'ok'
+  let summary = ''
+
+  const flagsSection = content.match(/## Flags \(Decisions Needed\)\n([\s\S]*?)(?=\n## )/)?.[1] || ''
+  const flagLines = flagsSection.match(/- \[.\] .+/g) || []
+  for (const line of flagLines) flags.push(line.replace(/- \[.\] /, ''))
+  if (flags.length > 0) status = 'flags'
+
+  const findingsSection = content.match(/## Findings\n([\s\S]*?)(?=\n## )/)?.[1] || ''
+  const pipelineMatch = findingsSection.match(/\*\*Being Claude Pipeline:\*\*(.+)/)
+  summary = pipelineMatch ? pipelineMatch[1].trim() : 'Research status complete.'
+
+  return {
+    name: 'Research Status',
+    lastRun: new Date().toISOString(),
+    status,
+    summary,
+    flags,
+  }
+}
+
+function parseSocialDraft(content) {
+  if (!content) {
+    return {
+      name: 'Social Drafts',
+      lastRun: new Date().toISOString(),
+      status: 'not-configured',
+      summary: 'No social draft report found.',
+      flags: [],
+    }
+  }
+
+  const flags = []
+  let status = 'ok'
+  let summary = ''
+
+  if (content.includes('not configured') || content.includes('no API key')) {
+    status = 'not-configured'
+    summary = 'Social draft agent not configured.'
+    return { name: 'Social Drafts', lastRun: new Date().toISOString(), status, summary, flags }
+  }
+
+  const flagsSection = content.match(/## Flags \(Decisions Needed\)\n([\s\S]*?)(?=\n## )/)?.[1] || ''
+  const flagLines = flagsSection.match(/- \[.\] .+/g) || []
+  for (const line of flagLines) flags.push(line.replace(/- \[.\] /, ''))
+  if (flags.length > 0) status = 'flags'
+
+  const findingsSection = content.match(/## Findings\n([\s\S]*?)(?=\n## )/)?.[1] || ''
+  const newMatch = findingsSection.match(/\*\*New drafts generated:\*\*\s*(\d+)/)
+  const skipMatch = findingsSection.match(/\*\*Skipped.*?:\*\*\s*(\d+)/)
+  const newCount = newMatch ? parseInt(newMatch[1]) : 0
+  const skipCount = skipMatch ? parseInt(skipMatch[1]) : 0
+  summary = `${newCount} new drafts, ${skipCount} skipped.`
+
+  return {
+    name: 'Social Drafts',
+    lastRun: new Date().toISOString(),
+    status,
+    summary,
+    flags,
+  }
+}
+
 function loadProjects() {
   const path = join(REPO_ROOT, 'kitchen-projects.json')
   if (!existsSync(path)) {
@@ -255,12 +452,20 @@ function main() {
   const researchBriefContent = readReport('research-brief.md')
   const geminiBriefContent = readReport('gemini-brief.md')
   const codeReviewContent = readReport('code-review.md')
+  const analyticsContent = readReport('analytics.md')
+  const contentScanContent = readReport('content-scan.md')
+  const researchStatusContent = readReport('research-status.md')
+  const socialDraftContent = readReport('social-draft.md')
 
   // Parse reports
   const siteAudit = parseSiteAudit(siteAuditContent)
   const research = parseResearchBrief(researchBriefContent)
   const gemini = parseGeminiBrief(geminiBriefContent)
   const codeReview = parseCodeReview(codeReviewContent)
+  const analytics = parseAnalytics(analyticsContent)
+  const contentScan = parseContentScan(contentScanContent)
+  const researchStatus = parseResearchStatus(researchStatusContent)
+  const socialDraft = parseSocialDraft(socialDraftContent)
 
   // Load projects
   const projects = loadProjects()
@@ -273,6 +478,10 @@ function main() {
       research,
       gemini,
       codeReview,
+      analytics,
+      contentScan,
+      researchStatus,
+      socialDraft,
     },
     projects,
     ecosystem: {
@@ -307,6 +516,10 @@ function main() {
   console.log(`  Research: ${research.status}`)
   console.log(`  Industry: ${gemini.status}`)
   console.log(`  Code Review: ${codeReview.status}`)
+  console.log(`  Analytics: ${analytics.status}`)
+  console.log(`  Content Scan: ${contentScan.status}`)
+  console.log(`  Research Status: ${researchStatus.status}`)
+  console.log(`  Social Drafts: ${socialDraft.status}`)
   console.log(`  Projects: ${projects.length}`)
 }
 
