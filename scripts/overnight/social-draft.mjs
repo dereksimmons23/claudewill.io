@@ -12,6 +12,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync, statSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
+import { readPipeline, writePipeline, upsertItem, findItem } from '../lib/pipeline.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const REPO_ROOT = join(__dirname, '..', '..')
@@ -165,6 +166,24 @@ async function main() {
       errors.push({ slug: article.slug, error: err.message })
     }
   }
+
+  // Seed pipeline manifest
+  const pipeline = readPipeline()
+  for (const slug of generated) {
+    const itemId = `linkedin-${slug}`
+    if (!findItem(pipeline, itemId)) {
+      upsertItem(pipeline, {
+        id: itemId,
+        type: 'linkedin',
+        channel: 'cw-company',
+        title: `LinkedIn: ${articles.find(a => a.slug === slug)?.title || slug}`,
+        source: `reports/social-drafts/${slug}.md`,
+        status: 'draft',
+        slug,
+      })
+    }
+  }
+  writePipeline(pipeline)
 
   // Build summary report
   let report = `# Social Drafts — claudewill.io\n`

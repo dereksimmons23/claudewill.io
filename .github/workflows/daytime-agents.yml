@@ -1,0 +1,83 @@
+name: Daytime Agents
+
+on:
+  schedule:
+    # LinkedIn: 9 AM CST (15:00 UTC), Mon-Fri
+    - cron: '0 15 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      agent:
+        description: 'Which agent to run (all, linkedin, substack, digest)'
+        required: false
+        default: 'all'
+
+permissions:
+  contents: write
+
+jobs:
+  linkedin-publish:
+    runs-on: ubuntu-latest
+    if: >-
+      github.event_name == 'schedule' ||
+      github.event.inputs.agent == 'all' ||
+      github.event.inputs.agent == 'linkedin'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run LinkedIn publisher
+        env:
+          CW_BRIEF_URL: ${{ secrets.CW_BRIEF_URL }}
+          CW_BRIEF_AUTH: ${{ secrets.CW_BRIEF_AUTH }}
+        run: node scripts/daytime/linkedin-publish.mjs
+      - name: Commit pipeline changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/pipeline.json reports/linkedin-queue/
+          git diff --cached --quiet || git commit -m "chore: linkedin publisher — update pipeline"
+          git push
+
+  substack-crosspost:
+    runs-on: ubuntu-latest
+    if: >-
+      github.event_name == 'schedule' ||
+      github.event.inputs.agent == 'all' ||
+      github.event.inputs.agent == 'substack'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run Substack cross-poster
+        run: node scripts/daytime/substack-crosspost.mjs
+      - name: Commit pipeline changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/pipeline.json reports/substack-queue/
+          git diff --cached --quiet || git commit -m "chore: substack cross-poster — update pipeline"
+          git push
+
+  digest-compile:
+    runs-on: ubuntu-latest
+    # Thursday 8 AM CST = 14:00 UTC Thursday
+    if: >-
+      (github.event_name == 'schedule' && github.event.schedule == '0 15 * * 1-5') ||
+      github.event.inputs.agent == 'all' ||
+      github.event.inputs.agent == 'digest'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run digest compiler
+        run: node scripts/daytime/digest-compile.mjs
+      - name: Commit pipeline changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/pipeline.json reports/digest/
+          git diff --cached --quiet || git commit -m "chore: weekly digest compiled"
+          git push

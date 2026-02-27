@@ -430,6 +430,39 @@ function parseSocialDraft(content) {
   }
 }
 
+function parsePipelineScan(content) {
+  if (!content) {
+    return {
+      name: 'Pipeline Scan',
+      lastRun: new Date().toISOString(),
+      status: 'not-configured',
+      summary: 'No pipeline scan report found.',
+      flags: [],
+    }
+  }
+
+  const flags = []
+  let status = 'ok'
+  let summary = ''
+
+  const flagsSection = content.match(/## Flags \(Decisions Needed\)\n([\s\S]*?)(?=\n## )/)?.[1] || ''
+  const flagLines = flagsSection.match(/- \[.\] .+/g) || []
+  for (const line of flagLines) flags.push(line.replace(/- \[.\] /, ''))
+  if (flags.length > 0) status = 'flags'
+
+  const findingsSection = content.match(/## Findings\n([\s\S]*?)(?=\n## )/)?.[1] || ''
+  const firstLine = findingsSection.trim().split('\n')[0]
+  summary = firstLine || 'Pipeline scan complete.'
+
+  return {
+    name: 'Pipeline Scan',
+    lastRun: new Date().toISOString(),
+    status,
+    summary,
+    flags,
+  }
+}
+
 function loadProjects() {
   const path = join(REPO_ROOT, 'kitchen-projects.json')
   if (!existsSync(path)) {
@@ -456,6 +489,7 @@ function main() {
   const contentScanContent = readReport('content-scan.md')
   const researchStatusContent = readReport('research-status.md')
   const socialDraftContent = readReport('social-draft.md')
+  const pipelineScanContent = readReport('pipeline-scan.md')
 
   // Parse reports
   const siteAudit = parseSiteAudit(siteAuditContent)
@@ -466,6 +500,7 @@ function main() {
   const contentScan = parseContentScan(contentScanContent)
   const researchStatus = parseResearchStatus(researchStatusContent)
   const socialDraft = parseSocialDraft(socialDraftContent)
+  const pipelineScan = parsePipelineScan(pipelineScanContent)
 
   // Load projects
   const projects = loadProjects()
@@ -482,6 +517,7 @@ function main() {
       contentScan,
       researchStatus,
       socialDraft,
+      pipelineScan,
     },
     projects,
     ecosystem: {
@@ -520,6 +556,7 @@ function main() {
   console.log(`  Content Scan: ${contentScan.status}`)
   console.log(`  Research Status: ${researchStatus.status}`)
   console.log(`  Social Drafts: ${socialDraft.status}`)
+  console.log(`  Pipeline Scan: ${pipelineScan.status}`)
   console.log(`  Projects: ${projects.length}`)
 }
 
