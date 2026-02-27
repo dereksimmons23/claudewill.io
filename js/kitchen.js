@@ -8,11 +8,11 @@
 
   // ── Agent display names ──────────────────────────
   var AGENT_ORDER = [
-    'siteAudit', 'codeReview', 'research', 'gemini',
+    'housekeeping', 'codeReview', 'research', 'gemini',
     'analytics', 'contentScan', 'socialDraft', 'pipelineScan', 'researchStatus'
   ];
   var AGENT_NAMES = {
-    siteAudit: 'site-audit',
+    housekeeping: 'housekeeping',
     codeReview: 'code-review',
     research: 'research-brief',
     gemini: 'industry-brief',

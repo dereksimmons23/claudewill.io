@@ -10,21 +10,23 @@ permissions:
   contents: write
 
 jobs:
-  site-audit:
+  housekeeping:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Run site audit
-        run: node scripts/overnight/site-audit.mjs
+      - name: Run housekeeping
+        run: node scripts/overnight/housekeeping.mjs
       - name: Upload report
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: site-audit-report
-          path: reports/site-audit.md
+          name: housekeeping-report
+          path: reports/housekeeping.md
           retention-days: 30
 
   research-brief:
@@ -178,7 +180,7 @@ jobs:
 
   compile:
     runs-on: ubuntu-latest
-    needs: [site-audit, research-brief, gemini-brief, code-review, analytics, content-scan, research-status, social-draft, pipeline-scan]
+    needs: [housekeeping, research-brief, gemini-brief, code-review, analytics, content-scan, research-status, social-draft, pipeline-scan]
     if: always()
     steps:
       - uses: actions/checkout@v4
@@ -186,11 +188,11 @@ jobs:
         with:
           node-version: 22
 
-      - name: Download site audit report
+      - name: Download housekeeping report
         uses: actions/download-artifact@v4
         continue-on-error: true
         with:
-          name: site-audit-report
+          name: housekeeping-report
           path: reports/
 
       - name: Download research brief report

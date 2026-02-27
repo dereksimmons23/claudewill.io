@@ -26,13 +26,13 @@ function readReport(filename) {
   }
 }
 
-function parseSiteAudit(content) {
+function parseHousekeeping(content) {
   if (!content) {
     return {
-      name: 'Site Audit',
+      name: 'Housekeeping',
       lastRun: new Date().toISOString(),
       status: 'not-configured',
-      summary: 'No site audit report found.',
+      summary: 'No housekeeping report found.',
       flags: [],
       details: [],
     }
@@ -67,7 +67,7 @@ function parseSiteAudit(content) {
   if (flags.length > 0) status = 'flags'
 
   return {
-    name: 'Site Audit',
+    name: 'Housekeeping',
     lastRun: new Date().toISOString(),
     status,
     summary: summary || 'Audit complete.',
@@ -481,7 +481,7 @@ function main() {
   const date = new Date().toISOString().split('T')[0]
 
   // Read reports
-  const siteAuditContent = readReport('site-audit.md')
+  const housekeepingContent = readReport('housekeeping.md')
   const researchBriefContent = readReport('research-brief.md')
   const geminiBriefContent = readReport('gemini-brief.md')
   const codeReviewContent = readReport('code-review.md')
@@ -492,7 +492,7 @@ function main() {
   const pipelineScanContent = readReport('pipeline-scan.md')
 
   // Parse reports
-  const siteAudit = parseSiteAudit(siteAuditContent)
+  const housekeeping = parseHousekeeping(housekeepingContent)
   const research = parseResearchBrief(researchBriefContent)
   const gemini = parseGeminiBrief(geminiBriefContent)
   const codeReview = parseCodeReview(codeReviewContent)
@@ -509,7 +509,7 @@ function main() {
   const kitchenData = {
     lastUpdated: new Date().toISOString(),
     agents: {
-      siteAudit,
+      housekeeping,
       research,
       gemini,
       codeReview,
@@ -548,7 +548,7 @@ function main() {
   console.log(`[${date}] kitchen-data.json compiled.`)
 
   // Log summary
-  console.log(`  Site Audit: ${siteAudit.status}`)
+  console.log(`  Housekeeping: ${housekeeping.status}`)
   console.log(`  Research: ${research.status}`)
   console.log(`  Industry: ${gemini.status}`)
   console.log(`  Code Review: ${codeReview.status}`)

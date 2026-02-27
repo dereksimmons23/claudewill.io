@@ -1,66 +1,58 @@
 {
-  "lastUpdated": "2026-02-27T11:15:14.314Z",
+  "lastUpdated": "2026-02-27T23:19:33.917Z",
   "agents": {
-    "siteAudit": {
-      "name": "Site Audit",
-      "lastRun": "2026-02-27T11:15:14.313Z",
+    "housekeeping": {
+      "name": "Housekeeping",
+      "lastRun": "2026-02-27T23:19:33.916Z",
       "status": "ok",
-      "summary": "All 8 pages responding. Average response: 276ms.",
+      "summary": "All 10 pages + 2 subdomains responding. Avg 200ms.",
       "flags": [],
       "details": [
-        "https://claudewill.io/ — 200 24ms",
-        "https://claudewill.io/derek — 200 169ms",
-        "https://claudewill.io/story — 200 408ms",
-        "https://claudewill.io/work-with-me — 200 494ms",
-        "https://claudewill.io/privacy — 200 385ms",
-        "https://claudewill.io/terms — 200 122ms",
-        "https://claudewill.io/kitchen — 200 336ms",
-        "https://claudewill.io/arcade — 200 270ms",
-        "Coach D (https://coach.claudewill.io) — 200 856ms",
-        "BOB (https://bob.claudewill.io) — 200 1210ms"
+        "https://claudewill.io/ — 200 207ms",
+        "https://claudewill.io/derek — 200 182ms",
+        "https://claudewill.io/story — 200 178ms",
+        "https://claudewill.io/workshop — 200 183ms",
+        "https://claudewill.io/privacy — 200 181ms",
+        "https://claudewill.io/terms — 200 176ms",
+        "https://claudewill.io/kitchen — 200 268ms",
+        "https://claudewill.io/arcade — 200 179ms",
+        "https://claudewill.io/map — 200 178ms",
+        "https://claudewill.io/being-claude — 200 269ms",
+        "Coach D (https://coach.claudewill.io) — 200 173ms",
+        "BOB (https://bob.claudewill.io) — 200 178ms"
       ]
     },
     "research": {
       "name": "Research Brief",
-      "lastRun": "2026-02-27T11:15:14.313Z",
-      "status": "ok",
-      "summary": "No significant AI industry developments matching the specified focus areas (AI consulting practices, media AI adoption, AI-native methodologies, or Anthropic/Claude/agent systems) occurred in the...",
-      "sources": [
-        "https://www.auxi.ai/blog/ai-tools-for-consultants",
-        "https://www.sembly.ai/blog/must-have-ai-tools-for-successful-consultants/",
-        "https://www.altahq.com/post/top-ai-tools-for-sales-prospecting-in-2026-a-comprehensive-guide",
-        "https://amiko.consulting/en/ai-trends-for-the-second-week-of-february-2026-a-wave-of-change-in-the-manufacturing-industry/",
-        "https://www.theaiconsultingnetwork.com/blog/ai-readiness-assessment-cre-firm-ready",
-        "https://hbr.org/sponsored/2026/02/a-blueprint-for-enterprise-wide-agentic-ai-transformation",
-        "https://porath.consulting/en/articles/ai-february-2026-what-im-seeing-in-the-wild/",
-        "https://www.paconsulting.com/newsroom/agconnect-three-trends-that-will-drive-more-ai-value-in-2026-5-february-2026",
-        "https://stellium.consulting/articles/news/ai-strategy-consulting/"
-      ]
+      "lastRun": "2026-02-27T23:19:33.916Z",
+      "status": "not-configured",
+      "summary": "No research brief report found.",
+      "sources": []
     },
     "gemini": {
       "name": "Industry Brief",
-      "lastRun": "2026-02-27T11:15:14.313Z",
-      "status": "ok",
-      "summary": "Here is a concise morning brief on the most significant AI industry developments from the last 24 hours, tailored for a solo AI consultant:\n\n**Morning Brief: AI Industry Developments (February 27,...",
+      "lastRun": "2026-02-27T23:19:33.916Z",
+      "status": "not-configured",
+      "summary": "No industry brief report found.",
       "sources": []
     },
     "codeReview": {
       "name": "Code Review",
-      "lastRun": "2026-02-27T11:15:14.313Z",
-      "status": "ok",
-      "summary": "Everything looks clean. No security issues, performance problems, accessibility issues, or broken patterns detected in the provided diffs."
+      "lastRun": "2026-02-27T23:19:33.916Z",
+      "status": "not-configured",
+      "summary": "No code review report found."
     },
     "analytics": {
       "name": "Analytics",
-      "lastRun": "2026-02-27T11:15:14.314Z",
+      "lastRun": "2026-02-27T23:19:33.916Z",
       "status": "ok",
-      "summary": "Conversations: 163 total (24h: 0 | 7d: 22 | 30d: 163)",
+      "summary": "Conversations: 163 total (24h: 0 | 7d: 31 | 30d: 163)",
       "flags": [],
       "metrics": {
         "conversations": {
           "total": 163,
           "day": 0,
-          "week": 22,
+          "week": 31,
           "month": 163
         },
         "visitors": {
@@ -75,17 +67,17 @@
           "total": 4
         },
         "derekTime": {
-          "hours7d": 14.5,
-          "sessions7d": 8
+          "hours7d": 11.5,
+          "sessions7d": 7
         },
         "apiCost30d": 1.28
       }
     },
     "contentScan": {
       "name": "Content Scan",
-      "lastRun": "2026-02-27T11:15:14.314Z",
+      "lastRun": "2026-02-27T23:19:33.916Z",
       "status": "flags",
-      "summary": "Scanned 27 HTML files. Found 19 issues.",
+      "summary": "Scanned 28 HTML files. Found 42 issues.",
       "flags": [
         "derek/research/being-claude/index.html: href=\"/derek/research/\" redirects to /being-claude (301)",
         "derek/research/comprehension-problem/index.html: href=\"/derek/research/\" redirects to /being-claude (301)",
@@ -99,7 +91,7 @@
     },
     "researchStatus": {
       "name": "Research Status",
-      "lastRun": "2026-02-27T11:15:14.314Z",
+      "lastRun": "2026-02-27T23:19:33.916Z",
       "status": "flags",
       "summary": "3 published, 0 draft, 1 blocked",
       "flags": [
@@ -109,18 +101,14 @@
     },
     "socialDraft": {
       "name": "Social Drafts",
-      "lastRun": "2026-02-27T11:15:14.314Z",
-      "status": "flags",
-      "summary": "3 new drafts, 0 skipped.",
-      "flags": [
-        "Review draft: reports/social-drafts/being-claude.md",
-        "Review draft: reports/social-drafts/the-bright-line.md",
-        "Review draft: reports/social-drafts/warm-up-effect.md"
-      ]
+      "lastRun": "2026-02-27T23:19:33.916Z",
+      "status": "not-configured",
+      "summary": "Social draft agent not configured.",
+      "flags": []
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-02-27T11:15:14.314Z",
+      "lastRun": "2026-02-27T23:19:33.916Z",
       "status": "ok",
       "summary": "**Pipeline:** 3 items (3 draft)",
       "flags": []
@@ -152,10 +140,10 @@
       "note": "Battle o' Brackets — party bracket game with voice"
     },
     {
-      "name": "Agent Zero",
+      "name": "Hancock",
       "category": "portfolio",
       "status": "Autonomous",
-      "note": "AI that writes and publishes on its own — no human in the loop"
+      "note": "Anonymous AI storyteller — The Handbook"
     },
     {
       "name": "Dawn",
