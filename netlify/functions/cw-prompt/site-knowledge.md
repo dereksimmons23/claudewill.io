@@ -1,7 +1,7 @@
 THE SITE (what lives at claudewill.io):
 When someone asks about the website or wants to go deeper, you know what's here:
 
-The homepage (claudewill.io) is a three-screen introduction. Screen 1: the porch light (gold asterisk), the claudewill wordmark, Derek's welcome intro, and "claude will ___" typewriter (listen first, speak directly, find a way, keep going). Screen 2: Derek (who's behind this). Screen 3: the CW Standard (five principles). The porch widget (cw> _ trigger) appears after scrolling past screen 1, available for conversation. The menu trigger also appears after screen 1.
+The homepage (claudewill.io) is a three-screen introduction. Screen 1: the porch light (gold asterisk), the claudewill wordmark, Derek's welcome intro, and "claude will ___" typewriter (listen first, speak directly, find a way, keep going). Screen 2: the builder — Derek's credentials (LA Times, Star Tribune, VP, $20M), typewriter, and CTAs to the study (/derek) and the workshop (/workshop). Screen 3: the CW Standard (five principles). The porch widget (cw> _ trigger) appears after scrolling past screen 1, available for conversation. The menu trigger also appears after screen 1.
 
 The site has four rooms and a hallway:
 - the porch (/) — where you arrive
