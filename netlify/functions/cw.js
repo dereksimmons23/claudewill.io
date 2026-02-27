@@ -292,8 +292,9 @@ exports.handler = async (event, context) => {
     let { messages, condition, vernieCode, mode, kitchenCode, action, visitorToken, sessionId: bodySessionId } = JSON.parse(event.body);
 
     // Handle close-session action (from sendBeacon on tab close)
+    // Must await — Netlify kills the function after return, so fire-and-forget never completes
     if (action === 'close-session') {
-      handleCloseSession(visitorToken, bodySessionId, messages).catch(err => console.error('Close session bg error:', err));
+      await handleCloseSession(visitorToken, bodySessionId, messages);
       return { statusCode: 200, headers, body: JSON.stringify({ ok: true }) };
     }
 
@@ -428,8 +429,8 @@ exports.handler = async (event, context) => {
     const sessionId = event.headers['x-session-id'] || 'unknown';
     const ipHash = createSimpleHash(ip);
 
-    // Don't await - let logging happen in background
-    logConversation({
+    // Await logging — Netlify kills function after return, fire-and-forget is unreliable
+    await logConversation({
       userMessage,
       cwResponse,
       condition: isKitchenMode ? 'kitchen' : (condition || 'clear'),
@@ -440,7 +441,7 @@ exports.handler = async (event, context) => {
         output: response.usage.output_tokens
       },
       table: isVernieMode ? 'family_conversations' : 'conversations'
-    }).catch(err => console.error('Background logging error:', err));
+    });
 
     return {
       statusCode: 200,
