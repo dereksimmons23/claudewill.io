@@ -27,10 +27,17 @@ dev/
 # Internal documentation and strategy (drafts + reference stay local, published is tracked)
 docs/drafts/
 docs/reference/
+docs/plans/tzp-*
+docs/plans/venture-*
+docs/plans/secret-weapon-*
 recalibrate/
 
 # Memoir / heritage drafts (do not publish)
 heritage-manuscript-archive.md
+
+# Screenshots and brand workbench (dev tools, not site assets)
+images/CleanShot*
+images/asteriskos*
 
 # OS and editor files
 .DS_Store
@@ -42,6 +49,16 @@ ehthumbs.db
 .obsidian
 CW-Strategies/
 hancock/
+
+# Client-confidential documents (should never be in public repo)
+strategies/
+ea.html
+
+# Dead pages (redirected via netlify.toml, files kept locally for reference)
+library.html
+work-with-me.html
+derek/assessment.html
+derek/research/
 
 # Secrets / local-only files
 netlify/anthropic-key.txt

@@ -59,22 +59,22 @@
 
 [[redirects]]
   from = "/stable"
-  to = "/kitchen"
+  to = "/workshop"
   status = 301
 
 [[redirects]]
   from = "/stable.html"
-  to = "/kitchen"
+  to = "/workshop"
   status = 301
 
 [[redirects]]
   from = "/studio"
-  to = "/kitchen"
+  to = "/workshop"
   status = 301
 
 [[redirects]]
   from = "/studio.html"
-  to = "/kitchen"
+  to = "/workshop"
   status = 301
 
 [[redirects]]
@@ -96,16 +96,6 @@
 [[redirects]]
   from = "/library.html"
   to = "/derek"
-  status = 301
-
-[[redirects]]
-  from = "/map"
-  to = "/"
-  status = 301
-
-[[redirects]]
-  from = "/map.html"
-  to = "/"
   status = 301
 
 [[redirects]]

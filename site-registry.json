@@ -27,7 +27,7 @@
     {
       "path": "/workshop",
       "title": "the workshop",
-      "description": "AI strategy consulting. The engagement model (build, transfer, exit), proof, 3-field form. The conversion page.",
+      "description": "AI strategy consulting. Full-screen slide deck: problem, standard, method, proof, engagement models, assessment form. The conversion page.",
       "cw": "If you're interested in working with Derek, head to claudewill.io/workshop. That's where the conversation starts."
     },
     {
@@ -89,11 +89,10 @@
     { "from": "/strategies", "to": "/derek", "note": "Consulting info folded into /derek" },
     { "from": "/proof", "to": "/derek", "note": "Proof section folded into /derek" },
     { "from": "/mirae", "to": "/", "note": "Widget speaks for itself" },
-    { "from": "/stable", "to": "/kitchen", "note": "Old name" },
-    { "from": "/studio", "to": "/kitchen", "note": "Old name" },
+    { "from": "/stable", "to": "/workshop", "note": "Old name for workshop" },
+    { "from": "/studio", "to": "/workshop", "note": "Old name for workshop" },
     { "from": "/work-with-me", "to": "/workshop", "note": "Conversion page moved to /workshop" },
     { "from": "/library", "to": "/derek", "note": "Writing links on /derek" },
-    { "from": "/map", "to": "/", "note": "Simpler site doesn't need an index" },
     { "from": "/derek/assessment", "to": "/workshop", "note": "Form lives on /workshop#start" },
     { "from": "/intake", "to": "/workshop", "note": "Form lives on /workshop#start" },
     { "from": "/the-cw-standard", "to": "/story", "note": "Standard lives on /story" },
