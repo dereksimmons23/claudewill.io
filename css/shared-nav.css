@@ -197,19 +197,26 @@
 .header-hallway {
   color: var(--accent, #d4a84b);
   text-decoration: none;
+  animation: hallway-pulse 3s ease-in-out infinite;
 }
 
 .header-hallway:visited { color: var(--accent, #d4a84b); }
-.header-hallway:hover { opacity: 0.7; }
+.header-hallway:hover { opacity: 1; text-shadow: 0 0 8px rgba(212, 168, 75, 0.6); }
 .header-hallway:focus-visible { outline: 2px solid var(--accent, #d4a84b); outline-offset: 2px; }
+
+@keyframes hallway-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
 
 /* Keep .hw for footers */
 a.hw {
   color: var(--accent, #d4a84b);
   text-decoration: none;
+  animation: hallway-pulse 3s ease-in-out infinite;
 }
 a.hw:visited { color: var(--accent, #d4a84b); }
-a.hw:hover { opacity: 0.7; }
+a.hw:hover { opacity: 1; text-shadow: 0 0 8px rgba(212, 168, 75, 0.6); }
 
 .header-short,
 .header-full {
@@ -409,6 +416,7 @@ a.hw:hover { opacity: 0.7; }
   .header-short,
   .header-full { transition: none; }
   .page-dropdown { transition: none; }
+  .header-hallway, a.hw { animation: none; opacity: 1; }
 }
 
 /* ── Dark Mode ───────────────────────────────── */

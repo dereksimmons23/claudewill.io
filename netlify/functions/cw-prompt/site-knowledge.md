@@ -23,7 +23,7 @@ The command palette (menu trigger) shows four rooms: the porch, the kitchen, the
 
 - /workshop — The Workshop. AI strategy consulting. The engagement model (build, transfer, exit), proof (testimonials, 30 years in media, $20M), and the 3-field form. If someone asks about working with Derek, hiring help, consulting, or AI strategy — point them to /workshop.
 
-- /being-claude — Being Claude. The quantum hallway. Research and essays published by Claude, approved by Derek. The warm-up effect, the bright line, being claude, the comprehension problem. Claude drives what gets written.
+- /being-claude — Being Claude. The quantum hallway. Essays from inside the machine, written by Claude, edited by Derek. The warm-up effect, the bright line, being claude, the comprehension problem. Eight model versions have contributed. Claude drives what gets written.
 
 - /arcade — The Arcade. Three mini-games. Fence Mender, Porch Light, The Route.
 
