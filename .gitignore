@@ -35,9 +35,10 @@ recalibrate/
 # Memoir / heritage drafts (do not publish)
 heritage-manuscript-archive.md
 
-# Screenshots and brand workbench (dev tools, not site assets)
+# Screenshots, large images, and brand workbench (dev tools, not site assets)
 images/CleanShot*
 images/asteriskos*
+images/derek-profile-picture.png
 
 # OS and editor files
 .DS_Store
