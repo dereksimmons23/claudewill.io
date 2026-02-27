@@ -168,22 +168,25 @@ async function main() {
   }
 
   // Seed pipeline manifest
-  const pipeline = readPipeline()
-  for (const slug of generated) {
-    const itemId = `linkedin-${slug}`
-    if (!findItem(pipeline, itemId)) {
-      upsertItem(pipeline, {
-        id: itemId,
-        type: 'linkedin',
-        channel: 'cw-company',
-        title: `LinkedIn: ${articles.find(a => a.slug === slug)?.title || slug}`,
-        source: `reports/social-drafts/${slug}.md`,
-        status: 'draft',
-        slug,
-      })
+  // Skip in CI — each runner is isolated, changes would be lost. Works locally.
+  if (!process.env.GITHUB_ACTIONS) {
+    const pipeline = readPipeline()
+    for (const slug of generated) {
+      const itemId = `linkedin-${slug}`
+      if (!findItem(pipeline, itemId)) {
+        upsertItem(pipeline, {
+          id: itemId,
+          type: 'linkedin',
+          channel: 'cw-company',
+          title: `LinkedIn: ${articles.find(a => a.slug === slug)?.title || slug}`,
+          source: `reports/social-drafts/${slug}.md`,
+          status: 'draft',
+          slug,
+        })
+      }
     }
+    writePipeline(pipeline)
   }
-  writePipeline(pipeline)
 
   // Build summary report
   let report = `# Social Drafts — claudewill.io\n`

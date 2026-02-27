@@ -79,7 +79,8 @@ function main() {
   const removed = before - pipeline.items.length
   if (removed > 0) actions.push(`Removed ${removed} archived items`)
 
-  if (archived > 0 || removed > 0) writePipeline(pipeline)
+  // Only write changes locally — on CI, each runner is isolated
+  if ((archived > 0 || removed > 0) && !process.env.GITHUB_ACTIONS) writePipeline(pipeline)
 
   // Count by status
   const counts = {}

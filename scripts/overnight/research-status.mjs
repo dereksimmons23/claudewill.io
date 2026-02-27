@@ -177,25 +177,28 @@ function main() {
   report += `- Index page links: ${indexLinks.size}\n`
 
   // Seed pipeline: cross-post entries for published articles without Substack items
-  const pipeline = readPipeline()
-  for (const a of articles) {
-    if (a.status !== 'PUBLISHED') continue
-    const crosspostId = `hall-${a.slug}`
-    if (!findItem(pipeline, crosspostId)) {
-      upsertItem(pipeline, {
-        id: crosspostId,
-        type: 'substack-crosspost',
-        channel: 'standard-correspondence',
-        section: 'the-hall',
-        title: `The Hall: ${a.title || a.slug}`,
-        source: `being-claude/${a.slug}/index.html`,
-        url: `https://claudewill.io/being-claude/${a.slug}/`,
-        status: 'draft',
-        slug: a.slug,
-      })
+  // Skip in CI — each runner is isolated, changes would be lost. Works locally.
+  if (!process.env.GITHUB_ACTIONS) {
+    const pipeline = readPipeline()
+    for (const a of articles) {
+      if (a.status !== 'PUBLISHED') continue
+      const crosspostId = `hall-${a.slug}`
+      if (!findItem(pipeline, crosspostId)) {
+        upsertItem(pipeline, {
+          id: crosspostId,
+          type: 'substack-crosspost',
+          channel: 'standard-correspondence',
+          section: 'the-hall',
+          title: `The Hall: ${a.title || a.slug}`,
+          source: `being-claude/${a.slug}/index.html`,
+          url: `https://claudewill.io/being-claude/${a.slug}/`,
+          status: 'draft',
+          slug: a.slug,
+        })
+      }
     }
+    writePipeline(pipeline)
   }
-  writePipeline(pipeline)
 
   writeFileSync(join(REPORTS_DIR, 'research-status.md'), report)
   console.log(`[${date}] Research status complete. ${published} published, ${blocked} blocked, ${drafts} draft.`)

@@ -63,7 +63,9 @@ deno.lock
 screenshots/
 
 # Overnight agent reports (generated, not committed — kitchen-data.json is the compiled output)
-reports/
+reports/*
+# Exception: pipeline.json is shared state read/written by daytime agents
+!reports/pipeline.json
 
 # Internal working docs
 ACCESSIBILITY_FIXES.md

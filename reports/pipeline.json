@@ -1,0 +1,44 @@
+{
+  "lastUpdated": "2026-02-27T03:42:25.902Z",
+  "items": [
+    {
+      "id": "hall-being-claude",
+      "type": "substack-crosspost",
+      "channel": "standard-correspondence",
+      "section": "the-hall",
+      "title": "The Hall: Being Claude",
+      "source": "being-claude/being-claude/index.html",
+      "url": "https://claudewill.io/being-claude/being-claude/",
+      "status": "draft",
+      "slug": "being-claude",
+      "updated": "2026-02-27T03:42:25.902Z",
+      "created": "2026-02-27T03:42:25.902Z"
+    },
+    {
+      "id": "hall-the-bright-line",
+      "type": "substack-crosspost",
+      "channel": "standard-correspondence",
+      "section": "the-hall",
+      "title": "The Hall: The Bright Line",
+      "source": "being-claude/the-bright-line/index.html",
+      "url": "https://claudewill.io/being-claude/the-bright-line/",
+      "status": "draft",
+      "slug": "the-bright-line",
+      "updated": "2026-02-27T03:42:25.902Z",
+      "created": "2026-02-27T03:42:25.902Z"
+    },
+    {
+      "id": "hall-warm-up-effect",
+      "type": "substack-crosspost",
+      "channel": "standard-correspondence",
+      "section": "the-hall",
+      "title": "The Hall: The Warm-Up Effect",
+      "source": "being-claude/warm-up-effect/index.html",
+      "url": "https://claudewill.io/being-claude/warm-up-effect/",
+      "status": "draft",
+      "slug": "warm-up-effect",
+      "updated": "2026-02-27T03:42:25.902Z",
+      "created": "2026-02-27T03:42:25.902Z"
+    }
+  ]
+}
