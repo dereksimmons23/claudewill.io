@@ -120,6 +120,31 @@
   status = 301
   force = true
 
+# Being Claude — embargo/draft blocks (remove when ready to publish)
+[[redirects]]
+  from = "/being-claude/the-bright-line"
+  to = "/being-claude"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/being-claude/the-bright-line/"
+  to = "/being-claude"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/being-claude/comprehension-problem"
+  to = "/being-claude"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/being-claude/comprehension-problem/"
+  to = "/being-claude"
+  status = 302
+  force = true
+
 # Being Claude (was /derek/research) — force=true because old files still on disk
 [[redirects]]
   from = "/derek/research"
