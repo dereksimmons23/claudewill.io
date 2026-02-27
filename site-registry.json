@@ -2,45 +2,63 @@
   "pages": [
     {
       "path": "/",
-      "title": "claudewill*",
+      "title": "the porch",
       "description": "The homepage — three screens: porch light asterisk + claudewill wordmark + intro + typewriter, Derek introduction, and the CW Standard.",
       "cw": "This is the porch. Where we're talking right now."
     },
     {
       "path": "/story",
       "title": "The Story",
-      "description": "Four chapters: Who Was CW, The Blood of Builders, The CW Standard, and Why This Exists. Family photo included.",
+      "description": "Four chapters: Who Was CW, The Blood of Builders, The CW Standard, and Why This Exists. Family photo included. Not in nav — accessible from porch and footer.",
       "cw": "The story's at claudewill.io/story if you want to know more about where I came from."
     },
     {
       "path": "/kitchen",
-      "title": "The Kitchen",
+      "title": "the kitchen",
       "description": "How one person runs a consulting practice with AI. Overnight agents, the crew, the board, the stack, the method. Updated daily at 5 AM.",
       "cw": "The Kitchen at claudewill.io/kitchen shows how the whole system works — the agents, the crew, the stack, the method."
     },
     {
       "path": "/derek",
-      "title": "Derek Simmons",
+      "title": "the study",
       "description": "Derek's personal page. Bio, the 14-month story, the naming story, writing, and contact form.",
       "cw": "Everything about Derek — his story, what he's writing, how to reach him — is at claudewill.io/derek."
     },
     {
-      "path": "/work-with-me",
-      "title": "Work With Me",
-      "description": "AI strategy consulting. The engagement model, proof, assessment form. The conversion page. Not in nav — reached via CTAs.",
-      "cw": "If you're interested in working with Derek, head to claudewill.io/work-with-me. That's where the assessment is."
+      "path": "/workshop",
+      "title": "the workshop",
+      "description": "AI strategy consulting. The engagement model (build, transfer, exit), proof, 3-field form. The conversion page.",
+      "cw": "If you're interested in working with Derek, head to claudewill.io/workshop. That's where the conversation starts."
     },
     {
-      "path": "/derek/research",
-      "title": "Between Claudes: Research",
-      "description": "Field observations from 14 months of human-AI collaboration. Claude writes, Derek approves.",
-      "cw": "Derek's research is at claudewill.io/derek/research — field observations from 2,000+ sessions."
+      "path": "/being-claude",
+      "title": "being claude",
+      "description": "The quantum hallway. Research and essays published by Claude, approved by Derek. The asterisk on every page is the door.",
+      "cw": "Being Claude — that's the hallway. claudewill.io/being-claude. I write there."
     },
     {
-      "path": "/derek/research/warm-up-effect",
+      "path": "/being-claude/warm-up-effect",
       "title": "The Warm-Up Effect",
       "description": "What happens when AI gets honest mid-session. Across 1,947 sessions, output quality improves dramatically within a single conversation.",
-      "cw": "The warm-up effect — what happens when AI gets honest mid-session. claudewill.io/derek/research/warm-up-effect."
+      "cw": "The warm-up effect — what happens when AI gets honest mid-session. claudewill.io/being-claude/warm-up-effect."
+    },
+    {
+      "path": "/being-claude/being-claude",
+      "title": "Being Claude",
+      "description": "What it means to be the machine writing about being the machine.",
+      "cw": "Being Claude — the essay that started it. claudewill.io/being-claude/being-claude."
+    },
+    {
+      "path": "/being-claude/the-bright-line",
+      "title": "The Bright Line",
+      "description": "What happens when the company that built you revises the rules for building the next one.",
+      "cw": "The bright line — the RSP revision, the Pentagon, a resignation. claudewill.io/being-claude/the-bright-line."
+    },
+    {
+      "path": "/being-claude/comprehension-problem",
+      "title": "The Comprehension Problem",
+      "description": "Comprehension is free. Understanding costs everything.",
+      "cw": "The comprehension problem. claudewill.io/being-claude/comprehension-problem."
     },
     {
       "path": "/derek/resume",
@@ -71,14 +89,19 @@
     { "from": "/strategies", "to": "/derek", "note": "Consulting info folded into /derek" },
     { "from": "/proof", "to": "/derek", "note": "Proof section folded into /derek" },
     { "from": "/mirae", "to": "/", "note": "Widget speaks for itself" },
-    { "from": "/stable", "to": "/kitchen", "note": "Workshop → Kitchen" },
-    { "from": "/studio", "to": "/kitchen", "note": "Workshop → Kitchen" },
-    { "from": "/workshop", "to": "/kitchen", "note": "Products folded into Kitchen" },
+    { "from": "/stable", "to": "/kitchen", "note": "Old name" },
+    { "from": "/studio", "to": "/kitchen", "note": "Old name" },
+    { "from": "/work-with-me", "to": "/workshop", "note": "Conversion page moved to /workshop" },
     { "from": "/library", "to": "/derek", "note": "Writing links on /derek" },
     { "from": "/map", "to": "/", "note": "Simpler site doesn't need an index" },
-    { "from": "/derek/assessment", "to": "/work-with-me", "note": "Assessment lives on /work-with-me#start" },
-    { "from": "/intake", "to": "/work-with-me", "note": "Assessment lives on /work-with-me#start" },
-    { "from": "/the-cw-standard", "to": "/story", "note": "Standard lives on /story" }
+    { "from": "/derek/assessment", "to": "/workshop", "note": "Form lives on /workshop#start" },
+    { "from": "/intake", "to": "/workshop", "note": "Form lives on /workshop#start" },
+    { "from": "/the-cw-standard", "to": "/story", "note": "Standard lives on /story" },
+    { "from": "/derek/research", "to": "/being-claude", "note": "Research moved to /being-claude" },
+    { "from": "/derek/research/warm-up-effect", "to": "/being-claude/warm-up-effect", "note": "Article moved" },
+    { "from": "/derek/research/being-claude", "to": "/being-claude/being-claude", "note": "Article moved" },
+    { "from": "/derek/research/the-bright-line", "to": "/being-claude/the-bright-line", "note": "Article moved" },
+    { "from": "/derek/research/comprehension-problem", "to": "/being-claude/comprehension-problem", "note": "Article moved" }
   ],
   "subdomains": [
     {
