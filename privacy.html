@@ -228,7 +228,7 @@
 
     <main>
       <h1 class="page-title">Privacy Policy</h1>
-      <p class="effective-date">Last Updated: December 8, 2025</p>
+      <p class="effective-date">Last Updated: February 27, 2026</p>
 
       <p>CW ("we," "us," "our") respects your privacy. This Privacy Policy explains how we collect, use, and protect information when you use the CW conversational assistant at claudewill.io ("Service").</p>
 
@@ -243,17 +243,21 @@
       <ul>
         <li><strong>Conversation Content:</strong> Your messages to CW and CW's responses</li>
         <li><strong>Session Information:</strong> A randomly generated session ID created by your browser</li>
+        <li><strong>Visitor Memory:</strong> A unique visitor token (UUID) stored in your browser's localStorage that persists across visits. This allows CW to recognize returning visitors.</li>
+        <li><strong>Name Detection:</strong> If you share your name during conversation, CW may detect and store it to personalize future visits. This is stored in Supabase alongside your visitor token.</li>
+        <li><strong>Session Summaries:</strong> When you leave the page, a brief summary of the conversation is generated and stored. On return visits, these summaries are included in CW's context so the conversation can continue naturally.</li>
         <li><strong>Technical Data:</strong> Hashed IP address (for abuse prevention), timestamps, token usage metrics</li>
         <li><strong>Metadata:</strong> Time of day conditions (dawn, clear, dusk, etc.) used to inform CW's tone</li>
       </ul>
 
       <p><strong>What We Don't Collect:</strong></p>
       <ul>
-        <li>Your name or email address</li>
         <li>Browser fingerprints or tracking cookies</li>
         <li>Location data beyond general timezone</li>
         <li>Raw IP addresses (only cryptographic hashes)</li>
       </ul>
+
+      <p><strong>Clearing Your Visitor Memory:</strong> You can clear your visitor token and all local data by clearing your browser's localStorage for claudewill.io. This will reset CW's memory of you. To also delete server-side data (conversation summaries, stored name), contact Derek using the information below.</p>
 
       <h2>2. How We Use Your Information</h2>
 
