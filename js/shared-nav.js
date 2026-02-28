@@ -12,22 +12,26 @@
   var NAV_CONFIG = {
     sections: [
       {
-        label: 'the porch',
+        label: 'home',
         href: '/',
-        items: []
+        items: [
+          { name: 'the story', href: '/story' }
+        ]
       },
       {
-        label: 'the kitchen',
+        label: 'kitchen',
         href: '/kitchen',
         items: []
       },
       {
-        label: 'the study',
+        label: 'derek',
         href: '/derek',
-        items: []
+        items: [
+          { name: 'being claude', href: '/being-claude' }
+        ]
       },
       {
-        label: 'the workshop',
+        label: 'workshop',
         href: '/workshop',
         items: []
       }

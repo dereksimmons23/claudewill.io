@@ -185,6 +185,16 @@
   force = true
 
 [[redirects]]
+  from = "/porch"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/the-porch"
+  to = "/"
+  status = 301
+
+[[redirects]]
   from = "/the-cw-standard"
   to = "/story"
   status = 301
