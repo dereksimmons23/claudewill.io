@@ -108,14 +108,82 @@
     return result;
   }
 
+  // ── Typewriter for title ───────────────────────────
+
+  var D_WORDS = [
+    'd',
+    'derek',
+    'dash',
+    'dawn',
+    'desk',
+    'dusk',
+    'data',
+    'drive',
+    'discipline',
+    'day',
+    'determination',
+    'done'
+  ];
+
+  function startTypewriter(titleEl) {
+    var wordIndex = 0;
+    var charIndex = 1; // always start showing 'd'
+    var deleting = false;
+    var pauseAfterWord = 2200;
+    var pauseOnD = 600;
+    var typeSpeed = 70;
+    var deleteSpeed = 40;
+
+    titleEl.textContent = 'd';
+
+    function step() {
+      var word = D_WORDS[wordIndex];
+
+      if (!deleting) {
+        charIndex++;
+        titleEl.textContent = word.substring(0, charIndex);
+
+        if (charIndex === word.length) {
+          // Finished typing — pause, then delete
+          setTimeout(function () { deleting = true; step(); }, pauseAfterWord);
+          return;
+        }
+        setTimeout(step, typeSpeed);
+      } else {
+        charIndex--;
+        titleEl.textContent = word.substring(0, charIndex);
+
+        if (charIndex === 1) {
+          // Back to just 'd' — pause, then next word
+          deleting = false;
+          wordIndex = (wordIndex + 1) % D_WORDS.length;
+          // Skip index 0 ('d' alone) on subsequent cycles
+          if (wordIndex === 0) wordIndex = 1;
+          setTimeout(step, pauseOnD);
+          return;
+        }
+        setTimeout(step, deleteSpeed);
+      }
+    }
+
+    // Respect reduced motion
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // Start after a beat — first word is 'd', so jump to next
+    wordIndex = 1;
+    setTimeout(step, 1200);
+  }
+
   // ── Build Hero ─────────────────────────────────────
 
   function buildHero(container, data) {
     clearChildren(container);
 
-    // Title
-    var title = el('div', 'd-title', 'd');
+    // Title with typewriter
+    var title = el('div', 'd-title');
+    title.textContent = 'd';
     container.appendChild(title);
+    startTypewriter(title);
 
     // Day counter
     var counter = el('div', 'd-counter');

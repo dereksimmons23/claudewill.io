@@ -119,6 +119,20 @@
   letter-spacing: 0.15em;
   text-align: center;
   margin: 0 0 1.5rem;
+  display: inline-block;
+  width: 100%;
+}
+
+.d-title::after {
+  content: '\2588';
+  animation: d-blink 1s step-end infinite;
+  opacity: 0.6;
+  font-weight: 400;
+}
+
+@keyframes d-blink {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0; }
 }
 
 .d-counter {
@@ -437,6 +451,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .d-progress-fill { transition: none; }
+  .d-title::after { animation: none; opacity: 0; }
 }
 
 /* ── Print ───────────────────────────────────────── */
