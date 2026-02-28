@@ -79,7 +79,7 @@ function extractFromPatterns() {
       fragments.push({
         type: 'pattern',
         content: bullets,
-        source_year: null,
+        source_year: 2024,
         source_file: sourceFile,
         source_date: null,
         context: null,
@@ -99,7 +99,7 @@ function extractFromPatterns() {
       fragments.push({
         type: 'warning',
         content: phrase,
-        source_year: null,
+        source_year: 2024,
         source_file: sourceFile,
         source_date: null,
         context: null,
@@ -124,7 +124,7 @@ function extractFromPatterns() {
       fragments.push({
         type: 'mantra',
         content: mantra,
-        source_year: null,
+        source_year: 2024,
         source_file: sourceFile,
         source_date: null,
         context: null,
@@ -168,7 +168,7 @@ function extractFromPatterns() {
       fragments.push({
         type: 'insight',
         content: fullQuote,
-        source_year: null,
+        source_year: 2024,
         source_file: sourceFile,
         source_date: sourceDate,
         context: null,
@@ -212,7 +212,7 @@ function extractFromPatterns() {
         fragments.push({
           type: 'insight',
           content: item,
-          source_year: null,
+          source_year: 2024,
           source_file: sourceFile,
           source_date: null,
           context: null,
@@ -232,7 +232,7 @@ function extractFromPatterns() {
       fragments.push({
         type: 'warning',
         content: antiItem,
-        source_year: null,
+        source_year: 2024,
         source_file: sourceFile,
         source_date: null,
         context: null,
