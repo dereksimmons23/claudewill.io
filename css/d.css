@@ -1,0 +1,446 @@
+/* D — Health accountability dashboard
+   TUI terminal aesthetic. IBM Plex Mono. Light-mode first. */
+
+/* ── Base variables (light mode) ─────────────────── */
+
+.d-page {
+  --bg: #fafaf8;
+  --text: #0a1628;
+  --accent: #d4a84b;
+  --dim: #6b7280;
+  --border: #e5e7eb;
+  --green: #059669;
+  --red: #dc2626;
+  --font: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  min-height: 100vh;
+  margin: 0;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* ── Dark mode override ──────────────────────────── */
+
+@media (prefers-color-scheme: dark) {
+  .d-page {
+    --bg: #0a0a0a;
+    --text: #e5e5e5;
+    --dim: #737373;
+    --accent: #d4a84b;
+    --border: #262626;
+    --green: #34d399;
+    --red: #f87171;
+  }
+}
+
+/* ── Dark overrides for shared nav/footer ────────── */
+
+@media (prefers-color-scheme: dark) {
+  .d-page .page-header {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .d-page .page-header-left,
+  .d-page .page-header-left a,
+  .d-page .page-header-center,
+  .d-page .page-header-right.palette-trigger {
+    color: var(--text);
+  }
+  .d-page .page-dropdown {
+    background: #171717;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  }
+  .d-page .page-dropdown a { color: var(--dim); }
+  .d-page .page-dropdown a:hover { color: var(--accent); }
+  .d-page footer,
+  .d-page .footer-note,
+  .d-page .footer-note a { color: var(--dim); }
+  .d-page .footer-note a:hover { color: var(--text); }
+}
+
+/* ── Container ───────────────────────────────────── */
+
+.d-page .container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 80px 24px 80px;
+}
+
+/* ── Auth gate ───────────────────────────────────── */
+
+.auth-gate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+}
+
+.auth-prompt {
+  text-align: center;
+}
+
+.auth-input {
+  font-family: var(--font);
+  font-size: 1.2rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.5rem 0;
+  text-align: center;
+  width: 12ch;
+  outline: none;
+  letter-spacing: 0.15em;
+}
+
+.auth-input::placeholder {
+  color: var(--dim);
+  animation: blink-dot 1.2s step-end infinite;
+}
+
+@keyframes blink-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.auth-input:focus {
+  border-bottom-color: var(--accent);
+}
+
+/* ── Hero section ────────────────────────────────── */
+
+.d-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  text-align: center;
+  margin: 0 0 1.5rem;
+}
+
+.d-counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.85rem;
+  color: var(--dim);
+  margin-bottom: 0.5rem;
+}
+
+.d-progress {
+  height: 1.2rem;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.d-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.d-progress-label {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  color: var(--dim);
+  font-weight: 500;
+}
+
+.d-weight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1ch;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  padding: 0.5rem 0;
+}
+
+.d-weight-start,
+.d-weight-current {
+  font-weight: 600;
+}
+
+.d-weight-line {
+  flex: 1;
+  max-width: 20ch;
+  border-top: 1px solid var(--dim);
+  height: 0;
+}
+
+.d-weight-delta {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--green);
+  margin-bottom: 2rem;
+}
+
+/* ── TUI sections (details/summary) ──────────────── */
+
+.tui-section { border-top: 1px solid var(--border); }
+.tui-section:last-child { border-bottom: 1px solid var(--border); }
+
+.tui-section summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.75rem 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.tui-section summary::-webkit-details-marker { display: none; }
+.tui-section summary::marker { display: none; }
+
+.tui-section .section-right {
+  font-weight: 400;
+  color: var(--dim);
+  font-size: 0.85rem;
+  margin-left: auto;
+  padding-left: 1rem;
+}
+
+.section-body {
+  padding: 0 0 1rem;
+}
+
+/* ── Timeline entries ────────────────────────────── */
+
+.timeline-entry {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  font-size: 0.8rem;
+  padding: 1px 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.timeline-day {
+  width: 4ch;
+  flex-shrink: 0;
+  text-align: right;
+  color: var(--dim);
+  padding-right: 1ch;
+}
+
+.timeline-dow {
+  width: 4ch;
+  flex-shrink: 0;
+  color: var(--dim);
+}
+
+.timeline-up {
+  width: 8ch;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.timeline-sleep {
+  width: 10ch;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.timeline-raid {
+  width: 3ch;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.timeline-raid.raid-yes { color: var(--red); }
+.timeline-raid.raid-no { color: var(--green); }
+
+.timeline-weight {
+  color: var(--dim);
+  padding-left: 1ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.timeline-today {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.timeline-toggle {
+  font-size: 0.8rem;
+  color: var(--dim);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font);
+  padding: 0.5rem 0;
+  transition: color 0.2s;
+}
+.timeline-toggle:hover { color: var(--accent); }
+
+/* ── Weight bars ─────────────────────────────────── */
+
+.weight-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  font-size: 0.8rem;
+  padding: 2px 0;
+}
+
+.weight-week {
+  width: 4ch;
+  flex-shrink: 0;
+  text-align: right;
+  color: var(--dim);
+  padding-right: 1ch;
+}
+
+.weight-num {
+  width: 7ch;
+  flex-shrink: 0;
+  font-weight: 500;
+}
+
+.weight-bar {
+  color: var(--accent);
+  letter-spacing: -0.05em;
+}
+
+/* ── Raid heatmap ────────────────────────────────── */
+
+.raid-week-label {
+  font-size: 0.8rem;
+  color: var(--dim);
+  margin-bottom: 0.5rem;
+}
+
+.raid-grid {
+  display: flex;
+  gap: 1.5ch;
+  font-size: 0.9rem;
+  padding: 0.25rem 0;
+}
+
+.raid-day-col {
+  text-align: center;
+}
+
+.raid-day-label {
+  font-size: 0.7rem;
+  color: var(--dim);
+  margin-bottom: 0.25rem;
+}
+
+.raid-dot {
+  font-size: 1rem;
+}
+
+.raid-dot.raid-yes { color: var(--red); }
+.raid-dot.raid-no { color: var(--green); }
+.raid-dot.raid-empty { color: var(--border); }
+
+/* ── Sleep sparkline ─────────────────────────────── */
+
+.sleep-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.sleep-avg-label {
+  color: var(--dim);
+}
+
+.sleep-avg-value {
+  font-weight: 600;
+}
+
+.sleep-sparkline {
+  font-size: 1.2rem;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  line-height: 1;
+}
+
+/* ── The 8 Questions ─────────────────────────────── */
+
+.questions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.questions-list li {
+  font-size: 0.85rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.questions-list li:last-child {
+  border-bottom: none;
+}
+
+.question-num {
+  color: var(--accent);
+  font-weight: 600;
+  margin-right: 1ch;
+}
+
+.question-q {
+  font-weight: 600;
+}
+
+.question-a {
+  color: var(--dim);
+  display: block;
+  padding-left: 3ch;
+  padding-top: 0.15rem;
+}
+
+/* ── Loading state ───────────────────────────────── */
+
+.loading-state {
+  color: var(--dim);
+  font-size: 0.85rem;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+/* ── Mobile ──────────────────────────────────────── */
+
+@media (max-width: 700px) {
+  .d-page .container { padding: 80px 16px 80px; }
+  .d-title { font-size: 2rem; }
+  .timeline-up { width: 7ch; }
+  .timeline-sleep { width: 8ch; }
+}
+
+@media (max-width: 400px) {
+  .timeline-entry { flex-wrap: wrap; }
+  .timeline-weight { width: 100%; padding-left: 9ch; }
+}
+
+/* ── Reduced Motion ──────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .d-progress-fill { transition: none; }
+}
+
+/* ── Print ───────────────────────────────────────── */
+
+@media print {
+  .auth-gate { display: none; }
+}

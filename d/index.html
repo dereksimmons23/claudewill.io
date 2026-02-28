@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>d | claudewill*</title>
+
+  <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/shared-nav.css">
+  <link rel="stylesheet" href="/css/d.css">
+  <link rel="stylesheet" href="/css/porch-widget.css">
+
+  <meta name="robots" content="noindex, nofollow">
+</head>
+<body class="d-page">
+
+  <header class="page-header" id="page-header">
+    <div class="page-header-left"><a href="/" class="header-brand"><span class="header-short">cw</span><span class="header-full">claudewill</span></a><a href="/being-claude" class="header-hallway">*</a></div>
+    <div class="page-header-center">d</div>
+    <button class="page-header-right palette-trigger" aria-label="Open navigation">menu</button>
+  </header>
+
+  <div class="container">
+    <main>
+      <!-- Auth gate -->
+      <div id="auth-gate" class="auth-gate">
+        <div class="auth-prompt">
+          <input type="password" id="auth-input" class="auth-input" placeholder="&#183;" autocomplete="off" spellcheck="false" autofocus>
+        </div>
+      </div>
+
+      <!-- Dashboard (hidden until auth) -->
+      <div id="dashboard" class="dashboard" style="display:none;">
+        <div id="d-hero"></div>
+        <div id="d-terminal"></div>
+      </div>
+    </main>
+
+    <footer>
+      <p class="footer-note">Built by <a href="/derek">Derek</a><a href="/being-claude" class="hw">*</a><a href="/being-claude">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
+      <p class="footer-note"><a href="/story#the-cw-standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
+    </footer>
+  </div>
+
+  <script src="/js/d.js"></script>
+  <script src="/js/cw-link-renderer.js"></script>
+  <script src="/js/porch-widget.js" defer></script>
+  <script src="/js/shared-nav.js"></script>
+
+  <!-- Auto-hide header on scroll -->
+  <script>
+  (function () {
+    var header = document.getElementById('page-header');
+    if (!header) return;
+    var lastY = 0;
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY;
+      if (y > 80 && y > lastY) {
+        header.classList.add('hidden');
+      } else {
+        header.classList.remove('hidden');
+      }
+      lastY = y;
+    }, { passive: true });
+  })();
+  </script>
+
+</body>
+</html>
