@@ -219,6 +219,34 @@
       var deltaDiv = el('div', 'd-weight-delta', delta.toFixed(1) + ' lb');
       container.appendChild(deltaDiv);
     }
+
+    // Hero fragment
+    if (data.fragments && data.fragments.length > 0) {
+      var heroTypes = { mantra: 1, insight: 1, breakthrough: 1, letter: 1 };
+      var heroPool = [];
+      for (var f = 0; f < data.fragments.length; f++) {
+        if (heroTypes[data.fragments[f].type]) {
+          heroPool.push(data.fragments[f]);
+        }
+      }
+      if (heroPool.length > 0) {
+        var pick = heroPool[Math.floor(Math.random() * heroPool.length)];
+        var frag = el('div', 'd-hero-fragment');
+
+        var typeLabel = pick.type;
+        if (pick.title) typeLabel = pick.title.toLowerCase();
+        frag.appendChild(el('div', 'd-hero-fragment-type', typeLabel));
+
+        var text = pick.content;
+        if (text.length > 200) text = text.substring(0, 197) + '...';
+        frag.appendChild(el('div', 'd-hero-fragment-text', text));
+
+        if (pick.source_year) {
+          frag.appendChild(el('div', 'd-hero-fragment-year', String(pick.source_year)));
+        }
+        container.appendChild(frag);
+      }
+    }
   }
 
   // ── Build Timeline ─────────────────────────────────
@@ -528,6 +556,181 @@
     container.appendChild(s.details);
   }
 
+  // ── Build Archive ─────────────────────────────────
+
+  function buildFragmentRow(frag) {
+    var row = el('div', 'archive-fragment');
+
+    var text = frag.content;
+    if (text.length > 300) text = text.substring(0, 297) + '...';
+
+    if (frag.title) {
+      row.appendChild(el('div', 'archive-fragment-title', frag.title));
+    }
+
+    row.appendChild(el('div', 'archive-fragment-content', text));
+
+    if (frag.source_date) {
+      row.appendChild(el('div', 'archive-fragment-date', frag.source_date));
+    }
+
+    return row;
+  }
+
+  function buildArchive(container, data) {
+    if (!data.fragments || data.fragments.length === 0) return;
+
+    // Separate year summaries from content fragments
+    var yearSummaries = {};
+    var contentFrags = [];
+    var i, f;
+
+    for (i = 0; i < data.fragments.length; i++) {
+      f = data.fragments[i];
+      if (f.type === 'year_summary') {
+        yearSummaries[f.source_year] = f;
+      } else {
+        contentFrags.push(f);
+      }
+    }
+
+    // Group content fragments by year
+    var fragsByYear = {};
+    for (i = 0; i < contentFrags.length; i++) {
+      f = contentFrags[i];
+      var yr = f.source_year || 0;
+      if (!fragsByYear[yr]) fragsByYear[yr] = [];
+      fragsByYear[yr].push(f);
+    }
+
+    // Collect all years (from summaries + fragments)
+    var allYears = {};
+    var yearKeys = Object.keys(yearSummaries);
+    for (i = 0; i < yearKeys.length; i++) allYears[yearKeys[i]] = true;
+    yearKeys = Object.keys(fragsByYear);
+    for (i = 0; i < yearKeys.length; i++) {
+      if (yearKeys[i] !== '0') allYears[yearKeys[i]] = true;
+    }
+
+    var years = Object.keys(allYears).sort(function (a, b) { return Number(b) - Number(a); });
+    if (years.length === 0) return;
+
+    var s = section('ARCHIVE', years.length + ' years', false);
+
+    for (var yi = 0; yi < years.length; yi++) {
+      var year = Number(years[yi]);
+      var ys = yearSummaries[year];
+      var yearFrags = fragsByYear[year] || [];
+
+      // Year sub-section
+      var yearDetails = document.createElement('details');
+      yearDetails.className = 'archive-year';
+
+      var yearSummary = document.createElement('summary');
+      yearSummary.className = 'archive-year-header';
+      yearSummary.appendChild(el('span', 'archive-year-num', String(year)));
+
+      var yearRight = el('span', 'archive-year-right');
+      // Weight range from year summary context
+      if (ys && ys.context) {
+        try {
+          var ctx = JSON.parse(ys.context);
+          if (ctx.weight_range) {
+            yearRight.appendChild(el('span', '', ctx.weight_range + ' lbs'));
+          }
+        } catch (e) { /* ignore */ }
+      }
+      if (yearFrags.length > 0) {
+        yearRight.appendChild(el('span', '', yearFrags.length + ' fragments'));
+      }
+      yearSummary.appendChild(yearRight);
+      yearDetails.appendChild(yearSummary);
+
+      // Year body
+      var yearBody = el('div', 'archive-year-body');
+
+      // Summary line
+      if (ys) {
+        yearBody.appendChild(el('div', 'archive-summary', ys.content));
+      }
+
+      // Key events from context
+      if (ys && ys.context) {
+        try {
+          var ctx2 = JSON.parse(ys.context);
+          if (ctx2.key_events && ctx2.key_events.length > 0) {
+            for (var ei = 0; ei < ctx2.key_events.length; ei++) {
+              yearBody.appendChild(el('div', 'archive-event', '\u2500 ' + ctx2.key_events[ei]));
+            }
+          }
+        } catch (e) { /* ignore */ }
+      }
+
+      // 2026 reference
+      if (year === 2026) {
+        yearBody.appendChild(el('div', 'archive-summary', 'current challenge \u2014 see above'));
+      }
+
+      // Fragments grouped by type
+      if (yearFrags.length > 0) {
+        var typeOrder = ['breakthrough', 'letter', 'insight', 'warning', 'mantra', 'pattern'];
+        var fragsByType = {};
+        for (var fi = 0; fi < yearFrags.length; fi++) {
+          var ft = yearFrags[fi].type;
+          if (!fragsByType[ft]) fragsByType[ft] = [];
+          fragsByType[ft].push(yearFrags[fi]);
+        }
+
+        for (var ti = 0; ti < typeOrder.length; ti++) {
+          var typeName = typeOrder[ti];
+          var typeFrags = fragsByType[typeName];
+          if (!typeFrags || typeFrags.length === 0) continue;
+
+          var typeLabel = typeName;
+          if (typeFrags.length > 1) typeLabel = typeName + ' (' + typeFrags.length + ')';
+          yearBody.appendChild(el('div', 'archive-type-label', typeLabel));
+
+          var showCount = Math.min(typeFrags.length, 3);
+          for (var fi2 = 0; fi2 < showCount; fi2++) {
+            yearBody.appendChild(buildFragmentRow(typeFrags[fi2]));
+          }
+
+          if (typeFrags.length > 3) {
+            var moreBtn = el('button', 'archive-more-btn', '+ ' + (typeFrags.length - 3) + ' more');
+            (function (btn, frags, parent) {
+              var expanded = false;
+              var extraEls = [];
+              btn.addEventListener('click', function () {
+                if (!expanded) {
+                  for (var x = 3; x < frags.length; x++) {
+                    var extra = buildFragmentRow(frags[x]);
+                    parent.insertBefore(extra, btn);
+                    extraEls.push(extra);
+                  }
+                  btn.textContent = 'show less';
+                  expanded = true;
+                } else {
+                  for (var x2 = 0; x2 < extraEls.length; x2++) {
+                    parent.removeChild(extraEls[x2]);
+                  }
+                  extraEls = [];
+                  btn.textContent = '+ ' + (frags.length - 3) + ' more';
+                  expanded = false;
+                }
+              });
+            })(moreBtn, typeFrags, yearBody);
+            yearBody.appendChild(moreBtn);
+          }
+        }
+      }
+
+      yearDetails.appendChild(yearBody);
+      s.body.appendChild(yearDetails);
+    }
+
+    container.appendChild(s.details);
+  }
+
   // ── Main render ────────────────────────────────────
 
   function render(data) {
@@ -544,6 +747,7 @@
     buildRaids(terminal, data);
     buildSleep(terminal, data);
     buildQuestions(terminal);
+    buildArchive(terminal, data);
   }
 
   // ── API call ───────────────────────────────────────

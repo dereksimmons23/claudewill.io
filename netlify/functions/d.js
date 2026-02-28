@@ -159,15 +159,33 @@ exports.handler = async (event) => {
     }
 
     try {
-      var { data: entries, error } = await supabase
+      // Parallel queries: entries + fragments
+      var entriesPromise = supabase
         .from('dawn_entries')
         .select('*')
         .eq('year', 2026)
         .order('entry_date', { ascending: false });
 
-      if (error) {
-        console.error('Supabase query error:', error.message);
+      var fragsPromise = supabase
+        .from('dawn_fragments')
+        .select('id,type,content,source_year,title,tags,source_date,context')
+        .order('source_year', { ascending: false });
+
+      var results = await Promise.all([entriesPromise, fragsPromise]);
+
+      var entries = results[0].data;
+      var entriesError = results[0].error;
+      var fragments = results[1].data;
+      var fragsError = results[1].error;
+
+      if (entriesError) {
+        console.error('Supabase entries error:', entriesError.message);
         return { statusCode: 500, headers: headers, body: JSON.stringify({ error: 'Database query failed' }) };
+      }
+      if (fragsError) {
+        console.error('Supabase fragments error:', fragsError.message);
+        // Non-fatal — proceed without fragments
+        fragments = [];
       }
 
       var currentDay = getCurrentDay();
@@ -187,7 +205,8 @@ exports.handler = async (event) => {
           remaining: remaining,
           entries: entries || [],
           weightHistory: weightHistory,
-          weekSummaries: weekSummaries
+          weekSummaries: weekSummaries,
+          fragments: fragments || []
         })
       };
     } catch (err) {

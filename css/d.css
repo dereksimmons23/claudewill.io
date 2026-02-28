@@ -424,6 +424,134 @@
   padding-top: 0.15rem;
 }
 
+/* ── Hero fragment ──────────────────────────────── */
+
+.d-hero-fragment {
+  margin-top: 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.d-hero-fragment-type {
+  font-size: 0.7rem;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5rem;
+}
+
+.d-hero-fragment-text {
+  font-size: 0.85rem;
+  color: var(--text);
+  font-style: italic;
+  line-height: 1.6;
+  max-width: 50ch;
+  margin: 0 auto;
+}
+
+.d-hero-fragment-year {
+  font-size: 0.7rem;
+  color: var(--dim);
+  margin-top: 0.5rem;
+}
+
+/* ── Archive section ────────────────────────────── */
+
+.archive-year {
+  border-top: 1px solid var(--border);
+}
+
+.archive-year:first-child { border-top: none; }
+
+.archive-year-header {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+}
+.archive-year-header::-webkit-details-marker { display: none; }
+.archive-year-header::marker { display: none; }
+
+.archive-year-num {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.archive-year-right {
+  display: flex;
+  gap: 2ch;
+  color: var(--dim);
+  font-size: 0.75rem;
+}
+
+.archive-year-body {
+  padding: 0 0 1rem 2ch;
+}
+
+.archive-summary {
+  font-size: 0.8rem;
+  color: var(--dim);
+  margin-bottom: 0.5rem;
+}
+
+.archive-event {
+  font-size: 0.75rem;
+  color: var(--dim);
+  padding: 1px 0;
+}
+
+.archive-type-label {
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.archive-fragment {
+  padding: 0.3rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.archive-fragment:last-of-type { border-bottom: none; }
+
+.archive-fragment-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+.archive-fragment-content {
+  font-size: 0.8rem;
+  color: var(--text);
+  line-height: 1.5;
+  white-space: normal;
+}
+
+.archive-fragment-date {
+  font-size: 0.7rem;
+  color: var(--dim);
+  margin-top: 0.15rem;
+}
+
+.archive-more-btn {
+  font-size: 0.75rem;
+  color: var(--dim);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font);
+  padding: 0.3rem 0;
+  transition: color 0.2s;
+}
+.archive-more-btn:hover { color: var(--accent); }
+
 /* ── Loading state ───────────────────────────────── */
 
 .loading-state {
