@@ -1,65 +1,74 @@
 {
-  "lastUpdated": "2026-02-27T23:19:33.917Z",
+  "lastUpdated": "2026-02-28T11:05:55.292Z",
   "agents": {
     "housekeeping": {
       "name": "Housekeeping",
-      "lastRun": "2026-02-27T23:19:33.916Z",
+      "lastRun": "2026-02-28T11:05:55.290Z",
       "status": "ok",
-      "summary": "All 10 pages + 2 subdomains responding. Avg 200ms.",
+      "summary": "All 10 pages + 2 subdomains responding. Avg 289ms.",
       "flags": [],
       "details": [
-        "https://claudewill.io/ — 200 207ms",
-        "https://claudewill.io/derek — 200 182ms",
-        "https://claudewill.io/story — 200 178ms",
-        "https://claudewill.io/workshop — 200 183ms",
-        "https://claudewill.io/privacy — 200 181ms",
-        "https://claudewill.io/terms — 200 176ms",
-        "https://claudewill.io/kitchen — 200 268ms",
-        "https://claudewill.io/arcade — 200 179ms",
-        "https://claudewill.io/map — 200 178ms",
-        "https://claudewill.io/being-claude — 200 269ms",
-        "Coach D (https://coach.claudewill.io) — 200 173ms",
-        "BOB (https://bob.claudewill.io) — 200 178ms"
+        "https://claudewill.io/ — 200 86ms",
+        "https://claudewill.io/derek — 200 172ms",
+        "https://claudewill.io/story — 200 159ms",
+        "https://claudewill.io/workshop — 200 316ms",
+        "https://claudewill.io/privacy — 200 332ms",
+        "https://claudewill.io/terms — 200 147ms",
+        "https://claudewill.io/kitchen — 200 402ms",
+        "https://claudewill.io/arcade — 200 350ms",
+        "https://claudewill.io/map — 200 625ms",
+        "https://claudewill.io/being-claude — 200 297ms",
+        "Coach D (https://coach.claudewill.io) — 200 940ms",
+        "BOB (https://bob.claudewill.io) — 200 132ms"
       ]
     },
     "research": {
       "name": "Research Brief",
-      "lastRun": "2026-02-27T23:19:33.916Z",
-      "status": "not-configured",
-      "summary": "No research brief report found.",
-      "sources": []
+      "lastRun": "2026-02-28T11:05:55.291Z",
+      "status": "ok",
+      "summary": "**No significant AI industry developments reported in the last 24 hours (since February 27, 11 AM UTC) matching the specified focus areas.**[6]\n\nSearch results highlight recent but pre-February 27...",
+      "sources": [
+        "https://www.auxi.ai/blog/ai-tools-for-consultants",
+        "https://www.sembly.ai/blog/must-have-ai-tools-for-successful-consultants/",
+        "https://amiko.consulting/en/ai-trends-for-the-second-week-of-february-2026-a-wave-of-change-in-the-manufacturing-industry/",
+        "https://porath.consulting/en/articles/ai-february-2026-what-im-seeing-in-the-wild/",
+        "https://whitehat-seo.co.uk/blog/ai-marketing-tools-in-2026",
+        "https://www.marketingprofs.com/opinions/2026/54358/ai-update-february-27-2026-ai-news-and-views-from-the-past-week",
+        "https://www.paconsulting.com/newsroom/agconnect-three-trends-that-will-drive-more-ai-value-in-2026-5-february-2026",
+        "https://stellium.consulting/articles/news/ai-strategy-consulting/"
+      ]
     },
     "gemini": {
       "name": "Industry Brief",
-      "lastRun": "2026-02-27T23:19:33.916Z",
-      "status": "not-configured",
-      "summary": "No industry brief report found.",
+      "lastRun": "2026-02-28T11:05:55.291Z",
+      "status": "ok",
+      "summary": "Here's a concise morning brief on the most significant AI industry developments from the last 24-48 hours, tailored for an AI consultant:\n\n**CW Strategies Morning Brief: February 28, 2026**\n\n**1. AI...",
       "sources": []
     },
     "codeReview": {
       "name": "Code Review",
-      "lastRun": "2026-02-27T23:19:33.916Z",
-      "status": "not-configured",
-      "summary": "No code review report found."
+      "lastRun": "2026-02-28T11:05:55.291Z",
+      "status": "ok",
+      "summary": "Everything looks clean. No security issues, performance problems, accessibility issues, or broken patterns detected in the provided diffs."
     },
     "analytics": {
       "name": "Analytics",
-      "lastRun": "2026-02-27T23:19:33.916Z",
+      "lastRun": "2026-02-28T11:05:55.291Z",
       "status": "ok",
-      "summary": "Conversations: 163 total (24h: 0 | 7d: 31 | 30d: 163)",
+      "summary": "Conversations: 172 total (24h: 17 | 7d: 39 | 30d: 172)",
       "flags": [],
       "metrics": {
         "conversations": {
-          "total": 163,
-          "day": 0,
-          "week": 31,
-          "month": 163
+          "total": 172,
+          "day": 17,
+          "week": 39,
+          "month": 172
         },
         "visitors": {
           "total": 2,
           "new7d": 2,
-          "returning": 0,
-          "named": 0
+          "returning": 1,
+          "named": 1
         },
         "pipeline": {
           "count30d": 2,
@@ -67,31 +76,22 @@
           "total": 4
         },
         "derekTime": {
-          "hours7d": 11.5,
-          "sessions7d": 7
+          "hours7d": 19.6,
+          "sessions7d": 12
         },
-        "apiCost30d": 1.28
+        "apiCost30d": 1.39
       }
     },
     "contentScan": {
       "name": "Content Scan",
-      "lastRun": "2026-02-27T23:19:33.916Z",
-      "status": "flags",
-      "summary": "Scanned 28 HTML files. Found 42 issues.",
-      "flags": [
-        "derek/research/being-claude/index.html: href=\"/derek/research/\" redirects to /being-claude (301)",
-        "derek/research/comprehension-problem/index.html: href=\"/derek/research/\" redirects to /being-claude (301)",
-        "derek/research/index.html: href=\"/derek/research/the-bright-line/\" redirects to /being-claude/the-bright-line (301)",
-        "derek/research/index.html: href=\"/derek/research/being-claude/\" redirects to /being-claude/being-claude (301)",
-        "derek/research/index.html: href=\"/derek/research/warm-up-effect/\" redirects to /being-claude/warm-up-effect (301)",
-        "derek/research/the-bright-line/index.html: href=\"/derek/research/\" redirects to /being-claude (301)",
-        "derek/research/warm-up-effect/index.html: href=\"/derek/research/\" redirects to /being-claude (301)",
-        "map.html: href=\"/library\" redirects to /derek (301)"
-      ]
+      "lastRun": "2026-02-28T11:05:55.292Z",
+      "status": "ok",
+      "summary": "Scanned 16 HTML files. Found 5 issues.",
+      "flags": []
     },
     "researchStatus": {
       "name": "Research Status",
-      "lastRun": "2026-02-27T23:19:33.916Z",
+      "lastRun": "2026-02-28T11:05:55.292Z",
       "status": "flags",
       "summary": "3 published, 0 draft, 1 blocked",
       "flags": [
@@ -101,14 +101,18 @@
     },
     "socialDraft": {
       "name": "Social Drafts",
-      "lastRun": "2026-02-27T23:19:33.916Z",
-      "status": "not-configured",
-      "summary": "Social draft agent not configured.",
-      "flags": []
+      "lastRun": "2026-02-28T11:05:55.292Z",
+      "status": "flags",
+      "summary": "3 new drafts, 0 skipped.",
+      "flags": [
+        "Review draft: reports/social-drafts/being-claude.md",
+        "Review draft: reports/social-drafts/the-bright-line.md",
+        "Review draft: reports/social-drafts/warm-up-effect.md"
+      ]
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-02-27T23:19:33.916Z",
+      "lastRun": "2026-02-28T11:05:55.292Z",
       "status": "ok",
       "summary": "**Pipeline:** 3 items (3 draft)",
       "flags": []
