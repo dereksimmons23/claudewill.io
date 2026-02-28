@@ -6,5 +6,5 @@
   { "name": "Hancock", "category": "portfolio", "status": "Autonomous", "note": "Anonymous AI storyteller — The Handbook" },
   { "name": "Dawn", "category": "personal", "status": "Day 54 of 151", "note": "Daily health accountability practice" },
   { "name": "Finding Claude", "category": "personal", "status": "Active", "note": "The book — written by Claude, with Derek" },
-  { "name": "Derek Claude", "category": "infrastructure", "status": "Live", "note": "Session memory + hooks — the dimmer switch" }
+  { "name": "Standard Intelligence", "category": "infrastructure", "status": "Live", "note": "Live floor + session memory + hooks" }
 ]

@@ -93,8 +93,8 @@
       "conversations": 129
     },
     {
-      "key": "derek-claude",
-      "name": "Derek Claude",
+      "key": "standard-intelligence",
+      "name": "Standard Intelligence",
       "user_messages": 523,
       "assistant_messages": 712,
       "total_messages": 1235,

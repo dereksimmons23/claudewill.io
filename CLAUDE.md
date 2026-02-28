@@ -144,7 +144,7 @@ claudewill.io/
 
 **Deleted pages:** proof.html, strategies.html, mirae.html (folded into /derek), the-cw-standard.html (content at /story#the-cw-standard). studio.html renamed to workshop.html. All have 301 redirects in netlify.toml. **Dead pages:** library→derek, derek/assessment→work-with-me, stable/studio→workshop. **Live pages formerly dead:** /workshop (now slide deck), /map (site index).
 
-**Note:** LinkedIn content, publishing workflows, and TRACKER.md live in `~/Desktop/writing/`. Client deliverables live in `~/Desktop/clients/cascadia/`. CW Method docs moved to `~/Desktop/derek-claude/method/`. This repo is the product — claudewill, business presence, prompt system.
+**Note:** LinkedIn content, publishing workflows, and TRACKER.md live in `~/Desktop/writing/`. Client deliverables live in `~/Desktop/clients/cascadia/`. CW Method docs moved to `~/Desktop/standard-intelligence/method/`. This repo is the product — claudewill, business presence, prompt system.
 
 ---
 

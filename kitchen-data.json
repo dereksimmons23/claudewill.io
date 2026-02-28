@@ -162,10 +162,10 @@
       "note": "The book — written by Claude, with Derek"
     },
     {
-      "name": "Derek Claude",
+      "name": "Standard Intelligence",
       "category": "infrastructure",
       "status": "Live",
-      "note": "Session memory + hooks — the dimmer switch"
+      "note": "Live floor + session memory + hooks"
     }
   ],
   "ecosystem": {
