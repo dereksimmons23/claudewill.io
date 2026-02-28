@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pitch deck — claudewill*</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    :root {
+      --bg: #0e1726;
+      --surface: #141e30;
+      --text: #fafaf8;
+      --accent: #d4a84b;
+      --dim: #6b7280;
+      --border: #1e293b;
+      --navy: #0a1628;
+      --blue: #6ba8d4;
+      --font: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 14px;
+      min-height: 100vh;
+    }
+
+    /* ── Header ──────────────────────────── */
+
+    .page-header {
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .page-header h1 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+    }
+
+    .page-header .brand {
+      font-size: 12px;
+      color: var(--dim);
+    }
+
+    /* ── Layout ──────────────────────────── */
+
+    .app {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 32px;
+      min-height: calc(100vh - 60px);
+    }
+
+    /* ── Controls Panel ──────────────────── */
+
+    .controls {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 24px;
+      position: sticky;
+      top: 24px;
+      align-self: start;
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+    }
+
+    .controls h2 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .controls h2 + h2 { margin-top: 24px; }
+
+    /* ── Slide List ──────────────────────── */
+
+    .slide-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 24px;
+    }
+
+    .slide-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      font-family: var(--font);
+      font-size: 11px;
+      background: none;
+      color: var(--dim);
+      border: 1px solid transparent;
+      border-radius: 4px;
+      padding: 8px 10px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s;
+    }
+
+    .slide-item:hover {
+      background: rgba(212, 168, 75, 0.05);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .slide-item.active {
+      background: rgba(212, 168, 75, 0.08);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .slide-item .slide-num {
+      font-size: 10px;
+      font-weight: 600;
+      opacity: 0.5;
+      min-width: 20px;
+    }
+
+    .slide-item .slide-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .slide-item .slide-dot.navy { background: var(--navy); border: 1px solid var(--border); }
+    .slide-item .slide-dot.light { background: #fafaf8; border: 1px solid var(--border); }
+
+    /* ── Edit Fields ─────────────────────── */
+
+    .edit-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .field-group label {
+      display: block;
+      font-size: 10px;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+
+    .field-group input,
+    .field-group textarea {
+      width: 100%;
+      font-family: var(--font);
+      font-size: 12px;
+      background: var(--navy);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 8px 10px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .field-group input:focus,
+    .field-group textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .field-group textarea {
+      resize: vertical;
+      min-height: 48px;
+    }
+
+    /* ── Preset Selector ──────────────────── */
+
+    .preset-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+
+    .preset-btn {
+      font-family: var(--font);
+      font-size: 10px;
+      background: var(--navy);
+      color: var(--dim);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 8px 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .preset-btn:hover { border-color: var(--accent); color: var(--text); }
+    .preset-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(212, 168, 75, 0.08); }
+
+    /* ── Export Buttons ───────────────────── */
+
+    .export-btn {
+      width: 100%;
+      font-family: var(--font);
+      font-size: 12px;
+      font-weight: 600;
+      border: none;
+      border-radius: 4px;
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 8px;
+    }
+
+    .export-btn:active { transform: scale(0.98); }
+
+    .export-btn--primary {
+      background: var(--accent);
+      color: var(--navy);
+    }
+
+    .export-btn--primary:hover { background: #e0b85e; }
+
+    .export-btn--secondary {
+      background: transparent;
+      color: var(--dim);
+      border: 1px solid var(--border);
+    }
+
+    .export-btn--secondary:hover { border-color: var(--accent); color: var(--text); }
+
+    .export-hint {
+      font-size: 9px;
+      color: var(--dim);
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    /* ── Preview Area ─────────────────────── */
+
+    .preview-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .preview-label {
+      font-size: 11px;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+      align-self: flex-start;
+    }
+
+    .preview-container {
+      width: 100%;
+      max-width: 960px;
+      aspect-ratio: 16 / 9;
+      position: relative;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      container-type: inline-size;
+    }
+
+    /* ── Slide Base ────────────────────────── */
+
+    .slide {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font);
+    }
+
+    .slide-inner {
+      width: 100%;
+      max-width: 80%;
+    }
+
+    .slide--navy {
+      background: #0a1628;
+      color: #f0f0f0;
+      --s-text: #f0f0f0;
+      --s-dim: #9ca3af;
+      --s-border: #1e293b;
+    }
+
+    .slide--light {
+      background: #fafaf8;
+      color: #0a1628;
+      --s-text: #0a1628;
+      --s-dim: #6b7280;
+      --s-border: #e5e7eb;
+    }
+
+    .slide h2 {
+      font-size: 2.2cqi;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 1.5cqi;
+    }
+
+    .slide p {
+      font-size: 1.2cqi;
+      line-height: 1.7;
+    }
+
+    /* ── Slide: Cover ─────────────────────── */
+
+    .s-cover .cover-mark {
+      font-size: 6cqi;
+      color: #d4a84b;
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 2cqi;
+      text-shadow: 0 0 20px rgba(212, 168, 75, 0.4), 0 0 60px rgba(212, 168, 75, 0.15);
+    }
+
+    .s-cover .cover-name {
+      font-size: 3cqi;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.8cqi;
+    }
+
+    .s-cover .cover-tagline {
+      font-size: 1.5cqi;
+      font-weight: 300;
+      color: #9ca3af;
+      letter-spacing: 0.04em;
+    }
+
+    .s-cover .cover-sub {
+      font-size: 1cqi;
+      color: #6b7280;
+      margin-top: 0.6cqi;
+    }
+
+    .s-cover .cover-url {
+      position: absolute;
+      bottom: 5%;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 0.9cqi;
+      color: #6b7280;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Slide: Problem ───────────────────── */
+
+    .s-problem .problem-context {
+      color: var(--s-dim);
+      margin-bottom: 1.5cqi;
+    }
+
+    .s-problem .problem-list {
+      list-style: none;
+      margin-bottom: 1.5cqi;
+    }
+
+    .s-problem .problem-list li {
+      font-size: 1.1cqi;
+      line-height: 1.6;
+      padding: 0.4cqi 0;
+      padding-left: 1.5cqi;
+      position: relative;
+      color: var(--s-dim);
+    }
+
+    .s-problem .problem-list li::before {
+      content: '\2014';
+      position: absolute;
+      left: 0;
+      color: #d4a84b;
+    }
+
+    .s-problem .problem-kicker {
+      font-size: 1.2cqi;
+      color: var(--s-text);
+      margin-top: 1.5cqi;
+    }
+
+    /* ── Slide: Standard ──────────────────── */
+
+    .s-standard .principles {
+      list-style: none;
+      display: grid;
+      gap: 1cqi;
+    }
+
+    .s-standard .principles li {
+      font-size: 1.1cqi;
+      line-height: 1.6;
+      padding-left: 1.8cqi;
+      position: relative;
+    }
+
+    .s-standard .principles li::before {
+      content: '*';
+      position: absolute;
+      left: 0;
+      color: #d4a84b;
+      font-weight: 700;
+      font-size: 1.3cqi;
+    }
+
+    .s-standard .principles li strong {
+      color: #d4a84b;
+    }
+
+    /* ── Slide: Method ────────────────────── */
+
+    .s-method .method-intro {
+      margin-bottom: 1.5cqi;
+    }
+
+    .s-method .method-phases {
+      display: grid;
+      gap: 1.5cqi;
+    }
+
+    .s-method .method-phase {
+      border-left: 2px solid #d4a84b;
+      padding-left: 1.2cqi;
+    }
+
+    .s-method .method-phase h3 {
+      color: #d4a84b;
+      font-size: 1.2cqi;
+      font-weight: 600;
+      text-transform: lowercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.3cqi;
+    }
+
+    .s-method .method-phase p {
+      font-size: 0.95cqi;
+      color: var(--s-dim);
+    }
+
+    .s-method .method-closer {
+      margin-top: 1.5cqi;
+      font-size: 1cqi;
+      color: var(--s-dim);
+      border-top: 1px solid var(--s-border);
+      padding-top: 0.8cqi;
+    }
+
+    .s-method .method-closer strong {
+      color: var(--s-text);
+    }
+
+    /* ── Slide: Proof ─────────────────────── */
+
+    .s-proof .proof-quotes {
+      font-size: 0.95cqi;
+      color: #6ba8d4;
+      font-style: italic;
+      margin-bottom: 0.3cqi;
+    }
+
+    .s-proof .proof-intro {
+      font-size: 1.1cqi;
+      color: var(--s-dim);
+      margin-bottom: 1.5cqi;
+    }
+
+    .s-proof table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.2cqi;
+    }
+
+    .s-proof th {
+      text-align: left;
+      font-size: 0.7cqi;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--s-dim);
+      padding: 0.4cqi 0;
+      border-bottom: 2px solid var(--s-text);
+    }
+
+    .s-proof th:last-child { text-align: right; }
+
+    .s-proof td {
+      font-size: 0.95cqi;
+      padding: 0.5cqi 0;
+      border-bottom: 1px solid var(--s-border);
+      vertical-align: top;
+    }
+
+    .s-proof td:last-child {
+      font-weight: 600;
+      color: var(--s-text);
+      text-align: right;
+      padding-left: 1cqi;
+      white-space: nowrap;
+    }
+
+    .s-proof .proof-total td {
+      border-top: 2px solid var(--s-text);
+      border-bottom: none;
+      padding-top: 0.6cqi;
+      font-weight: 700;
+    }
+
+    .s-proof .proof-total td:last-child {
+      color: #d4a84b;
+      font-size: 1.1cqi;
+    }
+
+    .s-proof .proof-inv td {
+      border-bottom: none;
+      color: var(--s-dim);
+      font-weight: 400;
+      font-size: 0.85cqi;
+    }
+
+    .s-proof .proof-inv td:last-child {
+      color: var(--s-dim);
+      font-weight: 400;
+    }
+
+    .s-proof .proof-bottom {
+      background: #fafaf8;
+      color: #0a1628;
+      padding: 0.8cqi 1.2cqi;
+      font-size: 0.95cqi;
+      border-radius: 4px;
+    }
+
+    .s-proof .proof-bottom strong { color: #d4a84b; }
+
+    /* ── Slide: Derek ─────────────────────── */
+
+    .s-derek .derek-bio {
+      color: var(--s-dim);
+      max-width: 90%;
+    }
+
+    .s-derek .derek-pitch {
+      color: var(--s-text);
+      max-width: 90%;
+      margin-top: 0.8cqi;
+    }
+
+    .s-derek .who-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2cqi;
+      margin: 1.5cqi 0;
+    }
+
+    .s-derek .who-stat {
+      border-left: 2px solid #d4a84b;
+      padding-left: 0.6cqi;
+    }
+
+    .s-derek .who-stat .number {
+      font-size: 1.8cqi;
+      font-weight: 700;
+      color: #d4a84b;
+      line-height: 1.2;
+    }
+
+    .s-derek .who-stat .label {
+      font-size: 0.7cqi;
+      color: var(--s-dim);
+    }
+
+    .s-derek .who-quote {
+      font-size: 1.1cqi;
+      color: #6ba8d4;
+      font-style: italic;
+      margin-top: 1.2cqi;
+      padding-left: 1cqi;
+      border-left: 2px solid #6ba8d4;
+    }
+
+    /* ── Slide: Two Ways In ───────────────── */
+
+    .s-engage .models {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5cqi;
+      margin-top: 1.5cqi;
+    }
+
+    .s-engage .model-card {
+      border: 1px solid var(--s-border);
+      padding: 1.2cqi;
+      border-radius: 4px;
+    }
+
+    .s-engage .model-type {
+      font-size: 0.7cqi;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #d4a84b;
+      margin-bottom: 0.5cqi;
+    }
+
+    .s-engage .model-card h3 {
+      font-size: 1.1cqi;
+      font-weight: 600;
+      color: var(--s-text);
+      margin-bottom: 0.5cqi;
+    }
+
+    .s-engage .model-card p {
+      font-size: 0.85cqi;
+      color: var(--s-dim);
+    }
+
+    .s-engage .models-footer {
+      margin-top: 1.2cqi;
+      font-size: 1cqi;
+      color: var(--s-dim);
+    }
+
+    /* ── Slide: CTA ───────────────────────── */
+
+    .s-cta .cta-mark {
+      font-size: 5cqi;
+      color: #d4a84b;
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 2cqi;
+      text-shadow: 0 0 20px rgba(212, 168, 75, 0.4), 0 0 60px rgba(212, 168, 75, 0.15);
+    }
+
+    .s-cta .cta-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8cqi;
+      margin-top: 2cqi;
+    }
+
+    .s-cta .cta-links li { font-size: 1.2cqi; }
+    .s-cta .cta-links .cta-url { color: #6ba8d4; }
+    .s-cta .cta-links .cta-email { color: #d4a84b; font-weight: 600; }
+
+    /* ── Print ────────────────────────────── */
+
+    .print-deck { display: none; }
+
+    @media print {
+      body { background: white; }
+      .page-header, .app { display: none !important; }
+
+      .print-deck { display: block !important; }
+
+      .print-slide {
+        width: 100vw;
+        height: 100vh;
+        page-break-after: always;
+        page-break-inside: avoid;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .print-slide:last-child { page-break-after: auto; }
+
+      .print-slide.t-navy { background: #0a1628 !important; color: #f0f0f0 !important; --s-text: #f0f0f0; --s-dim: #9ca3af; --s-border: #1e293b; }
+      .print-slide.t-light { background: #fafaf8 !important; color: #0a1628 !important; --s-text: #0a1628; --s-dim: #6b7280; --s-border: #e5e7eb; }
+
+      .print-slide .ps-inner { max-width: 75%; }
+
+      .print-slide h2 { font-size: 28px; font-weight: 600; line-height: 1.3; margin-bottom: 20px; }
+      .print-slide p { font-size: 14px; line-height: 1.7; }
+      .print-slide li { font-size: 14px; line-height: 1.6; }
+
+      .print-slide .cover-mark { font-size: 72px; color: #d4a84b; font-weight: 300; margin-bottom: 32px; text-shadow: none; }
+      .print-slide .cover-name { font-size: 32px; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 12px; }
+      .print-slide .cover-tagline { font-size: 18px; font-weight: 300; color: #9ca3af; }
+      .print-slide .cover-sub { font-size: 12px; color: #6b7280; margin-top: 8px; }
+      .print-slide .cover-url { position: absolute; bottom: 32px; left: 0; right: 0; text-align: center; font-size: 11px; color: #6b7280; }
+
+      .print-slide .problem-list { list-style: none; }
+      .print-slide .problem-list li { padding-left: 20px; position: relative; color: var(--s-dim); }
+      .print-slide .problem-list li::before { content: '\2014'; position: absolute; left: 0; color: #d4a84b; }
+
+      .print-slide .principles { list-style: none; display: grid; gap: 12px; }
+      .print-slide .principles li { padding-left: 20px; position: relative; }
+      .print-slide .principles li::before { content: '*'; position: absolute; left: 0; color: #d4a84b; font-weight: 700; }
+      .print-slide .principles li strong { color: #d4a84b; }
+
+      .print-slide .method-phase { border-left: 2px solid #d4a84b; padding-left: 16px; margin-bottom: 16px; }
+      .print-slide .method-phase h3 { color: #d4a84b; font-size: 16px; text-transform: lowercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+      .print-slide .method-phase p { font-size: 12px; color: var(--s-dim); }
+      .print-slide .method-closer { margin-top: 20px; border-top: 1px solid var(--s-border); padding-top: 12px; font-size: 12px; color: var(--s-dim); }
+      .print-slide .method-closer strong { color: var(--s-text); }
+
+      .print-slide table { width: 100%; border-collapse: collapse; }
+      .print-slide th { text-align: left; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 8px 0; border-bottom: 2px solid var(--s-text); color: var(--s-dim); }
+      .print-slide th:last-child { text-align: right; }
+      .print-slide td { font-size: 13px; padding: 8px 0; border-bottom: 1px solid var(--s-border); }
+      .print-slide td:last-child { font-weight: 600; text-align: right; padding-left: 16px; }
+      .print-slide .proof-total td { border-top: 2px solid var(--s-text); border-bottom: none; font-weight: 700; }
+      .print-slide .proof-total td:last-child { color: #d4a84b; }
+      .print-slide .proof-inv td { border-bottom: none; font-weight: 400; font-size: 12px; color: var(--s-dim); }
+      .print-slide .proof-bottom { background: #fafaf8; color: #0a1628; padding: 12px 16px; font-size: 12px; border-radius: 4px; }
+      .print-slide .proof-bottom strong { color: #d4a84b; }
+
+      .print-slide .who-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 0; }
+      .print-slide .who-stat { border-left: 2px solid #d4a84b; padding-left: 10px; }
+      .print-slide .who-stat .number { font-size: 24px; font-weight: 700; color: #d4a84b; line-height: 1.2; }
+      .print-slide .who-stat .label { font-size: 10px; color: var(--s-dim); }
+      .print-slide .who-quote { font-size: 14px; color: #6ba8d4; font-style: italic; margin-top: 16px; padding-left: 12px; border-left: 2px solid #6ba8d4; }
+
+      .print-slide .models { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+      .print-slide .model-card { border: 1px solid var(--s-border); padding: 16px; border-radius: 4px; }
+      .print-slide .model-type { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #d4a84b; margin-bottom: 8px; }
+      .print-slide .model-card h3 { font-size: 14px; margin-bottom: 8px; }
+      .print-slide .model-card p { font-size: 12px; color: var(--s-dim); }
+      .print-slide .models-footer { margin-top: 16px; font-size: 13px; color: var(--s-dim); }
+
+      .print-slide .cta-mark { font-size: 48px; color: #d4a84b; font-weight: 300; margin-bottom: 32px; text-shadow: none; }
+      .print-slide .cta-links { list-style: none; display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 32px; }
+      .print-slide .cta-links li { font-size: 16px; }
+      .print-slide .cta-url { color: #6ba8d4; }
+      .print-slide .cta-email { color: #d4a84b; font-weight: 600; }
+
+      @page { size: landscape; margin: 0; }
+    }
+
+    /* ── Responsive ───────────────────────── */
+
+    @media (max-width: 900px) {
+      .app { grid-template-columns: 1fr; padding: 16px; }
+      .controls { position: static; max-height: none; }
+    }
+
+    /* ── Mobile: 375px phone-first view ──── */
+
+    @media (max-width: 600px) {
+      body { font-size: 16px; }
+
+      .page-header {
+        padding: 12px 16px;
+      }
+
+      .page-header h1 { font-size: 12px; }
+      .page-header .brand { font-size: 11px; }
+
+      /* On mobile, flip the layout: slide first, controls collapsed below */
+      .app {
+        grid-template-columns: 1fr;
+        padding: 0;
+        gap: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: calc(100vh - 45px);
+      }
+
+      /* Hide the sidebar on mobile — deck is the experience */
+      .controls {
+        display: none;
+      }
+
+      /* Preview area fills the screen */
+      .preview-area {
+        flex: 1;
+        padding: 0;
+        justify-content: flex-start;
+        width: 100%;
+      }
+
+      .preview-label {
+        padding: 10px 16px 6px;
+        margin-bottom: 0;
+        font-size: 10px;
+      }
+
+      /* Slide fills full width, auto height so content breathes */
+      .preview-container {
+        width: 100%;
+        max-width: 100%;
+        /* Override 16:9 on mobile — let content dictate height */
+        aspect-ratio: unset;
+        height: auto;
+        min-height: 56vw;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Slides: position relative on mobile so height is content-driven */
+      .slide {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: auto;
+        min-height: 56vw;
+        padding: 24px 20px;
+        align-items: flex-start;
+        display: none;
+      }
+
+      .slide.mobile-active {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .slide-inner {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      /* Override cqi units with readable px sizes on mobile */
+      .slide h2 {
+        font-size: 22px;
+        margin-bottom: 14px;
+      }
+
+      .slide p {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      /* Cover */
+      .s-cover .cover-mark { font-size: 52px; margin-bottom: 16px; }
+      .s-cover .cover-name { font-size: 26px; margin-bottom: 8px; }
+      .s-cover .cover-tagline { font-size: 14px; }
+      .s-cover .cover-sub { font-size: 12px; margin-top: 6px; }
+      .s-cover .cover-url {
+        position: static;
+        display: block;
+        text-align: center;
+        font-size: 11px;
+        margin-top: 20px;
+      }
+
+      /* Problem */
+      .s-problem .problem-context { font-size: 13px; margin-bottom: 14px; }
+      .s-problem .problem-list li {
+        font-size: 13px;
+        padding: 4px 0;
+        padding-left: 18px;
+      }
+      .s-problem .problem-kicker { font-size: 14px; margin-top: 14px; }
+
+      /* Standard */
+      .s-standard .principles { gap: 10px; }
+      .s-standard .principles li {
+        font-size: 13px;
+        padding-left: 20px;
+      }
+      .s-standard .principles li::before { font-size: 14px; }
+
+      /* Method */
+      .s-method .method-intro { font-size: 13px; margin-bottom: 14px; }
+      .s-method .method-phases { gap: 14px; }
+      .s-method .method-phase { padding-left: 12px; }
+      .s-method .method-phase h3 { font-size: 13px; margin-bottom: 3px; }
+      .s-method .method-phase p { font-size: 12px; }
+      .s-method .method-closer { font-size: 12px; margin-top: 14px; padding-top: 10px; }
+
+      /* Proof — table overflows on narrow screens; make it scroll */
+      .s-proof .proof-quotes { font-size: 11px; margin-bottom: 4px; }
+      .s-proof .proof-intro { font-size: 12px; margin-bottom: 12px; }
+      .s-proof table {
+        font-size: 12px;
+        margin-bottom: 12px;
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .s-proof th { font-size: 9px; padding: 4px 0; }
+      .s-proof td { font-size: 12px; padding: 5px 0; }
+      .s-proof td:last-child { padding-left: 8px; }
+      .s-proof .proof-total td:last-child { font-size: 14px; }
+      .s-proof .proof-bottom { font-size: 12px; padding: 10px 12px; }
+
+      /* Derek — stats grid: 2x2 instead of 4x1 */
+      .s-derek .derek-bio { font-size: 13px; max-width: 100%; }
+      .s-derek .derek-pitch { font-size: 13px; margin-top: 10px; }
+      .s-derek .who-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin: 14px 0;
+      }
+      .s-derek .who-stat { padding-left: 8px; }
+      .s-derek .who-stat .number { font-size: 22px; }
+      .s-derek .who-stat .label { font-size: 10px; }
+      .s-derek .who-quote { font-size: 12px; margin-top: 12px; padding-left: 10px; }
+
+      /* Two Ways In — stack cards vertically */
+      .s-engage .models {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 12px;
+      }
+      .s-engage .model-card { padding: 12px; }
+      .s-engage .model-type { font-size: 9px; margin-bottom: 4px; }
+      .s-engage .model-card h3 { font-size: 14px; margin-bottom: 4px; }
+      .s-engage .model-card p { font-size: 12px; }
+      .s-engage .models-footer { font-size: 12px; margin-top: 12px; }
+
+      /* CTA */
+      .s-cta .cta-mark { font-size: 44px; margin-bottom: 16px; }
+      .s-cta .cta-links { gap: 10px; margin-top: 16px; }
+      .s-cta .cta-links li { font-size: 14px; }
+
+      /* Mobile nav controls: prev/next tap buttons below the slide */
+      .mobile-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+        border-top: 1px solid var(--border);
+        background: var(--surface);
+        gap: 12px;
+      }
+
+      .mobile-nav-btn {
+        font-family: var(--font);
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--accent);
+        background: transparent;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 10px 20px;
+        cursor: pointer;
+        min-width: 80px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+
+      .mobile-nav-btn:active { background: rgba(212, 168, 75, 0.1); }
+      .mobile-nav-btn:disabled { color: var(--dim); border-color: var(--border); opacity: 0.4; }
+
+      .mobile-slide-counter {
+        font-size: 12px;
+        color: var(--dim);
+        flex: 1;
+        text-align: center;
+      }
+    }
+
+    /* Show mobile-nav only on small screens */
+    .mobile-nav { display: none; }
+  </style>
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>pitch deck</h1>
+    <span class="brand">claudewill<span style="color: var(--accent)">*</span></span>
+  </header>
+
+  <div class="app">
+
+    <aside class="controls">
+
+      <h2>Slides</h2>
+      <div class="slide-list" id="slideList"></div>
+
+      <h2>Preset</h2>
+      <div class="preset-grid">
+        <button class="preset-btn active" data-preset="default">Default</button>
+        <button class="preset-btn" data-preset="tzp">TZP Summit</button>
+        <button class="preset-btn" data-preset="publisher">Publisher</button>
+        <button class="preset-btn" data-preset="keynote">Keynote</button>
+      </div>
+
+      <h2>Edit Slide</h2>
+      <div class="edit-fields" id="editFields"></div>
+
+      <button class="export-btn export-btn--primary" id="exportDeck">Export Full Deck (PDF)</button>
+      <div class="export-hint">landscape &middot; 8 slides &middot; Cmd+S in print dialog</div>
+      <button class="export-btn export-btn--secondary" id="exportSlide">Export Slide (PNG)</button>
+      <div class="export-hint">1920 x 1080 &middot; 2x</div>
+
+    </aside>
+
+    <main class="preview-area">
+      <div class="preview-label" id="previewLabel">01 &middot; cover</div>
+      <div class="preview-container" id="previewContainer"></div>
+    </main>
+
+  </div>
+
+  <!-- Mobile prev/next nav — shown only on small screens via CSS -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="Slide navigation">
+    <button class="mobile-nav-btn" id="mobilePrev" aria-label="Previous slide">&larr; prev</button>
+    <span class="mobile-slide-counter" id="mobileCounter">1 / 8</span>
+    <button class="mobile-nav-btn" id="mobileNext" aria-label="Next slide">next &rarr;</button>
+  </nav>
+
+  <div class="print-deck" id="printDeck"></div>
+
+  <script>
+    // ── Escape HTML ────────────────────────
+    function esc(str) {
+      var d = document.createElement('div');
+      d.textContent = str || '';
+      return d.innerHTML;
+    }
+    function nl2br(str) { return esc(str).replace(/\n/g, '<br>'); }
+
+    // ── Presets ────────────────────────────
+    var PRESETS = {
+      'default': {
+        cover_name: 'CW Strategies',
+        cover_tagline: 'instinct + analytics. in that order.',
+        cover_sub: '30 years in media. 14 months with AI. This is what I learned.',
+        problem_headline: 'The landscape always shifts.\nThe speed is new.',
+        problem_context: 'Football got faster over 50 years \u2014 gradual enough to adjust. AI development moves at that pace every five months.',
+        problem_kicker: 'Too much gut: stubborn. Too much analytics: paralyzed. The ones who win know which to trust when.',
+        method_intro: 'The AI is the analytics. You\u2019re the instinct. The secret isn\u2019t the tool \u2014 it\u2019s knowing which one to listen to.',
+        method_closer: 'You can\u2019t measure everything that matters. And you can measure almost everything.',
+        derek_bio: '30 years in media. Star Tribune, LA Times. First and only Chief Creative Officer and VP in the Star Tribune\u2019s 150-year history. $20M generated during a pandemic. Four Pulitzer Prize-winning teams.',
+        derek_pitch: 'Every company is a media company. Every company is an AI company. I did the first one for three decades. I\u2019ve done three decades of the second in 14 months. 2,000+ sessions. 10 products shipped. The method came from the mess.',
+        engage_h3: 'One whiteboard. One room. Live.',
+        engage_p: 'A whiteboard, not a slide deck. The room watches instinct and analytics work together in real time, then builds their own.',
+        cta_headline: 'Let\u2019s talk.'
+      },
+      'tzp': {
+        cover_name: 'CW Strategies',
+        cover_tagline: 'instinct + analytics. in that order.',
+        cover_sub: 'CEO Summit \u2014 March 18, 2026',
+        problem_headline: 'The landscape always shifts.\nThe speed is new.',
+        problem_context: 'Football got faster over 50 years \u2014 gradual enough to adjust. AI development moves at that pace every five months. Your portfolio companies are responding.',
+        problem_kicker: 'Too much gut: stubborn. Too much analytics: paralyzed. The ones who win know which to trust when.',
+        method_intro: 'The AI is the analytics. Your team is the instinct. The secret isn\u2019t the tool \u2014 it\u2019s knowing which one to listen to.',
+        method_closer: 'You can\u2019t measure everything that matters. And you can measure almost everything.',
+        derek_bio: '30 years in media. Star Tribune, LA Times. First and only Chief Creative Officer and VP in the Star Tribune\u2019s 150-year history. $20M generated during a pandemic. Four Pulitzer Prize-winning teams.',
+        derek_pitch: 'Every company is a media company. Every company is an AI company. I did the first one for three decades. I\u2019ve done three decades of the second in 14 months.',
+        engage_h3: 'One whiteboard. One room. Live.',
+        engage_p: 'The room watches instinct and analytics work together in real time. Your CEOs build their own practice before the session ends.',
+        cta_headline: 'Let\u2019s talk.'
+      },
+      'publisher': {
+        cover_name: 'CW Strategies',
+        cover_tagline: 'instinct + analytics. in that order.',
+        cover_sub: '30 years in media. 14 months with AI. This is what I learned.',
+        problem_headline: 'The landscape always shifts.\nThe speed is new.',
+        problem_context: 'Newsrooms have survived every disruption by adapting. This one moves faster. AI development accelerates at a pace measured in months, not years.',
+        problem_kicker: 'Too much gut: stubborn. Too much analytics: paralyzed. The publishers who win know which to trust when.',
+        method_intro: 'The AI is the analytics. Your newsroom is the instinct. The secret isn\u2019t the tool \u2014 it\u2019s knowing which one to listen to.',
+        method_closer: 'You can\u2019t measure everything that matters. And you can measure almost everything.',
+        derek_bio: '30 years in media. Star Tribune, LA Times. First and only Chief Creative Officer and VP in the Star Tribune\u2019s 150-year history. $20M generated during a pandemic. Four Pulitzer Prize-winning teams.',
+        derek_pitch: 'Every company is a media company. Every company is an AI company. I did the first one for three decades. I\u2019ve done three decades of the second in 14 months. 2,000+ sessions. 10 products shipped.',
+        engage_h3: 'One whiteboard. One room. Live.',
+        engage_p: 'A whiteboard, not a slide deck. The room watches instinct and analytics work together in real time, then builds their own.',
+        cta_headline: 'Let\u2019s talk.'
+      },
+      'keynote': {
+        cover_name: 'CW Strategies',
+        cover_tagline: 'instinct + analytics. in that order.',
+        cover_sub: 'What three decades in media and 14 months with AI taught one person about the speed.',
+        problem_headline: 'The landscape always shifts.\nThe speed is new.',
+        problem_context: 'Football got faster over 50 years \u2014 gradual enough to adjust. AI development moves at that pace every five months.',
+        problem_kicker: 'Too much gut: stubborn. Too much analytics: paralyzed. The ones who win know which to trust when.',
+        method_intro: 'The AI is the analytics. You\u2019re the instinct. The secret isn\u2019t the tool \u2014 it\u2019s knowing which one to listen to.',
+        method_closer: 'You can\u2019t measure everything that matters. And you can measure almost everything.',
+        derek_bio: '30 years in media. Star Tribune, LA Times. First and only Chief Creative Officer and VP in the Star Tribune\u2019s 150-year history. $20M generated during a pandemic. Four Pulitzer Prize-winning teams.',
+        derek_pitch: 'Every company is a media company. Every company is an AI company. I did the first one for three decades. I\u2019ve done three decades of the second in 14 months.',
+        engage_h3: 'One whiteboard. One room. Live.',
+        engage_p: 'The room watches instinct and analytics work together in real time, then builds their own.',
+        cta_headline: 'Let\u2019s talk.'
+      }
+    };
+
+    // ── State ──────────────────────────────
+    var state = {
+      current: 0,
+      preset: 'default',
+      data: JSON.parse(JSON.stringify(PRESETS['default']))
+    };
+
+    // ── Slide Definitions ──────────────────
+    var SLIDES = [
+      { id: 'cover', label: 'Cover', theme: 'navy', fields: [
+        { key: 'cover_name', label: 'Name', type: 'text' },
+        { key: 'cover_tagline', label: 'Tagline', type: 'text' },
+        { key: 'cover_sub', label: 'Subline', type: 'text' }
+      ]},
+      { id: 'problem', label: 'The Speed', theme: 'light', fields: [
+        { key: 'problem_headline', label: 'Headline', type: 'textarea' },
+        { key: 'problem_context', label: 'Context', type: 'textarea' },
+        { key: 'problem_kicker', label: 'Kicker', type: 'textarea' }
+      ]},
+      { id: 'standard', label: 'The Standard', theme: 'navy', fields: [] },
+      { id: 'method', label: 'The Method', theme: 'light', fields: [
+        { key: 'method_intro', label: 'Philosophy', type: 'textarea' },
+        { key: 'method_closer', label: 'Closer', type: 'textarea' }
+      ]},
+      { id: 'proof', label: 'The Proof', theme: 'navy', fields: [] },
+      { id: 'derek', label: 'Derek', theme: 'light', fields: [
+        { key: 'derek_bio', label: 'Bio', type: 'textarea' },
+        { key: 'derek_pitch', label: 'Pitch Line', type: 'textarea' }
+      ]},
+      { id: 'engage', label: 'Two Ways In', theme: 'navy', fields: [
+        { key: 'engage_h3', label: 'Training Title', type: 'text' },
+        { key: 'engage_p', label: 'Training Desc', type: 'textarea' }
+      ]},
+      { id: 'cta', label: 'CTA', theme: 'light', fields: [
+        { key: 'cta_headline', label: 'Headline', type: 'text' }
+      ]}
+    ];
+
+    // ── Render Slide HTML ──────────────────
+    function slideHTML(i, d) {
+      var s = SLIDES[i];
+      var t = 'slide--' + s.theme;
+      switch (s.id) {
+        case 'cover':
+          return '<div class="slide ' + t + ' s-cover"><div class="slide-inner" style="text-align:center">' +
+            '<div class="cover-mark">*</div>' +
+            '<div class="cover-name">' + esc(d.cover_name) + '</div>' +
+            '<div class="cover-tagline">' + esc(d.cover_tagline) + '</div>' +
+            '<div class="cover-sub">' + esc(d.cover_sub) + '</div>' +
+            '</div><div class="cover-url">claudewill.io</div></div>';
+        case 'problem':
+          return '<div class="slide ' + t + ' s-problem"><div class="slide-inner">' +
+            '<h2>' + nl2br(d.problem_headline) + '</h2>' +
+            '<p class="problem-context">' + esc(d.problem_context) + '</p>' +
+            '<ul class="problem-list">' +
+            '<li>Built custom tools. Zero adoption.</li>' +
+            '<li>Bought enterprise licenses. Nobody logs in.</li>' +
+            '<li>Published an AI policy. Nobody read it.</li>' +
+            '<li>Did presentations. Sent surveys. Nothing changed.</li></ul>' +
+            '<p class="problem-kicker">' + esc(d.problem_kicker) + '</p>' +
+            '</div></div>';
+        case 'standard':
+          return '<div class="slide ' + t + ' s-standard"><div class="slide-inner">' +
+            '<h2>The standard that works</h2>' +
+            '<ul class="principles">' +
+            '<li><strong>People over systems.</strong> Your team isn\u2019t the obstacle. They\u2019re the reason any of this matters.</li>' +
+            '<li><strong>Truth over comfort.</strong> If the tool doesn\u2019t fit, I\u2019ll say so. If the strategy is wrong, you\u2019ll hear it.</li>' +
+            '<li><strong>Usefulness over purity.</strong> It doesn\u2019t have to be elegant. It has to work on Monday morning.</li>' +
+            '<li><strong>Transparency over reputation.</strong> You see everything I build. No black boxes. No proprietary mystery.</li>' +
+            '<li><strong>Agency over ideology.</strong> Your organization decides what AI does here. Not the vendor. Not the hype cycle.</li>' +
+            '</ul></div></div>';
+        case 'method':
+          return '<div class="slide ' + t + ' s-method"><div class="slide-inner">' +
+            '<h2>How we work</h2>' +
+            '<p class="method-intro">' + esc(d.method_intro) + '</p>' +
+            '<div class="method-phases">' +
+            '<div class="method-phase"><h3>build</h3><p>I sit with you and your team and we build the thing together \u2014 AI workflows, decision frameworks, the daily practice. You watch the working relationship happen in real time, then you build your own.</p></div>' +
+            '<div class="method-phase"><h3>transfer</h3><p>The system becomes yours. Not documentation nobody reads \u2014 a working practice your team actually runs. The goal is a team that needs less of me every week.</p></div>' +
+            '<div class="method-phase"><h3>exit</h3><p>Leave. A good consultant builds capacity, not dependency. If the work only works when I\u2019m in the room, it doesn\u2019t work.</p></div></div>' +
+            '<div class="method-closer"><strong>' + esc(d.method_closer) + '</strong><br>Timeline: A day, a month, a quarter. Billing: Retainer or project-based.</div>' +
+            '</div></div>';
+        case 'proof':
+          return '<div class="slide ' + t + ' s-proof"><div class="slide-inner">' +
+            '<h2>The proof</h2>' +
+            '<p class="proof-quotes">\u201CThank god you\u2019re a team player, Derek.\u201D \u00B7 \u201CYou make us feel less crazy.\u201D</p>' +
+            '<p class="proof-intro">Hired for a one-month organizational audit. Six months later, we\u2019d outgrown every scope.</p>' +
+            '<table><thead><tr><th>Line item</th><th>Amount</th></tr></thead><tbody>' +
+            '<tr><td>Contract savings (vendor negotiation)</td><td>$18,000</td></tr>' +
+            '<tr><td>New revenue launched (Q1, on pace)</td><td>$14,000</td></tr>' +
+            '<tr><td>Costs avoided (UX, PM, art direction, platform strategy)</td><td>$30,000+</td></tr>' +
+            '<tr><td>Recurring annual platform savings</td><td>$7,000\u2013$18,000</td></tr>' +
+            '<tr><td>Strategic decisions supported</td><td>19</td></tr>' +
+            '<tr><td>Written deliverables produced</td><td>14</td></tr>' +
+            '<tr class="proof-total"><td>Total financial return (Q1)</td><td>$62,000+</td></tr>' +
+            '<tr class="proof-inv"><td>Q1 investment</td><td>$30,000</td></tr>' +
+            '</tbody></table>' +
+            '<div class="proof-bottom">Month one ROI: <strong>250\u2013450%</strong>. Every phase earned the next. <strong>The math isn\u2019t close.</strong></div>' +
+            '</div></div>';
+        case 'derek':
+          return '<div class="slide ' + t + ' s-derek"><div class="slide-inner">' +
+            '<h2>Derek Simmons</h2>' +
+            '<p class="derek-bio">' + esc(d.derek_bio) + '</p>' +
+            '<p class="derek-pitch">' + esc(d.derek_pitch) + '</p>' +
+            '<div class="who-stats">' +
+            '<div class="who-stat"><div class="number">30</div><div class="label">years in media</div></div>' +
+            '<div class="who-stat"><div class="number">$20M+</div><div class="label">revenue generated</div></div>' +
+            '<div class="who-stat"><div class="number">4</div><div class="label">Pulitzer Prize teams</div></div>' +
+            '<div class="who-stat"><div class="number">2,000+</div><div class="label">AI working sessions</div></div></div>' +
+            '<blockquote class="who-quote">\u201CA forceful agent for change. Congenial, smart, diplomatic but also inspiring.\u201D</blockquote>' +
+            '</div></div>';
+        case 'engage':
+          return '<div class="slide ' + t + ' s-engage"><div class="slide-inner">' +
+            '<h2>Two ways in</h2><div class="models">' +
+            '<div class="model-card"><div class="model-type">Fractional Leadership</div>' +
+            '<h3>Embedded strategy + AI integration</h3>' +
+            '<p>I become part of your team. 10\u201320 hours per week. Retainer. Derek and Claude working inside your organization.</p></div>' +
+            '<div class="model-card"><div class="model-type">Training + Speaking</div>' +
+            '<h3>' + esc(d.engage_h3) + '</h3>' +
+            '<p>' + esc(d.engage_p) + '</p></div></div>' +
+            '<p class="models-footer">Both start the same way: a conversation about where you are and where you want to be.</p>' +
+            '</div></div>';
+        case 'cta':
+          return '<div class="slide ' + t + ' s-cta"><div class="slide-inner" style="text-align:center">' +
+            '<div class="cta-mark">*</div>' +
+            '<h2>' + esc(d.cta_headline) + '</h2>' +
+            '<ul class="cta-links">' +
+            '<li class="cta-url">claudewill.io/kitchen</li>' +
+            '<li class="cta-url">claudewill.io/work-with-me</li>' +
+            '<li class="cta-email">derek@claudewill.io</li>' +
+            '</ul></div></div>';
+      }
+      return '';
+    }
+
+    // ── DOM Refs ───────────────────────────
+    var slideListEl = document.getElementById('slideList');
+    var editFieldsEl = document.getElementById('editFields');
+    var previewEl = document.getElementById('previewContainer');
+    var labelEl = document.getElementById('previewLabel');
+    var printEl = document.getElementById('printDeck');
+
+    // ── Build Slide List ──────────────────
+    function buildList() {
+      while (slideListEl.firstChild) slideListEl.removeChild(slideListEl.firstChild);
+      SLIDES.forEach(function(s, i) {
+        var btn = document.createElement('button');
+        btn.className = 'slide-item' + (i === state.current ? ' active' : '');
+        var num = document.createElement('span');
+        num.className = 'slide-num';
+        num.textContent = String(i + 1).padStart(2, '0');
+        var dot = document.createElement('span');
+        dot.className = 'slide-dot ' + s.theme;
+        var name = document.createElement('span');
+        name.textContent = s.label;
+        btn.appendChild(num);
+        btn.appendChild(dot);
+        btn.appendChild(name);
+        btn.addEventListener('click', function() { select(i); });
+        slideListEl.appendChild(btn);
+      });
+    }
+
+    // ── Build Edit Fields ─────────────────
+    function buildFields() {
+      while (editFieldsEl.firstChild) editFieldsEl.removeChild(editFieldsEl.firstChild);
+      var s = SLIDES[state.current];
+      if (s.fields.length === 0) {
+        var note = document.createElement('div');
+        note.style.cssText = 'font-size:11px;color:var(--dim);padding:8px 0;';
+        note.textContent = 'This slide has fixed content.';
+        editFieldsEl.appendChild(note);
+        return;
+      }
+      s.fields.forEach(function(f) {
+        var group = document.createElement('div');
+        group.className = 'field-group';
+        var label = document.createElement('label');
+        label.textContent = f.label;
+        group.appendChild(label);
+        var input;
+        if (f.type === 'textarea') {
+          input = document.createElement('textarea');
+          input.rows = 3;
+        } else {
+          input = document.createElement('input');
+          input.type = 'text';
+        }
+        input.value = state.data[f.key] || '';
+        input.addEventListener('input', function() {
+          state.data[f.key] = input.value;
+          renderPreview();
+        });
+        group.appendChild(input);
+        editFieldsEl.appendChild(group);
+      });
+    }
+
+    // ── Select Slide ──────────────────────
+    function select(i) {
+      state.current = i;
+      buildList();
+      buildFields();
+      renderPreview();
+      updateMobileNav();
+    }
+
+    // ── Render Preview ────────────────────
+    function renderPreview() {
+      var s = SLIDES[state.current];
+      previewEl.textContent = '';
+      var temp = document.createElement('div');
+      temp.innerHTML = slideHTML(state.current, state.data);
+      if (temp.firstChild) previewEl.appendChild(temp.firstChild);
+      labelEl.textContent = String(state.current + 1).padStart(2, '0') + ' \u00B7 ' + s.label.toLowerCase();
+    }
+
+    // ── Render Print Deck ─────────────────
+    function renderPrint() {
+      printEl.textContent = '';
+      SLIDES.forEach(function(s, i) {
+        var wrapper = document.createElement('div');
+        wrapper.className = 'print-slide t-' + s.theme;
+        var inner = document.createElement('div');
+        inner.className = 'ps-inner';
+        inner.innerHTML = slideHTML(i, state.data);
+        // Extract children from the rendered slide
+        var rendered = inner.querySelector('.slide');
+        if (rendered) {
+          while (rendered.firstChild) wrapper.appendChild(rendered.firstChild);
+        }
+        printEl.appendChild(wrapper);
+      });
+    }
+
+    // ── Presets ────────────────────────────
+    document.querySelectorAll('.preset-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.preset-btn').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        state.preset = btn.dataset.preset;
+        state.data = JSON.parse(JSON.stringify(PRESETS[state.preset]));
+        buildFields();
+        renderPreview();
+      });
+    });
+
+    // ── Export Full Deck ──────────────────
+    document.getElementById('exportDeck').addEventListener('click', function() {
+      renderPrint();
+      setTimeout(function() { window.print(); }, 100);
+    });
+
+    // ── Export Slide PNG ──────────────────
+    document.getElementById('exportSlide').addEventListener('click', function() {
+      var el = previewEl.querySelector('.slide');
+      if (!el) return;
+      var btn = document.getElementById('exportSlide');
+      var orig = btn.textContent;
+      btn.textContent = 'Rendering...';
+      html2canvas(el, { scale: 2, backgroundColor: null, useCORS: true }).then(function(canvas) {
+        var a = document.createElement('a');
+        a.download = 'cw-pitch-' + String(state.current + 1).padStart(2, '0') + '-' + SLIDES[state.current].id + '.png';
+        a.href = canvas.toDataURL('image/png');
+        a.click();
+        btn.textContent = orig;
+      }).catch(function() { btn.textContent = orig; });
+    });
+
+    // ── Keyboard Nav ──────────────────────
+    document.addEventListener('keydown', function(e) {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+        e.preventDefault();
+        select(Math.min(state.current + 1, SLIDES.length - 1));
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        select(Math.max(state.current - 1, 0));
+      }
+    });
+
+    // ── Mobile: activate .mobile-active class on current slide ────
+    function updateMobileSlide() {
+      var slides = previewEl.querySelectorAll('.slide');
+      slides.forEach(function(sl, i) {
+        sl.classList.toggle('mobile-active', i === 0);
+      });
+      // Since preview only renders one slide at a time, the single slide is always active
+      var sl = previewEl.querySelector('.slide');
+      if (sl) sl.classList.add('mobile-active');
+    }
+
+    // ── Mobile Nav Buttons ────────────────
+    var mobilePrevBtn = document.getElementById('mobilePrev');
+    var mobileNextBtn = document.getElementById('mobileNext');
+    var mobileCounterEl = document.getElementById('mobileCounter');
+    var mobileNavEl = document.getElementById('mobileNav');
+
+    function updateMobileNav() {
+      if (!mobileNavEl) return;
+      mobileCounterEl.textContent = (state.current + 1) + ' / ' + SLIDES.length;
+      mobilePrevBtn.disabled = state.current === 0;
+      mobileNextBtn.disabled = state.current === SLIDES.length - 1;
+      updateMobileSlide();
+    }
+
+    // Show mobile nav on small screens
+    function checkMobile() {
+      if (window.innerWidth <= 600) {
+        mobileNavEl.style.display = 'flex';
+      } else {
+        mobileNavEl.style.display = 'none';
+      }
+    }
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    mobilePrevBtn.addEventListener('click', function() {
+      if (state.current > 0) select(state.current - 1);
+    });
+    mobileNextBtn.addEventListener('click', function() {
+      if (state.current < SLIDES.length - 1) select(state.current + 1);
+    });
+
+    // ── Touch Swipe on Preview Container ─────────────────────────
+    var touchStartX = 0;
+    var touchStartY = 0;
+
+    previewEl.addEventListener('touchstart', function(e) {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    previewEl.addEventListener('touchend', function(e) {
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      var dy = e.changedTouches[0].clientY - touchStartY;
+      // Only treat as horizontal swipe if horizontal delta dominates and is significant
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+        if (dx < 0 && state.current < SLIDES.length - 1) {
+          select(state.current + 1);
+        } else if (dx > 0 && state.current > 0) {
+          select(state.current - 1);
+        }
+      }
+    }, { passive: true });
+
+    // ── Init ──────────────────────────────
+    buildList();
+    buildFields();
+    renderPreview();
+    updateMobileNav();
+  </script>
+</body>
+</html>
