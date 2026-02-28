@@ -2,8 +2,8 @@
   "pages": [
     {
       "path": "/",
-      "title": "the porch",
-      "description": "The homepage — three screens: porch light asterisk + claudewill wordmark + intro + typewriter, the builder (Derek's credentials + CTAs to the study and workshop), and the CW Standard.",
+      "title": "home",
+      "description": "The homepage — three screens: porch light asterisk + claudewill wordmark + intro + typewriter, the builder (Derek's credentials + CTAs to derek and workshop), and the CW Standard.",
       "cw": "This is the porch. Where we're talking right now."
     },
     {
@@ -14,19 +14,19 @@
     },
     {
       "path": "/kitchen",
-      "title": "the kitchen",
+      "title": "kitchen",
       "description": "How one person runs a consulting practice with AI. Overnight agents, the crew, the board, the stack, the method. Updated daily at 5 AM.",
       "cw": "The Kitchen at claudewill.io/kitchen shows how the whole system works — the agents, the crew, the stack, the method."
     },
     {
       "path": "/derek",
-      "title": "the study",
+      "title": "derek",
       "description": "Derek's personal page. Bio, the 14-month story, the naming story, writing, and contact form.",
       "cw": "Everything about Derek — his story, what he's writing, how to reach him — is at claudewill.io/derek."
     },
     {
       "path": "/workshop",
-      "title": "the workshop",
+      "title": "workshop",
       "description": "AI strategy consulting. Full-screen slide deck: problem, standard, method, proof, engagement models, assessment form. The conversion page.",
       "cw": "If you're interested in working with Derek, head to claudewill.io/workshop. That's where the conversation starts."
     },
@@ -95,6 +95,8 @@
     { "from": "/library", "to": "/derek", "note": "Writing links on /derek" },
     { "from": "/derek/assessment", "to": "/workshop", "note": "Form lives on /workshop#start" },
     { "from": "/intake", "to": "/workshop", "note": "Form lives on /workshop#start" },
+    { "from": "/porch", "to": "/", "note": "Porch is the homepage" },
+    { "from": "/the-porch", "to": "/", "note": "Porch is the homepage" },
     { "from": "/the-cw-standard", "to": "/story", "note": "Standard lives on /story" },
     { "from": "/derek/research", "to": "/being-claude", "note": "Research moved to /being-claude" },
     { "from": "/derek/research/warm-up-effect", "to": "/being-claude/warm-up-effect", "note": "Article moved" },

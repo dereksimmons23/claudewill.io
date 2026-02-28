@@ -76,7 +76,7 @@
 
     var title = document.createElement('div');
     title.className = 'porch-panel-title';
-    title.textContent = kitchenConfig ? "the kitchen" : "cw's porch";
+    title.textContent = kitchenConfig ? "kitchen" : "cw's porch";
 
     var closeBtn = document.createElement('button');
     closeBtn.className = 'porch-panel-close';
