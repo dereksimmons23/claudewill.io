@@ -199,6 +199,8 @@
   margin-bottom: 2rem;
 }
 
+.d-weight-delta.delta-gain { color: var(--red); }
+
 /* ── TUI sections (details/summary) ──────────────── */
 
 .tui-section { border-top: 1px solid var(--border); }
@@ -431,6 +433,12 @@
   padding: 1rem 0;
   border-top: 1px solid var(--border);
   text-align: center;
+  animation: fragment-in 1.2s ease-out;
+}
+
+@keyframes fragment-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .d-hero-fragment-type {
@@ -579,6 +587,7 @@
 @media (prefers-reduced-motion: reduce) {
   .d-progress-fill { transition: none; }
   .d-title::after { animation: none; opacity: 0; }
+  .d-hero-fragment { animation: none; }
 }
 
 /* ── Print ───────────────────────────────────────── */

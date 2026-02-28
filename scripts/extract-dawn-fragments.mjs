@@ -51,7 +51,8 @@ function readFile(filepath) {
 
 function trimContent(text, maxLen) {
   if (!text) return ''
-  var trimmed = text.trim()
+  // Strip markdown artifacts
+  var trimmed = text.replace(/\*\*/g, '').replace(/^[_\s]+/, '').trim()
   if (maxLen && trimmed.length > maxLen) {
     return trimmed.substring(0, maxLen)
   }
@@ -698,12 +699,24 @@ async function main() {
   console.log('  Extracted: ' + yearFragments.length + ' fragments')
 
   // Combine all
-  var allFragments = []
+  var combined = []
     .concat(patternsFragments)
     .concat(hopeChestFragments)
     .concat(dailyMasterFragments)
     .concat(rawFragments)
     .concat(yearFragments)
+
+  // Deduplicate by content + type
+  var seen = {}
+  var allFragments = []
+  for (var di = 0; di < combined.length; di++) {
+    var key = combined[di].type + '::' + combined[di].content
+    if (!seen[key]) {
+      seen[key] = true
+      allFragments.push(combined[di])
+    }
+  }
+  var dupeCount = combined.length - allFragments.length
 
   // ── Summary ─────────────────────────────────────
   console.log('\n\n== SUMMARY ==')
@@ -712,6 +725,7 @@ async function main() {
   console.log('C (daily-master):          ' + dailyMasterFragments.length)
   console.log('D (raw journals):          ' + rawFragments.length)
   console.log('Year summaries:            ' + yearFragments.length)
+  console.log('Duplicates removed:        ' + dupeCount)
   console.log('-----------------------------')
   console.log('TOTAL:                     ' + allFragments.length)
 

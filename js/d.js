@@ -62,10 +62,20 @@
 
   // ── Section builder ────────────────────────────────
 
+  var SECTION_KEY = 'd-sections';
+
+  function getSectionState() {
+    try { return JSON.parse(localStorage.getItem(SECTION_KEY) || '{}'); } catch (e) { return {}; }
+  }
+
   function section(label, rightText, isOpen) {
     var details = document.createElement('details');
     details.className = 'tui-section';
-    if (isOpen) details.setAttribute('open', '');
+
+    // Restore saved state, or use default
+    var saved = getSectionState();
+    var open = saved.hasOwnProperty(label) ? saved[label] : isOpen;
+    if (open) details.setAttribute('open', '');
 
     var summary = document.createElement('summary');
     summary.appendChild(document.createTextNode(label));
@@ -76,6 +86,13 @@
     }
 
     details.appendChild(summary);
+
+    // Persist open/close on toggle
+    details.addEventListener('toggle', function () {
+      var state = getSectionState();
+      state[label] = details.open;
+      try { localStorage.setItem(SECTION_KEY, JSON.stringify(state)); } catch (e) { /* */ }
+    });
 
     var body = el('div', 'section-body');
     details.appendChild(body);
@@ -229,7 +246,9 @@
       weightRow.appendChild(el('span', 'd-weight-current', currentWeight.toFixed(1)));
       container.appendChild(weightRow);
 
-      var deltaDiv = el('div', 'd-weight-delta', delta.toFixed(1) + ' lb');
+      var arrow = delta <= 0 ? '\u2193 ' : '\u2191 ';
+      var deltaDiv = el('div', 'd-weight-delta', arrow + delta.toFixed(1) + ' lb');
+      if (delta > 0) deltaDiv.classList.add('delta-gain');
       container.appendChild(deltaDiv);
     }
 
