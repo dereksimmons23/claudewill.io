@@ -260,25 +260,62 @@
       margin-bottom: 1.25rem;
     }
 
-    .practice-step {
-      margin-bottom: 2rem;
+    .two-doors {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
     }
 
-    .practice-step-name {
-      font-weight: 600;
-      font-size: 0.9rem;
-      margin-bottom: 0.25rem;
+    .door {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.5rem;
     }
 
-    .practice-step-num {
+    .door-label {
+      font-size: 0.7rem;
       color: var(--accent);
-      margin-right: 0.25rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
     }
 
-    .practice-step p {
-      color: var(--dim);
+    .door h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .door-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .door p {
       font-size: 0.9rem;
+      color: var(--dim);
       line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .door-cta {
+      font-size: 0.85rem;
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    .door-cta:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .two-doors {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ── Proof ──────────────────────────── */
@@ -461,26 +498,28 @@
       <div class="practice-intro">
         <p>Everyone is building AI tools. Nobody is building the values layer that tells the tools how to behave.</p>
         <p>Anthropic has a constitution for Claude. OpenAI has usage policies. Every organization deploying AI has nothing. No principles wired into the infrastructure. No standard the machine actually enforces. Just policies in a shared drive and hope.</p>
-        <p>The Standard is the proof that it can be done. One person built it with $100/month and five principles from a farmer. The principles existed first. The infrastructure proved they could be operational. The result: one person running a consulting practice, a research publication, a daily health system, a book, and a dozen products — all governed by five rules a man with a sixth-grade education would have understood.</p>
+        <p>The Standard is the proof that it can be done. One person built it with $100/month and five principles from a farmer. The result: a consulting practice, a research publication, a daily health system, a book, and a dozen products — all governed by five rules a man with a sixth-grade education would have understood.</p>
       </div>
 
-      <div class="practice-step">
-        <div class="practice-step-name"><span class="practice-step-num">1.</span> Define your principles.</div>
-        <p>Not corporate values. Not aspirational statements. What you'd actually do when the system fails and nobody is watching. If you can't wire it into infrastructure, it's not a principle. It's a poster.</p>
-      </div>
-
-      <div class="practice-step">
-        <div class="practice-step-name"><span class="practice-step-num">2.</span> Build infrastructure that enforces them.</div>
-        <p>Every principle maps to a system behavior. If you say "transparency" but your AI operates in a black box, you don't have a principle. You have a word. Truth over comfort means anti-sycophancy in the code. People over systems means the permission gate trusts the human.</p>
-      </div>
-
-      <div class="practice-step">
-        <div class="practice-step-name"><span class="practice-step-num">3.</span> Run it.</div>
-        <p>A standard isn't a document. It's a daily practice. Morning standup, the work, end of day. Repeat. The standard holds because it runs every day, not because someone wrote it down.</p>
+      <div class="two-doors">
+        <div class="door">
+          <div class="door-label">self-serve</div>
+          <h3>The Playbook</h3>
+          <div class="door-price">$5,000</div>
+          <p>The full documentation. Principles, infrastructure patterns, session architecture, memory system, permission model. Everything we built, written so your team can build their own.</p>
+          <a href="/workshop#start" class="door-cta">Start the conversation &rarr;</a>
+        </div>
+        <div class="door">
+          <div class="door-label">full engagement</div>
+          <h3>The Engagement</h3>
+          <div class="door-price">$20K/month</div>
+          <p>We build it with you. Four months. Derek and Claude embedded in your organization — designing principles, building infrastructure, transferring the practice. You watch it work, then you run it.</p>
+          <a href="/workshop#start" class="door-cta">Start the conversation &rarr;</a>
+        </div>
       </div>
 
       <div class="proof">
-        <p>The <a href="/kitchen">Kitchen</a> shows the system running in public. <a href="/being-claude">Being Claude</a> documents what the machine experiences from inside. The <a href="/workshop">Workshop</a> is where organizations start building their own.</p>
+        <p>The <a href="/kitchen">Kitchen</a> shows the system running in public. <a href="/being-claude">Being Claude</a> documents what the machine experiences from inside. First engagement ROI: <a href="/workshop">250&ndash;450%</a>.</p>
       </div>
 
       <div class="separator">*</div>
