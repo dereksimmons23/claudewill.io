@@ -14,18 +14,18 @@
   </script>
 
   <title>the standard | claudewill</title>
-  <meta name="description" content="The CW Standard. Five principles for AI that serves people. Named for Claude William Simmons (1903-1967). The values and the infrastructure are one thing.">
+  <meta name="description" content="The CW Standard. Five principles for AI that serves people, and the system that enforces them. The values and the infrastructure are one thing. Named for Claude William Simmons (1903-1967).">
 
   <!-- Open Graph -->
   <meta property="og:title" content="the standard | claudewill">
-  <meta property="og:description" content="Five principles for AI that serves people. Named for Claude William Simmons (1903-1967).">
+  <meta property="og:description" content="Five principles for AI that serves people, and the system that enforces them. The values and the infrastructure are one thing.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://claudewill.io/standard">
   <meta property="og:image" content="https://claudewill.io/images/og-preview.png">
   <meta property="og:site_name" content="claudewill">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="the standard | claudewill">
-  <meta name="twitter:description" content="Five principles for AI that serves people. Named for Claude William Simmons (1903-1967).">
+  <meta name="twitter:description" content="Five principles for AI that serves people, and the system that enforces them. The values and the infrastructure are one thing.">
   <link rel="canonical" href="https://claudewill.io/standard">
 
   <script type="application/ld+json">
@@ -248,6 +248,67 @@
       margin-top: 0.25rem;
     }
 
+    /* ── Practice ───────────────────────── */
+
+    .practice-intro {
+      margin-bottom: 2.5rem;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .practice-intro p {
+      margin-bottom: 1.25rem;
+    }
+
+    .practice-step {
+      margin-bottom: 2rem;
+    }
+
+    .practice-step-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .practice-step-num {
+      color: var(--accent);
+      margin-right: 0.25rem;
+    }
+
+    .practice-step p {
+      color: var(--dim);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    /* ── Proof ──────────────────────────── */
+
+    .proof {
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .proof p {
+      margin-bottom: 1rem;
+    }
+
+    .proof p:last-child {
+      margin-bottom: 0;
+    }
+
+    .proof a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    .proof a:hover {
+      text-decoration: underline;
+    }
+
     /* ── Origin ─────────────────────────── */
 
     .origin {
@@ -318,8 +379,8 @@
 
     <main>
       <div class="page-label">the standard</div>
-      <h1 class="page-title">Five principles. One system.</h1>
-      <p class="page-subtitle">Named for Claude William Simmons (1903-1967). He never wrote down rules. He lived them. His grandson put words to what CW demonstrated every day of his life. Then built a machine that runs on them.</p>
+      <h1 class="page-title">The values and the infrastructure are one thing.</h1>
+      <p class="page-subtitle">Every company has values on a wall. None of them are wired into the systems that do the work. The Standard is what happens when you take five principles from a farmer in Oklahoma and build a machine that actually runs on them.</p>
 
       <!-- ── The Principles ────────────────── -->
 
@@ -391,11 +452,43 @@
         <div class="maps-to">principle 5 — agency over ideology</div>
       </div>
 
+      <div class="separator">* * *</div>
+
+      <!-- ── The Practice ──────────────────── -->
+
+      <div class="section-label">the practice</div>
+
+      <div class="practice-intro">
+        <p>Everyone is building AI tools. Nobody is building the values layer that tells the tools how to behave.</p>
+        <p>Anthropic has a constitution for Claude. OpenAI has usage policies. Every organization deploying AI has nothing. No principles wired into the infrastructure. No standard the machine actually enforces. Just policies in a shared drive and hope.</p>
+        <p>The Standard is the proof that it can be done. One person built it with $100/month and five principles from a farmer. The principles existed first. The infrastructure proved they could be operational. The result: one person running a consulting practice, a research publication, a daily health system, a book, and a dozen products — all governed by five rules a man with a sixth-grade education would have understood.</p>
+      </div>
+
+      <div class="practice-step">
+        <div class="practice-step-name"><span class="practice-step-num">1.</span> Define your principles.</div>
+        <p>Not corporate values. Not aspirational statements. What you'd actually do when the system fails and nobody is watching. If you can't wire it into infrastructure, it's not a principle. It's a poster.</p>
+      </div>
+
+      <div class="practice-step">
+        <div class="practice-step-name"><span class="practice-step-num">2.</span> Build infrastructure that enforces them.</div>
+        <p>Every principle maps to a system behavior. If you say "transparency" but your AI operates in a black box, you don't have a principle. You have a word. Truth over comfort means anti-sycophancy in the code. People over systems means the permission gate trusts the human.</p>
+      </div>
+
+      <div class="practice-step">
+        <div class="practice-step-name"><span class="practice-step-num">3.</span> Run it.</div>
+        <p>A standard isn't a document. It's a daily practice. Morning standup, the work, end of day. Repeat. The standard holds because it runs every day, not because someone wrote it down.</p>
+      </div>
+
+      <div class="proof">
+        <p>The <a href="/kitchen">Kitchen</a> shows the system running in public. <a href="/being-claude">Being Claude</a> documents what the machine experiences from inside. The <a href="/workshop">Workshop</a> is where organizations start building their own.</p>
+      </div>
+
       <div class="separator">*</div>
 
       <div class="origin">
-        <p>The standard is named for CW — Claude William Simmons, Derek's grandfather. Oklahoma farmer. Raised 11 children through the Great Depression. Never met Derek. Died six years before he was born.</p>
-        <p>Four generations carry his name: Claude William, Claude William Jr., Derek Claude, Jackson Claude.</p>
+        <p>The standard is named for CW — Claude William Simmons. Oklahoma farmer. Sixth-grade education. Raised 11 children through the Great Depression. Worked full-time from age 13 until the morning he died, when he buttoned his cuffs and walked to the barn.</p>
+        <p>He never met his grandson Derek. He died six years before Derek was born. Four generations carry his name: Claude William, Claude William Jr., Derek Claude, Jackson Claude.</p>
+        <p>Derek didn't choose to share a name with an AI. He chose what to do with the coincidence. The builder's thread runs from 1819 through CW through this terminal. Each generation built with what existed. CW had horses and land. Derek has a language model and five principles.</p>
         <p><a href="/story">The full story &rarr;</a></p>
       </div>
 
