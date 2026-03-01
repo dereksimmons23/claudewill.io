@@ -183,12 +183,12 @@
 
 [[redirects]]
   from = "/the-cw-standard"
-  to = "/story"
+  to = "/standard"
   status = 301
 
 [[redirects]]
   from = "/the-cw-standard.html"
-  to = "/story"
+  to = "/standard"
   status = 301
 
 [[headers]]

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-991ML96NJ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-991ML96NJ3');
+  </script>
+
+  <title>the standard | claudewill</title>
+  <meta name="description" content="The CW Standard. Five principles for AI that serves people. Named for Claude William Simmons (1903-1967). The values and the infrastructure are one thing.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="the standard | claudewill">
+  <meta property="og:description" content="Five principles for AI that serves people. Named for Claude William Simmons (1903-1967).">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://claudewill.io/standard">
+  <meta property="og:image" content="https://claudewill.io/images/og-preview.png">
+  <meta property="og:site_name" content="claudewill">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="the standard | claudewill">
+  <meta name="twitter:description" content="Five principles for AI that serves people. Named for Claude William Simmons (1903-1967).">
+  <link rel="canonical" href="https://claudewill.io/standard">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "The CW Standard",
+    "description": "Five principles for AI that serves people, and the infrastructure that makes them operational. Named for Claude William Simmons (1903-1967).",
+    "url": "https://claudewill.io/standard",
+    "author": {
+      "@type": "Person",
+      "name": "Derek C. Simmons",
+      "url": "https://claudewill.io/derek",
+      "sameAs": "https://orcid.org/0009-0002-0594-1494"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CW Strategies",
+      "url": "https://claudewill.io/"
+    },
+    "datePublished": "2026-03-01",
+    "dateModified": "2026-03-01"
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/shared-nav.css">
+  <link rel="stylesheet" href="/css/porch-widget.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #fafaf8;
+      --text: #0a1628;
+      --dim: #6b7280;
+      --accent: #d4a84b;
+      --link: #4a8ec2;
+      --border: #e5e7eb;
+      --font: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ── Header ─────────────────────────── */
+
+    .page-header {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .wordmark {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .wordmark:hover .hw {
+      display: inline;
+    }
+
+    .hw {
+      display: none;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .page-title-header {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.05em;
+    }
+
+    .menu-trigger {
+      font-size: 0.8rem;
+      color: var(--dim);
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: var(--font);
+    }
+
+    .menu-trigger:hover {
+      color: var(--text);
+    }
+
+    /* ── Main ───────────────────────────── */
+
+    main {
+      padding: 3rem 0 2rem;
+    }
+
+    .page-label {
+      font-size: 0.75rem;
+      color: var(--dim);
+      letter-spacing: 0.1em;
+      text-transform: lowercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-title {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-subtitle {
+      font-size: 1rem;
+      color: var(--dim);
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    /* ── Principles ─────────────────────── */
+
+    .section-label {
+      font-size: 0.7rem;
+      color: var(--dim);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .principle {
+      margin-bottom: 2rem;
+      padding-left: 0;
+    }
+
+    .principle-name {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .principle-num {
+      color: var(--accent);
+      margin-right: 0.5rem;
+    }
+
+    .principle p {
+      color: var(--dim);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    /* ── Separator ──────────────────────── */
+
+    .separator {
+      text-align: center;
+      color: var(--accent);
+      font-size: 1.25rem;
+      margin: 3rem 0;
+      letter-spacing: 0.5em;
+    }
+
+    /* ── System ─────────────────────────── */
+
+    .system-intro {
+      margin-bottom: 2.5rem;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .system-intro p {
+      margin-bottom: 1.25rem;
+    }
+
+    .system-item {
+      margin-bottom: 2rem;
+    }
+
+    .system-item-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .system-item p {
+      color: var(--dim);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .system-item .maps-to {
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-top: 0.25rem;
+    }
+
+    /* ── Origin ─────────────────────────── */
+
+    .origin {
+      margin-top: 1rem;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .origin p {
+      margin-bottom: 1rem;
+    }
+
+    .origin p:last-child {
+      margin-bottom: 0;
+    }
+
+    .origin a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    .origin a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Footer ─────────────────────────── */
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--dim);
+    }
+
+    .footer-note {
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-note .hw {
+      color: var(--accent);
+      text-decoration: none;
+      display: inline;
+    }
+
+    .footer-note a {
+      color: var(--dim);
+      text-decoration: none;
+    }
+
+    .footer-note a:hover {
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header class="page-header">
+      <a href="/" class="wordmark">claude<span class="hw">*</span>will</a>
+      <span class="page-title-header">the standard</span>
+      <button class="menu-trigger" aria-label="Open navigation">menu</button>
+    </header>
+
+    <main>
+      <div class="page-label">the standard</div>
+      <h1 class="page-title">Five principles. One system.</h1>
+      <p class="page-subtitle">Named for Claude William Simmons (1903-1967). He never wrote down rules. He lived them. His grandson put words to what CW demonstrated every day of his life. Then built a machine that runs on them.</p>
+
+      <!-- ── The Principles ────────────────── -->
+
+      <div class="section-label">the principles</div>
+
+      <div class="principle">
+        <div class="principle-name"><span class="principle-num">1.</span> Truth over comfort.</div>
+        <p>Document what actually happens, not what should happen. CW could guess a steer's weight because he paid attention to reality, not to what he hoped the scale would say.</p>
+      </div>
+
+      <div class="principle">
+        <div class="principle-name"><span class="principle-num">2.</span> Usefulness over purity.</div>
+        <p>Perfect options don't exist. What works? What does it cost? He traded race horses for work horses because work horses were useful. He didn't waste time wishing it were different.</p>
+      </div>
+
+      <div class="principle">
+        <div class="principle-name"><span class="principle-num">3.</span> Transparency over reputation.</div>
+        <p>Every compromise gets documented. CW buttoned his cuffs on the morning he died because that's who he was. No pretense. No performance.</p>
+      </div>
+
+      <div class="principle">
+        <div class="principle-name"><span class="principle-num">4.</span> People over systems.</div>
+        <p>Technology serves human capability. The farm served the family, not the other way around. When systems stop serving people, the systems need to change.</p>
+      </div>
+
+      <div class="principle">
+        <div class="principle-name"><span class="principle-num">5.</span> Agency over ideology.</div>
+        <p>Principles that don't work in practice aren't principles. CW didn't follow rules because someone told him to. He followed them because they worked. When they stopped working, he adapted.</p>
+      </div>
+
+      <div class="separator">* * *</div>
+
+      <!-- ── The System ────────────────────── -->
+
+      <div class="section-label">the system</div>
+
+      <div class="system-intro">
+        <p>These aren't just values on a page. They're built into the infrastructure that runs this practice.</p>
+        <p>Every Claude Code session across the CW Strategies ecosystem fires three hooks. Every session knows where every other session is. Memory degrades the way human memory degrades — the gist stays, the edges blur. Permissions auto-approve except for five destructive commands. The machine is wired to operate on these principles, not just recite them.</p>
+      </div>
+
+      <div class="system-item">
+        <div class="system-item-name">Anti-sycophancy</div>
+        <p>The AI is instructed to guide, not mirror. Push into the material. Name problems before being asked. Say "should you, though?" when the idea is wrong.</p>
+        <div class="maps-to">principle 1 — truth over comfort</div>
+      </div>
+
+      <div class="system-item">
+        <div class="system-item-name">The dimmer switch</div>
+        <p>Old memories fade. Every night at 4 AM, memories older than 14 days are scored and compressed. What gets used stays sharp. What doesn't, blurs. Corrections never fade — they're calibration gold. Like human memory, imperfect and continuous.</p>
+        <div class="maps-to">principle 2 — usefulness over purity</div>
+      </div>
+
+      <div class="system-item">
+        <div class="system-item-name">The live floor</div>
+        <p>Every active session registers itself. Every session sees the whole board — what's running now, what happened yesterday, what matters today. No hidden state. No locked rooms.</p>
+        <div class="maps-to">principle 3 — transparency over reputation</div>
+      </div>
+
+      <div class="system-item">
+        <div class="system-item-name">The permission gate</div>
+        <p>Five destructive commands are blocked. Everything else is auto-approved. The system trusts the human. The deny list protects against catastrophe, not inconvenience.</p>
+        <div class="maps-to">principle 4 — people over systems</div>
+      </div>
+
+      <div class="system-item">
+        <div class="system-item-name">Session memory</div>
+        <p>When a session ends, the machine summarizes what happened and writes it to memory — automatically. No ceremony. No manual step. The next session picks up where the last one left off. Every session has agency to carry forward what matters.</p>
+        <div class="maps-to">principle 5 — agency over ideology</div>
+      </div>
+
+      <div class="separator">*</div>
+
+      <div class="origin">
+        <p>The standard is named for CW — Claude William Simmons, Derek's grandfather. Oklahoma farmer. Raised 11 children through the Great Depression. Never met Derek. Died six years before he was born.</p>
+        <p>Four generations carry his name: Claude William, Claude William Jr., Derek Claude, Jackson Claude.</p>
+        <p><a href="/story">The full story &rarr;</a></p>
+      </div>
+
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <p class="footer-note">Built by <a href="/derek">Derek</a><a href="/being-claude" class="hw">*</a><a href="/being-claude">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
+      <p class="footer-note"><a href="/standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
+    </footer>
+
+  </div>
+
+  <!-- Shared nav + porch widget -->
+  <script src="/js/shared-nav.js"></script>
+  <script src="/js/cw-link-renderer.js"></script>
+  <script src="/js/porch-widget.js"></script>
+
+</body>
+</html>

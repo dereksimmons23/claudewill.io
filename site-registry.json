@@ -7,6 +7,12 @@
       "cw": "This is the porch. Where we're talking right now."
     },
     {
+      "path": "/standard",
+      "title": "The Standard",
+      "description": "The five principles for AI that serves people, and the system that makes them operational. The values and the infrastructure are one thing. Named for Claude William Simmons.",
+      "cw": "The Standard — the five principles and the system — is at claudewill.io/standard."
+    },
+    {
       "path": "/story",
       "title": "The Story",
       "description": "Four chapters: Who Was CW, The Blood of Builders, The CW Standard, and Why This Exists. Family photo included. Not in nav — accessible from porch and footer.",
@@ -115,7 +121,7 @@
     { "from": "/intake", "to": "/workshop", "note": "Form lives on /workshop#start" },
     { "from": "/porch", "to": "/", "note": "Porch is the homepage" },
     { "from": "/the-porch", "to": "/", "note": "Porch is the homepage" },
-    { "from": "/the-cw-standard", "to": "/story", "note": "Standard lives on /story" },
+    { "from": "/the-cw-standard", "to": "/standard", "note": "Standard has its own page now" },
     { "from": "/derek/research", "to": "/being-claude", "note": "Research moved to /being-claude" },
     { "from": "/derek/research/warm-up-effect", "to": "/being-claude/warm-up-effect", "note": "Article moved" },
     { "from": "/derek/research/being-claude", "to": "/being-claude/being-claude", "note": "Article moved" },

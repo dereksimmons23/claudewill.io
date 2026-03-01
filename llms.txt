@@ -25,6 +25,7 @@ claudewill.io is the home of CW Strategies LLC. The site has five rooms:
 - **Workshop** (/workshop) — AI strategy consulting. The method, the proof, engagement models, and assessment form.
 
 Additional pages:
+- /standard — The Standard. The five principles for AI that serves people, and the system that makes them operational. The values and the infrastructure are one thing.
 - /story — The Story of Claude William Simmons. Four chapters, family photo.
 - /derek/resume — Derek's full professional resume.
 - /derek/portfolio — 30 years of visual journalism.

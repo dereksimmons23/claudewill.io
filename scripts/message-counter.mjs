@@ -31,7 +31,7 @@ const PROJECT_NAMES = {
   'CDN-Project': 'CDN',
   'slowly-sideways': 'Slowly Sideways',
   'd-rock': 'D-Rock',
-  'standard-intelligence': 'Standard Intelligence',
+  'the-standard': 'The Standard',
   'apps-coach': 'Coach D',
   'dawn': 'Dawn (old)',
   'apps-boolean': 'Boolean',

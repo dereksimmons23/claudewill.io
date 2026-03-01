@@ -15,7 +15,8 @@
         label: 'home',
         href: '/',
         items: [
-          { name: 'the story', href: '/story' }
+          { name: 'the story', href: '/story' },
+          { name: 'the standard', href: '/standard' }
         ]
       },
       {

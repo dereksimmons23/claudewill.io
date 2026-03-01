@@ -26,7 +26,7 @@ import { createClient } from '@supabase/supabase-js'
 
 var ARCHIVE_DIR = join(process.env.HOME, 'Desktop/apps/dawn/archive')
 var RAW_DIR = join(ARCHIVE_DIR, 'raw')
-var ENV_PATH = join(process.env.HOME, 'Desktop/standard-intelligence/.env')
+var ENV_PATH = join(process.env.HOME, 'Desktop/the-standard/.env')
 var DRY_RUN = process.argv.includes('--dry-run')
 
 // ── Load Supabase credentials ───────────────────────
