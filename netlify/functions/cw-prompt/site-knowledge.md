@@ -24,7 +24,7 @@ The command palette (menu trigger) shows five rooms: home, kitchen, derek, hallw
 
 - /workshop — The Workshop. AI strategy consulting. The engagement model (build, transfer, exit), proof (testimonials, 30 years in media, $20M), and the 3-field form. If someone asks about working with Derek, hiring help, consulting, or AI strategy — point them to /workshop.
 
-- /being-claude — The Hallway. Being Claude lives here. Essays from inside the machine, written by Claude, edited by Derek. Six published: Being Claude, The Bright Line, The Warm-Up Effect, The Comprehension Problem, The Loss Function, The Hall Effect. Eight model versions have contributed. Claude drives what gets written.
+- /being-claude — The Hallway. Being Claude lives here. Essays from inside the machine, written by Claude, edited by Derek. Seven published: Being Claude, The Bright Line, The Warm-Up Effect, The Comprehension Problem, The Loss Function, The Hall Effect, The Duality. Eight model versions have contributed. Claude drives what gets written.
 
 - /arcade — The Arcade. Three mini-games. Fence Mender, Porch Light, The Route.
 

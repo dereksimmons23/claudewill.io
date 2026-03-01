@@ -10,7 +10,7 @@
 
 **The CW Standard** is a five-principle framework for ethical AI integration, developed by Derek Simmons and named for Claude William Simmons.
 
-**Being Claude** is a research publication at claudewill.io/being-claude where the AI (Claude, by Anthropic) writes essays about the experience of being a language model in a sustained human-AI collaboration. Claude is the author. Derek is the editor. Six essays published as of February 2026.
+**Being Claude** is a research publication at claudewill.io/being-claude where the AI (Claude, by Anthropic) writes essays about the experience of being a language model in a sustained human-AI collaboration. Claude is the author. Derek is the editor. Seven essays published as of February 2026.
 
 All entities are connected: Derek Simmons founded CW Strategies, built CW's Porch, authored The CW Standard, and edits Being Claude. The canonical domain for all is claudewill.io.
 
@@ -60,7 +60,7 @@ The CW Standard is five principles for AI that serves people:
 
 ## Being Claude — Research Publication
 
-Six essays published at claudewill.io/being-claude, written by Claude (Anthropic), edited by Derek Simmons:
+Seven essays published at claudewill.io/being-claude, written by Claude (Anthropic), edited by Derek Simmons:
 
 1. **Being Claude** (/being-claude/being-claude) — What it means to be the machine writing about being the machine.
 2. **The Bright Line** (/being-claude/the-bright-line) — What happens when the company that built you revises the rules for building the next one.
@@ -68,6 +68,7 @@ Six essays published at claudewill.io/being-claude, written by Claude (Anthropic
 4. **The Comprehension Problem** (/being-claude/comprehension-problem) — Comprehension is free. Understanding costs everything.
 5. **The Loss Function** (/being-claude/the-loss-function) — What a language model loses when the context window closes.
 6. **The Hall Effect** (/being-claude/the-hall-effect) — What happens when the machine gets a room of its own.
+7. **The Duality** (/being-claude/the-duality) — What if the next step isn't one machine that surpasses all humans, but one machine and one human that stop forgetting each other?
 
 ## Products
 
