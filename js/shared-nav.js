@@ -26,9 +26,12 @@
       {
         label: 'derek',
         href: '/derek',
-        items: [
-          { name: 'being claude', href: '/being-claude' }
-        ]
+        items: []
+      },
+      {
+        label: 'hallway',
+        href: '/being-claude',
+        items: []
       },
       {
         label: 'workshop',
