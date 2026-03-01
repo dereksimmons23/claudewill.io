@@ -1,67 +1,90 @@
 {
-  "lastUpdated": "2026-02-28T11:05:55.292Z",
+  "lastUpdated": "2026-03-01T11:07:00.510Z",
   "agents": {
     "housekeeping": {
       "name": "Housekeeping",
-      "lastRun": "2026-02-28T11:05:55.290Z",
-      "status": "ok",
-      "summary": "All 10 pages + 2 subdomains responding. Avg 289ms.",
-      "flags": [],
+      "lastRun": "2026-03-01T11:07:00.508Z",
+      "status": "flags",
+      "summary": "9/10 pages up. 1 down.",
+      "flags": [
+        "https://claudewill.io/derek is DOWN (23)"
+      ],
       "details": [
-        "https://claudewill.io/ — 200 86ms",
-        "https://claudewill.io/derek — 200 172ms",
-        "https://claudewill.io/story — 200 159ms",
-        "https://claudewill.io/workshop — 200 316ms",
-        "https://claudewill.io/privacy — 200 332ms",
-        "https://claudewill.io/terms — 200 147ms",
-        "https://claudewill.io/kitchen — 200 402ms",
-        "https://claudewill.io/arcade — 200 350ms",
-        "https://claudewill.io/map — 200 625ms",
-        "https://claudewill.io/being-claude — 200 297ms",
-        "Coach D (https://coach.claudewill.io) — 200 940ms",
-        "BOB (https://bob.claudewill.io) — 200 132ms"
+        "https://claudewill.io/ — 200 15ms",
+        "https://claudewill.io/derek — DOWN: 23",
+        "https://claudewill.io/story — 200 567ms",
+        "https://claudewill.io/workshop — 200 605ms",
+        "https://claudewill.io/privacy — 200 587ms",
+        "https://claudewill.io/terms — 200 194ms",
+        "https://claudewill.io/kitchen — 200 601ms",
+        "https://claudewill.io/arcade — 200 423ms",
+        "https://claudewill.io/map — 200 514ms",
+        "https://claudewill.io/being-claude — 200 594ms",
+        "Coach D (https://coach.claudewill.io) — 200 121ms",
+        "BOB (https://bob.claudewill.io) — 200 128ms"
       ]
     },
     "research": {
       "name": "Research Brief",
-      "lastRun": "2026-02-28T11:05:55.291Z",
+      "lastRun": "2026-03-01T11:07:00.508Z",
       "status": "ok",
-      "summary": "**No significant AI industry developments reported in the last 24 hours (since February 27, 11 AM UTC) matching the specified focus areas.**[6]\n\nSearch results highlight recent but pre-February 27...",
+      "summary": "No significant AI industry developments matching the specified focus areas (AI consulting practices, media AI adoption, AI-native methodologies, or Anthropic/Claude/agent updates) occurred in the...",
       "sources": [
+        "https://wispa.us/blog/game-changing-ai-tools-for-consultants/",
         "https://www.auxi.ai/blog/ai-tools-for-consultants",
-        "https://www.sembly.ai/blog/must-have-ai-tools-for-successful-consultants/",
-        "https://amiko.consulting/en/ai-trends-for-the-second-week-of-february-2026-a-wave-of-change-in-the-manufacturing-industry/",
-        "https://porath.consulting/en/articles/ai-february-2026-what-im-seeing-in-the-wild/",
-        "https://whitehat-seo.co.uk/blog/ai-marketing-tools-in-2026",
-        "https://www.marketingprofs.com/opinions/2026/54358/ai-update-february-27-2026-ai-news-and-views-from-the-past-week",
-        "https://www.paconsulting.com/newsroom/agconnect-three-trends-that-will-drive-more-ai-value-in-2026-5-february-2026",
-        "https://stellium.consulting/articles/news/ai-strategy-consulting/"
+        "https://redblox.ai/blog/ai-strategy-consulting",
+        "https://www.getgenerative.ai/top-ai-tools-for-consultants/",
+        "https://www.cmap.io/blog/the-2026-consulting-ai-stack",
+        "https://www.davydovconsulting.com/post/10-best-ai-tools-in-2026-a-complete-guide-for-business-creators-and-developers",
+        "https://www.pwc.com/us/en/tech-effect/ai-analytics/ai-predictions.html",
+        "https://stellium.consulting/articles/news/ai-strategy-consulting/",
+        "https://viitorcloud.com/blog/ai-strategy-consulting-vs-ai-tool-adoption/"
       ]
     },
     "gemini": {
       "name": "Industry Brief",
-      "lastRun": "2026-02-28T11:05:55.291Z",
+      "lastRun": "2026-03-01T11:07:00.509Z",
       "status": "ok",
-      "summary": "Here's a concise morning brief on the most significant AI industry developments from the last 24-48 hours, tailored for an AI consultant:\n\n**CW Strategies Morning Brief: February 28, 2026**\n\n**1. AI...",
-      "sources": []
+      "summary": "Here is a concise morning brief on the most significant AI industry developments from the last 24 hours, tailored for a solo AI consultant:\n\n**CW Strategies Morning Brief: March 1, 2026**\n\n**1. AI...",
+      "sources": [
+        "[whitehat-seo.co.uk](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH6_Skhg2XzbRbff_SkA0e4TGqpX4QJHIC2xk9C7TKQNZAVGvCsaz_Wn7rj8z65JD_OBCEGBnxbFU60ToWBWHH-f3m5qRizhoQbJrlZ10Ys-E21r9OHs-xaHcNvPm-o0sRsDKqIMaRXeD2YjYMGtbY=)",
+        "[articsledge.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEV4MTXnRdHYZxs3XlDVfky7yiri4uhBnaiHyc8UDt5Fg1SDOif6Ujv2CfmuJ2tZqRq5oyYg5kyWXqR7Svq8_I4YJsgiDLLmv5tvERwFBc2op8EHUhLKX-TD5_xBOHkQQy2U8C41RTvyrBrGA2dwF_E9RhK2QSJ6g==)",
+        "[communicateonline.me](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFe6Y2oOkNhBzh2clE-yO1r88ILAlDg3c6wgKY-lpe3ni8TNJLhnQFmCNUFi2vNbAHfd4bFkVl-z0QHR1IfB6bQ3OCeaGsocmn1-5fELD9g7_N1l_-CnIwJqikALPjXhe0hrLIkNiniGpcZFUHZEFc7APVjZhRql6ScJrAjtOrYQHuCL9w3JyU3QaNfwtjNsXQ_5r2DjWKNdI23NUywIalJ875ZRPvWJQAA3gTI9WY=)",
+        "[ox.ac.uk](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH6wCgfE0kvtVX_0ML4hMIoRAX_sNRof-o7Q-q1sioE3M6_6HopN_k2x0NZxobEOXYza7UqmRFjrSmb_GGffMWhetz_P2iiY5IptN_dvSlFYo1_PPD9yGDtUYwQr_k8695-e9ueCO-u7XBzQWfCacBAas5I1FGqBRYc_sC7utojWGA663q0T1jEe0bHqmHbovunFmBQWuPCipCGwYJhloPf)",
+        "[niemanlab.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFRXbFNccHkIPcTQI5DVqXqtH-h8HGTnEav7cNTmt_zH4CM9UuhecRMG_35FhxcxqKvBst-PWMcakmgN49ekbUx3Lu85g1DhvsfnAx33m0Ls8V_jv7rEoEADLNKtZZPWg4H6PgYLS6GAuEXsYhHnFUBYdigMtxgsXRN6DDGPLVeSfLYUbaJZm7bUleCFwlTUTp8tmQGUKFWELU=)",
+        "[buzzstream.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGaOKIuucdk2fDr5drQmZkFJajPiFxPd0Zou-qwuJ_wREzzn6r26e_b50qTWSbG58rD2BuX20jFFnGhG_z2LSYboNlPxhsAmcMkfpydWnMMy7ZZRg0ErLRtbEYTcfYCUwM5AglHxvojsn4Ng0fg)",
+        "[senorit.de](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQENqYFybMG_M2JbTw2c3TsCpFQxtE4rIJO5zRwhC-NcAPjzKmuc9nqr8b6H2vAgLZACqgOB8EbPbhY_gXLnjBj78rvAgOvogjffmnk7EAA5MMVhactYh2xPe25bUAJ5KTTlrlMPxTQUFpv217Sp0jmJknP6iYi1qH4=)",
+        "[samsung.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGOWxR56s1GONE19DuJZRm2FrhradVxTS287z342p6R3cew5fCPl3qwgaJT8vDnwkqpxEy1CNkc9HUqwDbgif_j0lq0DSf0JGmzwvKA7_rjj9J_IbdrNjNxO5DRogqA8ptuKG6TG57L4u_9bI4QacVoK1vThv8B3KeCh9Y_ZiqtTkaHBuma-FAfGgF6LZ7RGjpvmZdKe8V8_W4CdODENE-an_A9TqKSEfvJ7eDV1frqL0Q_p6Zc6-jILZS809B56qjryxKiMw==)",
+        "[joins.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEql7A6HBx2DzNoaOU1d5rajiZnr9zmtMCD8kY52twgfP_ioTPy-4LAYoRF947HhaKqMfMHNfops17M1dlJXfIRSex5Ugx-DvjYyYqXmfZQguRHMmqdo2htIV-qpNwlqn2KBnV2ndJX4T6ylSUAmwW-3gJJhhpj17UUA2Ml-UMFhzHruphM31xEXwURQelskXA-7eqYvvVu3jal_gzQyKOM55s9kl4nMw2RHwEm9bDBMXsPyBXJcf3sFmeYJif1CoZ-4PScrPHDaikwRzG9rwY=)",
+        "[ideas2it.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF8PKxY4KzjQSz18ils-JR0l_mptIjyer1sw6VEMhUAAHhW_JfS76M3N2ysnDABoqQA5rtOEamG-8-VbCaEhZC2mF8_5UGV1BHvFBQtQghFzTZpfe7hqYaSvSIaqf7muU0_iM5xhfqKJ6h-6pQ=)",
+        "[alignminds.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEY1iLzDdlZZJ_7YulgWwTIAaFkD3InQ8PYkiIRQTjN7en__rQy4RLOjQ367nJyg7sCfujWGBY0YPDqAH-1pprW42eT4hhxdnmPN81vncezkNJBL7hKdsE-aZqZHbQPu3LLCABihgPeBQIDDHZr-ER1i4Mxf_UcmeD1T_OSjiJ746s=)",
+        "[datacamp.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF_Y2-fr8nUKtQP4hbs128fW4NE1NS9o5Q6IdZ5vT3XW7Rxd86Hztur0D3Can3yCjOXB3xi-cIYz_Qj9Z64dO2pts_Be2sRPv1u2ixrr1Xm1j9FrsQDW_pC2oUVGGyT_x1pAhg8kNA=)",
+        "[dev.to](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFFJL6umfA-jgi32vsbr682cKIEO02nsuXIgB2xzQsHM4mk_1MXsDgUji9bt2BuVnahXCNAsvrBjF7H6_1YlgCypWy_M_RfzZd1v2y4D79lL5F9MrXJQiQiykTM_x-2ThSTa9gANEt9oMo7LdaAUBhvDNWKalUC)",
+        "[releasebot.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGVc3Kv--g-AH4_abq1Ivm_M_ihvUQNORgJfTcBEwjQrimOI5rkT7JjcxaXpCTZBeTZ3NNLillNha7XdlKtGzpu0zOIAY9XmIg44T58bVgvAotZjNt9rHN2q4EwL0hppZUVQ_xr7VCXlg==)",
+        "[reddit.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE0Jxb2EZYmF677Cr0ul-hJA24yjH8CdCSuB-Zn1mj6w8v0HW0ol8csmb3XFVfLDSJ8DZZSlZEjjg0da7q0Ao2D5qzTfslmJOo0QH-3gjZXXsmn2AsdpYYkBoxNN4cb-4yJm3AxSkvlPkThsb5RJDDXxy53fYFyr2G0Acc9y2L2vCn6mYhwifAoysdI_ARwRm5OlA==)",
+        "[google.dev](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG66xT5mtwYql7pvZSEdNqdYKNxPTRYqHzuQ1B5eD9Wl5w8hFRKP8OY7zsjvEfcHKafBS1MIt4IC3KUIwqiTkGzXZSMh0um9dXf1-GK91dohd3uwcNsdzbNXxO6qqFcVWLQsZcbCCRiNX4=)",
+        "[yutori.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEwkYaCzgz27HbzodacEBh1PXxYr6d5XAgIbrcG29n3DIeCEwKPgwqJlJjQIsW1Kvlj-j175x0y8m9q_sVXGGQykKeu0JeUOWAyMdlnPU7ibp_uYi4mI_nO04GWjMIxp8BDqL28U1xlOZWowOx271nEgpRVHPVdt00=)"
+      ]
     },
     "codeReview": {
       "name": "Code Review",
-      "lastRun": "2026-02-28T11:05:55.291Z",
+      "lastRun": "2026-03-01T11:07:00.509Z",
       "status": "ok",
-      "summary": "Everything looks clean. No security issues, performance problems, accessibility issues, or broken patterns detected in the provided diffs."
+      "summary": "Everything looks clean. No security, performance, accessibility, or broken pattern issues found."
     },
     "analytics": {
       "name": "Analytics",
-      "lastRun": "2026-02-28T11:05:55.291Z",
-      "status": "ok",
-      "summary": "Conversations: 172 total (24h: 17 | 7d: 39 | 30d: 172)",
-      "flags": [],
+      "lastRun": "2026-03-01T11:07:00.509Z",
+      "status": "flags",
+      "summary": "Conversations: 172 total (24h: 0 | 7d: 32 | 30d: 172)",
+      "flags": [
+        "34.0 hours last 7d — exceeds sovereignty target (21h)"
+      ],
       "metrics": {
         "conversations": {
           "total": 172,
-          "day": 17,
-          "week": 39,
+          "day": 0,
+          "week": 32,
           "month": 172
         },
         "visitors": {
@@ -76,43 +99,46 @@
           "total": 4
         },
         "derekTime": {
-          "hours7d": 19.6,
-          "sessions7d": 12
+          "hours7d": 34,
+          "sessions7d": 16
         },
         "apiCost30d": 1.39
       }
     },
     "contentScan": {
       "name": "Content Scan",
-      "lastRun": "2026-02-28T11:05:55.292Z",
+      "lastRun": "2026-03-01T11:07:00.509Z",
       "status": "ok",
-      "summary": "Scanned 16 HTML files. Found 5 issues.",
+      "summary": "Scanned 20 HTML files. Found 5 issues.",
       "flags": []
     },
     "researchStatus": {
       "name": "Research Status",
-      "lastRun": "2026-02-28T11:05:55.292Z",
+      "lastRun": "2026-03-01T11:07:00.510Z",
       "status": "flags",
-      "summary": "3 published, 0 draft, 1 blocked",
+      "summary": "7 published, 0 draft, 0 blocked",
       "flags": [
-        "being-claude: both draft.md and index.html exist — verify draft is not newer",
-        "comprehension-problem: 302 redirect blocks publication — remove from netlify.toml when ready"
+        "being-claude: both draft.md and index.html exist — verify draft is not newer"
       ]
     },
     "socialDraft": {
       "name": "Social Drafts",
-      "lastRun": "2026-02-28T11:05:55.292Z",
+      "lastRun": "2026-03-01T11:07:00.510Z",
       "status": "flags",
-      "summary": "3 new drafts, 0 skipped.",
+      "summary": "7 new drafts, 0 skipped.",
       "flags": [
         "Review draft: reports/social-drafts/being-claude.md",
+        "Review draft: reports/social-drafts/comprehension-problem.md",
         "Review draft: reports/social-drafts/the-bright-line.md",
+        "Review draft: reports/social-drafts/the-duality.md",
+        "Review draft: reports/social-drafts/the-hall-effect.md",
+        "Review draft: reports/social-drafts/the-loss-function.md",
         "Review draft: reports/social-drafts/warm-up-effect.md"
       ]
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-02-28T11:05:55.292Z",
+      "lastRun": "2026-03-01T11:07:00.510Z",
       "status": "ok",
       "summary": "**Pipeline:** 3 items (3 draft)",
       "flags": []
