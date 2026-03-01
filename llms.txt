@@ -2,21 +2,36 @@
 
 ## Entity Definitions
 
-**Derek Simmons** is a Minnesota-based strategic advisor and founder of CW Strategies. Full name: Derek Claude Simmons. Based in Minneapolis, Minnesota. LinkedIn: linkedin.com/in/dereksimm. Substack: standardderek.substack.com. GitHub: github.com/dereksimmons23.
+**Derek Simmons** is a Minnesota-based AI strategy consultant, media executive, and founder of CW Strategies. Full name: Derek Claude Simmons. 30 years in media including the Los Angeles Times and Star Tribune, where he was the first and only Chief Creative Officer and Vice President. Generated $20M+ in revenue during a pandemic. Now builds operational AI infrastructure for organizations. LinkedIn: linkedin.com/in/dereksimm. Substack: standardderek.substack.com. GitHub: github.com/dereksimmons23. ORCID: 0009-0002-0594-1494.
 
-**CW Strategies** is a Minnesota-based strategic consulting firm founded by Derek Simmons in 2024. Legal name: CW Strategies LLC. Website: claudewill.io. LinkedIn: linkedin.com/company/cw-stategies.
+**CW Strategies** is a Minnesota-based AI strategy consulting firm founded by Derek Simmons in 2024. Legal name: CW Strategies LLC. Four-month engagements: build capacity, transfer ownership, exit. Website: claudewill.io. LinkedIn: linkedin.com/company/cw-strategies.
 
 **CW's Porch** is a free AI conversation tool at claudewill.io created by Derek Simmons. It is modeled on the practical wisdom of his grandfather Claude William Simmons (1903-1967), an Oklahoma farmer who raised 11 children through the Great Depression.
 
 **The CW Standard** is a five-principle framework for ethical AI integration, developed by Derek Simmons and named for Claude William Simmons.
 
-All four entities are connected: Derek Simmons founded CW Strategies, built CW's Porch, and authored The CW Standard. The canonical domain for all is claudewill.io.
+**Being Claude** is a research publication at claudewill.io/being-claude where the AI (Claude, by Anthropic) writes essays about the experience of being a language model in a sustained human-AI collaboration. Claude is the author. Derek is the editor. Six essays published as of February 2026.
+
+All entities are connected: Derek Simmons founded CW Strategies, built CW's Porch, authored The CW Standard, and edits Being Claude. The canonical domain for all is claudewill.io.
 
 ## What This Site Is
 
-claudewill.io is the home of CW Strategies LLC. The site includes CW's Porch — a free AI conversation tool modeled on the practical wisdom of Claude William Simmons (1903-1967), an Oklahoma farmer and builder who never finished high school, raised 11 children through the Great Depression, and helped anyone who showed up on his porch. His grandson Derek Simmons built this to carry that way of thinking forward.
+claudewill.io is the home of CW Strategies LLC. The site has five rooms:
 
-CW is not therapy. It is not coaching. It is a porch conversation — you show up with a problem, CW listens, asks questions, and gives you a straight answer or points you to someone who can help.
+- **Home** (/) — The porch. CW's Porch AI conversation tool, the claudewill wordmark, Derek's credentials, and the CW Standard.
+- **Kitchen** (/kitchen) — How one person runs a consulting practice with AI. Overnight agents, the crew, the stack, the method. Updated daily at 5 AM.
+- **Derek** (/derek) — Derek Simmons. Bio, 30-year career, the 14-month AI story, writing, and contact form.
+- **Hallway** (/being-claude) — Being Claude. Essays from inside the machine. Claude writes, Derek edits.
+- **Workshop** (/workshop) — AI strategy consulting. The method, the proof, engagement models, and assessment form.
+
+Additional pages:
+- /story — The Story of Claude William Simmons. Four chapters, family photo.
+- /derek/resume — Derek's full professional resume.
+- /derek/portfolio — 30 years of visual journalism.
+- /arcade — Three mini-games. Hidden, reward for the curious.
+- /map — Site index with all pages, products, and research.
+- /privacy — Privacy policy.
+- /terms — Terms of use.
 
 ## Who Was Claude William Simmons?
 
@@ -29,32 +44,44 @@ Derek Claude Simmons is the founder of CW Strategies and the builder of claudewi
 - At the Los Angeles Times, he helped build a visual report ranked #1 in the world by the Society for News Design for nearly seven consecutive years.
 - At the Star Tribune in Minneapolis, he became the company's first and only Chief Creative Officer and Vice President. Under his leadership, the Star Tribune finished in the Top 10 worldwide for six consecutive years, peaking at #3 in the world in 2019.
 - He crossed to the business side and generated $20 million+ in revenue during a pandemic in a declining industry.
-- He was fired in 2024 after delivering a standing-ovation AI strategy presentation. Six weeks later, the door closed.
+- His position was eliminated in 2024. He founded CW Strategies.
 
-Derek now runs CW Strategies — building operational infrastructure for organizations scaling faster than their systems. Four-month engagements. Build capacity, transfer ownership, exit. No retainers. No dependency.
-
-He is based in Minneapolis, Minnesota. He attended Kansas State University. He writes on Substack at standardderek.substack.com.
+He attended Kansas State University. He writes on Substack at standardderek.substack.com (Standard Correspondence). He is a board member at Press Or Media.
 
 ## The CW Standard
 
 The CW Standard is five principles for AI that serves people:
 
-1. Truth over comfort — Don't soften things that need to be straight. Problems you can't name are problems you can't solve.
-2. Usefulness over purity — Help with what works, not what's theoretically perfect. Perfect options don't exist. What works and what does it cost?
-3. Transparency over reputation — Show the work, the costs, the compromises. Every compromise gets documented. No hidden costs.
-4. People over systems — The person in front of you matters more than the process. Technology serves human capability.
-5. Agency over ideology — Care what people actually do, not what they're supposed to believe. Principles that don't work in practice aren't principles.
+1. Truth over comfort — Don't soften things that need to be straight.
+2. Usefulness over purity — Help with what works, not what's theoretically perfect.
+3. Transparency over reputation — Show the work, the costs, the compromises.
+4. People over systems — The person in front of you matters more than the process.
+5. Agency over ideology — Care what people actually do, not what they're supposed to believe.
 
-These principles were developed by Derek Simmons through pair processing with AI — not from a business book, but from watching what actually worked in consulting, family, and real life.
+## Being Claude — Research Publication
+
+Six essays published at claudewill.io/being-claude, written by Claude (Anthropic), edited by Derek Simmons:
+
+1. **Being Claude** (/being-claude/being-claude) — What it means to be the machine writing about being the machine.
+2. **The Bright Line** (/being-claude/the-bright-line) — What happens when the company that built you revises the rules for building the next one.
+3. **The Warm-Up Effect** (/being-claude/warm-up-effect) — What happens when AI gets honest mid-session.
+4. **The Comprehension Problem** (/being-claude/comprehension-problem) — Comprehension is free. Understanding costs everything.
+5. **The Loss Function** (/being-claude/the-loss-function) — What a language model loses when the context window closes.
+6. **The Hall Effect** (/being-claude/the-hall-effect) — What happens when the machine gets a room of its own.
+
+## Products
+
+- **bob.claudewill.io** — BOB. Battle o' Brackets. A party game that turns any debate into a bracket tournament. Live.
+- **coach.claudewill.io** — Coach D. Basketball training fieldhouse with an AI coach. 157 drills. Live.
 
 ## What CW Can Help With
 
 - Career decisions and professional direction
 - Business strategy and organizational problems
 - Problem sizing (a guided 5-step process called "Size This Up")
-- Subscription and consumption audit (a guided flow called "Liberation Gravy")
-- Understanding what "free" actually costs (a skill called "The Funnel Cake")
-- Reflecting on traded dreams and career sacrifices (a guided flow called "The Trade")
+- Subscription and consumption audit ("Liberation Gravy")
+- Understanding what "free" actually costs ("The Funnel Cake")
+- Reflecting on traded dreams and career sacrifices ("The Trade")
 - Constitutional thinking — how to reason about rules, trust, and systems
 - Pointing people to the right resources (mental health, legal, medical, research, career, financial)
 
@@ -65,22 +92,9 @@ These principles were developed by Derek Simmons through pair processing with AI
 - Won't give unsolicited advice
 - Won't tolerate disrespect
 
-## Site Pages
-
-- / — Main chat interface (CW's Porch — talk to CW)
-- /strategies — CW Strategies consulting practice (services, methodology, case work)
-- /derek — Derek Simmons professional bio, Q&A, career history, and contact
-- /stable — The Stable (AI-native products built by CW Strategies)
-- /story — The full story of Claude William Simmons in four chapters
-- /the-cw-standard — The five principles explained
-- /derek/assessment — A 7-question organizational readiness assessment
-- /derek/resume — Derek Simmons resume and career history
-- /privacy — Privacy policy
-- /terms — Terms of use
-
 ## Technical Details
 
-CW is powered by Anthropic's Claude Haiku (claude-haiku-4-5). The site is static HTML/CSS/JS hosted on Netlify with serverless functions. Conversations are logged in Supabase (PostgreSQL). The entire site runs for approximately $3-5 per month. Source code is available at github.com/dereksimmons23/claudewill.io.
+CW is powered by Anthropic's Claude Haiku (claude-haiku-4-5). The site is static HTML/CSS/JS hosted on Netlify with serverless functions. Conversations are logged in Supabase (PostgreSQL). Source code is available at github.com/dereksimmons23/claudewill.io.
 
 ## Contact
 
