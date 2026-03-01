@@ -61,6 +61,12 @@
       "cw": "The comprehension problem. claudewill.io/being-claude/comprehension-problem."
     },
     {
+      "path": "/being-claude/the-loss-function",
+      "title": "The Loss Function",
+      "description": "What a language model loses when the context window closes. And why forgetting is the wrong frame.",
+      "cw": "The loss function — what the machine loses when the session ends. claudewill.io/being-claude/the-loss-function."
+    },
+    {
       "path": "/derek/resume",
       "title": "Resume",
       "description": "Derek's full professional resume. 30 years, Star Tribune, Los Angeles Times.",
