@@ -1,91 +1,85 @@
 {
-  "lastUpdated": "2026-03-01T11:07:00.510Z",
+  "lastUpdated": "2026-03-02T11:17:29.567Z",
   "agents": {
     "housekeeping": {
       "name": "Housekeeping",
-      "lastRun": "2026-03-01T11:07:00.508Z",
-      "status": "flags",
-      "summary": "9/10 pages up. 1 down.",
-      "flags": [
-        "https://claudewill.io/derek is DOWN (23)"
-      ],
+      "lastRun": "2026-03-02T11:17:29.565Z",
+      "status": "ok",
+      "summary": "All 10 pages + 2 subdomains responding. Avg 446ms.",
+      "flags": [],
       "details": [
-        "https://claudewill.io/ — 200 15ms",
-        "https://claudewill.io/derek — DOWN: 23",
-        "https://claudewill.io/story — 200 567ms",
-        "https://claudewill.io/workshop — 200 605ms",
-        "https://claudewill.io/privacy — 200 587ms",
-        "https://claudewill.io/terms — 200 194ms",
-        "https://claudewill.io/kitchen — 200 601ms",
-        "https://claudewill.io/arcade — 200 423ms",
-        "https://claudewill.io/map — 200 514ms",
-        "https://claudewill.io/being-claude — 200 594ms",
-        "Coach D (https://coach.claudewill.io) — 200 121ms",
-        "BOB (https://bob.claudewill.io) — 200 128ms"
+        "https://claudewill.io/ — 200 35ms",
+        "https://claudewill.io/derek — 200 178ms",
+        "https://claudewill.io/story — 200 88ms",
+        "https://claudewill.io/workshop — 200 106ms",
+        "https://claudewill.io/privacy — 200 708ms",
+        "https://claudewill.io/terms — 200 96ms",
+        "https://claudewill.io/kitchen — 200 777ms",
+        "https://claudewill.io/arcade — 200 778ms",
+        "https://claudewill.io/map — 200 816ms",
+        "https://claudewill.io/being-claude — 200 879ms",
+        "Coach D (https://coach.claudewill.io) — 200 1310ms",
+        "BOB (https://bob.claudewill.io) — 200 621ms"
       ]
     },
     "research": {
       "name": "Research Brief",
-      "lastRun": "2026-03-01T11:07:00.508Z",
+      "lastRun": "2026-03-02T11:17:29.565Z",
       "status": "ok",
-      "summary": "No significant AI industry developments matching the specified focus areas (AI consulting practices, media AI adoption, AI-native methodologies, or Anthropic/Claude/agent updates) occurred in the...",
+      "summary": "No significant AI industry developments matching the specified focus areas (AI consulting practices, media AI adoption, AI-native business methodology, or Anthropic/Claude/AI agent updates) occurred...",
       "sources": [
-        "https://wispa.us/blog/game-changing-ai-tools-for-consultants/",
         "https://www.auxi.ai/blog/ai-tools-for-consultants",
-        "https://redblox.ai/blog/ai-strategy-consulting",
-        "https://www.getgenerative.ai/top-ai-tools-for-consultants/",
-        "https://www.cmap.io/blog/the-2026-consulting-ai-stack",
-        "https://www.davydovconsulting.com/post/10-best-ai-tools-in-2026-a-complete-guide-for-business-creators-and-developers",
-        "https://www.pwc.com/us/en/tech-effect/ai-analytics/ai-predictions.html",
-        "https://stellium.consulting/articles/news/ai-strategy-consulting/",
-        "https://viitorcloud.com/blog/ai-strategy-consulting-vs-ai-tool-adoption/"
+        "https://juma.ai/blog/ai-tools-for-consultants",
+        "https://whitehat-seo.co.uk/blog/ai-consulting-in-2026",
+        "https://www.shiori.ai/blog/best-ai-tools-consultants-analysts-2026",
+        "https://www.journalofaccountancy.com/issues/2026/mar/ai-tools-for-finance-professionals-to-prepare-and-visualize-data/",
+        "https://theagilevc.substack.com/p/the-singularity-is-personal-4-agents",
+        "https://viitorcloud.com/blog/ai-strategy-consulting-vs-ai-tool-adoption/",
+        "http://www.niso.org/events/assessing-and-adopting-ai-tools-2026-niso-training-series",
+        "https://futureofconsulting.ai/ai-leadership/2026-consultings-ai-revolution-update/"
       ]
     },
     "gemini": {
       "name": "Industry Brief",
-      "lastRun": "2026-03-01T11:07:00.509Z",
+      "lastRun": "2026-03-02T11:17:29.565Z",
       "status": "ok",
-      "summary": "Here is a concise morning brief on the most significant AI industry developments from the last 24 hours, tailored for a solo AI consultant:\n\n**CW Strategies Morning Brief: March 1, 2026**\n\n**1. AI...",
+      "summary": "Here's a concise morning brief on the most significant AI industry developments from the last 24 hours, tailored for a solo AI consultant:\n\n**CW Strategies Morning Brief: March 2, 2026**\n\n**1. AI...",
       "sources": [
-        "[whitehat-seo.co.uk](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH6_Skhg2XzbRbff_SkA0e4TGqpX4QJHIC2xk9C7TKQNZAVGvCsaz_Wn7rj8z65JD_OBCEGBnxbFU60ToWBWHH-f3m5qRizhoQbJrlZ10Ys-E21r9OHs-xaHcNvPm-o0sRsDKqIMaRXeD2YjYMGtbY=)",
-        "[articsledge.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEV4MTXnRdHYZxs3XlDVfky7yiri4uhBnaiHyc8UDt5Fg1SDOif6Ujv2CfmuJ2tZqRq5oyYg5kyWXqR7Svq8_I4YJsgiDLLmv5tvERwFBc2op8EHUhLKX-TD5_xBOHkQQy2U8C41RTvyrBrGA2dwF_E9RhK2QSJ6g==)",
-        "[communicateonline.me](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFe6Y2oOkNhBzh2clE-yO1r88ILAlDg3c6wgKY-lpe3ni8TNJLhnQFmCNUFi2vNbAHfd4bFkVl-z0QHR1IfB6bQ3OCeaGsocmn1-5fELD9g7_N1l_-CnIwJqikALPjXhe0hrLIkNiniGpcZFUHZEFc7APVjZhRql6ScJrAjtOrYQHuCL9w3JyU3QaNfwtjNsXQ_5r2DjWKNdI23NUywIalJ875ZRPvWJQAA3gTI9WY=)",
-        "[ox.ac.uk](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH6wCgfE0kvtVX_0ML4hMIoRAX_sNRof-o7Q-q1sioE3M6_6HopN_k2x0NZxobEOXYza7UqmRFjrSmb_GGffMWhetz_P2iiY5IptN_dvSlFYo1_PPD9yGDtUYwQr_k8695-e9ueCO-u7XBzQWfCacBAas5I1FGqBRYc_sC7utojWGA663q0T1jEe0bHqmHbovunFmBQWuPCipCGwYJhloPf)",
-        "[niemanlab.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFRXbFNccHkIPcTQI5DVqXqtH-h8HGTnEav7cNTmt_zH4CM9UuhecRMG_35FhxcxqKvBst-PWMcakmgN49ekbUx3Lu85g1DhvsfnAx33m0Ls8V_jv7rEoEADLNKtZZPWg4H6PgYLS6GAuEXsYhHnFUBYdigMtxgsXRN6DDGPLVeSfLYUbaJZm7bUleCFwlTUTp8tmQGUKFWELU=)",
-        "[buzzstream.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGaOKIuucdk2fDr5drQmZkFJajPiFxPd0Zou-qwuJ_wREzzn6r26e_b50qTWSbG58rD2BuX20jFFnGhG_z2LSYboNlPxhsAmcMkfpydWnMMy7ZZRg0ErLRtbEYTcfYCUwM5AglHxvojsn4Ng0fg)",
-        "[senorit.de](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQENqYFybMG_M2JbTw2c3TsCpFQxtE4rIJO5zRwhC-NcAPjzKmuc9nqr8b6H2vAgLZACqgOB8EbPbhY_gXLnjBj78rvAgOvogjffmnk7EAA5MMVhactYh2xPe25bUAJ5KTTlrlMPxTQUFpv217Sp0jmJknP6iYi1qH4=)",
-        "[samsung.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGOWxR56s1GONE19DuJZRm2FrhradVxTS287z342p6R3cew5fCPl3qwgaJT8vDnwkqpxEy1CNkc9HUqwDbgif_j0lq0DSf0JGmzwvKA7_rjj9J_IbdrNjNxO5DRogqA8ptuKG6TG57L4u_9bI4QacVoK1vThv8B3KeCh9Y_ZiqtTkaHBuma-FAfGgF6LZ7RGjpvmZdKe8V8_W4CdODENE-an_A9TqKSEfvJ7eDV1frqL0Q_p6Zc6-jILZS809B56qjryxKiMw==)",
-        "[joins.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEql7A6HBx2DzNoaOU1d5rajiZnr9zmtMCD8kY52twgfP_ioTPy-4LAYoRF947HhaKqMfMHNfops17M1dlJXfIRSex5Ugx-DvjYyYqXmfZQguRHMmqdo2htIV-qpNwlqn2KBnV2ndJX4T6ylSUAmwW-3gJJhhpj17UUA2Ml-UMFhzHruphM31xEXwURQelskXA-7eqYvvVu3jal_gzQyKOM55s9kl4nMw2RHwEm9bDBMXsPyBXJcf3sFmeYJif1CoZ-4PScrPHDaikwRzG9rwY=)",
-        "[ideas2it.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF8PKxY4KzjQSz18ils-JR0l_mptIjyer1sw6VEMhUAAHhW_JfS76M3N2ysnDABoqQA5rtOEamG-8-VbCaEhZC2mF8_5UGV1BHvFBQtQghFzTZpfe7hqYaSvSIaqf7muU0_iM5xhfqKJ6h-6pQ=)",
-        "[alignminds.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEY1iLzDdlZZJ_7YulgWwTIAaFkD3InQ8PYkiIRQTjN7en__rQy4RLOjQ367nJyg7sCfujWGBY0YPDqAH-1pprW42eT4hhxdnmPN81vncezkNJBL7hKdsE-aZqZHbQPu3LLCABihgPeBQIDDHZr-ER1i4Mxf_UcmeD1T_OSjiJ746s=)",
-        "[datacamp.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF_Y2-fr8nUKtQP4hbs128fW4NE1NS9o5Q6IdZ5vT3XW7Rxd86Hztur0D3Can3yCjOXB3xi-cIYz_Qj9Z64dO2pts_Be2sRPv1u2ixrr1Xm1j9FrsQDW_pC2oUVGGyT_x1pAhg8kNA=)",
-        "[dev.to](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFFJL6umfA-jgi32vsbr682cKIEO02nsuXIgB2xzQsHM4mk_1MXsDgUji9bt2BuVnahXCNAsvrBjF7H6_1YlgCypWy_M_RfzZd1v2y4D79lL5F9MrXJQiQiykTM_x-2ThSTa9gANEt9oMo7LdaAUBhvDNWKalUC)",
-        "[releasebot.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGVc3Kv--g-AH4_abq1Ivm_M_ihvUQNORgJfTcBEwjQrimOI5rkT7JjcxaXpCTZBeTZ3NNLillNha7XdlKtGzpu0zOIAY9XmIg44T58bVgvAotZjNt9rHN2q4EwL0hppZUVQ_xr7VCXlg==)",
-        "[reddit.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE0Jxb2EZYmF677Cr0ul-hJA24yjH8CdCSuB-Zn1mj6w8v0HW0ol8csmb3XFVfLDSJ8DZZSlZEjjg0da7q0Ao2D5qzTfslmJOo0QH-3gjZXXsmn2AsdpYYkBoxNN4cb-4yJm3AxSkvlPkThsb5RJDDXxy53fYFyr2G0Acc9y2L2vCn6mYhwifAoysdI_ARwRm5OlA==)",
-        "[google.dev](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG66xT5mtwYql7pvZSEdNqdYKNxPTRYqHzuQ1B5eD9Wl5w8hFRKP8OY7zsjvEfcHKafBS1MIt4IC3KUIwqiTkGzXZSMh0um9dXf1-GK91dohd3uwcNsdzbNXxO6qqFcVWLQsZcbCCRiNX4=)",
-        "[yutori.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEwkYaCzgz27HbzodacEBh1PXxYr6d5XAgIbrcG29n3DIeCEwKPgwqJlJjQIsW1Kvlj-j175x0y8m9q_sVXGGQykKeu0JeUOWAyMdlnPU7ibp_uYi4mI_nO04GWjMIxp8BDqL28U1xlOZWowOx271nEgpRVHPVdt00=)"
+        "[strategicmarketingtribe.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHu_F7rd8n52hjXlWrFfw_SlefyGnSSYKNK71wIGRUrSWByT8i0HZqdrZ1uxrzev6AyHkE05SQBSJW02MqbVQsnusleGO1TCISqwk1h-xZD0aTWQROcsTnptj4Id08TOtL96zp9EoNullfGAApTPhUO0DfuZKHoo3qJKxKb5akrxwKna1VrhUhQPhV2EGZl6QEOONIiRsY=)",
+        "[ibm.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGZ_F0aF7MSh-ue1iy4i1eFHLOHSH3Zk4ZGiyiG0iOuIrBfzxZuGMY-ok5U5xAelp-YqqSi410fTPEwBfONzy_JuWawbiSyUI2tCSQ1F6HgeIaexU1wTbpH7GzElFX9v6F7oR1rLkCz5lAlYS7Gye_u9Tw0)",
+        "[evrimagaci.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFgNNz1Is3120xuKlTRz8wu4id7yuttdLDoyAWnMfX-imeSv5et5v16spu8iB0mZhVu4WkPSiEbBGR8_5olxHXDODzCIjca8lyfQP9wmHcEno0iLP2CptaRd0OUhJ9F4KXfK4ILTb1klXQz4dkHP0VMPftJHkucbpeymAWFZUiD0Ki8Tpf6QDHaWV5EzxI2qysu)",
+        "[theguardian.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHNHx_OICnCNa3RkIY5mkhoJz3l64FCfubnWpnPYxg7NMtK3BRB5YsefTmkDOfP5XwX2K6KdSpQPpaKbpshLLhwb8TqzsFyoYNnPHbU5Gzgzzc5IH0g8aphnQKUnTGiU7vgQYU8kUA_3bVIZzE2GaqrCR-Giblo34AI4_ZgONbNX9vYrN0INZqpVJX0jYXKlU3BJiOEvOm7cM-sUc_h4pLOlAi9UeNYz0lSmMVnE134EDypmcIQI-kA)",
+        "[thecurrent.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE99ED0RxgxPfazX46hkQDKo-ipKaf3V_hTYFvNcEMhGq38ADyBn2iExmKG7R_sq-H1BqXBdkpQX5LsblIqDy_tC3SIeZ5Jt9ywUNGujXTwPuSsupvvLHi2lVNMY6uw9_aMT6LQqIkYVDRol73koPl6wdXcA9gPNpVlQEuNUX5_sJKiBdBv_JXXJ9WOKQBLfo_VphqFIGJTKzULe1Ql)",
+        "[pressgazette.co.uk](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHe5HrC90d8sjvb-bukRF_6XOxAVgj42giY7oCKgy-0ciIf3PGdDe7lU1lNucndRgrIzp-pnjcK98YlaZuK4hXLGDmzomsqZUF21DAYc-zRUeBkT9lsW6OP6vNOcLWXkZ-bxOMdrg70BWFJZkSgvGvUoXEZxfd1vh7vmeL_ZArKbbzCcZ9utms9nrAuZazx6Q==)",
+        "[infoq.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGQYdp3e7bYEVuDhT2eUqpKktH8KeYaWXKs_AbYUfv9zR3I2tZN44WkW-uqA_nKMnPNfYdeNvhUZ1oMZScKzHqi-VDoqt6YVIZUfMC-cUJRl6-iZ-zRkw0lj3_GMJrBYQ-QXINdg9oyA_iFa3a5ALYyt42wHA==)",
+        "[huawei.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHk6csh-OVY6NUNtxapPCQQugI9rBSyXWHMEloM9sqzlib6Y_7T48M2f12wIBzMieUf0LN4GyAu2hl3KHELu56OpuaVK6Y47_5qAMOcqVR9djynU6SIk2pizQItENj7Y3p7HtYG5x54aPiQsljRBmGWc2FjqgX4ykNgMcsq1AF1lA==)",
+        "[reddit.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEruH5fbsKFGYM4V8ZqTONc9Ebu7L6xJHtwWzHgUi2MCDrXcN0I1-_cpmkuQ3Te7UdjsOto0YQhiyJGT6RjcMPksdln2vGOFRagtD3QwlNXTgog0qdRDFyquJKkJxeDtRVMRSw40e-Pjxea2Du1xzdKx0V-tZerNQ37t3LHjFD-RPiXb1Yi1NtP8XRO0capBshjNdODYvkThourm8UYe6NYg4k=)",
+        "[google.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHG7H78emRpaG7FRSlwByUW6_w7P5SQOmbmvLCuiyGLNLabX0jJatbdHuBND7SItWNg-41NR16Gg0awb6igQKUT_E4KfjbWjkdg2ncuo-qdVeKZT_HH8xdVaGCGkmQpESq4sPM_c3VMB-TPOVQ2ktbGoz5MMLpLJI13uhbV5rG0jvMYZ4hQWsMvqP_60ZbJABZVTMb8y0kKXz_PpaB0ANs5TI8=)",
+        "[claude.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGSoKQ0Hw4q5sKKJSue5woN6nnhM5EwUFZQBKYXPeRS2B_Pd5T7kYOEqbz4jwjtgqRSr667bS4ztGDTqpcpj4J0f-Q_Yz6338988rdYRS1Ocv9jKm3n5_TcWFTmZ9MwvCShRjxtn0mzfiw5C6W9ucI0UomuyYw=)",
+        "[google.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQExE1Lc0ehwTgB4Bg5hKLT1a2R6Q-90Tf5PVbIWfN8d4xuJlCwGhIXV6U21EWmJwtK6W6o25Jw-EUzDMB75a175WwtlpqdWkaCyZiJaZFMWF_MQkbOPXjbx2xeF9OzSI6D3qwmARxzyTC4lTiMbHCCtmSiELhXHV6LP6QJBRO0uKJ8Vqw==)",
+        "[edtechinnovationhub.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGAOdLrzhUce6T8G72E2_xTQCD47dyF5XcuziX7jLKb-5lJ8jLiSayFR7E2H4Jlz6FwltwMrmRf51wt8eljbTLqkanjfzawI56LbGKBm15OqmjtrZYzGhhMFDNi32g2yUAq0qtD-gBP-KLQ4h5EG3y0jxROfHHl6d2t5UCYauYM-nU1VUGXM8gE8rvQansRST22RtAy33ZCMLvwHl1ILRMC6_RnOqw8Jkj3rm7qb-Q9-PCbIr3yHfeT)"
       ]
     },
     "codeReview": {
       "name": "Code Review",
-      "lastRun": "2026-03-01T11:07:00.509Z",
+      "lastRun": "2026-03-02T11:17:29.566Z",
       "status": "ok",
-      "summary": "Everything looks clean. No security, performance, accessibility, or broken pattern issues found."
+      "summary": "Everything looks clean. No security, performance, accessibility, or broken pattern issues found in the provided diffs."
     },
     "analytics": {
       "name": "Analytics",
-      "lastRun": "2026-03-01T11:07:00.509Z",
+      "lastRun": "2026-03-02T11:17:29.566Z",
       "status": "flags",
-      "summary": "Conversations: 172 total (24h: 0 | 7d: 32 | 30d: 172)",
+      "summary": "Conversations: 161 total (24h: 0 | 7d: 21 | 30d: 161)",
       "flags": [
-        "34.0 hours last 7d — exceeds sovereignty target (21h)"
+        "37.1 hours last 7d — exceeds sovereignty target (21h)"
       ],
       "metrics": {
         "conversations": {
-          "total": 172,
+          "total": 161,
           "day": 0,
-          "week": 32,
-          "month": 172
+          "week": 21,
+          "month": 161
         },
         "visitors": {
           "total": 2,
@@ -99,22 +93,22 @@
           "total": 4
         },
         "derekTime": {
-          "hours7d": 34,
-          "sessions7d": 16
+          "hours7d": 37.1,
+          "sessions7d": 18
         },
-        "apiCost30d": 1.39
+        "apiCost30d": 1.38
       }
     },
     "contentScan": {
       "name": "Content Scan",
-      "lastRun": "2026-03-01T11:07:00.509Z",
+      "lastRun": "2026-03-02T11:17:29.566Z",
       "status": "ok",
-      "summary": "Scanned 20 HTML files. Found 5 issues.",
+      "summary": "Scanned 21 HTML files. Found 5 issues.",
       "flags": []
     },
     "researchStatus": {
       "name": "Research Status",
-      "lastRun": "2026-03-01T11:07:00.510Z",
+      "lastRun": "2026-03-02T11:17:29.566Z",
       "status": "flags",
       "summary": "7 published, 0 draft, 0 blocked",
       "flags": [
@@ -123,7 +117,7 @@
     },
     "socialDraft": {
       "name": "Social Drafts",
-      "lastRun": "2026-03-01T11:07:00.510Z",
+      "lastRun": "2026-03-02T11:17:29.567Z",
       "status": "flags",
       "summary": "7 new drafts, 0 skipped.",
       "flags": [
@@ -138,7 +132,7 @@
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-03-01T11:07:00.510Z",
+      "lastRun": "2026-03-02T11:17:29.567Z",
       "status": "ok",
       "summary": "**Pipeline:** 3 items (3 draft)",
       "flags": []
