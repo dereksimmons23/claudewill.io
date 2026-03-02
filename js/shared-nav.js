@@ -138,8 +138,8 @@
   function createFloatingTrigger() {
     var btn = document.createElement('button');
     btn.className = 'cw-palette-trigger';
-    btn.setAttribute('aria-label', 'Open navigation');
-    btn.textContent = 'menu';
+    btn.setAttribute('aria-label', 'Open map');
+    btn.textContent = 'map';
     return btn;
   }
 

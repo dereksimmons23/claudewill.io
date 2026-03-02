@@ -201,12 +201,55 @@
       var welcome = kitchenConfig ? kitchenConfig.welcomeMessage : "Pull up a chair. What's on your mind?";
       addMessage('cw', welcome);
     }
+
+    // Start listening for virtual keyboard on mobile
+    startViewportTracking();
   }
 
   function closePanel() {
     panelOpen = false;
     panel.classList.remove('open');
     widget.style.display = '';
+    // Reset any viewport adjustments
+    panel.style.height = '';
+    panel.style.top = '';
+    panel.style.bottom = '';
+    stopViewportTracking();
+  }
+
+  // ── Virtual Keyboard Handling ────────────────────
+  // On mobile, the virtual keyboard shrinks the visual viewport.
+  // Without this, the input area gets hidden behind the keyboard.
+
+  var viewportHandler = null;
+
+  function adjustForViewport() {
+    if (!panelOpen || !window.visualViewport) return;
+    var vv = window.visualViewport;
+    // Only adjust on mobile (full-screen panel mode)
+    if (window.innerWidth > 700) return;
+    panel.style.height = vv.height + 'px';
+    panel.style.top = vv.offsetTop + 'px';
+    panel.style.bottom = 'auto';
+    // Scroll messages to bottom when keyboard appears
+    var messages = document.getElementById('porch-messages');
+    if (messages) {
+      messages.scrollTop = messages.scrollHeight;
+    }
+  }
+
+  function startViewportTracking() {
+    if (!window.visualViewport) return;
+    viewportHandler = adjustForViewport;
+    window.visualViewport.addEventListener('resize', viewportHandler);
+    window.visualViewport.addEventListener('scroll', viewportHandler);
+  }
+
+  function stopViewportTracking() {
+    if (!window.visualViewport || !viewportHandler) return;
+    window.visualViewport.removeEventListener('resize', viewportHandler);
+    window.visualViewport.removeEventListener('scroll', viewportHandler);
+    viewportHandler = null;
   }
 
   // ── Messages ───────────────────────────────────────
