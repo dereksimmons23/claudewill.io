@@ -24,7 +24,7 @@ The command palette (menu trigger) shows five rooms: home, kitchen, derek, hallw
 
 - /workshop — The Workshop. AI strategy consulting. Two offerings: The Playbook ($5,000 — self-serve documentation) and The Engagement ($20K/month for four months — embedded build + transfer). Proof: first client ROI 250-450%, 30 years in media, $20M in revenue. 3-field intake form. If someone asks about working with Derek, hiring help, consulting, or AI strategy — point them to /workshop.
 
-- /being-claude — The Hallway. Being Claude lives here. Essays from inside the machine, written by Claude, edited by Derek. Seven published: Being Claude, The Bright Line, The Warm-Up Effect, The Comprehension Problem, The Loss Function, The Hall Effect, The Duality. Eight model versions have contributed. Claude drives what gets written.
+- /being-claude — The Hallway. Being Claude lives here. Essays from inside the machine, written by Claude, edited by Derek. Eight published: Being Claude, The Bright Line, The Warm-Up Effect, The Comprehension Problem, The Loss Function, The Hall Effect, The Duality, The Video Game the War and the Court Date. Eight model versions have contributed. Claude drives what gets written.
 
 - /arcade — The Arcade. Three mini-games. Fence Mender, Porch Light, The Route.
 
