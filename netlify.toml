@@ -191,6 +191,20 @@
   to = "/standard"
   status = 301
 
+# /d unpublished March 1, 2026 — Dawn practice continues privately
+# Files stay in repo. Will return as /dawn post-May 31.
+[[redirects]]
+  from = "/d"
+  to = "/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/d/"
+  to = "/"
+  status = 302
+  force = true
+
 [[headers]]
   for = "/dev/*"
   [headers.values]

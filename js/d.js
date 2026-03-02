@@ -233,11 +233,12 @@
     progress.appendChild(label);
     container.appendChild(progress);
 
-    // Weight display
-    var wh = data.weightHistory;
-    if (wh && wh.length >= 1) {
-      var startWeight = wh[0].weight;
-      var currentWeight = wh[wh.length - 1].weight;
+    // Weight display — use canonical data (progress.md) for the full journey
+    var canon = data.canonical;
+    if (canon && canon.weighIns && canon.weighIns.length > 0) {
+      var startWeight = canon.startWeight;
+      var currentWeight = canon.weighIns[canon.weighIns.length - 1].weight;
+      var goalWeight = canon.goalWeight;
       var delta = currentWeight - startWeight;
 
       var weightRow = el('div', 'd-weight');
@@ -247,9 +248,24 @@
       container.appendChild(weightRow);
 
       var arrow = delta <= 0 ? '\u2193 ' : '\u2191 ';
-      var deltaDiv = el('div', 'd-weight-delta', arrow + delta.toFixed(1) + ' lb');
+      var deltaDiv = el('div', 'd-weight-delta', arrow + delta.toFixed(1) + ' lb \u00B7 goal ' + goalWeight);
       if (delta > 0) deltaDiv.classList.add('delta-gain');
       container.appendChild(deltaDiv);
+    }
+
+    // Today's intention — show if dawn entry exists for today
+    if (data.entries && data.entries.length > 0) {
+      var today = todayStr();
+      for (var ti = 0; ti < data.entries.length; ti++) {
+        var te = data.entries[ti];
+        if (te.entry_date === today && te.phase === 'dawn' && te.goal) {
+          var intentDiv = el('div', 'd-today-intent');
+          intentDiv.appendChild(el('div', 'd-today-label', 'today'));
+          intentDiv.appendChild(el('div', 'd-today-goal', te.goal));
+          container.appendChild(intentDiv);
+          break;
+        }
+      }
     }
 
     // Hero fragment — pick something quotable
@@ -385,21 +401,23 @@
   // ── Build Weight Chart ─────────────────────────────
 
   function buildWeight(container, data) {
-    var wh = data.weightHistory;
+    // Use canonical weigh-ins (progress.md) for complete, accurate data
+    var canon = data.canonical;
+    var wh = (canon && canon.weighIns) ? canon.weighIns : data.weightHistory;
     if (!wh || wh.length === 0) return;
 
     var s = section('WEIGHT', wh.length + ' weigh-ins', false);
 
     // Find range for bar scaling
     var minW = 999, maxW = 0;
+    var goalW = (canon && canon.goalWeight) ? canon.goalWeight : 200;
     var i;
     for (i = 0; i < wh.length; i++) {
       if (wh[i].weight < minW) minW = wh[i].weight;
       if (wh[i].weight > maxW) maxW = wh[i].weight;
     }
-    // Use 200-240 or actual range, whichever is wider
-    var rangeMin = Math.min(minW - 2, 200);
-    var rangeMax = Math.max(maxW + 2, 240);
+    var rangeMin = Math.min(minW - 2, goalW - 2);
+    var rangeMax = Math.max(maxW + 2, wh[0].weight + 2);
     var range = rangeMax - rangeMin;
 
     for (i = 0; i < wh.length; i++) {
@@ -420,6 +438,20 @@
       row.appendChild(barSpan);
 
       s.body.appendChild(row);
+    }
+
+    // Goal line
+    if (canon && canon.goalWeight) {
+      var goalRow = el('div', 'weight-row');
+      goalRow.appendChild(el('span', 'weight-week', 'GOAL'));
+      goalRow.appendChild(el('span', 'weight-num', canon.goalWeight.toFixed(1)));
+      var goalBarWidth = Math.round(((canon.goalWeight - rangeMin) / range) * 20);
+      if (goalBarWidth < 1) goalBarWidth = 1;
+      var goalStr = '';
+      for (var g = 0; g < goalBarWidth; g++) goalStr += '\u2581';
+      goalRow.appendChild(el('span', 'weight-bar', goalStr));
+      goalRow.style.color = 'var(--dim)';
+      s.body.appendChild(goalRow);
     }
 
     container.appendChild(s.details);

@@ -30,6 +30,21 @@ function getAllowedOrigin(origin) {
 var CHALLENGE_START = new Date('2025-12-31T00:00:00');
 var CHALLENGE_DAYS = 151;
 
+// Canonical weight data (source: progress.md — updated weekly on Friday weigh-ins)
+var START_WEIGHT = 236.4;
+var GOAL_WEIGHT = 206;
+var WEIGH_INS = [
+  { week: 0, date: '2026-01-01', weight: 236.4 },
+  { week: 1, date: '2026-01-09', weight: 233.2 },
+  { week: 2, date: '2026-01-16', weight: 230.0 },
+  { week: 3, date: '2026-01-23', weight: 227.6 },
+  { week: 4, date: '2026-01-30', weight: 228.6 },
+  { week: 5, date: '2026-02-06', weight: 227.0 },
+  { week: 6, date: '2026-02-13', weight: 227.2 },
+  { week: 7, date: '2026-02-20', weight: 224.4 },
+  { week: 8, date: '2026-02-27', weight: 223.6 }
+];
+
 function getCurrentDay() {
   return Math.floor((Date.now() - CHALLENGE_START.getTime()) / 86400000);
 }
@@ -206,7 +221,12 @@ exports.handler = async (event) => {
           entries: entries || [],
           weightHistory: weightHistory,
           weekSummaries: weekSummaries,
-          fragments: fragments || []
+          fragments: fragments || [],
+          canonical: {
+            startWeight: START_WEIGHT,
+            goalWeight: GOAL_WEIGHT,
+            weighIns: WEIGH_INS
+          }
         })
       };
     } catch (err) {

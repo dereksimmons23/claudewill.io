@@ -296,12 +296,14 @@ function parseGoal(text) {
     'What would make today his:',
     'What would make the weekend his:',
     'What would make today his?',
-    'What would make this day mine?'
+    'What would make this day mine?',
+    'What can you create today:',
+    'What can you create today?'
   )
   if (field) return field.substring(0, 500)
 
-  // Prose fallback: "What would make the day mine?"
-  const m = text.match(/what would make (?:the |today |this )?day (?:mine|his|ours)\??[:\s]*([^\n]+)/i)
+  // Prose fallback: "What would make the day mine?" or "What can you create today?"
+  const m = text.match(/what (?:would make (?:the |today |this )?day (?:mine|his|ours)|can you create today)\??[:\s]*([^\n]+)/i)
   if (m) return m[1].trim().substring(0, 500)
 
   return null
@@ -624,7 +626,7 @@ async function main() {
 
   // Read all weekly files
   const files = readdirSync(WEEKLY_DIR)
-    .filter(f => /^2026-W0[1-9]\.md$/.test(f))
+    .filter(f => /^2026-W(?:0[1-9]|[12]\d)\.md$/.test(f))
     .sort()
 
   console.log(`Found ${files.length} weekly files: ${files.join(', ')}\n`)
@@ -694,12 +696,36 @@ async function main() {
     }
   }
 
+  // ── Deduplicate by (entry_date, phase, year) — later day_number wins ──
+
+  const seen = {}
+  const deduped = []
+  for (const row of allRows) {
+    const key = `${row.entry_date}|${row.phase}|${row.year}`
+    if (seen[key] !== undefined) {
+      const existing = deduped[seen[key]]
+      if (row.day_number > existing.day_number) {
+        console.log(`  DEDUP: ${key} — Day ${existing.day_number} replaced by Day ${row.day_number}`)
+        deduped[seen[key]] = row
+      } else {
+        console.log(`  DEDUP: ${key} — Day ${row.day_number} dropped (Day ${existing.day_number} kept)`)
+      }
+    } else {
+      seen[key] = deduped.length
+      deduped.push(row)
+    }
+  }
+  if (deduped.length < allRows.length) {
+    console.log(`\n  ${allRows.length - deduped.length} duplicate(s) resolved`)
+  }
+  const finalRows = deduped
+
   // ── Summary ─────────────────────────────────────
 
   console.log('\n\n== SUMMARY ==')
-  console.log(`Total rows to upsert: ${allRows.length}`)
-  console.log(`  Dawn rows: ${allRows.filter(r => r.phase === 'dawn').length}`)
-  console.log(`  Dusk rows: ${allRows.filter(r => r.phase === 'dusk').length}`)
+  console.log(`Total rows to upsert: ${finalRows.length}`)
+  console.log(`  Dawn rows: ${finalRows.filter(r => r.phase === 'dawn').length}`)
+  console.log(`  Dusk rows: ${finalRows.filter(r => r.phase === 'dusk').length}`)
   console.log(`  Parse failures: ${failures.length}`)
 
   if (failures.length > 0) {
@@ -713,9 +739,9 @@ async function main() {
   const fields = ['up_time', 'sleep_hours', 'raid', 'goal', 'dusk_summary', 'dusk_learned', 'steps', 'weights_done', 'dash_note']
   console.log('\nField coverage:')
   for (const field of fields) {
-    const filled = allRows.filter(r => r[field] !== null && r[field] !== undefined).length
-    const pct = Math.round((filled / allRows.length) * 100)
-    console.log(`  ${field}: ${filled}/${allRows.length} (${pct}%)`)
+    const filled = finalRows.filter(r => r[field] !== null && r[field] !== undefined).length
+    const pct = Math.round((filled / finalRows.length) * 100)
+    console.log(`  ${field}: ${filled}/${finalRows.length} (${pct}%)`)
   }
 
   // ── Upsert to Supabase ──────────────────────────
@@ -723,7 +749,7 @@ async function main() {
   if (DRY_RUN) {
     console.log('\nDry run complete. No data written.')
     console.log('\nSample rows:')
-    for (const row of allRows.slice(0, 3)) {
+    for (const row of finalRows.slice(0, 3)) {
       console.log(JSON.stringify(row, null, 2))
     }
     return
@@ -736,8 +762,8 @@ async function main() {
   let inserted = 0
   let errors = 0
 
-  for (let i = 0; i < allRows.length; i += BATCH_SIZE) {
-    const batch = allRows.slice(i, i + BATCH_SIZE)
+  for (let i = 0; i < finalRows.length; i += BATCH_SIZE) {
+    const batch = finalRows.slice(i, i + BATCH_SIZE)
 
     const { data, error } = await supabase
       .from('dawn_entries')
@@ -748,7 +774,7 @@ async function main() {
       errors += batch.length
     } else {
       inserted += batch.length
-      process.stdout.write(`  Upserted ${inserted}/${allRows.length}\r`)
+      process.stdout.write(`  Upserted ${inserted}/${finalRows.length}\r`)
     }
   }
 

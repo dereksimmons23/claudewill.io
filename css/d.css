@@ -201,6 +201,31 @@
 
 .d-weight-delta.delta-gain { color: var(--red); }
 
+/* ── Today's intention ──────────────────────────── */
+
+.d-today-intent {
+  margin: 0.5rem 0 1.5rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.d-today-label {
+  font-size: 0.7rem;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.35rem;
+}
+
+.d-today-goal {
+  font-size: 0.85rem;
+  color: var(--text);
+  line-height: 1.6;
+  max-width: 50ch;
+  margin: 0 auto;
+}
+
 /* ── TUI sections (details/summary) ──────────────── */
 
 .tui-section { border-top: 1px solid var(--border); }
