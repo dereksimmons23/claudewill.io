@@ -54,7 +54,17 @@
       50% { opacity: 1; }
     }
 
-    /* ==================== HEADER ==================== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-100%); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==================== HEADER (hidden until scroll) ==================== */
 
     .sky-header {
       position: fixed;
@@ -71,6 +81,16 @@
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
+      opacity: 0;
+      transform: translateY(-100%);
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+    }
+
+    .sky-header.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
     }
 
     .sky-brand {
@@ -124,6 +144,38 @@
     .back-to-sky:hover {
       color: var(--accent);
       border-color: rgba(212, 168, 75, 0.3);
+    }
+
+    /* ==================== SCROLL HINT ==================== */
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0.4;
+      transition: opacity 0.6s;
+    }
+
+    .scroll-hint.hidden { opacity: 0; pointer-events: none; }
+
+    .scroll-hint-line {
+      width: 1px;
+      height: 24px;
+      background: var(--dim);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .scroll-hint-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--dim);
     }
 
     /* ==================== VIEWPORT + TRACK ==================== */
@@ -196,14 +248,15 @@
       border-radius: 50%;
     }
 
-    /* ==================== SKY CONTENT (HOME) ==================== */
+    /* ==================== SCREEN 1: JUST THE SKY ==================== */
 
-    .sky-content {
+    .sky-hero {
       position: relative;
       z-index: 1;
-      text-align: center;
-      padding-top: 100px;
-      min-height: 100vh;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .hero-asterisk {
@@ -213,16 +266,41 @@
       text-shadow: 0 0 40px rgba(212, 168, 75, 0.3), 0 0 80px rgba(212, 168, 75, 0.1);
       animation: breathe 2.5s ease-in-out infinite;
       cursor: pointer;
-      margin-bottom: 8px;
       line-height: 1;
     }
+
+    /* ==================== SCREEN 2: THE MAP ==================== */
+
+    .sky-map {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding-top: 40px;
+      min-height: 100vh;
+    }
+
+    /* Elements start invisible, revealed by scroll observer */
+    .sky-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .sky-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .sky-reveal.delay-1 { transition-delay: 0.1s; }
+    .sky-reveal.delay-2 { transition-delay: 0.2s; }
+    .sky-reveal.delay-3 { transition-delay: 0.35s; }
 
     .wordmark {
       font-size: 1.4rem;
       font-weight: 400;
       letter-spacing: 0.15em;
       color: var(--text);
-      margin-bottom: 60px;
+      margin-bottom: 48px;
     }
 
     /* ==================== BRIGHT STARS ==================== */
@@ -232,7 +310,7 @@
       justify-content: center;
       align-items: flex-start;
       gap: 80px;
-      margin-bottom: 80px;
+      margin-bottom: 60px;
     }
 
     .bright-star {
@@ -270,11 +348,6 @@
 
     .bright-star:hover .bright-star-label {
       color: var(--accent);
-    }
-
-    .bright-star-center {
-      pointer-events: none;
-      opacity: 0.35;
     }
 
     /* ==================== DIM STARS ==================== */
@@ -337,39 +410,6 @@
       color: var(--dim);
       margin-bottom: 48px;
       text-align: center;
-    }
-
-    .standard-section {
-      margin-bottom: 48px;
-    }
-
-    .standard-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      color: var(--dim);
-      text-transform: lowercase;
-      margin-bottom: 24px;
-      text-align: center;
-    }
-
-    .principle {
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .principle:last-child { border-bottom: none; }
-
-    .principle-name {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-
-    .principle-desc {
-      font-size: 0.85rem;
-      color: var(--dim);
-      line-height: 1.6;
     }
 
     /* ==================== PORTAL CONTENT ==================== */
@@ -580,12 +620,12 @@
 
     .dev-label {
       position: fixed;
-      top: 52px;
+      top: 8px;
       right: 24px;
-      z-index: 500;
+      z-index: 600;
       font-size: 0.6rem;
       color: var(--dim);
-      opacity: 0.5;
+      opacity: 0.3;
       letter-spacing: 0.1em;
     }
 
@@ -594,7 +634,7 @@
     @media (max-width: 700px) {
       .sky-header { padding: 0 16px; }
       .hero-asterisk { font-size: 3.5rem; }
-      .wordmark { font-size: 1.1rem; margin-bottom: 40px; }
+      .wordmark { font-size: 1.1rem; margin-bottom: 32px; }
       .bright-stars { gap: 36px; }
       .bright-star-dot { font-size: 1.1rem; }
       .bright-star-label { font-size: 0.65rem; }
@@ -606,6 +646,7 @@
       .cw-chat-panel { right: 16px; bottom: 60px; width: calc(100vw - 32px); }
       .back-to-sky { top: 52px; left: 16px; }
       .dev-label { display: none; }
+      .scroll-hint { bottom: 24px; }
     }
 
     /* ==================== REDUCED MOTION ==================== */
@@ -617,13 +658,16 @@
       .sky-brand-star { animation: none !important; opacity: 1; }
       .star { animation: none !important; }
       .back-to-sky { transition: none !important; }
+      .sky-reveal { transition: none !important; opacity: 1; transform: none; }
+      .scroll-hint-line { animation: none !important; }
+      .sky-header { transition: none !important; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Fixed header -->
-  <header class="sky-header">
+  <!-- Header (hidden until scroll past hero) -->
+  <header class="sky-header" id="sky-header">
     <a class="sky-brand" id="sky-brand" href="#">claudewill<span class="sky-brand-star">*</span></a>
     <span class="sky-nav-label" id="sky-nav-label">map</span>
   </header>
@@ -632,7 +676,7 @@
   <button class="back-to-sky" id="back-to-sky">&larr; sky</button>
 
   <!-- Dev label -->
-  <div class="dev-label">dev/sky-prototype &middot; esc = sky &middot; arrows = navigate</div>
+  <div class="dev-label">dev/sky-prototype &middot; scroll down &middot; esc = sky</div>
 
   <!-- Horizontal viewport -->
   <div class="sky-viewport" id="sky-viewport">
@@ -679,18 +723,25 @@
         <div class="sky-scroll" id="sky-scroll">
           <div class="stars-layer" id="stars-layer"></div>
 
-          <div class="sky-content">
-            <!-- Hero -->
+          <!-- SCREEN 1: just the sky -->
+          <div class="sky-hero" id="sky-hero">
             <div class="hero-asterisk" id="hero-asterisk">*</div>
-            <div class="wordmark">claudewill</div>
+            <div class="scroll-hint" id="scroll-hint">
+              <div class="scroll-hint-dot"></div>
+              <div class="scroll-hint-line"></div>
+            </div>
+          </div>
 
-            <!-- Three bright stars -->
-            <nav class="bright-stars" aria-label="Main navigation">
+          <!-- SCREEN 2: the map reveals -->
+          <div class="sky-map" id="sky-map">
+            <div class="wordmark sky-reveal">claudewill</div>
+
+            <nav class="bright-stars sky-reveal delay-1" aria-label="Main navigation">
               <a href="#" class="bright-star" id="star-derek">
                 <span class="bright-star-dot">&#x2727;</span>
                 <span class="bright-star-label">derek</span>
               </a>
-              <a href="#" class="bright-star bright-star-center">
+              <a href="#" class="bright-star" style="pointer-events: none; opacity: 0.35;">
                 <span class="bright-star-dot">*</span>
                 <span class="bright-star-label">&nbsp;</span>
               </a>
@@ -700,16 +751,15 @@
               </a>
             </nav>
 
-            <!-- Dim stars -->
-            <div class="dim-stars-container" id="dim-stars"></div>
+            <div class="dim-stars-container sky-reveal delay-2" id="dim-stars"></div>
 
-            <!-- Scrollable body -->
-            <div class="sky-body">
+            <div class="sky-body sky-reveal delay-3">
               <p class="sky-intro">my sister and i used to sit on the porch of a single-wide in kansas and look at these stars. she's in france now. i'm at a desk in minnesota building things with an AI named after our grandfather. the porch got torn down but we're still here.</p>
             </div>
 
             <footer class="sky-footer">derek<span class="hw">*</span>claude &middot; &copy; 2026 CW Strategies LLC</footer>
           </div>
+
         </div>
       </section>
 
@@ -828,7 +878,7 @@
             <div class="portal-card">
               <h3>the crew</h3>
               <p>Four lenses on any question: business, cross-project, quality, and "should you actually do this." I ask all four at once and get one answer.</p>
-              <div class="card-meta">earn · connect · sharpen · challenge</div>
+              <div class="card-meta">earn &middot; connect &middot; sharpen &middot; challenge</div>
             </div>
 
             <div class="portal-card">
@@ -932,6 +982,7 @@
     var track = document.getElementById('sky-track');
     var backBtn = document.getElementById('back-to-sky');
     var navLabel = document.getElementById('sky-nav-label');
+    var header = document.getElementById('sky-header');
 
     var PANEL_NAMES = {
       'derek': 'derek',
@@ -952,7 +1003,6 @@
       currentIndex = index;
       track.style.transform = 'translateX(-' + (index * 100) + 'vw)';
 
-      // Back button
       if (index === HOME_INDEX) {
         backBtn.classList.remove('visible');
         navLabel.textContent = 'map';
@@ -961,6 +1011,8 @@
         backBtn.classList.add('visible');
         navLabel.textContent = PANEL_NAMES[panelId] || panelId;
         navLabel.classList.add('in-portal');
+        // Always show header in portals
+        header.classList.add('visible');
       }
 
       // Reset scroll position of target panel
@@ -973,6 +1025,9 @@
 
     function backToSky() {
       navigateTo('sky');
+      // Scroll home panel back to top (the sky)
+      var skyScroll = document.getElementById('sky-scroll');
+      if (skyScroll) skyScroll.scrollTop = 0;
     }
 
     // ==================== STAR FIELD ====================
@@ -1037,6 +1092,51 @@
 
         container.appendChild(star);
       }
+    }
+
+    // ==================== SCROLL OBSERVER (Hancock pattern) ====================
+
+    var skyScroll = document.getElementById('sky-scroll');
+    var skyHero = document.getElementById('sky-hero');
+    var scrollHint = document.getElementById('scroll-hint');
+
+    // Watch the hero section — when it exits viewport, show header
+    var heroObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (currentIndex !== HOME_INDEX) return; // Only on home panel
+
+        if (entry.isIntersecting) {
+          // Hero visible — hide header, show scroll hint
+          header.classList.remove('visible');
+          scrollHint.classList.remove('hidden');
+        } else {
+          // Hero scrolled away — show header, hide scroll hint
+          header.classList.add('visible');
+          scrollHint.classList.add('hidden');
+        }
+      });
+    }, {
+      root: skyScroll,
+      threshold: 0.3
+    });
+
+    heroObserver.observe(skyHero);
+
+    // Watch reveal elements in screen 2
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      root: skyScroll,
+      threshold: 0.1
+    });
+
+    var revealElements = document.querySelectorAll('.sky-reveal');
+    for (var i = 0; i < revealElements.length; i++) {
+      revealObserver.observe(revealElements[i]);
     }
 
     // ==================== KEYBOARD ====================
