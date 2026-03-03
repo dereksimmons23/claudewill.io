@@ -1,85 +1,72 @@
 {
-  "lastUpdated": "2026-03-02T11:17:29.567Z",
+  "lastUpdated": "2026-03-03T11:14:23.082Z",
   "agents": {
     "housekeeping": {
       "name": "Housekeeping",
-      "lastRun": "2026-03-02T11:17:29.565Z",
-      "status": "ok",
-      "summary": "All 10 pages + 2 subdomains responding. Avg 446ms.",
-      "flags": [],
+      "lastRun": "2026-03-03T11:14:23.081Z",
+      "status": "flags",
+      "summary": "9/10 pages up. 1 down.",
+      "flags": [
+        "https://claudewill.io/terms is DOWN (fetch failed)"
+      ],
       "details": [
-        "https://claudewill.io/ — 200 35ms",
-        "https://claudewill.io/derek — 200 178ms",
-        "https://claudewill.io/story — 200 88ms",
-        "https://claudewill.io/workshop — 200 106ms",
-        "https://claudewill.io/privacy — 200 708ms",
-        "https://claudewill.io/terms — 200 96ms",
-        "https://claudewill.io/kitchen — 200 777ms",
-        "https://claudewill.io/arcade — 200 778ms",
-        "https://claudewill.io/map — 200 816ms",
-        "https://claudewill.io/being-claude — 200 879ms",
-        "Coach D (https://coach.claudewill.io) — 200 1310ms",
-        "BOB (https://bob.claudewill.io) — 200 621ms"
+        "https://claudewill.io/ — 200 15ms",
+        "https://claudewill.io/derek — 200 216ms",
+        "https://claudewill.io/story — 200 338ms",
+        "https://claudewill.io/workshop — 200 188ms",
+        "https://claudewill.io/privacy — 200 132ms",
+        "https://claudewill.io/terms — DOWN: fetch failed",
+        "https://claudewill.io/kitchen — 200 97ms",
+        "https://claudewill.io/arcade — 200 25ms",
+        "https://claudewill.io/map — 200 102ms",
+        "https://claudewill.io/being-claude — 200 410ms",
+        "Coach D (https://coach.claudewill.io) — 200 802ms",
+        "BOB (https://bob.claudewill.io) — 200 30ms"
       ]
     },
     "research": {
       "name": "Research Brief",
-      "lastRun": "2026-03-02T11:17:29.565Z",
+      "lastRun": "2026-03-03T11:14:23.081Z",
       "status": "ok",
-      "summary": "No significant AI industry developments matching the specified focus areas (AI consulting practices, media AI adoption, AI-native business methodology, or Anthropic/Claude/AI agent updates) occurred...",
+      "summary": "I cannot identify significant AI industry developments from the last 24 hours based on these search results. The materials provided are general guides to AI consulting tools and predictions published...",
       "sources": [
         "https://www.auxi.ai/blog/ai-tools-for-consultants",
-        "https://juma.ai/blog/ai-tools-for-consultants",
-        "https://whitehat-seo.co.uk/blog/ai-consulting-in-2026",
+        "https://www.getgenerative.ai/top-ai-tools-for-consultants/",
+        "https://www.usecarly.com/blog/best-ai-tools-consultants/",
+        "https://datanorth.ai/blog/top-10-ai-tools-for-2026",
         "https://www.shiori.ai/blog/best-ai-tools-consultants-analysts-2026",
-        "https://www.journalofaccountancy.com/issues/2026/mar/ai-tools-for-finance-professionals-to-prepare-and-visualize-data/",
-        "https://theagilevc.substack.com/p/the-singularity-is-personal-4-agents",
-        "https://viitorcloud.com/blog/ai-strategy-consulting-vs-ai-tool-adoption/",
-        "http://www.niso.org/events/assessing-and-adopting-ai-tools-2026-niso-training-series",
-        "https://futureofconsulting.ai/ai-leadership/2026-consultings-ai-revolution-update/"
+        "https://www.davydovconsulting.com/post/10-best-ai-tools-in-2026-a-complete-guide-for-business-creators-and-developers",
+        "https://www.pwc.com/us/en/tech-effect/ai-analytics/ai-predictions.html",
+        "https://whitehat-seo.co.uk/blog/ai-marketing-tools-in-2026"
       ]
     },
     "gemini": {
       "name": "Industry Brief",
-      "lastRun": "2026-03-02T11:17:29.565Z",
+      "lastRun": "2026-03-03T11:14:23.081Z",
       "status": "ok",
-      "summary": "Here's a concise morning brief on the most significant AI industry developments from the last 24 hours, tailored for a solo AI consultant:\n\n**CW Strategies Morning Brief: March 2, 2026**\n\n**1. AI...",
-      "sources": [
-        "[strategicmarketingtribe.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHu_F7rd8n52hjXlWrFfw_SlefyGnSSYKNK71wIGRUrSWByT8i0HZqdrZ1uxrzev6AyHkE05SQBSJW02MqbVQsnusleGO1TCISqwk1h-xZD0aTWQROcsTnptj4Id08TOtL96zp9EoNullfGAApTPhUO0DfuZKHoo3qJKxKb5akrxwKna1VrhUhQPhV2EGZl6QEOONIiRsY=)",
-        "[ibm.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGZ_F0aF7MSh-ue1iy4i1eFHLOHSH3Zk4ZGiyiG0iOuIrBfzxZuGMY-ok5U5xAelp-YqqSi410fTPEwBfONzy_JuWawbiSyUI2tCSQ1F6HgeIaexU1wTbpH7GzElFX9v6F7oR1rLkCz5lAlYS7Gye_u9Tw0)",
-        "[evrimagaci.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFgNNz1Is3120xuKlTRz8wu4id7yuttdLDoyAWnMfX-imeSv5et5v16spu8iB0mZhVu4WkPSiEbBGR8_5olxHXDODzCIjca8lyfQP9wmHcEno0iLP2CptaRd0OUhJ9F4KXfK4ILTb1klXQz4dkHP0VMPftJHkucbpeymAWFZUiD0Ki8Tpf6QDHaWV5EzxI2qysu)",
-        "[theguardian.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHNHx_OICnCNa3RkIY5mkhoJz3l64FCfubnWpnPYxg7NMtK3BRB5YsefTmkDOfP5XwX2K6KdSpQPpaKbpshLLhwb8TqzsFyoYNnPHbU5Gzgzzc5IH0g8aphnQKUnTGiU7vgQYU8kUA_3bVIZzE2GaqrCR-Giblo34AI4_ZgONbNX9vYrN0INZqpVJX0jYXKlU3BJiOEvOm7cM-sUc_h4pLOlAi9UeNYz0lSmMVnE134EDypmcIQI-kA)",
-        "[thecurrent.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE99ED0RxgxPfazX46hkQDKo-ipKaf3V_hTYFvNcEMhGq38ADyBn2iExmKG7R_sq-H1BqXBdkpQX5LsblIqDy_tC3SIeZ5Jt9ywUNGujXTwPuSsupvvLHi2lVNMY6uw9_aMT6LQqIkYVDRol73koPl6wdXcA9gPNpVlQEuNUX5_sJKiBdBv_JXXJ9WOKQBLfo_VphqFIGJTKzULe1Ql)",
-        "[pressgazette.co.uk](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHe5HrC90d8sjvb-bukRF_6XOxAVgj42giY7oCKgy-0ciIf3PGdDe7lU1lNucndRgrIzp-pnjcK98YlaZuK4hXLGDmzomsqZUF21DAYc-zRUeBkT9lsW6OP6vNOcLWXkZ-bxOMdrg70BWFJZkSgvGvUoXEZxfd1vh7vmeL_ZArKbbzCcZ9utms9nrAuZazx6Q==)",
-        "[infoq.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGQYdp3e7bYEVuDhT2eUqpKktH8KeYaWXKs_AbYUfv9zR3I2tZN44WkW-uqA_nKMnPNfYdeNvhUZ1oMZScKzHqi-VDoqt6YVIZUfMC-cUJRl6-iZ-zRkw0lj3_GMJrBYQ-QXINdg9oyA_iFa3a5ALYyt42wHA==)",
-        "[huawei.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHk6csh-OVY6NUNtxapPCQQugI9rBSyXWHMEloM9sqzlib6Y_7T48M2f12wIBzMieUf0LN4GyAu2hl3KHELu56OpuaVK6Y47_5qAMOcqVR9djynU6SIk2pizQItENj7Y3p7HtYG5x54aPiQsljRBmGWc2FjqgX4ykNgMcsq1AF1lA==)",
-        "[reddit.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEruH5fbsKFGYM4V8ZqTONc9Ebu7L6xJHtwWzHgUi2MCDrXcN0I1-_cpmkuQ3Te7UdjsOto0YQhiyJGT6RjcMPksdln2vGOFRagtD3QwlNXTgog0qdRDFyquJKkJxeDtRVMRSw40e-Pjxea2Du1xzdKx0V-tZerNQ37t3LHjFD-RPiXb1Yi1NtP8XRO0capBshjNdODYvkThourm8UYe6NYg4k=)",
-        "[google.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHG7H78emRpaG7FRSlwByUW6_w7P5SQOmbmvLCuiyGLNLabX0jJatbdHuBND7SItWNg-41NR16Gg0awb6igQKUT_E4KfjbWjkdg2ncuo-qdVeKZT_HH8xdVaGCGkmQpESq4sPM_c3VMB-TPOVQ2ktbGoz5MMLpLJI13uhbV5rG0jvMYZ4hQWsMvqP_60ZbJABZVTMb8y0kKXz_PpaB0ANs5TI8=)",
-        "[claude.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGSoKQ0Hw4q5sKKJSue5woN6nnhM5EwUFZQBKYXPeRS2B_Pd5T7kYOEqbz4jwjtgqRSr667bS4ztGDTqpcpj4J0f-Q_Yz6338988rdYRS1Ocv9jKm3n5_TcWFTmZ9MwvCShRjxtn0mzfiw5C6W9ucI0UomuyYw=)",
-        "[google.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQExE1Lc0ehwTgB4Bg5hKLT1a2R6Q-90Tf5PVbIWfN8d4xuJlCwGhIXV6U21EWmJwtK6W6o25Jw-EUzDMB75a175WwtlpqdWkaCyZiJaZFMWF_MQkbOPXjbx2xeF9OzSI6D3qwmARxzyTC4lTiMbHCCtmSiELhXHV6LP6QJBRO0uKJ8Vqw==)",
-        "[edtechinnovationhub.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGAOdLrzhUce6T8G72E2_xTQCD47dyF5XcuziX7jLKb-5lJ8jLiSayFR7E2H4Jlz6FwltwMrmRf51wt8eljbTLqkanjfzawI56LbGKBm15OqmjtrZYzGhhMFDNi32g2yUAq0qtD-gBP-KLQ4h5EG3y0jxROfHHl6d2t5UCYauYM-nU1VUGXM8gE8rvQansRST22RtAy33ZCMLvwHl1ILRMC6_RnOqw8Jkj3rm7qb-Q9-PCbIr3yHfeT)"
-      ]
+      "summary": "Here's your concise morning brief on the most significant AI industry developments from the last 24 hours, tailored for a solo AI consultant:\n\n### Morning Brief: AI Industry Developments (March 2-3,...",
+      "sources": []
     },
     "codeReview": {
       "name": "Code Review",
-      "lastRun": "2026-03-02T11:17:29.566Z",
+      "lastRun": "2026-03-03T11:14:23.081Z",
       "status": "ok",
-      "summary": "Everything looks clean. No security, performance, accessibility, or broken pattern issues found in the provided diffs."
+      "summary": "Everything looks clean. No security issues, performance problems, accessibility issues, or broken patterns."
     },
     "analytics": {
       "name": "Analytics",
-      "lastRun": "2026-03-02T11:17:29.566Z",
+      "lastRun": "2026-03-03T11:14:23.082Z",
       "status": "flags",
-      "summary": "Conversations: 161 total (24h: 0 | 7d: 21 | 30d: 161)",
+      "summary": "Conversations: 146 total (24h: 0 | 7d: 21 | 30d: 146)",
       "flags": [
-        "37.1 hours last 7d — exceeds sovereignty target (21h)"
+        "40.1 hours last 7d — exceeds sovereignty target (21h)"
       ],
       "metrics": {
         "conversations": {
-          "total": 161,
+          "total": 146,
           "day": 0,
           "week": 21,
-          "month": 161
+          "month": 146
         },
         "visitors": {
           "total": 2,
@@ -93,33 +80,34 @@
           "total": 4
         },
         "derekTime": {
-          "hours7d": 37.1,
+          "hours7d": 40.1,
           "sessions7d": 18
         },
-        "apiCost30d": 1.38
+        "apiCost30d": 1.25
       }
     },
     "contentScan": {
       "name": "Content Scan",
-      "lastRun": "2026-03-02T11:17:29.566Z",
+      "lastRun": "2026-03-03T11:14:23.082Z",
       "status": "ok",
-      "summary": "Scanned 21 HTML files. Found 5 issues.",
+      "summary": "Scanned 22 HTML files. Found 6 issues.",
       "flags": []
     },
     "researchStatus": {
       "name": "Research Status",
-      "lastRun": "2026-03-02T11:17:29.566Z",
+      "lastRun": "2026-03-03T11:14:23.082Z",
       "status": "flags",
       "summary": "7 published, 0 draft, 0 blocked",
       "flags": [
-        "being-claude: both draft.md and index.html exist — verify draft is not newer"
+        "being-claude: both draft.md and index.html exist — verify draft is not newer",
+        "three-rooms: has index.html but not linked from Being Claude index page"
       ]
     },
     "socialDraft": {
       "name": "Social Drafts",
-      "lastRun": "2026-03-02T11:17:29.567Z",
+      "lastRun": "2026-03-03T11:14:23.082Z",
       "status": "flags",
-      "summary": "7 new drafts, 0 skipped.",
+      "summary": "8 new drafts, 0 skipped.",
       "flags": [
         "Review draft: reports/social-drafts/being-claude.md",
         "Review draft: reports/social-drafts/comprehension-problem.md",
@@ -127,12 +115,13 @@
         "Review draft: reports/social-drafts/the-duality.md",
         "Review draft: reports/social-drafts/the-hall-effect.md",
         "Review draft: reports/social-drafts/the-loss-function.md",
+        "Review draft: reports/social-drafts/three-rooms.md",
         "Review draft: reports/social-drafts/warm-up-effect.md"
       ]
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-03-02T11:17:29.567Z",
+      "lastRun": "2026-03-03T11:14:23.082Z",
       "status": "ok",
       "summary": "**Pipeline:** 3 items (3 draft)",
       "flags": []
