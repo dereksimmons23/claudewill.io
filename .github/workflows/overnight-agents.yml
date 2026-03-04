@@ -160,6 +160,14 @@ jobs:
           name: social-draft-report
           path: reports/social-draft.md
           retention-days: 30
+      - name: Upload draft files
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: social-draft-files
+          path: reports/social-drafts/
+          retention-days: 30
+          if-no-files-found: ignore
 
   pipeline-scan:
     runs-on: ubuntu-latest
@@ -251,6 +259,13 @@ jobs:
           name: pipeline-scan-report
           path: reports/
 
+      - name: Download social draft files
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: social-draft-files
+          path: reports/social-drafts/
+
       - name: Compile kitchen-data.json
         run: node scripts/overnight/compile-kitchen-data.mjs
 
@@ -258,6 +273,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add kitchen-data.json
-          git diff --cached --quiet || git commit -m "chore: update kitchen-data.json from overnight agents"
+          git add kitchen-data.json reports/social-drafts/
+          git diff --cached --quiet || git commit -m "chore: update kitchen-data.json + social drafts from overnight agents"
           git push
