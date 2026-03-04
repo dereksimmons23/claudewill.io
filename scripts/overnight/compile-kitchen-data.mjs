@@ -343,8 +343,12 @@ function parseContentScan(content) {
   if (flags.length > 0) status = 'flags'
 
   const findingsSection = content.match(/## Findings\n([\s\S]*?)(?=\n## )/)?.[1] || ''
+  const findingsLines = findingsSection.match(/- .+/g) || []
+  const findings = findingsLines.map(l => l.replace(/^- /, ''))
   const firstLine = findingsSection.trim().split('\n')[0]
   summary = firstLine || 'Content scan complete.'
+
+  if (findings.length > 0 && status === 'ok') status = 'findings'
 
   return {
     name: 'Content Scan',
@@ -352,6 +356,7 @@ function parseContentScan(content) {
     status,
     summary,
     flags,
+    findings,
   }
 }
 
