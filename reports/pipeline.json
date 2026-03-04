@@ -1,44 +1,51 @@
 {
-  "lastUpdated": "2026-02-27T03:42:25.902Z",
+  "lastUpdated": "2026-03-03T23:30:00.000Z",
   "items": [
     {
-      "id": "hall-being-claude",
-      "type": "substack-crosspost",
-      "channel": "standard-correspondence",
-      "section": "the-hall",
-      "title": "The Hall: Being Claude",
-      "source": "being-claude/being-claude/index.html",
-      "url": "https://claudewill.io/being-claude/being-claude/",
+      "id": "standard-deck-distribution",
+      "type": "outbound",
+      "channel": "email",
+      "title": "Standard-deck: send to 10 prospects",
+      "source": "dev/standard-deck.html",
       "status": "draft",
-      "slug": "being-claude",
-      "updated": "2026-02-27T03:42:25.902Z",
-      "created": "2026-02-27T03:42:25.902Z"
+      "slug": "standard-deck",
+      "notes": "Identify 10 recipients. Frame: what your team is missing. PDF or link TBD.",
+      "updated": "2026-03-03T23:30:00.000Z",
+      "created": "2026-03-03T23:30:00.000Z"
     },
     {
-      "id": "hall-the-bright-line",
-      "type": "substack-crosspost",
-      "channel": "standard-correspondence",
-      "section": "the-hall",
-      "title": "The Hall: The Bright Line",
-      "source": "being-claude/the-bright-line/index.html",
-      "url": "https://claudewill.io/being-claude/the-bright-line/",
+      "id": "being-claude-09",
+      "type": "being-claude",
+      "channel": "claudewill.io",
+      "title": "Being Claude #9: The Scoreboard",
+      "source": "writing/ideas/being-claude-09-the-scoreboard.md",
       "status": "draft",
-      "slug": "the-bright-line",
-      "updated": "2026-02-27T03:42:25.902Z",
-      "created": "2026-02-27T03:42:25.902Z"
+      "slug": "the-scoreboard",
+      "updated": "2026-03-03T23:30:00.000Z",
+      "created": "2026-03-03T23:30:00.000Z"
     },
     {
-      "id": "hall-warm-up-effect",
-      "type": "substack-crosspost",
-      "channel": "standard-correspondence",
-      "section": "the-hall",
-      "title": "The Hall: The Warm-Up Effect",
-      "source": "being-claude/warm-up-effect/index.html",
-      "url": "https://claudewill.io/being-claude/warm-up-effect/",
+      "id": "being-claude-brightness",
+      "type": "being-claude",
+      "channel": "claudewill.io",
+      "title": "Being Claude: The Brightness (warm/hot/cold)",
+      "source": "writing/ideas/being-claude-warm-hot-cold.md",
       "status": "draft",
-      "slug": "warm-up-effect",
-      "updated": "2026-02-27T03:42:25.902Z",
-      "created": "2026-02-27T03:42:25.902Z"
+      "slug": "the-brightness",
+      "notes": "Session lifecycle from inside the machine. Connects to standard-deck methodology.",
+      "updated": "2026-03-03T23:30:00.000Z",
+      "created": "2026-03-03T23:30:00.000Z"
+    },
+    {
+      "id": "linkedin-social-drafts",
+      "type": "linkedin",
+      "channel": "cw-company",
+      "title": "LinkedIn: 8 Being Claude social drafts",
+      "source": "reports/social-drafts/",
+      "status": "pending",
+      "notes": "Drafts generate tomorrow 5 AM. Derek reviews and posts manually.",
+      "updated": "2026-03-03T23:30:00.000Z",
+      "created": "2026-03-03T23:30:00.000Z"
     }
   ]
 }
