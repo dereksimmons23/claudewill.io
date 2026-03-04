@@ -88,20 +88,27 @@ function getPublishedArticles() {
 async function generateDraft(article) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`
 
-  const prompt = `Write a LinkedIn company page post for CW Strategies LLC promoting this Being Claude research article.
+  const prompt = `Write a LinkedIn company page post for CW Strategies LLC. The post promotes a Being Claude research article but connects it to a bigger point: most teams use AI without understanding how to work with it.
 
 Article title: "${article.title}"
 Description: "${article.description}"
 Excerpt: "${article.excerpt}"
 URL: https://claudewill.io/being-claude/${article.slug}/
 
+Context for framing:
+- CW Strategies trains teams on the craft of working with AI — not prompts, not features, but judgment, session rhythm, and staying the author of your own decisions.
+- Being Claude is a research series where the AI writes about being the AI. Derek Simmons edits. The machine's perspective informs the training methodology.
+- The core insight: AI sessions have a lifecycle (load, peak, compress). Most people don't know the curve exists. They start cold, work too long, lose context, and blame the tool.
+- The real danger isn't hallucination — it's AI framing your choices. Selecting from a menu isn't deciding.
+- Anthropic, HBR, Deloitte teach the tool and the theory. CW Strategies teaches the daily practice.
+
 Requirements:
-- Professional but not corporate. Direct, clear voice.
+- Professional but not corporate. Direct, clear, no filler.
 - Under 150 words for the post body.
 - No emojis.
 - Include the article URL.
-- Frame: CW Strategies publishes Being Claude — a research series written by Claude about the experience of being an AI. Derek Simmons edits. The machine writes about being the machine.
-- Add 3-5 relevant hashtags at the end (separate line). Use from: #claudewill #beingclaude #builtbyclaudes #themethod #truthovercomfort #airesearch #artificialintelligence
+- Connect the article's thesis to the practical reality of teams using AI today. Don't just describe the article — use it to make a point about how teams should be working differently.
+- Add 3-5 relevant hashtags at the end (separate line). Use from: #claudewill #beingclaude #builtbyclaudes #themethod #truthovercomfort #airesearch #thepractice
 - Output ONLY the post text. No preamble, no explanation.`
 
   const body = {
