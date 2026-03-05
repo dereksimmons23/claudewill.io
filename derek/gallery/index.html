@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Derek Simmons</title>
+  <meta name="description" content="30 years of work. Los Angeles Times, Star Tribune, CW Strategies. The visual record.">
+  <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #070d1a;
+      --text: #e8e8e4;
+      --dim: #6b7280;
+      --accent: #d4a84b;
+      --link: #6ba8d4;
+      --border: rgba(255, 255, 255, 0.06);
+      --card-bg: #0c1829;
+      --font: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Stars background */
+    .stars-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.15; }
+      50% { opacity: 0.7; }
+    }
+
+    /* Header */
+    .gallery-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(7, 13, 26, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .gallery-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .gallery-header-left a {
+      color: var(--dim);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.2s;
+    }
+
+    .gallery-header-left a:hover { color: var(--accent); }
+
+    .gallery-header-left .sep { color: var(--dim); opacity: 0.4; }
+
+    .gallery-header-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .gallery-filter {
+      display: flex;
+      gap: 4px;
+    }
+
+    .filter-btn {
+      font-family: var(--font);
+      font-size: 0.7rem;
+      padding: 4px 12px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      background: transparent;
+      color: var(--dim);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Content */
+    .gallery-content {
+      position: relative;
+      z-index: 1;
+      padding: 80px 24px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Hero */
+    .gallery-hero {
+      text-align: center;
+      padding: 60px 0 40px;
+    }
+
+    .gallery-hero h1 {
+      font-size: 2.4rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .gallery-hero .subtitle {
+      font-size: 0.85rem;
+      color: var(--dim);
+      line-height: 1.8;
+    }
+
+    .gallery-hero .accent-line {
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      margin: 24px auto 0;
+    }
+
+    /* Timeline */
+    .timeline-line {
+      position: fixed;
+      right: 32px;
+      top: 80px;
+      bottom: 60px;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--accent) 10%, var(--accent) 90%, transparent);
+      opacity: 0.2;
+      z-index: 50;
+    }
+
+    .timeline-markers {
+      position: fixed;
+      right: 20px;
+      top: 80px;
+      bottom: 60px;
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px 0;
+    }
+
+    .timeline-year {
+      font-size: 0.6rem;
+      color: var(--dim);
+      cursor: pointer;
+      transition: color 0.2s;
+      text-align: right;
+      padding-right: 4px;
+    }
+
+    .timeline-year:hover { color: var(--accent); }
+
+    .timeline-year.active { color: var(--accent); font-weight: 600; }
+
+    /* Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px 0 60px;
+    }
+
+    /* Cards */
+    .gallery-card {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .gallery-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-card:hover {
+      border-color: rgba(212, 168, 75, 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 60px rgba(212, 168, 75, 0.06);
+    }
+
+    .gallery-card.featured {
+      grid-column: span 2;
+    }
+
+    .card-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .gallery-card.portrait .card-image {
+      aspect-ratio: 3 / 4;
+    }
+
+    .gallery-card:hover .card-image {
+      transform: scale(1.03);
+    }
+
+    .card-info {
+      padding: 16px;
+    }
+
+    .card-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .card-meta {
+      font-size: 0.7rem;
+      color: var(--dim);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .card-tag {
+      font-size: 0.6rem;
+      padding: 2px 8px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--dim);
+    }
+
+    .card-era {
+      font-size: 0.6rem;
+      color: var(--accent);
+      opacity: 0.7;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(7, 13, 26, 0.95);
+      backdrop-filter: blur(20px);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 40px;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox-image {
+      max-width: 90vw;
+      max-height: 75vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 0 80px rgba(212, 168, 75, 0.1);
+    }
+
+    .lightbox-info {
+      text-align: center;
+      margin-top: 20px;
+      max-width: 600px;
+    }
+
+    .lightbox-title {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .lightbox-desc {
+      font-size: 0.85rem;
+      color: var(--dim);
+      line-height: 1.7;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-family: var(--font);
+      font-size: 0.85rem;
+      color: var(--dim);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      transition: color 0.2s;
+    }
+
+    .lightbox-close:hover { color: var(--accent); }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font);
+      font-size: 1.5rem;
+      color: var(--dim);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 20px;
+      transition: color 0.2s;
+    }
+
+    .lightbox-nav:hover { color: var(--accent); }
+    .lightbox-prev { left: 10px; }
+    .lightbox-next { right: 10px; }
+
+    /* Section dividers */
+    .era-divider {
+      padding: 40px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .era-divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .era-divider-label {
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* Footer */
+    .gallery-footer {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .gallery-footer p {
+      font-size: 0.8rem;
+      color: var(--dim);
+    }
+
+    .gallery-footer a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    .gallery-footer a:hover { color: var(--accent); }
+    .gallery-footer .hw { color: var(--accent); }
+
+    /* Mobile */
+    @media (max-width: 700px) {
+      .gallery-header { padding: 10px 16px; }
+      .gallery-filter { display: none; }
+      .gallery-content { padding: 70px 16px 40px; }
+      .gallery-hero h1 { font-size: 1.6rem; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .gallery-card.featured { grid-column: span 2; }
+      .timeline-line, .timeline-markers { display: none; }
+      .card-info { padding: 10px; }
+      .card-title { font-size: 0.75rem; }
+      .lightbox { padding: 20px; }
+    }
+
+    @media (max-width: 400px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-card.featured { grid-column: span 1; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .gallery-card { opacity: 1; transform: none; }
+      .gallery-card:hover { transform: none; }
+      .gallery-card:hover .card-image { transform: none; }
+      .star { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars-layer" id="stars-layer"></div>
+
+  <header class="gallery-header">
+    <div class="gallery-header-left">
+      <a href="/derek">derek</a>
+      <span class="sep">/</span>
+      <span class="gallery-header-title">gallery</span>
+    </div>
+    <div class="gallery-filter" id="filters">
+      <button class="filter-btn active" data-filter="all">all</button>
+      <button class="filter-btn" data-filter="la-times">la times</button>
+      <button class="filter-btn" data-filter="star-tribune">star tribune</button>
+      <button class="filter-btn" data-filter="cw">cw strategies</button>
+      <button class="filter-btn" data-filter="life">life</button>
+    </div>
+  </header>
+
+  <div class="timeline-line"></div>
+  <div class="timeline-markers" id="timeline-markers"></div>
+
+  <div class="gallery-content">
+    <div class="gallery-hero">
+      <h1>the work</h1>
+      <p class="subtitle">30 years. Two newspapers ranked best in the world.<br>A thousand design awards. The visual record.</p>
+      <div class="accent-line"></div>
+    </div>
+
+    <div class="gallery-grid" id="gallery-grid"></div>
+
+    <footer class="gallery-footer">
+      <p>Built by <a href="/derek">Derek</a><span class="hw">*</span><a href="/being-claude">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
+      <p style="margin-top: 8px;"><a href="/derek">&larr; back to derek</a></p>
+    </footer>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">esc</button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev">&larr;</button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next">&rarr;</button>
+    <img class="lightbox-image" id="lightbox-image" src="" alt="">
+    <div class="lightbox-info">
+      <div class="lightbox-title" id="lightbox-title"></div>
+      <div class="lightbox-desc" id="lightbox-desc"></div>
+    </div>
+  </div>
+
+  <script>
+    // Gallery data — each item is a star in the constellation
+    var GALLERY_ITEMS = [
+      {
+        id: 'first-byline',
+        src: '/images/gallery/first-byline-18-framed.png',
+        title: 'First Byline',
+        desc: 'Age 18. The Hays Daily News. Where it started.',
+        era: '1991',
+        filter: 'life',
+        featured: true
+      },
+      {
+        id: 'la-times-love',
+        src: '/images/gallery/theres-no-mistaking-love-la-times-illo.png',
+        title: "There's No Mistaking Love",
+        desc: 'Los Angeles Times illustration. The newspaper as landscape. Two people finding their way.',
+        era: '2003',
+        filter: 'la-times',
+        featured: true
+      },
+      {
+        id: 'jihad-heartland',
+        src: '/images/gallery/jihad-heartland.png',
+        title: 'Jihad in the Heartland',
+        desc: 'Investigative series illustration. The silhouette tells the story before the words do.',
+        era: '2007',
+        filter: 'star-tribune'
+      },
+      {
+        id: '61-seconds',
+        src: '/images/gallery/61-seconds.png',
+        title: '61 Seconds',
+        desc: 'News illustration. The 61 seconds between the call and the ambulance.',
+        era: '2009',
+        filter: 'star-tribune'
+      },
+      {
+        id: 'oly-row',
+        src: '/images/gallery/oly-poster-row.png',
+        title: 'Olympics — Diving',
+        desc: 'Olympics coverage poster. The yellow board, the blue water, the feet about to leave the ground.',
+        era: '2008',
+        filter: 'star-tribune'
+      },
+      {
+        id: 'oly-kobe',
+        src: '/images/gallery/oly-poster-kobe.png',
+        title: 'Olympics — USA Basketball',
+        desc: 'Olympics coverage poster. Kobe. Number 10. Before the world got complicated.',
+        era: '2008',
+        filter: 'star-tribune'
+      },
+      {
+        id: 'oly-sochi',
+        src: '/images/gallery/oly-sochi-flame.png',
+        title: 'Sochi Olympics — The Flame',
+        desc: 'Sochi Winter Olympics mosaic. Fire made from a thousand Russian icons.',
+        era: '2014',
+        filter: 'star-tribune',
+        featured: true
+      },
+      {
+        id: 'prince',
+        src: '/images/gallery/prince-illo.png',
+        title: 'Prince',
+        desc: 'The day Minneapolis lost its heartbeat. April 21, 2016.',
+        era: '2016',
+        filter: 'star-tribune',
+        featured: true
+      },
+      {
+        id: 'elex',
+        src: '/images/gallery/elex-move-right.png',
+        title: 'Election Data — The Shift',
+        desc: 'Election results visualization. Blue arrows left, red arrows right. The data told the story.',
+        era: '2016',
+        filter: 'star-tribune'
+      },
+      {
+        id: 'mag-voyageurs',
+        src: '/images/gallery/st-mag-voyaguers.png',
+        title: "Minnesota's Gift to the World",
+        desc: 'Star Tribune Magazine cover. Voyageurs National Park from above.',
+        era: '2017',
+        filter: 'star-tribune'
+      },
+      {
+        id: 'mag-proto',
+        src: '/images/gallery/st-mag-proto.png',
+        title: 'Magazine Prototype',
+        desc: 'Dawn on the water. The magazine that became the Sunday anchor.',
+        era: '2015',
+        filter: 'star-tribune'
+      },
+      {
+        id: 'fair-shirts',
+        src: '/images/gallery/st-fairtshirts.png',
+        title: 'Congregate Then Hibernate',
+        desc: 'Minnesota State Fair t-shirt design. $2M+ revenue program. The merch that paid for journalism.',
+        era: '2018',
+        filter: 'star-tribune'
+      },
+      {
+        id: 'vr-stadium',
+        src: '/images/gallery/vr-app.png',
+        title: 'VR Flyover — U.S. Bank Stadium',
+        desc: 'Virtual reality experience. Before anyone else in newspapers was building VR.',
+        era: '2017',
+        filter: 'star-tribune'
+      },
+      {
+        id: 'taste-50',
+        src: '/images/gallery/taste-50.png',
+        title: '50 Years of Taste',
+        desc: 'Taste section 50th anniversary. The celebration. The cake. The guy who made it all work.',
+        era: '2019',
+        filter: 'star-tribune',
+        portrait: true
+      },
+      {
+        id: 'small-biz',
+        src: '/images/gallery/small-biz.png',
+        title: 'Small Business Inc.',
+        desc: 'Business section illustration. The castle under siege. Small businesses finding their way.',
+        era: '2010',
+        filter: 'star-tribune'
+      },
+      {
+        id: 'cascadia',
+        src: '/images/gallery/cascadia.png',
+        title: 'Cascadia Daily Life',
+        desc: 'Client work. Cover illustration for Cascadia Daily News seasonal edition.',
+        era: '2025',
+        filter: 'cw'
+      },
+      {
+        id: 'kid-cap',
+        src: '/images/gallery/kid-cap.png',
+        title: 'Little Star',
+        desc: 'Before any of it. The kid with the cap and the grin.',
+        era: '1979',
+        filter: 'life',
+        portrait: true
+      },
+      {
+        id: 'kid-pensive',
+        src: '/images/gallery/kid-pensive.png',
+        title: 'The Builder',
+        desc: 'Thinking about something. Probably how to take it apart.',
+        era: '1981',
+        filter: 'life',
+        portrait: true
+      },
+      {
+        id: 'panthers',
+        src: '/images/gallery/panthers.png',
+        title: 'Panthers Basketball',
+        desc: 'College ball. Before media. Before the newsroom. Just the game.',
+        era: '1992',
+        filter: 'life',
+        portrait: true
+      },
+      {
+        id: 'coach-gym',
+        src: '/images/gallery/coach-gym.png',
+        title: 'Coach D',
+        desc: 'In the gym. The Dr. Dish. The second career nobody saw coming.',
+        era: '2024',
+        filter: 'cw',
+        portrait: true
+      },
+      {
+        id: 'basketball-dusk',
+        src: '/images/gallery/basketball-dusk.png',
+        title: 'Driveway',
+        desc: 'The hoop at dusk. Where the coaching started. Where it still happens.',
+        era: '2024',
+        filter: 'life'
+      },
+      {
+        id: 'dog',
+        src: '/images/gallery/dog.png',
+        title: 'The Dog',
+        desc: 'Dog lover. Raptors hat. Grass. Enough said.',
+        era: '2023',
+        filter: 'life',
+        portrait: true
+      },
+      {
+        id: 'father-son',
+        src: '/images/gallery/father-son.png',
+        title: 'Father and Son',
+        desc: 'Under the banyan tree. The roots go deeper than you think.',
+        era: '2015',
+        filter: 'life',
+        portrait: true
+      },
+      {
+        id: 'david-shirt',
+        src: '/images/gallery/david-shirt.png',
+        title: 'The Shirt',
+        desc: 'David with bubblegum. The tattoo arm. The attitude.',
+        era: '2024',
+        filter: 'life'
+      },
+      {
+        id: 'cw-standard-card',
+        src: '/images/gallery/cw-standard-card.png',
+        title: 'Usefulness Over Purity',
+        desc: 'The CW Standard. Principle #2. The one that governs everything built here.',
+        era: '2026',
+        filter: 'cw',
+        featured: true
+      }
+    ];
+
+    // Sort by era (year)
+    GALLERY_ITEMS.sort(function(a, b) {
+      return parseInt(a.era) - parseInt(b.era);
+    });
+
+    // Generate background stars
+    function generateStars() {
+      var layer = document.getElementById('stars-layer');
+      var count = 120;
+      for (var i = 0; i < count; i++) {
+        var star = document.createElement('div');
+        star.className = 'star';
+        var size = Math.random() < 0.85 ? (1 + Math.random() * 1.5) : (2 + Math.random() * 2);
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.left = (Math.random() * 100) + '%';
+        star.style.top = (Math.random() * 100) + '%';
+
+        var brightness = Math.random();
+        var isBright = brightness > 0.6;
+        star.style.background = isBright ? '#d4a84b' : 'rgba(255, 255, 255, 0.15)';
+        star.style.opacity = (0.15 + brightness * 0.5).toString();
+        if (isBright) star.style.boxShadow = '0 0 3px #d4a84b';
+
+        if (Math.random() < 0.7) {
+          var speed = 3 + Math.random() * 8;
+          star.style.animation = 'twinkle ' + speed + 's ease-in-out infinite';
+          star.style.animationDelay = (Math.random() * 6) + 's';
+        }
+
+        layer.appendChild(star);
+      }
+    }
+
+    // Render gallery
+    function renderGallery(filter) {
+      var grid = document.getElementById('gallery-grid');
+      grid.textContent = '';
+
+      var items = filter === 'all' ? GALLERY_ITEMS : GALLERY_ITEMS.filter(function(item) {
+        return item.filter === filter;
+      });
+
+      var currentEra = '';
+
+      items.forEach(function(item, index) {
+        // Era divider — group by decade
+        var decade = item.era.substring(0, 3) + '0s';
+        if (decade !== currentEra) {
+          currentEra = decade;
+          var divider = document.createElement('div');
+          divider.className = 'era-divider';
+          divider.style.gridColumn = '1 / -1';
+
+          var line1 = document.createElement('div');
+          line1.className = 'era-divider-line';
+          var label = document.createElement('div');
+          label.className = 'era-divider-label';
+          label.textContent = decade;
+          var line2 = document.createElement('div');
+          line2.className = 'era-divider-line';
+
+          divider.appendChild(line1);
+          divider.appendChild(label);
+          divider.appendChild(line2);
+          grid.appendChild(divider);
+        }
+
+        var card = document.createElement('div');
+        card.className = 'gallery-card';
+        if (item.featured) card.classList.add('featured');
+        if (item.portrait) card.classList.add('portrait');
+        card.setAttribute('data-index', GALLERY_ITEMS.indexOf(item));
+
+        var img = document.createElement('img');
+        img.className = 'card-image';
+        img.src = item.src;
+        img.alt = item.title;
+        img.loading = 'lazy';
+
+        var info = document.createElement('div');
+        info.className = 'card-info';
+
+        var title = document.createElement('div');
+        title.className = 'card-title';
+        title.textContent = item.title;
+
+        var meta = document.createElement('div');
+        meta.className = 'card-meta';
+
+        var era = document.createElement('span');
+        era.className = 'card-era';
+        era.textContent = item.era;
+
+        var tag = document.createElement('span');
+        tag.className = 'card-tag';
+        var filterLabels = {
+          'la-times': 'LA Times',
+          'star-tribune': 'Star Tribune',
+          'cw': 'CW Strategies',
+          'life': 'Life'
+        };
+        tag.textContent = filterLabels[item.filter] || item.filter;
+
+        meta.appendChild(era);
+        meta.appendChild(tag);
+        info.appendChild(title);
+        info.appendChild(meta);
+        card.appendChild(img);
+        card.appendChild(info);
+        grid.appendChild(card);
+
+        // Animate in with stagger
+        setTimeout(function() {
+          card.classList.add('visible');
+        }, 80 + index * 60);
+
+        // Lightbox click
+        card.addEventListener('click', function() {
+          openLightbox(parseInt(this.getAttribute('data-index')));
+        });
+      });
+    }
+
+    // Timeline markers
+    function renderTimeline() {
+      var container = document.getElementById('timeline-markers');
+      var years = [];
+      GALLERY_ITEMS.forEach(function(item) {
+        if (years.indexOf(item.era) === -1) years.push(item.era);
+      });
+      years.sort();
+
+      // Show decade labels only
+      var decades = [];
+      years.forEach(function(y) {
+        var decade = y.substring(0, 3) + '0';
+        if (decades.indexOf(decade) === -1) decades.push(decade);
+      });
+
+      decades.forEach(function(decade) {
+        var marker = document.createElement('div');
+        marker.className = 'timeline-year';
+        marker.textContent = decade;
+        container.appendChild(marker);
+      });
+    }
+
+    // Lightbox
+    var currentLightboxIndex = 0;
+
+    function openLightbox(index) {
+      currentLightboxIndex = index;
+      var item = GALLERY_ITEMS[index];
+      document.getElementById('lightbox-image').src = item.src;
+      document.getElementById('lightbox-image').alt = item.title;
+      document.getElementById('lightbox-title').textContent = item.title + ' — ' + item.era;
+      document.getElementById('lightbox-desc').textContent = item.desc;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function navigateLightbox(dir) {
+      currentLightboxIndex = (currentLightboxIndex + dir + GALLERY_ITEMS.length) % GALLERY_ITEMS.length;
+      var item = GALLERY_ITEMS[currentLightboxIndex];
+      document.getElementById('lightbox-image').src = item.src;
+      document.getElementById('lightbox-image').alt = item.title;
+      document.getElementById('lightbox-title').textContent = item.title + ' — ' + item.era;
+      document.getElementById('lightbox-desc').textContent = item.desc;
+    }
+
+    // Wire events
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox-prev').addEventListener('click', function() { navigateLightbox(-1); });
+    document.getElementById('lightbox-next').addEventListener('click', function() { navigateLightbox(1); });
+
+    document.addEventListener('keydown', function(e) {
+      var lb = document.getElementById('lightbox');
+      if (lb.classList.contains('open')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') navigateLightbox(-1);
+        if (e.key === 'ArrowRight') navigateLightbox(1);
+      }
+    });
+
+    // Filters
+    document.getElementById('filters').addEventListener('click', function(e) {
+      if (e.target.classList.contains('filter-btn')) {
+        var btns = document.querySelectorAll('.filter-btn');
+        for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
+        e.target.classList.add('active');
+        renderGallery(e.target.getAttribute('data-filter'));
+      }
+    });
+
+    // Init
+    generateStars();
+    renderTimeline();
+    renderGallery('all');
+  </script>
+</body>
+</html>
