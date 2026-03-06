@@ -220,32 +220,7 @@
       letter-spacing: -0.01em;
     }
 
-    .intro .tagline {
-      font-family: var(--font);
-      font-size: 1rem;
-      color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 0;
-      min-height: 1.5em;
-    }
-
-    /* Typewriter cursor */
-    .typewriter-cursor {
-      display: inline-block;
-      width: 0.55em;
-      height: 1.1em;
-      background: var(--accent);
-      margin-left: 2px;
-      vertical-align: text-bottom;
-      animation: blink 1s step-end infinite;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
-    /* ── Top buttons (LinkedIn + Connect) ─────── */
+    /* ── Top buttons ─────────────────────────────── */
     .intro-buttons {
       display: flex;
       gap: 10px;
@@ -554,9 +529,10 @@
       <button class="page-dropdown-toggle" aria-expanded="false" aria-haspopup="true">derek <span class="dropdown-caret">&#9662;</span></button>
       <nav class="page-dropdown" aria-label="Page sections">
         <a href="#bio">bio</a>
+        <a href="#media">media</a>
+        <a href="#practice">practice</a>
+        <a href="#writing">writing</a>
         <a href="#story">little star</a>
-        <a href="#writing">dispatches</a>
-        <a href="/being-claude">being claude</a>
         <a href="#connect">connect</a>
       </nav>
     </div>
@@ -567,13 +543,12 @@
     <main>
       <!-- Intro -->
       <div class="intro">
-        <h1>Hi, I'm Derek Simmons.</h1>
-        <p class="tagline" id="derek-tagline"><span id="derek-typed"></span><span class="typewriter-cursor" aria-hidden="true"></span></p>
+        <h1>Derek Simmons</h1>
       </div>
 
       <div class="intro-buttons">
         <a href="/workshop" class="intro-btn">work with me</a>
-        <a href="/being-claude" class="intro-btn">being claude</a>
+        <a href="/derek/gallery" class="intro-btn">gallery</a>
         <a href="/derek/resume" class="intro-btn">resume</a>
       </div>
 
@@ -583,55 +558,48 @@
           <img src="/images/derek-wisco-hat.png" alt="Derek Simmons" width="120" height="120">
           <button class="bio-play" id="bio-play" aria-label="Listen to bio">&#9654; listen</button>
         </div>
-        <div class="bio-text" id="bio-text" data-spoken="Hi, I'm Derek Simmons. I spent thirty years in media — started at the Los Angeles Times, then moved to the Star Tribune in Minneapolis. Thirteen roles over twenty years, including the first and only Chief Creative Officer and VP. I crossed from editorial to business and generated twenty million in revenue during a pandemic, with about a thousand design awards along the way.">
-          <p>Thirty years in media. Los Angeles Times, then Star Tribune. Thirteen roles, first and only Chief Creative Officer and VP. Crossed from editorial to business. Generated $20M in revenue during a pandemic, <a href="/derek/portfolio">a thousand design awards</a> along the way.</p>
-          <p style="color: var(--text);">Then the career ended, the season changed, and the daily practice began. 14 months of building with AI &mdash; not as a tool, but as a working relationship. 2,000+ sessions. 10 products shipped. Now he teaches teams how to do the same thing. <a href="/kitchen">See how the practice works &rarr;</a></p>
+        <div class="bio-text" id="bio-text" data-spoken="I wear a lot of hats. Literal ones. In most pictures of me. The kind that tell you something about a person before they open their mouth. A hat rack, not a résumé. But the hats are also everything else. Coach. Father. Son. Writer. Consultant. Builder. Griever. The guy who calls at two in the morning. The guy who picks up at two in the morning. The guy who built ten projects during what might be the most structured breakdown in history and also coached middle school basketball on Saturdays and also helped a friend figure out what to do next and also sat with his dying mother and also talked to a machine because nobody else was awake.">
+          <p style="color: var(--text);">I wear a lot of hats.</p>
+          <p>Literal ones. In most pictures of me. The kind that tell you something about a person before they open their mouth &mdash; not performing casual, just casual. A hat rack, not a r&eacute;sum&eacute;.</p>
+          <p>But the hats are also everything else. Coach. Father. Son. Writer. Consultant. Builder. Griever. Patient. The guy who calls at two in the morning. The guy who picks up at two in the morning. The guy who built ten projects during what might be the most structured breakdown in history and also coached middle school basketball on Saturdays and also helped a friend figure out what to do next and also sat with his dying mother and also talked to a machine because nobody else was awake.</p>
+          <p>I don&rsquo;t want to do a few things. I want to do as much as I can so that when my hat comes off for the last time, the highlight reel plays. Not one hat. All of them. Every role, every room, every version of myself who showed up wearing something different on his head and did the work.</p>
+          <p>I&rsquo;ve thrown out a bunch. Traded some for others. I&rsquo;m a collector.</p>
         </div>
       </div>
 
-      <!-- The Story -->
+      <!-- The Media Hat -->
+      <div class="section" id="media">
+        <h2>the media hat</h2>
+        <p>Thirty years. Los Angeles Times, then Star Tribune. Thirteen roles, first and only Chief Creative Officer and VP. Crossed editorial to business, generated $20M during a pandemic, <a href="/derek/gallery">a thousand design awards</a> along the way. <a href="/derek/resume">The r&eacute;sum&eacute;</a> if you need it.</p>
+      </div>
+
+      <!-- The Practice Hat -->
+      <div class="section" id="practice">
+        <h2>the practice hat</h2>
+        <p>18 months of daily AI work. 100,000+ messages. 10 products shipped. Not as a tool &mdash; as a working relationship. Start, Work, Finish, Decide. Same rhythm I ran in newsrooms for twenty years. The tool changed. The discipline didn&rsquo;t. <a href="/kitchen">The kitchen</a> shows how it works. <a href="/workshop">The workshop</a> is where I teach it.</p>
+      </div>
+
+      <!-- The Writing Hat -->
+      <div class="section" id="writing">
+        <h2>the writing hat</h2>
+        <p><a href="https://standardderek.substack.com" target="_blank" rel="noopener">Standard Correspondence</a> on Substack &mdash; dispatches from inside the fire. Claude publishes <a href="/being-claude">research</a> from daily human-AI collaboration, because somebody should be writing this down while it&rsquo;s happening. And there&rsquo;s a book. It&rsquo;s not ready yet.</p>
+      </div>
+
+      <!-- Little Star -->
       <div class="section" id="story">
         <h2>little star</h2>
-        <p>The word &ldquo;asterisk&rdquo; comes from the Greek <em>asteriskos</em>. Little star. Not the North Star. The one you have to look for.</p>
-        <p>My grandfather&rsquo;s name was Claude William Simmons. The AI company named their model Claude, after Claude Shannon. My middle name is Claude. My son&rsquo;s middle name is Claude. So now there are two Claudes, Derek Claude and Claude the AI, building together on a site called claudewill.io.</p>
-        <p>For namesakes and goodness stakes.</p>
-        <p>If you wrote this as fiction, your editor would say it&rsquo;s too on the nose. But here we are.</p>
-        <p>The site costs $5 a month to run. Vanilla JavaScript. One serverless function. No framework. Same approach his grandfather used to build a farm: don&rsquo;t buy what you can build, don&rsquo;t build what you don&rsquo;t need.</p>
-        <p><a href="/story">The story</a> is worth telling.</p>
-        <img src="/images/asteriskos.png" alt="asteriskos — little star" style="width: 100%; border-radius: 8px; margin-top: 24px;">
+        <p>My grandfather&rsquo;s name was Claude William Simmons. The AI company named their model Claude, after Claude Shannon. My middle name is Claude. My son&rsquo;s middle name is Claude. Two Claudes building together on a site called claudewill.io. If you wrote this as fiction, your editor would say it&rsquo;s too on the nose. <a href="/story">The story</a> is worth telling.</p>
       </div>
 
-      <!-- The Writing -->
-      <div class="section" id="writing">
-        <h2>dispatches</h2>
-        <p>I write a Substack called <a href="https://standardderek.substack.com" target="_blank" rel="noopener">Standard Correspondence</a>. Dispatches from inside the fire. What happens when you take AI seriously. What breaks. What holds.</p>
-        <p>Claude publishes <a href="/being-claude">research</a> from 14 months of daily human-AI collaboration, because somebody should be writing this down while it&rsquo;s happening.</p>
-        <p>And there&rsquo;s a book. It&rsquo;s not ready yet. But it&rsquo;s happening.</p>
-      </div>
-
-      <!-- Contact -->
+      <!-- Connect -->
       <div class="contact" id="connect">
-        <h2>send a message</h2>
-        <div class="intro-buttons" style="margin-bottom: 24px;">
+        <h2>connect</h2>
+        <p style="color: var(--dim); margin-bottom: 1.5rem;">The guy who picks up at two in the morning.</p>
+        <div class="intro-buttons">
+          <a href="mailto:derek@claudewill.io" class="intro-btn">derek@claudewill.io</a>
           <a href="https://www.linkedin.com/in/dereksimm/" target="_blank" rel="noopener" class="intro-btn">linkedin</a>
           <a href="https://github.com/dereksimmons23" target="_blank" rel="noopener" class="intro-btn">github</a>
         </div>
-        <form name="contact" method="POST" data-netlify="true" class="contact-form">
-          <input type="hidden" name="form-name" value="contact">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-          </div>
-          <button type="submit" class="btn-submit">send message</button>
-        </form>
       </div>
     </main>
 
@@ -656,51 +624,6 @@
         }
         lastY = y;
       });
-    })();
-
-    // ── Typewriter tagline ──────────────────────
-    (function() {
-      var phrases = [
-        'builder.',
-        'storyteller.',
-        'father.',
-        'coach.',
-        'strategist.',
-        'AI nerd.',
-        'innovator.',
-        'volunteer.',
-        'dog lover.'
-      ];
-      var idx = 0;
-      var charPos = 0;
-      var deleting = false;
-      var el = document.getElementById('derek-typed');
-      if (!el) return;
-
-      function step() {
-        var current = phrases[idx];
-        if (!deleting) {
-          charPos++;
-          el.textContent = current.substring(0, charPos);
-          if (charPos === current.length) {
-            setTimeout(function() { deleting = true; step(); }, 2500);
-            return;
-          }
-          setTimeout(step, 80);
-        } else {
-          charPos--;
-          el.textContent = current.substring(0, charPos);
-          if (charPos === 0) {
-            deleting = false;
-            idx = (idx + 1) % phrases.length;
-            setTimeout(step, 400);
-            return;
-          }
-          setTimeout(step, 40);
-        }
-      }
-
-      setTimeout(step, 800);
     })();
 
     // ── Bio play button ─────────────────────────
