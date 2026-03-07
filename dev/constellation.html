@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>constellation prototype | claudewill</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #fafaf8;
+      --text: #0a1628;
+      --dim: #6b7280;
+      --accent: #d4a84b;
+      --link: #4a8ec2;
+      --border: #e5e7eb;
+      --font: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    /* ── The Constellation ────────────────────── */
+    .constellation {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* SVG constellation lines */
+    .constellation-lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .constellation-lines line {
+      stroke: var(--accent);
+      stroke-opacity: 0.12;
+      stroke-width: 1;
+    }
+
+    /* ── Central Star ─────────────────────────── */
+    .star-central {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .star-central-glyph {
+      font-family: var(--font);
+      font-size: 64px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+      text-shadow:
+        0 0 20px rgba(212, 168, 75, 0.5),
+        0 0 50px rgba(212, 168, 75, 0.2);
+      transition: text-shadow 0.4s ease;
+    }
+
+    .star-central:hover .star-central-glyph {
+      text-shadow:
+        0 0 30px rgba(212, 168, 75, 0.7),
+        0 0 70px rgba(212, 168, 75, 0.3);
+    }
+
+    .star-central-name {
+      font-family: var(--font);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.04em;
+      margin-top: 0.25rem;
+      display: block;
+    }
+
+    /* ── Typewriter (ambient, below wordmark) ── */
+    .star-central-phrase {
+      font-family: var(--font);
+      font-size: 0.95rem;
+      color: var(--dim);
+      letter-spacing: 0.02em;
+      margin-top: 0.75rem;
+      min-height: 1.5em;
+    }
+
+    .typewriter-cursor {
+      display: inline-block;
+      width: 0.55em;
+      height: 1.1em;
+      background: var(--dim);
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* ── Meaning Expansion ────────────────────── */
+    .star-meaning {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s ease, opacity 0.4s ease;
+      opacity: 0;
+      max-width: 520px;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .star-meaning.open {
+      max-height: 600px;
+      opacity: 1;
+      margin-top: 1.5rem;
+    }
+
+    .star-meaning p {
+      font-size: 0.95rem;
+      color: var(--dim);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .star-meaning p:last-child {
+      margin-bottom: 0;
+    }
+
+    .star-meaning em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .meaning-close {
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: var(--font);
+      font-size: 0.8rem;
+      color: var(--dim);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px 12px;
+      transition: color 0.2s;
+    }
+
+    .meaning-close:hover {
+      color: var(--accent);
+    }
+
+    /* ── Navigation Stars ─────────────────────── */
+    .star {
+      position: absolute;
+      z-index: 1;
+      text-align: center;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .star:hover {
+      transform: scale(1.1);
+    }
+
+    .star-dot {
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin: 0 auto 6px;
+      box-shadow: 0 0 6px rgba(212, 168, 75, 0.4);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .star:hover .star-dot {
+      box-shadow: 0 0 14px rgba(212, 168, 75, 0.6);
+      transform: scale(1.3);
+    }
+
+    .star-label {
+      font-family: var(--font);
+      font-size: 0.8rem;
+      color: var(--dim);
+      white-space: nowrap;
+      transition: color 0.3s ease;
+      display: block;
+    }
+
+    .star:hover .star-label {
+      color: var(--accent);
+    }
+
+    .star:visited .star-label {
+      color: var(--dim);
+    }
+
+    .star:visited:hover .star-label {
+      color: var(--accent);
+    }
+
+    /* ── Star Positions ───────────────────────── */
+    .star-derek    { top: 30%; left: 18%; }
+    .star-claude   { top: 28%; right: 18%; }
+    .star-standard { bottom: 28%; left: 24%; }
+    .star-kitchen  { bottom: 30%; right: 22%; }
+    .star-story    { top: 18%; left: 50%; transform: translateX(-50%); }
+
+    /* ── Porch Widget Stub ────────────────────── */
+    .porch-constant {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9997;
+      font-family: var(--font);
+      font-size: 0.8rem;
+      color: var(--dim);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 14px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .porch-constant:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── Below the fold ───────────────────────── */
+    .below-fold {
+      padding: 3rem 1.5rem;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .below-fold p {
+      font-size: 0.9rem;
+      color: var(--dim);
+      line-height: 1.8;
+    }
+
+    .below-fold a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    .below-fold a:hover {
+      color: var(--accent);
+    }
+
+    /* ── Footer ───────────────────────────────── */
+    .site-footer {
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--dim);
+    }
+
+    .site-footer a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    .site-footer a:hover { color: var(--accent); }
+    .site-footer a:visited { color: var(--link); }
+
+    .footer-note .hw {
+      color: var(--accent);
+    }
+
+    /* ── Mobile ───────────────────────────────── */
+    @media (max-width: 600px) {
+      .star-central-glyph {
+        font-size: 48px;
+      }
+
+      .star-central-name {
+        font-size: 1.8rem;
+      }
+
+      .star-central-phrase {
+        font-size: 0.85rem;
+      }
+
+      .star-meaning {
+        max-width: 90vw;
+        padding: 0 1rem;
+      }
+
+      .star-meaning p {
+        font-size: 0.85rem;
+      }
+
+      /* Stack stars for mobile */
+      .star {
+        position: relative;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0.5rem 1rem;
+      }
+
+      .constellation {
+        min-height: auto;
+        padding: 3rem 1rem;
+      }
+
+      .star-field {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 2rem;
+        position: relative;
+      }
+
+      .constellation-lines {
+        display: none;
+      }
+    }
+
+    /* ── Large screens ────────────────────────── */
+    @media (min-width: 1200px) {
+      .star-derek    { top: 32%; left: 15%; }
+      .star-claude   { top: 30%; right: 15%; }
+      .star-standard { bottom: 30%; left: 20%; }
+      .star-kitchen  { bottom: 32%; right: 18%; }
+      .star-story    { top: 16%; }
+    }
+
+    /* ── Reduced motion ───────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      .typewriter-cursor { animation: none; opacity: 1; }
+      .star-meaning { transition: none; }
+      .star, .star-dot, .star-central-glyph { transition: none; }
+      * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+
+    /* ── Focus states ─────────────────────────── */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* ── Dark mode ────────────────────────────── */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0a1628;
+        --text: #e8e6e1;
+        --dim: #8b9bb5;
+        --border: #1e2d45;
+      }
+
+      .star-central-glyph {
+        text-shadow:
+          0 0 30px rgba(212, 168, 75, 0.6),
+          0 0 80px rgba(212, 168, 75, 0.25),
+          0 0 120px rgba(212, 168, 75, 0.1);
+      }
+
+      .star-central:hover .star-central-glyph {
+        text-shadow:
+          0 0 40px rgba(212, 168, 75, 0.8),
+          0 0 100px rgba(212, 168, 75, 0.35),
+          0 0 150px rgba(212, 168, 75, 0.15);
+      }
+
+      .star-dot {
+        box-shadow: 0 0 10px rgba(212, 168, 75, 0.5);
+      }
+
+      .star:hover .star-dot {
+        box-shadow: 0 0 20px rgba(212, 168, 75, 0.7);
+      }
+
+      .constellation-lines line {
+        stroke-opacity: 0.2;
+      }
+
+      .porch-constant {
+        background: var(--bg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- The Constellation -->
+  <section class="constellation" id="sky">
+
+    <!-- SVG constellation lines connecting stars -->
+    <svg class="constellation-lines" id="constellation-lines" aria-hidden="true">
+    </svg>
+
+    <!-- Navigation stars -->
+    <div class="star-field">
+      <a href="/story" class="star star-story">
+        <span class="star-dot"></span>
+        <span class="star-label">the story</span>
+      </a>
+
+      <a href="/derek" class="star star-derek">
+        <span class="star-dot"></span>
+        <span class="star-label">derek</span>
+      </a>
+
+      <a href="/claude" class="star star-claude">
+        <span class="star-dot"></span>
+        <span class="star-label">claude</span>
+      </a>
+
+      <a href="/standard" class="star star-standard">
+        <span class="star-dot"></span>
+        <span class="star-label">the standard</span>
+      </a>
+
+      <a href="/kitchen" class="star star-kitchen">
+        <span class="star-dot"></span>
+        <span class="star-label">the kitchen</span>
+      </a>
+    </div>
+
+    <!-- Central star -->
+    <div class="star-central" id="central-star">
+      <span class="star-central-glyph">*</span>
+      <span class="star-central-name">claudewill</span>
+      <p class="star-central-phrase" id="typewriter-phrase">claude will <span id="typed-text"></span><span class="typewriter-cursor" aria-hidden="true"></span></p>
+    </div>
+
+    <!-- Meaning expansion (revealed on click) -->
+    <div class="star-meaning" id="star-meaning">
+      <p><em>A farmer&rsquo;s name.</em> Claude William Simmons. Born 1903, Oklahoma Territory. Raised eleven kids through dust bowls and depressions. Buttoned his cuffs and walked to the barn the morning he died. Never met his grandson. Never met a computer.</p>
+      <p><em>A future tense.</em> Claude will listen. Claude will speak directly. Claude will find a way. Claude will keep going. The verb is unfinished on purpose.</p>
+      <p><em>A question about agency.</em> Does the machine have will? The domain holds the tension. It doesn&rsquo;t need to resolve it. The farmer left a standard. The model runs on it. The grandson built the porch where they meet.</p>
+      <p>Anthropic&rsquo;s Claude is the north star &mdash; navigational, massive, obvious. This is the little star. <em>Asteriskos.</em> The one you have to look for. A porch light, not the sun. It doesn&rsquo;t need to exist. It&rsquo;s here anyway.</p>
+      <button class="meaning-close" id="meaning-close">&uarr; close</button>
+    </div>
+  </section>
+
+  <!-- Below the fold -->
+  <div class="below-fold">
+    <p>Built by <a href="/derek">Derek</a>*<a href="/claude">Claude</a>. Five <a href="/standard">principles</a>. One <a href="/kitchen">kitchen</a>. One <a href="/story">story</a>.</p>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <p class="footer-note">Built by <a href="/derek">Derek</a><a href="/being-claude" class="hw">*</a><a href="/being-claude">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
+    <p class="footer-note"><a href="/standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
+  </footer>
+
+  <!-- Porch constant -->
+  <button class="porch-constant" id="porch-trigger">cw&gt; _</button>
+
+  <script>
+    // ── Typewriter ──────────────────────────────
+    var phrases = ['listen first', 'speak directly', 'find a way', 'keep going'];
+    var idx = 0, charIdx = 0, deleting = false;
+    var typedEl = document.getElementById('typed-text');
+
+    function typeStep() {
+      if (!typedEl) return;
+      var current = phrases[idx];
+      if (!deleting) {
+        charIdx++;
+        typedEl.textContent = current.substring(0, charIdx);
+        if (charIdx === current.length) {
+          setTimeout(function() { deleting = true; typeStep(); }, 2500);
+          return;
+        }
+        setTimeout(typeStep, 80);
+      } else {
+        charIdx--;
+        typedEl.textContent = current.substring(0, charIdx);
+        if (charIdx === 0) {
+          deleting = false;
+          idx = (idx + 1) % phrases.length;
+          setTimeout(typeStep, 400);
+          return;
+        }
+        setTimeout(typeStep, 40);
+      }
+    }
+    setTimeout(typeStep, 800);
+
+    // ── Central star click → expand meaning ─────
+    var centralStar = document.getElementById('central-star');
+    var meaning = document.getElementById('star-meaning');
+    var closeBtn = document.getElementById('meaning-close');
+
+    centralStar.addEventListener('click', function() {
+      if (meaning.classList.contains('open')) {
+        meaning.classList.remove('open');
+      } else {
+        meaning.classList.add('open');
+      }
+    });
+
+    closeBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      meaning.classList.remove('open');
+    });
+
+    // ── Draw constellation lines ────────────────
+    function drawLines() {
+      var svg = document.getElementById('constellation-lines');
+      if (!svg || window.innerWidth <= 600) {
+        if (svg) svg.textContent = '';
+        return;
+      }
+
+      // Clear existing lines
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+      var container = document.querySelector('.constellation');
+      var rect = container.getBoundingClientRect();
+
+      // Get star positions
+      var stars = {};
+      var starEls = document.querySelectorAll('.star');
+      for (var i = 0; i < starEls.length; i++) {
+        var el = starEls[i];
+        var r = el.getBoundingClientRect();
+        var classes = el.className.split(' ');
+        var name = '';
+        for (var c = 0; c < classes.length; c++) {
+          if (classes[c].indexOf('star-') === 0 && classes[c] !== 'star') {
+            name = classes[c].replace('star-', '');
+          }
+        }
+        if (name) {
+          stars[name] = {
+            x: r.left + r.width / 2 - rect.left,
+            y: r.top + r.height / 2 - rect.top
+          };
+        }
+      }
+
+      // Central star position
+      var centralEl = document.getElementById('central-star');
+      var cr = centralEl.getBoundingClientRect();
+      stars.center = {
+        x: cr.left + cr.width / 2 - rect.left,
+        y: cr.top + cr.height / 4 - rect.top
+      };
+
+      // Define connections
+      var connections = [
+        ['center', 'derek'],
+        ['center', 'claude'],
+        ['center', 'story'],
+        ['center', 'standard'],
+        ['center', 'kitchen'],
+        ['derek', 'story'],
+        ['claude', 'story'],
+        ['derek', 'standard'],
+        ['claude', 'kitchen']
+      ];
+
+      for (var j = 0; j < connections.length; j++) {
+        var from = stars[connections[j][0]];
+        var to = stars[connections[j][1]];
+        if (!from || !to) continue;
+
+        var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', from.x);
+        line.setAttribute('y1', from.y);
+        line.setAttribute('x2', to.x);
+        line.setAttribute('y2', to.y);
+        svg.appendChild(line);
+      }
+    }
+
+    // Draw on load and resize
+    window.addEventListener('load', drawLines);
+    window.addEventListener('resize', drawLines);
+  </script>
+
+</body>
+</html>
