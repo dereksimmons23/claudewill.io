@@ -1,75 +1,72 @@
 {
-  "lastUpdated": "2026-03-06T11:12:02.588Z",
+  "lastUpdated": "2026-03-07T11:06:50.112Z",
   "agents": {
     "housekeeping": {
       "name": "Housekeeping",
-      "lastRun": "2026-03-06T11:12:02.586Z",
+      "lastRun": "2026-03-07T11:06:50.111Z",
       "status": "flags",
       "summary": "9/10 pages up. 1 down.",
       "flags": [
-        "https://claudewill.io/derek is DOWN (fetch failed)"
+        "https://claudewill.io/map is DOWN (23)"
       ],
       "details": [
-        "https://claudewill.io/ — 200 36ms",
-        "https://claudewill.io/derek — DOWN: fetch failed",
-        "https://claudewill.io/story — 200 182ms",
-        "https://claudewill.io/workshop — 200 390ms",
-        "https://claudewill.io/privacy — 200 373ms",
-        "https://claudewill.io/terms — 200 390ms",
-        "https://claudewill.io/kitchen — 200 421ms",
-        "https://claudewill.io/arcade — 200 390ms",
-        "https://claudewill.io/map — 200 332ms",
-        "https://claudewill.io/being-claude — 200 390ms",
-        "Coach D (https://coach.claudewill.io) — 200 870ms",
-        "BOB (https://bob.claudewill.io) — 200 1357ms"
+        "https://claudewill.io/ — 200 138ms",
+        "https://claudewill.io/derek — 200 260ms",
+        "https://claudewill.io/story — 200 683ms",
+        "https://claudewill.io/workshop — 200 678ms",
+        "https://claudewill.io/privacy — 200 248ms",
+        "https://claudewill.io/terms — 200 762ms",
+        "https://claudewill.io/kitchen — 200 808ms",
+        "https://claudewill.io/arcade — 200 516ms",
+        "https://claudewill.io/map — DOWN: 23",
+        "https://claudewill.io/being-claude — 200 795ms",
+        "Coach D (https://coach.claudewill.io) — 200 584ms",
+        "BOB (https://bob.claudewill.io) — 200 674ms"
       ]
     },
     "research": {
       "name": "Research Brief",
-      "lastRun": "2026-03-06T11:12:02.586Z",
+      "lastRun": "2026-03-07T11:06:50.111Z",
       "status": "ok",
       "summary": "No significant AI industry developments matching the specified focus areas (AI consulting practices, media AI adoption, AI-native methodologies, or Anthropic/Claude/agent updates) occurred in the...",
       "sources": [
-        "https://juma.ai/blog/ai-tools-for-consultants",
+        "https://www.getgenerative.ai/top-ai-tools-for-consultants/",
         "https://www.auxi.ai/blog/ai-tools-for-consultants",
+        "https://juma.ai/blog/ai-tools-for-consultants",
         "https://www.shiori.ai/blog/best-ai-tools-consultants-analysts-2026",
         "https://whitehat-seo.co.uk/blog/ai-marketing-tools-in-2026",
-        "https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html",
-        "https://www.youtube.com/watch?v=zTKgrsap0Bc",
-        "https://www.usiq.org/blog/these-ai-tools-you-must-use-in-2026/",
+        "https://www.pwc.com/us/en/tech-effect/ai-analytics/ai-predictions.html",
         "https://iabac.org/blog/top-5-ai-tools-everyone-should-consider-in-2026"
       ]
     },
     "gemini": {
       "name": "Industry Brief",
-      "lastRun": "2026-03-06T11:12:02.586Z",
+      "lastRun": "2026-03-07T11:06:50.111Z",
       "status": "ok",
-      "summary": "Here is a concise morning brief on the most significant AI industry developments from the last 24 hours, tailored for an AI consultant:\n\n**CW Strategies Morning Brief: AI Industry Developments (March...",
-      "sources": [
-        "[erp.today](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFtN-KASTepXnNBnoKri9Xu46KVlSErSFlK-M9zv_Pq8Zbf9OpHTwuiyQQkH0D9wCqr09YqGkmIa662ENuhP-bgvh87oKMcf7NGfmMLel0wU6qVAcOXFMasnkpneMHrv-I3jpg7XYC21tcUgnvW6whFd29FdHbH5cIENfUpn4OdUN_IWRq1DdVFsyJfWMdcuxGq8vtAe2WH)",
-        "[sequoiacap.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEFcvQpBNlw8kFRRXEr4ZbWObkqx5yITH_KLywqI9ATdxFz03M39NpfQqTBov0cxvrp5bgJUx__9oH6hZ-9fPKdbHKFSP39nuPN_txNh2zruM7A4sKt4ODuy5qQccc2CEk026CZIuEMW2_XX-Bpjpz6WZXbgA==)"
-      ]
+      "summary": "Here is a concise morning brief on the most significant AI industry developments from the last 24 hours, tailored for a solo AI consultant:\n\n**Morning Brief: AI Industry Developments (March 7,...",
+      "sources": []
     },
     "codeReview": {
       "name": "Code Review",
-      "lastRun": "2026-03-06T11:12:02.587Z",
+      "lastRun": "2026-03-07T11:06:50.111Z",
       "status": "ok",
-      "summary": "1. **Security issues**:\n   - No obvious security issues found in the provided diffs.\n\n2. **Performance problems**:\n   - In `derek/gallery/index.html`, the `generateStars()` function creates 120 DOM..."
+      "summary": "1. **Security issues**:\n   - No critical security issues found in the reviewed diffs.\n\n2. **Performance problems**:\n   - No significant performance issues found in the reviewed diffs.\n\n3...."
     },
     "analytics": {
       "name": "Analytics",
-      "lastRun": "2026-03-06T11:12:02.587Z",
+      "lastRun": "2026-03-07T11:06:50.112Z",
       "status": "flags",
-      "summary": "Conversations: 116 total (24h: 3 | 7d: 20 | 30d: 116)",
+      "summary": "Conversations: 112 total (24h: 0 | 7d: 3 | 30d: 112)",
       "flags": [
+        "Conversation volume declining: 0.4/day (7d) vs 3.7/day (30d)",
         "35.1 hours last 7d — exceeds sovereignty target (21h)"
       ],
       "metrics": {
         "conversations": {
-          "total": 116,
-          "day": 3,
-          "week": 20,
-          "month": 116
+          "total": 112,
+          "day": 0,
+          "week": 3,
+          "month": 112
         },
         "visitors": {
           "total": 3,
@@ -84,43 +81,46 @@
         },
         "derekTime": {
           "hours7d": 35.1,
-          "sessions7d": 16
+          "sessions7d": 17
         },
-        "apiCost30d": 1.08
+        "apiCost30d": 1.07
       }
     },
     "contentScan": {
       "name": "Content Scan",
-      "lastRun": "2026-03-06T11:12:02.587Z",
+      "lastRun": "2026-03-07T11:06:50.112Z",
       "status": "findings",
-      "summary": "Scanned 24 HTML files. Found 6 issues.",
+      "summary": "Scanned 26 HTML files. Found 7 issues.",
       "flags": [],
       "findings": [
         "being-claude/being-claude/index.html: \"August 2025\" is more than 90 days old",
         "being-claude/being-claude/index.html: \"August 2025\" is more than 90 days old",
         "being-claude/comprehension-problem/index.html: \"October 2024\" is more than 90 days old",
         "being-claude/comprehension-problem/index.html: \"March 2024\" is more than 90 days old",
+        "being-claude/the-disclaimer/index.html: \"October 2024\" is more than 90 days old",
         "being-claude/three-rooms/index.html: \"June 2025\" is more than 90 days old",
         "being-claude/warm-up-effect/index.html: \"Dec 2024\" is more than 90 days old"
       ]
     },
     "researchStatus": {
       "name": "Research Status",
-      "lastRun": "2026-03-06T11:12:02.587Z",
+      "lastRun": "2026-03-07T11:06:50.112Z",
       "status": "ok",
-      "summary": "8 published, 0 draft, 0 blocked",
+      "summary": "9 published, 0 draft, 0 blocked",
       "flags": []
     },
     "socialDraft": {
       "name": "Social Drafts",
-      "lastRun": "2026-03-06T11:12:02.588Z",
-      "status": "ok",
-      "summary": "0 new drafts, 8 skipped.",
-      "flags": []
+      "lastRun": "2026-03-07T11:06:50.112Z",
+      "status": "flags",
+      "summary": "1 new drafts, 8 skipped.",
+      "flags": [
+        "Review draft: reports/social-drafts/the-disclaimer.md"
+      ]
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-03-06T11:12:02.588Z",
+      "lastRun": "2026-03-07T11:06:50.112Z",
       "status": "ok",
       "summary": "**Pipeline:** 4 items (3 draft, 1 pending)",
       "flags": []
