@@ -121,6 +121,15 @@ exports.handler = async (event) => {
   try {
     const data = JSON.parse(event.body);
 
+    // Honeypot check — if the hidden "website" field has a value, it's a bot
+    if (data.website) {
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({ success: true }),
+      };
+    }
+
     // Validate required fields
     if (!data.name || !data.email) {
       return {

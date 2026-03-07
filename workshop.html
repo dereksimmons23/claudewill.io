@@ -939,6 +939,11 @@
         <p class="form-intro">Three fields. I&rsquo;ll follow up within 48 hours.</p>
 
         <form action="/.netlify/functions/intake" method="POST" id="intake-form">
+          <!-- Honeypot anti-spam field — hidden from humans, bots fill it -->
+          <div style="position: absolute; left: -9999px;" aria-hidden="true">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
           <div class="question">
             <label for="name">Your name <span class="required">*</span></label>
             <input type="text" id="name" name="name" required>

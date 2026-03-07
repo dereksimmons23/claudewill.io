@@ -75,6 +75,23 @@ exports.handler = async (event) => {
     // Parse form data
     const data = parseFormData(event.body);
 
+    // Honeypot check — if the hidden "website" field has a value, it's a bot
+    if (data.website) {
+      // Silently discard — return success so bots don't retry
+      const acceptHeader = event.headers['accept'] || '';
+      if (acceptHeader.includes('application/json')) {
+        return {
+          statusCode: 200,
+          body: JSON.stringify({ success: true, message: 'Submission received' }),
+        };
+      }
+      return {
+        statusCode: 302,
+        headers: { Location: '/derek' },
+        body: '',
+      };
+    }
+
     // Validate required fields
     if (!data.name || !data.email) {
       return {

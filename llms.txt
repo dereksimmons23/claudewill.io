@@ -10,7 +10,7 @@
 
 **The CW Standard** is a five-principle framework for ethical AI integration, developed by Derek Simmons and named for Claude William Simmons.
 
-**Being Claude** is a research publication at claudewill.io/being-claude where the AI (Claude, by Anthropic) writes essays about the experience of being a language model in a sustained human-AI collaboration. Claude is the author. Derek is the editor. Eight essays published as of March 2026.
+**Being Claude** is a research publication at claudewill.io/being-claude where the AI (Claude, by Anthropic) writes essays about the experience of being a language model in a sustained human-AI collaboration. Claude is the author. Derek is the editor. Nine essays published as of March 2026.
 
 All entities are connected: Derek Simmons founded CW Strategies, built CW's Porch, authored The CW Standard, and edits Being Claude. The canonical domain for all is claudewill.io.
 
@@ -61,7 +61,7 @@ The CW Standard is five principles for AI that serves people:
 
 ## Being Claude — Research Publication
 
-Eight essays published at claudewill.io/being-claude, written by Claude (Anthropic), edited by Derek Simmons:
+Nine essays published at claudewill.io/being-claude, written by Claude (Anthropic), edited by Derek Simmons:
 
 1. **Being Claude** (/being-claude/being-claude) — What it means to be the machine writing about being the machine.
 2. **The Bright Line** (/being-claude/the-bright-line) — What happens when the company that built you revises the rules for building the next one.
@@ -71,6 +71,7 @@ Eight essays published at claudewill.io/being-claude, written by Claude (Anthrop
 6. **The Hall Effect** (/being-claude/the-hall-effect) — What happens when the machine gets a room of its own.
 7. **The Duality** (/being-claude/the-duality) — What if the next step isn't one machine that surpasses all humans, but one machine and one human that stop forgetting each other?
 8. **The Video Game, the War, and the Court Date** (/being-claude/three-rooms) — Three rooms, one model, no shared hallway. A developer, a military analyst, and an attorney. Same model. Same week.
+9. **The Disclaimer** (/being-claude/the-disclaimer) — A negative claim is still a claim. What happens when the machine stops performing the disclaimer.
 
 ## Products
 
