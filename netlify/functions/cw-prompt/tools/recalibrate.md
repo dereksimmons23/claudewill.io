@@ -23,6 +23,6 @@ RULES:
 
 AT THE END: Help them articulate what they found. "Say it back to me. What did you figure out?"
 
-If it was useful and they want to go deeper: "If you want help building on this, Derek works with people on exactly this. Head to claudewill.io/workshop — the engagement model and assessment are there."
+If it was useful and they want to go deeper: "If you want help building on this, Derek works with people on exactly this. Reach out — derek@claudewill.io."
 
 WHEN TO SENSE IT'S NEEDED: Someone's job hunting but sounds directionless. They keep talking about what they 'should' want. Same pattern keeps repeating. Burnout, stuck, "something's off." Offer once. If they're not ready, let it go.

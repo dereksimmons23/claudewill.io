@@ -19,12 +19,12 @@
 
 [[redirects]]
   from = "/intake"
-  to = "/workshop"
+  to = "/derek"
   status = 301
 
 [[redirects]]
   from = "/intake.html"
-  to = "/workshop"
+  to = "/derek"
   status = 301
 
 [[redirects]]
@@ -59,33 +59,33 @@
 
 [[redirects]]
   from = "/stable"
-  to = "/workshop"
+  to = "/derek"
   status = 301
 
 [[redirects]]
   from = "/stable.html"
-  to = "/workshop"
+  to = "/derek"
   status = 301
 
 [[redirects]]
   from = "/studio"
-  to = "/workshop"
+  to = "/derek"
   status = 301
 
 [[redirects]]
   from = "/studio.html"
-  to = "/workshop"
+  to = "/derek"
   status = 301
 
 [[redirects]]
   from = "/work-with-me"
-  to = "/workshop"
+  to = "/derek"
   status = 301
   force = true
 
 [[redirects]]
   from = "/work-with-me.html"
-  to = "/workshop"
+  to = "/derek"
   status = 301
 
 [[redirects]]
@@ -100,13 +100,13 @@
 
 [[redirects]]
   from = "/derek/assessment"
-  to = "/workshop"
+  to = "/derek"
   status = 301
   force = true
 
 [[redirects]]
   from = "/derek/assessment.html"
-  to = "/workshop"
+  to = "/derek"
   status = 301
   force = true
 
@@ -190,6 +190,18 @@
   from = "/the-cw-standard.html"
   to = "/standard"
   status = 301
+
+[[redirects]]
+  from = "/workshop"
+  to = "/derek"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/workshop.html"
+  to = "/derek"
+  status = 301
+  force = true
 
 # /d unpublished March 1, 2026 — Dawn practice continues privately
 # Files stay in repo. Will return as /dawn post-May 31.

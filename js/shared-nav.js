@@ -30,13 +30,8 @@
         items: []
       },
       {
-        label: 'hallway',
+        label: 'being claude',
         href: '/being-claude',
-        items: []
-      },
-      {
-        label: 'workshop',
-        href: '/workshop',
         items: []
       }
     ]
