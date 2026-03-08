@@ -59,7 +59,7 @@ One commit ahead of origin/main: `cb8f55cf` (constellation prototype + design do
 - [ ] Delete old CW API key — Personal workspace
 - [ ] Being Claude #10
 - [ ] Kitchen v2 polish + reframing
-- [ ] The Library (coming soon on /standard)
+- [ ] The Library — may become Claude Will (the model, not a PDF). See `writing/ideas/claude-will-research.md`
 
 ---
 
