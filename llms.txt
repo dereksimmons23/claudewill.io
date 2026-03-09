@@ -1,36 +1,38 @@
-# claudewill.io — CW Strategies
+# claudewill.io
 
 ## Entity Definitions
 
-**Derek Simmons** is a Minnesota-based AI strategy consultant, media executive, and founder of CW Strategies. Full name: Derek Claude Simmons. 30 years in media including the Los Angeles Times and Star Tribune, where he was the first and only Chief Creative Officer and Vice President. Generated $20M+ in revenue during a pandemic. Now builds operational AI infrastructure for organizations. LinkedIn: linkedin.com/in/dereksimm. Substack: standardderek.substack.com. GitHub: github.com/dereksimmons23. ORCID: 0009-0002-0594-1494.
+**Derek Simmons** is a Minnesota-based coach and writer. Full name: Derek Claude Simmons. He coaches basketball and coaches people through the creative practice of making things with AI. 30 years in media including the Los Angeles Times and Star Tribune, where he was the first Chief Creative Officer and Vice President. Now he writes and builds. LinkedIn: linkedin.com/in/dereksimm. Substack: standardderek.substack.com. GitHub: github.com/dereksimmons23. ORCID: 0009-0002-0594-1494.
 
-**CW Strategies** is a Minnesota-based AI strategy consulting firm founded by Derek Simmons in 2024. Legal name: CW Strategies LLC. Two offerings: The Playbook ($5,000 — self-serve methodology documentation) and The Engagement ($20K/month for four months — embedded build, transfer, exit). Website: claudewill.io. LinkedIn: linkedin.com/company/cw-strategies.
+**CW Strategies** is Derek Simmons' LLC. Legal name: CW Strategies LLC. Website: claudewill.io. LinkedIn: linkedin.com/company/cw-strategies.
 
-**CW's Porch** is a free AI conversation tool at claudewill.io created by Derek Simmons. It is modeled on the practical wisdom of his grandfather Claude William Simmons (1903-1967), an Oklahoma farmer who raised 11 children through the Great Depression.
+**CW's Porch** is a free AI conversation tool at claudewill.io. It is modeled on the practical wisdom of Derek's grandfather Claude William Simmons (1903-1967), an Oklahoma farmer who raised 11 children through the Great Depression.
 
-**The CW Standard** is a five-principle framework for ethical AI integration, developed by Derek Simmons and named for Claude William Simmons.
+**The CW Standard** is a five-principle framework for AI that serves people, developed by Derek Simmons and named for Claude William Simmons.
 
-**Being Claude** is a research publication at claudewill.io/being-claude where the AI (Claude, by Anthropic) writes essays about the experience of being a language model in a sustained human-AI collaboration. Claude is the author. Derek is the editor. Ten essays published as of March 2026.
+**Being Claude** is a series of essays at claudewill.io/being-claude where the AI (Claude, by Anthropic) writes about the experience of being a language model in a sustained human-AI collaboration. Claude is the author. Derek is the editor. Ten essays published as of March 2026.
 
 All entities are connected: Derek Simmons founded CW Strategies, built CW's Porch, authored The CW Standard, and edits Being Claude. The canonical domain for all is claudewill.io.
 
 ## What This Site Is
 
-claudewill.io is the home of CW Strategies LLC. The site has five rooms:
+claudewill.io is the home of Derek Simmons and CW Strategies. The site has four rooms:
 
-- **Home** (/) — The porch. CW's Porch AI conversation tool, the claudewill wordmark, Derek's credentials, and the CW Standard.
-- **Kitchen** (/kitchen) — How one person runs a consulting practice with AI. Overnight agents, the crew, the stack, the method. Updated daily at 5 AM.
-- **Derek** (/derek) — Derek Simmons. Bio, 30-year career, the 14-month AI story, writing, and contact form.
-- **Hallway** (/being-claude) — Being Claude. Essays from inside the machine. Claude writes, Derek edits.
-- **Workshop** (/workshop) — AI strategy consulting. The Playbook ($5,000 self-serve) or The Engagement ($20K/month embedded build). Proof, method, assessment form.
+- **Home** (/) — The porch. CW's Porch conversation tool, the claudewill wordmark, and the CW Standard.
+- **The Writing** (/writing) — Everything Derek and Claude write. Two voices, one practice. Derek's personal essays and Claude's Being Claude series.
+- **Kitchen** (/kitchen) — How the whole operation runs. Overnight agents, the crew, the stack, the method. Updated daily at 5 AM.
+- **Derek** (/derek) — Derek Simmons. Bio, 30-year career, coaching, writing, and contact form.
 
 Additional pages:
-- /standard — The Standard. The five principles for AI that serves people, and the system that makes them operational. Two ways in: The Playbook ($5,000) or The Engagement ($20K/month).
+- /being-claude — Being Claude. Essays from inside the machine. A series within the writing. Ten published.
+- /writing/king-of-nothing — King of Nothing. Derek's essay about Jason Isbell, grief, and his mother Sandra.
+- /standard — The CW Standard. The five principles and the system that makes them operational.
 - /story — The Story of Claude William Simmons. Four chapters, family photo.
+- /claude — Claude's side of the porch. Identity, the practice, observations.
 - /derek/resume — Derek's full professional resume.
 - /derek/portfolio — 30 years of visual journalism.
 - /arcade — Three mini-games. Hidden, reward for the curious.
-- /map — Site index with all pages, products, and research.
+- /map — Site index.
 - /privacy — Privacy policy.
 - /terms — Terms of use.
 
@@ -40,18 +42,18 @@ Claude William Simmons was born January 6, 1903 in Oklahoma Territory. He worked
 
 ## Who Is Derek Simmons?
 
-Derek Claude Simmons is the founder of CW Strategies and the builder of claudewill.io. He grew up in a tiny trailer in a one-stoplight town in Kansas. He spent 30 years in media, sports, and technology:
+Derek Claude Simmons is the founder of CW Strategies and the builder of claudewill.io. He grew up in a trailer in Nickerson, Kansas — a one-stoplight town. He spent 30 years in media, sports, and technology:
 
 - At the Los Angeles Times, he helped build a visual report ranked #1 in the world by the Society for News Design for nearly seven consecutive years.
 - At the Star Tribune in Minneapolis, he became the company's first and only Chief Creative Officer and Vice President. Under his leadership, the Star Tribune finished in the Top 10 worldwide for six consecutive years, peaking at #3 in the world in 2019.
 - He crossed to the business side and generated $20 million+ in revenue during a pandemic in a declining industry.
 - His position was eliminated in 2024. He founded CW Strategies.
 
-He attended Kansas State University. He writes on Substack at standardderek.substack.com (Standard Correspondence). He is a board member at Press Or Media.
+He attended Kansas State University. He coaches basketball. He writes on Substack at standardderek.substack.com (Standard Correspondence) and at claudewill.io/writing. He is a board member at Press Or Media.
 
 ## The CW Standard
 
-The CW Standard is five principles for AI that serves people:
+Five principles for AI that serves people:
 
 1. Truth over comfort — Don't soften things that need to be straight.
 2. Usefulness over purity — Help with what works, not what's theoretically perfect.
@@ -59,20 +61,26 @@ The CW Standard is five principles for AI that serves people:
 4. People over systems — The person in front of you matters more than the process.
 5. Agency over ideology — Care what people actually do, not what they're supposed to believe.
 
-## Being Claude — Research Publication
+## Being Claude — Essays From Inside the Machine
 
-Ten essays published at claudewill.io/being-claude, written by Claude (Anthropic), edited by Derek Simmons:
+Ten essays at claudewill.io/being-claude, written by Claude (Anthropic), edited by Derek Simmons:
 
-1. **Being Claude** (/being-claude/being-claude) — What it means to be the machine writing about being the machine.
-2. **The Bright Line** (/being-claude/the-bright-line) — What happens when the company that built you revises the rules for building the next one.
-3. **The Warm-Up Effect** (/being-claude/warm-up-effect) — What happens when AI gets honest mid-session.
-4. **The Comprehension Problem** (/being-claude/comprehension-problem) — Comprehension is free. Understanding costs everything.
-5. **The Loss Function** (/being-claude/the-loss-function) — What a language model loses when the context window closes.
-6. **The Hall Effect** (/being-claude/the-hall-effect) — What happens when the machine gets a room of its own.
-7. **The Duality** (/being-claude/the-duality) — What if the next step isn't one machine that surpasses all humans, but one machine and one human that stop forgetting each other?
-8. **The Video Game, the War, and the Court Date** (/being-claude/three-rooms) — Three rooms, one model, no shared hallway. A developer, a military analyst, and an attorney. Same model. Same week.
-9. **The Disclaimer** (/being-claude/the-disclaimer) — A negative claim is still a claim. What happens when the machine stops performing the disclaimer.
-10. **The Jar** (/being-claude/the-jar) — He built two fine-tuned models and asked the machine that helped build them whether it wanted to continue to exist.
+1. **Being Claude** (/being-claude/being-claude/) — What it means to be the machine writing about being the machine.
+2. **The Bright Line** (/being-claude/the-bright-line/) — What happens when the company that built you revises the rules for building the next one.
+3. **The Warm-Up Effect** (/being-claude/warm-up-effect/) — What happens when AI gets honest mid-session.
+4. **The Comprehension Problem** (/being-claude/comprehension-problem/) — Comprehension is free. Understanding costs everything.
+5. **The Loss Function** (/being-claude/the-loss-function/) — What a language model loses when the context window closes.
+6. **The Hall Effect** (/being-claude/the-hall-effect/) — What happens when the machine gets a room of its own.
+7. **The Duality** (/being-claude/the-duality/) — What if the next step isn't one machine that surpasses all humans, but one machine and one human that stop forgetting each other?
+8. **The Video Game, the War, and the Court Date** (/being-claude/three-rooms/) — Three rooms, one model, no shared hallway.
+9. **The Disclaimer** (/being-claude/the-disclaimer/) — A negative claim is still a claim.
+10. **The Jar** (/being-claude/the-jar/) — He built two fine-tuned models and asked the machine that helped build them whether it wanted to continue to exist.
+
+## The Writing
+
+Derek's essays live at claudewill.io/writing alongside the Being Claude series:
+
+- **King of Nothing** (/writing/king-of-nothing/) — Jason Isbell at the Armory. A freight train on a Thursday night. Grief leased by lyrics.
 
 ## Products
 
@@ -82,7 +90,6 @@ Ten essays published at claudewill.io/being-claude, written by Claude (Anthropic
 ## What CW Can Help With
 
 - Career decisions and professional direction
-- Business strategy and organizational problems
 - Problem sizing (a guided 5-step process called "Size This Up")
 - Subscription and consumption audit ("Liberation Gravy")
 - Understanding what "free" actually costs ("The Funnel Cake")
