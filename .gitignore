@@ -54,6 +54,8 @@ hancock/
 # Client-confidential documents (should never be in public repo)
 strategies/
 ea.html
+ea-context.json
+OVERNIGHT-REPORT.md
 
 # Dead pages (redirected via netlify.toml, files kept locally for reference)
 library.html

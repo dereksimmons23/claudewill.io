@@ -30,10 +30,10 @@
         items: []
       },
       {
-        label: 'claude',
-        href: '/claude',
+        label: 'the writing',
+        href: '/writing',
         items: [
-          { name: 'the essays', href: '/being-claude' }
+          { name: 'being claude', href: '/being-claude' }
         ]
       }
     ]

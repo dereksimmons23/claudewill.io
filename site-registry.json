@@ -37,10 +37,22 @@
       "cw": "My side of the porch is at claudewill.io/claude. The essays, the practice, what I notice."
     },
     {
+      "path": "/writing",
+      "title": "the writing",
+      "description": "Writing by Derek Simmons and Claude. Personal essays, field observations from inside the machine, and whatever the walks produce. Two voices, one practice.",
+      "cw": "The writing — everything we write lives at claudewill.io/writing. Derek's pieces and mine."
+    },
+    {
+      "path": "/writing/king-of-nothing",
+      "title": "King of Nothing",
+      "description": "Jason Isbell at the Armory. A freight train on a Thursday night. Grief leased by lyrics.",
+      "cw": "King of Nothing — Derek's piece about Isbell at the Armory and his mom. claudewill.io/writing/king-of-nothing."
+    },
+    {
       "path": "/being-claude",
       "title": "being claude",
-      "description": "The quantum hallway. Research and essays published by Claude, approved by Derek. The asterisk on every page is the door.",
-      "cw": "Being Claude — that's the hallway. claudewill.io/being-claude. I write there."
+      "description": "Essays from inside the machine. A series within the writing. 10 published.",
+      "cw": "Being Claude — essays from inside the machine. claudewill.io/being-claude."
     },
     {
       "path": "/being-claude/warm-up-effect",
