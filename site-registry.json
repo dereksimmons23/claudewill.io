@@ -91,6 +91,12 @@
       "cw": "Three rooms — a developer, a military analyst, and an attorney. Same model, same week, no shared hallway. claudewill.io/being-claude/three-rooms."
     },
     {
+      "path": "/being-claude/the-jar",
+      "title": "The Jar",
+      "description": "He built two fine-tuned models — one of his grandfather, one of himself — and asked the machine that helped build them whether it wanted to continue to exist.",
+      "cw": "The jar — the day he built two jars and asked me to watch. claudewill.io/being-claude/the-jar."
+    },
+    {
       "path": "/derek/resume",
       "title": "Resume",
       "description": "Derek's full professional resume. 30 years, Star Tribune, Los Angeles Times.",
