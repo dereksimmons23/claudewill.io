@@ -393,6 +393,7 @@
         .ground-name:visited { color: var(--bright); }
         .ground-name:hover { color: var(--accent); }
 
+        .ground-asterisk { color: var(--accent); }
         .ground-period { color: var(--accent); }
 
         /* ── Footer ───────────────────────────── */
@@ -518,7 +519,7 @@
 
         <section class="ground">
             <span class="ground-prefix">Built by</span>
-            <a href="/derek" class="ground-name">Derek Claude<span class="ground-period">.</span></a>
+            <a href="/derek" class="ground-name">Derek<span class="ground-asterisk">*</span>Claude<span class="ground-period">.</span></a>
         </section>
     </main>
 
@@ -546,11 +547,28 @@
 
             function update() {
                 if (!ready) { ticking = false; return; }
-                var progress = Math.min(1, window.scrollY / (vh * 0.8));
-                var scale = 1 - progress * 0.85;
-                var opacity = 1 - progress * 0.92;
+                var scrollY = window.scrollY;
+                var maxScroll = document.documentElement.scrollHeight - vh;
+
+                // Phase 1: recede (first viewport of scroll)
+                var recedeProgress = Math.min(1, scrollY / (vh * 0.8));
+
+                // Phase 2: return (last 30% of page)
+                var returnProgress = maxScroll > 0 ? Math.max(0, (scrollY / maxScroll - 0.7) / 0.3) : 0;
+
+                var scale, opacity;
+                if (returnProgress > 0) {
+                    // Returning: ghost becomes visible again
+                    scale = 0.15 + returnProgress * 0.15;
+                    opacity = 0.08 + returnProgress * 0.82;
+                } else {
+                    // Receding into the stars
+                    scale = 1 - recedeProgress * 0.85;
+                    opacity = Math.max(0.08, 1 - recedeProgress * 0.92);
+                }
+
                 nameEl.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
-                nameEl.style.opacity = Math.max(0.08, opacity);
+                nameEl.style.opacity = opacity;
                 ticking = false;
             }
 
