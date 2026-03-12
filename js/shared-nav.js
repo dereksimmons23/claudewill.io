@@ -35,6 +35,11 @@
         label: 'derek',
         href: '/derek',
         items: []
+      },
+      {
+        label: 'map',
+        href: '/map',
+        items: []
       }
     ]
   };

@@ -203,19 +203,36 @@
   status = 301
   force = true
 
-# /d unpublished March 1, 2026 — Dawn practice continues privately
-# Files stay in repo. Will return as /dawn post-May 31.
+# Dead pages — files removed March 12, 2026
+[[redirects]]
+  from = "/deck"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/deck.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/dash"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/dash/"
+  to = "/"
+  status = 301
+
 [[redirects]]
   from = "/d"
   to = "/"
-  status = 302
-  force = true
+  status = 301
 
 [[redirects]]
   from = "/d/"
   to = "/"
-  status = 302
-  force = true
+  status = 301
 
 [[headers]]
   for = "/dev/*"

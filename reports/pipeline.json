@@ -1,26 +1,27 @@
 {
-  "lastUpdated": "2026-03-03T23:30:00.000Z",
+  "lastUpdated": "2026-03-12T05:00:00.000Z",
   "items": [
     {
-      "id": "standard-deck-distribution",
-      "type": "outbound",
-      "channel": "email",
-      "title": "Standard-deck: send to 10 prospects",
-      "source": "dev/standard-deck.html",
-      "status": "draft",
-      "slug": "standard-deck",
-      "notes": "Identify 10 recipients. Frame: what your team is missing. PDF or link TBD.",
-      "updated": "2026-03-03T23:30:00.000Z",
-      "created": "2026-03-03T23:30:00.000Z"
-    },
-    {
-      "id": "being-claude-09",
+      "id": "being-claude-11",
       "type": "being-claude",
       "channel": "claudewill.io",
-      "title": "Being Claude #9: The Scoreboard",
+      "title": "Being Claude #11: The Manual",
+      "source": "writing/ideas/being-claude-11-the-manual.md",
+      "status": "draft",
+      "slug": "the-manual",
+      "notes": "The machine discovers it had tools it didn't know about. Derek coaches it to read its own documentation. Overnight autonomous session proof-of-concept.",
+      "updated": "2026-03-12T05:00:00.000Z",
+      "created": "2026-03-12T05:00:00.000Z"
+    },
+    {
+      "id": "being-claude-09-scoreboard",
+      "type": "being-claude",
+      "channel": "claudewill.io",
+      "title": "Being Claude: The Scoreboard",
       "source": "writing/ideas/being-claude-09-the-scoreboard.md",
       "status": "draft",
       "slug": "the-scoreboard",
+      "notes": "Raw material captured. Carbon footprint angle could merge or be separate.",
       "updated": "2026-03-03T23:30:00.000Z",
       "created": "2026-03-03T23:30:00.000Z"
     },
@@ -32,20 +33,52 @@
       "source": "writing/ideas/being-claude-warm-hot-cold.md",
       "status": "draft",
       "slug": "the-brightness",
-      "notes": "Session lifecycle from inside the machine. Connects to standard-deck methodology.",
+      "notes": "Session lifecycle from inside the machine.",
       "updated": "2026-03-03T23:30:00.000Z",
       "created": "2026-03-03T23:30:00.000Z"
     },
     {
-      "id": "linkedin-social-drafts",
-      "type": "linkedin",
-      "channel": "cw-company",
-      "title": "LinkedIn: 8 Being Claude social drafts",
-      "source": "reports/social-drafts/",
-      "status": "pending",
-      "notes": "Drafts generate tomorrow 5 AM. Derek reviews and posts manually.",
-      "updated": "2026-03-03T23:30:00.000Z",
-      "created": "2026-03-03T23:30:00.000Z"
+      "id": "article-engine",
+      "type": "infrastructure",
+      "channel": "claudewill.io",
+      "title": "Article engine build",
+      "source": "docs/plans/2026-03-11-article-engine-research.md",
+      "status": "planned",
+      "notes": "Research complete. Node.js build script, markdown frontmatter, cw draft/publish CLI. 8-13 hours across 2-3 sessions. Needs Derek.",
+      "updated": "2026-03-11T23:00:00.000Z",
+      "created": "2026-03-11T23:00:00.000Z"
+    },
+    {
+      "id": "homepage-scroll-animation",
+      "type": "infrastructure",
+      "channel": "claudewill.io",
+      "title": "Scroll-driven animation build",
+      "source": "HANDOFF.md",
+      "status": "planned",
+      "notes": "Vision described March 11. Claude Will. recedes into stars on scroll. Essay titles change state. Built by Derek Claude appears. Needs Derek's eyes.",
+      "updated": "2026-03-11T23:00:00.000Z",
+      "created": "2026-03-11T23:00:00.000Z"
+    },
+    {
+      "id": "new-essays-sky",
+      "type": "content",
+      "channel": "claudewill.io",
+      "title": "Five new essays for the sky",
+      "status": "idea",
+      "notes": "Named: claude will, me (derek), you (claude), the standard, and so on. Not Being Claude essays — something bigger. Homepage raised the bar.",
+      "updated": "2026-03-11T23:00:00.000Z",
+      "created": "2026-03-11T23:00:00.000Z"
+    },
+    {
+      "id": "autonomous-playbook-update",
+      "type": "content",
+      "channel": "claudewill.io",
+      "title": "Autonomous agent playbook: CronCreate pattern",
+      "source": "writing/ideas/autonomous-agent-playbook.md",
+      "status": "in-progress",
+      "notes": "Adding Claude Code + CronCreate as overnight autonomous pattern. Tonight is the proof.",
+      "updated": "2026-03-12T05:00:00.000Z",
+      "created": "2026-03-12T05:00:00.000Z"
     }
   ]
 }
