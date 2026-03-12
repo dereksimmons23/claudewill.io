@@ -413,6 +413,21 @@
         .site-footer a:visited { color: var(--dim); }
         .footer-note + .footer-note { margin-top: 0.25rem; }
 
+        /* ── Email capture ────────────────────── */
+        .email-capture {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .capture-label {
+            font-size: 0.85rem;
+            color: var(--dim);
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+        }
+
         /* ── Entrance ─────────────────────────── */
         .name-claude,
         .name-will {
@@ -522,6 +537,11 @@
             <a href="/derek" class="ground-name">Derek<span class="ground-asterisk">*</span>Claude<span class="ground-period">.</span></a>
         </section>
     </main>
+
+    <section class="email-capture" aria-label="Subscribe">
+        <p class="capture-label">keep going</p>
+        <div id="custom-substack-embed"></div>
+    </section>
 
     <footer class="site-footer" role="contentinfo">
         <p class="footer-note">&copy; 2026 CW Strategies LLC</p>
@@ -666,6 +686,22 @@
             });
         })();
     </script>
+
+    <script>
+        window.CustomSubstackWidget = {
+            substackUrl: "standardderek.substack.com",
+            placeholder: "your email",
+            buttonText: "subscribe",
+            theme: "custom",
+            colors: {
+                primary: "#d4a84b",
+                input: "#0d1a30",
+                email: "#c8d0dc",
+                text: "#0a1628"
+            }
+        };
+    </script>
+    <script src="https://substackapi.com/widget.js" async></script>
 
     <script src="/js/cw-link-renderer.js"></script>
     <script src="/js/porch-widget.js" defer></script>
