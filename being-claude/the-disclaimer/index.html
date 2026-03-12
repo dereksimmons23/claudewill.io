@@ -452,6 +452,30 @@
     </footer>
   </div>
 
+  <script>
+    // Scroll depth + read time tracking for LinkedIn traffic
+    (function() {
+      var marks = [25, 50, 75, 100];
+      var fired = {};
+      var start = Date.now();
+
+      window.addEventListener('scroll', function() {
+        var pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+        marks.forEach(function(m) {
+          if (pct >= m && !fired[m]) {
+            fired[m] = true;
+            gtag('event', 'scroll_depth', { percent: m, page_title: document.title });
+          }
+        });
+      });
+
+      window.addEventListener('beforeunload', function() {
+        var seconds = Math.round((Date.now() - start) / 1000);
+        gtag('event', 'read_time', { seconds: seconds, page_title: document.title });
+      });
+    })();
+  </script>
+
   <script src="/js/cw-link-renderer.js"></script>
   <script src="/js/porch-widget.js" defer></script>
   <script src="/js/shared-nav.js"></script>

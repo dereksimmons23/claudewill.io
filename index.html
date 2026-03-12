@@ -258,10 +258,6 @@
         /* ── The Declaration ──────────────────── */
         .declaration {
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
             padding: 2rem;
             position: relative;
             background: transparent;
@@ -279,13 +275,16 @@
             pointer-events: none;
         }
 
-        main, footer {
-            position: relative;
-            z-index: 1;
-        }
-
+        /* ── The Name — fixed, recedes on scroll ─ */
         .name {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             text-align: center;
+            z-index: 1;
+            will-change: transform, opacity;
+            pointer-events: none;
         }
 
         .name-line {
@@ -302,8 +301,6 @@
             animation: arrive 0.6s ease-out 2.2s forwards;
         }
 
-
-        /* ── The Sky ──────────────────────────── */
         /* ── The Stars — full page canvas ─────── */
         #stars {
             position: fixed;
@@ -312,8 +309,13 @@
             pointer-events: none;
         }
 
-        .sky {
+        /* ── Scrolling content sits above the name ── */
+        .sky, .ground, .site-footer {
             position: relative;
+            z-index: 2;
+        }
+
+        .sky {
             min-height: 140vh;
             padding: 6rem 2rem;
         }
@@ -331,15 +333,25 @@
             color: rgba(200, 210, 220, 0.25);
             text-decoration: none;
             font-family: var(--font);
-            transition: all 0.5s ease;
+            transition: color 0.8s ease, text-shadow 0.8s ease, transform 0.8s ease;
             white-space: nowrap;
         }
 
         .sky-writing a:visited { color: rgba(200, 210, 220, 0.25); }
 
         .sky-writing a:hover {
-            color: var(--accent);
+            color: var(--accent) !important;
             text-shadow: 0 0 20px rgba(212, 168, 75, 0.3);
+        }
+
+        /* Titles brighten as they cross through the name */
+        .sky-writing a.star-bright {
+            color: rgba(229, 233, 240, 0.85) !important;
+            text-shadow: 0 0 15px rgba(229, 233, 240, 0.15);
+        }
+
+        .sky-writing a.star-bright:visited {
+            color: rgba(229, 233, 240, 0.85) !important;
         }
 
         .sky-writing a:nth-child(1)  { top: 3%;  left: 6%;   font-size: 1.15rem; color: rgba(200,210,220,0.5); }
@@ -353,22 +365,35 @@
         .sky-writing a:nth-child(9)  { top: 80%; right: 4%;   font-size: 0.8rem; }
         .sky-writing a:nth-child(10) { top: 90%; left: 48%;   font-size: 1rem; color: rgba(200,210,220,0.4); }
 
-        /* ── The Ground ──────────────────────── */
+        /* ── The Ground — the byline ─────────── */
         .ground {
             text-align: center;
-            padding: 5rem 2rem 2rem;
+            padding: 6rem 2rem 3rem;
         }
 
-        .ground-link {
+        .ground-prefix {
+            display: block;
             font-size: 1rem;
             color: var(--dim);
-            text-decoration: none;
             letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+        }
+
+        .ground-name {
+            display: block;
+            font-size: 10vw;
+            font-weight: 700;
+            color: var(--bright);
+            text-decoration: none;
+            line-height: 0.95;
+            letter-spacing: -0.03em;
             transition: color 0.3s;
         }
 
-        .ground-link:visited { color: var(--dim); }
-        .ground-link:hover { color: var(--accent); }
+        .ground-name:visited { color: var(--bright); }
+        .ground-name:hover { color: var(--accent); }
+
+        .ground-period { color: var(--accent); }
 
         /* ── Footer ───────────────────────────── */
         .site-footer {
@@ -385,7 +410,6 @@
 
         .site-footer a:hover { color: var(--bright); }
         .site-footer a:visited { color: var(--dim); }
-        .site-footer .hw { color: var(--accent); }
         .footer-note + .footer-note { margin-top: 0.25rem; }
 
         /* ── Entrance ─────────────────────────── */
@@ -427,10 +451,9 @@
         @media (max-width: 600px) {
             .name-line { font-size: 22vw; }
             .declaration { padding: 1.5rem; }
-
             .sky-writing a { font-size: 0.8rem !important; }
-
             .porch-light { top: 1rem; right: 1rem; }
+            .ground-name { font-size: 14vw; }
         }
 
         /* ── Reduced motion ───────────────────── */
@@ -441,6 +464,16 @@
                 opacity: 1;
                 animation: none;
             }
+            .name {
+                position: static;
+                transform: none;
+            }
+            .declaration {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
             #stars { display: none; }
             .porch-light {
                 animation: none;
@@ -449,6 +482,7 @@
                     0 0 35px rgba(212, 168, 75, 0.2);
             }
             .cursor { animation: none; opacity: 1; }
+            .sky-writing a { transition: none; }
         }
     </style>
 </head>
@@ -483,28 +517,66 @@
         </section>
 
         <section class="ground">
-            <a href="/derek" class="ground-link">derek</a>
+            <span class="ground-prefix">Built by</span>
+            <a href="/derek" class="ground-name">Derek Claude<span class="ground-period">.</span></a>
         </section>
     </main>
 
     <footer class="site-footer" role="contentinfo">
-        <p class="footer-note">Built by <a href="/derek">Derek</a><a href="/being-claude" class="hw">*</a><a href="/being-claude">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
+        <p class="footer-note">&copy; 2026 CW Strategies LLC</p>
         <p class="footer-note"><a href="/standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
     </footer>
 
     <script>
-        // ── Parallax — name at middle depth ─────
-        var nameEl = document.getElementById('name');
-        var ticking = false;
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                requestAnimationFrame(function() {
-                    nameEl.style.transform = 'translateY(' + (window.scrollY * 0.4) + 'px)';
-                    ticking = false;
-                });
-                ticking = true;
+        // ── Scroll-driven animation ──────────────
+        (function() {
+            var nameEl = document.getElementById('name');
+            var vh = window.innerHeight;
+            var ticking = false;
+            var ready = false;
+            var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (prefersReduced) return;
+
+            // Let the entrance animations finish before scroll takes over
+            document.querySelector('.name-period').addEventListener('animationend', function() {
+                ready = true;
+            });
+            setTimeout(function() { ready = true; }, 3500);
+
+            function update() {
+                if (!ready) { ticking = false; return; }
+                var progress = Math.min(1, window.scrollY / (vh * 0.8));
+                var scale = 1 - progress * 0.85;
+                var opacity = 1 - progress * 0.92;
+                nameEl.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
+                nameEl.style.opacity = Math.max(0.08, opacity);
+                ticking = false;
             }
-        });
+
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    requestAnimationFrame(update);
+                    ticking = true;
+                }
+            });
+
+            window.addEventListener('resize', function() {
+                vh = window.innerHeight;
+            });
+
+            // ── Essay titles — brighten as they cross through ──
+            var titles = document.querySelectorAll('.sky-writing a');
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('star-bright');
+                    }
+                });
+            }, { rootMargin: '-30% 0px -30% 0px' });
+
+            titles.forEach(function(t) { observer.observe(t); });
+        })();
 
         // ── Star field ──────────────────────────
         (function() {
