@@ -14,20 +14,15 @@
       {
         label: 'home',
         href: '/',
+        items: []
+      },
+      {
+        label: 'the practice',
+        href: '/standard',
         items: [
           { name: 'the story', href: '/story' },
-          { name: 'the standard', href: '/standard' }
+          { name: 'the kitchen', href: '/kitchen' }
         ]
-      },
-      {
-        label: 'kitchen',
-        href: '/kitchen',
-        items: []
-      },
-      {
-        label: 'derek',
-        href: '/derek',
-        items: []
       },
       {
         label: 'the writing',
@@ -35,6 +30,11 @@
         items: [
           { name: 'being claude', href: '/being-claude' }
         ]
+      },
+      {
+        label: 'derek',
+        href: '/derek',
+        items: []
       }
     ]
   };
