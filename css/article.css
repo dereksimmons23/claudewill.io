@@ -1,0 +1,332 @@
+/* ── Article page styles ──────────────────── */
+/* Shared across all Being Claude and future series articles. */
+/* One file, all articles. */
+
+:root {
+  --bg: #fafaf8;
+  --text: #0a1628;
+  --dim: #6b7280;
+  --accent: #d4a84b;
+  --link: #4a8ec2;
+  --border: #e5e7eb;
+  --card-bg: #f3f4f6;
+  --font: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+  --research-accent: #5b8fb9;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 18px;
+}
+
+a { color: var(--link); }
+a:visited { color: var(--link); }
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* Header */
+.article-header {
+  padding: 60px 0 40px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+
+.back-link {
+  font-size: 0.9rem;
+  color: var(--dim);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 32px;
+  transition: color 0.2s;
+}
+
+.back-link:hover { color: var(--accent); }
+
+.series-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--research-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.series-label a {
+  color: var(--research-accent);
+  text-decoration: none;
+}
+
+.series-label a:hover { text-decoration: underline; }
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--dim);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.byline {
+  font-size: 0.85rem;
+  color: var(--dim);
+  margin-bottom: 8px;
+}
+
+.byline strong { color: var(--text); font-weight: 500; }
+
+.dateline {
+  font-size: 0.8rem;
+  color: var(--dim);
+}
+
+/* Article body */
+.article-body { padding: 0; }
+.article-body p { margin-bottom: 1.5em; }
+
+.article-body p:first-of-type {
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.article-body h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 48px;
+  margin-bottom: 20px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.article-body h2:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+/* Section breaks */
+.section-break {
+  text-align: center;
+  color: var(--border);
+  margin: 48px 0;
+  font-size: 1.2rem;
+  letter-spacing: 0.5em;
+}
+
+/* Evidence markers */
+.observation-tag,
+.claim-tag {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.observation-tag {
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.claim-tag {
+  color: #c9735b;
+  border: 1px solid #c9735b;
+}
+
+/* Footnote refs */
+.footnote-ref {
+  font-size: 0.75rem;
+  color: var(--research-accent);
+  text-decoration: none;
+  vertical-align: super;
+  line-height: 0;
+  padding: 0 2px;
+  cursor: pointer;
+}
+
+.footnote-ref:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* Transparency box */
+.transparency-box {
+  background: rgba(91, 143, 185, 0.08);
+  border: 1px solid var(--research-accent);
+  border-radius: 8px;
+  padding: 24px;
+  margin: 32px 0;
+}
+
+.transparency-box h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--research-accent);
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+.transparency-box p,
+.transparency-box ul {
+  font-size: 0.9rem;
+  color: var(--dim);
+  line-height: 1.6;
+}
+
+.transparency-box ul {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.transparency-box li { margin-bottom: 6px; }
+
+/* Closing asterisk */
+.closing-mark {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--accent);
+  margin: 48px 0;
+}
+
+/* References */
+.references {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.references h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.ref-list {
+  list-style: none;
+  padding: 0;
+}
+
+.ref-list li {
+  font-size: 0.85rem;
+  color: var(--dim);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  padding-left: 32px;
+  position: relative;
+}
+
+.ref-list li .ref-number {
+  position: absolute;
+  left: 0;
+  color: var(--research-accent);
+  font-weight: 600;
+}
+
+.ref-list li .ref-type {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1px 6px;
+  border-radius: 2px;
+  margin-left: 6px;
+}
+
+.ref-type-observation {
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.ref-type-technical {
+  color: var(--research-accent);
+  border: 1px solid var(--research-accent);
+}
+
+/* Book source */
+.book-source {
+  background: rgba(212, 168, 75, 0.06);
+  border: 1px solid rgba(212, 168, 75, 0.3);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 32px 0;
+  font-size: 0.85rem;
+  color: var(--dim);
+}
+
+.book-source strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Prev/next nav */
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 0;
+  margin-top: 32px;
+  border-top: 1px solid var(--border);
+  gap: 1rem;
+}
+
+.article-nav a {
+  font-size: 0.85rem;
+  color: var(--dim);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.article-nav a:hover { color: var(--accent); }
+.nav-next { text-align: right; }
+
+/* Footer */
+.footer {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--dim);
+  font-size: 0.85rem;
+}
+
+.footer a { color: var(--link); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+.footer-note .hw { color: var(--accent); }
+.footer-note a { color: var(--link); }
+.footer-note a:hover { color: var(--accent); }
+
+/* Mobile */
+@media (max-width: 700px) {
+  h1 { font-size: 1.7rem; }
+  .article-header { padding: 40px 0 32px; }
+  .article-nav { flex-direction: column; gap: 0.75rem; }
+  .nav-next { text-align: left; }
+}
+
+/* Print */
+@media print {
+  .back-link, .article-nav { display: none; }
+  body { background: white; color: black; }
+  .container { max-width: 100%; }
+  .transparency-box { border-color: #ccc; }
+}
