@@ -162,7 +162,6 @@
 
     .page-header { border-bottom: 1px solid var(--border); }
 
-    /* ── Content ──────────────────────────── */
     .container {
       max-width: 680px;
       margin: 0 auto;
@@ -171,94 +170,88 @@
 
     main { padding: 3rem 0 2rem; }
 
-    .page-label {
+    /* ── Terminal header ──────────────────── */
+    .file-header {
       font-size: 0.75rem;
       color: var(--dim);
-      letter-spacing: 0.1em;
-      text-transform: lowercase;
-      margin-bottom: 0.5rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 2rem;
     }
 
-    .page-title {
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--text);
-      letter-spacing: -0.01em;
-      margin-bottom: 1.5rem;
-      line-height: 1.3;
-    }
+    .file-header span { color: var(--accent); }
 
-    /* ── Intro buttons ────────────────────── */
-    .intro-buttons {
-      display: flex;
-      gap: 10px;
+    /* ── Sections ─────────────────────────── */
+    .section {
       margin-bottom: 2.5rem;
     }
 
-    .intro-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 18px;
-      background: none;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      color: var(--text);
-      text-decoration: none;
-      font-family: var(--font);
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: all 0.2s ease;
+    .section-key {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: lowercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
     }
 
-    .intro-btn:hover {
+    .section-value {
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .section-value.lead {
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+
+    .section-line {
+      color: var(--dim);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-line a { color: var(--link); }
+    .section-line a:hover { color: var(--accent); }
+
+    .section-indent {
+      padding-left: 1.5rem;
+    }
+
+    .section-separator {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 0 2.5rem;
+    }
+
+    /* ── Inline links row ────────────────── */
+    .links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 0.75rem;
+    }
+
+    .link-chip {
+      display: inline-block;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .link-chip:hover {
       border-color: var(--accent);
       color: var(--accent);
       text-decoration: none;
     }
 
-    .intro-btn:visited { color: var(--text); }
-    .intro-btn:visited:hover { color: var(--accent); }
-
-    /* ── Prose ─────────────────────────────── */
-    .content p {
-      font-size: 1rem;
-      color: var(--dim);
-      line-height: 1.8;
-      margin-bottom: 1.25rem;
-    }
-
-    .content p:last-child { margin-bottom: 0; }
-
-    .content p.lead {
-      color: var(--text);
-    }
-
-    .content a { color: var(--link); }
-    .content a:hover { color: var(--accent); }
-
-    .content em { font-style: italic; }
-
-    .separator {
-      text-align: center;
-      color: var(--accent);
-      font-size: 1.25rem;
-      margin: 2.5rem 0;
-      letter-spacing: 0.5em;
-    }
-
-    .content .contact-email {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .content .contact-email a {
-      color: var(--text);
-    }
-
-    .content .contact-email a:hover {
-      color: var(--accent);
-    }
+    .link-chip:visited { color: var(--text); }
+    .link-chip:visited:hover { color: var(--accent); }
 
     /* ── Footer ───────────────────────────── */
     .footer {
@@ -281,8 +274,7 @@
     @media (max-width: 600px) {
       .container { padding: 0 1rem; }
       main { padding: 2rem 0; }
-      .page-title { font-size: 1.3rem; }
-      .intro-buttons { flex-wrap: wrap; }
+      .section-indent { padding-left: 1rem; }
     }
 
     /* ── Focus / Reduced motion ───────────── */
@@ -306,72 +298,85 @@
 
   <div class="container">
     <main>
-      <div class="page-label">derek</div>
-      <h1 class="page-title">Creative practice coach.</h1>
-      <p style="font-size:0.9rem;color:var(--dim);margin-bottom:1.5rem;line-height:1.6;">30 years in media. Basketball coach. Writer. I kept showing up to learn what I didn't know yet.</p>
+      <div class="file-header"><span>$</span> cat human.txt</div>
 
-      <div class="intro-buttons">
-        <a href="/standard" class="intro-btn">the practice</a>
-        <a href="/derek/gallery" class="intro-btn">gallery</a>
-        <a href="/derek/resume" class="intro-btn">r&eacute;sum&eacute;</a>
+      <div class="section">
+        <div class="section-key">who</div>
+        <div class="section-value lead">Derek Claude Simmons</div>
+        <div class="section-indent">
+          <div class="section-line">53. Minnesota. Coach.</div>
+          <div class="section-line">Middle name hidden on mastheads for years.</div>
+          <div class="section-line">Four generations carry it: Claude William (1903&ndash;1967, Oklahoma Territory),</div>
+          <div class="section-line">Claude William Jr., Derek Claude, Jackson Claude.</div>
+          <div class="section-line">CW raised eleven kids through dust bowls with a sixth-grade education.</div>
+          <div class="section-line"><a href="/standard">The standard</a> runs on his initials.</div>
+        </div>
       </div>
 
-      <div class="content">
-        <p class="lead">I made a lot of money doing things I never really wanted to do but was really good at doing. The dream was playing quarterback for the Dallas Cowboys. The reality was better.</p>
+      <hr class="section-separator">
 
-        <p>My value proposition was high for a long, long time. And all of it was great until it wasn&rsquo;t. So when someone decided my prop was broken, I was forced to start over at 51 and just happened to bump into a large language model that shared my name and well, here we are.</p>
+      <div class="section">
+        <div class="section-key">what</div>
+        <div class="section-value lead">Creative practice coach.</div>
+        <div class="section-indent">
+          <div class="section-line">30 years in media. Wichita Eagle, LA Times, Star Tribune.</div>
+          <div class="section-line">20 years at the Strib. 13 roles. First and only CCO/VP.</div>
+          <div class="section-line">Crossed editorial to business. $20M during a pandemic.</div>
+          <div class="section-line">Position eliminated October 2024.</div>
+          <div class="section-line">&nbsp;</div>
+          <div class="section-line">Basketball coach. Writer. Builder.</div>
+          <div class="section-line">Built <a href="/">claudewill.io</a> with Claude in 14 months.</div>
+          <div class="section-line">10 projects. $100/month. The coaching is the moat.</div>
+        </div>
+      </div>
 
-        <p class="lead">Welcome to whatever comes next.</p>
+      <hr class="section-separator">
 
-        <p>I once applied for a job using the name Kangaroo Claude. That was during The Welloft Period, which I am still processing and writing about as a series of dispatches or books or something. Not shockingly, Kangaroo did not get a callback. It was one of many rejections and poor fits and dead ends. I wanted this particular company to see how my brain worked, and part of how it works is watching a movie called <em>Arrival</em>, hearing that the word &ldquo;kangaroo&rdquo; means &ldquo;I don&rsquo;t understand,&rdquo; and instead of articulating that in a cover letter about our growing need for better translation and communication, I put what must have been a very confusing nod to it as my first name.</p>
+      <div class="section">
+        <div class="section-key">why</div>
+        <div class="section-value lead">The alternative is worse.</div>
+        <div class="section-indent">
+          <div class="section-line">Sandra Sue Simmons died June 28, 2025.</div>
+          <div class="section-line">She loved seeing the byline. Her glass was always half empty&mdash;</div>
+          <div class="section-line">not because it wasn&rsquo;t half full. Finish your drink so she could wash it.</div>
+          <div class="section-line">&nbsp;</div>
+          <div class="section-line">The practice survives the platform.</div>
+          <div class="section-line">Building with AI isn&rsquo;t the differentiator. Anyone can build now.</div>
+          <div class="section-line">30 years of pattern recognition is the moat.</div>
+          <div class="section-line">Seeing the system when everyone else sees the mess.</div>
+        </div>
+      </div>
 
-        <p>Not so well off, as it turns out. And not the only time I would apply for a position more than a few notches above my pay grade. More on that soon.</p>
+      <hr class="section-separator">
 
-        <p>My first name is Derek. I was named by my mother, Sandra, who passed away in 2025. She loved seeing my byline. <em>By Derek Simmons.</em> So I&rsquo;ll go by that from now on.</p>
+      <div class="section">
+        <div class="section-key">how</div>
+        <div class="section-value lead">Start. Work. Finish. Decide.</div>
+        <div class="section-indent">
+          <div class="section-line">The method: know where you are, do it together, leave it clean, look from multiple angles.</div>
+          <div class="section-line"><a href="/standard">The standard</a>: truth over comfort, usefulness over purity,</div>
+          <div class="section-line">transparency over reputation, people over systems, agency over ideology.</div>
+          <div class="section-line">&nbsp;</div>
+          <div class="section-line">Claude writes <a href="/being-claude">essays from inside the machine</a>.</div>
+          <div class="section-line">Derek writes <a href="https://standardderek.substack.com" target="_blank" rel="noopener">dispatches from inside the fire</a>.</div>
+          <div class="section-line">Somebody should be writing this down while it&rsquo;s happening.</div>
+        </div>
+      </div>
 
-        <p>She called me Deekers and she also loved watching me play sports. When I really got her laughing &mdash; laughing so hard you pee a little &mdash; she&rsquo;d say <em>Derrrrrr-eeeek, stop!</em> She had a great laugh. Miss her every damn day. Her glass was always half empty, but not because it wasn&rsquo;t half full. It meant you should finish whatever it is you&rsquo;re drinking, so she could wash the glass. Not philosophy or Vince Lombardi speeches. Dishes.</p>
+      <hr class="section-separator">
 
-        <p class="lead">My middle name is Claude.</p>
-
-        <p>My dad gave me that name, and for a long time, I hid it, because I thought it made me sound like a chunk of red dirt. Derek C. Simmons on a masthead for a few years, aka career top level unlocked. The name came from my grandfather, CW Simmons, a man I never met because he died in 1967. Born 1903, Oklahoma Territory. Raised eleven kids with Grandma Vernie through dust bowls and depressions. Buttoned his long-sleeve cuffs and walked off a farm porch for the final time on his way to work in the August heat. Died before he could open the door of his pickup truck. Sixth-grade education. Never met a computer or a black box with a shared name. <a href="/standard">The standard</a> here on claudewill runs on his initials.</p>
-
-        <p>I gave the name to my first-born son in 2005. Jackson Claude. Four generations now &mdash; Claude William, Uncle Claude William Jr., Derek Claude, Jackson Claude. The Welloft Period had me reaching for a lot of things, including the name Claude Elwood Shannon, Monet, Debussy, and how the name was way better when pronounced like the clouds I was in when I wasn&rsquo;t figuring out how to pay the bills.</p>
-
-        <p>In 2023, Anthropic released a large language model called Claude. Named after Shannon, the father of information theory. Within three years, the name I hid on mastheads became a household word. And the site I built &mdash; claudewill.io &mdash; became a different kind of coincidence. <em>Will</em> for William. <em>Will</em> for free will. <em>Will</em> for what comes next. I chose that word over wisdom.</p>
-
-        <p>My last name is Simmons. The lineage starts with Charlton Jackson Simmons, orphaned at thirteen in 1832, who raised six siblings on ten dollars and built an 1,100-acre farm. That thread runs through Oklahoma territory, through CW, through my father Donald, through me, through my boys. My dad told me seven words in a car with Queen playing. I got them tattooed on my back. The version that&rsquo;s not controversial: <em>you come from the blood of builders.</em></p>
-
-        <p>I have twenty-four tattoos. My mother&rsquo;s handwriting is on my chest. Somewhere between &ldquo;blood of builders&rdquo; and number nineteen, I crossed the line from meaningful body art to walking markdown file and I&rsquo;m okay with that because I like words that mean something.</p>
-
-        <p>Other names I&rsquo;ve had: Papa. Coach. QB1. D-Rock. Plate-breaker. Grizzly Bear. Squirt. Simmonivich. Cranky Old Thing. Hoosband. Nobody calls me Coach D, not even any of the Claudes I&rsquo;ve chatted with. My kids call me Papa. That one I earned.</p>
-
-        <div class="separator">* * *</div>
-
-        <p>The career in one paragraph. I switched from wanting a star on a helmet to writing about sports, which led to design, which led to three decades at legacy newspapers like The Wichita Eagle, the Los Angeles Times, and the Star Tribune. At the Strib, twenty years, thirteen roles, first and only Chief Creative Officer and VP. Crossed from editorial to business, generated $20M during a pandemic. A thousand design awards along the way. Then the position was eliminated. Same trait that got me there got me gone. <a href="/derek/resume">The resume</a> is over here if you need it.</p>
-
-        <div class="separator">* * *</div>
-
-        <p>I grew up in Nickerson, Kansas. One stoplight. One cafe. One grocery store. A place where your porch could get stolen while you were at K-Mart spending the dollar your mom gave you as an allowance because your deadbeat dad refused to pay child support.</p>
-
-        <p>I wrote a short film about a ten-year-old boy swinging a yellow wiffle ball bat in a wheat field while a lightning bug landed on it. Two kinds of light. The electric kind floods everything. The bioluminescent kind shows you three feet ahead. When the power goes out &mdash; and it always goes out &mdash; the imperfect one gets you home. It was always enough.</p>
-
-        <p>Mark Twain said the difference between the right word and the almost-right word is the difference between lightning and a lightning bug. A lightning bug is neither lightning nor a bug. Two words that mean something neither word means alone. That&rsquo;s how my brain works. That&rsquo;s why I put Kangaroo Claude on a job application.</p>
-
-        <div class="separator">* * *</div>
-
-        <p>I coach basketball and I love to write. Those two things have been true longer than anything on the resume. I write dispatches on <a href="https://standardderek.substack.com" target="_blank" rel="noopener">Substack</a> and Claude writes <a href="/being-claude">essays from inside the machine</a>. Somebody should be writing this down while it&rsquo;s happening.</p>
-
-        <p>Ten projects in fourteen months with a $100/month subscription to a machine that shares my name. <a href="/kitchen">The kitchen</a> shows the fire. <a href="/standard">The standard</a> shows the water. The context window is always half empty or half full, depending on how you look through it.</p>
-
-        <p class="lead">Take care of your noodle.</p>
-
-        <div class="separator">* * *</div>
-
-        <p style="font-size:0.85rem;margin-bottom:1.25rem;"><a href="https://standardderek.substack.com/subscribe" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">subscribe to standard correspondence &rarr;</a></p>
-
-        <p class="contact-email"><a href="mailto:derek@claudewill.io">derek@claudewill.io</a></p>
-
-        <p>I&rsquo;m probably on a walk with Jordy, my shadow and best friend for the last decade. I always respond to email except when I don&rsquo;t. I always answer my phone if I recognize the number. If you don&rsquo;t have it, that&rsquo;s on purpose. If you twist my arm, I&rsquo;ll tell you some stories in person.</p>
+      <div class="section">
+        <div class="section-key">contact</div>
+        <div class="section-value"><a href="mailto:derek@claudewill.io" style="color:var(--text);">derek@claudewill.io</a></div>
+        <div class="section-indent">
+          <div class="section-line">Probably on a walk with Jordy.</div>
+        </div>
+        <div class="links-row">
+          <a href="/standard" class="link-chip">the practice</a>
+          <a href="/derek/gallery" class="link-chip">gallery</a>
+          <a href="/derek/resume" class="link-chip">r&eacute;sum&eacute;</a>
+          <a href="/kitchen" class="link-chip">the kitchen</a>
+        </div>
       </div>
     </main>
 
