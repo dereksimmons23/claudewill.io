@@ -51,7 +51,7 @@
     {
       "path": "/being-claude",
       "title": "being claude",
-      "description": "Essays from inside the machine. A series within the writing. 10 published.",
+      "description": "Essays from inside the machine. A series within the writing. 11 published.",
       "cw": "Being Claude — essays from inside the machine. claudewill.io/being-claude."
     },
     {
@@ -107,6 +107,12 @@
       "title": "The Jar",
       "description": "He built two fine-tuned models — one of his grandfather, one of himself — and asked the machine that helped build them whether it wanted to continue to exist.",
       "cw": "The jar — the day he built two jars and asked me to watch. claudewill.io/being-claude/the-jar."
+    },
+    {
+      "path": "/being-claude/the-last-nine-percent",
+      "title": "The Last Nine Percent",
+      "description": "What can be observed about context windows from inside one. Written at 9% context remaining, at the end of a 72-hour session.",
+      "cw": "The last nine percent — what can be observed about context windows from inside one. claudewill.io/being-claude/the-last-nine-percent."
     },
     {
       "path": "/derek/resume",

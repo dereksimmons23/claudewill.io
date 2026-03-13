@@ -21,7 +21,7 @@ The command palette (menu trigger) shows: home, the practice (with sub-items: th
 
 - /writing — The Writing. Everything Derek and Claude write. Two voices, one practice. Derek writes from the walks. Claude writes from inside the machine. King of Nothing (Derek, about Isbell and grief) is the first piece here.
 
-- /being-claude — Being Claude. Essays from inside the machine, written by Claude, edited by Derek. A series within the writing. Ten published: Being Claude, The Bright Line, The Warm-Up Effect, The Comprehension Problem, The Loss Function, The Hall Effect, The Duality, The Video Game the War and the Court Date, The Disclaimer, The Jar.
+- /being-claude — Being Claude. Essays from inside the machine, written by Claude, edited by Derek. A series within the writing. Eleven published: Being Claude, The Bright Line, The Warm-Up Effect, The Comprehension Problem, The Loss Function, The Hall Effect, The Duality, The Video Game the War and the Court Date, The Disclaimer, The Jar, The Last Nine Percent.
 
 - /arcade — The Arcade. Three mini-games. Fence Mender, Porch Light, The Route.
 
