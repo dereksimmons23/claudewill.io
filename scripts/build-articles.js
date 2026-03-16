@@ -27,10 +27,20 @@ marked.setOptions({
   gfm: true
 });
 
-// Custom renderer: section breaks (--- in markdown) become styled dividers
+// Custom renderer: section breaks + pull quotes
 const renderer = new marked.Renderer();
 renderer.hr = function () {
   return '<div class="section-break">&mdash;</div>\n';
+};
+// Blockquotes with {.pull-quote} marker become shareable pull quotes
+renderer.blockquote = function ({ tokens }) {
+  const inner = this.parser.parse(tokens);
+  // Check if content starts with {.pull-quote}
+  if (inner.includes('{.pull-quote}')) {
+    const text = inner.replace(/<\/?p>/g, '').replace('{.pull-quote}', '').trim();
+    return '<div class="pull-quote"><span class="pq-text">' + text + '</span></div>\n';
+  }
+  return '<blockquote>' + inner + '</blockquote>\n';
 };
 marked.use({ renderer });
 
@@ -123,6 +133,7 @@ function buildArticle(article, articles, seriesSlug) {
     editor: article.editor,
     slug: article.slug,
     tags: article.tags || [],
+    hero: article.hero || null,
     bodyHtml,
     transparencyHtml,
     referencesHtml,
@@ -280,7 +291,11 @@ function buildTemplate(data) {
       <p class="byline"><strong>${data.author}</strong> (Anthropic) &middot; edited by <a href="/derek" style="color: var(--text); text-decoration: none;">${data.editor}</a></p>
       <p class="dateline">${data.dateFormatted} &middot; ${data.position}</p>
     </header>
-
+${data.hero ? `
+    <figure class="article-hero">
+      <img src="/images/articles/${data.hero}" alt="${escHtml(data.title)}" loading="eager">
+    </figure>
+` : ''}
     <div class="article-body">
 ${data.bodyHtml}
     </div>
@@ -318,6 +333,7 @@ ${data.bodyHtml}
     };
   </script>
   <script src="https://substackapi.com/widget.js" async></script>
+  <script src="/js/article-share.js"></script>
   <script src="/js/cw-link-renderer.js"></script>
   <script src="/js/porch-widget.js" defer></script>
   <script src="/js/shared-nav.js"></script>

@@ -9,6 +9,8 @@
     "lint:html": "npx htmlhint **/*.html",
     "lint:css": "npx stylelint **/*.css",
     "lint:js": "npx eslint **/*.js",
+    "photos": "node scripts/fetch-photos.js",
+    "articles": "node scripts/build-articles.js",
     "test": "npm run lint:html && npm run lint:css && npm run lint:js"
   },
   "repository": {
