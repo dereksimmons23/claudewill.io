@@ -13,7 +13,7 @@
     gtag('config', 'G-7R5X5SJDVT');
   </script>
   <title>resume | claudewill*</title>
-  <meta name="description" content="Derek Simmons — AI strategy, digital transformation, media executive. 30 years, 4 Pulitzer contributions, $20M+ revenue. Minneapolis, MN.">
+  <meta name="description" content="Derek Simmons — Visual journalism, art direction, investigative storytelling. 30 years at the Los Angeles Times and Star Tribune. Minnesota.">
   <link rel="canonical" href="https://claudewill.io/derek/resume">
   <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -340,26 +340,30 @@
         display: none !important;
       }
 
-      /* .hw removed from name in HTML */
-
       .contact-line-print {
         display: block !important;
         font-family: var(--font-sans);
         font-size: 8pt;
-        color: #111;
-        margin-bottom: 14px;
+        color: #555;
+        margin-bottom: 16px;
+        letter-spacing: 0.03em;
       }
 
       .contact-line-print a {
+        color: #555;
+        text-decoration: none;
+      }
+
+      a.no-print-href {
         color: #111;
         text-decoration: none;
       }
 
       body {
         background: white;
-        color: #111;
+        color: #222;
         font-family: var(--font-sans);
-        font-size: 9.5pt;
+        font-size: 9pt;
         line-height: 1.45;
       }
 
@@ -372,65 +376,67 @@
         padding: 0;
       }
 
+      /* ── Name block ── */
       .resume-intro {
-        margin-bottom: 12px;
+        margin-bottom: 14px;
         padding-bottom: 0;
         border-bottom: none;
       }
 
       .resume-intro h1 {
         font-family: var(--font-serif);
-        font-size: 19pt;
-        font-weight: 600;
+        font-size: 20pt;
+        font-weight: 700;
         color: #000;
-        margin-bottom: 1px;
+        margin-bottom: 2px;
+        letter-spacing: -0.02em;
       }
 
       .subtitle {
         font-family: var(--font-sans);
-        font-size: 9pt;
-        font-weight: 500;
-        color: #111;
+        font-size: 8.5pt;
+        font-weight: 400;
+        color: #555;
         margin-bottom: 1px;
-        letter-spacing: 0.02em;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
       }
 
-      /* .contact-line hidden in print — .contact-line-print replaces it */
-
+      /* ── Section headers ── */
       .section {
-        margin-bottom: 12px;
+        margin-bottom: 16px;
         padding-bottom: 0;
         border-bottom: none;
       }
 
       .section h2 {
         font-family: var(--font-sans);
-        font-size: 8pt;
-        font-weight: 700;
+        font-size: 7pt;
+        font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 0.08em;
-        margin-bottom: 5px;
-        padding-bottom: 2px;
-        border-bottom: 1.5px solid #000;
-        color: #000;
+        letter-spacing: 0.14em;
+        margin-bottom: 6px;
+        padding-bottom: 3px;
+        border-bottom: 0.75px solid #bbb;
+        color: #888;
       }
 
-      /* h2::before already removed from screen styles */
-
+      /* ── Summary ── */
       .summary-text {
         font-family: var(--font-sans);
         font-size: 9pt;
-        color: #111;
-        line-height: 1.45;
+        color: #222;
+        line-height: 1.5;
         border-left: none;
         padding-left: 0;
       }
 
+      /* ── Competencies ── */
       .skills-list {
         font-family: var(--font-sans);
-        font-size: 8.5pt;
-        color: #111;
-        line-height: 1.45;
+        font-size: 8pt;
+        color: #222;
+        line-height: 1.5;
       }
 
       .skills-tags {
@@ -443,21 +449,23 @@
         border: none;
         border-radius: 0;
         font-family: var(--font-sans);
-        font-size: 8.5pt;
-        color: #111;
+        font-size: 8pt;
+        color: #555;
         white-space: normal;
       }
 
       .skill-tag::after {
         content: ' \00B7 ';
+        color: #bbb;
       }
 
       .skill-tag:last-child::after {
         content: '';
       }
 
+      /* ── Experience ── */
       .experience-item {
-        margin-bottom: 9px;
+        margin-bottom: 12px;
         break-inside: avoid;
       }
 
@@ -472,73 +480,77 @@
 
       .job-title {
         font-family: var(--font-serif);
-        font-size: 10pt;
+        font-size: 10.5pt;
         font-weight: 600;
         color: #000;
       }
 
       .date {
         font-family: var(--font-sans);
-        font-size: 8pt;
-        color: #111;
+        font-size: 7.5pt;
+        color: #888;
+        letter-spacing: 0.02em;
       }
 
       .organization {
         font-family: var(--font-sans);
-        font-size: 8.5pt;
+        font-size: 8pt;
         font-style: italic;
-        color: #111;
-        margin-bottom: 2px;
+        color: #555;
+        margin-bottom: 3px;
       }
 
       .experience-list li {
         font-family: var(--font-sans);
         font-size: 8.5pt;
-        color: #111;
-        margin-bottom: 1px;
+        color: #222;
+        margin-bottom: 1.5px;
         padding-left: 10px;
+        line-height: 1.45;
       }
 
       .experience-list li::before {
         top: 5px;
         width: 3px;
         height: 3px;
-        background: #111;
+        background: #bbb;
       }
 
+      /* ── Education ── */
       .education p {
         font-family: var(--font-sans);
         font-size: 8.5pt;
-        color: #111;
-        margin-bottom: 2px;
+        color: #222;
+        margin-bottom: 3px;
       }
 
       .education strong {
         color: #000;
       }
 
+      /* ── Quotes ── */
       .recommendation {
-        border-left: 1.5px solid #555;
+        border-left: 1.5px solid #d4a84b;
         padding-left: 10px;
-        margin-bottom: 6px;
+        margin-bottom: 8px;
         break-inside: avoid;
       }
 
       .recommendation-text {
         font-family: var(--font-serif);
-        font-size: 9pt;
+        font-size: 8.5pt;
         font-style: italic;
-        color: #111;
-        line-height: 1.45;
+        color: #333;
+        line-height: 1.5;
       }
 
       .references-note {
         font-family: var(--font-sans);
-        font-size: 8pt;
-        color: #111;
+        font-size: 7.5pt;
+        color: #888;
+        margin-top: 4px;
       }
 
-      /* Keep quotes section together */
       .section:last-of-type {
         break-inside: avoid;
       }
@@ -581,7 +593,7 @@
 
       <div class="section" id="summary">
         <h2>summary</h2>
-        <p class="summary-text">Visual journalist with 30 years directing art, photography, and design at the Los Angeles Times (#1 worldwide, SND, six consecutive years) and Star Tribune (#3 worldwide, first CCO/VP). Visual director for two Pulitzer Prize finalist investigations. Five investigative series, five legislative outcomes. Built the visual storytelling system behind the Star Tribune's 2021 Pulitzer for Breaking News. Angus McDougall Overall Excellence in Editing (POYi).</p>
+        <p class="summary-text">Visual journalist with 30 years building visual storytelling systems at the Los Angeles Times (top winner worldwide, SND) and Star Tribune (top 3 worldwide, first CCO/VP). Five investigative series, five legislative outcomes. Built the process that produced a Pulitzer finalist and the visual system behind the Star Tribune's 2021 Pulitzer for Breaking News. 1,000+ career awards spanning local, national, and international competitions.</p>
       </div>
 
       <div class="section" id="competencies">
@@ -612,10 +624,9 @@
           </div>
           <div class="organization">CW Strategies LLC, Minneapolis, MN</div>
           <ul class="experience-list">
-            <li>Consulting for Cascadia Daily News &mdash; visual strategy, audience development, editorial AI</li>
-            <li>Built claudewill.io from scratch &mdash; HTML, CSS, vanilla JS, serverless, Supabase, Anthropic AI</li>
-            <li>Created autonomous editorial agents and AI-native publishing tools</li>
-            <li>Board member, Press Or Media (journalism verification and credentialing standards)</li>
+            <li>Consulting for Cascadia Daily News &mdash; visual strategy, audience development, editorial products</li>
+            <li>Built claudewill.io from scratch using AI-assisted tools &mdash; HTML, CSS, vanilla JS, serverless, Anthropic AI</li>
+            <li>Board member, <a href="https://papj.org" target="_blank" rel="noopener" class="no-print-href">Press Or Media</a> (journalism credentialing standards)</li>
           </ul>
         </div>
 
@@ -626,9 +637,8 @@
           </div>
           <div class="organization">Star Tribune Media Company, Minneapolis, MN</div>
           <ul class="experience-list">
-            <li>Led enterprise AI strategy and integration roadmap; served as AI champion</li>
-            <li>Led ad policy &amp; standards team; senior leadership team</li>
-            <li>Continued to advise on visual storytelling and editorial product strategy</li>
+            <li>Served as newsroom AI champion; senior leadership team</li>
+            <li>Part of the team that rebranded to Minnesota Star Tribune and rewrote the mission, vision, and values</li>
           </ul>
         </div>
 
@@ -639,11 +649,9 @@
           </div>
           <div class="organization">Star Tribune Media Company, Minneapolis, MN</div>
           <ul class="experience-list">
-            <li>First and only CCO/VP in 150-year company history; created the role</li>
-            <li>Directed visual storytelling for five investigative series &mdash; five legislative outcomes (disability, sexual assault, solitary confinement, elder care, juvenile justice)</li>
-            <li>&ldquo;Denied Justice&rdquo; &mdash; directed 8-page special section; Pulitzer finalist, SPJ Public Service, 4 laws changed</li>
-            <li>Prince commemorative coverage &mdash; commissioned 4 zoned covers, 16-page tribute; led to Star Tribune Magazine launch</li>
-            <li>Built the visual storytelling system the newsroom used to win the 2021 Pulitzer for Breaking News</li>
+            <li>Built the visual storytelling process for five investigative series &mdash; five legislative outcomes, including a Pulitzer finalist that changed four laws</li>
+            <li>Commissioned illustration, negotiated archival rights, and directed commemorative coverage that launched the Star Tribune Magazine</li>
+            <li>Built the system the newsroom used to win the 2021 Pulitzer for Breaking News after moving to the business side</li>
             <li>Led Star Tribune into SND top 3 worldwide; hired 50 journalists in two years; 55-person team</li>
           </ul>
         </div>
@@ -655,10 +663,10 @@
           </div>
           <div class="organization">Los Angeles Times, Los Angeles, CA</div>
           <ul class="experience-list">
-            <li>No. 1 worldwide design ranking (SND) for six consecutive years; 125+ SND awards</li>
-            <li>Angus McDougall Overall Excellence in Editing (Pictures of the Year International, 2010)</li>
-            <li>Directed visual coverage: Olympics (SND silver), Michael Jackson, John Wooden, Obama inauguration, California wildfires</li>
-            <li>Part of the newsroom for two Pulitzer Prize-winning investigations (City of Bell, Barbara Davidson)</li>
+            <li>Top winner worldwide (SND) for the better part of a decade; 125+ awards</li>
+            <li>LA Press Club Designer of the Year; Angus McDougall Overall Excellence in Editing (POYi, staff)</li>
+            <li>Directed visual coverage across breaking news, commemorative, investigative, and Olympic events</li>
+            <li>Part of the newsroom for two Pulitzer Prize-winning investigations</li>
           </ul>
         </div>
       </div>
@@ -676,15 +684,15 @@
         <h2>what colleagues say</h2>
 
         <div class="recommendation">
-          <p class="recommendation-text">&ldquo;What took so long for someone with a smart brain to get the paper right? My daughter and some of my friends stopped reading it. I have been trying to tell some people the paper is better now.&rdquo; &mdash; Elizabeth Buffel, Star Tribune reader</p>
+          <p class="recommendation-text">&ldquo;He made us better.&rdquo; &mdash; Los Angeles Times</p>
         </div>
 
         <div class="recommendation">
-          <p class="recommendation-text">&ldquo;A forceful agent for change. Congenial, smart, diplomatic but also inspiring.&rdquo;</p>
+          <p class="recommendation-text">&ldquo;He's clear on what he needs from me, but flexible in how I deliver it. He stands up for his artists and creates lasting loyal relationships.&rdquo; &mdash; Robert Carter, illustrator</p>
         </div>
 
         <div class="recommendation">
-          <p class="recommendation-text">&ldquo;A leader needs to articulate a vision, bring it to life, then share credit. This is what Derek does.&rdquo;</p>
+          <p class="recommendation-text">&ldquo;Thank God you're a team player. It's so rare.&rdquo; &mdash; Cascadia Daily News</p>
         </div>
 
         <p class="references-note">Full recommendations and references available upon request.</p>

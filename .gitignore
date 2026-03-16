@@ -51,8 +51,8 @@ ehthumbs.db
 CW-Strategies/
 hancock/
 
-# ProPublica application (local only)
-propublica/
+# ProPublica application drafts (local only — derek/propublica/ landing page IS tracked)
+/propublica/
 
 # Client-confidential documents (should never be in public repo)
 strategies/
