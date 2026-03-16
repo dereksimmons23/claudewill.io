@@ -1,71 +1,80 @@
 {
-  "lastUpdated": "2026-03-15T11:09:30.487Z",
+  "lastUpdated": "2026-03-16T11:21:58.203Z",
   "agents": {
     "housekeeping": {
       "name": "Housekeeping",
-      "lastRun": "2026-03-15T11:09:30.486Z",
+      "lastRun": "2026-03-16T11:21:58.201Z",
       "status": "ok",
-      "summary": "All 10 pages + 2 subdomains responding. Avg 430ms.",
+      "summary": "All 10 pages + 2 subdomains responding. Avg 602ms.",
       "flags": [],
       "details": [
-        "https://claudewill.io/ — 200 125ms",
-        "https://claudewill.io/derek — 200 107ms",
-        "https://claudewill.io/story — 200 269ms",
-        "https://claudewill.io/workshop — 200 726ms",
-        "https://claudewill.io/privacy — 200 274ms",
-        "https://claudewill.io/terms — 200 701ms",
-        "https://claudewill.io/kitchen — 200 869ms",
-        "https://claudewill.io/arcade — 200 294ms",
-        "https://claudewill.io/map — 200 642ms",
-        "https://claudewill.io/being-claude — 200 288ms",
-        "Coach D (https://coach.claudewill.io) — 200 907ms",
-        "BOB (https://bob.claudewill.io) — 200 148ms"
+        "https://claudewill.io/ — 200 70ms",
+        "https://claudewill.io/derek — 200 23ms",
+        "https://claudewill.io/story — 200 1038ms",
+        "https://claudewill.io/workshop — 200 1073ms",
+        "https://claudewill.io/privacy — 200 357ms",
+        "https://claudewill.io/terms — 200 371ms",
+        "https://claudewill.io/kitchen — 200 1186ms",
+        "https://claudewill.io/arcade — 200 1050ms",
+        "https://claudewill.io/map — 200 268ms",
+        "https://claudewill.io/being-claude — 200 580ms",
+        "Coach D (https://coach.claudewill.io) — 200 1197ms",
+        "BOB (https://bob.claudewill.io) — 200 1560ms"
       ]
     },
     "research": {
       "name": "Research Brief",
-      "lastRun": "2026-03-15T11:09:30.486Z",
+      "lastRun": "2026-03-16T11:21:58.201Z",
       "status": "ok",
-      "summary": "I cannot provide developments from the last 24 hours based on these search results. The search results are general guides and trend analyses about AI tools for consultants and agencies in 2026, but...",
+      "summary": "I cannot provide developments from the last 24 hours based on these search results. The materials provided are general guides and trend analyses about AI consulting, tools, and business practices in...",
       "sources": [
+        "https://www.articsledge.com/post/ai-transformation-consulting",
         "https://www.auxi.ai/blog/ai-tools-for-consultants",
-        "https://juma.ai/blog/ai-tools-for-consultants",
-        "https://wispa.us/blog/game-changing-ai-tools-for-consultants/",
         "https://www.go-globe.com/what-ai-consultancy-actually-do-in-2026-beyond-the-hype/",
-        "https://www.shiori.ai/blog/best-ai-tools-consultants-analysts-2026",
         "https://almcorp.com/blog/ai-tools-digital-agencies-2026-guide/",
-        "https://www.pwc.com/us/en/tech-effect/ai-analytics/ai-predictions.html"
+        "https://www.pwc.com/us/en/tech-effect/ai-analytics/ai-predictions.html",
+        "https://www.ytc.company/blog/from-experimentation-to-enterprise-capability-the-defining-ai-consulting-trends-shaping-2026",
+        "https://iabac.org/blog/top-5-ai-tools-everyone-should-consider-in-2026",
+        "https://futureofconsulting.ai/ai-leadership/2026-consultings-ai-revolution-update/"
       ]
     },
     "gemini": {
       "name": "Industry Brief",
-      "lastRun": "2026-03-15T11:09:30.486Z",
+      "lastRun": "2026-03-16T11:21:58.202Z",
       "status": "ok",
-      "summary": "Here's your concise morning brief on the most significant AI industry developments from the last 24 hours, tailored for a solo AI consultant:\n\n**CW Strategies Morning Brief: AI Industry Developments...",
+      "summary": "Here is your concise morning brief on the most significant AI industry developments from the last 24 hours, tailored for a solo AI consultant:\n\n**Morning Brief: AI Industry Developments (March 15-16,...",
       "sources": [
-        "[whitehat-seo.co.uk](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEsUqMLBKHqaBwFsWfJ1BAThfRSgIyPfoYclDNbFwX8V9gkyDEm8BxNdQWW8w-tL09d2aR_To_i6rXYb4Ou8asqTLvUCfju7w-qOsmc5uR4VbzKgjVZmdO_wSm-5CEZU8CZpr6HQpBLEc8XNMUAJ3xT)"
+        "[whitehat-seo.co.uk](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQESfCl3CvL4St56FRc-Zck2_oAC_n0V-BFrOKdfE08rZXWuyaRqcEg2gH6PibUU2cpGsq13RqNEa7KAYPNwL9rwDmEAc0Es8QywhppYJCPsmU2SP8BkjIr38yb4jIQqrW80-cZZotY3aOaSpM0zICT5)",
+        "[addepto.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE66JLtxKzk30fUDs9QXfUw2VZCwk3DrKLAEIK8IMhhgRw2ZBqHWPQOwRhPR1Z5462eZX5MZCuohmGISlMAXLfqkRL1Qt3l_GLlum0nbAtgImVfE8JKs77f7uOxL_UeRcmX9ESrsqL8TpsGpqi3_VNqYA_hQiryA0c0vBCE-yy1xMwEBtjrfvTeJeRCBhoC-aXPNRPVHVM=)",
+        "[nmsconsulting.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHR4PfUBA-bxvCADGCMmhDQ85gqY0tHOrdyL1EndNjFY7NmytDG3KoIIk-ri5WvrTOif6Ju4dWVOXVyKTWjToY2xJM1RcswKqnBhQyOFi205UX5nTh4h0HYhCQWHE7IZ6lJ6_pfLf7Dodf7ng8y-sU9ZAPSccvHPVJlqLQGV1A=)",
+        "[marketingprofs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGAvznxvzD6rl3nfs2fOEQFBIAFlQeLZrNgmcy-dVaX4Z6fADnyfGvOLNyGUXqle5wd8gY4zJhmWEeIoVa3GaXkrGSHXlYpGmWVVsvWc2RcnVbI__qiO9N78SLK9EsXk4VbtOf9MfqqYyUH-LXBhrpBCbA6mN_s2GjoOV5wnCrZ3mAeNuQvsNRI-WhKl38Cswy2u2eVpzwbdTNAotraUT485cT0w7hlrYMnVQ==)",
+        "[medium.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE8IYykBOAmQmlyLnJNJ1euDQ6Dt33yoj8Iu3rWETqo57TwZdDdhSUSkJR4FMF4sp5MwJGlNeFNirVEF0H57ocTrcrfiru4pAHWRfDY3x2Fa-rN1SrBoqQLubdALntkhHjxV9_eIgSl00zJNxQslG7lL8AtGC3G_qkPS6y6z_s7z5o-I4uwJJTbCyPAkWRvvOUaQQ==)",
+        "[fladgate.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHf3vVvGdGNl-6K5-4vo0lIuvB6_XODkltpifelpkx6Y4luSyED1a-IsO1rpojOlAM-5c8hz78kXWc5XoOu4RoRqif0ZNICP9PlSpeyEs1ZEI6DM0tOGlq1p8if4_iVhbgDa-LcQ71I0OYWDoVm1Zd13SKp)",
+        "[ox.ac.uk](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG6bRABa1lx2Dr4Xxu6uMzfdZtuxr47UVUb6z8VMHCe3OmmPEswDpKnkaahg7gaOrOiu80m9H0xUcZLm0PhxaDgrv-XlGnoum7bwXE76ANhtwiuZU7d4GtH553X0OgZTj4ZjZ0lxjXG2vzI08S6eI2yKgNbGGt4rC3txjpylLs-RThzMl0pC9RRyliMzqew1i6khC4l-hIx2sT4XklDqHy12g==)",
+        "[niemanlab.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEXiq_GQVMIY1-d_ej9n5kNjInOm1ahjgtL96IYxGDNacI2DlMSMu8SrCXnlj4hRP9reYmrxClfF6ehFxFxElgRRsnAOdND8DIAkGZZrJ9crC1sGW4_acH0B3UMS5dcgviGFQ1u24P4jZOHKzWm3BnRrS7O2rDg0elWEpylA4pBaxqHfZUsR0zruQfcIcsy4H9SIpFGUqCYlpvd)",
+        "[inma.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGruYMR13v9EibhXU-BaHyKGFRaW06jWQliguPEE-7f74NZAfFyu5WC3MG2w3u_mcdUuXXgSOWE2F_8UKOGubNw1A5pCGA_mpeKnisonsWdooLFlIPcyj9VrIEguxee4H-CWsnDp_V2Ao3cf7XpvgitXZ3cLPIAVZy2yQVp5knRQjJLSm_lgTrItO8qYcVz_WTEWQjS4Uu0a_MD5sdxcfjksHggXrl1vg6UGsLdgGgU)"
       ]
     },
     "codeReview": {
       "name": "Code Review",
-      "lastRun": "2026-03-15T11:09:30.486Z",
+      "lastRun": "2026-03-16T11:21:58.202Z",
       "status": "ok",
-      "summary": "Everything looks clean. No security issues, performance problems, accessibility issues, or broken patterns detected in the provided diffs."
+      "summary": "Everything looks clean. No security, performance, accessibility, or broken pattern issues found in the provided diffs."
     },
     "analytics": {
       "name": "Analytics",
-      "lastRun": "2026-03-15T11:09:30.486Z",
+      "lastRun": "2026-03-16T11:21:58.202Z",
       "status": "flags",
-      "summary": "Conversations: 102 total (24h: 0 | 7d: 22 | 30d: 102)",
+      "summary": "Conversations: 104 total (24h: 2 | 7d: 24 | 30d: 104)",
       "flags": [
         "41.5 hours last 7d — exceeds sovereignty target (21h)"
       ],
       "metrics": {
         "conversations": {
-          "total": 102,
-          "day": 0,
-          "week": 22,
-          "month": 102
+          "total": 104,
+          "day": 2,
+          "week": 24,
+          "month": 104
         },
         "visitors": {
           "total": 5,
@@ -80,14 +89,14 @@
         },
         "derekTime": {
           "hours7d": 41.5,
-          "sessions7d": 19
+          "sessions7d": 25
         },
-        "apiCost30d": 1
+        "apiCost30d": 1.02
       }
     },
     "contentScan": {
       "name": "Content Scan",
-      "lastRun": "2026-03-15T11:09:30.487Z",
+      "lastRun": "2026-03-16T11:21:58.202Z",
       "status": "findings",
       "summary": "Scanned 27 HTML files. Found 10 issues.",
       "flags": [],
@@ -106,26 +115,26 @@
     },
     "researchStatus": {
       "name": "Research Status",
-      "lastRun": "2026-03-15T11:09:30.487Z",
+      "lastRun": "2026-03-16T11:21:58.203Z",
       "status": "ok",
       "summary": "11 published, 0 draft, 0 blocked",
       "flags": []
     },
     "socialDraft": {
       "name": "Social Drafts",
-      "lastRun": "2026-03-15T11:09:30.487Z",
+      "lastRun": "2026-03-16T11:21:58.203Z",
       "status": "ok",
       "summary": "0 new drafts, 11 skipped.",
       "flags": []
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-03-15T11:09:30.487Z",
+      "lastRun": "2026-03-16T11:21:58.203Z",
       "status": "flags",
       "summary": "**Pipeline:** 7 items (3 draft, 2 planned, 1 idea, 1 in-progress)",
       "flags": [
-        "Being Claude: The Scoreboard: draft for 11 days — review or reject",
-        "Being Claude: The Brightness (warm/hot/cold): draft for 11 days — review or reject"
+        "Being Claude: The Scoreboard: draft for 12 days — review or reject",
+        "Being Claude: The Brightness (warm/hot/cold): draft for 12 days — review or reject"
       ]
     }
   },
