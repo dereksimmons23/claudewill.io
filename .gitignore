@@ -51,6 +51,9 @@ ehthumbs.db
 CW-Strategies/
 hancock/
 
+# ProPublica application (local only)
+propublica/
+
 # Client-confidential documents (should never be in public repo)
 strategies/
 ea.html

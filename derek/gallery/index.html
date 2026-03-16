@@ -479,7 +479,7 @@
     <div class="gallery-hero">
       <h1>the work</h1>
       <p class="subtitle">30 years of visual editing and design direction.<br>LA Times (#1 worldwide, six years). Star Tribune (first CCO/VP).<br>A thousand collective design awards.</p>
-      <p class="subtitle" style="margin-top: 12px; font-size: 0.75rem; opacity: 0.6;">Art direction &middot; illustration commissioning &middot; page architecture &middot; data visualization &middot; product design &middot; cross-platform strategy</p>
+      <p class="subtitle subtitle-caps" style="margin-top: 12px; font-size: 0.75rem; opacity: 0.6;">Art direction &middot; illustration commissioning &middot; page architecture &middot; data visualization &middot; product design &middot; cross-platform strategy</p>
       <div class="accent-line"></div>
     </div>
 
@@ -504,6 +504,9 @@
   </div>
 
   <script>
+    // ProPublica view detection
+    var isProPublicaView = new URLSearchParams(window.location.search).get('view') === 'propublica';
+
     // Gallery data — each item is a star in the constellation
     var GALLERY_ITEMS = [
       {
@@ -719,8 +722,232 @@
       }
     ];
 
+    // ProPublica-only items (added to the gallery when ?view=propublica)
+    var PROPUBLICA_EXTRA_ITEMS = [
+      {
+        id: 'denied-justice-cover',
+        src: '/images/gallery/denied-justice-cover-02.png',
+        title: 'Denied Justice — Section Cover',
+        desc: 'Typography-only cover for the "Denied Justice" special section. "When Rape Is Reported And Nothing Happens." Each word on its own line, thin red underline. No image — the words are the image. Deliberate restraint for a subject that demands it. Pulitzer Prize finalist, SPJ Public Service Award, four Minnesota legislative changes.',
+        era: '2018',
+        filter: 'star-tribune',
+        ppFilter: 'investigations',
+        featured: true
+      },
+      {
+        id: 'denied-justice-a1',
+        src: '/images/gallery/denied-justice-a1-01.png',
+        title: 'Denied Justice — Sunday A1',
+        desc: 'Front page of the Star Tribune, Sunday July 22, 2018. "The Rape Cases That Go Nowhere." Dominant group portrait by Renee Jones Schneider — survivors photographed together, not as anonymous victims. The section ran inside. The front page made it unavoidable.',
+        era: '2018',
+        filter: 'star-tribune',
+        ppFilter: 'investigations',
+        featured: true
+      },
+      {
+        id: 'denied-justice-portraits',
+        src: '/images/gallery/denied-justice-portraits-05.png',
+        title: 'Denied Justice — Survivor Portraits',
+        desc: 'Four-portrait grid from the special section. Each woman photographed in her environment — named, with age, profession, and one quote. Katie Finch: "I felt like I wasn\'t important." Melissa Miyashiro: "The system is broken." The editorial choice: every story gets equal weight.',
+        era: '2018',
+        filter: 'star-tribune',
+        ppFilter: 'investigations'
+      },
+      {
+        id: 'prince-4-covers',
+        src: '/images/gallery/prince-4-covers.png',
+        title: 'Prince — Four Zoned Covers',
+        desc: 'Commemorative section with four zoned covers for different regions. Two illustrated by Robert Carter, commissioned under breaking news deadline. Prince died Thursday — this ran Sunday. The editorial choice: illustration over photography. Every other paper ran a wire photo. Art direction under grief.',
+        era: '2016',
+        filter: 'star-tribune',
+        ppFilter: 'breaking-news',
+        featured: true
+      },
+      {
+        id: 'bees-brink',
+        src: '/images/gallery/bees-brink.jpg',
+        title: 'Bees at the Brink',
+        desc: 'Investigative series on colony collapse. Illustration-driven data journalism — the visual package made complex environmental science accessible. OJA Award for Explanatory Reporting.',
+        era: '2014',
+        filter: 'star-tribune',
+        ppFilter: 'investigations'
+      },
+      {
+        id: 'disabled-series',
+        src: '/images/gallery/disabled-series.jpg',
+        title: 'A Matter of Dignity',
+        desc: 'Five-part investigation into how Minnesota fails the disabled. Visual direction for the series that became a Pulitzer Prize finalist. Governor responded within one week. Derek credited by name on the OJA entry.',
+        era: '2015',
+        filter: 'star-tribune',
+        ppFilter: 'investigations'
+      },
+      {
+        id: 'sugar',
+        src: '/images/gallery/sugar-investigation.png',
+        title: 'Sugar Investigation',
+        desc: 'Investigative illustration direction. Conceptual art for an enterprise story — visual metaphor carrying the investigation before the reader reaches the text.',
+        era: '2016',
+        filter: 'star-tribune',
+        ppFilter: 'investigations'
+      },
+      {
+        id: 'trump-wave',
+        src: '/images/gallery/trump-wave-cover.png',
+        title: 'Trump Wave — Election Night',
+        desc: 'Breaking news cover design. Election night art direction — the red wave rendered as visual force. Produced under deadline pressure when the result defied projections.',
+        era: '2016',
+        filter: 'star-tribune',
+        ppFilter: 'breaking-news'
+      },
+      {
+        id: 'obama',
+        src: '/images/gallery/obama-inauguration.jpg',
+        title: 'Obama Inauguration',
+        desc: 'LA Times special section. Art direction for the inauguration of the first Black president. Visual storytelling for a historic moment — one of several breaking news packages directed during the number-one worldwide era.',
+        era: '2009',
+        filter: 'la-times',
+        ppFilter: 'breaking-news'
+      },
+      {
+        id: 'wildfires',
+        src: '/images/gallery/wildfires.png',
+        title: 'California Wildfires',
+        desc: 'LA Times double-truck. Photography direction and page architecture for wildfire disaster coverage. Breaking news visual direction at scale.',
+        era: '2009',
+        filter: 'la-times',
+        ppFilter: 'breaking-news'
+      },
+      {
+        id: 'john-wooden',
+        src: '/images/gallery/john-wooden.jpg',
+        title: 'John Wooden — 1910-2010',
+        desc: 'LA Times commemorative cover. The presses were stopped for three hours and fifteen minutes. 175,849 papers went without; 400,416 received the obituary package. Breaking news art direction — the decision to stop the presses and redesign on deadline.',
+        era: '2010',
+        filter: 'la-times',
+        ppFilter: 'breaking-news'
+      },
+      {
+        id: 'stmag',
+        src: '/images/gallery/stmag-cover.png',
+        title: 'Star Tribune Magazine',
+        desc: 'Self-initiated editorial product. Built from prototype to Sunday anchor — a new franchise for 225,000+ subscribers. Debut cover: Prince, one year after the commemorative section proved the concept. Program-building, not just design.',
+        era: '2017',
+        filter: 'star-tribune',
+        ppFilter: 'editorial-products'
+      },
+      {
+        id: 'weather-dv',
+        src: '/images/gallery/weather-dataviz.png',
+        title: 'Weather Data Visualization',
+        desc: 'Information design for daily weather coverage. Data rendered as visual system — readable at a glance, detailed on inspection.',
+        era: '2017',
+        filter: 'star-tribune',
+        ppFilter: 'data'
+      },
+      {
+        id: 'oscars',
+        src: '/images/gallery/oscars.jpg',
+        title: 'The Oscars',
+        desc: 'LA Times poster design for Academy Awards coverage. Part of a visual identity system for event coverage — the same instinct applied to Olympics, elections, and cultural events.',
+        era: '2010',
+        filter: 'la-times',
+        ppFilter: 'commissioned-art'
+      },
+      {
+        id: 'showtime',
+        src: '/images/gallery/showtime-cover.jpg',
+        title: 'Showtime — Art Direction',
+        desc: 'Cover illustration art direction. Commissioned and directed for the LA Times during the number-one worldwide era. Working with illustrators to translate editorial vision into published art.',
+        era: '2011',
+        filter: 'la-times',
+        ppFilter: 'commissioned-art'
+      }
+    ];
+
+    // ProPublica filter mapping for existing items
+    var PP_FILTER_MAP = {
+      'prince': 'breaking-news',
+      'oly-sochi': 'commissioned-art',
+      'la-times-love': 'commissioned-art',
+      'elex': 'data',
+      'mag-voyageurs': 'editorial-products',
+      'mag-proto': 'editorial-products',
+      'jihad-heartland': 'investigations',
+      '61-seconds': 'investigations',
+      'oly-row': 'commissioned-art',
+      'oly-kobe': 'commissioned-art',
+      'fair-shirts': 'editorial-products',
+      'vr-stadium': 'data',
+      'taste-50': 'editorial-products',
+      'small-biz': 'commissioned-art',
+      'cascadia': 'platform',
+      'cw-standard-card': 'platform'
+    };
+
+    // In ProPublica view, merge extra items and re-tag existing ones
+    if (isProPublicaView) {
+      GALLERY_ITEMS.forEach(function(item) {
+        if (PP_FILTER_MAP[item.id]) {
+          item.ppFilter = PP_FILTER_MAP[item.id];
+        }
+      });
+
+      GALLERY_ITEMS = GALLERY_ITEMS.filter(function(item) {
+        return item.filter !== 'life' && PP_FILTER_MAP[item.id];
+      });
+
+      GALLERY_ITEMS = GALLERY_ITEMS.concat(PROPUBLICA_EXTRA_ITEMS);
+
+      GALLERY_ITEMS.forEach(function(item) {
+        if (item.ppFilter) item.filter = item.ppFilter;
+      });
+
+      // Hide capabilities subtitle in ProPublica view
+      var capsSub = document.querySelector('.subtitle-caps');
+      if (capsSub) capsSub.style.display = 'none';
+
+      // Update hero text
+      var heroSubtitle = document.querySelector('.gallery-hero .subtitle');
+      heroSubtitle.textContent = '';
+      var line1 = document.createTextNode('Investigative visual storytelling. Breaking news art direction. Illustration commissioning.');
+      var br1 = document.createElement('br');
+      var line2 = document.createTextNode('LA Times (#1 worldwide, six years). Star Tribune (first CCO/VP). 1,000+ collective design awards.');
+      heroSubtitle.appendChild(line1);
+      heroSubtitle.appendChild(br1);
+      heroSubtitle.appendChild(line2);
+
+      // Update filters
+      var filtersEl = document.getElementById('filters');
+      while (filtersEl.firstChild) filtersEl.removeChild(filtersEl.firstChild);
+      var ppFilters = [
+        { label: 'all', value: 'all' },
+        { label: 'investigations', value: 'investigations' },
+        { label: 'breaking news', value: 'breaking-news' },
+        { label: 'commissioned art', value: 'commissioned-art' },
+        { label: 'data', value: 'data' },
+        { label: 'editorial products', value: 'editorial-products' },
+        { label: 'platform', value: 'platform' }
+      ];
+      ppFilters.forEach(function(f) {
+        var btn = document.createElement('button');
+        btn.className = 'filter-btn' + (f.value === 'all' ? ' active' : '');
+        btn.setAttribute('data-filter', f.value);
+        btn.textContent = f.label;
+        filtersEl.appendChild(btn);
+      });
+    }
+
     // Sort: featured first, then by era descending (most recent first)
     GALLERY_ITEMS.sort(function(a, b) {
+      if (isProPublicaView) {
+        var ppOrder = { 'investigations': 0, 'breaking-news': 1, 'commissioned-art': 2, 'data': 3, 'editorial-products': 4, 'platform': 5 };
+        var aOrder = ppOrder[a.filter] !== undefined ? ppOrder[a.filter] : 9;
+        var bOrder = ppOrder[b.filter] !== undefined ? ppOrder[b.filter] : 9;
+        if (a.featured && !b.featured && aOrder === bOrder) return -1;
+        if (!a.featured && b.featured && aOrder === bOrder) return 1;
+        if (aOrder !== bOrder) return aOrder - bOrder;
+        return parseInt(b.era) - parseInt(a.era);
+      }
       if (a.featured && !b.featured) return -1;
       if (!a.featured && b.featured) return 1;
       return parseInt(b.era) - parseInt(a.era);
