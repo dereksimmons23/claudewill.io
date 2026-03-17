@@ -1,80 +1,70 @@
 {
-  "lastUpdated": "2026-03-16T11:21:58.203Z",
+  "lastUpdated": "2026-03-17T11:21:10.514Z",
   "agents": {
     "housekeeping": {
       "name": "Housekeeping",
-      "lastRun": "2026-03-16T11:21:58.201Z",
+      "lastRun": "2026-03-17T11:21:10.512Z",
       "status": "ok",
-      "summary": "All 10 pages + 2 subdomains responding. Avg 602ms.",
+      "summary": "All 10 pages + 2 subdomains responding. Avg 386ms.",
       "flags": [],
       "details": [
-        "https://claudewill.io/ — 200 70ms",
-        "https://claudewill.io/derek — 200 23ms",
-        "https://claudewill.io/story — 200 1038ms",
-        "https://claudewill.io/workshop — 200 1073ms",
-        "https://claudewill.io/privacy — 200 357ms",
-        "https://claudewill.io/terms — 200 371ms",
-        "https://claudewill.io/kitchen — 200 1186ms",
-        "https://claudewill.io/arcade — 200 1050ms",
-        "https://claudewill.io/map — 200 268ms",
-        "https://claudewill.io/being-claude — 200 580ms",
-        "Coach D (https://coach.claudewill.io) — 200 1197ms",
-        "BOB (https://bob.claudewill.io) — 200 1560ms"
+        "https://claudewill.io/ — 200 28ms",
+        "https://claudewill.io/derek — 200 51ms",
+        "https://claudewill.io/story — 200 315ms",
+        "https://claudewill.io/workshop — 200 783ms",
+        "https://claudewill.io/privacy — 200 348ms",
+        "https://claudewill.io/terms — 200 314ms",
+        "https://claudewill.io/kitchen — 200 563ms",
+        "https://claudewill.io/arcade — 200 509ms",
+        "https://claudewill.io/map — 200 809ms",
+        "https://claudewill.io/being-claude — 200 135ms",
+        "Coach D (https://coach.claudewill.io) — 200 283ms",
+        "BOB (https://bob.claudewill.io) — 200 626ms"
       ]
     },
     "research": {
       "name": "Research Brief",
-      "lastRun": "2026-03-16T11:21:58.201Z",
+      "lastRun": "2026-03-17T11:21:10.512Z",
       "status": "ok",
-      "summary": "I cannot provide developments from the last 24 hours based on these search results. The materials provided are general guides and trend analyses about AI consulting, tools, and business practices in...",
+      "summary": "No significant AI industry developments matching the specified focus areas (AI consulting practices, media AI adoption, AI-native methodologies, or Anthropic/Claude/agent updates) occurred in the...",
       "sources": [
-        "https://www.articsledge.com/post/ai-transformation-consulting",
         "https://www.auxi.ai/blog/ai-tools-for-consultants",
-        "https://www.go-globe.com/what-ai-consultancy-actually-do-in-2026-beyond-the-hype/",
         "https://almcorp.com/blog/ai-tools-digital-agencies-2026-guide/",
+        "https://www.youtube.com/watch?v=Pagd9kNIg9o",
         "https://www.pwc.com/us/en/tech-effect/ai-analytics/ai-predictions.html",
         "https://www.ytc.company/blog/from-experimentation-to-enterprise-capability-the-defining-ai-consulting-trends-shaping-2026",
-        "https://iabac.org/blog/top-5-ai-tools-everyone-should-consider-in-2026",
-        "https://futureofconsulting.ai/ai-leadership/2026-consultings-ai-revolution-update/"
+        "https://www.ibm.com/think/news/ai-tech-trends-predictions-2026",
+        "https://futureofconsulting.ai/ai-leadership/2026-consultings-ai-revolution-update/",
+        "https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html"
       ]
     },
     "gemini": {
       "name": "Industry Brief",
-      "lastRun": "2026-03-16T11:21:58.202Z",
+      "lastRun": "2026-03-17T11:21:10.512Z",
       "status": "ok",
-      "summary": "Here is your concise morning brief on the most significant AI industry developments from the last 24 hours, tailored for a solo AI consultant:\n\n**Morning Brief: AI Industry Developments (March 15-16,...",
-      "sources": [
-        "[whitehat-seo.co.uk](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQESfCl3CvL4St56FRc-Zck2_oAC_n0V-BFrOKdfE08rZXWuyaRqcEg2gH6PibUU2cpGsq13RqNEa7KAYPNwL9rwDmEAc0Es8QywhppYJCPsmU2SP8BkjIr38yb4jIQqrW80-cZZotY3aOaSpM0zICT5)",
-        "[addepto.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE66JLtxKzk30fUDs9QXfUw2VZCwk3DrKLAEIK8IMhhgRw2ZBqHWPQOwRhPR1Z5462eZX5MZCuohmGISlMAXLfqkRL1Qt3l_GLlum0nbAtgImVfE8JKs77f7uOxL_UeRcmX9ESrsqL8TpsGpqi3_VNqYA_hQiryA0c0vBCE-yy1xMwEBtjrfvTeJeRCBhoC-aXPNRPVHVM=)",
-        "[nmsconsulting.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHR4PfUBA-bxvCADGCMmhDQ85gqY0tHOrdyL1EndNjFY7NmytDG3KoIIk-ri5WvrTOif6Ju4dWVOXVyKTWjToY2xJM1RcswKqnBhQyOFi205UX5nTh4h0HYhCQWHE7IZ6lJ6_pfLf7Dodf7ng8y-sU9ZAPSccvHPVJlqLQGV1A=)",
-        "[marketingprofs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGAvznxvzD6rl3nfs2fOEQFBIAFlQeLZrNgmcy-dVaX4Z6fADnyfGvOLNyGUXqle5wd8gY4zJhmWEeIoVa3GaXkrGSHXlYpGmWVVsvWc2RcnVbI__qiO9N78SLK9EsXk4VbtOf9MfqqYyUH-LXBhrpBCbA6mN_s2GjoOV5wnCrZ3mAeNuQvsNRI-WhKl38Cswy2u2eVpzwbdTNAotraUT485cT0w7hlrYMnVQ==)",
-        "[medium.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE8IYykBOAmQmlyLnJNJ1euDQ6Dt33yoj8Iu3rWETqo57TwZdDdhSUSkJR4FMF4sp5MwJGlNeFNirVEF0H57ocTrcrfiru4pAHWRfDY3x2Fa-rN1SrBoqQLubdALntkhHjxV9_eIgSl00zJNxQslG7lL8AtGC3G_qkPS6y6z_s7z5o-I4uwJJTbCyPAkWRvvOUaQQ==)",
-        "[fladgate.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHf3vVvGdGNl-6K5-4vo0lIuvB6_XODkltpifelpkx6Y4luSyED1a-IsO1rpojOlAM-5c8hz78kXWc5XoOu4RoRqif0ZNICP9PlSpeyEs1ZEI6DM0tOGlq1p8if4_iVhbgDa-LcQ71I0OYWDoVm1Zd13SKp)",
-        "[ox.ac.uk](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG6bRABa1lx2Dr4Xxu6uMzfdZtuxr47UVUb6z8VMHCe3OmmPEswDpKnkaahg7gaOrOiu80m9H0xUcZLm0PhxaDgrv-XlGnoum7bwXE76ANhtwiuZU7d4GtH553X0OgZTj4ZjZ0lxjXG2vzI08S6eI2yKgNbGGt4rC3txjpylLs-RThzMl0pC9RRyliMzqew1i6khC4l-hIx2sT4XklDqHy12g==)",
-        "[niemanlab.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEXiq_GQVMIY1-d_ej9n5kNjInOm1ahjgtL96IYxGDNacI2DlMSMu8SrCXnlj4hRP9reYmrxClfF6ehFxFxElgRRsnAOdND8DIAkGZZrJ9crC1sGW4_acH0B3UMS5dcgviGFQ1u24P4jZOHKzWm3BnRrS7O2rDg0elWEpylA4pBaxqHfZUsR0zruQfcIcsy4H9SIpFGUqCYlpvd)",
-        "[inma.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGruYMR13v9EibhXU-BaHyKGFRaW06jWQliguPEE-7f74NZAfFyu5WC3MG2w3u_mcdUuXXgSOWE2F_8UKOGubNw1A5pCGA_mpeKnisonsWdooLFlIPcyj9VrIEguxee4H-CWsnDp_V2Ao3cf7XpvgitXZ3cLPIAVZy2yQVp5knRQjJLSm_lgTrItO8qYcVz_WTEWQjS4Uu0a_MD5sdxcfjksHggXrl1vg6UGsLdgGgU)"
-      ]
+      "summary": "Here is your concise morning brief on the most significant AI industry developments from the last 24 hours:\n\n**Morning Brief: AI Industry Developments (March 17, 2026)**\n\n**Lead for Solo AI...",
+      "sources": []
     },
     "codeReview": {
       "name": "Code Review",
-      "lastRun": "2026-03-16T11:21:58.202Z",
-      "status": "ok",
-      "summary": "Everything looks clean. No security, performance, accessibility, or broken pattern issues found in the provided diffs."
+      "lastRun": "2026-03-17T11:21:10.512Z",
+      "status": "flags",
+      "summary": "**Security Issues:**\n- None found.\n\n**Performance Problems:**\n- `data/gallery.json` (new file): 524 lines, 41 items. No pagination or lazy-loading implemented in `derek/gallery/index.html`. Risk of..."
     },
     "analytics": {
       "name": "Analytics",
-      "lastRun": "2026-03-16T11:21:58.202Z",
+      "lastRun": "2026-03-17T11:21:10.513Z",
       "status": "flags",
-      "summary": "Conversations: 104 total (24h: 2 | 7d: 24 | 30d: 104)",
+      "summary": "Conversations: 106 total (24h: 2 | 7d: 26 | 30d: 106)",
       "flags": [
-        "41.5 hours last 7d — exceeds sovereignty target (21h)"
+        "38.7 hours last 7d — exceeds sovereignty target (21h)"
       ],
       "metrics": {
         "conversations": {
-          "total": 104,
+          "total": 106,
           "day": 2,
-          "week": 24,
-          "month": 104
+          "week": 26,
+          "month": 106
         },
         "visitors": {
           "total": 5,
@@ -88,17 +78,17 @@
           "total": 4
         },
         "derekTime": {
-          "hours7d": 41.5,
-          "sessions7d": 25
+          "hours7d": 38.7,
+          "sessions7d": 28
         },
-        "apiCost30d": 1.02
+        "apiCost30d": 1.04
       }
     },
     "contentScan": {
       "name": "Content Scan",
-      "lastRun": "2026-03-16T11:21:58.202Z",
+      "lastRun": "2026-03-17T11:21:10.513Z",
       "status": "findings",
-      "summary": "Scanned 27 HTML files. Found 10 issues.",
+      "summary": "Scanned 28 HTML files. Found 11 issues.",
       "flags": [],
       "findings": [
         "being-claude/being-claude/index.html: \"August 2025\" is more than 90 days old",
@@ -109,32 +99,33 @@
         "being-claude/the-jar/index.html: \"October 2024\" is more than 90 days old",
         "being-claude/three-rooms/index.html: \"June 2025\" is more than 90 days old",
         "being-claude/warm-up-effect/index.html: \"Dec 2024\" is more than 90 days old",
+        "derek/propublica/index.html: \"October 2024\" is more than 90 days old",
         "derek.html: \"October 2024\" is more than 90 days old",
         "writing/index.html: \"Dec 2024\" is more than 90 days old"
       ]
     },
     "researchStatus": {
       "name": "Research Status",
-      "lastRun": "2026-03-16T11:21:58.203Z",
+      "lastRun": "2026-03-17T11:21:10.513Z",
       "status": "ok",
       "summary": "11 published, 0 draft, 0 blocked",
       "flags": []
     },
     "socialDraft": {
       "name": "Social Drafts",
-      "lastRun": "2026-03-16T11:21:58.203Z",
+      "lastRun": "2026-03-17T11:21:10.513Z",
       "status": "ok",
       "summary": "0 new drafts, 11 skipped.",
       "flags": []
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-03-16T11:21:58.203Z",
+      "lastRun": "2026-03-17T11:21:10.514Z",
       "status": "flags",
       "summary": "**Pipeline:** 7 items (3 draft, 2 planned, 1 idea, 1 in-progress)",
       "flags": [
-        "Being Claude: The Scoreboard: draft for 12 days — review or reject",
-        "Being Claude: The Brightness (warm/hot/cold): draft for 12 days — review or reject"
+        "Being Claude: The Scoreboard: draft for 13 days — review or reject",
+        "Being Claude: The Brightness (warm/hot/cold): draft for 13 days — review or reject"
       ]
     }
   },
