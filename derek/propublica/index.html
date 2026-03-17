@@ -192,11 +192,21 @@
       flex: 0 0 90%;
     }
 
+    .cover-slide-screen {
+      flex: 0 0 60%;
+    }
+
     .cover-slide img {
       width: 100%;
       height: auto;
       display: block;
       border: 1px solid var(--border);
+    }
+
+    .cover-slide img.dark-screenshot {
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+      border-radius: 4px;
     }
 
     .cover-slide figcaption {
@@ -335,6 +345,7 @@
       .image-grid { grid-template-columns: 1fr; }
       .cover-slide { flex: 0 0 70%; }
       .cover-slide-wide { flex: 0 0 95%; }
+      .cover-slide-screen { flex: 0 0 85%; }
     }
 
     /* -- Focus / Reduced motion -- */
@@ -506,8 +517,20 @@
                    loading="lazy">
               <figcaption>How we wrote these stories. 13 expert investigators. Best practices. Resources for survivors.</figcaption>
             </figure>
+            <figure class="cover-slide">
+              <img src="../../images/gallery/denied-justice-p8-walton-hires.jpg"
+                   alt="Melody Walton, 25, EMT — full-page portrait. 'I felt blamed. I felt like police didn't believe me.'"
+                   loading="lazy">
+              <figcaption>Melody Walton, 25. &ldquo;I felt blamed. I felt like [police] didn&rsquo;t believe me.&rdquo;</figcaption>
+            </figure>
+            <figure class="cover-slide">
+              <img src="../../images/gallery/denied-justice-reform-emerges.jpg"
+                   alt="Star Tribune Sunday A1 — FROM THEIR STORIES, REFORM EMERGES — group photo of survivors at the Minnesota Capitol, December 30, 2018"
+                   loading="lazy">
+              <figcaption>December 30, 2018. The final A1. Nearly 100 survivors at the Minnesota Capitol. Photos by Ren&eacute;e Jones Schneider.</figcaption>
+            </figure>
           </div>
-          <p class="gallery-hint">Scroll &rarr; The full 8-page special section.</p>
+          <p class="gallery-hint">Scroll &rarr; The special section and the A1 that closed the series.</p>
         </div>
 
         <div class="backstory">
@@ -539,8 +562,7 @@
         <p class="video-print-fallback">Video: https://www.youtube.com/watch?v=zIeFt2JIveM</p>
 
         <div class="project-links">
-          <a href="../../propublica/deniedjustice-section.pdf" class="project-link" target="_blank" rel="noopener">View full section (PDF)</a>
-          <a href="https://www2.startribune.com/denied-justice-minnesota-s-failed-rape-investigations/487400761/" class="project-link" target="_blank" rel="noopener">Digital presentation &amp; credits</a>
+          <a href="https://www2.startribune.com/denied-justice-minnesota-s-failed-rape-investigations/487400761/" class="project-link" target="_blank" rel="noopener">Full investigation &amp; credits</a>
         </div>
       </article>
 
@@ -659,41 +681,38 @@
 
         <div class="cover-gallery">
           <div class="cover-gallery-scroll">
-            <figure class="cover-slide">
-              <img src="../../images/gallery/claudewill-homepage.png"
-                   alt="claudewill.io homepage — star field with Claude wordmark and CW porch widget"
+            <figure class="cover-slide cover-slide-screen">
+              <img src="../../images/gallery/claudewill-homepage-2.png"
+                   alt="claudewill.io homepage — Claude Will. wordmark on star field"
+                   class="dark-screenshot"
                    loading="lazy">
-              <figcaption>Homepage. Porch light, wordmark, typewriter. Built from scratch.</figcaption>
+              <figcaption>Homepage. The wordmark. Built from scratch.</figcaption>
             </figure>
-            <figure class="cover-slide">
+            <figure class="cover-slide cover-slide-screen">
               <img src="../../images/gallery/claudewill-porch.png"
                    alt="CW's Porch — conversational AI widget on claudewill.io"
+                   class="dark-screenshot"
                    loading="lazy">
               <figcaption>CW's Porch. Conversational AI modeled after my grandfather.</figcaption>
             </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/claudewill-writing.png"
-                   alt="Being Claude — essay series written by AI, edited by Derek"
-                   loading="lazy">
-              <figcaption>Being Claude. 10 essays written by the machine, edited by Derek.</figcaption>
-            </figure>
-            <figure class="cover-slide">
+            <figure class="cover-slide cover-slide-screen">
               <img src="../../images/gallery/claudewill-kitchen.png"
-                   alt="The Kitchen — TUI terminal dashboard with pixel art stove"
+                   alt="The Writing — essay series, two voices, one practice"
+                   loading="lazy">
+              <figcaption>The Writing. 11 pieces, two voices, one practice.</figcaption>
+            </figure>
+            <figure class="cover-slide cover-slide-screen">
+              <img src="../../images/gallery/claudewill-writing.png"
+                   alt="The Kitchen — TUI terminal dashboard, overnight agent reports"
                    loading="lazy">
               <figcaption>The Kitchen. TUI terminal dashboard. Overnight agent reports.</figcaption>
             </figure>
-            <figure class="cover-slide">
+            <figure class="cover-slide cover-slide-screen">
               <img src="../../images/gallery/claudewill-gallery.png"
                    alt="claudewill.io gallery page — visual portfolio"
+                   class="dark-screenshot"
                    loading="lazy">
               <figcaption>Gallery page. 30 years of visual work, browseable.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/cw-standard-card.png"
-                   alt="The CW Standard — 'Usefulness over purity' principle card from claudewill.io"
-                   loading="lazy">
-              <figcaption>The CW Standard. Five principles, design language.</figcaption>
             </figure>
             <figure class="cover-slide">
               <img src="../../images/gallery/cascadia.png"
