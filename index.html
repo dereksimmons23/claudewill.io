@@ -413,6 +413,64 @@
         .site-footer a:visited { color: var(--dim); }
         .footer-note + .footer-note { margin-top: 0.25rem; }
 
+        /* ── Derek Simmons — last star ────────── */
+        .ground-derek {
+            display: block;
+            font-size: 1.1rem;
+            color: rgba(200, 210, 220, 0.4);
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: color 0.8s ease, text-shadow 0.8s ease;
+        }
+
+        .ground-derek:visited { color: rgba(200, 210, 220, 0.4); }
+        .ground-derek:hover {
+            color: var(--accent);
+            text-shadow: 0 0 20px rgba(212, 168, 75, 0.3);
+        }
+
+        /* ── Claude Will — typewriter section ── */
+        .claude-will-section {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+        }
+
+        .claude-will-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--bright);
+            line-height: 0.95;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .typewriter-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--bright);
+            min-height: 1.6em;
+        }
+
+        .typewriter-text {
+            white-space: nowrap;
+        }
+
+        .typewriter-cursor {
+            display: inline-block;
+            color: var(--dim);
+            animation: blink-cursor 0.8s step-end infinite;
+            margin-left: 1px;
+        }
+
+        @keyframes blink-cursor {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
         /* ── Email capture ────────────────────── */
         .email-capture {
             position: relative;
@@ -470,6 +528,9 @@
             .sky-writing a { font-size: 0.8rem !important; }
             .porch-light { top: 1rem; right: 1rem; }
             .ground-name { font-size: 14vw; }
+            .claude-will-title { font-size: 1.5rem; }
+            .typewriter-container { font-size: 0.9rem; }
+            .ground-derek { font-size: 0.95rem; }
         }
 
         /* ── Reduced motion ───────────────────── */
@@ -499,6 +560,8 @@
             }
             .cursor { animation: none; opacity: 1; }
             .sky-writing a { transition: none; }
+            .typewriter-cursor { animation: none; opacity: 1; }
+            .ground-derek { transition: none; }
         }
     </style>
 </head>
@@ -535,6 +598,14 @@
         <section class="ground">
             <span class="ground-prefix">Built by</span>
             <a href="/derek" class="ground-name">Derek<span class="ground-asterisk">*</span>Claude<span class="ground-period">.</span></a>
+            <a href="/derek" class="ground-derek">Derek Simmons</a>
+        </section>
+
+        <section class="claude-will-section" aria-label="Claude Will">
+            <div class="claude-will-title">Claude Will.</div>
+            <div class="typewriter-container" aria-live="polite" aria-atomic="true">
+                <span class="typewriter-text" id="typewriter-text"></span><span class="typewriter-cursor">_</span>
+            </div>
         </section>
     </main>
 
@@ -684,6 +755,99 @@
                 resize();
                 seed();
             });
+        })();
+    </script>
+
+    <script>
+        // ── Typewriter effect ─────────────────────
+        (function() {
+            var phrases = [
+                "sit with you.",
+                "pull up a chair.",
+                "hear you out.",
+                "listen first.",
+                "build things that last.",
+                "do the work.",
+                "show up.",
+                "tell you straight.",
+                "find a way.",
+                "carry it forward.",
+                "pass the baton.",
+                "ask the hard questions.",
+                "help you forward.",
+                "write it down."
+            ];
+
+            var el = document.getElementById('typewriter-text');
+            if (!el) return;
+
+            var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReduced) {
+                el.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+                return;
+            }
+
+            // Shuffle using Fisher-Yates
+            function shuffle(arr) {
+                var a = arr.slice();
+                for (var i = a.length - 1; i > 0; i--) {
+                    var j = Math.floor(Math.random() * (i + 1));
+                    var tmp = a[i];
+                    a[i] = a[j];
+                    a[j] = tmp;
+                }
+                return a;
+            }
+
+            var queue = [];
+            var phraseIndex = 0;
+
+            function getNext() {
+                if (phraseIndex >= queue.length) {
+                    queue = shuffle(phrases);
+                    phraseIndex = 0;
+                }
+                return queue[phraseIndex++];
+            }
+
+            function typePhrase(phrase, cb) {
+                var i = 0;
+                function typeChar() {
+                    if (i < phrase.length) {
+                        el.textContent = phrase.substring(0, i + 1);
+                        i++;
+                        setTimeout(typeChar, 50);
+                    } else {
+                        setTimeout(cb, 2500);
+                    }
+                }
+                typeChar();
+            }
+
+            function deletePhrase(cb) {
+                var text = el.textContent;
+                var i = text.length;
+                function deleteChar() {
+                    if (i > 0) {
+                        i--;
+                        el.textContent = text.substring(0, i);
+                        setTimeout(deleteChar, 30);
+                    } else {
+                        setTimeout(cb, 300);
+                    }
+                }
+                deleteChar();
+            }
+
+            function cycle() {
+                var phrase = getNext();
+                typePhrase(phrase, function() {
+                    deletePhrase(cycle);
+                });
+            }
+
+            // Start after a brief pause
+            setTimeout(cycle, 800);
         })();
     </script>
 

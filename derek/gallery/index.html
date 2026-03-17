@@ -464,11 +464,7 @@
       <span class="gallery-header-title">gallery</span>
     </div>
     <div class="gallery-filter" id="filters">
-      <button class="filter-btn active" data-filter="all">all</button>
-      <button class="filter-btn" data-filter="la-times">la times</button>
-      <button class="filter-btn" data-filter="star-tribune">star tribune</button>
-      <button class="filter-btn" data-filter="cw">cw strategies</button>
-      <button class="filter-btn" data-filter="life">life</button>
+      <!-- Filter buttons rendered dynamically from gallery.json categories -->
     </div>
   </header>
 
@@ -478,8 +474,7 @@
   <div class="gallery-content">
     <div class="gallery-hero">
       <h1>the work</h1>
-      <p class="subtitle">30 years of visual editing and design direction.<br>LA Times (#1 worldwide, six years). Star Tribune (first CCO/VP).<br>A thousand collective design awards.</p>
-      <p class="subtitle subtitle-caps" style="margin-top: 12px; font-size: 0.75rem; opacity: 0.6;">Art direction &middot; illustration commissioning &middot; page architecture &middot; data visualization &middot; product design &middot; cross-platform strategy</p>
+      <p class="subtitle">30 years of visual editing and design direction.<br>Investigations. Breaking news. Illustration commissioning. Data visualization.<br>LA Times (#1 worldwide, six years). Star Tribune (first CCO/VP). 1,000+ collective design awards.</p>
       <div class="accent-line"></div>
     </div>
 
@@ -504,463 +499,65 @@
   </div>
 
   <script>
-    // ProPublica view detection
-    var isProPublicaView = new URLSearchParams(window.location.search).get('view') === 'propublica';
+    // Gallery data — loaded from /data/gallery.json with inline fallback
+    var GALLERY_ITEMS = [];
+    var GALLERY_CATEGORIES = {};
 
-    // Gallery data — each item is a star in the constellation
-    var GALLERY_ITEMS = [
-      {
-        id: 'prince',
-        src: '/images/gallery/prince-illo.png',
-        title: 'Prince — April 21, 2016',
-        desc: 'Breaking news visual direction. Full-page illustration commissioned and published within hours of Prince\'s death. Directed art, typography, and page architecture under deadline.',
-        era: '2016',
-        filter: 'star-tribune',
-        featured: true
-      },
-      {
-        id: 'oly-sochi',
-        src: '/images/gallery/oly-sochi-flame.png',
-        title: 'Sochi Olympics — The Flame',
-        desc: 'Olympics coverage package. Mosaic illustration — the Olympic flame built from Russian cultural icons. Directed cross-platform visual strategy for 17-day event.',
-        era: '2014',
-        filter: 'star-tribune',
-        featured: true
-      },
-      {
-        id: 'la-times-love',
-        src: '/images/gallery/theres-no-mistaking-love-la-times-illo.png',
-        title: "There's No Mistaking Love",
-        desc: 'Los Angeles Times feature illustration. Commissioned and directed. The newspaper as landscape — two figures navigating the page itself. During the six consecutive years the LA Times ranked #1 worldwide in design (SND).',
-        era: '2003',
-        filter: 'la-times',
-        featured: true
-      },
-      {
-        id: 'elex',
-        src: '/images/gallery/elex-move-right.png',
-        title: 'Election Data — The Shift',
-        desc: 'Data visualization design. Election results rendered as directional arrows — red right, blue left. Visual system designed for print and digital, showing county-level movement at a glance.',
-        era: '2016',
-        filter: 'star-tribune',
-        featured: true
-      },
-      {
-        id: 'mag-voyageurs',
-        src: '/images/gallery/st-mag-voyaguers.png',
-        title: "Minnesota's Gift to the World",
-        desc: 'Star Tribune Magazine cover. Aerial photography direction for Voyageurs National Park feature. The magazine became the Sunday anchor product under Derek\'s creative direction.',
-        era: '2017',
-        filter: 'star-tribune'
-      },
-      {
-        id: 'mag-proto',
-        src: '/images/gallery/st-mag-proto.png',
-        title: 'Magazine Prototype',
-        desc: 'Magazine concept and design direction. The prototype that became the Star Tribune\'s Sunday magazine — a new revenue and audience product built from scratch.',
-        era: '2015',
-        filter: 'star-tribune'
-      },
-      {
-        id: 'jihad-heartland',
-        src: '/images/gallery/jihad-heartland.png',
-        title: 'Jihad in the Heartland',
-        desc: 'Investigative series visual package. Illustration direction — the silhouette carries the narrative before the reader reaches the text. Multi-part series design.',
-        era: '2007',
-        filter: 'star-tribune'
-      },
-      {
-        id: '61-seconds',
-        src: '/images/gallery/61-seconds.png',
-        title: '61 Seconds',
-        desc: 'News illustration direction. Visualizing the 61-second gap between the 911 call and the ambulance dispatch. Data-driven visual storytelling.',
-        era: '2009',
-        filter: 'star-tribune'
-      },
-      {
-        id: 'oly-row',
-        src: '/images/gallery/oly-poster-row.png',
-        title: 'Olympics — Diving',
-        desc: 'Olympics coverage poster series. Photo editing and layout — the yellow board, the blue water, the frozen moment before departure.',
-        era: '2008',
-        filter: 'star-tribune'
-      },
-      {
-        id: 'oly-kobe',
-        src: '/images/gallery/oly-poster-kobe.png',
-        title: 'Olympics — USA Basketball',
-        desc: 'Olympics coverage poster series. Photo editing and typography. Part of a cross-platform visual identity system for Games coverage.',
-        era: '2008',
-        filter: 'star-tribune'
-      },
-      {
-        id: 'fair-shirts',
-        src: '/images/gallery/st-fairtshirts.png',
-        title: 'State Fair — Congregate Then Hibernate',
-        desc: 'Product design and brand extension. Minnesota State Fair merchandise program — $2M+ annual revenue. Journalism funded by design.',
-        era: '2018',
-        filter: 'star-tribune'
-      },
-      {
-        id: 'vr-stadium',
-        src: '/images/gallery/vr-app.png',
-        title: 'VR Flyover — U.S. Bank Stadium',
-        desc: 'Emerging technology. Directed one of the first VR experiences in U.S. newspapers. Virtual flyover of the new stadium for desktop and mobile.',
-        era: '2017',
-        filter: 'star-tribune'
-      },
-      {
-        id: 'taste-50',
-        src: '/images/gallery/taste-50.png',
-        title: '50 Years of Taste',
-        desc: 'Section anniversary visual package. Creative direction for the Taste section\'s 50th anniversary — editorial and event design.',
-        era: '2019',
-        filter: 'star-tribune',
-        portrait: true
-      },
-      {
-        id: 'small-biz',
-        src: '/images/gallery/small-biz.png',
-        title: 'Small Business Inc.',
-        desc: 'Business section illustration direction. Conceptual art for an enterprise story on small business survival — the castle under siege.',
-        era: '2010',
-        filter: 'star-tribune'
-      },
-      {
-        id: 'cascadia',
-        src: '/images/gallery/cascadia.png',
-        title: 'Cascadia Daily News',
-        desc: 'Client consulting work. Cover illustration and visual strategy for Cascadia Daily News. Active engagement through CW Strategies.',
-        era: '2025',
-        filter: 'cw'
-      },
-      {
-        id: 'cw-standard-card',
-        src: '/images/gallery/cw-standard-card.png',
-        title: 'The CW Standard',
-        desc: 'Brand identity design. The five-principle ethical framework — designed for digital, print, and social distribution.',
-        era: '2026',
-        filter: 'cw'
-      },
-      {
-        id: 'first-byline',
-        src: '/images/gallery/first-byline-18-framed.png',
-        title: 'First Byline',
-        desc: 'Age 18. The Hutchinson News. Where it started — part-time sports writer while at community college.',
-        era: '1991',
-        filter: 'life'
-      },
-      {
-        id: 'panthers',
-        src: '/images/gallery/panthers.png',
-        title: 'Panthers Basketball',
-        desc: 'Hutchinson Community College. Before the newsroom.',
-        era: '1992',
-        filter: 'life',
-        portrait: true
-      },
-      {
-        id: 'kid-cap',
-        src: '/images/gallery/kid-cap.png',
-        title: 'Little Star',
-        desc: 'Before any of it.',
-        era: '1979',
-        filter: 'life',
-        portrait: true
-      },
-      {
-        id: 'kid-pensive',
-        src: '/images/gallery/kid-pensive.png',
-        title: 'The Builder',
-        desc: 'Thinking about something. Probably how to take it apart.',
-        era: '1981',
-        filter: 'life',
-        portrait: true
-      },
-      {
-        id: 'father-son',
-        src: '/images/gallery/father-son.png',
-        title: 'Father and Son',
-        desc: 'Under the banyan tree.',
-        era: '2015',
-        filter: 'life',
-        portrait: true
-      },
-      {
-        id: 'dog',
-        src: '/images/gallery/dog.png',
-        title: 'The Dog',
-        desc: 'Dog lover. Raptors hat. Grass.',
-        era: '2023',
-        filter: 'life',
-        portrait: true
-      },
-      {
-        id: 'coach-gym',
-        src: '/images/gallery/coach-gym.png',
-        title: 'Coach D',
-        desc: 'Basketball coaching. The second career.',
-        era: '2024',
-        filter: 'cw',
-        portrait: true
-      },
-      {
-        id: 'basketball-dusk',
-        src: '/images/gallery/basketball-dusk.png',
-        title: 'Driveway',
-        desc: 'Where the coaching started.',
-        era: '2024',
-        filter: 'life'
-      },
-      {
-        id: 'david-shirt',
-        src: '/images/gallery/david-shirt.png',
-        title: 'The Shirt',
-        desc: 'David with bubblegum.',
-        era: '2024',
-        filter: 'life'
-      }
-    ];
+    // Load gallery data from JSON, fall back to inline for file:// testing
+    function loadGalleryData() {
+      return fetch('/data/gallery.json')
+        .then(function(response) {
+          if (!response.ok) throw new Error('Fetch failed');
+          return response.json();
+        })
+        .catch(function() {
+          // Fallback for local file:// testing — try relative path
+          return fetch('../../data/gallery.json')
+            .then(function(response) {
+              if (!response.ok) throw new Error('Relative fetch failed');
+              return response.json();
+            })
+            .catch(function() {
+              // Final fallback — empty gallery with message
+              console.warn('Could not load gallery.json — gallery will be empty');
+              return { categories: {}, items: [] };
+            });
+        });
+    }
 
-    // ProPublica-only items (added to the gallery when ?view=propublica)
-    var PROPUBLICA_EXTRA_ITEMS = [
-      {
-        id: 'denied-justice-cover',
-        src: '/images/gallery/denied-justice-cover-02.png',
-        title: 'Denied Justice — Section Cover',
-        desc: 'Typography-only cover for the "Denied Justice" special section. "When Rape Is Reported And Nothing Happens." Each word on its own line, thin red underline. No image — the words are the image. Deliberate restraint for a subject that demands it. Pulitzer Prize finalist, SPJ Public Service Award, four Minnesota legislative changes.',
-        era: '2018',
-        filter: 'star-tribune',
-        ppFilter: 'investigations',
-        featured: true
-      },
-      {
-        id: 'denied-justice-a1',
-        src: '/images/gallery/denied-justice-a1-01.png',
-        title: 'Denied Justice — Sunday A1',
-        desc: 'Front page of the Star Tribune, Sunday July 22, 2018. "The Rape Cases That Go Nowhere." Dominant group portrait by Renee Jones Schneider — survivors photographed together, not as anonymous victims. The section ran inside. The front page made it unavoidable.',
-        era: '2018',
-        filter: 'star-tribune',
-        ppFilter: 'investigations',
-        featured: true
-      },
-      {
-        id: 'denied-justice-portraits',
-        src: '/images/gallery/denied-justice-portraits-05.png',
-        title: 'Denied Justice — Survivor Portraits',
-        desc: 'Four-portrait grid from the special section. Each woman photographed in her environment — named, with age, profession, and one quote. Katie Finch: "I felt like I wasn\'t important." Melissa Miyashiro: "The system is broken." The editorial choice: every story gets equal weight.',
-        era: '2018',
-        filter: 'star-tribune',
-        ppFilter: 'investigations'
-      },
-      {
-        id: 'prince-4-covers',
-        src: '/images/gallery/prince-4-covers.png',
-        title: 'Prince — Four Zoned Covers',
-        desc: 'Commemorative section with four zoned covers for different regions. Two illustrated by Robert Carter, commissioned under breaking news deadline. Prince died Thursday — this ran Sunday. The editorial choice: illustration over photography. Every other paper ran a wire photo. Art direction under grief.',
-        era: '2016',
-        filter: 'star-tribune',
-        ppFilter: 'breaking-news',
-        featured: true
-      },
-      {
-        id: 'bees-brink',
-        src: '/images/gallery/bees-brink.jpg',
-        title: 'Bees at the Brink',
-        desc: 'Investigative series on colony collapse. Illustration-driven data journalism — the visual package made complex environmental science accessible. OJA Award for Explanatory Reporting.',
-        era: '2014',
-        filter: 'star-tribune',
-        ppFilter: 'investigations'
-      },
-      {
-        id: 'disabled-series',
-        src: '/images/gallery/disabled-series.jpg',
-        title: 'A Matter of Dignity',
-        desc: 'Five-part investigation into how Minnesota fails the disabled. Visual direction for the series that became a Pulitzer Prize finalist. Governor responded within one week. Derek credited by name on the OJA entry.',
-        era: '2015',
-        filter: 'star-tribune',
-        ppFilter: 'investigations'
-      },
-      {
-        id: 'sugar',
-        src: '/images/gallery/sugar-investigation.png',
-        title: 'Sugar Investigation',
-        desc: 'Investigative illustration direction. Conceptual art for an enterprise story — visual metaphor carrying the investigation before the reader reaches the text.',
-        era: '2016',
-        filter: 'star-tribune',
-        ppFilter: 'investigations'
-      },
-      {
-        id: 'trump-wave',
-        src: '/images/gallery/trump-wave-cover.png',
-        title: 'Trump Wave — Election Night',
-        desc: 'Breaking news cover design. Election night art direction — the red wave rendered as visual force. Produced under deadline pressure when the result defied projections.',
-        era: '2016',
-        filter: 'star-tribune',
-        ppFilter: 'breaking-news'
-      },
-      {
-        id: 'obama',
-        src: '/images/gallery/obama-inauguration.jpg',
-        title: 'Obama Inauguration',
-        desc: 'LA Times special section. Art direction for the inauguration of the first Black president. Visual storytelling for a historic moment — one of several breaking news packages directed during the number-one worldwide era.',
-        era: '2009',
-        filter: 'la-times',
-        ppFilter: 'breaking-news'
-      },
-      {
-        id: 'wildfires',
-        src: '/images/gallery/wildfires.png',
-        title: 'California Wildfires',
-        desc: 'LA Times double-truck. Photography direction and page architecture for wildfire disaster coverage. Breaking news visual direction at scale.',
-        era: '2009',
-        filter: 'la-times',
-        ppFilter: 'breaking-news'
-      },
-      {
-        id: 'john-wooden',
-        src: '/images/gallery/john-wooden.jpg',
-        title: 'John Wooden — 1910-2010',
-        desc: 'LA Times commemorative cover. The presses were stopped for three hours and fifteen minutes. 175,849 papers went without; 400,416 received the obituary package. Breaking news art direction — the decision to stop the presses and redesign on deadline.',
-        era: '2010',
-        filter: 'la-times',
-        ppFilter: 'breaking-news'
-      },
-      {
-        id: 'stmag',
-        src: '/images/gallery/stmag-cover.png',
-        title: 'Star Tribune Magazine',
-        desc: 'Self-initiated editorial product. Built from prototype to Sunday anchor — a new franchise for 225,000+ subscribers. Debut cover: Prince, one year after the commemorative section proved the concept. Program-building, not just design.',
-        era: '2017',
-        filter: 'star-tribune',
-        ppFilter: 'editorial-products'
-      },
-      {
-        id: 'weather-dv',
-        src: '/images/gallery/weather-dataviz.png',
-        title: 'Weather Data Visualization',
-        desc: 'Information design for daily weather coverage. Data rendered as visual system — readable at a glance, detailed on inspection.',
-        era: '2017',
-        filter: 'star-tribune',
-        ppFilter: 'data'
-      },
-      {
-        id: 'oscars',
-        src: '/images/gallery/oscars.jpg',
-        title: 'The Oscars',
-        desc: 'LA Times poster design for Academy Awards coverage. Part of a visual identity system for event coverage — the same instinct applied to Olympics, elections, and cultural events.',
-        era: '2010',
-        filter: 'la-times',
-        ppFilter: 'commissioned-art'
-      },
-      {
-        id: 'showtime',
-        src: '/images/gallery/showtime-cover.jpg',
-        title: 'Showtime — Art Direction',
-        desc: 'Cover illustration art direction. Commissioned and directed for the LA Times during the number-one worldwide era. Working with illustrators to translate editorial vision into published art.',
-        era: '2011',
-        filter: 'la-times',
-        ppFilter: 'commissioned-art'
-      },
-      {
-        id: 'claudewill',
-        src: '/images/gallery/claudewill-homepage.png',
-        title: 'claudewill.io',
-        desc: 'AI platform built from scratch. Custom CMS, conversation engine (CW\'s Porch), 11 published essays, overnight agent pipeline, kitchen dashboard. No framework — vanilla HTML/CSS/JS, Netlify Functions, Anthropic API. The methodology is the product.',
-        era: '2026',
-        filter: 'cw',
-        ppFilter: 'platform'
-      }
-    ];
-
-    // ProPublica filter mapping for existing items
-    var PP_FILTER_MAP = {
-      'prince': 'breaking-news',
-      'oly-sochi': 'commissioned-art',
-      'la-times-love': 'commissioned-art',
-      'elex': 'data',
-      'mag-voyageurs': 'editorial-products',
-      'mag-proto': 'editorial-products',
-      'jihad-heartland': 'investigations',
-      '61-seconds': 'investigations',
-      'oly-row': 'commissioned-art',
-      'oly-kobe': 'commissioned-art',
-      'fair-shirts': 'editorial-products',
-      'vr-stadium': 'data',
-      'taste-50': 'editorial-products',
-      'small-biz': 'commissioned-art',
-      'cascadia': 'platform',
-      'cw-standard-card': 'platform'
-    };
-
-    // In ProPublica view, merge extra items and re-tag existing ones
-    if (isProPublicaView) {
-      GALLERY_ITEMS.forEach(function(item) {
-        if (PP_FILTER_MAP[item.id]) {
-          item.ppFilter = PP_FILTER_MAP[item.id];
-        }
-      });
-
-      GALLERY_ITEMS = GALLERY_ITEMS.filter(function(item) {
-        return item.filter !== 'life' && PP_FILTER_MAP[item.id];
-      });
-
-      GALLERY_ITEMS = GALLERY_ITEMS.concat(PROPUBLICA_EXTRA_ITEMS);
-
-      GALLERY_ITEMS.forEach(function(item) {
-        if (item.ppFilter) item.filter = item.ppFilter;
-      });
-
-      // Hide capabilities subtitle in ProPublica view
-      var capsSub = document.querySelector('.subtitle-caps');
-      if (capsSub) capsSub.style.display = 'none';
-
-      // Update hero text
-      var heroSubtitle = document.querySelector('.gallery-hero .subtitle');
-      heroSubtitle.textContent = '';
-      var line1 = document.createTextNode('Investigative visual storytelling. Breaking news art direction. Illustration commissioning.');
-      var br1 = document.createElement('br');
-      var line2 = document.createTextNode('LA Times (#1 worldwide, six years). Star Tribune (first CCO/VP). 1,000+ collective design awards.');
-      heroSubtitle.appendChild(line1);
-      heroSubtitle.appendChild(br1);
-      heroSubtitle.appendChild(line2);
-
-      // Update filters
+    // Build filter buttons from categories
+    function renderFilters(categories) {
       var filtersEl = document.getElementById('filters');
-      while (filtersEl.firstChild) filtersEl.removeChild(filtersEl.firstChild);
-      var ppFilters = [
-        { label: 'all', value: 'all' },
-        { label: 'investigations', value: 'investigations' },
-        { label: 'breaking news', value: 'breaking-news' },
-        { label: 'commissioned art', value: 'commissioned-art' },
-        { label: 'data', value: 'data' },
-        { label: 'editorial products', value: 'editorial-products' },
-        { label: 'platform', value: 'platform' }
-      ];
-      ppFilters.forEach(function(f) {
+      filtersEl.textContent = '';
+
+      // Sort categories by order
+      var sorted = Object.keys(categories).sort(function(a, b) {
+        return categories[a].order - categories[b].order;
+      });
+
+      sorted.forEach(function(key) {
+        var cat = categories[key];
+        // Only show categories that have items (except "all")
+        if (key !== 'all') {
+          var hasItems = GALLERY_ITEMS.some(function(item) { return item.category === key; });
+          if (!hasItems) return;
+        }
         var btn = document.createElement('button');
-        btn.className = 'filter-btn' + (f.value === 'all' ? ' active' : '');
-        btn.setAttribute('data-filter', f.value);
-        btn.textContent = f.label;
+        btn.className = 'filter-btn' + (key === 'all' ? ' active' : '');
+        btn.setAttribute('data-filter', key);
+        btn.textContent = cat.label;
         filtersEl.appendChild(btn);
       });
     }
 
     // Sort: featured first, then by era descending (most recent first)
-    GALLERY_ITEMS.sort(function(a, b) {
-      if (isProPublicaView) {
-        var ppOrder = { 'investigations': 0, 'breaking-news': 1, 'commissioned-art': 2, 'data': 3, 'editorial-products': 4, 'platform': 5 };
-        var aOrder = ppOrder[a.filter] !== undefined ? ppOrder[a.filter] : 9;
-        var bOrder = ppOrder[b.filter] !== undefined ? ppOrder[b.filter] : 9;
-        if (a.featured && !b.featured && aOrder === bOrder) return -1;
-        if (!a.featured && b.featured && aOrder === bOrder) return 1;
-        if (aOrder !== bOrder) return aOrder - bOrder;
+    function sortItems(items) {
+      items.sort(function(a, b) {
+        if (a.featured && !b.featured) return -1;
+        if (!a.featured && b.featured) return 1;
         return parseInt(b.era) - parseInt(a.era);
-      }
-      if (a.featured && !b.featured) return -1;
-      if (!a.featured && b.featured) return 1;
-      return parseInt(b.era) - parseInt(a.era);
-    });
+      });
+    }
 
     // Generate background stars
     function generateStars() {
@@ -996,8 +593,8 @@
       var grid = document.getElementById('gallery-grid');
       grid.textContent = '';
 
-      var items = filter === 'all' ? GALLERY_ITEMS : GALLERY_ITEMS.filter(function(item) {
-        return item.filter === filter;
+      var items = filter === 'all' ? GALLERY_ITEMS.slice() : GALLERY_ITEMS.filter(function(item) {
+        return item.category === filter;
       });
 
       // For filtered views, sort chronologically and show decade dividers
@@ -1061,13 +658,13 @@
 
         var tag = document.createElement('span');
         tag.className = 'card-tag';
-        var filterLabels = {
-          'la-times': 'LA Times',
-          'star-tribune': 'Star Tribune',
-          'cw': 'CW Strategies',
-          'life': 'Life'
-        };
-        tag.textContent = filterLabels[item.filter] || item.filter;
+        // Show publication if available, otherwise show category label
+        if (item.publication) {
+          tag.textContent = item.publication;
+        } else {
+          var catObj = GALLERY_CATEGORIES[item.category];
+          tag.textContent = catObj ? catObj.label : item.category;
+        }
 
         meta.appendChild(era);
         meta.appendChild(tag);
@@ -1092,6 +689,7 @@
     // Timeline markers
     function renderTimeline() {
       var container = document.getElementById('timeline-markers');
+      container.textContent = '';
       var years = [];
       GALLERY_ITEMS.forEach(function(item) {
         if (years.indexOf(item.era) === -1) years.push(item.era);
@@ -1121,7 +719,7 @@
       var item = GALLERY_ITEMS[index];
       document.getElementById('lightbox-image').src = item.src;
       document.getElementById('lightbox-image').alt = item.title;
-      document.getElementById('lightbox-title').textContent = item.title + ' — ' + item.era;
+      document.getElementById('lightbox-title').textContent = item.title + ' \u2014 ' + item.era;
       document.getElementById('lightbox-desc').textContent = item.desc;
       document.getElementById('lightbox').classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -1137,7 +735,7 @@
       var item = GALLERY_ITEMS[currentLightboxIndex];
       document.getElementById('lightbox-image').src = item.src;
       document.getElementById('lightbox-image').alt = item.title;
-      document.getElementById('lightbox-title').textContent = item.title + ' — ' + item.era;
+      document.getElementById('lightbox-title').textContent = item.title + ' \u2014 ' + item.era;
       document.getElementById('lightbox-desc').textContent = item.desc;
     }
 
@@ -1167,8 +765,15 @@
 
     // Init
     generateStars();
-    renderTimeline();
-    renderGallery('all');
+
+    loadGalleryData().then(function(data) {
+      GALLERY_CATEGORIES = data.categories || {};
+      GALLERY_ITEMS = data.items || [];
+      sortItems(GALLERY_ITEMS);
+      renderFilters(GALLERY_CATEGORIES);
+      renderTimeline();
+      renderGallery('all');
+    });
   </script>
 </body>
 </html>
