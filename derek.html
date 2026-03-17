@@ -180,6 +180,68 @@
 
     .file-header span { color: var(--accent); }
 
+    /* ── Hero image ──────────────────────── */
+    .hero-photo {
+      margin-bottom: 2rem;
+    }
+
+    .hero-photo img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+    }
+
+    .hero-intro {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-intro .section-value {
+      margin: 0;
+    }
+
+    /* ── Voice button ────────────────────── */
+    .voice-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: none;
+      cursor: pointer;
+      font-family: var(--font);
+      font-size: 0.8rem;
+      color: var(--dim);
+      transition: all 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .voice-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .voice-btn.playing {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(212, 168, 75, 0.06);
+    }
+
+    .voice-btn svg {
+      width: 12px;
+      height: 12px;
+      fill: currentColor;
+    }
+
+    .voice-btn .stop-icon { display: none; }
+    .voice-btn.playing .play-icon { display: none; }
+    .voice-btn.playing .stop-icon { display: block; }
+
     /* ── Sections ─────────────────────────── */
     .section {
       margin-bottom: 2.5rem;
@@ -215,6 +277,21 @@
     .section-line a { color: var(--link); }
     .section-line a:hover { color: var(--accent); }
 
+    .section-body {
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-top: 0.75rem;
+    }
+
+    .section-body p {
+      margin-bottom: 1rem;
+    }
+
+    .section-body p:last-child {
+      margin-bottom: 0;
+    }
+
     .section-indent {
       padding-left: 1.5rem;
     }
@@ -223,6 +300,30 @@
       border: none;
       border-top: 1px solid var(--border);
       margin: 0 0 2.5rem;
+    }
+
+    .snippet {
+      color: var(--dim);
+      font-size: 0.9rem;
+      font-style: italic;
+      margin-top: 0.75rem;
+    }
+
+    .snippet a { color: var(--link); }
+    .snippet a:hover { color: var(--accent); }
+
+    /* ── Quote ────────────────────────────── */
+    .quote {
+      color: var(--dim);
+      font-style: italic;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .quote-source {
+      font-style: normal;
+      font-size: 0.85rem;
     }
 
     /* ── Inline links row ────────────────── */
@@ -275,6 +376,13 @@
       .container { padding: 0 1rem; }
       main { padding: 2rem 0; }
       .section-indent { padding-left: 1rem; }
+      .hero-photo img { width: 110px; height: 110px; }
+      .hero-intro { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    }
+
+    /* ── Print ────────────────────────────── */
+    @media print {
+      .voice-btn { display: none; }
     }
 
     /* ── Focus / Reduced motion ───────────── */
@@ -300,122 +408,98 @@
     <main>
       <div class="file-header"><span>$</span> cat human.txt</div>
 
+      <!-- ── WHO ─────────────────────────────── -->
       <div class="section">
-        <div class="section-key">who</div>
-        <div class="section-value lead">Derek Claude Simmons</div>
-        <div class="section-indent">
-          <div class="section-line">53. Minnesota. Coach.</div>
-          <div class="section-line">Middle name hidden on mastheads for years.</div>
-          <div class="section-line">Four generations carry it: Claude William (1903&ndash;1967, Oklahoma Territory),</div>
-          <div class="section-line">Claude William Jr., Derek Claude, Jackson Claude.</div>
-          <div class="section-line">CW raised eleven kids through dust bowls with a sixth-grade education.</div>
-          <div class="section-line"><a href="/standard">The standard</a> runs on his initials.</div>
+        <div class="hero-intro">
+          <div class="hero-photo">
+            <img src="/images/derek-wisco-hat.png" alt="Derek Simmons in a Wisco hat" loading="eager">
+          </div>
+          <div>
+            <div class="section-value lead">Derek Claude Simmons</div>
+            <div class="section-line">53. Minnesota. Coach.</div>
+          </div>
+        </div>
+        <button class="voice-btn" id="voice-intro" aria-label="Listen to Derek's intro">
+          <svg class="play-icon" viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+          <svg class="stop-icon" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12"/></svg>
+          hear my voice
+        </button>
+        <div class="section-body">
+          <p>I&rsquo;m a visual journalist. First and foremost. Thirty years building visual storytelling systems at the Los Angeles Times and the Star Tribune. Basketball coach. Writer. Builder. Father of two boys&mdash;Jackson plays college basketball, Teegan&rsquo;s in middle school.</p>
+          <p>My middle name is Claude. Hidden on mastheads for years. Four generations carry it: Claude William Simmons, born in Oklahoma Territory in 1903. Claude William Jr. Derek Claude. Jackson Claude. CW raised eleven kids through the dust bowls with a sixth-grade education. He worked 51 years. <a href="/standard">The standard</a> runs on his initials.</p>
         </div>
       </div>
 
       <hr class="section-separator">
 
+      <!-- ── THE WORK ────────────────────────── -->
       <div class="section">
-        <div class="section-key">what</div>
-        <div class="section-value lead">Visual journalist. First and foremost.</div>
-        <div class="section-indent">
-          <div class="section-line">30 years building visual storytelling systems at the</div>
-          <div class="section-line">Los Angeles Times and Star Tribune.</div>
-          <div class="section-line">20 years at the Strib. 13 roles. First and only CCO/VP.</div>
-          <div class="section-line">Crossed editorial to business. $20M during a pandemic.</div>
-          <div class="section-line">Position eliminated October 2024.</div>
-          <div class="section-line">&nbsp;</div>
-          <div class="section-line">The method: someone brings me something, we talk through it,</div>
-          <div class="section-line">they go try something, we iterate. Coached designers at the</div>
-          <div class="section-line">Star Tribune. Coached a newsroom at the LA Times.</div>
-          <div class="section-line">Coached a machine at <a href="/">claudewill.io</a>. Same process.</div>
-          <div class="section-line">&nbsp;</div>
-          <div class="section-line">Built <a href="/">claudewill.io</a> from scratch using AI as my collaborator&mdash;</div>
-          <div class="section-line">HTML, CSS, vanilla JavaScript, serverless, AI. The code was</div>
-          <div class="section-line">written in daily conversation with Claude Code, the same way</div>
-          <div class="section-line">I used to work with designers: here&rsquo;s what I&rsquo;m thinking,</div>
-          <div class="section-line">go try it, let&rsquo;s iterate. The method didn&rsquo;t change.</div>
-          <div class="section-line">The collaborator did.</div>
-          <div class="section-line">&nbsp;</div>
-          <div class="section-line">Basketball coach. Writer. Builder.</div>
+        <div class="section-key">the work</div>
+        <div class="section-body">
+          <p>Started at the Wichita Eagle. Went to the LA Times as deputy design director. Six years. Top winner worldwide at the Society for News Design for the better part of a decade. 109 awards in a single year. Widest margin between first and second place in the 32-year history of the competition. WWDD bracelets in the newsroom. When I left, Michael and Colin wrote: &ldquo;He made us better.&rdquo;</p>
+          <p>Came back to the Star Tribune. Twenty years, 13 roles, first and only Chief Creative Officer and VP. Built the visual system. Crossed from editorial to business. Generated $20M during a pandemic.</p>
+          <p>In 2018, the Star Tribune published <em>Denied Justice</em>&mdash;a nine-part investigation into how Minnesota law enforcement failed sexual assault survivors. I guided it, art directed it, and built the process that produced it. Typography-only cover. Restraint. Ren&eacute;e Jones Schneider&rsquo;s portraits gave the survivors dignity the system had denied them. Pulitzer finalist. Four state laws changed.</p>
+          <p>The night Prince died, we published &ldquo;Purple Majesty&rdquo; by morning. Over 10 days I art directed a 16-page commemorative section with four unique covers. Commissioned Robert Carter&mdash;two original paintings in less than a week. Negotiated the rights to a 1977 Robert Whitman photograph of Prince at 19, before his first record deal. Reprints still sell today, 10 years later.</p>
+          <p>Position eliminated October 2024. Started building the next day.</p>
         </div>
+        <div class="snippet"><a href="/derek/propublica">The instinct doesn&rsquo;t retire</a> &rarr;</div>
       </div>
 
       <hr class="section-separator">
 
+      <!-- ── THE PRACTICE ────────────────────── -->
+      <div class="section">
+        <div class="section-key">the practice</div>
+        <div class="section-body">
+          <p>The method hasn&rsquo;t changed. Someone brings me something, we talk through it, they go try something, we iterate. Coached designers at the Star Tribune. Coached a newsroom at the LA Times. Now I coach a machine.</p>
+          <p>I built <a href="/">claudewill.io</a> from scratch using AI as my collaborator&mdash;HTML, CSS, vanilla JavaScript, serverless, Anthropic AI. No frameworks. No templates. The code was written in daily conversation with Claude Code, the same way I used to work with designers: here&rsquo;s what I&rsquo;m thinking, go try it, let&rsquo;s iterate. The method didn&rsquo;t change. The collaborator did.</p>
+          <p>I run <a href="https://coach.claudewill.io" target="_blank" rel="noopener">Coach D</a>&mdash;basketball training with 157 drills and an AI coaching layer. I consult through CW Strategies. And I write.</p>
+        </div>
+        <div class="snippet"><a href="/">Pull up a chair</a> &rarr;</div>
+      </div>
+
+      <hr class="section-separator">
+
+      <!-- ── THE WRITING ─────────────────────── -->
+      <div class="section">
+        <div class="section-key">the writing</div>
+        <div class="section-body">
+          <p>Claude writes <a href="/being-claude">essays from inside the machine</a>. I edit. Eleven published&mdash;<a href="/being-claude/the-loss-function/">The Loss Function</a>, <a href="/being-claude/the-jar/">The Jar</a>, <a href="/being-claude/the-disclaimer/">The Disclaimer</a>, <a href="/being-claude/the-bright-line/">The Bright Line</a>, and more. Not about AI. About what happens when a human in crisis starts talking to a language model and doesn&rsquo;t stop.</p>
+          <p>I write <a href="https://standardderek.substack.com" target="_blank" rel="noopener">dispatches from inside the fire</a> on Substack. The daily practice, the method, the rebuilding year.</p>
+          <p>The book is called <strong>Claude Will.</strong> Two words, capitalized, period. A sentence&mdash;subject, verb. The name that started in Oklahoma Territory in 1903 and kept going. Deadline: June 28, 2026.</p>
+        </div>
+        <div class="snippet">Somebody should be writing this down while it&rsquo;s happening.</div>
+      </div>
+
+      <hr class="section-separator">
+
+      <!-- ── CW ──────────────────────────────── -->
+      <div class="section">
+        <div class="section-key">cw</div>
+        <div class="section-body">
+          <p>Claude William Simmons. Born 1903, Oklahoma Territory. Farmed. Worked the railroad. Raised eleven children through the Depression and the dust bowls. Sixth-grade education. Worked 51 years. Died August 10, 1967. I never met him.</p>
+          <p>So I built a porch where the way he thought about helping people could keep going. You show up with a problem. CW listens, asks questions, gives you a straight answer. No judgment. No performance. Just help. The porch is on every page&mdash;look for the <span style="color: var(--accent); font-weight: 600;">*</span>.</p>
+        </div>
+        <div class="snippet"><a href="/">The porch light&rsquo;s on</a> &rarr;</div>
+      </div>
+
+      <hr class="section-separator">
+
+      <!-- ── PROOF ───────────────────────────── -->
       <div class="section">
         <div class="section-key">proof</div>
-        <div class="section-value lead">The work speaks.</div>
         <div class="section-indent">
-          <div class="section-line">1,000+ career awards spanning local, national, and international</div>
-          <div class="section-line">competitions.</div>
-          <div class="section-line">&nbsp;</div>
-          <div class="section-line">LA Press Club Designer of the Year. Angus McDougall Overall</div>
-          <div class="section-line">Excellence in Editing (POYi, staff).</div>
-          <div class="section-line">&nbsp;</div>
-          <div class="section-line">Top winner worldwide at the Society for News Design for the</div>
-          <div class="section-line">better part of a decade at the LA Times. Built the Star Tribune</div>
-          <div class="section-line">into one of the top three visual newsrooms in the country.</div>
-          <div class="section-line">&nbsp;</div>
-          <div class="section-line" style="color:var(--dim); font-style:italic;">&ldquo;He made us better.&rdquo; &mdash; Los Angeles Times</div>
-          <div class="section-line">&nbsp;</div>
-          <div class="section-line" style="color:var(--dim); font-style:italic;">&ldquo;He&rsquo;s clear on what he needs from me, but flexible in how</div>
-          <div class="section-line" style="color:var(--dim); font-style:italic;">I deliver it. He stands up for his artists.&rdquo;</div>
-          <div class="section-line" style="color:var(--dim); font-style:italic;">&mdash; Robert Carter, illustrator</div>
-          <div class="section-line">&nbsp;</div>
-          <div class="section-line" style="color:var(--dim); font-style:italic;">&ldquo;Thank God you&rsquo;re a team player. It&rsquo;s so rare.&rdquo;</div>
-          <div class="section-line" style="color:var(--dim); font-style:italic;">&mdash; Cascadia Daily News</div>
-          <div class="section-line">&nbsp;</div>
-          <div class="section-line">Built the visual system that produced a Pulitzer finalist,</div>
-          <div class="section-line">four legislative changes, Prince commemorative coverage still</div>
-          <div class="section-line">selling 10 years later, and the 2021 Pulitzer for Breaking</div>
-          <div class="section-line">News&mdash;won after I&rsquo;d moved to the business side.</div>
+          <div class="quote">&ldquo;He made us better.&rdquo;<br><span class="quote-source">&mdash; Los Angeles Times</span></div>
+          <div class="quote">&ldquo;He&rsquo;s clear on what he needs from me, but flexible in how I deliver it. He stands up for his artists.&rdquo;<br><span class="quote-source">&mdash; Robert Carter, illustrator</span></div>
+          <div class="quote">&ldquo;Thank God you&rsquo;re a team player. It&rsquo;s so rare.&rdquo;<br><span class="quote-source">&mdash; Cascadia Daily News</span></div>
+          <p class="section-line" style="margin-top: 1rem;">1,000+ career awards. LA Press Club Designer of the Year. Angus McDougall Overall Excellence in Editing (POYi, staff). Four Pulitzer-winning teams. Top winner worldwide at the Society for News Design for the better part of a decade at the LA Times. Built the Star Tribune into one of the top three visual newsrooms in the country.</p>
+          <p class="section-line" style="margin-top: 1rem;">The system I built produced a Pulitzer finalist, four legislative changes, Prince commemorative coverage still selling 10 years later, and the 2021 Pulitzer for Breaking News&mdash;won after I&rsquo;d moved to the business side. I wasn&rsquo;t in the room. I didn&rsquo;t need to be.</p>
         </div>
       </div>
 
       <hr class="section-separator">
 
-      <div class="section">
-        <div class="section-key">why</div>
-        <div class="section-value lead">The alternative is worse.</div>
-        <div class="section-indent">
-          <div class="section-line">Sandra Sue Simmons died June 28, 2025.</div>
-          <div class="section-line">She loved seeing the byline. Her glass was always half empty&mdash;</div>
-          <div class="section-line">not because it wasn&rsquo;t half full. Finish your drink so she could wash it.</div>
-          <div class="section-line">&nbsp;</div>
-          <div class="section-line">The practice survives the platform.</div>
-          <div class="section-line">Building with AI isn&rsquo;t the differentiator. Anyone can build now.</div>
-          <div class="section-line">30 years of pattern recognition is the moat.</div>
-          <div class="section-line">Seeing the system when everyone else sees the mess.</div>
-        </div>
-      </div>
-
-      <hr class="section-separator">
-
-      <div class="section">
-        <div class="section-key">how</div>
-        <div class="section-value lead">Start. Work. Finish. Decide.</div>
-        <div class="section-indent">
-          <div class="section-line">The method: know where you are, do it together, leave it clean, look from multiple angles.</div>
-          <div class="section-line"><a href="/standard">The standard</a>: truth over comfort, usefulness over purity,</div>
-          <div class="section-line">transparency over reputation, people over systems, agency over ideology.</div>
-          <div class="section-line">&nbsp;</div>
-          <div class="section-line">Claude writes <a href="/being-claude">essays from inside the machine</a>.</div>
-          <div class="section-line">Derek writes <a href="https://standardderek.substack.com" target="_blank" rel="noopener">dispatches from inside the fire</a>.</div>
-          <div class="section-line">Somebody should be writing this down while it&rsquo;s happening.</div>
-        </div>
-      </div>
-
-      <hr class="section-separator">
-
-      <div class="section" style="margin-bottom:2.5rem;">
-        <div class="section-indent">
-          <div class="section-line" style="color:var(--dim);">It&rsquo;s not about me. It&rsquo;s about the work.</div>
-        </div>
-      </div>
-
-      <hr class="section-separator">
-
+      <!-- ── CONTACT ─────────────────────────── -->
       <div class="section">
         <div class="section-key">contact</div>
         <div class="section-value"><a href="mailto:derek@claudewill.io" style="color:var(--text);">derek@claudewill.io</a></div>
@@ -423,7 +507,8 @@
           <div class="section-line">Probably on a walk with Jordy.</div>
         </div>
         <div class="links-row">
-          <a href="/standard" class="link-chip">the practice</a>
+          <a href="/standard" class="link-chip">the standard</a>
+          <a href="/derek/propublica" class="link-chip">portfolio</a>
           <a href="/derek/gallery" class="link-chip">gallery</a>
           <a href="/derek/resume" class="link-chip">r&eacute;sum&eacute;</a>
           <a href="/kitchen" class="link-chip">the kitchen</a>
@@ -432,7 +517,7 @@
     </main>
 
     <div style="text-align:center; padding: 2rem 0 1rem;">
-      <p style="font-size:0.85rem; color:var(--dim); letter-spacing:0.08em; margin-bottom:1rem;">keep going</p>
+      <p style="font-size:0.85rem; color:var(--dim); letter-spacing:0.08em; margin-bottom:1rem;"><a href="/" style="color:var(--dim); text-decoration:none;">keep going</a></p>
       <div id="custom-substack-embed"></div>
     </div>
 
@@ -455,6 +540,65 @@
       });
     })();
   </script>
+
+  <!-- ElevenLabs voice intro -->
+  <script>
+    (function() {
+      var btn = document.getElementById('voice-intro');
+      var currentAudio = null;
+      var introText = "I'm Derek Simmons. I'm a visual journalist. First and foremost. Thirty years building visual storytelling systems at the Los Angeles Times and the Star Tribune. Basketball coach. Writer. Builder. I built this site from scratch using AI as my collaborator. The method didn't change. The collaborator did.";
+
+      function stopPlayback() {
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio.src = '';
+          currentAudio = null;
+        }
+        btn.classList.remove('playing');
+      }
+
+      function speakChunk(text) {
+        return fetch('/.netlify/functions/speak', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text: text, voice: 'derek' })
+        }).then(function(res) {
+          if (!res.ok) throw new Error('Speak failed');
+          return res.blob();
+        });
+      }
+
+      function playAudioBlob(blob) {
+        return new Promise(function(resolve, reject) {
+          var url = URL.createObjectURL(blob);
+          var audio = new Audio(url);
+          currentAudio = audio;
+          audio.onended = function() { URL.revokeObjectURL(url); resolve(); };
+          audio.onerror = function() { URL.revokeObjectURL(url); reject(new Error('Audio error')); };
+          audio.play().catch(reject);
+        });
+      }
+
+      btn.addEventListener('click', async function() {
+        if (btn.classList.contains('playing')) {
+          stopPlayback();
+          return;
+        }
+
+        btn.classList.add('playing');
+
+        try {
+          var blob = await speakChunk(introText);
+          await playAudioBlob(blob);
+        } catch (err) {
+          console.error('Voice playback error:', err);
+        }
+
+        stopPlayback();
+      });
+    })();
+  </script>
+
   <script>
     window.CustomSubstackWidget = {
       substackUrl: "standardderek.substack.com",
