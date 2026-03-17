@@ -188,6 +188,10 @@
       scroll-snap-align: start;
     }
 
+    .cover-slide-wide {
+      flex: 0 0 90%;
+    }
+
     .cover-slide img {
       width: 100%;
       height: auto;
@@ -330,6 +334,7 @@
       .project-title { font-size: 1.2rem; }
       .image-grid { grid-template-columns: 1fr; }
       .cover-slide { flex: 0 0 70%; }
+      .cover-slide-wide { flex: 0 0 95%; }
     }
 
     /* -- Focus / Reduced motion -- */
@@ -529,7 +534,7 @@
                    loading="lazy">
               <figcaption>Star Tribune staff photograph.</figcaption>
             </figure>
-            <figure class="cover-slide">
+            <figure class="cover-slide cover-slide-wide">
               <img src="../../images/gallery/prince-interior-008.png"
                    alt="Prince commemorative section — full-page photography spread, electricity captured on camera"
                    loading="lazy">
