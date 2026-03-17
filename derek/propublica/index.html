@@ -7,21 +7,19 @@
   <title>Derek Simmons — Visual Journalism Portfolio</title>
   <meta name="description" content="Visual journalism portfolio. Three projects spanning investigative, breaking news, and platform work.">
   <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --bg: #fafaf8;
-      --text: #0a1628;
+      --text: #1a1a1a;
       --dim: #6b7280;
       --accent: #d4a84b;
-      --link: #4a8ec2;
+      --link: #2a6496;
       --border: #e5e7eb;
-      --font: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+      --font: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --mono: 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
     }
 
     html { scroll-behavior: smooth; }
@@ -30,203 +28,254 @@
       font-family: var(--font);
       background: var(--bg);
       color: var(--text);
-      line-height: 1.8;
-      font-size: 16px;
+      line-height: 1.7;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
     }
 
     a { color: var(--link); text-decoration: none; }
-    a:visited { color: var(--link); }
     a:hover { text-decoration: underline; }
 
-    .container {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
+    /* ── Hero ──────────────────────────────────── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      background: #0b1a2e;
     }
 
-    /* -- Sticky Header -- */
-    .sticky-header {
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      background-image: url('../../images/gallery/prince-cover-2-carter-blue.png');
+      background-size: cover;
+      background-position: center 15%;
+      opacity: 0.55;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 2rem 4rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .subtitle {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero .scroll-hint {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 0.7; }
+    }
+
+    /* ── Sticky Nav (appears after hero) ──────── */
+    .sticky-nav {
       position: sticky;
       top: 0;
       z-index: 100;
       background: var(--bg);
       border-bottom: 1px solid var(--border);
-      padding: 0.75rem 0;
-    }
-
-    .sticky-header-inner {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0.6rem 2rem;
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 0.75rem;
     }
 
-    .sticky-header h1 {
-      font-size: 0.95rem;
+    .sticky-nav .name {
       font-weight: 600;
       letter-spacing: 0.02em;
+      color: var(--text);
     }
 
-    .sticky-header .subtitle {
-      font-size: 0.75rem;
+    .sticky-nav .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .sticky-nav .nav-links a {
       color: var(--dim);
+      text-decoration: none;
       letter-spacing: 0.04em;
     }
 
-    /* -- Spacer for sticky header -- */
-    .header-spacer {
-      height: 2rem;
+    .sticky-nav .nav-links a:hover {
+      color: var(--text);
+      text-decoration: none;
     }
 
-    /* -- Project sections -- */
-    .project {
-      margin-bottom: 4rem;
-      padding-bottom: 4rem;
-      border-bottom: 1px solid var(--border);
+    /* ── Content Container ────────────────────── */
+    .content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
 
-    .project:last-of-type {
-      border-bottom: none;
-      padding-bottom: 2rem;
+    /* ── Section ──────────────────────────────── */
+    .section {
+      padding: 4rem 0;
     }
 
-    .project-label {
+    .section + .section {
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-family: var(--mono);
       font-size: 0.7rem;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
     }
 
-    .project-title {
-      font-size: 1.4rem;
+    .section-title {
+      font-size: 1.6rem;
       font-weight: 700;
-      line-height: 1.3;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
       margin-bottom: 0.25rem;
     }
 
-    .project-subtitle {
-      font-size: 0.85rem;
+    .section-meta {
+      font-family: var(--mono);
+      font-size: 0.78rem;
       color: var(--dim);
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
 
-    /* -- Images -- */
-    .project-image {
-      margin: 2rem 0;
+    /* ── Full-Bleed Image ─────────────────────── */
+    .full-bleed {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      position: relative;
     }
 
-    .project-image img {
+    .full-bleed img {
       width: 100%;
       height: auto;
       display: block;
-      border: 1px solid var(--border);
     }
 
-    .project-image figcaption {
-      font-size: 0.75rem;
+    .full-bleed-caption {
+      max-width: 720px;
+      margin: 0.75rem auto 0;
+      padding: 0 2rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
       color: var(--dim);
-      margin-top: 0.5rem;
       letter-spacing: 0.02em;
     }
 
-    .image-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin: 2rem 0;
+    /* ── Gallery (horizontal scroll, full width) ── */
+    .gallery {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      padding: 0 2rem;
+      margin-bottom: 2.5rem;
     }
 
-    .image-grid img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border: 1px solid var(--border);
-    }
-
-    .image-grid figcaption {
-      font-size: 0.75rem;
-      color: var(--dim);
-      margin-top: 0.5rem;
-      letter-spacing: 0.02em;
-      grid-column: 1 / -1;
-    }
-
-    /* -- Cover gallery (horizontal scroll) -- */
-    .cover-gallery {
-      margin: 2rem 0;
-    }
-
-    .cover-gallery-scroll {
+    .gallery-scroll {
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       gap: 1rem;
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.75rem;
       -webkit-overflow-scrolling: touch;
     }
 
-    .cover-gallery-scroll::-webkit-scrollbar {
-      height: 4px;
+    .gallery-scroll::-webkit-scrollbar {
+      height: 3px;
     }
 
-    .cover-gallery-scroll::-webkit-scrollbar-track {
+    .gallery-scroll::-webkit-scrollbar-track {
       background: var(--border);
-      border-radius: 2px;
     }
 
-    .cover-gallery-scroll::-webkit-scrollbar-thumb {
+    .gallery-scroll::-webkit-scrollbar-thumb {
       background: var(--dim);
       border-radius: 2px;
     }
 
-    .cover-slide {
-      flex: 0 0 45%;
+    .slide {
+      flex: 0 0 38%;
       scroll-snap-align: start;
     }
 
-    .cover-slide-wide {
-      flex: 0 0 90%;
+    .slide-wide {
+      flex: 0 0 72%;
     }
 
-    .cover-slide-screen {
-      flex: 0 0 60%;
+    .slide-screen {
+      flex: 0 0 50%;
     }
 
-    .cover-slide img {
+    .slide img {
       width: 100%;
       height: auto;
       display: block;
-      border: 1px solid var(--border);
     }
 
-    .cover-slide img.dark-screenshot {
-      border: 1px solid rgba(0, 0, 0, 0.15);
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
-      border-radius: 4px;
-    }
-
-    .cover-slide figcaption {
-      font-size: 0.75rem;
-      color: var(--dim);
-      margin-top: 0.5rem;
-      letter-spacing: 0.02em;
-    }
-
-    .gallery-hint {
+    .slide figcaption {
+      font-family: var(--mono);
       font-size: 0.7rem;
       color: var(--dim);
       margin-top: 0.5rem;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.01em;
+      line-height: 1.5;
     }
 
-    /* -- Backstory text -- */
+    .gallery-hint {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--dim);
+      margin-top: 0.25rem;
+      padding: 0 2rem;
+      letter-spacing: 0.04em;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+    }
+
+    /* ── Backstory text ───────────────────────── */
     .backstory {
-      font-size: 0.95rem;
-      line-height: 1.9;
+      font-size: 1rem;
+      line-height: 1.8;
       margin: 2rem 0;
     }
 
@@ -238,77 +287,111 @@
       margin-bottom: 0;
     }
 
-    /* -- Links row -- */
-    .project-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 2rem;
-    }
-
-    .project-link {
-      display: inline-block;
-      padding: 6px 14px;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.8rem;
-      transition: all 0.2s;
-    }
-
-    .project-link:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .project-link:visited { color: var(--text); }
-    .project-link:visited:hover { color: var(--accent); }
-
-    /* -- Pull quote -- */
+    /* ── Pull quote ───────────────────────────── */
     .pull-quote {
       border-left: 2px solid var(--accent);
-      padding-left: 1rem;
-      margin: 2rem 0;
+      padding-left: 1.25rem;
+      margin: 2.5rem 0;
     }
 
     .pull-quote p {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-style: italic;
       line-height: 1.7;
-      color: var(--text);
     }
 
-    .pull-quote .attribution {
+    .pull-quote .attr {
       font-size: 0.8rem;
       font-style: normal;
       color: var(--dim);
       margin-top: 0.5rem;
     }
 
-    /* -- Video embed -- */
+    /* ── Video ────────────────────────────────── */
     .video-wrap {
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
       margin: 2rem 0;
-      border: 1px solid var(--border);
     }
 
     .video-wrap iframe {
       position: absolute;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
       border: 0;
     }
 
-    /* -- Footer -- */
+    .video-print-fallback { display: none; }
+
+    /* ── Links ────────────────────────────────── */
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2rem;
+    }
+
+    .link-btn {
+      display: inline-block;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--text);
+      text-decoration: none;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .link-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .link-btn:visited { color: var(--text); }
+    .link-btn:visited:hover { color: var(--accent); }
+
+    /* ── Section Break (full-bleed image between sections) ── */
+    .section-break {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      position: relative;
+      overflow: hidden;
+      max-height: 70vh;
+    }
+
+    .section-break img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .section-break-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem 2rem 1.5rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.6));
+    }
+
+    .section-break-overlay p {
+      max-width: 720px;
+      margin: 0 auto;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Footer ───────────────────────────────── */
     .footer {
-      padding: 2rem 0 3rem;
+      padding: 3rem 2rem;
       border-top: 1px solid var(--border);
       text-align: center;
     }
@@ -317,543 +400,461 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 6px 16px;
+      gap: 6px 20px;
       margin-bottom: 0.75rem;
     }
 
     .footer-links a {
-      font-size: 0.8rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
       color: var(--dim);
     }
 
     .footer-links a:hover { color: var(--accent); }
-    .footer-links a:visited { color: var(--dim); }
-    .footer-links a:visited:hover { color: var(--accent); }
 
     .footer-note {
-      font-size: 0.75rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
       color: var(--dim);
     }
 
-    /* -- Mobile -- */
-    @media (max-width: 600px) {
-      .container { padding: 0 1rem; }
-      .sticky-header-inner { padding: 0 1rem; }
-      .header-spacer { height: 1.5rem; }
-      .project { margin-bottom: 3rem; padding-bottom: 3rem; }
-      .project-title { font-size: 1.2rem; }
-      .image-grid { grid-template-columns: 1fr; }
-      .cover-slide { flex: 0 0 70%; }
-      .cover-slide-wide { flex: 0 0 95%; }
-      .cover-slide-screen { flex: 0 0 85%; }
+    /* ── Dark mode ────────────────────────────── */
+    @media (prefers-color-scheme: dark) {
+      body {
+        --bg: #111;
+        --text: #e0e0e0;
+        --dim: #888;
+        --border: rgba(255,255,255,0.1);
+        --link: #6ba8d4;
+      }
+      .sticky-nav { background: #111; }
     }
 
-    /* -- Focus / Reduced motion -- */
+    /* ── Mobile ───────────────────────────────── */
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero-content { padding: 0 1.25rem 3rem; }
+      .content { padding: 0 1.25rem; }
+      .section { padding: 3rem 0; }
+      .section-title { font-size: 1.3rem; }
+      .gallery { padding: 0 1rem; }
+      .gallery-hint { padding: 0 1rem; }
+      .slide { flex: 0 0 60%; }
+      .slide-wide { flex: 0 0 90%; }
+      .slide-screen { flex: 0 0 75%; }
+      .full-bleed-caption { padding: 0 1.25rem; }
+      .sticky-nav { padding: 0.5rem 1rem; }
+      .sticky-nav .nav-links { gap: 1rem; }
+      .section-break { max-height: 50vh; }
+    }
+
+    /* ── Reduced motion ───────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .hero .scroll-hint { animation: none; opacity: 0.5; }
+    }
+
+    /* ── Print ────────────────────────────────── */
+    @media print {
+      .hero { height: auto; min-height: 0; padding: 2rem 0; }
+      .hero-image { display: none; }
+      .hero h1 { color: #000; font-size: 1.5rem; }
+      .hero .subtitle { color: #555; }
+      .hero .scroll-hint { display: none; }
+      .sticky-nav { display: none; }
+      .full-bleed, .gallery, .gallery-hint { margin-left: 0; width: 100%; }
+      .section-break { max-height: none; }
+      .gallery-scroll { flex-wrap: wrap; overflow: visible; }
+      .slide { flex: 0 0 48%; }
+      .video-wrap { display: none; }
+      .video-print-fallback { display: block !important; font-size: 0.85em; color: #555; margin: 1rem 0; }
+      a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #555; }
+    }
+
+    /* ── Dark screenshots ─────────────────────── */
+    .slide img.dark-screenshot {
+      border-radius: 4px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    }
+
+    /* ── Focus ────────────────────────────────── */
     a:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 2px;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-    }
-
-    /* -- Dark mode -- */
-    @media (prefers-color-scheme: dark) {
-      body {
-        --bg: #0a1628;
-        --text: #e0e0e0;
-        --dim: #6b7280;
-        --accent: #d4a84b;
-        --link: #6ba8d4;
-        --border: rgba(255, 255, 255, 0.08);
-      }
-    }
-
-    /* -- Print -- */
-    @media print {
-      body {
-        background: #fff;
-        color: #000;
-        font-size: 11pt;
-        line-height: 1.5;
-      }
-
-      .sticky-header {
-        position: static;
-        border-bottom: 1px solid #ccc;
-      }
-
-      .container {
-        max-width: 100%;
-        padding: 0;
-      }
-
-      a { color: #000; text-decoration: underline; }
-      a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #555; }
-      a.project-link[href]::after { content: " (" attr(href) ")"; }
-
-      .project {
-        page-break-inside: avoid;
-        border-bottom: 1px solid #ccc;
-      }
-
-      .project-image img {
-        max-height: 400pt;
-        width: auto;
-        max-width: 100%;
-        border: 1px solid #ccc;
-      }
-
-      .image-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .image-grid img {
-        max-height: 250pt;
-        width: auto;
-        max-width: 100%;
-      }
-
-      .cover-gallery-scroll {
-        flex-wrap: wrap;
-        overflow: visible;
-      }
-
-      .cover-slide {
-        flex: 0 0 48%;
-      }
-
-      .gallery-hint { display: none; }
-
-      .video-wrap {
-        display: none;
-      }
-
-      .video-print-fallback {
-        display: block !important;
-        font-size: 0.85em;
-        color: #555;
-        margin: 1rem 0;
-      }
-
-      .footer { border-top: 1px solid #ccc; }
-      .footer-note, .footer-links a { color: #555; }
-    }
-
-    .video-print-fallback {
-      display: none;
     }
   </style>
   <link rel="stylesheet" href="/css/porch-widget.css">
 </head>
 <body>
 
-  <header class="sticky-header">
-    <div class="sticky-header-inner">
+  <!-- ═══ Hero ═══════════════════════════════════ -->
+  <div class="hero">
+    <div class="hero-image" role="img" aria-label="Robert Carter illustration of Prince — blue portrait, Star Tribune 2016"></div>
+    <div class="hero-content">
       <h1>Derek Simmons</h1>
       <span class="subtitle">Visual Journalism &middot; Art Direction &middot; Investigative Storytelling</span>
     </div>
-  </header>
-
-  <div class="container">
-    <div class="header-spacer"></div>
-
-    <main>
-
-      <!-- ── Project 1: Denied Justice ───────────── -->
-      <article class="project">
-        <div class="project-label">Project 1</div>
-        <h2 class="project-title">Denied Justice</h2>
-        <p class="project-subtitle">Investigative Series &mdash; Star Tribune, 2018</p>
-
-        <div class="cover-gallery">
-          <div class="cover-gallery-scroll">
-            <figure class="cover-slide">
-              <img src="../../images/gallery/denied-justice-a1-hires.jpg"
-                   alt="Star Tribune Sunday A1 — THE RAPE CASES THAT GO NOWHERE — group portrait by Renée Jones Schneider"
-                   loading="lazy">
-              <figcaption>Sunday A1. Group portrait by Ren&eacute;e Jones Schneider. July 22, 2018.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/denied-justice-cover-hires.jpg"
-                   alt="Denied Justice special section cover — WHEN RAPE IS REPORTED AND NOTHING HAPPENS — typography only"
-                   loading="lazy">
-              <figcaption>Section cover. Typography only. Each word on its own line. The restraint is the editorial decision.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/denied-justice-p2-data.jpg"
-                   alt="Denied Justice — Failings in rape investigations data visualization, 74% not sent to prosecutors"
-                   loading="lazy">
-              <figcaption>74% not sent to prosecutors. Data visualization by Mark Boswell.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/denied-justice-p3-brooke-hires.jpg"
-                   alt="Brooke Morath — full-page portrait in the parking lot where she was attacked"
-                   loading="lazy">
-              <figcaption>Brooke Morath, 24. Raped in this parking lot. &ldquo;It shouldn't be this hard for a victim.&rdquo;</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/denied-justice-p4-portraits-hires.jpg"
-                   alt="Denied Justice — survivor portraits: Andrea Gram and Alissa Lien with quotes"
-                   loading="lazy">
-              <figcaption>&ldquo;It did just end up hurting me more than vindicating me.&rdquo; &ldquo;I still have nightmares of this cop.&rdquo;</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/denied-justice-p5-grid-hires.jpg"
-                   alt="Denied Justice — four survivor portraits: Katie Finch, Melissa Miyashiro, Cherrelle McGowan, Haleigh Ortmeier-Clarke"
-                   loading="lazy">
-              <figcaption>Four survivors. Four environments. Four questions the system couldn't answer.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/denied-justice-p6-voices.jpg"
-                   alt="Denied Justice — Emily Schlecht: 'Nobody teaches you how to be a victim' and Sarah Ortega: 'I felt I never should have reported it'"
-                   loading="lazy">
-              <figcaption>&ldquo;Nobody teaches you how to be a victim.&rdquo; &ldquo;I felt&hellip; I never should have reported it.&rdquo;</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/denied-justice-p7-methodology-hires.jpg"
-                   alt="Denied Justice — How we wrote these stories, panel of 13 expert investigators, best practices, resources"
-                   loading="lazy">
-              <figcaption>How we wrote these stories. 13 expert investigators. Best practices. Resources for survivors.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/denied-justice-p8-walton-hires.jpg"
-                   alt="Melody Walton, 25, EMT — full-page portrait. 'I felt blamed. I felt like police didn't believe me.'"
-                   loading="lazy">
-              <figcaption>Melody Walton, 25. &ldquo;I felt blamed. I felt like [police] didn&rsquo;t believe me.&rdquo;</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/denied-justice-reform-emerges.jpg"
-                   alt="Star Tribune Sunday A1 — FROM THEIR STORIES, REFORM EMERGES — group photo of survivors at the Minnesota Capitol, December 30, 2018"
-                   loading="lazy">
-              <figcaption>December 30, 2018. The final A1. Nearly 100 survivors at the Minnesota Capitol. Photos by Ren&eacute;e Jones Schneider.</figcaption>
-            </figure>
-          </div>
-          <p class="gallery-hint">Scroll &rarr; The special section and the A1 that closed the series.</p>
-        </div>
-
-        <div class="backstory">
-          <p>In 2018, the Star Tribune published "Denied Justice" &mdash; a nine-part investigation into how Minnesota law enforcement systematically failed sexual assault survivors. More than 1,000 cases examined. 74% never sent to prosecutors. Rapists left free to assault again.</p>
-
-          <p>I was CCO and VP. I'm credited on design alongside Anna Boone and Josh Penrod. But my role wasn't to design it. My role was to guide it, art direct it, and build the process that produced that type of work.</p>
-
-          <p>The reporters had the story and the data. The newsroom didn't want to commit the resources &mdash; a special section, a dedicated digital presentation, the photography and graphics investment. I made the case for why this investigation deserved the visual treatment. Then I did what I'd been doing for years: someone brings me something, we talk through it, they go try something, we iterate. The typography-only cover, the portrait approach, the restraint &mdash; those came out of that process. Ren&eacute;e Jones Schneider's photography gave the survivors dignity the system had denied them. Not all of the decisions were mine. But the process was.</p>
-
-          <p>If I could do it differently, I wish I hadn't had to fight so hard to do the obvious right thing. A nine-part investigation into sexual assault deserved the visual commitment from the start. The fact that it took convincing is something I think about.</p>
-
-          <p>The series was a Pulitzer Prize finalist and won the SPJ Public Service award. Minnesota changed four laws. But the real proof is what happened next. The process became the template. When George Floyd was murdered in our city, the system we'd built produced the coverage that won the 2021 Pulitzer for Breaking News. I was on the business side by then. I wasn't in the room. I didn't need to be.</p>
-
-          <p>That's what I mean by visual editing. It's not about me. It's about the work.</p>
-        </div>
-
-        <div class="pull-quote">
-          <p>&ldquo;People look at the series, realize that there's a pervasive problem, and politicians, everybody is jumping up and saying we got to do something about this and they're starting to take action. It makes me proud to be a journalist and work alongside the people that I do every day.&rdquo;</p>
-          <p class="attribution">&mdash; Jenni Pinkley, video producer</p>
-        </div>
-
-        <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/zIeFt2JIveM"
-                  title="Denied Justice — Star Tribune investigation"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                  loading="lazy"></iframe>
-        </div>
-        <p class="video-print-fallback">Video: https://www.youtube.com/watch?v=zIeFt2JIveM</p>
-
-        <div class="project-links">
-          <a href="https://www2.startribune.com/denied-justice-minnesota-s-failed-rape-investigations/487400761/" class="project-link" target="_blank" rel="noopener">Full investigation &amp; credits</a>
-        </div>
-      </article>
-
-      <!-- ── Project 2: Prince ───────────────────── -->
-      <article class="project">
-        <div class="project-label">Project 2</div>
-        <h2 class="project-title">Prince: Remembering a Minnesota Icon</h2>
-        <p class="project-subtitle">Breaking News / Commemorative &mdash; Star Tribune, 2016</p>
-
-        <div class="cover-gallery">
-          <div class="cover-gallery-scroll">
-            <figure class="cover-slide">
-              <img src="../../images/gallery/prince-a1-purple-majesty.png"
-                   alt="Star Tribune front page — PURPLE MAJESTY — Friday, April 22, 2016"
-                   loading="lazy">
-              <figcaption>Purple Majesty. Breaking news front page, Friday April 22, 2016.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/prince-cover-2-carter-blue.png"
-                   alt="Prince commemorative cover — Robert Carter illustration, blue close-up portrait"
-                   loading="lazy">
-              <figcaption>Robert Carter illustration. Commissioned and completed in less than a week.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/prince-cover-1-carter-purple.png"
-                   alt="Prince commemorative cover — Robert Carter illustration, purple rain guitar"
-                   loading="lazy">
-              <figcaption>Robert Carter illustration. Second of two original paintings.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/prince-cover-3-whitman-1977.png"
-                   alt="Prince commemorative cover — Robert Whitman 1977 archival photograph, Prince at 19 with Fender Stratocaster"
-                   loading="lazy">
-              <figcaption>Robert Whitman, 1977. Prince at 19. Only 15 press kits from this shoot were produced.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/prince-cover-4-staff-photo.png"
-                   alt="Prince commemorative cover — Star Tribune staff photograph, Prince performing"
-                   loading="lazy">
-              <figcaption>Star Tribune photographer David Brewster took this shot at the 1984 MN Music Awards.</figcaption>
-            </figure>
-            <figure class="cover-slide cover-slide-wide">
-              <img src="../../images/gallery/prince-interior-008.png"
-                   alt="Prince commemorative section — full-page photography spread, electricity captured on camera"
-                   loading="lazy">
-              <figcaption>Electricity captured on camera. Pages 8-9 photo spread.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/prince-interior-010.png"
-                   alt="Prince commemorative section — illustrated map of Prince's Twin Cities haunts"
-                   loading="lazy">
-              <figcaption>Princely tour of the Twin Cities. Illustrated map of his haunts.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/prince-interior-013.png"
-                   alt="Prince commemorative section — The albums: a critical guide to Prince's discography"
-                   loading="lazy">
-              <figcaption>The albums: a critical guide. His legacy on disc.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/prince-interior-015.png"
-                   alt="Prince commemorative section — Prince of pop, king of style, evolution of his fashion"
-                   loading="lazy">
-              <figcaption>Prince of pop, king of style. Evolution of his look.</figcaption>
-            </figure>
-          </div>
-          <p class="gallery-hint">Scroll &rarr; Breaking news front page, four zoned covers, and selected interior pages.</p>
-        </div>
-
-        <div class="backstory">
-          <p>Prince died on Thursday, April 21, 2016. By Friday morning we published "Purple Majesty" &mdash; the breaking news front page. Digital coverage went up immediately. Over the next 10 days, I art directed a 16-page commemorative section with four unique zoned covers for different regions of our Sunday audience, with a dedicated digital presentation that brought the full section online.</p>
-
-          <p>I commissioned Robert Carter to paint two original cover illustrations, completed in less than a week. One cover used a staff photograph. For the fourth, I negotiated the rights to a rarely seen 1977 photograph by Robert Whitman, taken when Prince was 19 &mdash; before his first record deal. Only 15 press kits from those shoots were ever produced. Jon Bream, the longest-running music critic in America, wrote the essays. The section drew from 40 years of Star Tribune coverage.</p>
-
-          <p>Every paper in the country was running Prince coverage. The editorial decisions across those 10 days is the backstory. When to use illustration vs. photography. How to hold the tone of a state's mourning without exploiting it. How to give four audiences four different visual interpretations of one enormous loss.</p>
-
-          <p>I color corrected the images, approved the final proofs, and was at Heritage, our printing facility, when they loaded the sections into the delivery trucks. The relationship with Carter wasn't new &mdash; I'd been commissioning him since 2008 at the LA Times. That existing network is the only reason two original paintings were possible in less than a week.</p>
-
-          <p>At the LA Times, I worked on the John Wooden commemorative section that was distributed at Pauley Pavilion for his memorial service. The night Michael Jackson died, I was the only design director in the building &mdash; working with an intern to produce the next-day coverage. I brought that process to the Star Tribune.</p>
-
-          <p>Prince reprints still sell today &mdash; 10 years later. The commemorative section became the proof of concept for Star Tribune Magazine, which launched the following year with Prince on the debut cover.</p>
-        </div>
-
-        <figure class="project-image">
-          <img src="../../images/gallery/prince-illo-detail.png"
-               alt="Robert Carter illustration of Prince — detail from Star Tribune commemorative section"
-               loading="lazy">
-          <figcaption>Robert Carter illustration, commissioned for the commemorative section.</figcaption>
-        </figure>
-
-        <div class="pull-quote">
-          <p>&ldquo;He's clear on what he needs from me, but flexible in how I deliver it. He stands up for his artists and creates lasting loyal relationships. His clear vision and decisiveness was key to making that happen. Those portraits are still one of my most sought after paintings today.&rdquo;</p>
-          <p class="attribution">&mdash; Robert Carter, illustrator</p>
-        </div>
-
-        <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/M6tn3Q7i7-c"
-                  title="Prince commemorative section — video walkthrough"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                  loading="lazy"></iframe>
-        </div>
-        <p class="video-print-fallback">Video walkthrough: https://www.youtube.com/watch?v=M6tn3Q7i7-c</p>
-
-        <div class="project-links">
-          <a href="https://stribstore.com/products/remembering-a-minnesota-icon-prince-page-poster-reprint-set" class="project-link" target="_blank" rel="noopener">Reprints (Strib Store)</a>
-          <a href="https://www.startribune.com/remembering-prince-an-icon-for-minnesota-and-the-world/377316801" class="project-link" target="_blank" rel="noopener">Digital presentation</a>
-        </div>
-      </article>
-
-      <!-- ── Project 3: claudewill.io ────────────── -->
-      <article class="project">
-        <div class="project-label">Project 3</div>
-        <h2 class="project-title">claudewill.io</h2>
-        <p class="project-subtitle">Platform &mdash; Self-Initiated, 2024&ndash;2026</p>
-
-        <div class="cover-gallery">
-          <div class="cover-gallery-scroll">
-            <figure class="cover-slide cover-slide-screen">
-              <img src="../../images/gallery/claudewill-homepage-2.png"
-                   alt="claudewill.io homepage — Claude Will. wordmark on star field"
-                   class="dark-screenshot"
-                   loading="lazy">
-              <figcaption>Homepage. The wordmark. Built from scratch.</figcaption>
-            </figure>
-            <figure class="cover-slide cover-slide-screen">
-              <img src="../../images/gallery/claudewill-porch.png"
-                   alt="CW's Porch — conversational AI widget on claudewill.io"
-                   class="dark-screenshot"
-                   loading="lazy">
-              <figcaption>CW's Porch. Conversational AI modeled after my grandfather.</figcaption>
-            </figure>
-            <figure class="cover-slide cover-slide-screen">
-              <img src="../../images/gallery/claudewill-kitchen.png"
-                   alt="The Writing — essay series, two voices, one practice"
-                   loading="lazy">
-              <figcaption>The Writing. 11 pieces, two voices, one practice.</figcaption>
-            </figure>
-            <figure class="cover-slide cover-slide-screen">
-              <img src="../../images/gallery/claudewill-writing.png"
-                   alt="The Kitchen — TUI terminal dashboard, overnight agent reports"
-                   loading="lazy">
-              <figcaption>The Kitchen. TUI terminal dashboard. Overnight agent reports.</figcaption>
-            </figure>
-            <figure class="cover-slide cover-slide-screen">
-              <img src="../../images/gallery/claudewill-gallery.png"
-                   alt="claudewill.io gallery page — visual portfolio"
-                   class="dark-screenshot"
-                   loading="lazy">
-              <figcaption>Gallery page. 30 years of visual work, browseable.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/cascadia.png"
-                   alt="Cascadia Daily Life magazine cover — current consulting client work"
-                   loading="lazy">
-              <figcaption>Cascadia Daily Life. Current consulting client in Washington state.</figcaption>
-            </figure>
-          </div>
-          <p class="gallery-hint">Scroll &rarr; Platform pages, design system, and client work.</p>
-        </div>
-
-        <div class="backstory">
-          <p>In October 2024, my position at the Star Tribune was eliminated, ending three decades in newspapering. I started building the next day.</p>
-
-          <p>claudewill.io is a platform I built from scratch using AI as my collaborator &mdash; HTML, CSS, vanilla JavaScript, Netlify serverless functions, Supabase, Anthropic AI. No frameworks. No templates. Every design decision mine. The code was written in daily conversation with Claude Code, the same way I used to work with designers: here's what I'm thinking, go try it, let's iterate. The method didn't change. The collaborator did.</p>
-
-          <p>The centerpiece is CW &mdash; a conversational AI modeled after my grandfather, Claude William Simmons, born in Oklahoma Territory in 1903. He worked 51 years. Farmed, worked the railroad, raised 11 children through the Depression and dust bowls. I never met him. So I built a porch where the way he thought about helping people could keep going. You show up with a problem. CW listens, asks questions, gives you a straight answer.</p>
-
-          <p>The challenge was building something real without a team, a budget, or a deadline &mdash; just the instinct that I don't know how to not make things. The collaborator was a machine, but the process was the same one I'd used for 30 years: talk through the vision, try something, iterate, ship it.</p>
-
-          <p>Seventeen months later, the platform is live, I write and build daily, and the practice serves a consulting client in Washington state. The posting asks for HTML, CSS, and JavaScript proficiency. I have a live platform. But the real proof is simpler: the same process that produced a Pulitzer finalist and a Prince commemorative section also produced this. The instinct doesn't retire.</p>
-        </div>
-
-        <div class="project-links">
-          <a href="https://claudewill.io" class="project-link" target="_blank" rel="noopener">Visit claudewill.io</a>
-          <a href="https://claudewill.io/derek" class="project-link" target="_blank" rel="noopener">About Derek</a>
-          <a href="https://claudewill.io/being-claude" class="project-link" target="_blank" rel="noopener">Being Claude (essays)</a>
-        </div>
-      </article>
-
-      <!-- ── What Else ─────────────────────────────── -->
-      <article class="project">
-        <div class="project-label">What else</div>
-        <h2 class="project-title">What doesn't fit in projects and resumes</h2>
-
-        <div class="cover-gallery">
-          <div class="cover-gallery-scroll">
-            <figure class="cover-slide">
-              <img src="../../images/gallery/theres-no-mistaking-love-la-times-illo.png"
-                   alt="LA Times illustration — There's No Mistaking Love, commissioned editorial illustration"
-                   loading="lazy">
-              <figcaption>Commissioned illustration, LA Times. Part of an international artist network built over 30 years.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/oly-poster-kobe.png"
-                   alt="Olympics poster design — Kobe, Japan illustration"
-                   loading="lazy">
-              <figcaption>Olympics poster design.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/oly-sochi-flame.png"
-                   alt="Sochi Olympics — torch flame illustration"
-                   loading="lazy">
-              <figcaption>Sochi Olympics coverage.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/bees-brink.jpg"
-                   alt="Data visualization — bees on the brink, environmental journalism"
-                   loading="lazy">
-              <figcaption>Bees on the brink. Data visualization and environmental storytelling.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/weather-dataviz.png"
-                   alt="Weather data visualization — information design"
-                   loading="lazy">
-              <figcaption>Weather data visualization. Information design.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/stmag-cover.png"
-                   alt="Star Tribune Magazine cover"
-                   loading="lazy">
-              <figcaption>Star Tribune Magazine. Launched the year after the Prince commemorative section.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/st-mag-voyaguers.png"
-                   alt="Star Tribune Magazine — Voyageurs feature"
-                   loading="lazy">
-              <figcaption>Star Tribune Magazine interior. Voyageurs feature.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/showtime-cover.jpg"
-                   alt="Showtime magazine cover — entertainment section design"
-                   loading="lazy">
-              <figcaption>Showtime section cover. Entertainment design.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/john-wooden.jpg"
-                   alt="John Wooden commemorative section — LA Times"
-                   loading="lazy">
-              <figcaption>John Wooden commemorative section. LA Times. Distributed at Pauley Pavilion memorial.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/sugar-investigation.png"
-                   alt="Sugar investigation — investigative visual journalism"
-                   loading="lazy">
-              <figcaption>Sugar investigation. Investigative visual journalism.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/disabled-series.jpg"
-                   alt="Investigative series on disability — visual storytelling"
-                   loading="lazy">
-              <figcaption>Investigative series. Long-form visual storytelling.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/wildfires.png"
-                   alt="Wildfires coverage — breaking news visual journalism"
-                   loading="lazy">
-              <figcaption>Wildfires coverage. Breaking news visual journalism.</figcaption>
-            </figure>
-            <figure class="cover-slide">
-              <img src="../../images/gallery/vr-app.png"
-                   alt="VR app design — emerging technology in journalism"
-                   loading="lazy">
-              <figcaption>VR app. Emerging technology in journalism.</figcaption>
-            </figure>
-          </div>
-          <p class="gallery-hint">Scroll &rarr; Illustration, data viz, magazines, Olympics, investigations, emerging tech.</p>
-        </div>
-
-        <div class="backstory">
-          <p>I understand what keeps a newsroom running. I generated $20 million in revenue at the Star Tribune during a pandemic &mdash; two paid content verticals, a merchandise program that funded journalism directly. ProPublica is a nonprofit that operates primarily on donations. At a nonprofit, a visual editor who understands institutional sustainability isn't a luxury. It's a practical asset.</p>
-
-          <p>I also have an international network of illustrators and photographers I've built over 30 years &mdash; artists I can call on a Friday and have original work by Wednesday. That network is the only reason two commissioned paintings were possible in less than a week for the Prince commemorative section. Relationships like that don't appear on a resume, but they're the infrastructure behind the work.</p>
-
-          <p>My hope for this position is simple. I've been a lot of things &mdash; CCO, VP, executive director, consultant, builder. The work I'm proudest of is the visual journalism. It's what I trained for, what I'm best at, and what I want to do. This role would be a return to that work at a place that values it the way I do.</p>
-        </div>
-      </article>
-
-    </main>
-
-    <footer class="footer">
-      <div class="footer-links">
-        <a href="mailto:derek@claudewill.io">derek@claudewill.io</a>
-        <a href="https://claudewill.io/derek" target="_blank" rel="noopener">claudewill.io/derek</a>
-        <a href="https://www.linkedin.com/in/dereksimm/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/dereksimmons23" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://dereksimmons.substack.com" target="_blank" rel="noopener">Substack</a>
-      </div>
-      <p class="footer-note">Minnesota</p>
-    </footer>
+    <span class="scroll-hint">&darr;</span>
   </div>
+
+  <!-- ═══ Sticky Nav ═════════════════════════════ -->
+  <nav class="sticky-nav">
+    <span class="name">Derek Simmons</span>
+    <div class="nav-links">
+      <a href="#prince">Prince</a>
+      <a href="#denied-justice">Denied Justice</a>
+      <a href="#claudewill">claudewill.io</a>
+      <a href="#range">Range</a>
+    </div>
+  </nav>
+
+  <!-- ═══ Content ════════════════════════════════ -->
+  <div class="content">
+
+    <!-- ── Prince ────────────────────────────── -->
+    <section class="section" id="prince">
+      <div class="section-label">Commemorative</div>
+      <h2 class="section-title">Prince: Remembering a Minnesota Icon</h2>
+      <p class="section-meta">Star Tribune &middot; April 2016 &middot; Breaking News + 16-page Section</p>
+
+      <div class="gallery">
+        <div class="gallery-scroll">
+          <figure class="slide">
+            <img src="../../images/gallery/prince-a1-purple-majesty.png"
+                 alt="Star Tribune front page — PURPLE MAJESTY — Friday, April 22, 2016"
+                 loading="lazy">
+            <figcaption>Purple Majesty. Breaking news A1. April 22, 2016.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/prince-cover-2-carter-blue.png"
+                 alt="Prince commemorative cover — Robert Carter illustration, blue close-up portrait"
+                 loading="lazy">
+            <figcaption>Robert Carter. Commissioned, completed in under a week.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/prince-cover-1-carter-purple.png"
+                 alt="Prince commemorative cover — Robert Carter illustration, purple rain guitar"
+                 loading="lazy">
+            <figcaption>Carter's second painting. Purple Rain guitar.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/prince-cover-3-whitman-1977.png"
+                 alt="Prince commemorative cover — Robert Whitman 1977 archival photograph"
+                 loading="lazy">
+            <figcaption>Robert Whitman, 1977. Prince at 19. Only 15 press kits ever produced.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/prince-cover-4-staff-photo.png"
+                 alt="Prince commemorative cover — Star Tribune staff photograph"
+                 loading="lazy">
+            <figcaption>David Brewster, 1984 MN Music Awards.</figcaption>
+          </figure>
+          <figure class="slide slide-wide">
+            <img src="../../images/gallery/prince-interior-008.png"
+                 alt="Prince commemorative — full-page photography spread"
+                 loading="lazy">
+            <figcaption>Pages 8-9. Electricity captured on camera.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/prince-interior-010.png"
+                 alt="Illustrated map of Prince's Twin Cities haunts"
+                 loading="lazy">
+            <figcaption>Princely tour of the Twin Cities.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/prince-interior-013.png"
+                 alt="The albums: a critical guide to Prince's discography"
+                 loading="lazy">
+            <figcaption>The albums. His legacy on disc.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/prince-interior-015.png"
+                 alt="Prince of pop, king of style — fashion evolution"
+                 loading="lazy">
+            <figcaption>Prince of pop, king of style.</figcaption>
+          </figure>
+        </div>
+        <p class="gallery-hint">Scroll &rarr; Breaking news A1, four zoned covers, interior pages.</p>
+      </div>
+
+      <div class="backstory">
+        <p>Prince died on Thursday. By Friday morning we published &ldquo;Purple Majesty.&rdquo; Over the next 10 days, I art directed a 16-page commemorative section with four unique zoned covers, commissioned two original paintings from Robert Carter in less than a week, and negotiated rights to a rarely seen 1977 photograph by Robert Whitman &mdash; taken when Prince was 19, before his first record deal.</p>
+
+        <p>Every paper in the country ran Prince coverage. The editorial decisions &mdash; when to use illustration vs. photography, how to hold the tone of a state's mourning without exploiting it, how to give four audiences four different visual interpretations &mdash; those are the backstory. I was at Heritage printing when they loaded the sections into delivery trucks. Reprints still sell 10 years later. The section became the proof of concept for Star Tribune Magazine.</p>
+      </div>
+
+      <div class="pull-quote">
+        <p>&ldquo;He's clear on what he needs from me, but flexible in how I deliver it. He stands up for his artists. His clear vision and decisiveness was key. Those portraits are still one of my most sought after paintings today.&rdquo;</p>
+        <p class="attr">&mdash; Robert Carter, illustrator</p>
+      </div>
+
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/M6tn3Q7i7-c"
+                title="Prince commemorative section walkthrough"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy"></iframe>
+      </div>
+      <p class="video-print-fallback">Video: https://www.youtube.com/watch?v=M6tn3Q7i7-c</p>
+
+      <div class="links">
+        <a href="https://stribstore.com/products/remembering-a-minnesota-icon-prince-page-poster-reprint-set" class="link-btn" target="_blank" rel="noopener">Reprints (Strib Store)</a>
+        <a href="https://www.startribune.com/remembering-prince-an-icon-for-minnesota-and-the-world/377316801" class="link-btn" target="_blank" rel="noopener">Digital presentation</a>
+      </div>
+    </section>
+
+    <!-- ── Section break: Reform Emerges ─────── -->
+    <div class="section-break">
+      <img src="../../images/gallery/denied-justice-reform-emerges.jpg"
+           alt="Star Tribune Sunday A1 — FROM THEIR STORIES, REFORM EMERGES — survivors at the Minnesota Capitol, December 30, 2018"
+           loading="lazy">
+      <div class="section-break-overlay">
+        <p>December 30, 2018. Nearly 100 survivors at the Minnesota Capitol. The final A1 of a nine-part investigation that changed four Minnesota laws.</p>
+      </div>
+    </div>
+
+    <!-- ── Denied Justice ────────────────────── -->
+    <section class="section" id="denied-justice">
+      <div class="section-label">Investigative</div>
+      <h2 class="section-title">Denied Justice</h2>
+      <p class="section-meta">Star Tribune &middot; 2018 &middot; Nine-part Series &middot; Pulitzer Finalist</p>
+
+      <div class="gallery">
+        <div class="gallery-scroll">
+          <figure class="slide">
+            <img src="../../images/gallery/denied-justice-a1-hires.jpg"
+                 alt="THE RAPE CASES THAT GO NOWHERE — group portrait by Renée Jones Schneider"
+                 loading="lazy">
+            <figcaption>Sunday A1. Ren&eacute;e Jones Schneider. July 22, 2018.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/denied-justice-cover-hires.jpg"
+                 alt="WHEN RAPE IS REPORTED AND NOTHING HAPPENS — typography only"
+                 loading="lazy">
+            <figcaption>Section cover. Typography only. The restraint is the editorial decision.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/denied-justice-p2-data.jpg"
+                 alt="Data visualization — 74% not sent to prosecutors"
+                 loading="lazy">
+            <figcaption>74% not sent to prosecutors. Data viz by Mark Boswell.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/denied-justice-p3-brooke-hires.jpg"
+                 alt="Brooke Morath full-page portrait"
+                 loading="lazy">
+            <figcaption>Brooke Morath, 24. &ldquo;It shouldn't be this hard for a victim.&rdquo;</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/denied-justice-p4-portraits-hires.jpg"
+                 alt="Andrea Gram and Alissa Lien portraits"
+                 loading="lazy">
+            <figcaption>&ldquo;It did just end up hurting me more.&rdquo; &ldquo;I still have nightmares of this cop.&rdquo;</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/denied-justice-p5-grid-hires.jpg"
+                 alt="Four survivors — Katie Finch, Melissa Miyashiro, Cherrelle McGowan, Haleigh Ortmeier-Clarke"
+                 loading="lazy">
+            <figcaption>Four survivors. Four environments. Four questions.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/denied-justice-p6-voices.jpg"
+                 alt="Emily Schlecht and Sarah Ortega"
+                 loading="lazy">
+            <figcaption>&ldquo;Nobody teaches you how to be a victim.&rdquo;</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/denied-justice-p7-methodology-hires.jpg"
+                 alt="How we wrote these stories — methodology and expert panel"
+                 loading="lazy">
+            <figcaption>Methodology. 13 expert investigators. Resources.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/denied-justice-p8-walton-hires.jpg"
+                 alt="Melody Walton, 25"
+                 loading="lazy">
+            <figcaption>Melody Walton, 25. &ldquo;I felt blamed.&rdquo;</figcaption>
+          </figure>
+        </div>
+        <p class="gallery-hint">Scroll &rarr; The special section. Nine pages from the first installment.</p>
+      </div>
+
+      <div class="backstory">
+        <p>More than 1,000 cases. 74% never sent to prosecutors. I was CCO and VP. My role wasn't to design it &mdash; it was to make the case for why this investigation deserved the visual commitment, then guide the process that produced it. Someone brings me something, we talk through it, they try something, we iterate. The typography-only cover, the portrait approach, the restraint &mdash; those came out of that process. Ren&eacute;e Jones Schneider's photography gave the survivors dignity the system had denied them.</p>
+
+        <p>Minnesota changed four laws. The series was a Pulitzer finalist and won the SPJ Public Service award. When George Floyd was murdered in our city, the system we'd built produced the coverage that won the 2021 Pulitzer for Breaking News. I was on the business side by then. I wasn't in the room. I didn't need to be.</p>
+      </div>
+
+      <div class="pull-quote">
+        <p>&ldquo;People look at the series, realize that there's a pervasive problem, and politicians are jumping up and saying we got to do something about this. It makes me proud to be a journalist.&rdquo;</p>
+        <p class="attr">&mdash; Jenni Pinkley, video producer</p>
+      </div>
+
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/zIeFt2JIveM"
+                title="Denied Justice — Star Tribune investigation"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy"></iframe>
+      </div>
+      <p class="video-print-fallback">Video: https://www.youtube.com/watch?v=zIeFt2JIveM</p>
+
+      <div class="links">
+        <a href="https://www2.startribune.com/denied-justice-minnesota-s-failed-rape-investigations/487400761/" class="link-btn" target="_blank" rel="noopener">Full investigation</a>
+      </div>
+    </section>
+
+    <!-- ── claudewill.io ─────────────────────── -->
+    <section class="section" id="claudewill">
+      <div class="section-label">Platform</div>
+      <h2 class="section-title">claudewill.io</h2>
+      <p class="section-meta">Self-built &middot; 2024&ndash;2026 &middot; HTML, CSS, JS, Serverless, AI</p>
+
+      <div class="gallery">
+        <div class="gallery-scroll">
+          <figure class="slide slide-screen">
+            <img src="../../images/gallery/claudewill-homepage-2.png"
+                 alt="claudewill.io homepage"
+                 class="dark-screenshot"
+                 loading="lazy">
+            <figcaption>Homepage. The wordmark.</figcaption>
+          </figure>
+          <figure class="slide slide-screen">
+            <img src="../../images/gallery/claudewill-porch.png"
+                 alt="CW's Porch conversational AI"
+                 class="dark-screenshot"
+                 loading="lazy">
+            <figcaption>CW's Porch. Conversational AI modeled after my grandfather.</figcaption>
+          </figure>
+          <figure class="slide slide-screen">
+            <img src="../../images/gallery/claudewill-kitchen.png"
+                 alt="Writing page"
+                 loading="lazy">
+            <figcaption>Writing. Essays from two voices.</figcaption>
+          </figure>
+          <figure class="slide slide-screen">
+            <img src="../../images/gallery/claudewill-writing.png"
+                 alt="The Kitchen TUI dashboard"
+                 loading="lazy">
+            <figcaption>The Kitchen. TUI terminal dashboard.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/cascadia.png"
+                 alt="Cascadia Daily Life magazine"
+                 loading="lazy">
+            <figcaption>Cascadia Daily Life. Current consulting client.</figcaption>
+          </figure>
+        </div>
+        <p class="gallery-hint">Scroll &rarr;</p>
+      </div>
+
+      <div class="backstory">
+        <p>In October 2024, my position at the Star Tribune was eliminated. I started building the next day. claudewill.io is a platform I built from scratch using AI as my collaborator &mdash; the same way I used to work with designers: here's what I'm thinking, go try it, let's iterate. The method didn't change. The collaborator did.</p>
+
+        <p>The centerpiece is CW &mdash; a conversational AI modeled after my grandfather, Claude William Simmons, born in Oklahoma Territory in 1903. You show up with a problem. CW listens, asks questions, gives you a straight answer. The same process that produced a Pulitzer finalist also produced this. The instinct doesn't retire.</p>
+      </div>
+
+      <div class="links">
+        <a href="https://claudewill.io" class="link-btn" target="_blank" rel="noopener">Visit the site</a>
+        <a href="https://claudewill.io/being-claude" class="link-btn" target="_blank" rel="noopener">Being Claude (essays)</a>
+      </div>
+    </section>
+
+    <!-- ── Range ─────────────────────────────── -->
+    <section class="section" id="range">
+      <div class="section-label">30 years</div>
+      <h2 class="section-title">Range</h2>
+      <p class="section-meta">Star Tribune &middot; LA Times &middot; Wichita Eagle &middot; Consulting</p>
+
+      <div class="gallery">
+        <div class="gallery-scroll">
+          <figure class="slide">
+            <img src="../../images/gallery/theres-no-mistaking-love-la-times-illo.png"
+                 alt="LA Times editorial illustration" loading="lazy">
+            <figcaption>Commissioned illustration, LA Times.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/john-wooden.jpg"
+                 alt="John Wooden commemorative — LA Times" loading="lazy">
+            <figcaption>John Wooden. LA Times. Distributed at Pauley Pavilion.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/oly-poster-kobe.png"
+                 alt="Olympics poster" loading="lazy">
+            <figcaption>Olympics poster design.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/oly-sochi-flame.png"
+                 alt="Sochi Olympics" loading="lazy">
+            <figcaption>Sochi Olympics coverage.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/bees-brink.jpg"
+                 alt="Bees on the brink — data visualization" loading="lazy">
+            <figcaption>Bees on the brink. Data viz + environmental storytelling.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/weather-dataviz.png"
+                 alt="Weather data visualization" loading="lazy">
+            <figcaption>Weather data visualization.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/stmag-cover.png"
+                 alt="Star Tribune Magazine cover" loading="lazy">
+            <figcaption>Star Tribune Magazine.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/st-mag-voyaguers.png"
+                 alt="Voyageurs feature" loading="lazy">
+            <figcaption>Voyageurs feature.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/showtime-cover.jpg"
+                 alt="Showtime section design" loading="lazy">
+            <figcaption>Showtime section cover.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/sugar-investigation.png"
+                 alt="Sugar investigation" loading="lazy">
+            <figcaption>Sugar investigation.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/disabled-series.jpg"
+                 alt="Disability investigative series" loading="lazy">
+            <figcaption>Investigative series. Long-form visual storytelling.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/wildfires.png"
+                 alt="Wildfires breaking news" loading="lazy">
+            <figcaption>Wildfires. Breaking news.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../../images/gallery/vr-app.png"
+                 alt="VR journalism app" loading="lazy">
+            <figcaption>VR app. Emerging tech.</figcaption>
+          </figure>
+        </div>
+        <p class="gallery-hint">Scroll &rarr; Illustration, data viz, magazines, Olympics, investigations, VR.</p>
+      </div>
+
+      <div class="backstory">
+        <p>I generated $20 million in revenue at the Star Tribune during a pandemic &mdash; two paid content verticals, a merchandise program that funded journalism directly. I have an international network of illustrators and photographers built over 30 years. That network is the infrastructure behind the work &mdash; it doesn't appear on a resume, but it's the reason two commissioned paintings were possible in less than a week.</p>
+
+        <p>I've been a lot of things &mdash; CCO, VP, consultant, builder. The work I'm proudest of is the visual journalism. This role would be a return to that work at a place that values it the way I do.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ═══ Footer ═════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="mailto:derek@claudewill.io">derek@claudewill.io</a>
+      <a href="https://claudewill.io/derek" target="_blank" rel="noopener">claudewill.io/derek</a>
+      <a href="https://www.linkedin.com/in/dereksimm/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/dereksimmons23" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://dereksimmons.substack.com" target="_blank" rel="noopener">Substack</a>
+    </div>
+    <p class="footer-note">Minnesota</p>
+  </footer>
 
   <script src="/js/cw-link-renderer.js"></script>
   <script src="/js/porch-widget.js" defer></script>
