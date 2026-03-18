@@ -1,76 +1,77 @@
 {
-  "lastUpdated": "2026-03-17T11:21:10.514Z",
+  "lastUpdated": "2026-03-18T11:20:55.021Z",
   "agents": {
     "housekeeping": {
       "name": "Housekeeping",
-      "lastRun": "2026-03-17T11:21:10.512Z",
+      "lastRun": "2026-03-18T11:20:55.020Z",
       "status": "ok",
-      "summary": "All 10 pages + 2 subdomains responding. Avg 386ms.",
+      "summary": "All 10 pages + 2 subdomains responding. Avg 299ms.",
       "flags": [],
       "details": [
-        "https://claudewill.io/ — 200 28ms",
-        "https://claudewill.io/derek — 200 51ms",
-        "https://claudewill.io/story — 200 315ms",
-        "https://claudewill.io/workshop — 200 783ms",
-        "https://claudewill.io/privacy — 200 348ms",
-        "https://claudewill.io/terms — 200 314ms",
-        "https://claudewill.io/kitchen — 200 563ms",
-        "https://claudewill.io/arcade — 200 509ms",
-        "https://claudewill.io/map — 200 809ms",
-        "https://claudewill.io/being-claude — 200 135ms",
-        "Coach D (https://coach.claudewill.io) — 200 283ms",
-        "BOB (https://bob.claudewill.io) — 200 626ms"
+        "https://claudewill.io/ — 200 302ms",
+        "https://claudewill.io/derek — 200 20ms",
+        "https://claudewill.io/story — 200 282ms",
+        "https://claudewill.io/workshop — 200 527ms",
+        "https://claudewill.io/privacy — 200 53ms",
+        "https://claudewill.io/terms — 200 227ms",
+        "https://claudewill.io/kitchen — 200 470ms",
+        "https://claudewill.io/arcade — 200 472ms",
+        "https://claudewill.io/map — 200 429ms",
+        "https://claudewill.io/being-claude — 200 206ms",
+        "Coach D (https://coach.claudewill.io) — 200 101ms",
+        "BOB (https://bob.claudewill.io) — 200 1260ms"
       ]
     },
     "research": {
       "name": "Research Brief",
-      "lastRun": "2026-03-17T11:21:10.512Z",
+      "lastRun": "2026-03-18T11:20:55.020Z",
       "status": "ok",
       "summary": "No significant AI industry developments matching the specified focus areas (AI consulting practices, media AI adoption, AI-native methodologies, or Anthropic/Claude/agent updates) occurred in the...",
       "sources": [
         "https://www.auxi.ai/blog/ai-tools-for-consultants",
+        "https://www.g-co.agency/insights/top-healthcare-ai-consulting-firms-to-work-with",
         "https://almcorp.com/blog/ai-tools-digital-agencies-2026-guide/",
         "https://www.youtube.com/watch?v=Pagd9kNIg9o",
         "https://www.pwc.com/us/en/tech-effect/ai-analytics/ai-predictions.html",
         "https://www.ytc.company/blog/from-experimentation-to-enterprise-capability-the-defining-ai-consulting-trends-shaping-2026",
-        "https://www.ibm.com/think/news/ai-tech-trends-predictions-2026",
         "https://futureofconsulting.ai/ai-leadership/2026-consultings-ai-revolution-update/",
         "https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html"
       ]
     },
     "gemini": {
       "name": "Industry Brief",
-      "lastRun": "2026-03-17T11:21:10.512Z",
+      "lastRun": "2026-03-18T11:20:55.020Z",
       "status": "ok",
-      "summary": "Here is your concise morning brief on the most significant AI industry developments from the last 24 hours:\n\n**Morning Brief: AI Industry Developments (March 17, 2026)**\n\n**Lead for Solo AI...",
+      "summary": "No content returned.",
       "sources": []
     },
     "codeReview": {
       "name": "Code Review",
-      "lastRun": "2026-03-17T11:21:10.512Z",
-      "status": "flags",
-      "summary": "**Security Issues:**\n- None found.\n\n**Performance Problems:**\n- `data/gallery.json` (new file): 524 lines, 41 items. No pagination or lazy-loading implemented in `derek/gallery/index.html`. Risk of..."
+      "lastRun": "2026-03-18T11:20:55.020Z",
+      "status": "ok",
+      "summary": "### Security Issues\n- **None found.**\n\n### Performance Problems\n- **portfolio/index.html:1**\n  - Missing `loading=\"lazy\"` on hero image (`/images/gallery/derek-self-portrait.png`). Add it.\n-..."
     },
     "analytics": {
       "name": "Analytics",
-      "lastRun": "2026-03-17T11:21:10.513Z",
+      "lastRun": "2026-03-18T11:20:55.021Z",
       "status": "flags",
-      "summary": "Conversations: 106 total (24h: 2 | 7d: 26 | 30d: 106)",
+      "summary": "Conversations: 105 total (24h: 1 | 7d: 5 | 30d: 105)",
       "flags": [
-        "38.7 hours last 7d — exceeds sovereignty target (21h)"
+        "Conversation volume declining: 0.7/day (7d) vs 3.5/day (30d)",
+        "35.8 hours last 7d — exceeds sovereignty target (21h)"
       ],
       "metrics": {
         "conversations": {
-          "total": 106,
-          "day": 2,
-          "week": 26,
-          "month": 106
+          "total": 105,
+          "day": 1,
+          "week": 5,
+          "month": 105
         },
         "visitors": {
-          "total": 5,
-          "new7d": 2,
+          "total": 6,
+          "new7d": 1,
           "returning": 2,
-          "named": 1
+          "named": 2
         },
         "pipeline": {
           "count30d": 2,
@@ -78,17 +79,17 @@
           "total": 4
         },
         "derekTime": {
-          "hours7d": 38.7,
-          "sessions7d": 28
+          "hours7d": 35.8,
+          "sessions7d": 32
         },
-        "apiCost30d": 1.04
+        "apiCost30d": 1.03
       }
     },
     "contentScan": {
       "name": "Content Scan",
-      "lastRun": "2026-03-17T11:21:10.513Z",
+      "lastRun": "2026-03-18T11:20:55.021Z",
       "status": "findings",
-      "summary": "Scanned 28 HTML files. Found 11 issues.",
+      "summary": "Scanned 29 HTML files. Found 15 issues.",
       "flags": [],
       "findings": [
         "being-claude/being-claude/index.html: \"August 2025\" is more than 90 days old",
@@ -99,33 +100,37 @@
         "being-claude/the-jar/index.html: \"October 2024\" is more than 90 days old",
         "being-claude/three-rooms/index.html: \"June 2025\" is more than 90 days old",
         "being-claude/warm-up-effect/index.html: \"Dec 2024\" is more than 90 days old",
+        "derek/propublica/index.html: \"April 2016\" is more than 90 days old",
         "derek/propublica/index.html: \"October 2024\" is more than 90 days old",
+        "derek.html: \"April 2016\" is more than 90 days old",
         "derek.html: \"October 2024\" is more than 90 days old",
+        "portfolio/index.html: \"April 2016\" is more than 90 days old",
+        "portfolio/index.html: \"October 2024\" is more than 90 days old",
         "writing/index.html: \"Dec 2024\" is more than 90 days old"
       ]
     },
     "researchStatus": {
       "name": "Research Status",
-      "lastRun": "2026-03-17T11:21:10.513Z",
+      "lastRun": "2026-03-18T11:20:55.021Z",
       "status": "ok",
       "summary": "11 published, 0 draft, 0 blocked",
       "flags": []
     },
     "socialDraft": {
       "name": "Social Drafts",
-      "lastRun": "2026-03-17T11:21:10.513Z",
+      "lastRun": "2026-03-18T11:20:55.021Z",
       "status": "ok",
       "summary": "0 new drafts, 11 skipped.",
       "flags": []
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-03-17T11:21:10.514Z",
+      "lastRun": "2026-03-18T11:20:55.021Z",
       "status": "flags",
       "summary": "**Pipeline:** 7 items (3 draft, 2 planned, 1 idea, 1 in-progress)",
       "flags": [
-        "Being Claude: The Scoreboard: draft for 13 days — review or reject",
-        "Being Claude: The Brightness (warm/hot/cold): draft for 13 days — review or reject"
+        "Being Claude: The Scoreboard: draft for 14 days — review or reject",
+        "Being Claude: The Brightness (warm/hot/cold): draft for 14 days — review or reject"
       ]
     }
   },
