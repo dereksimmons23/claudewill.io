@@ -943,10 +943,20 @@
     const lightbox = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightbox-img');
     const lbCap = document.getElementById('lightbox-caption');
+    function openLB(src, alt, caption) { lbImg.src = src; lbImg.alt = alt; lbCap.textContent = caption; lightbox.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    // Tiles
     document.querySelectorAll('.tile').forEach(tile => {
-      const open = () => { lbImg.src = tile.dataset.src; lbImg.alt = tile.querySelector('img').alt; lbCap.textContent = tile.dataset.caption; lightbox.classList.add('active'); document.body.style.overflow = 'hidden'; };
+      const open = () => openLB(tile.dataset.src, tile.querySelector('img').alt, tile.dataset.caption);
       tile.addEventListener('click', open);
       tile.addEventListener('keydown', e => { if (e.key === 'Enter') open(); });
+    });
+    // Gallery slides — click to zoom
+    document.querySelectorAll('.slide, .slide-page, .slide-wide, .slide-screen').forEach(slide => {
+      var img = slide.querySelector('img');
+      var cap = slide.querySelector('figcaption');
+      if (!img) return;
+      slide.style.cursor = 'pointer';
+      slide.addEventListener('click', () => openLB(img.src, img.alt, cap ? cap.textContent : ''));
     });
     const closeLB = () => { lightbox.classList.remove('active'); document.body.style.overflow = ''; };
     lightbox.addEventListener('click', e => { if (e.target === lightbox || e.target.classList.contains('lightbox-close')) closeLB(); });
