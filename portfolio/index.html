@@ -119,6 +119,29 @@
     .hero-btn:visited { color: rgba(255,255,255,0.85); }
     .hero-btn:visited:hover { color: var(--accent); }
 
+    .voice-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 3px;
+      color: rgba(255,255,255,0.85);
+      background: none;
+      cursor: pointer;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.02em;
+      transition: all 0.2s;
+    }
+
+    .voice-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .voice-btn.playing { border-color: var(--accent); color: var(--accent); }
+    .voice-btn svg { width: 11px; height: 11px; fill: currentColor; }
+    .voice-btn .stop-icon { display: none; }
+    .voice-btn.playing .play-icon { display: none; }
+    .voice-btn.playing .stop-icon { display: block; }
+
     .sticky-header {
       position: sticky;
       top: 0;
@@ -254,17 +277,17 @@
     .gallery-scroll::-webkit-scrollbar-track { background: var(--border); }
     .gallery-scroll::-webkit-scrollbar-thumb { background: var(--dim); border-radius: 2px; }
 
-    .slide { flex: 0 0 36%; scroll-snap-align: start; }
-    .slide-wide { flex: 0 0 68%; }
-    .slide-screen { flex: 0 0 48%; }
+    .slide { flex: 0 0 42%; scroll-snap-align: start; }
+    .slide-wide { flex: 0 0 72%; }
+    .slide-screen { flex: 0 0 52%; }
 
     .slide img { width: 100%; height: auto; display: block; }
 
     .slide figcaption {
       font-family: var(--mono);
-      font-size: 0.68rem;
+      font-size: 0.78rem;
       color: var(--dim);
-      margin-top: 0.4rem;
+      margin-top: 0.5rem;
       letter-spacing: 0.01em;
       line-height: 1.5;
     }
@@ -419,26 +442,39 @@
       margin-left: calc(-50vw + 50%);
       position: relative;
       overflow: hidden;
-      max-height: 65vh;
+      min-height: 50vh;
+      max-height: 70vh;
     }
 
-    .section-break img { width: 100%; height: auto; display: block; object-fit: cover; }
+    .section-break img { width: 100%; height: 100%; display: block; object-fit: cover; position: absolute; inset: 0; }
 
     .section-break-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 2rem;
-      background: linear-gradient(transparent, rgba(0,0,0,0.6));
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 50vh;
+      max-height: 70vh;
+      padding: 3rem 2rem;
+      background: rgba(0,0,0,0.4);
     }
 
-    .section-break-overlay p {
-      max-width: var(--content-w);
-      margin: 0 auto;
+    .section-break-title {
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-break-meta {
       font-family: var(--mono);
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.85);
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.04em;
     }
 
     .slide img.dark-screenshot {
@@ -485,13 +521,15 @@
       .section-hero-title { font-size: 1.8rem; }
       .gallery { padding: 0 1rem; }
       .gallery-hint { padding: 0 1rem; }
-      .slide { flex: 0 0 58%; }
-      .slide-wide { flex: 0 0 88%; }
-      .slide-screen { flex: 0 0 72%; }
+      .slide { flex: 0 0 68%; }
+      .slide-wide { flex: 0 0 92%; }
+      .slide-screen { flex: 0 0 78%; }
       .tile-grid { grid-template-columns: repeat(2, 1fr); }
       .sticky-header { padding: 0.5rem 1rem; }
       .sticky-header .nav-links { gap: 0.75rem; font-size: 0.65rem; }
-      .section-break { max-height: 45vh; }
+      .section-break { max-height: 50vh; min-height: 40vh; }
+      .section-break-overlay { min-height: 40vh; max-height: 50vh; }
+      .section-break-title { font-size: clamp(1.8rem, 8vw, 3rem); }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -505,6 +543,7 @@
       .hero-card { min-height: auto; padding: 2rem; background: #fff; color: #000; }
       .hero-photo { display: none; }
       .hero-btn { color: #000; border-color: #ccc; }
+      .voice-btn { display: none; }
       .sticky-header { display: none; }
       .section-hero { max-height: none; min-height: auto; }
       .section-hero img { position: static; height: auto; }
@@ -527,18 +566,22 @@
   <div class="hero-card">
     <div class="hero-card-inner">
       <div class="hero-photo">
-        <img src="/images/gallery/derek-self-portrait.png" alt="Derek Simmons">
+        <img src="/images/gallery/derek-self-portrait.png" alt="Derek Simmons" loading="eager">
       </div>
       <div class="hero-text">
         <h1>Derek Simmons</h1>
-        <p class="role">Visual Editor &middot; Art Director &middot; Process Builder</p>
-        <p class="intro">I was the guy who turned &ldquo;they will never go for this&rdquo; into yes, they will. Someone brings me something, we talk through it, they try something, we iterate. The work wins awards and changes law. If after a few months you still need me, I haven&rsquo;t done my job.</p>
-        <p class="credentials">3 Pulitzer finalists &middot; 4 Pulitzer-winning teams &middot; #1 SND worldwide, 6 consecutive years &middot; Angus McDougall Trophy &middot; 5 investigations that changed state law &middot; 1,000+ awards across 30 years</p>
+        <p class="role">Visual Journalism &middot; Art Direction &middot; Newsroom Leadership</p>
+        <p class="intro">Thirty years in visual journalism. Star Tribune, LA Times, Wichita Eagle. Art directed investigations that changed four Minnesota laws and a Prince commemorative that still sells reprints a decade later. Built the teams and revenue model that generated $20 million during the pandemic. First Chief Creative Officer and VP in Star Tribune history.</p>
+        <p class="credentials">3 Pulitzer finalists &middot; 4 Pulitzer-winning teams &middot; #1 SND worldwide, 6 consecutive years &middot; 5 investigations that changed state law &middot; 1,000+ awards across 30 years</p>
         <div class="hero-buttons">
           <a href="mailto:derek@claudewill.io" class="hero-btn">Email</a>
-          <a href="/derek/propublica/derek_simmons_resume.pdf" class="hero-btn" target="_blank">Resume</a>
+          <a href="/derek/propublica/derek_simmons_resume.pdf" class="hero-btn" target="_blank">R&eacute;sum&eacute;</a>
           <a href="https://www.linkedin.com/in/dereksimm/" class="hero-btn" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://github.com/dereksimmons23" class="hero-btn" target="_blank" rel="noopener">GitHub</a>
+          <button class="voice-btn" id="voice-tour" aria-label="Listen to Derek narrate this portfolio">
+            <svg class="play-icon" viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+            <svg class="stop-icon" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12"/></svg>
+            Hear my voice
+          </button>
         </div>
       </div>
     </div>
@@ -558,7 +601,7 @@
 
     <section class="section" id="prince">
       <div class="section-hero">
-        <img src="/images/gallery/prince-cover-2-carter-blue.png" alt="Robert Carter illustration of Prince" loading="lazy">
+        <img src="/images/gallery/prince-illo-detail.png" alt="Robert Carter illustration detail — Prince's eyes" loading="eager">
         <div class="section-hero-overlay">
           <div class="inner">
             <h2 class="section-hero-title">Prince</h2>
@@ -570,10 +613,9 @@
       <div class="gallery">
         <div class="gallery-scroll">
           <figure class="slide"><img src="/images/gallery/prince-a1-purple-majesty.png" alt="PURPLE MAJESTY — breaking news A1" loading="lazy"><figcaption>Purple Majesty. Breaking news A1.</figcaption></figure>
-          <figure class="slide"><img src="/images/gallery/prince-cover-2-carter-blue.png" alt="Robert Carter blue portrait" loading="lazy"><figcaption>Robert Carter. Completed in under a week.</figcaption></figure>
-          <figure class="slide"><img src="/images/gallery/prince-cover-1-carter-purple.png" alt="Robert Carter purple rain" loading="lazy"><figcaption>Carter&rsquo;s second painting.</figcaption></figure>
+          <figure class="slide slide-wide"><img src="/images/gallery/prince-4-covers.png" alt="Four zoned covers — Carter paintings, Whitman 1977, Brewster 1984" loading="lazy"><figcaption>Four zoned covers. Each market got a different front.</figcaption></figure>
+          <figure class="slide"><img src="/images/gallery/prince-cover-1-carter-purple.png" alt="Robert Carter Purple Rain" loading="lazy"><figcaption>Robert Carter. Two original paintings in under a week.</figcaption></figure>
           <figure class="slide"><img src="/images/gallery/prince-cover-3-whitman-1977.png" alt="Robert Whitman 1977" loading="lazy"><figcaption>Robert Whitman, 1977. Prince at 19.</figcaption></figure>
-          <figure class="slide"><img src="/images/gallery/prince-cover-4-staff-photo.png" alt="Star Tribune staff photograph" loading="lazy"><figcaption>David Brewster, 1984 MN Music Awards.</figcaption></figure>
           <figure class="slide slide-wide"><img src="/images/gallery/prince-interior-008.png" alt="Photography spread" loading="lazy"><figcaption>Pages 8-9. Electricity on camera.</figcaption></figure>
           <figure class="slide"><img src="/images/gallery/prince-interior-010.png" alt="Twin Cities map" loading="lazy"><figcaption>Princely tour of the Twin Cities.</figcaption></figure>
           <figure class="slide"><img src="/images/gallery/prince-interior-013.png" alt="Discography guide" loading="lazy"><figcaption>The albums. Legacy on disc.</figcaption></figure>
@@ -604,9 +646,12 @@
     </section>
 
     <div class="section-break">
-      <img src="/images/gallery/denied-justice-reform-emerges.jpg" alt="FROM THEIR STORIES, REFORM EMERGES — survivors at the Minnesota Capitol" loading="lazy">
+      <img src="/images/gallery/denied-justice-reform-emerges.jpg" alt="Nearly 100 survivors at the Minnesota Capitol" loading="lazy">
       <div class="section-break-overlay">
-        <p>December 30, 2018. Nearly 100 survivors at the Minnesota Capitol. The final A1 of a nine-part investigation. Four Minnesota laws changed.</p>
+        <div>
+          <h2 class="section-break-title">From Their Stories,<br>Reform Emerges</h2>
+          <p class="section-break-meta">Star Tribune &middot; December 30, 2018 &middot; Four Minnesota laws changed</p>
+        </div>
       </div>
     </div>
 
@@ -664,8 +709,8 @@
         <div class="gallery-scroll">
           <figure class="slide slide-screen"><img src="/images/gallery/claudewill-homepage-2.png" alt="claudewill.io homepage" class="dark-screenshot" loading="lazy"><figcaption>Homepage.</figcaption></figure>
           <figure class="slide slide-screen"><img src="/images/gallery/claudewill-porch.png" alt="CW's Porch" class="dark-screenshot" loading="lazy"><figcaption>CW&rsquo;s Porch. Conversational AI.</figcaption></figure>
-          <figure class="slide slide-screen"><img src="/images/gallery/claudewill-kitchen.png" alt="Writing page" loading="lazy"><figcaption>Writing. Two voices.</figcaption></figure>
-          <figure class="slide slide-screen"><img src="/images/gallery/claudewill-writing.png" alt="The Kitchen" loading="lazy"><figcaption>The Kitchen. TUI dashboard.</figcaption></figure>
+          <figure class="slide slide-screen"><img src="/images/gallery/claudewill-kitchen.png" alt="The Kitchen" loading="lazy"><figcaption>The Kitchen. TUI terminal dashboard.</figcaption></figure>
+          <figure class="slide slide-screen"><img src="/images/gallery/claudewill-writing.png" alt="Being Claude essays" loading="lazy"><figcaption>Being Claude. Essays from inside the machine.</figcaption></figure>
           <figure class="slide"><img src="/images/gallery/cascadia.png" alt="Cascadia Daily Life" loading="lazy"><figcaption>Current consulting client.</figcaption></figure>
         </div>
         <p class="gallery-hint">Scroll &rarr;</p>
@@ -681,24 +726,34 @@
       </div>
     </section>
 
+    <div class="section-break">
+      <img src="/images/gallery/obama-inauguration.jpg" alt="Making History — Obama inauguration, LA Times" loading="lazy">
+      <div class="section-break-overlay">
+        <div>
+          <h2 class="section-break-title">30 Years.<br>Three Newsrooms.</h2>
+          <p class="section-break-meta">Star Tribune &middot; LA Times &middot; Wichita Eagle</p>
+        </div>
+      </div>
+    </div>
+
     <section class="section" id="range">
-      <div class="section-label">30 years</div>
-      <h2 class="section-title">Range</h2>
-      <p class="section-meta">Star Tribune &middot; LA Times &middot; Wichita Eagle &middot; Consulting</p>
+      <div class="section-label">Range</div>
+      <h2 class="section-title">Everything Else</h2>
+      <p class="section-meta">Elections &middot; Investigations &middot; Entertainment &middot; Data &middot; Magazines &middot; Illustration</p>
 
       <div class="tile-grid">
-        <div class="tile" tabindex="0" data-src="/images/gallery/theres-no-mistaking-love-la-times-illo.png" data-caption="Commissioned illustration, LA Times. Part of an international artist network built over 30 years."><img src="/images/gallery/theres-no-mistaking-love-la-times-illo.png" alt="LA Times illustration" loading="lazy"><span class="tile-label">Illustration &middot; LA Times</span></div>
+        <div class="tile" tabindex="0" data-src="/images/gallery/wildfires.png" data-caption="Wildfires breaking news coverage. When the story is moving, the page has to move with it."><img src="/images/gallery/wildfires.png" alt="Wildfires breaking news" loading="lazy"><span class="tile-label">Breaking News</span></div>
         <div class="tile" tabindex="0" data-src="/images/gallery/john-wooden.jpg" data-caption="John Wooden commemorative section, LA Times. Distributed at Pauley Pavilion memorial service."><img src="/images/gallery/john-wooden.jpg" alt="John Wooden commemorative" loading="lazy"><span class="tile-label">Wooden &middot; LA Times</span></div>
-        <div class="tile" tabindex="0" data-src="/images/gallery/oly-poster-kobe.png" data-caption="Olympics poster design."><img src="/images/gallery/oly-poster-kobe.png" alt="Olympics poster" loading="lazy"><span class="tile-label">Olympics</span></div>
-        <div class="tile" tabindex="0" data-src="/images/gallery/oly-sochi-flame.png" data-caption="Sochi Olympics coverage."><img src="/images/gallery/oly-sochi-flame.png" alt="Sochi Olympics" loading="lazy"><span class="tile-label">Sochi</span></div>
-        <div class="tile" tabindex="0" data-src="/images/gallery/bees-brink.jpg" data-caption="Bees on the brink. Data visualization and environmental storytelling."><img src="/images/gallery/bees-brink.jpg" alt="Bees data viz" loading="lazy"><span class="tile-label">Data viz</span></div>
-        <div class="tile" tabindex="0" data-src="/images/gallery/weather-dataviz.png" data-caption="Weather data visualization. Information design."><img src="/images/gallery/weather-dataviz.png" alt="Weather data viz" loading="lazy"><span class="tile-label">Weather &middot; Data viz</span></div>
+        <div class="tile" tabindex="0" data-src="/images/gallery/trump-wave.jpg" data-caption="TRUMP WAVE. Election night A1, Star Tribune. 28 pages of election coverage."><img src="/images/gallery/trump-wave.jpg" alt="Trump Wave election A1" loading="lazy"><span class="tile-label">Election &middot; Star Tribune</span></div>
+        <div class="tile" tabindex="0" data-src="/images/gallery/theres-no-mistaking-love-la-times-illo.png" data-caption="Commissioned illustration, LA Times. Part of an international artist network built over 30 years."><img src="/images/gallery/theres-no-mistaking-love-la-times-illo.png" alt="LA Times illustration" loading="lazy"><span class="tile-label">Illustration &middot; LA Times</span></div>
         <div class="tile" tabindex="0" data-src="/images/gallery/stmag-cover.png" data-caption="Star Tribune Magazine. Launched the year after the Prince commemorative."><img src="/images/gallery/stmag-cover.png" alt="Star Tribune Magazine" loading="lazy"><span class="tile-label">ST Magazine</span></div>
-        <div class="tile" tabindex="0" data-src="/images/gallery/st-mag-voyaguers.png" data-caption="Star Tribune Magazine interior. Voyageurs feature."><img src="/images/gallery/st-mag-voyaguers.png" alt="Voyageurs feature" loading="lazy"><span class="tile-label">Voyageurs</span></div>
-        <div class="tile" tabindex="0" data-src="/images/gallery/showtime-cover.jpg" data-caption="Showtime section cover. Entertainment design."><img src="/images/gallery/showtime-cover.jpg" alt="Showtime cover" loading="lazy"><span class="tile-label">Showtime</span></div>
-        <div class="tile" tabindex="0" data-src="/images/gallery/sugar-investigation.png" data-caption="Sugar investigation. Investigative visual journalism."><img src="/images/gallery/sugar-investigation.png" alt="Sugar investigation" loading="lazy"><span class="tile-label">Sugar &middot; Investigative</span></div>
-        <div class="tile" tabindex="0" data-src="/images/gallery/disabled-series.jpg" data-caption="Investigative series on disability. Long-form visual storytelling."><img src="/images/gallery/disabled-series.jpg" alt="Disability series" loading="lazy"><span class="tile-label">Investigative</span></div>
-        <div class="tile" tabindex="0" data-src="/images/gallery/wildfires.png" data-caption="Wildfires coverage. Breaking news."><img src="/images/gallery/wildfires.png" alt="Wildfires" loading="lazy"><span class="tile-label">Wildfires</span></div>
+        <div class="tile" tabindex="0" data-src="/images/gallery/oscars.jpg" data-caption="82nd Academy Awards. Red carpet panoramic, LA Times. Rachel McAdams, Charlize Theron, the whole floor."><img src="/images/gallery/oscars.jpg" alt="Oscars red carpet panoramic" loading="lazy"><span class="tile-label">Oscars &middot; LA Times</span></div>
+        <div class="tile" tabindex="0" data-src="/images/gallery/sugar-investigation.png" data-caption="Sugar investigation. Investigative visual journalism, Star Tribune."><img src="/images/gallery/sugar-investigation.png" alt="Sugar investigation" loading="lazy"><span class="tile-label">Sugar &middot; Investigative</span></div>
+        <div class="tile" tabindex="0" data-src="/images/gallery/bees-brink.jpg" data-caption="Bees on the brink. Data visualization and environmental storytelling, Star Tribune."><img src="/images/gallery/bees-brink.jpg" alt="Bees data viz" loading="lazy"><span class="tile-label">Data viz &middot; Star Tribune</span></div>
+        <div class="tile" tabindex="0" data-src="/images/gallery/showtime-cover.jpg" data-caption="Showtime section cover. Entertainment design, Star Tribune."><img src="/images/gallery/showtime-cover.jpg" alt="Showtime cover" loading="lazy"><span class="tile-label">Showtime</span></div>
+        <div class="tile" tabindex="0" data-src="/images/gallery/disabled-series.jpg" data-caption="Investigative series on disability. Long-form visual storytelling, Star Tribune."><img src="/images/gallery/disabled-series.jpg" alt="Disability series" loading="lazy"><span class="tile-label">Investigative</span></div>
+        <div class="tile" tabindex="0" data-src="/images/gallery/denied-justice-part7-a1.jpg" data-caption="Denied Justice Part 7 — 'It made me question every single relationship.' A1 portrait by Renée Jones Schneider."><img src="/images/gallery/denied-justice-part7-a1.jpg" alt="Denied Justice Part 7" loading="lazy"><span class="tile-label">Denied Justice &middot; Part 7</span></div>
+        <div class="tile" tabindex="0" data-src="/images/gallery/weather-dataviz.png" data-caption="Weather data visualization. Information design at the intersection of data and daily life."><img src="/images/gallery/weather-dataviz.png" alt="Weather data visualization" loading="lazy"><span class="tile-label">Data viz &middot; Information Design</span></div>
       </div>
 
       <div class="backstory">
@@ -725,6 +780,59 @@
       <p class="lightbox-caption" id="lightbox-caption"></p>
     </div>
   </div>
+
+  <script>
+    // ── Voice narration ─────────────────────
+    (function() {
+      var btn = document.getElementById('voice-tour');
+      if (!btn) return;
+      var currentAudio = null;
+      var isPlaying = false;
+
+      var narrationText = "I've been doing this for 30 years across three newsrooms. The Prince section, Denied Justice, Star Tribune Magazine — the common thread is I build process. Someone brings me something difficult, we figure out the approach together, and the work gets better than anyone expected. Most of what you'll see here won a lot of awards. But the part I care about is whether the team kept producing after I left the room.";
+
+      function stopAudio() {
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio = null;
+        }
+        isPlaying = false;
+        btn.classList.remove('playing');
+      }
+
+      function speakChunk(text) {
+        return fetch('/.netlify/functions/speak', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text: text, voice: 'derek' })
+        }).then(function(r) { return r.blob(); });
+      }
+
+      function playAudioBlob(blob) {
+        return new Promise(function(resolve, reject) {
+          var url = URL.createObjectURL(blob);
+          var audio = new Audio(url);
+          currentAudio = audio;
+          audio.onended = function() { URL.revokeObjectURL(url); resolve(); };
+          audio.onerror = function() { URL.revokeObjectURL(url); reject(new Error('Audio error')); };
+          audio.play().catch(reject);
+        });
+      }
+
+      btn.addEventListener('click', async function() {
+        if (isPlaying) { stopAudio(); return; }
+        isPlaying = true;
+        btn.classList.add('playing');
+        try {
+          var blob = await speakChunk(narrationText);
+          await playAudioBlob(blob);
+        } catch (err) {
+          console.error('Voice error:', err);
+        }
+        stopAudio();
+      });
+    })();
+  </script>
 
   <script>
     const lightbox = document.getElementById('lightbox');
