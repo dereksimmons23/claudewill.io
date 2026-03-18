@@ -192,6 +192,18 @@
   status = 301
 
 [[redirects]]
+  from = "/derek/propublica"
+  to = "/derek"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/derek/propublica/"
+  to = "/derek"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/workshop"
   to = "/derek"
   status = 301
