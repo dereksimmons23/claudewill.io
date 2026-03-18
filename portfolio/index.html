@@ -278,6 +278,7 @@
     .gallery-scroll::-webkit-scrollbar-thumb { background: var(--dim); border-radius: 2px; }
 
     .slide { flex: 0 0 42%; scroll-snap-align: start; }
+    .slide-page { flex: 0 0 56%; scroll-snap-align: start; }
     .slide-wide { flex: 0 0 72%; }
     .slide-screen { flex: 0 0 52%; }
 
@@ -301,6 +302,14 @@
       margin-left: calc(-50vw + 50%);
       padding: 0 2rem;
       margin-top: 0.25rem;
+    }
+
+    .impact {
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.5;
+      margin: 2rem 0 0.5rem;
+      color: var(--text);
     }
 
     .backstory { font-size: 0.97rem; line-height: 1.8; margin: 2rem 0; }
@@ -522,6 +531,7 @@
       .gallery { padding: 0 1rem; }
       .gallery-hint { padding: 0 1rem; }
       .slide { flex: 0 0 68%; }
+      .slide-page { flex: 0 0 80%; }
       .slide-wide { flex: 0 0 92%; }
       .slide-screen { flex: 0 0 78%; }
       .tile-grid { grid-template-columns: repeat(2, 1fr); }
@@ -617,16 +627,18 @@
           <figure class="slide"><img src="/images/gallery/prince-cover-1-carter-purple.png" alt="Robert Carter Purple Rain" loading="lazy"><figcaption>Robert Carter. Two original paintings in under a week.</figcaption></figure>
           <figure class="slide"><img src="/images/gallery/prince-cover-3-whitman-1977.png" alt="Robert Whitman 1977" loading="lazy"><figcaption>Robert Whitman, 1977. Prince at 19.</figcaption></figure>
           <figure class="slide slide-wide"><img src="/images/gallery/prince-interior-008.png" alt="Photography spread" loading="lazy"><figcaption>Pages 8-9. Electricity on camera.</figcaption></figure>
-          <figure class="slide"><img src="/images/gallery/prince-interior-010.png" alt="Twin Cities map" loading="lazy"><figcaption>Princely tour of the Twin Cities.</figcaption></figure>
-          <figure class="slide"><img src="/images/gallery/prince-interior-013.png" alt="Discography guide" loading="lazy"><figcaption>The albums. Legacy on disc.</figcaption></figure>
-          <figure class="slide"><img src="/images/gallery/prince-interior-015.png" alt="Fashion evolution" loading="lazy"><figcaption>Prince of pop, king of style.</figcaption></figure>
+          <figure class="slide slide-page"><img src="/images/gallery/prince-interior-010.png" alt="Twin Cities map" loading="lazy"><figcaption>Princely tour of the Twin Cities.</figcaption></figure>
+          <figure class="slide slide-page"><img src="/images/gallery/prince-interior-013.png" alt="Discography guide" loading="lazy"><figcaption>The albums. Legacy on disc.</figcaption></figure>
+          <figure class="slide slide-page"><img src="/images/gallery/prince-interior-015.png" alt="Fashion evolution" loading="lazy"><figcaption>Prince of pop, king of style.</figcaption></figure>
         </div>
         <p class="gallery-hint">Scroll &rarr; A1, four zoned covers, interior pages</p>
       </div>
 
+      <p class="impact">Reprints still sell a decade later. The section became the proof of concept for Star Tribune Magazine.</p>
+
       <div class="backstory">
         <p>Prince died on Thursday. By Friday morning we published &ldquo;Purple Majesty.&rdquo; Over the next 10 days I art directed a 16-page commemorative section with four unique zoned covers, commissioned two original paintings from Robert Carter in under a week, and negotiated rights to a rarely seen 1977 photograph taken when Prince was 19.</p>
-        <p>Every paper in the country ran Prince coverage. The editorial decisions &mdash; when to use illustration vs. photography, how to hold the tone of a state&rsquo;s mourning &mdash; those are the backstory. Reprints still sell 10 years later. The section became the proof of concept for Star Tribune Magazine.</p>
+        <p>Every paper in the country ran Prince coverage. The editorial decisions &mdash; when to use illustration vs. photography, how to hold the tone of a state&rsquo;s mourning &mdash; those are the backstory.</p>
       </div>
 
       <div class="pull-quote">
@@ -668,21 +680,22 @@
 
       <div class="gallery">
         <div class="gallery-scroll">
-          <figure class="slide"><img src="/images/gallery/denied-justice-cover-hires.jpg" alt="Section cover" loading="lazy"><figcaption>Section cover. Typography only.</figcaption></figure>
-          <figure class="slide"><img src="/images/gallery/denied-justice-p2-data.jpg" alt="Data visualization" loading="lazy"><figcaption>74% not sent to prosecutors.</figcaption></figure>
-          <figure class="slide"><img src="/images/gallery/denied-justice-p3-brooke-hires.jpg" alt="Brooke Morath" loading="lazy"><figcaption>Brooke Morath, 24.</figcaption></figure>
-          <figure class="slide"><img src="/images/gallery/denied-justice-p4-portraits-hires.jpg" alt="Andrea Gram and Alissa Lien" loading="lazy"><figcaption>&ldquo;I still have nightmares of this cop.&rdquo;</figcaption></figure>
-          <figure class="slide"><img src="/images/gallery/denied-justice-p5-grid-hires.jpg" alt="Four survivors" loading="lazy"><figcaption>Four survivors. Four questions.</figcaption></figure>
-          <figure class="slide"><img src="/images/gallery/denied-justice-p6-voices.jpg" alt="Emily Schlecht and Sarah Ortega" loading="lazy"><figcaption>&ldquo;Nobody teaches you how to be a victim.&rdquo;</figcaption></figure>
-          <figure class="slide"><img src="/images/gallery/denied-justice-p7-methodology-hires.jpg" alt="Methodology" loading="lazy"><figcaption>How we wrote these stories.</figcaption></figure>
-          <figure class="slide"><img src="/images/gallery/denied-justice-p8-walton-hires.jpg" alt="Melody Walton" loading="lazy"><figcaption>Melody Walton, 25. &ldquo;I felt blamed.&rdquo;</figcaption></figure>
+          <figure class="slide slide-page"><img src="/images/gallery/denied-justice-cover-hires.jpg" alt="Section cover" loading="lazy"><figcaption>Section cover. Typography only.</figcaption></figure>
+          <figure class="slide slide-page"><img src="/images/gallery/denied-justice-p2-data.jpg" alt="Data visualization" loading="lazy"><figcaption>74% not sent to prosecutors.</figcaption></figure>
+          <figure class="slide slide-page"><img src="/images/gallery/denied-justice-p3-brooke-hires.jpg" alt="Brooke Morath" loading="lazy"><figcaption>Brooke Morath, 24.</figcaption></figure>
+          <figure class="slide slide-page"><img src="/images/gallery/denied-justice-p4-portraits-hires.jpg" alt="Andrea Gram and Alissa Lien" loading="lazy"><figcaption>&ldquo;I still have nightmares of this cop.&rdquo;</figcaption></figure>
+          <figure class="slide slide-page"><img src="/images/gallery/denied-justice-p5-grid-hires.jpg" alt="Four survivors" loading="lazy"><figcaption>Four survivors. Four questions.</figcaption></figure>
+          <figure class="slide slide-page"><img src="/images/gallery/denied-justice-p6-voices.jpg" alt="Emily Schlecht and Sarah Ortega" loading="lazy"><figcaption>&ldquo;Nobody teaches you how to be a victim.&rdquo;</figcaption></figure>
+          <figure class="slide slide-page"><img src="/images/gallery/denied-justice-p7-methodology-hires.jpg" alt="Methodology" loading="lazy"><figcaption>How we wrote these stories.</figcaption></figure>
+          <figure class="slide slide-page"><img src="/images/gallery/denied-justice-p8-walton-hires.jpg" alt="Melody Walton" loading="lazy"><figcaption>Melody Walton, 25. &ldquo;I felt blamed.&rdquo;</figcaption></figure>
         </div>
         <p class="gallery-hint">Scroll &rarr; The special section</p>
       </div>
 
+      <p class="impact">Four Minnesota laws changed. The system we built produced the 2021 Pulitzer for Breaking News. I wasn&rsquo;t in the room. I didn&rsquo;t need to be.</p>
+
       <div class="backstory">
         <p>More than 1,000 cases. 74% never sent to prosecutors. My role wasn&rsquo;t to design it &mdash; it was to make the case for why this investigation deserved the visual commitment, then guide the process. The typography-only cover, the portrait approach, the restraint &mdash; those came out of iteration. Ren&eacute;e Jones Schneider&rsquo;s photography gave the survivors dignity the system denied them.</p>
-        <p>Minnesota changed four laws. When George Floyd was murdered in our city, the system we&rsquo;d built produced the 2021 Pulitzer for Breaking News. I was on the business side by then. I wasn&rsquo;t in the room. I didn&rsquo;t need to be.</p>
       </div>
 
       <div class="pull-quote">
