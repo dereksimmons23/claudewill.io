@@ -96,10 +96,11 @@
 
     .hero-text .credentials {
       font-family: var(--mono);
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.45);
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
       letter-spacing: 0.03em;
       margin-bottom: 1.5rem;
+      line-height: 1.6;
     }
 
     .hero-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -488,10 +489,47 @@
       letter-spacing: 0.04em;
     }
 
+    .section-hero-dark .section-hero-overlay {
+      background: linear-gradient(transparent 30%, rgba(10,22,40,0.75));
+    }
+
     .slide img.dark-screenshot {
       border-radius: 4px;
       box-shadow: 0 2px 16px rgba(0,0,0,0.15);
     }
+
+    .cta-close {
+      padding: 5rem 2rem;
+      text-align: center;
+      background: #0b1a2e;
+      color: #fff;
+    }
+
+    .cta-line {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 9px 20px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 3px;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.02em;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .cta-btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .cta-btn:visited { color: rgba(255,255,255,0.85); }
+    .cta-btn:visited:hover { color: var(--accent); }
 
     .footer {
       padding: 3rem 2rem;
@@ -542,6 +580,8 @@
       .section-break { max-height: 50vh; min-height: 40vh; }
       .section-break-overlay { min-height: 40vh; max-height: 50vh; }
       .section-break-title { font-size: clamp(1.8rem, 8vw, 3rem); }
+      .cta-close { padding: 3.5rem 1.25rem; }
+      .cta-line { font-size: 1.25rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -729,9 +769,15 @@
     </section>
 
     <section class="section" id="claudewill">
-      <div class="section-label">Platform</div>
-      <h2 class="section-title">claudewill.io</h2>
-      <p class="section-meta">Self-built &middot; 2024&ndash;2026 &middot; HTML, CSS, JS, Serverless, AI</p>
+      <div class="section-hero section-hero-dark">
+        <img src="/images/gallery/claudewill-homepage.png" alt="claudewill.io homepage — starfield with Claude wordmark" loading="lazy">
+        <div class="section-hero-overlay">
+          <div class="inner">
+            <h2 class="section-hero-title">claudewill.io</h2>
+            <p class="section-hero-meta">Self-built &middot; 2024&ndash;2026 &middot; HTML, CSS, JS, Serverless, AI</p>
+          </div>
+        </div>
+      </div>
 
       <div class="gallery">
         <div class="gallery-scroll">
@@ -794,6 +840,15 @@
     </section>
 
   </div>
+
+  <section class="cta-close">
+    <p class="cta-line">If any of this looks like what you need, let&rsquo;s talk.</p>
+    <div class="cta-buttons">
+      <a href="mailto:derek@claudewill.io" class="cta-btn">derek@claudewill.io</a>
+      <a href="https://www.linkedin.com/in/dereksimm/" class="cta-btn" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="/derek/propublica/derek_simmons_resume.pdf" class="cta-btn" target="_blank">R&eacute;sum&eacute;</a>
+    </div>
+  </section>
 
   <footer class="footer">
     <div class="footer-links">
