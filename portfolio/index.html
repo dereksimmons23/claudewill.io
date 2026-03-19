@@ -102,6 +102,8 @@
       letter-spacing: 0.03em;
       margin-bottom: 1.5rem;
       line-height: 1.6;
+      height: 1.6em;
+      overflow: hidden;
     }
 
     .hero-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -796,7 +798,7 @@
         <h1>Derek Simmons</h1>
         <p class="role">Visual Journalism &middot; Art Direction &middot; Newsroom Leadership</p>
         <p class="intro">I build visual teams that outlast me. Investigations that changed four Minnesota laws. A Prince section people still buy a decade later. A revenue model that generated $20&nbsp;million during a pandemic. I was the first CCO and VP in the paper&rsquo;s 150-year history. But the part I care about &mdash; the teams kept winning after I left the room.</p>
-        <p class="credentials">4 Pulitzer-winning teams &middot; 3 Pulitzer finalists &middot; POY International &middot; LA Press Club &middot; SND #1 worldwide, 6 years running &middot; National and international recognition for visual teams, portfolio, and art direction</p>
+        <p class="credentials" id="credentials-typewriter"></p>
         <div class="hero-buttons">
           <a href="mailto:derek@claudewill.io" class="hero-btn">Email</a>
           <a href="/derek/propublica/derek_simmons_resume.pdf" class="hero-btn" target="_blank">R&eacute;sum&eacute;</a>
@@ -1184,6 +1186,46 @@
         }
         stopAudio();
       });
+    })();
+  </script>
+
+  <script>
+    // ── Credentials typewriter ──────────────
+    (function() {
+      var el = document.getElementById('credentials-typewriter');
+      if (!el) return;
+      var lines = [
+        'Teams I\u2019ve built win Pulitzers',
+        'Designer of the Year',
+        '1,000+ awards across 30 years',
+        'Award-winning portfolio and art direction'
+      ];
+      var lineIndex = 0, charIndex = 0;
+      var speed = 35, pause = 1800, clearSpeed = 15;
+
+      function type() {
+        if (charIndex <= lines[lineIndex].length) {
+          el.textContent = lines[lineIndex].substring(0, charIndex);
+          charIndex++;
+          setTimeout(type, speed);
+        } else {
+          setTimeout(erase, pause);
+        }
+      }
+
+      function erase() {
+        if (charIndex >= 0) {
+          el.textContent = lines[lineIndex].substring(0, charIndex);
+          charIndex--;
+          setTimeout(erase, clearSpeed);
+        } else {
+          lineIndex = (lineIndex + 1) % lines.length;
+          charIndex = 0;
+          setTimeout(type, 300);
+        }
+      }
+
+      type();
     })();
   </script>
 
