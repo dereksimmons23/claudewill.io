@@ -565,30 +565,79 @@
     .section-work { padding: 2rem 0 0; }
     .section-work .pull-quote { padding: 0 2rem; }
 
-    /* ── Option B: No-category grid ──────── */
+    /* ── Option B: Editorial grid (research-backed) ──────── */
     .work-grid {
       width: 100vw;
       margin-left: calc(-50vw + 50%);
-      padding: 0 1rem;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4px;
+      grid-auto-flow: dense;
     }
 
-    .grid-row {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 6px;
+    .work-grid figure {
+      margin: 0;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      position: relative;
+      cursor: pointer;
     }
 
-    .grid-row img {
-      flex: 1 1 0;
-      min-width: 0;
-      height: 220px;
+    .work-grid figure img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       display: block;
-      border-radius: 3px;
-      transition: opacity 0.2s;
+      transition: transform 0.4s ease;
     }
 
-    .grid-row img:hover { opacity: 0.88; }
+    .work-grid figure figcaption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem 0.75rem 0.5rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.6));
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.03em;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .work-grid figure.hero {
+      aspect-ratio: 16 / 9;
+    }
+
+    /* Every 7th image = hero rhythm */
+    .work-grid figure:nth-child(7n+1) {
+      grid-column: span 2;
+      aspect-ratio: 16 / 9;
+    }
+
+    @media (hover: hover) {
+      .work-grid figure:hover img { transform: scale(1.03); }
+      .work-grid figure:hover figcaption { opacity: 1; }
+    }
+
+    @media (min-width: 640px) {
+      .work-grid { grid-template-columns: repeat(2, 1fr); gap: 5px; }
+      .work-grid figure.hero,
+      .work-grid figure:nth-child(7n+1) { grid-column: span 2; aspect-ratio: 21 / 9; }
+    }
+
+    @media (min-width: 1024px) {
+      .work-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+      .work-grid figure.hero,
+      .work-grid figure:nth-child(7n+1) { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+    }
+
+    @media (min-width: 1400px) {
+      .work-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    }
 
     .slide img.dark-screenshot {
       border-radius: 4px;
@@ -702,9 +751,7 @@
       .cta-line { font-size: 1.25rem; }
       .marquee-strip img { height: 140px; width: 210px; }
       .marquee-label { padding: 0 1rem 0.25rem; font-size: 0.6rem; }
-      .grid-row img { height: 120px; }
-      .grid-row { flex-wrap: wrap; }
-      .grid-row img { flex: 1 1 45%; }
+      .work-grid figure:nth-child(7n+1) { grid-column: span 1; aspect-ratio: 16 / 9; }
       .credentials { font-size: 0.75rem; }
     }
 
@@ -1043,86 +1090,46 @@
 
       </div>
 
-      <!-- ── OPTION B: No-category grid (~45 best images) ── -->
-      <!-- Derek reviews both options in the morning. To switch: hide #gallery-marquee, show #gallery-grid -->
+      <!-- ── OPTION B: Editorial grid (~35 best images, research-backed) ── -->
+      <!-- Uniform 4:3 cells, hero images every 7th (auto-rhythm via nth-child). -->
+      <!-- grid-auto-flow: dense fills gaps from spanning items. -->
+      <!-- To switch: hide #gallery-marquee, show #gallery-grid -->
       <div class="work-grid" id="gallery-grid" style="display: none;">
-        <div class="grid-row">
-          <img src="/images/gallery/work/illustration-01.jpg" alt="Editorial illustration" loading="lazy">
-          <img src="/images/gallery/work/breaking-01.jpg" alt="Breaking news front page" loading="lazy">
-          <img src="/images/gallery/work/photography-01.jpg" alt="Photo direction" loading="lazy">
-        </div>
-        <div class="grid-row">
-          <img src="/images/gallery/work/publications-01.jpg" alt="State of Wonders book" loading="lazy">
-          <img src="/images/gallery/work/news-01.jpg" alt="News coverage" loading="lazy">
-          <img src="/images/gallery/work/illustration-02.jpg" alt="Editorial illustration" loading="lazy">
-          <img src="/images/gallery/work/typography-04.jpg" alt="Typography" loading="lazy">
-        </div>
-        <div class="grid-row">
-          <img src="/images/gallery/work/breaking-02.jpg" alt="Breaking news" loading="lazy">
-          <img src="/images/gallery/work/features-01.jpg" alt="Feature story" loading="lazy">
-          <img src="/images/gallery/work/illustration-03.jpg" alt="Editorial illustration" loading="lazy">
-        </div>
-        <div class="grid-row">
-          <img src="/images/gallery/work/photography-02.jpg" alt="Photo direction" loading="lazy">
-          <img src="/images/gallery/work/data-01.jpg" alt="Data visualization" loading="lazy">
-          <img src="/images/gallery/work/publications-02.jpg" alt="Magazine cover" loading="lazy">
-          <img src="/images/gallery/work/news-02.jpg" alt="News coverage" loading="lazy">
-        </div>
-        <div class="grid-row">
-          <img src="/images/gallery/work/illustration-04.jpg" alt="Editorial illustration" loading="lazy">
-          <img src="/images/gallery/work/investigations-01.jpg" alt="Investigative reporting" loading="lazy">
-          <img src="/images/gallery/work/photography-09.jpg" alt="Photo direction" loading="lazy">
-        </div>
-        <div class="grid-row">
-          <img src="/images/gallery/work/typography-05.jpg" alt="Typography" loading="lazy">
-          <img src="/images/gallery/work/features-02.jpg" alt="Feature story" loading="lazy">
-          <img src="/images/gallery/work/illustration-05.jpg" alt="Editorial illustration" loading="lazy">
-          <img src="/images/gallery/work/breaking-03.jpg" alt="Breaking news" loading="lazy">
-        </div>
-        <div class="grid-row">
-          <img src="/images/gallery/work/publications-05.jpg" alt="Magazine illustration" loading="lazy">
-          <img src="/images/gallery/work/news-03.jpg" alt="News coverage" loading="lazy">
-          <img src="/images/gallery/work/photography-03.jpg" alt="Photo direction" loading="lazy">
-        </div>
-        <div class="grid-row">
-          <img src="/images/gallery/work/illustration-06.jpg" alt="Editorial illustration" loading="lazy">
-          <img src="/images/gallery/work/data-03.jpg" alt="Information graphics" loading="lazy">
-          <img src="/images/gallery/work/features-03.jpg" alt="Feature story" loading="lazy">
-          <img src="/images/gallery/work/typography-06.jpg" alt="Typography" loading="lazy">
-        </div>
-        <div class="grid-row">
-          <img src="/images/gallery/work/photography-04.jpg" alt="Photo direction" loading="lazy">
-          <img src="/images/gallery/work/publications-03.jpg" alt="Magazine feature" loading="lazy">
-          <img src="/images/gallery/work/illustration-07.jpg" alt="Editorial illustration" loading="lazy">
-        </div>
-        <div class="grid-row">
-          <img src="/images/gallery/work/news-04.jpg" alt="News coverage" loading="lazy">
-          <img src="/images/gallery/work/design-01.jpg" alt="Information design" loading="lazy">
-          <img src="/images/gallery/work/photography-05.jpg" alt="Photo direction" loading="lazy">
-          <img src="/images/gallery/work/illustration-08.jpg" alt="Editorial illustration" loading="lazy">
-        </div>
-        <div class="grid-row">
-          <img src="/images/gallery/work/publications-06.jpg" alt="Magazine cover" loading="lazy">
-          <img src="/images/gallery/work/investigations-02.jpg" alt="Investigative reporting" loading="lazy">
-          <img src="/images/gallery/work/typography-07.jpg" alt="Typography" loading="lazy">
-        </div>
-        <div class="grid-row">
-          <img src="/images/gallery/work/photography-06.jpg" alt="Photo direction" loading="lazy">
-          <img src="/images/gallery/work/features-04.jpg" alt="Feature story" loading="lazy">
-          <img src="/images/gallery/work/illustration-09.jpg" alt="Editorial illustration" loading="lazy">
-          <img src="/images/gallery/work/news-05.jpg" alt="News coverage" loading="lazy">
-        </div>
-        <div class="grid-row">
-          <img src="/images/gallery/work/typography-08.jpg" alt="Typography" loading="lazy">
-          <img src="/images/gallery/work/photography-10.jpg" alt="Photo direction" loading="lazy">
-          <img src="/images/gallery/work/digital-01.jpg" alt="Digital storytelling" loading="lazy">
-        </div>
-        <div class="grid-row">
-          <img src="/images/gallery/work/photography-14.jpg" alt="Photo direction" loading="lazy">
-          <img src="/images/gallery/work/typography-09.jpg" alt="Typography" loading="lazy">
-          <img src="/images/gallery/work/digital-03.jpg" alt="Community impact" loading="lazy">
-          <img src="/images/gallery/work/publications-04.jpg" alt="Prince illustration" loading="lazy">
-        </div>
+        <!-- 1 (hero) --> <figure><img src="/images/gallery/work/illustration-01.jpg" alt="Editorial illustration" loading="lazy"></figure>
+        <!-- 2 --> <figure><img src="/images/gallery/work/breaking-01.jpg" alt="LA Times front page" loading="lazy"></figure>
+        <!-- 3 --> <figure><img src="/images/gallery/work/photography-01.jpg" alt="Photo direction" loading="lazy"></figure>
+        <!-- 4 --> <figure><img src="/images/gallery/work/publications-05.jpg" alt="StarTribune Magazine" loading="lazy"></figure>
+        <!-- 5 --> <figure><img src="/images/gallery/work/news-01.jpg" alt="News coverage" loading="lazy"></figure>
+        <!-- 6 --> <figure><img src="/images/gallery/work/typography-04.jpg" alt="Typography" loading="lazy"></figure>
+        <!-- 7 --> <figure><img src="/images/gallery/work/data-03.jpg" alt="Information graphics" loading="lazy"></figure>
+        <!-- 8 (hero) --> <figure><img src="/images/gallery/work/breaking-02.jpg" alt="California wildfire" loading="lazy"></figure>
+        <!-- 9 --> <figure><img src="/images/gallery/work/illustration-02.jpg" alt="Editorial illustration" loading="lazy"></figure>
+        <!-- 10 --> <figure><img src="/images/gallery/work/features-01.jpg" alt="Feature story" loading="lazy"></figure>
+        <!-- 11 --> <figure><img src="/images/gallery/work/photography-09.jpg" alt="Hotel California" loading="lazy"></figure>
+        <!-- 12 --> <figure><img src="/images/gallery/work/publications-01.jpg" alt="State of Wonders" loading="lazy"></figure>
+        <!-- 13 --> <figure><img src="/images/gallery/work/news-02.jpg" alt="News coverage" loading="lazy"></figure>
+        <!-- 14 --> <figure><img src="/images/gallery/work/design-01.jpg" alt="Stadium infographic" loading="lazy"></figure>
+        <!-- 15 (hero) --> <figure><img src="/images/gallery/work/investigations-01.jpg" alt="Investigative reporting" loading="lazy"></figure>
+        <!-- 16 --> <figure><img src="/images/gallery/work/illustration-03.jpg" alt="Editorial illustration" loading="lazy"></figure>
+        <!-- 17 --> <figure><img src="/images/gallery/work/photography-02.jpg" alt="Photo direction" loading="lazy"></figure>
+        <!-- 18 --> <figure><img src="/images/gallery/work/typography-05.jpg" alt="Typography" loading="lazy"></figure>
+        <!-- 19 --> <figure><img src="/images/gallery/work/publications-02.jpg" alt="Magazine cover" loading="lazy"></figure>
+        <!-- 20 --> <figure><img src="/images/gallery/work/features-02.jpg" alt="Feature story" loading="lazy"></figure>
+        <!-- 21 --> <figure><img src="/images/gallery/work/data-01.jpg" alt="Data visualization" loading="lazy"></figure>
+        <!-- 22 (hero) --> <figure><img src="/images/gallery/work/photography-03.jpg" alt="Photo direction" loading="lazy"></figure>
+        <!-- 23 --> <figure><img src="/images/gallery/work/illustration-04.jpg" alt="Editorial illustration" loading="lazy"></figure>
+        <!-- 24 --> <figure><img src="/images/gallery/work/breaking-03.jpg" alt="Fatal 61 Seconds" loading="lazy"></figure>
+        <!-- 25 --> <figure><img src="/images/gallery/work/publications-06.jpg" alt="King of Cold" loading="lazy"></figure>
+        <!-- 26 --> <figure><img src="/images/gallery/work/news-03.jpg" alt="News coverage" loading="lazy"></figure>
+        <!-- 27 --> <figure><img src="/images/gallery/work/illustration-05.jpg" alt="Editorial illustration" loading="lazy"></figure>
+        <!-- 28 --> <figure><img src="/images/gallery/work/typography-06.jpg" alt="Typography" loading="lazy"></figure>
+        <!-- 29 (hero) --> <figure><img src="/images/gallery/work/investigations-02.jpg" alt="The Smoke Clears, But Pain Endures" loading="lazy"></figure>
+        <!-- 30 --> <figure><img src="/images/gallery/work/photography-04.jpg" alt="Photo direction" loading="lazy"></figure>
+        <!-- 31 --> <figure><img src="/images/gallery/work/publications-03.jpg" alt="Small Towns, Big Charms" loading="lazy"></figure>
+        <!-- 32 --> <figure><img src="/images/gallery/work/illustration-06.jpg" alt="Editorial illustration" loading="lazy"></figure>
+        <!-- 33 --> <figure><img src="/images/gallery/work/features-03.jpg" alt="Feature story" loading="lazy"></figure>
+        <!-- 34 --> <figure><img src="/images/gallery/work/photography-14.jpg" alt="California poppies" loading="lazy"></figure>
+        <!-- 35 --> <figure><img src="/images/gallery/work/publications-04.jpg" alt="Prince illustration" loading="lazy"></figure>
       </div>
 
       <p class="case-label" style="max-width: var(--content-w); margin: 3rem auto 0.4rem; padding: 0 2rem;">The Voice</p>
