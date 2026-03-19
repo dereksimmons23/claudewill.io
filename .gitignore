@@ -93,6 +93,8 @@ reports/*
 !reports/pipeline.json
 # Exception: social drafts need to persist for Derek to review and post
 !reports/social-drafts/
+# Exception: Morning Edition is the product — committed daily by overnight agents
+!reports/morning-edition.md
 
 # Internal working docs
 ACCESSIBILITY_FIXES.md
