@@ -11,6 +11,31 @@
 (function () {
   'use strict';
 
+  // ── Inject styles (self-contained) ────────────
+  function injectStyles() {
+    if (document.getElementById('article-share-css')) return;
+    var style = document.createElement('style');
+    style.id = 'article-share-css';
+    style.textContent = [
+      '.share-bar { display:flex; align-items:center; gap:16px; padding:24px 0; margin-top:32px; border-top:1px solid var(--border, #e5e7eb); }',
+      '.share-label { font-size:0.75rem; color:var(--dim, #6b7280); letter-spacing:0.1em; text-transform:uppercase; }',
+      '.share-buttons { display:flex; gap:8px; }',
+      '.share-btn { font-size:0.75rem; color:var(--dim, #6b7280); background:none; border:1px solid var(--border, #e5e7eb); border-radius:3px; padding:4px 12px; cursor:pointer; text-decoration:none; transition:color 0.2s, border-color 0.2s; }',
+      '.share-btn:hover { color:var(--accent, #d4a84b); border-color:var(--accent, #d4a84b); }',
+      '.highlight-share { position:absolute; z-index:100; transform:translateX(-50%); background:var(--text, #1a1a1a); border-radius:4px; padding:4px; gap:2px; box-shadow:0 4px 16px rgba(0,0,0,0.2); }',
+      '.highlight-share::after { content:""; position:absolute; top:100%; left:50%; transform:translateX(-50%); border:5px solid transparent; border-top-color:var(--text, #1a1a1a); }',
+      '.hs-btn { font-size:0.7rem; color:var(--bg, #fafaf8); background:none; border:none; padding:4px 10px; cursor:pointer; text-decoration:none; border-radius:2px; transition:background 0.15s; }',
+      '.hs-btn:hover { background:rgba(255,255,255,0.15); }',
+      '.pull-quote { position:relative; }',
+      '.pull-quote .pq-share-btn { position:absolute; bottom:4px; right:0; font-size:0.7rem; color:var(--dim, #6b7280); background:none; border:1px solid var(--border, #e5e7eb); border-radius:3px; padding:3px 10px; cursor:pointer; opacity:0; transition:opacity 0.2s, color 0.2s, border-color 0.2s; }',
+      '.pull-quote:hover .pq-share-btn { opacity:1; }',
+      '.pull-quote .pq-share-btn:hover { color:var(--accent, #d4a84b); border-color:var(--accent, #d4a84b); }',
+      '@media (max-width:640px) { .share-bar { flex-direction:column; align-items:flex-start; gap:10px; } .highlight-share { display:none !important; } .pull-quote .pq-share-btn { opacity:1; } }',
+      '@media print { .share-bar, .pq-share-btn, .highlight-share { display:none; } }'
+    ].join('\n');
+    document.head.appendChild(style);
+  }
+
   // ── Reading time ────────────────────────────
   function injectReadingTime() {
     var body = document.querySelector('.article-body');
@@ -26,7 +51,8 @@
   // ── Share bar ───────────────────────────────
   function buildShareBar() {
     var nav = document.querySelector('.article-nav');
-    if (!nav) return;
+    var insertRef = nav || document.querySelector('.book-source') || document.querySelector('.footer');
+    if (!insertRef) return;
 
     var pageUrl = encodeURIComponent(window.location.href);
     var pageTitle = encodeURIComponent(document.title.split(' | ')[0]);
@@ -78,7 +104,7 @@
     bar.appendChild(label);
     bar.appendChild(buttons);
 
-    nav.parentNode.insertBefore(bar, nav);
+    insertRef.parentNode.insertBefore(bar, insertRef);
 
     copyBtn.addEventListener('click', function () {
       navigator.clipboard.writeText(window.location.href).then(function () {
@@ -250,6 +276,7 @@
 
   // ── Init ────────────────────────────────────
   document.addEventListener('DOMContentLoaded', function () {
+    injectStyles();
     injectReadingTime();
     buildShareBar();
     initHighlightShare();

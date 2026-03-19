@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Derek Simmons — Portfolio</title>
   <meta name="description" content="Visual journalism portfolio: investigative, breaking news, platform. 30 years at the LA Times and Star Tribune.">
+  <link rel="canonical" href="https://claudewill.io/portfolio">
   <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7R5X5SJDVT"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7R5X5SJDVT');</script>
@@ -307,15 +308,27 @@
       margin-top: 0.25rem;
     }
 
+    .case-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin: 2.5rem 0 0.4rem;
+    }
+
+    .case-label:first-of-type { margin-top: 1.5rem; }
+
     .impact {
       font-size: 1.15rem;
       font-weight: 600;
       line-height: 1.5;
-      margin: 2rem 0 0.5rem;
+      margin: 0.25rem 0 0.5rem;
       color: var(--text);
     }
 
-    .backstory { font-size: 1.05rem; line-height: 1.85; margin: 2rem 0; }
+    .backstory { font-size: 1.05rem; line-height: 1.85; margin: 0.25rem 0 2rem; }
     .backstory p { margin-bottom: 1.15rem; }
     .backstory p:last-child { margin-bottom: 0; }
 
@@ -608,19 +621,35 @@
 
     .footer-note { font-family: var(--mono); font-size: 0.72rem; color: var(--dim); }
 
-    @media (prefers-color-scheme: dark) {
-      body { --bg: #111; --text: #e0e0e0; --dim: #888; --border: rgba(255,255,255,0.1); --link: #6ba8d4; }
-      .sticky-header { background: #111; }
-      .tile { background: #222; }
+    .footer-minnesota {
+      display: block;
+      max-width: 220px;
+      height: auto;
+      margin: 0.5rem auto 0;
+    }
+    .footer-minnesota.visible:hover {
+      transform: scale(1.03);
+      transition: transform 0.3s ease;
     }
 
+    @media (prefers-color-scheme: dark) {
+      body { --bg: #0a1628; --text: #e0e0e0; --dim: #888; --border: rgba(255,255,255,0.18); --link: #6ba8d4; }
+      .sticky-header { background: #0a1628; }
+      .tile { background: #1a2a42; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-btn, .link-btn, .cta-btn { padding: 10px 18px; min-height: 44px; display: inline-flex; align-items: center; }
+      .sticky-header .nav-links a { padding: 8px 4px; min-height: 44px; display: inline-flex; align-items: center; }
+      .case-label { font-size: 0.75rem; }
+    }
     @media (max-width: 640px) {
       .hero-card { padding: 2.5rem 1.25rem; min-height: auto; }
       .hero-card-inner { flex-direction: column; text-align: center; gap: 2rem; }
       .hero-photo { flex: none; width: 200px; height: 240px; }
       .hero-text .intro { max-width: 100%; }
       .hero-text h1 { font-size: 1.8rem; }
-      .hero-buttons { justify-content: center; }
+      .hero-buttons { justify-content: center; flex-wrap: wrap; }
       .content { padding: 0 1.25rem; }
       .section { padding: 3rem 0 2rem; }
       .section-title { font-size: 1.25rem; }
@@ -634,7 +663,7 @@
       .slide-screen { flex: 0 0 78%; }
       .tile-grid { grid-template-columns: repeat(2, 1fr); }
       .sticky-header { padding: 0.5rem 1rem; }
-      .sticky-header .nav-links { gap: 0.75rem; font-size: 0.65rem; }
+      .sticky-header .nav-links { gap: 0.75rem; font-size: 0.7rem; }
       .section-break { max-height: 50vh; min-height: 40vh; }
       .section-break-overlay { min-height: 40vh; max-height: 50vh; }
       .section-break-title { font-size: clamp(1.8rem, 8vw, 3rem); }
@@ -642,6 +671,7 @@
       .cta-line { font-size: 1.25rem; }
       .marquee-strip img { height: 100px; width: 150px; }
       .marquee-label { padding: 0 1rem 0.25rem; font-size: 0.6rem; }
+      .credentials { font-size: 0.75rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -735,6 +765,16 @@
         </div>
       </div>
 
+      <p class="case-label">The Brief</p>
+      <p class="backstory">Prince died on a Thursday. Every paper in the country would run Prince coverage. Minnesota&rsquo;s paper had to own it.</p>
+
+      <p class="case-label">The Approach</p>
+      <div class="backstory">
+        <p>By Friday morning we published &ldquo;Purple Majesty.&rdquo; Over the next 10 days I art directed a 16-page commemorative section with four unique zoned covers. Commissioned two original paintings from Robert Carter in under a week. Negotiated rights to a rarely seen 1977 photograph taken when Prince was 19.</p>
+        <p>The editorial decisions &mdash; when to use illustration vs. photography, how to hold the tone of a state&rsquo;s mourning &mdash; those are the work behind the work.</p>
+      </div>
+
+      <p class="case-label">The Work</p>
       <div class="gallery">
         <div class="gallery-scroll">
           <figure class="slide"><img src="/images/gallery/prince-a1-purple-majesty.png" alt="PURPLE MAJESTY — breaking news A1" loading="lazy"><figcaption>Purple Majesty. Breaking news A1.</figcaption></figure>
@@ -749,13 +789,10 @@
         <p class="gallery-hint">Scroll &rarr; A1, four zoned covers, interior pages</p>
       </div>
 
+      <p class="case-label">The Impact</p>
       <p class="impact">Reprints still sell a decade later. The section became the proof of concept for Star Tribune Magazine.</p>
 
-      <div class="backstory">
-        <p>Prince died on Thursday. By Friday morning we published &ldquo;Purple Majesty.&rdquo; Over the next 10 days I art directed a 16-page commemorative section with four unique zoned covers, commissioned two original paintings from Robert Carter in under a week, and negotiated rights to a rarely seen 1977 photograph taken when Prince was 19.</p>
-        <p>Every paper in the country ran Prince coverage. The editorial decisions &mdash; when to use illustration vs. photography, how to hold the tone of a state&rsquo;s mourning &mdash; those are the backstory.</p>
-      </div>
-
+      <p class="case-label">The Voice</p>
       <div class="pull-quote">
         <p>&ldquo;He stands up for his artists. His clear vision and decisiveness was key. Those portraits are still one of my most sought after paintings today.&rdquo;</p>
         <p class="attr">&mdash; Robert Carter, illustrator</p>
@@ -793,6 +830,13 @@
         </div>
       </div>
 
+      <p class="case-label">The Brief</p>
+      <p class="backstory">More than 1,000 sexual assault cases reviewed. 74% never sent to prosecutors. The Star Tribune committed to showing what the system didn&rsquo;t want seen.</p>
+
+      <p class="case-label">The Approach</p>
+      <p class="backstory">My role wasn&rsquo;t to design it &mdash; it was to make the case for why this investigation deserved the visual commitment, then guide the process. The typography-only cover, the portrait approach, the restraint &mdash; those came out of iteration. Ren&eacute;e Jones Schneider&rsquo;s photography gave the survivors dignity the system denied them.</p>
+
+      <p class="case-label">The Work</p>
       <div class="gallery">
         <div class="gallery-scroll">
           <figure class="slide slide-page"><img src="/images/gallery/denied-justice-cover-hires.jpg" alt="Section cover" loading="lazy"><figcaption>Section cover. Typography only.</figcaption></figure>
@@ -807,12 +851,10 @@
         <p class="gallery-hint">Scroll &rarr; The special section</p>
       </div>
 
+      <p class="case-label">The Impact</p>
       <p class="impact">Four Minnesota laws changed. The system we built produced the 2021 Pulitzer for Breaking News. I wasn&rsquo;t in the room. I didn&rsquo;t need to be.</p>
 
-      <div class="backstory">
-        <p>More than 1,000 cases. 74% never sent to prosecutors. My role wasn&rsquo;t to design it &mdash; it was to make the case for why this investigation deserved the visual commitment, then guide the process. The typography-only cover, the portrait approach, the restraint &mdash; those came out of iteration. Ren&eacute;e Jones Schneider&rsquo;s photography gave the survivors dignity the system denied them.</p>
-      </div>
-
+      <p class="case-label">The Voice</p>
       <div class="pull-quote">
         <p>&ldquo;People look at the series, realize there&rsquo;s a pervasive problem, and politicians are jumping up saying we got to do something. It makes me proud to be a journalist.&rdquo;</p>
         <p class="attr">&mdash; Jenni Pinkley, video producer</p>
@@ -840,124 +882,162 @@
 
     <section class="section section-work" id="work">
 
-      <!-- ── Marquee gallery: 9 categories ── -->
+      <!-- ── Marquee gallery: 10 categories ── -->
       <div class="marquee-gallery">
 
         <div class="marquee-row" data-direction="left">
           <span class="marquee-label">illustration</span>
           <div class="marquee-track"><div class="marquee-strip">
-            <!-- Drop exported illustration-*.jpg images here -->
-            <img src="/images/gallery/theres-no-mistaking-love-la-times-illo.png" alt="illustration" loading="lazy">
-            <img src="/images/gallery/small-biz.png" alt="illustration" loading="lazy">
-            <img src="/images/gallery/prince-illo.png" alt="illustration" loading="lazy">
-            <img src="/images/gallery/theres-no-mistaking-love-la-times-illo.png" alt="illustration" loading="lazy">
-            <img src="/images/gallery/small-biz.png" alt="illustration" loading="lazy">
-            <img src="/images/gallery/prince-illo.png" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-01.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-02.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-03.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-04.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-05.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-06.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-07.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-08.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-09.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-10.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-11.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-12.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-13.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-14.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-15.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-01.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-02.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-03.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-04.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-05.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-06.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-07.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-08.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-09.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-10.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-11.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-12.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-13.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-14.jpg" alt="illustration" loading="lazy">
+            <img src="/images/gallery/work/illustration-15.jpg" alt="illustration" loading="lazy">
           </div></div>
         </div>
 
         <div class="marquee-row" data-direction="right">
           <span class="marquee-label">photography</span>
           <div class="marquee-track"><div class="marquee-strip">
-            <!-- Daily Mile series + directed photography -->
-            <img src="/images/gallery/basketball-dusk.png" alt="photography" loading="lazy">
-            <img src="/images/gallery/dog.png" alt="photography" loading="lazy">
-            <img src="/images/gallery/kid-cap.png" alt="photography" loading="lazy">
-            <img src="/images/gallery/father-son.png" alt="photography" loading="lazy">
-            <img src="/images/gallery/basketball-dusk.png" alt="photography" loading="lazy">
-            <img src="/images/gallery/dog.png" alt="photography" loading="lazy">
-            <img src="/images/gallery/kid-cap.png" alt="photography" loading="lazy">
-            <img src="/images/gallery/father-son.png" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-01.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-02.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-03.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-04.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-05.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-06.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-07.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-08.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-09.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-10.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-11.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-12.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-13.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-14.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-01.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-02.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-03.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-04.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-05.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-06.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-07.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-08.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-09.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-10.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-11.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-12.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-13.jpg" alt="photography" loading="lazy">
+            <img src="/images/gallery/work/photography-14.jpg" alt="photography" loading="lazy">
           </div></div>
         </div>
 
         <div class="marquee-row" data-direction="left">
           <span class="marquee-label">design</span>
           <div class="marquee-track"><div class="marquee-strip">
-            <img src="/images/gallery/prince-a1-purple-majesty.png" alt="design" loading="lazy">
-            <img src="/images/gallery/trump-wave.jpg" alt="design" loading="lazy">
-            <img src="/images/gallery/denied-justice-cover-hires.jpg" alt="design" loading="lazy">
-            <img src="/images/gallery/showtime-cover.jpg" alt="design" loading="lazy">
-            <img src="/images/gallery/prince-a1-purple-majesty.png" alt="design" loading="lazy">
-            <img src="/images/gallery/trump-wave.jpg" alt="design" loading="lazy">
-            <img src="/images/gallery/denied-justice-cover-hires.jpg" alt="design" loading="lazy">
-            <img src="/images/gallery/showtime-cover.jpg" alt="design" loading="lazy">
+            <img src="/images/gallery/work/design-01.jpg" alt="design" loading="lazy">
+            <img src="/images/gallery/work/design-02.jpg" alt="design" loading="lazy">
+            <img src="/images/gallery/work/design-01.jpg" alt="design" loading="lazy">
+            <img src="/images/gallery/work/design-02.jpg" alt="design" loading="lazy">
           </div></div>
         </div>
 
         <div class="marquee-row" data-direction="right">
-          <span class="marquee-label">magazines</span>
+          <span class="marquee-label">publications</span>
           <div class="marquee-track"><div class="marquee-strip">
-            <img src="/images/gallery/stmag-cover.png" alt="magazines" loading="lazy">
-            <img src="/images/gallery/st-mag-voyaguers.png" alt="magazines" loading="lazy">
-            <img src="/images/gallery/st-mag-proto.png" alt="magazines" loading="lazy">
-            <img src="/images/gallery/stmag-cover.png" alt="magazines" loading="lazy">
-            <img src="/images/gallery/st-mag-voyaguers.png" alt="magazines" loading="lazy">
-            <img src="/images/gallery/st-mag-proto.png" alt="magazines" loading="lazy">
+            <img src="/images/gallery/work/publications-01.jpg" alt="publications" loading="lazy">
+            <img src="/images/gallery/work/publications-02.jpg" alt="publications" loading="lazy">
+            <img src="/images/gallery/work/publications-03.jpg" alt="publications" loading="lazy">
+            <img src="/images/gallery/work/publications-04.jpg" alt="publications" loading="lazy">
+            <img src="/images/gallery/work/publications-05.jpg" alt="publications" loading="lazy">
+            <img src="/images/gallery/work/publications-06.jpg" alt="publications" loading="lazy">
+            <img src="/images/gallery/work/publications-01.jpg" alt="publications" loading="lazy">
+            <img src="/images/gallery/work/publications-02.jpg" alt="publications" loading="lazy">
+            <img src="/images/gallery/work/publications-03.jpg" alt="publications" loading="lazy">
+            <img src="/images/gallery/work/publications-04.jpg" alt="publications" loading="lazy">
+            <img src="/images/gallery/work/publications-05.jpg" alt="publications" loading="lazy">
+            <img src="/images/gallery/work/publications-06.jpg" alt="publications" loading="lazy">
           </div></div>
         </div>
 
         <div class="marquee-row" data-direction="left">
           <span class="marquee-label">data</span>
           <div class="marquee-track"><div class="marquee-strip">
-            <img src="/images/gallery/bees-brink.jpg" alt="data" loading="lazy">
-            <img src="/images/gallery/weather-dataviz.png" alt="data" loading="lazy">
-            <img src="/images/gallery/elex-move-right.png" alt="data" loading="lazy">
-            <img src="/images/gallery/bees-brink.jpg" alt="data" loading="lazy">
-            <img src="/images/gallery/weather-dataviz.png" alt="data" loading="lazy">
-            <img src="/images/gallery/elex-move-right.png" alt="data" loading="lazy">
+            <img src="/images/gallery/work/data-01.jpg" alt="data" loading="lazy">
+            <img src="/images/gallery/work/data-02.jpg" alt="data" loading="lazy">
+            <img src="/images/gallery/work/data-03.jpg" alt="data" loading="lazy">
+            <img src="/images/gallery/work/data-01.jpg" alt="data" loading="lazy">
+            <img src="/images/gallery/work/data-02.jpg" alt="data" loading="lazy">
+            <img src="/images/gallery/work/data-03.jpg" alt="data" loading="lazy">
           </div></div>
         </div>
 
         <div class="marquee-row" data-direction="right">
           <span class="marquee-label">investigations</span>
           <div class="marquee-track"><div class="marquee-strip">
-            <img src="/images/gallery/sugar-investigation.png" alt="investigations" loading="lazy">
-            <img src="/images/gallery/jihad-heartland.png" alt="investigations" loading="lazy">
-            <img src="/images/gallery/disabled-series.jpg" alt="investigations" loading="lazy">
-            <img src="/images/gallery/denied-justice-part6-a1.jpg" alt="investigations" loading="lazy">
-            <img src="/images/gallery/sugar-investigation.png" alt="investigations" loading="lazy">
-            <img src="/images/gallery/jihad-heartland.png" alt="investigations" loading="lazy">
-            <img src="/images/gallery/disabled-series.jpg" alt="investigations" loading="lazy">
-            <img src="/images/gallery/denied-justice-part6-a1.jpg" alt="investigations" loading="lazy">
+            <img src="/images/gallery/work/investigations-01.jpg" alt="investigations" loading="lazy">
+            <img src="/images/gallery/work/investigations-02.jpg" alt="investigations" loading="lazy">
+            <img src="/images/gallery/work/investigations-01.jpg" alt="investigations" loading="lazy">
+            <img src="/images/gallery/work/investigations-02.jpg" alt="investigations" loading="lazy">
           </div></div>
         </div>
 
         <div class="marquee-row" data-direction="left">
           <span class="marquee-label">breaking</span>
           <div class="marquee-track"><div class="marquee-strip">
-            <img src="/images/gallery/wildfires.png" alt="breaking" loading="lazy">
-            <img src="/images/gallery/trump-wave-cover.png" alt="breaking" loading="lazy">
-            <img src="/images/gallery/obama-inauguration.jpg" alt="breaking" loading="lazy">
-            <img src="/images/gallery/wildfires.png" alt="breaking" loading="lazy">
-            <img src="/images/gallery/trump-wave-cover.png" alt="breaking" loading="lazy">
-            <img src="/images/gallery/obama-inauguration.jpg" alt="breaking" loading="lazy">
+            <img src="/images/gallery/work/breaking-01.jpg" alt="breaking" loading="lazy">
+            <img src="/images/gallery/work/breaking-02.jpg" alt="breaking" loading="lazy">
+            <img src="/images/gallery/work/breaking-03.jpg" alt="breaking" loading="lazy">
+            <img src="/images/gallery/work/breaking-01.jpg" alt="breaking" loading="lazy">
+            <img src="/images/gallery/work/breaking-02.jpg" alt="breaking" loading="lazy">
+            <img src="/images/gallery/work/breaking-03.jpg" alt="breaking" loading="lazy">
           </div></div>
         </div>
 
         <div class="marquee-row" data-direction="right">
-          <span class="marquee-label">entertainment</span>
+          <span class="marquee-label">typography</span>
           <div class="marquee-track"><div class="marquee-strip">
-            <img src="/images/gallery/oscars.jpg" alt="entertainment" loading="lazy">
-            <img src="/images/gallery/john-wooden.jpg" alt="entertainment" loading="lazy">
-            <img src="/images/gallery/oly-sochi-flame.png" alt="entertainment" loading="lazy">
-            <img src="/images/gallery/oscars.jpg" alt="entertainment" loading="lazy">
-            <img src="/images/gallery/john-wooden.jpg" alt="entertainment" loading="lazy">
-            <img src="/images/gallery/oly-sochi-flame.png" alt="entertainment" loading="lazy">
+            <img src="/images/gallery/work/typography-01.jpg" alt="typography" loading="lazy">
+            <img src="/images/gallery/work/typography-02.jpg" alt="typography" loading="lazy">
+            <img src="/images/gallery/work/typography-03.jpg" alt="typography" loading="lazy">
+            <img src="/images/gallery/work/typography-01.jpg" alt="typography" loading="lazy">
+            <img src="/images/gallery/work/typography-02.jpg" alt="typography" loading="lazy">
+            <img src="/images/gallery/work/typography-03.jpg" alt="typography" loading="lazy">
           </div></div>
         </div>
 
         <div class="marquee-row" data-direction="left">
           <span class="marquee-label">digital</span>
           <div class="marquee-track"><div class="marquee-strip">
-            <img src="/images/gallery/claudewill-homepage-2.png" alt="digital" loading="lazy">
-            <img src="/images/gallery/claudewill-porch.png" alt="digital" loading="lazy">
-            <img src="/images/gallery/cascadia.png" alt="digital" loading="lazy">
-            <img src="/images/gallery/claudewill-kitchen.png" alt="digital" loading="lazy">
-            <img src="/images/gallery/claudewill-homepage-2.png" alt="digital" loading="lazy">
-            <img src="/images/gallery/claudewill-porch.png" alt="digital" loading="lazy">
-            <img src="/images/gallery/cascadia.png" alt="digital" loading="lazy">
-            <img src="/images/gallery/claudewill-kitchen.png" alt="digital" loading="lazy">
+            <img src="/images/gallery/work/digital-01.jpg" alt="digital" loading="lazy">
+            <img src="/images/gallery/work/digital-02.jpg" alt="digital" loading="lazy">
+            <img src="/images/gallery/work/digital-03.jpg" alt="digital" loading="lazy">
+            <img src="/images/gallery/work/digital-01.jpg" alt="digital" loading="lazy">
+            <img src="/images/gallery/work/digital-02.jpg" alt="digital" loading="lazy">
+            <img src="/images/gallery/work/digital-03.jpg" alt="digital" loading="lazy">
           </div></div>
         </div>
 
@@ -987,7 +1067,7 @@
       <a href="https://www.linkedin.com/in/dereksimm/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/dereksimmons23" target="_blank" rel="noopener">GitHub</a>
     </div>
-    <p class="footer-note">Minnesota</p>
+    <img src="/images/gallery/minnesota-letters.png" alt="Minnesota" class="footer-minnesota reveal">
   </footer>
 
   <div class="lightbox" id="lightbox">
@@ -1002,7 +1082,7 @@
     // ── Scroll reveals ──────────────────────
     (function() {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      var targets = document.querySelectorAll('.gallery, .impact, .backstory, .pull-quote, .links, .video-wrap, .tile-grid');
+      var targets = document.querySelectorAll('.gallery, .impact, .backstory, .pull-quote, .links, .video-wrap, .tile-grid, .footer-minnesota');
       targets.forEach(function(el) { el.classList.add('reveal'); });
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {

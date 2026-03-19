@@ -39,6 +39,8 @@ heritage-manuscript-archive.md
 images/CleanShot*
 images/asteriskos*
 images/derek-profile-picture.png
+images/Gemini_Generated_Image*
+images/youtube-banner*.png
 
 # OS and editor files
 .DS_Store
@@ -102,3 +104,4 @@ SECURITY_COMPLIANCE_GUIDE.md
 SESSION_SUMMARY.md
 SUPABASE_SETUP.md
 WISHLIST.md
+images/gallery/video/*.mov
