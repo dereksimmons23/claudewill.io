@@ -790,7 +790,7 @@
       <div class="hero-text">
         <h1>Derek Simmons</h1>
         <p class="role">Visual Journalism &middot; Art Direction &middot; Newsroom Leadership</p>
-        <p class="intro">I build visual teams that outlast me. Thirty years across five newsrooms, four Pulitzer-winning teams, a Prince section people still buy a decade later. The part I care about most &mdash; they kept winning after I left the room.</p>
+        <p class="intro">I&rsquo;ve built visual teams for 30 years across multiple newsrooms. Investigations that changed laws. Reprints people still buy a decade later. The part I care about most &mdash; the teams that keep winning after I left the room.</p>
         <div class="voice-cta">
           <button class="voice-btn" id="voice-tour" aria-label="Listen to Derek narrate this portfolio">
             <svg class="play-icon" viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
@@ -1143,7 +1143,7 @@
       var currentAudio = null;
       var isPlaying = false;
 
-      var narrationText = "Hello, I'm Derek Simmons, and I've been doing this for three decades across multiple newsrooms. I started as a sports writer, got a journalism degree by putting myself through college, and then became the first chief creative officer and vice president in a media company's 150-year history. The common thread through all of it has been my transition from player to coach. I still like to do both, but the part I care about most is whether the team keeps winning after I leave the room. That's what you'll see here.";
+      var narrationText = "I'm Derek Simmons. I've been doing this for thirty years, across multiple newsrooms. Started as a sports writer. Put myself through college. Worked my way up to the first chief creative officer and vice president in a major media company's history. The common thread through all of it — my transition from player to coach. I still like to do both. But the part I care about most, is whether the team keeps winning after I leave the room. That's what you'll see here.";
 
       function stopAudio() {
         if (currentAudio) {
@@ -1169,7 +1169,7 @@
           currentAudio = audio;
           audio.onended = function() { URL.revokeObjectURL(url); resolve(); };
           audio.onerror = function() { URL.revokeObjectURL(url); reject(new Error('Audio error')); };
-          audio.playbackRate = 1.15;
+          audio.playbackRate = 1.1;
           audio.play().catch(reject);
         });
       }
