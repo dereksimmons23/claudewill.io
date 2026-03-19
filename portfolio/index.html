@@ -562,57 +562,41 @@
       padding: 0 2rem 0.35rem;
     }
 
-    .marquee-track { overflow: hidden; }
-
-    .marquee-strip {
-      display: flex;
-      gap: 6px;
-      width: max-content;
-    }
-
-    .marquee-strip img {
-      height: 200px;
-      width: 300px;
-      object-fit: cover;
-      display: block;
-      border-radius: 3px;
-      flex-shrink: 0;
-    }
-
-    .marquee-row[data-direction="left"] .marquee-strip {
-      animation: marquee-left 40s linear infinite;
-    }
-
-    .marquee-row[data-direction="right"] .marquee-strip {
-      animation: marquee-right 40s linear infinite;
-    }
-
-    .marquee-row:hover .marquee-strip {
-      animation-play-state: paused;
-    }
-
-    @keyframes marquee-left {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    @keyframes marquee-right {
-      from { transform: translateX(-50%); }
-      to { transform: translateX(0); }
-    }
-
     .section-work { padding: 2rem 0 0; }
     .section-work .pull-quote { padding: 0 2rem; }
 
-    /* ── Option B: Editorial grid (research-backed) ──────── */
+    /* ── Filterable gallery ──────── */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      padding: 0 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .filter-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 6px 14px;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.03em;
+      color: var(--dim);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
     .work-grid {
       width: 100vw;
       margin-left: calc(-50vw + 50%);
-      padding: 0;
+      padding: 0 4px;
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 4px;
-      grid-auto-flow: dense;
     }
 
     .work-grid figure {
@@ -621,7 +605,10 @@
       aspect-ratio: 4 / 3;
       position: relative;
       cursor: pointer;
+      transition: opacity 0.3s ease;
     }
+
+    .work-grid figure.hidden { display: none; }
 
     .work-grid figure img {
       width: 100%;
@@ -647,11 +634,6 @@
       pointer-events: none;
     }
 
-    .work-grid figure.hero {
-      grid-column: span 2;
-      aspect-ratio: 16 / 9;
-    }
-
     @media (hover: hover) {
       .work-grid figure:hover img { transform: scale(1.03); }
       .work-grid figure:hover figcaption { opacity: 1; }
@@ -659,11 +641,10 @@
 
     @media (min-width: 640px) {
       .work-grid { grid-template-columns: repeat(4, 1fr); gap: 5px; }
-      .work-grid figure.hero { grid-column: span 2; aspect-ratio: 16 / 9; }
     }
 
     @media (min-width: 1024px) {
-      .work-grid { gap: 6px; }
+      .work-grid { grid-template-columns: repeat(5, 1fr); gap: 6px; }
     }
 
     .slide img.dark-screenshot {
@@ -718,34 +699,17 @@
       margin-bottom: 0.75rem;
     }
 
-    .footer-links a { font-family: var(--mono); font-size: 0.78rem; color: var(--dim); }
-    .footer-links a:hover { color: var(--accent); }
-
-    .footer-note { font-family: var(--mono); font-size: 0.72rem; color: var(--dim); }
-
-    .footer-minnesota {
-      display: block;
-      max-width: 220px;
-      height: auto;
-      margin: 0.5rem auto 0;
-      border-radius: 4px;
-      padding: 6px 10px;
-      background: rgba(255,255,255,0.06);
-    }
-    .footer-minnesota.visible:hover {
-      transform: scale(1.03);
-      transition: transform 0.3s ease;
-    }
+    .footer-email { margin-top: 1rem; }
+    .footer-email a { font-family: var(--mono); font-size: 0.85rem; color: var(--dim); text-decoration: none; }
+    .footer-email a:hover { color: var(--accent); }
 
     @media (prefers-color-scheme: dark) {
       html:not(.light) body { --bg: #0a1628; --text: #e0e0e0; --dim: #888; --border: rgba(255,255,255,0.18); --link: #6ba8d4; }
       html:not(.light) .tile { background: #1a2a42; }
-      html:not(.light) .footer-minnesota { filter: invert(1) brightness(0.85); background: none; }
       html:not(.light) .gallery-scroll { background: #fff; }
     }
     html.dark body { --bg: #0a1628; --text: #e0e0e0; --dim: #888; --border: rgba(255,255,255,0.18); --link: #6ba8d4; }
     html.dark .tile { background: #1a2a42; }
-    html.dark .footer-minnesota { filter: invert(1) brightness(0.85); background: none; }
     html.dark .gallery-scroll { background: #fff; }
 
     @media (max-width: 768px) {
@@ -860,7 +824,7 @@
     <div class="header-menu" id="header-menu">
       <a href="#prince">Purple Majesty</a>
       <a href="#denied-justice">Denied Justice</a>
-      <a href="#work">The Work</a>
+      <a href="#work">Selected Work</a>
       <a href="mailto:derek@claudewill.io">Contact</a>
     </div>
   </nav>
@@ -971,159 +935,60 @@
       </div>
     </section>
 
-    <div class="section-break">
-      <img src="/images/gallery/section-break-30-years.png" alt="THE TIMES building at night" loading="lazy">
-      <div class="section-break-overlay">
-        <div>
-          <h2 class="section-break-title">30 Years.<br>Three Newsrooms.</h2>
-          <p class="section-break-meta">Star Tribune &middot; LA Times &middot; Wichita Eagle</p>
-        </div>
-      </div>
-    </div>
-
     <section class="section section-work" id="work">
-
-      <!-- ── OPTION A: 5-row marquee, 9 images per row ── -->
-      <!-- Categories: illustration, photography, news, features, typography -->
-      <!-- Platform-agnostic — organized by what the work does, not where it ran -->
-      <div class="marquee-gallery" id="gallery-marquee" style="display: none;">
-
-        <div class="marquee-row" data-direction="left">
-          <span class="marquee-label">illustration</span>
-          <div class="marquee-track"><div class="marquee-strip">
-            <img src="/images/gallery/work/illustration-01.jpg" alt="Editorial illustration" loading="lazy">
-            <img src="/images/gallery/work/illustration-02.jpg" alt="Editorial illustration" loading="lazy">
-            <img src="/images/gallery/work/illustration-03.jpg" alt="Editorial illustration" loading="lazy">
-            <img src="/images/gallery/work/illustration-04.jpg" alt="Editorial illustration" loading="lazy">
-            <img src="/images/gallery/work/illustration-05.jpg" alt="Editorial illustration" loading="lazy">
-            <img src="/images/gallery/work/illustration-06.jpg" alt="Editorial illustration" loading="lazy">
-            <img src="/images/gallery/work/illustration-07.jpg" alt="Editorial illustration" loading="lazy">
-            <img src="/images/gallery/work/illustration-08.jpg" alt="Editorial illustration" loading="lazy">
-            <img src="/images/gallery/work/illustration-09.jpg" alt="Editorial illustration" loading="lazy">
-            <img src="/images/gallery/work/illustration-01.jpg" alt="Editorial illustration" loading="lazy">
-            <img src="/images/gallery/work/illustration-02.jpg" alt="Editorial illustration" loading="lazy">
-            <img src="/images/gallery/work/illustration-03.jpg" alt="Editorial illustration" loading="lazy">
-            <img src="/images/gallery/work/illustration-04.jpg" alt="Editorial illustration" loading="lazy">
-            <img src="/images/gallery/work/illustration-05.jpg" alt="Editorial illustration" loading="lazy">
-            <img src="/images/gallery/work/illustration-06.jpg" alt="Editorial illustration" loading="lazy">
-            <img src="/images/gallery/work/illustration-07.jpg" alt="Editorial illustration" loading="lazy">
-            <img src="/images/gallery/work/illustration-08.jpg" alt="Editorial illustration" loading="lazy">
-            <img src="/images/gallery/work/illustration-09.jpg" alt="Editorial illustration" loading="lazy">
-          </div></div>
+      <div class="section-hero">
+        <img src="/images/gallery/section-break-30-years.png" alt="THE TIMES building at night" loading="lazy" style="object-position: center 60%;">
+        <div class="section-hero-overlay">
+          <div class="inner">
+            <h2 class="section-hero-title">Selected Work: 30 Years<br>Across Three Newsrooms</h2>
+          </div>
         </div>
-
-        <div class="marquee-row" data-direction="right">
-          <span class="marquee-label">photography</span>
-          <div class="marquee-track"><div class="marquee-strip">
-            <img src="/images/gallery/work/photography-01.jpg" alt="Photo direction" loading="lazy">
-            <img src="/images/gallery/work/photography-02.jpg" alt="Photo direction" loading="lazy">
-            <img src="/images/gallery/work/photography-03.jpg" alt="Photo direction" loading="lazy">
-            <img src="/images/gallery/work/photography-04.jpg" alt="Photo direction" loading="lazy">
-            <img src="/images/gallery/work/photography-05.jpg" alt="Photo direction" loading="lazy">
-            <img src="/images/gallery/work/photography-06.jpg" alt="Photo direction" loading="lazy">
-            <img src="/images/gallery/work/photography-09.jpg" alt="Photo direction" loading="lazy">
-            <img src="/images/gallery/work/photography-10.jpg" alt="Photo direction" loading="lazy">
-            <img src="/images/gallery/work/photography-14.jpg" alt="Photo direction" loading="lazy">
-            <img src="/images/gallery/work/photography-01.jpg" alt="Photo direction" loading="lazy">
-            <img src="/images/gallery/work/photography-02.jpg" alt="Photo direction" loading="lazy">
-            <img src="/images/gallery/work/photography-03.jpg" alt="Photo direction" loading="lazy">
-            <img src="/images/gallery/work/photography-04.jpg" alt="Photo direction" loading="lazy">
-            <img src="/images/gallery/work/photography-05.jpg" alt="Photo direction" loading="lazy">
-            <img src="/images/gallery/work/photography-06.jpg" alt="Photo direction" loading="lazy">
-            <img src="/images/gallery/work/photography-09.jpg" alt="Photo direction" loading="lazy">
-            <img src="/images/gallery/work/photography-10.jpg" alt="Photo direction" loading="lazy">
-            <img src="/images/gallery/work/photography-14.jpg" alt="Photo direction" loading="lazy">
-          </div></div>
-        </div>
-
-        <div class="marquee-row" data-direction="left">
-          <span class="marquee-label">news</span>
-          <div class="marquee-track"><div class="marquee-strip">
-            <img src="/images/gallery/work/news-01.jpg" alt="News coverage" loading="lazy">
-            <img src="/images/gallery/work/news-02.jpg" alt="News coverage" loading="lazy">
-            <img src="/images/gallery/work/news-03.jpg" alt="News coverage" loading="lazy">
-            <img src="/images/gallery/work/news-04.jpg" alt="News coverage" loading="lazy">
-            <img src="/images/gallery/work/news-05.jpg" alt="News coverage" loading="lazy">
-            <img src="/images/gallery/work/breaking-01.jpg" alt="Breaking news" loading="lazy">
-            <img src="/images/gallery/work/breaking-02.jpg" alt="Breaking news" loading="lazy">
-            <img src="/images/gallery/work/breaking-03.jpg" alt="Breaking news" loading="lazy">
-            <img src="/images/gallery/work/investigations-01.jpg" alt="Investigative" loading="lazy">
-            <img src="/images/gallery/work/news-01.jpg" alt="News coverage" loading="lazy">
-            <img src="/images/gallery/work/news-02.jpg" alt="News coverage" loading="lazy">
-            <img src="/images/gallery/work/news-03.jpg" alt="News coverage" loading="lazy">
-            <img src="/images/gallery/work/news-04.jpg" alt="News coverage" loading="lazy">
-            <img src="/images/gallery/work/news-05.jpg" alt="News coverage" loading="lazy">
-            <img src="/images/gallery/work/breaking-01.jpg" alt="Breaking news" loading="lazy">
-            <img src="/images/gallery/work/breaking-02.jpg" alt="Breaking news" loading="lazy">
-            <img src="/images/gallery/work/breaking-03.jpg" alt="Breaking news" loading="lazy">
-            <img src="/images/gallery/work/investigations-01.jpg" alt="Investigative" loading="lazy">
-          </div></div>
-        </div>
-
-        <div class="marquee-row" data-direction="right">
-          <span class="marquee-label">features</span>
-          <div class="marquee-track"><div class="marquee-strip">
-            <img src="/images/gallery/work/features-01.jpg" alt="Feature story" loading="lazy">
-            <img src="/images/gallery/work/features-02.jpg" alt="Feature story" loading="lazy">
-            <img src="/images/gallery/work/features-03.jpg" alt="Feature story" loading="lazy">
-            <img src="/images/gallery/work/features-04.jpg" alt="Feature story" loading="lazy">
-            <img src="/images/gallery/work/publications-01.jpg" alt="Publication" loading="lazy">
-            <img src="/images/gallery/work/publications-02.jpg" alt="Publication" loading="lazy">
-            <img src="/images/gallery/work/publications-03.jpg" alt="Publication" loading="lazy">
-            <img src="/images/gallery/work/publications-05.jpg" alt="Publication" loading="lazy">
-            <img src="/images/gallery/work/publications-06.jpg" alt="Publication" loading="lazy">
-            <img src="/images/gallery/work/features-01.jpg" alt="Feature story" loading="lazy">
-            <img src="/images/gallery/work/features-02.jpg" alt="Feature story" loading="lazy">
-            <img src="/images/gallery/work/features-03.jpg" alt="Feature story" loading="lazy">
-            <img src="/images/gallery/work/features-04.jpg" alt="Feature story" loading="lazy">
-            <img src="/images/gallery/work/publications-01.jpg" alt="Publication" loading="lazy">
-            <img src="/images/gallery/work/publications-02.jpg" alt="Publication" loading="lazy">
-            <img src="/images/gallery/work/publications-03.jpg" alt="Publication" loading="lazy">
-            <img src="/images/gallery/work/publications-05.jpg" alt="Publication" loading="lazy">
-            <img src="/images/gallery/work/publications-06.jpg" alt="Publication" loading="lazy">
-          </div></div>
-        </div>
-
-        <div class="marquee-row" data-direction="left">
-          <span class="marquee-label">typography</span>
-          <div class="marquee-track"><div class="marquee-strip">
-            <img src="/images/gallery/work/typography-04.jpg" alt="Typography" loading="lazy">
-            <img src="/images/gallery/work/typography-05.jpg" alt="Typography" loading="lazy">
-            <img src="/images/gallery/work/typography-06.jpg" alt="Typography" loading="lazy">
-            <img src="/images/gallery/work/typography-07.jpg" alt="Typography" loading="lazy">
-            <img src="/images/gallery/work/typography-08.jpg" alt="Typography" loading="lazy">
-            <img src="/images/gallery/work/typography-09.jpg" alt="Typography" loading="lazy">
-            <img src="/images/gallery/work/data-01.jpg" alt="Data visualization" loading="lazy">
-            <img src="/images/gallery/work/data-03.jpg" alt="Information graphics" loading="lazy">
-            <img src="/images/gallery/work/design-01.jpg" alt="Information design" loading="lazy">
-            <img src="/images/gallery/work/typography-04.jpg" alt="Typography" loading="lazy">
-            <img src="/images/gallery/work/typography-05.jpg" alt="Typography" loading="lazy">
-            <img src="/images/gallery/work/typography-06.jpg" alt="Typography" loading="lazy">
-            <img src="/images/gallery/work/typography-07.jpg" alt="Typography" loading="lazy">
-            <img src="/images/gallery/work/typography-08.jpg" alt="Typography" loading="lazy">
-            <img src="/images/gallery/work/typography-09.jpg" alt="Typography" loading="lazy">
-            <img src="/images/gallery/work/data-01.jpg" alt="Data visualization" loading="lazy">
-            <img src="/images/gallery/work/data-03.jpg" alt="Information graphics" loading="lazy">
-            <img src="/images/gallery/work/design-01.jpg" alt="Information design" loading="lazy">
-          </div></div>
-        </div>
-
       </div>
 
-      <!-- ── OPTION B: Tight 2-row editorial grid ── -->
-      <!-- News-heavy heroes for ProPublica audience. Small cells alternate text/no-text. -->
-      <!-- To switch: hide #gallery-marquee, show #gallery-grid -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="news">News</button>
+        <button class="filter-btn" data-filter="investigations">Investigations</button>
+        <button class="filter-btn" data-filter="art-direction">Art Direction</button>
+        <button class="filter-btn" data-filter="photography">Photography</button>
+        <button class="filter-btn" data-filter="data">Data &amp; Design</button>
+      </div>
+
       <div class="work-grid" id="gallery-grid">
-        <!-- Row 1: news hero + illustration + typography + photography -->
-        <figure class="hero"><img src="/images/gallery/work/breaking-01.jpg" alt="King of Pop is dead at 50 — LA Times A1" loading="lazy"></figure>
-        <figure><img src="/images/gallery/work/illustration-01.jpg" alt="Editorial illustration" loading="lazy"></figure>
-        <figure><img src="/images/gallery/work/news-01.jpg" alt="News front page" loading="lazy"></figure>
-        <figure><img src="/images/gallery/work/photography-01.jpg" alt="Photo direction" loading="lazy"></figure>
-        <!-- Row 2: news hero + photography + news + illustration -->
-        <figure class="hero"><img src="/images/gallery/work/investigations-01.jpg" alt="How Minnesota Fails the Disabled" loading="lazy"></figure>
-        <figure><img src="/images/gallery/work/photography-09.jpg" alt="Hotel California" loading="lazy"></figure>
-        <figure><img src="/images/gallery/work/breaking-02.jpg" alt="California wildfire" loading="lazy"></figure>
-        <figure><img src="/images/gallery/work/illustration-03.jpg" alt="Editorial illustration" loading="lazy"></figure>
+        <!-- News / Breaking -->
+        <figure data-cat="news"><img src="/images/gallery/work/breaking-01.jpg" alt="King of Pop is dead at 50 — LA Times A1" loading="lazy"><figcaption>LA Times A1 — Michael Jackson</figcaption></figure>
+        <figure data-cat="news"><img src="/images/gallery/work/breaking-02.jpg" alt="California wildfire coverage" loading="lazy"><figcaption>California wildfire</figcaption></figure>
+        <figure data-cat="news"><img src="/images/gallery/work/breaking-03.jpg" alt="Breaking news" loading="lazy"><figcaption>Breaking news</figcaption></figure>
+        <figure data-cat="news"><img src="/images/gallery/work/news-01.jpg" alt="News front page" loading="lazy"><figcaption>News front</figcaption></figure>
+        <figure data-cat="news"><img src="/images/gallery/work/news-02.jpg" alt="News front page" loading="lazy"><figcaption>News front</figcaption></figure>
+        <figure data-cat="news"><img src="/images/gallery/work/news-03.jpg" alt="News front page" loading="lazy"><figcaption>News front</figcaption></figure>
+        <figure data-cat="news"><img src="/images/gallery/work/news-04.jpg" alt="News front page" loading="lazy"><figcaption>News front</figcaption></figure>
+        <figure data-cat="news"><img src="/images/gallery/work/news-05.jpg" alt="News front page" loading="lazy"><figcaption>News front</figcaption></figure>
+        <figure data-cat="news"><img src="/images/gallery/work/news-06.jpg" alt="News front page" loading="lazy"><figcaption>News front</figcaption></figure>
+        <figure data-cat="news"><img src="/images/gallery/work/news-07.jpg" alt="News front page" loading="lazy"><figcaption>News front</figcaption></figure>
+        <!-- Investigations -->
+        <figure data-cat="investigations"><img src="/images/gallery/work/investigations-01.jpg" alt="How Minnesota Fails the Disabled" loading="lazy"><figcaption>How Minnesota Fails the Disabled</figcaption></figure>
+        <figure data-cat="investigations"><img src="/images/gallery/work/investigations-02.jpg" alt="Investigation" loading="lazy"><figcaption>Investigation</figcaption></figure>
+        <!-- Art Direction — Illustration -->
+        <figure data-cat="art-direction"><img src="/images/gallery/work/illustration-01.jpg" alt="Editorial illustration" loading="lazy"><figcaption>Illustration</figcaption></figure>
+        <figure data-cat="art-direction"><img src="/images/gallery/work/illustration-03.jpg" alt="Editorial illustration" loading="lazy"><figcaption>Illustration</figcaption></figure>
+        <figure data-cat="art-direction"><img src="/images/gallery/work/illustration-05.jpg" alt="Editorial illustration" loading="lazy"><figcaption>Illustration</figcaption></figure>
+        <figure data-cat="art-direction"><img src="/images/gallery/work/illustration-07.jpg" alt="Editorial illustration" loading="lazy"><figcaption>Illustration</figcaption></figure>
+        <figure data-cat="art-direction"><img src="/images/gallery/work/illustration-09.jpg" alt="Editorial illustration" loading="lazy"><figcaption>Illustration</figcaption></figure>
+        <!-- Art Direction — Typography -->
+        <figure data-cat="art-direction"><img src="/images/gallery/work/typography-04.jpg" alt="Typography" loading="lazy"><figcaption>Typography</figcaption></figure>
+        <figure data-cat="art-direction"><img src="/images/gallery/work/typography-06.jpg" alt="Typography" loading="lazy"><figcaption>Typography</figcaption></figure>
+        <figure data-cat="art-direction"><img src="/images/gallery/work/typography-08.jpg" alt="Typography" loading="lazy"><figcaption>Typography</figcaption></figure>
+        <!-- Photography -->
+        <figure data-cat="photography"><img src="/images/gallery/work/photography-01.jpg" alt="Photo direction" loading="lazy"><figcaption>Photo direction</figcaption></figure>
+        <figure data-cat="photography"><img src="/images/gallery/work/photography-03.jpg" alt="Photo direction" loading="lazy"><figcaption>Photo direction</figcaption></figure>
+        <figure data-cat="photography"><img src="/images/gallery/work/photography-06.jpg" alt="Photo direction" loading="lazy"><figcaption>Photo direction</figcaption></figure>
+        <figure data-cat="photography"><img src="/images/gallery/work/photography-09.jpg" alt="Photo direction" loading="lazy"><figcaption>Photo direction</figcaption></figure>
+        <figure data-cat="photography"><img src="/images/gallery/work/photography-14.jpg" alt="Photo direction" loading="lazy"><figcaption>Photo direction</figcaption></figure>
+        <!-- Data & Design -->
+        <figure data-cat="data"><img src="/images/gallery/work/data-01.jpg" alt="Data visualization" loading="lazy"><figcaption>Data visualization</figcaption></figure>
+        <figure data-cat="data"><img src="/images/gallery/work/data-03.jpg" alt="Information graphics" loading="lazy"><figcaption>Information graphics</figcaption></figure>
+        <figure data-cat="data"><img src="/images/gallery/work/design-01.jpg" alt="Information design" loading="lazy"><figcaption>Information design</figcaption></figure>
       </div>
 
       <p class="case-label" style="max-width: var(--content-w); margin: 2rem auto 0.5rem; padding: 0 2rem;">Quote</p>
@@ -1137,12 +1002,11 @@
 
   <footer class="footer">
     <div class="footer-links">
-      <a href="mailto:derek@claudewill.io">derek@claudewill.io</a>
-      <a href="/derek/propublica/derek_simmons_resume.pdf" target="_blank">R&eacute;sum&eacute;</a>
-      <a href="https://www.linkedin.com/in/dereksimm/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/dereksimmons23" target="_blank" rel="noopener">GitHub</a>
+      <a href="/derek/propublica/derek_simmons_resume.pdf" class="hero-btn" target="_blank">R&eacute;sum&eacute;</a>
+      <a href="https://www.linkedin.com/in/dereksimm/" class="hero-btn" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/dereksimmons23" class="hero-btn" target="_blank" rel="noopener">GitHub</a>
     </div>
-    <img src="/images/gallery/minnesota-letters.png" alt="Minnesota" class="footer-minnesota reveal">
+    <p class="footer-email"><a href="mailto:derek@claudewill.io">derek@claudewill.io</a></p>
   </footer>
 
   <div class="lightbox" id="lightbox">
@@ -1157,7 +1021,7 @@
     // ── Scroll reveals ──────────────────────
     (function() {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      var targets = document.querySelectorAll('.gallery, .impact, .backstory, .pull-quote, .links, .video-wrap, .tile-grid, .footer-minnesota');
+      var targets = document.querySelectorAll('.gallery, .impact, .backstory, .pull-quote, .links, .video-wrap, .work-grid');
       targets.forEach(function(el) { el.classList.add('reveal'); });
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
@@ -1266,12 +1130,34 @@
 
 
   <script>
+    // ── Gallery filter ──────────────────────
+    (function() {
+      var btns = document.querySelectorAll('.filter-btn');
+      var items = document.querySelectorAll('.work-grid figure');
+      btns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          btns.forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          var filter = btn.getAttribute('data-filter');
+          items.forEach(function(fig) {
+            if (filter === 'all' || fig.getAttribute('data-cat') === filter) {
+              fig.classList.remove('hidden');
+            } else {
+              fig.classList.add('hidden');
+            }
+          });
+        });
+      });
+    })();
+  </script>
+
+  <script>
     const lightbox = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightbox-img');
     const lbCap = document.getElementById('lightbox-caption');
     function openLB(src, alt, caption) { lbImg.src = src; lbImg.alt = alt; lbCap.textContent = caption; lightbox.classList.add('active'); document.body.style.overflow = 'hidden'; }
-    // Gallery slides — click to zoom
-    document.querySelectorAll('.slide, .slide-page, .slide-wide, .slide-screen').forEach(slide => {
+    // Gallery slides + grid figures — click to zoom
+    document.querySelectorAll('.slide, .slide-page, .slide-wide, .slide-screen, .work-grid figure').forEach(slide => {
       var img = slide.querySelector('img');
       var cap = slide.querySelector('figcaption');
       if (!img) return;
