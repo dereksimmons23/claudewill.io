@@ -304,10 +304,12 @@
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       gap: 1rem;
-      padding-bottom: 0.75rem;
+      padding: 1rem;
       -webkit-overflow-scrolling: touch;
       height: 420px;
       align-items: flex-start;
+      background: #f0f0ee;
+      border-radius: 4px;
     }
 
     .gallery-scroll::-webkit-scrollbar { height: 3px; }
@@ -734,12 +736,12 @@
       html:not(.light) body { --bg: #0a1628; --text: #e0e0e0; --dim: #888; --border: rgba(255,255,255,0.18); --link: #6ba8d4; }
       html:not(.light) .tile { background: #1a2a42; }
       html:not(.light) .footer-minnesota { filter: invert(1) brightness(0.85); background: none; }
-      html:not(.light) .gallery-scroll { background: rgba(255,255,255,0.08); }
+      html:not(.light) .gallery-scroll { background: #1a2a42; }
     }
     html.dark body { --bg: #0a1628; --text: #e0e0e0; --dim: #888; --border: rgba(255,255,255,0.18); --link: #6ba8d4; }
     html.dark .tile { background: #1a2a42; }
     html.dark .footer-minnesota { filter: invert(1) brightness(0.85); background: none; }
-    html.dark .gallery-scroll { background: rgba(255,255,255,0.08); }
+    html.dark .gallery-scroll { background: #1a2a42; }
 
     @media (max-width: 768px) {
       .hero-btn, .link-btn, .cta-btn { padding: 10px 18px; min-height: 44px; display: inline-flex; align-items: center; }
@@ -884,8 +886,6 @@
         <div class="gallery-scroll">
           <figure class="slide"><img src="/images/gallery/prince-a1-purple-majesty.png" alt="PURPLE MAJESTY — breaking news A1" loading="lazy"></figure>
           <figure class="slide slide-wide"><img src="/images/gallery/prince-4-covers.png" alt="Four zoned covers — Carter paintings, Whitman 1977, Brewster 1984" loading="lazy"></figure>
-          <figure class="slide"><img src="/images/gallery/prince-cover-1-carter-purple.png" alt="Robert Carter Purple Rain" loading="lazy"></figure>
-          <figure class="slide"><img src="/images/gallery/prince-cover-3-whitman-1977.png" alt="Robert Whitman 1977" loading="lazy"></figure>
           <figure class="slide slide-wide"><img src="/images/gallery/prince-interior-008.png" alt="Photography spread" loading="lazy"></figure>
           <figure class="slide slide-page"><img src="/images/gallery/prince-interior-010.png" alt="Twin Cities map" loading="lazy"></figure>
           <figure class="slide slide-page"><img src="/images/gallery/prince-interior-013.png" alt="Discography guide" loading="lazy"></figure>
