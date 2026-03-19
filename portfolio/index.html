@@ -987,7 +987,7 @@
 
 
   <script>
-    // ── Scroll gallery: touch/click to pause, swipe to browse ──
+    // ── Scroll gallery: tap to pause/resume, drag to browse ──
     (function() {
       var rows = document.querySelectorAll('.scroll-row');
       if (!rows.length) return;
@@ -999,56 +999,55 @@
         var paused = false;
         var startX = 0;
         var scrollX = 0;
-        var dragging = false;
+        var didDrag = false;
+        var active = false;
 
-        function pause() {
-          if (paused) return;
-          paused = true;
-          // Capture current animated position and freeze there
-          var computed = getComputedStyle(track);
-          var matrix = new DOMMatrix(computed.transform);
+        function freeze() {
+          var matrix = new DOMMatrix(getComputedStyle(track).transform);
           scrollX = matrix.m41;
           row.classList.add('paused');
           track.style.transform = 'translateX(' + scrollX + 'px)';
+          paused = true;
         }
 
-        function resume() {
-          paused = false;
-          row.classList.remove('paused');
+        function unfreeze() {
           track.style.transform = '';
+          row.classList.remove('paused');
+          paused = false;
         }
 
-        // Click/tap toggles pause
-        row.addEventListener('click', function(e) {
-          if (dragging) return;
-          if (paused) resume(); else pause();
-        });
-
-        // Touch/mouse drag to scroll while paused
         row.addEventListener('pointerdown', function(e) {
-          if (!paused) { pause(); return; }
-          dragging = false;
           startX = e.clientX;
+          didDrag = false;
+          active = true;
+          if (!paused) freeze();
           row.setPointerCapture(e.pointerId);
+          e.preventDefault();
         });
 
         row.addEventListener('pointermove', function(e) {
-          if (!paused || !e.buttons) return;
+          if (!active) return;
           var dx = e.clientX - startX;
-          if (Math.abs(dx) > 3) dragging = true;
-          track.style.transform = 'translateX(' + (scrollX + dx) + 'px)';
+          if (Math.abs(dx) > 5) didDrag = true;
+          if (didDrag) {
+            track.style.transform = 'translateX(' + (scrollX + dx) + 'px)';
+          }
         });
 
         row.addEventListener('pointerup', function(e) {
-          if (!paused) return;
-          var dx = e.clientX - startX;
-          scrollX += dx;
-          track.style.transform = 'translateX(' + scrollX + 'px)';
-          // Suppress the click that follows a drag
-          if (dragging) {
-            setTimeout(function() { dragging = false; }, 0);
+          if (!active) return;
+          active = false;
+          if (didDrag) {
+            // Commit drag position, stay paused
+            scrollX += (e.clientX - startX);
+            track.style.transform = 'translateX(' + scrollX + 'px)';
+          } else {
+            // Tap — toggle pause/resume
+            if (paused) unfreeze(); else freeze();
           }
         });
+
+        row.addEventListener('pointercancel', function() { active = false; });
       });
     })();
   </script>
