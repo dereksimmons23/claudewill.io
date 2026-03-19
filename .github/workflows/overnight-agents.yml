@@ -10,6 +10,28 @@ permissions:
   contents: write
 
 jobs:
+  morning-edition:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build The Morning Edition
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
+        run: node scripts/overnight/morning-edition.mjs
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: morning-edition-report
+          path: reports/morning-edition.md
+          retention-days: 30
+
   housekeeping:
     runs-on: ubuntu-latest
     steps:
@@ -27,65 +49,6 @@ jobs:
         with:
           name: housekeeping-report
           path: reports/housekeeping.md
-          retention-days: 30
-
-  research-brief:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Run research brief
-        env:
-          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
-        run: node scripts/overnight/research-brief.mjs
-      - name: Upload report
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: research-brief-report
-          path: reports/research-brief.md
-          retention-days: 30
-
-  gemini-brief:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Run Gemini industry brief
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: node scripts/overnight/gemini-brief.mjs
-      - name: Upload report
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: gemini-brief-report
-          path: reports/gemini-brief.md
-          retention-days: 30
-
-  code-review:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Run code review
-        env:
-          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
-        run: node scripts/overnight/code-review.mjs
-      - name: Upload report
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: code-review-report
-          path: reports/code-review.md
           retention-days: 30
 
   analytics:
@@ -108,67 +71,6 @@ jobs:
           path: reports/analytics.md
           retention-days: 30
 
-  content-scan:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Run content scan
-        run: node scripts/overnight/content-scan.mjs
-      - name: Upload report
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: content-scan-report
-          path: reports/content-scan.md
-          retention-days: 30
-
-  research-status:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Run research status
-        run: node scripts/overnight/research-status.mjs
-      - name: Upload report
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: research-status-report
-          path: reports/research-status.md
-          retention-days: 30
-
-  social-draft:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Run social draft
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: node scripts/overnight/social-draft.mjs
-      - name: Upload report
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: social-draft-report
-          path: reports/social-draft.md
-          retention-days: 30
-      - name: Upload draft files
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: social-draft-files
-          path: reports/social-drafts/
-          retention-days: 30
-          if-no-files-found: ignore
-
   pipeline-scan:
     runs-on: ubuntu-latest
     steps:
@@ -188,7 +90,7 @@ jobs:
 
   compile:
     runs-on: ubuntu-latest
-    needs: [housekeeping, research-brief, gemini-brief, code-review, analytics, content-scan, research-status, social-draft, pipeline-scan]
+    needs: [morning-edition, housekeeping, analytics, pipeline-scan]
     if: always()
     steps:
       - uses: actions/checkout@v4
@@ -196,32 +98,18 @@ jobs:
         with:
           node-version: 22
 
+      - name: Download morning edition report
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: morning-edition-report
+          path: reports/
+
       - name: Download housekeeping report
         uses: actions/download-artifact@v4
         continue-on-error: true
         with:
           name: housekeeping-report
-          path: reports/
-
-      - name: Download research brief report
-        uses: actions/download-artifact@v4
-        continue-on-error: true
-        with:
-          name: research-brief-report
-          path: reports/
-
-      - name: Download Gemini brief report
-        uses: actions/download-artifact@v4
-        continue-on-error: true
-        with:
-          name: gemini-brief-report
-          path: reports/
-
-      - name: Download code review report
-        uses: actions/download-artifact@v4
-        continue-on-error: true
-        with:
-          name: code-review-report
           path: reports/
 
       - name: Download analytics report
@@ -231,27 +119,6 @@ jobs:
           name: analytics-report
           path: reports/
 
-      - name: Download content scan report
-        uses: actions/download-artifact@v4
-        continue-on-error: true
-        with:
-          name: content-scan-report
-          path: reports/
-
-      - name: Download research status report
-        uses: actions/download-artifact@v4
-        continue-on-error: true
-        with:
-          name: research-status-report
-          path: reports/
-
-      - name: Download social draft report
-        uses: actions/download-artifact@v4
-        continue-on-error: true
-        with:
-          name: social-draft-report
-          path: reports/
-
       - name: Download pipeline scan report
         uses: actions/download-artifact@v4
         continue-on-error: true
@@ -259,20 +126,13 @@ jobs:
           name: pipeline-scan-report
           path: reports/
 
-      - name: Download social draft files
-        uses: actions/download-artifact@v4
-        continue-on-error: true
-        with:
-          name: social-draft-files
-          path: reports/social-drafts/
-
       - name: Compile kitchen-data.json
         run: node scripts/overnight/compile-kitchen-data.mjs
 
-      - name: Commit and push kitchen-data.json
+      - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add kitchen-data.json reports/social-drafts/
-          git diff --cached --quiet || git commit -m "chore: update kitchen-data.json + social drafts from overnight agents"
+          git add kitchen-data.json reports/morning-edition.md
+          git diff --cached --quiet || git commit -m "chore: morning edition + kitchen-data from overnight agents"
           git push

@@ -482,59 +482,112 @@ function loadProjects() {
   }
 }
 
+function parseMorningEdition(content) {
+  if (!content) {
+    return {
+      name: 'Morning Edition',
+      lastRun: new Date().toISOString(),
+      status: 'not-configured',
+      summary: 'No morning edition report found.',
+      flags: [],
+      sections: {},
+    }
+  }
+
+  const flags = []
+  let status = 'ok'
+
+  const flagsSection = content.match(/## Flags \(Decisions Needed\)\n([\s\S]*?)(?=\n## |$)/)?.[1] || ''
+  const flagLines = flagsSection.match(/- \[.\] .+/g) || []
+  for (const line of flagLines) flags.push(line.replace(/- \[.\] /, ''))
+  if (flags.length > 0) status = 'flags'
+
+  const sections = {}
+  const mastheadSection = content.match(/## Masthead\n([\s\S]*?)(?=\n## |$)/)?.[1] || ''
+  const rowRegex = /\|\s*(\w[\w\s&]*?)\s*\|\s*(.*?)\s*\|\s*(.*?)\s*\|/g
+  let match
+  while ((match = rowRegex.exec(mastheadSection)) !== null) {
+    if (match[1] === 'Section') continue
+    sections[match[1].trim()] = { source: match[2].trim(), status: match[3].trim() }
+  }
+
+  const frontMatch = content.match(/## Front Page\n\n> \*\*(.*?)\*\*/)
+  const summary = frontMatch ? frontMatch[1] : 'Morning Edition published.'
+
+  const findingsSection = content.match(/## Findings\n\n([\s\S]*?)(?=\n## |$)/)?.[1] || ''
+
+  return {
+    name: 'Morning Edition',
+    lastRun: new Date().toISOString(),
+    status,
+    summary,
+    flags,
+    sections,
+    findings: findingsSection.trim(),
+  }
+}
+
 function main() {
   const date = new Date().toISOString().split('T')[0]
 
-  // Read reports
+  // Read reports — 4 agents (down from 9)
+  const morningEditionContent = readReport('morning-edition.md')
   const housekeepingContent = readReport('housekeeping.md')
+  const analyticsContent = readReport('analytics.md')
+  const pipelineScanContent = readReport('pipeline-scan.md')
+
+  // Legacy reports — parse if they exist (backward compat during transition)
   const researchBriefContent = readReport('research-brief.md')
   const geminiBriefContent = readReport('gemini-brief.md')
   const codeReviewContent = readReport('code-review.md')
-  const analyticsContent = readReport('analytics.md')
   const contentScanContent = readReport('content-scan.md')
   const researchStatusContent = readReport('research-status.md')
   const socialDraftContent = readReport('social-draft.md')
-  const pipelineScanContent = readReport('pipeline-scan.md')
 
-  // Parse reports
+  // Parse all
+  const morningEdition = parseMorningEdition(morningEditionContent)
   const housekeeping = parseHousekeeping(housekeepingContent)
+  const analytics = parseAnalytics(analyticsContent)
+  const pipelineScan = parsePipelineScan(pipelineScanContent)
+
   const research = parseResearchBrief(researchBriefContent)
   const gemini = parseGeminiBrief(geminiBriefContent)
   const codeReview = parseCodeReview(codeReviewContent)
-  const analytics = parseAnalytics(analyticsContent)
   const contentScan = parseContentScan(contentScanContent)
   const researchStatus = parseResearchStatus(researchStatusContent)
   const socialDraft = parseSocialDraft(socialDraftContent)
-  const pipelineScan = parsePipelineScan(pipelineScanContent)
 
-  // Load projects
   const projects = loadProjects()
 
-  // Build kitchen-data.json
   const kitchenData = {
     lastUpdated: new Date().toISOString(),
     agents: {
+      morningEdition,
       housekeeping,
+      analytics,
+      pipelineScan,
+      // Legacy — kept for backward compat, will phase out
       research,
       gemini,
       codeReview,
-      analytics,
       contentScan,
       researchStatus,
       socialDraft,
-      pipelineScan,
     },
     projects,
     ecosystem: {
       stack: [
         { name: 'Claude Code (Opus 4.6)', role: 'The engine — builds, writes, thinks ($100/mo)' },
         { name: 'Claude Haiku 4.5', role: 'Porch conversations + session memory' },
-        { name: 'Gemini 2.5 Flash', role: 'Industry brief (Google Search grounded)' },
-        { name: 'Perplexity', role: 'Research brief (deep search)' },
-        { name: 'Mistral', role: 'Code review' },
+        { name: 'Gemini 2.5 Flash', role: 'Morning Edition — business & media (search grounded)' },
+        { name: 'Perplexity sonar', role: 'Morning Edition — AI deep dive (search grounded)' },
+        { name: 'Mistral Small', role: 'Morning Edition — practice synthesis' },
+        { name: 'Cohere rerank', role: 'Morning Edition — headline curation' },
+        { name: 'Google News RSS', role: 'Morning Edition — headlines (free, unlimited)' },
+        { name: 'HuggingFace', role: 'Fine-tune training + inference (CW, D adapters)' },
         { name: 'Netlify', role: 'Hosting + serverless functions' },
         { name: 'Supabase', role: 'Database + logging' },
-        { name: 'Cloudflare', role: 'Workers + DNS' },
+        { name: 'Cloudflare', role: 'Workers + DNS + fine-tune serving' },
         { name: 'GitHub Actions', role: 'Overnight agent scheduler' },
         { name: 'ElevenLabs', role: 'Voice synthesis (BOB, Coach D)' },
       ],
@@ -543,7 +596,7 @@ function main() {
         session: 'standup → work → eod. Every project, every day.',
         memory: 'CLAUDE.md defines identity. HANDOFF.md tracks state between sessions.',
         crew: 'Four thinking lenses (earn, connect, sharpen, challenge) run in parallel on any question.',
-        agents: 'Overnight scripts audit the site, research the market, and review code while the laptop is closed.',
+        agents: 'The Morning Edition: 5 AI sources curate a newspaper while the laptop is closed.',
         tools: 'Skills automate workflows. One command does what used to take an hour.',
       },
     },
@@ -552,15 +605,9 @@ function main() {
   writeFileSync(join(REPO_ROOT, 'kitchen-data.json'), JSON.stringify(kitchenData, null, 2) + '\n')
   console.log(`[${date}] kitchen-data.json compiled.`)
 
-  // Log summary
+  console.log(`  Morning Edition: ${morningEdition.status}`)
   console.log(`  Housekeeping: ${housekeeping.status}`)
-  console.log(`  Research: ${research.status}`)
-  console.log(`  Industry: ${gemini.status}`)
-  console.log(`  Code Review: ${codeReview.status}`)
   console.log(`  Analytics: ${analytics.status}`)
-  console.log(`  Content Scan: ${contentScan.status}`)
-  console.log(`  Research Status: ${researchStatus.status}`)
-  console.log(`  Social Drafts: ${socialDraft.status}`)
   console.log(`  Pipeline Scan: ${pipelineScan.status}`)
   console.log(`  Projects: ${projects.length}`)
 }
