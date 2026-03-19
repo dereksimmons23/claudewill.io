@@ -217,14 +217,10 @@
       margin-left: calc(-50vw + 50%);
       position: relative;
       overflow: hidden;
-      max-height: 75vh;
-      min-height: 400px;
+      max-height: 60vh;
+      min-height: 360px;
       display: flex;
       align-items: flex-start;
-    }
-
-    @media (min-width: 768px) {
-      .section-hero { min-height: 520px; }
     }
 
     .section-hero img {
@@ -419,7 +415,6 @@
 
 
     .section-work { padding: 2rem 0 0; }
-    .section-work .section-hero { max-height: 50vh; min-height: 320px; }
     .section-work .pull-quote { padding: 0 2rem; }
 
     /* ── Gallery ──────── */
@@ -512,7 +507,7 @@
       .content { padding: 0 1.25rem; }
       .section { padding: 3rem 0 2rem; }
       .section-title { font-size: 1.25rem; }
-      .section-hero { min-height: 280px; max-height: 55vh; }
+      .section-hero { min-height: 280px; max-height: 50vh; }
       .section-hero-title { font-size: 1.8rem; }
       .gallery { padding: 0 1rem; }
       .gallery-hint { padding: 0 1rem; }
@@ -570,12 +565,12 @@
       <div class="hero-text">
         <h1>Derek Simmons</h1>
         <p class="role">Visual Journalism &middot; Art Direction &middot; Newsroom Leadership</p>
-        <p class="intro">I&rsquo;ve built visual teams for 30 years across multiple newsrooms. Investigations that changed laws. Reprints people still buy a decade later. The part I care about most &mdash; the teams that keep winning after I left the room.</p>
+        <p class="intro">I&rsquo;ve built visual teams for 30 years across multiple newsrooms &mdash; at one, I hired 50 journalists in two years and grew the department to a quarter of the newsroom. Investigations that changed laws. Reprints people still buy a decade later. The part I care about most: the teams that keep winning after I left the room.</p>
         <div class="voice-cta">
-          <button class="voice-btn" id="voice-tour" aria-label="Listen to Derek narrate this portfolio">
+          <button class="voice-btn" id="voice-tour" aria-label="Hello — listen to Derek introduce himself">
             <svg class="play-icon" viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
             <svg class="stop-icon" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12"/></svg>
-            Hear my voice
+            Hello
           </button>
         </div>
         <div class="hero-buttons">
@@ -778,10 +773,10 @@
           <div class="scroll-img"><img src="/images/gallery/work/illustration-14.jpg" alt="Illustration" loading="lazy"></div>
           <div class="scroll-img"><img src="/images/gallery/work/digital-01.jpg" alt="Digital" loading="lazy"></div>
           <div class="scroll-img"><img src="/images/gallery/work/design-02.jpg" alt="Design" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/photography-15.jpg" alt="Photography" loading="lazy"></div>
           <div class="scroll-img"><img src="/images/gallery/work/digital-03.jpg" alt="Digital" loading="lazy"></div>
           <div class="scroll-img"><img src="/images/gallery/work/features-04.jpg" alt="Features" loading="lazy"></div>
           <div class="scroll-img"><img src="/images/gallery/work/typography-09.jpg" alt="Typography" loading="lazy"></div>
+          <div class="scroll-img"><img src="/images/gallery/work/photography-15.jpg" alt="-30-" loading="lazy"></div>
         </div>
       </div>
 
@@ -830,7 +825,7 @@
       var currentAudio = null;
       var isPlaying = false;
 
-      var narrationText = "I'm Derek Simmons. I've been doing this for thirty years, across multiple newsrooms. Started as a sports writer. Put myself through college. Worked my way up to the first chief creative officer and vice president in a major media company's history. The common thread through all of it — my transition from player to coach. I still like to do both. I build systems that outlast me. Teams, workflows, revenue models. One of mine generated twenty million dollars through a pandemic. That's what you'll see here.";
+      var narrationText = "I'm Derek Simmons. I've been a visual journalist for thirty years, across multiple newsrooms and now as a consultant. I started as a sports writer. Put myself through college. Worked my way up to the first chief creative officer and vice president. Won more than a thousand awards working with some of the best in the biz. I made the transition from player to coach, but I still like to do both. I build systems that outlast me. Teams, workflows, revenue models. Some of that you will see here. Some of it is better shared as a conversation. I enjoy those too.";
 
       function stopAudio() {
         if (currentAudio) {
