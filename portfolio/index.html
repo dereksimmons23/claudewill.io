@@ -565,86 +565,125 @@
     .section-work { padding: 2rem 0 0; }
     .section-work .pull-quote { padding: 0 2rem; }
 
-    /* ── Filterable gallery ──────── */
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      justify-content: center;
-      padding: 0 2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .filter-btn {
-      background: none;
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      padding: 6px 14px;
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.03em;
-      color: var(--dim);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
-    .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
-
-    .work-grid {
+    /* ── Scroll gallery ──────── */
+    .scroll-gallery {
+      position: relative;
       width: 100vw;
       margin-left: calc(-50vw + 50%);
-      padding: 0 4px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 4px;
-    }
-
-    .work-grid figure {
-      margin: 0;
       overflow: hidden;
-      aspect-ratio: 4 / 3;
-      position: relative;
-      cursor: pointer;
-      transition: opacity 0.3s ease;
+      padding: 1rem 0;
     }
 
-    .work-grid figure.hidden { display: none; }
+    .scroll-row {
+      overflow: hidden;
+      height: 240px;
+      margin-bottom: 8px;
+    }
 
-    .work-grid figure img {
+    .scroll-track {
+      display: flex;
+      gap: 8px;
+      padding: 0 8px;
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+
+    .scroll-row[data-dir="left"] .scroll-track {
+      animation: scroll-left 60s linear infinite;
+    }
+    .scroll-row[data-dir="right"] .scroll-track {
+      animation: scroll-right 60s linear infinite;
+    }
+    .scroll-row.paused .scroll-track {
+      animation-play-state: paused;
+    }
+
+    .scroll-unit {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .scroll-large {
+      flex-shrink: 0;
+      width: 340px;
+      height: 232px;
+      overflow: hidden;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .scroll-large img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.4s ease;
     }
 
-    .work-grid figure figcaption {
+    .scroll-quad {
+      flex-shrink: 0;
+      display: grid;
+      grid-template-columns: 112px 112px;
+      grid-template-rows: 112px 112px;
+      gap: 8px;
+    }
+    .scroll-quad img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes scroll-right {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+
+    .scroll-nav {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 1.5rem 0.75rem 0.5rem;
-      background: linear-gradient(transparent, rgba(0,0,0,0.6));
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      color: rgba(255,255,255,0.85);
-      letter-spacing: 0.03em;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 12px;
       pointer-events: none;
+      z-index: 5;
+    }
+    .scroll-nav button {
+      pointer-events: auto;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .scroll-nav button:hover { background: rgba(0,0,0,0.7); border-color: var(--accent); }
+
+    @media (max-width: 640px) {
+      .scroll-row { height: 200px; }
+      .scroll-large { width: 270px; height: 192px; }
+      .scroll-quad {
+        grid-template-columns: 92px 92px;
+        grid-template-rows: 92px 92px;
+      }
     }
 
-    @media (hover: hover) {
-      .work-grid figure:hover img { transform: scale(1.03); }
-      .work-grid figure:hover figcaption { opacity: 1; }
-    }
-
-    @media (min-width: 640px) {
-      .work-grid { grid-template-columns: repeat(4, 1fr); gap: 5px; }
-    }
-
-    @media (min-width: 1024px) {
-      .work-grid { grid-template-columns: repeat(5, 1fr); gap: 6px; }
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-track { animation: none !important; }
     }
 
     .slide img.dark-screenshot {
@@ -742,8 +781,6 @@
       .cta-line { font-size: 1.25rem; }
       .marquee-strip img { height: 140px; width: 210px; }
       .marquee-label { padding: 0 1rem 0.25rem; font-size: 0.6rem; }
-      .work-grid { grid-template-columns: repeat(2, 1fr); }
-      .work-grid figure.hero { grid-column: span 2; aspect-ratio: 3 / 2; }
       .credentials { font-size: 0.75rem; }
     }
 
@@ -945,50 +982,139 @@
         </div>
       </div>
 
-      <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="news">News</button>
-        <button class="filter-btn" data-filter="investigations">Investigations</button>
-        <button class="filter-btn" data-filter="art-direction">Art Direction</button>
-        <button class="filter-btn" data-filter="photography">Photography</button>
-        <button class="filter-btn" data-filter="data">Data &amp; Design</button>
-      </div>
+      <div class="scroll-gallery">
+        <!-- Row 1: scrolls left -->
+        <div class="scroll-row" data-dir="left">
+          <div class="scroll-track">
+            <!-- Unit A -->
+            <div class="scroll-unit">
+              <div class="scroll-large"><img src="/images/gallery/work/breaking-01.jpg" alt="LA Times A1" loading="lazy"></div>
+              <div class="scroll-quad">
+                <img src="/images/gallery/work/news-01.jpg" alt="News" loading="lazy">
+                <img src="/images/gallery/work/news-02.jpg" alt="News" loading="lazy">
+                <img src="/images/gallery/work/news-03.jpg" alt="News" loading="lazy">
+                <img src="/images/gallery/work/news-04.jpg" alt="News" loading="lazy">
+              </div>
+            </div>
+            <!-- Unit B -->
+            <div class="scroll-unit">
+              <div class="scroll-large"><img src="/images/gallery/work/investigations-01.jpg" alt="Investigation" loading="lazy"></div>
+              <div class="scroll-quad">
+                <img src="/images/gallery/work/illustration-01.jpg" alt="Illustration" loading="lazy">
+                <img src="/images/gallery/work/illustration-03.jpg" alt="Illustration" loading="lazy">
+                <img src="/images/gallery/work/typography-04.jpg" alt="Typography" loading="lazy">
+                <img src="/images/gallery/work/typography-06.jpg" alt="Typography" loading="lazy">
+              </div>
+            </div>
+            <!-- Unit C -->
+            <div class="scroll-unit">
+              <div class="scroll-large"><img src="/images/gallery/work/breaking-02.jpg" alt="Breaking news" loading="lazy"></div>
+              <div class="scroll-quad">
+                <img src="/images/gallery/work/news-05.jpg" alt="News" loading="lazy">
+                <img src="/images/gallery/work/news-06.jpg" alt="News" loading="lazy">
+                <img src="/images/gallery/work/data-01.jpg" alt="Data" loading="lazy">
+                <img src="/images/gallery/work/data-03.jpg" alt="Data" loading="lazy">
+              </div>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="scroll-unit">
+              <div class="scroll-large"><img src="/images/gallery/work/breaking-01.jpg" alt="LA Times A1" loading="lazy"></div>
+              <div class="scroll-quad">
+                <img src="/images/gallery/work/news-01.jpg" alt="News" loading="lazy">
+                <img src="/images/gallery/work/news-02.jpg" alt="News" loading="lazy">
+                <img src="/images/gallery/work/news-03.jpg" alt="News" loading="lazy">
+                <img src="/images/gallery/work/news-04.jpg" alt="News" loading="lazy">
+              </div>
+            </div>
+            <div class="scroll-unit">
+              <div class="scroll-large"><img src="/images/gallery/work/investigations-01.jpg" alt="Investigation" loading="lazy"></div>
+              <div class="scroll-quad">
+                <img src="/images/gallery/work/illustration-01.jpg" alt="Illustration" loading="lazy">
+                <img src="/images/gallery/work/illustration-03.jpg" alt="Illustration" loading="lazy">
+                <img src="/images/gallery/work/typography-04.jpg" alt="Typography" loading="lazy">
+                <img src="/images/gallery/work/typography-06.jpg" alt="Typography" loading="lazy">
+              </div>
+            </div>
+            <div class="scroll-unit">
+              <div class="scroll-large"><img src="/images/gallery/work/breaking-02.jpg" alt="Breaking news" loading="lazy"></div>
+              <div class="scroll-quad">
+                <img src="/images/gallery/work/news-05.jpg" alt="News" loading="lazy">
+                <img src="/images/gallery/work/news-06.jpg" alt="News" loading="lazy">
+                <img src="/images/gallery/work/data-01.jpg" alt="Data" loading="lazy">
+                <img src="/images/gallery/work/data-03.jpg" alt="Data" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <div class="work-grid" id="gallery-grid">
-        <!-- News / Breaking -->
-        <figure data-cat="news"><img src="/images/gallery/work/breaking-01.jpg" alt="King of Pop is dead at 50 — LA Times A1" loading="lazy"><figcaption>LA Times A1 — Michael Jackson</figcaption></figure>
-        <figure data-cat="news"><img src="/images/gallery/work/breaking-02.jpg" alt="California wildfire coverage" loading="lazy"><figcaption>California wildfire</figcaption></figure>
-        <figure data-cat="news"><img src="/images/gallery/work/breaking-03.jpg" alt="Breaking news" loading="lazy"><figcaption>Breaking news</figcaption></figure>
-        <figure data-cat="news"><img src="/images/gallery/work/news-01.jpg" alt="News front page" loading="lazy"><figcaption>News front</figcaption></figure>
-        <figure data-cat="news"><img src="/images/gallery/work/news-02.jpg" alt="News front page" loading="lazy"><figcaption>News front</figcaption></figure>
-        <figure data-cat="news"><img src="/images/gallery/work/news-03.jpg" alt="News front page" loading="lazy"><figcaption>News front</figcaption></figure>
-        <figure data-cat="news"><img src="/images/gallery/work/news-04.jpg" alt="News front page" loading="lazy"><figcaption>News front</figcaption></figure>
-        <figure data-cat="news"><img src="/images/gallery/work/news-05.jpg" alt="News front page" loading="lazy"><figcaption>News front</figcaption></figure>
-        <figure data-cat="news"><img src="/images/gallery/work/news-06.jpg" alt="News front page" loading="lazy"><figcaption>News front</figcaption></figure>
-        <figure data-cat="news"><img src="/images/gallery/work/news-07.jpg" alt="News front page" loading="lazy"><figcaption>News front</figcaption></figure>
-        <!-- Investigations -->
-        <figure data-cat="investigations"><img src="/images/gallery/work/investigations-01.jpg" alt="How Minnesota Fails the Disabled" loading="lazy"><figcaption>How Minnesota Fails the Disabled</figcaption></figure>
-        <figure data-cat="investigations"><img src="/images/gallery/work/investigations-02.jpg" alt="Investigation" loading="lazy"><figcaption>Investigation</figcaption></figure>
-        <!-- Art Direction — Illustration -->
-        <figure data-cat="art-direction"><img src="/images/gallery/work/illustration-01.jpg" alt="Editorial illustration" loading="lazy"><figcaption>Illustration</figcaption></figure>
-        <figure data-cat="art-direction"><img src="/images/gallery/work/illustration-03.jpg" alt="Editorial illustration" loading="lazy"><figcaption>Illustration</figcaption></figure>
-        <figure data-cat="art-direction"><img src="/images/gallery/work/illustration-05.jpg" alt="Editorial illustration" loading="lazy"><figcaption>Illustration</figcaption></figure>
-        <figure data-cat="art-direction"><img src="/images/gallery/work/illustration-07.jpg" alt="Editorial illustration" loading="lazy"><figcaption>Illustration</figcaption></figure>
-        <figure data-cat="art-direction"><img src="/images/gallery/work/illustration-09.jpg" alt="Editorial illustration" loading="lazy"><figcaption>Illustration</figcaption></figure>
-        <!-- Art Direction — Typography -->
-        <figure data-cat="art-direction"><img src="/images/gallery/work/typography-04.jpg" alt="Typography" loading="lazy"><figcaption>Typography</figcaption></figure>
-        <figure data-cat="art-direction"><img src="/images/gallery/work/typography-06.jpg" alt="Typography" loading="lazy"><figcaption>Typography</figcaption></figure>
-        <figure data-cat="art-direction"><img src="/images/gallery/work/typography-08.jpg" alt="Typography" loading="lazy"><figcaption>Typography</figcaption></figure>
-        <!-- Photography -->
-        <figure data-cat="photography"><img src="/images/gallery/work/photography-01.jpg" alt="Photo direction" loading="lazy"><figcaption>Photo direction</figcaption></figure>
-        <figure data-cat="photography"><img src="/images/gallery/work/photography-03.jpg" alt="Photo direction" loading="lazy"><figcaption>Photo direction</figcaption></figure>
-        <figure data-cat="photography"><img src="/images/gallery/work/photography-06.jpg" alt="Photo direction" loading="lazy"><figcaption>Photo direction</figcaption></figure>
-        <figure data-cat="photography"><img src="/images/gallery/work/photography-09.jpg" alt="Photo direction" loading="lazy"><figcaption>Photo direction</figcaption></figure>
-        <figure data-cat="photography"><img src="/images/gallery/work/photography-14.jpg" alt="Photo direction" loading="lazy"><figcaption>Photo direction</figcaption></figure>
-        <!-- Data & Design -->
-        <figure data-cat="data"><img src="/images/gallery/work/data-01.jpg" alt="Data visualization" loading="lazy"><figcaption>Data visualization</figcaption></figure>
-        <figure data-cat="data"><img src="/images/gallery/work/data-03.jpg" alt="Information graphics" loading="lazy"><figcaption>Information graphics</figcaption></figure>
-        <figure data-cat="data"><img src="/images/gallery/work/design-01.jpg" alt="Information design" loading="lazy"><figcaption>Information design</figcaption></figure>
+        <!-- Row 2: scrolls right -->
+        <div class="scroll-row" data-dir="right">
+          <div class="scroll-track">
+            <!-- Unit D -->
+            <div class="scroll-unit">
+              <div class="scroll-large"><img src="/images/gallery/work/breaking-03.jpg" alt="Breaking news" loading="lazy"></div>
+              <div class="scroll-quad">
+                <img src="/images/gallery/work/photography-01.jpg" alt="Photography" loading="lazy">
+                <img src="/images/gallery/work/photography-03.jpg" alt="Photography" loading="lazy">
+                <img src="/images/gallery/work/photography-06.jpg" alt="Photography" loading="lazy">
+                <img src="/images/gallery/work/photography-09.jpg" alt="Photography" loading="lazy">
+              </div>
+            </div>
+            <!-- Unit E -->
+            <div class="scroll-unit">
+              <div class="scroll-large"><img src="/images/gallery/work/investigations-02.jpg" alt="Investigation" loading="lazy"></div>
+              <div class="scroll-quad">
+                <img src="/images/gallery/work/illustration-05.jpg" alt="Illustration" loading="lazy">
+                <img src="/images/gallery/work/illustration-07.jpg" alt="Illustration" loading="lazy">
+                <img src="/images/gallery/work/illustration-09.jpg" alt="Illustration" loading="lazy">
+                <img src="/images/gallery/work/typography-08.jpg" alt="Typography" loading="lazy">
+              </div>
+            </div>
+            <!-- Unit F -->
+            <div class="scroll-unit">
+              <div class="scroll-large"><img src="/images/gallery/work/news-07.jpg" alt="News" loading="lazy"></div>
+              <div class="scroll-quad">
+                <img src="/images/gallery/work/photography-14.jpg" alt="Photography" loading="lazy">
+                <img src="/images/gallery/work/design-01.jpg" alt="Design" loading="lazy">
+                <img src="/images/gallery/work/photography-10.jpg" alt="Photography" loading="lazy">
+                <img src="/images/gallery/work/photography-05.jpg" alt="Photography" loading="lazy">
+              </div>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="scroll-unit">
+              <div class="scroll-large"><img src="/images/gallery/work/breaking-03.jpg" alt="Breaking news" loading="lazy"></div>
+              <div class="scroll-quad">
+                <img src="/images/gallery/work/photography-01.jpg" alt="Photography" loading="lazy">
+                <img src="/images/gallery/work/photography-03.jpg" alt="Photography" loading="lazy">
+                <img src="/images/gallery/work/photography-06.jpg" alt="Photography" loading="lazy">
+                <img src="/images/gallery/work/photography-09.jpg" alt="Photography" loading="lazy">
+              </div>
+            </div>
+            <div class="scroll-unit">
+              <div class="scroll-large"><img src="/images/gallery/work/investigations-02.jpg" alt="Investigation" loading="lazy"></div>
+              <div class="scroll-quad">
+                <img src="/images/gallery/work/illustration-05.jpg" alt="Illustration" loading="lazy">
+                <img src="/images/gallery/work/illustration-07.jpg" alt="Illustration" loading="lazy">
+                <img src="/images/gallery/work/illustration-09.jpg" alt="Illustration" loading="lazy">
+                <img src="/images/gallery/work/typography-08.jpg" alt="Typography" loading="lazy">
+              </div>
+            </div>
+            <div class="scroll-unit">
+              <div class="scroll-large"><img src="/images/gallery/work/news-07.jpg" alt="News" loading="lazy"></div>
+              <div class="scroll-quad">
+                <img src="/images/gallery/work/photography-14.jpg" alt="Photography" loading="lazy">
+                <img src="/images/gallery/work/design-01.jpg" alt="Design" loading="lazy">
+                <img src="/images/gallery/work/photography-10.jpg" alt="Photography" loading="lazy">
+                <img src="/images/gallery/work/photography-05.jpg" alt="Photography" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-nav">
+          <button class="scroll-prev" aria-label="Scroll left">&larr;</button>
+          <button class="scroll-next" aria-label="Scroll right">&rarr;</button>
+        </div>
       </div>
 
       <p class="case-label" style="max-width: var(--content-w); margin: 2rem auto 0.5rem; padding: 0 2rem;">Quote</p>
@@ -1021,7 +1147,7 @@
     // ── Scroll reveals ──────────────────────
     (function() {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      var targets = document.querySelectorAll('.gallery, .impact, .backstory, .pull-quote, .links, .video-wrap, .work-grid');
+      var targets = document.querySelectorAll('.gallery, .impact, .backstory, .pull-quote, .links, .video-wrap, .scroll-gallery');
       targets.forEach(function(el) { el.classList.add('reveal'); });
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
@@ -1130,24 +1256,42 @@
 
 
   <script>
-    // ── Gallery filter ──────────────────────
+    // ── Scroll gallery: pause/resume + arrow nav ──
     (function() {
-      var btns = document.querySelectorAll('.filter-btn');
-      var items = document.querySelectorAll('.work-grid figure');
-      btns.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          btns.forEach(function(b) { b.classList.remove('active'); });
-          btn.classList.add('active');
-          var filter = btn.getAttribute('data-filter');
-          items.forEach(function(fig) {
-            if (filter === 'all' || fig.getAttribute('data-cat') === filter) {
-              fig.classList.remove('hidden');
-            } else {
-              fig.classList.add('hidden');
-            }
-          });
-        });
+      var rows = document.querySelectorAll('.scroll-row');
+      if (!rows.length) return;
+
+      // Pause on pointerdown, resume on pointerup/leave
+      rows.forEach(function(row) {
+        row.addEventListener('pointerdown', function() { row.classList.add('paused'); });
+        row.addEventListener('pointerup', function() { row.classList.remove('paused'); });
+        row.addEventListener('pointerleave', function() { row.classList.remove('paused'); });
       });
+
+      // Arrow navigation — nudge all tracks by one unit width
+      var prevBtn = document.querySelector('.scroll-prev');
+      var nextBtn = document.querySelector('.scroll-next');
+      if (prevBtn && nextBtn) {
+        function nudge(direction) {
+          rows.forEach(function(row) {
+            var track = row.querySelector('.scroll-track');
+            if (!track) return;
+            // Pause animation, shift position, resume
+            var computed = getComputedStyle(track);
+            var matrix = new DOMMatrix(computed.transform);
+            var currentX = matrix.m41;
+            var shift = direction * 400; // ~one unit width
+            row.classList.add('paused');
+            track.style.transform = 'translateX(' + (currentX + shift) + 'px)';
+            setTimeout(function() {
+              track.style.transform = '';
+              row.classList.remove('paused');
+            }, 300);
+          });
+        }
+        prevBtn.addEventListener('click', function() { nudge(1); });
+        nextBtn.addEventListener('click', function() { nudge(-1); });
+      }
     })();
   </script>
 
@@ -1156,13 +1300,18 @@
     const lbImg = document.getElementById('lightbox-img');
     const lbCap = document.getElementById('lightbox-caption');
     function openLB(src, alt, caption) { lbImg.src = src; lbImg.alt = alt; lbCap.textContent = caption; lightbox.classList.add('active'); document.body.style.overflow = 'hidden'; }
-    // Gallery slides + grid figures — click to zoom
-    document.querySelectorAll('.slide, .slide-page, .slide-wide, .slide-screen, .work-grid figure').forEach(slide => {
+    // Gallery slides + scroll gallery + grid figures — click to zoom
+    document.querySelectorAll('.slide, .slide-page, .slide-wide, .slide-screen, .scroll-large, .work-grid figure').forEach(slide => {
       var img = slide.querySelector('img');
       var cap = slide.querySelector('figcaption');
       if (!img) return;
       slide.style.cursor = 'pointer';
       slide.addEventListener('click', () => openLB(img.src, img.alt, cap ? cap.textContent : ''));
+    });
+    // Scroll quad images are direct <img> elements
+    document.querySelectorAll('.scroll-quad img').forEach(img => {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => openLB(img.src, img.alt, ''));
     });
     const closeLB = () => { lightbox.classList.remove('active'); document.body.style.overflow = ''; };
     lightbox.addEventListener('click', e => { if (e.target === lightbox || e.target.classList.contains('lightbox-close')) closeLB(); });
