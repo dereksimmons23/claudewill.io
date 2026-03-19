@@ -797,7 +797,7 @@
       <div class="hero-text">
         <h1>Derek Simmons</h1>
         <p class="role">Visual Journalism &middot; Art Direction &middot; Newsroom Leadership</p>
-        <p class="intro">I build visual teams that outlast me. Investigations that changed four Minnesota laws. A Prince section people still buy a decade later. A revenue model that generated $20&nbsp;million during a pandemic. I was the first CCO and VP in the paper&rsquo;s 150-year history. But the part I care about &mdash; the teams kept winning after I left the room.</p>
+        <p class="intro">I build visual teams that outlast me. Investigations that changed four Minnesota laws. A Prince section people still buy a decade later. A revenue model that generated $20&nbsp;million during a pandemic. But the part I care about &mdash; the teams kept winning after I left the room.</p>
         <p class="credentials" id="credentials-typewriter"></p>
         <div class="hero-buttons">
           <a href="mailto:derek@claudewill.io" class="hero-btn">Email</a>
@@ -1149,7 +1149,7 @@
       var currentAudio = null;
       var isPlaying = false;
 
-      var narrationText = "I've been doing this for 30 years across three newsrooms. The Prince section, Denied Justice, Star Tribune Magazine — the common thread is I build process. Someone brings me something difficult, we figure out the approach together, and the work gets better than anyone expected. Most of what you'll see here won a lot of awards. But the part I care about is whether the team kept producing after I left the room.";
+      var narrationText = "Hello, I'm Derek Simmons, and I've been doing this for three decades across multiple newsrooms. I started as a sports writer, got a journalism degree by putting myself through college, and then became the first chief creative officer and vice president in a media company's 150-year history. The common thread through all of it has been my transition from player to coach. I still like to do both, but the part I care about most is whether the team keeps winning after I leave the room. That's what you'll see here.";
 
       function stopAudio() {
         if (currentAudio) {
@@ -1175,6 +1175,7 @@
           currentAudio = audio;
           audio.onended = function() { URL.revokeObjectURL(url); resolve(); };
           audio.onerror = function() { URL.revokeObjectURL(url); reject(new Error('Audio error')); };
+          audio.playbackRate = 1.15;
           audio.play().catch(reject);
         });
       }
