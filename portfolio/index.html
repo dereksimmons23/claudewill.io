@@ -417,49 +417,6 @@
     .link-btn:visited { color: var(--text); }
     .link-btn:visited:hover { color: var(--accent); }
 
-    .tile-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 6px;
-      margin: 1.5rem 0;
-    }
-
-    .tile {
-      position: relative;
-      aspect-ratio: 1;
-      overflow: hidden;
-      border-radius: 3px;
-      cursor: pointer;
-      background: var(--border);
-    }
-
-    .tile img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-
-    .tile:hover img { transform: scale(1.04); }
-
-    .tile-label {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 1.5rem 0.5rem 0.4rem;
-      background: linear-gradient(transparent, rgba(0,0,0,0.55));
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      color: rgba(255,255,255,0.85);
-      letter-spacing: 0.02em;
-      line-height: 1.3;
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-
-    .tile:hover .tile-label { opacity: 1; }
 
     .lightbox {
       display: none;
@@ -502,65 +459,6 @@
 
     .lightbox-close:hover { color: #fff; }
 
-    .section-break {
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
-      position: relative;
-      overflow: hidden;
-      min-height: 50vh;
-      max-height: 70vh;
-    }
-
-    .section-break img { width: 100%; height: 100%; display: block; object-fit: cover; position: absolute; inset: 0; }
-
-    .section-break-overlay {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 50vh;
-      max-height: 70vh;
-      padding: 3rem 2rem;
-      background: rgba(0,0,0,0.4);
-    }
-
-    .section-break-title {
-      font-size: clamp(2.5rem, 7vw, 5.5rem);
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-break-meta {
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.65);
-      letter-spacing: 0.04em;
-    }
-
-    /* ── Marquee gallery: 5 rows × 9 images ── */
-    .marquee-gallery {
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
-      overflow: hidden;
-    }
-
-    .marquee-row { padding: 0.5rem 0; }
-
-    .marquee-label {
-      display: block;
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      font-weight: 500;
-      color: var(--dim);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 0 2rem 0.35rem;
-    }
 
     .section-work { padding: 2rem 0 0; }
     .section-work .pull-quote { padding: 0 2rem; }
@@ -686,44 +584,6 @@
       .scroll-track { animation: none !important; }
     }
 
-    .slide img.dark-screenshot {
-      border-radius: 4px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.15);
-    }
-
-    .cta-close {
-      padding: 5rem 2rem;
-      text-align: center;
-      background: #0b1a2e;
-      color: #fff;
-    }
-
-    .cta-line {
-      font-size: 1.6rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      margin-bottom: 1.5rem;
-    }
-
-    .cta-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
-
-    .cta-btn {
-      display: inline-block;
-      padding: 9px 20px;
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 3px;
-      color: rgba(255,255,255,0.85);
-      text-decoration: none;
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      letter-spacing: 0.02em;
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    .cta-btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
-    .cta-btn:visited { color: rgba(255,255,255,0.85); }
-    .cta-btn:visited:hover { color: var(--accent); }
-
     .footer {
       padding: 3rem 2rem;
       border-top: 1px solid var(--border);
@@ -737,6 +597,13 @@
       gap: 6px 20px;
       margin-bottom: 0.75rem;
     }
+    .footer .hero-btn {
+      color: var(--text);
+      border-color: var(--border);
+    }
+    .footer .hero-btn:hover { color: var(--accent); border-color: var(--accent); }
+    .footer .hero-btn:visited { color: var(--text); }
+    .footer .hero-btn:visited:hover { color: var(--accent); }
 
     .footer-email { margin-top: 1rem; }
     .footer-email a { font-family: var(--mono); font-size: 0.85rem; color: var(--dim); text-decoration: none; }
@@ -744,15 +611,13 @@
 
     @media (prefers-color-scheme: dark) {
       html:not(.light) body { --bg: #0a1628; --text: #e0e0e0; --dim: #888; --border: rgba(255,255,255,0.18); --link: #6ba8d4; }
-      html:not(.light) .tile { background: #1a2a42; }
       html:not(.light) .gallery-scroll { background: #fff; }
     }
     html.dark body { --bg: #0a1628; --text: #e0e0e0; --dim: #888; --border: rgba(255,255,255,0.18); --link: #6ba8d4; }
-    html.dark .tile { background: #1a2a42; }
     html.dark .gallery-scroll { background: #fff; }
 
     @media (max-width: 768px) {
-      .hero-btn, .link-btn, .cta-btn { padding: 10px 18px; min-height: 44px; display: inline-flex; align-items: center; }
+      .hero-btn, .link-btn { padding: 10px 18px; min-height: 44px; display: inline-flex; align-items: center; }
       .header-menu a { padding: 8px 0; min-height: 44px; display: inline-flex; align-items: center; }
       .case-label { font-size: 0.75rem; }
     }
@@ -772,21 +637,11 @@
       .gallery-hint { padding: 0 1rem; }
       .gallery-scroll { height: 70vh; max-height: 700px; }
       .slide, .slide-page, .slide-wide, .slide-screen { flex: 0 0 auto; height: 100%; }
-      .tile-grid { grid-template-columns: repeat(2, 1fr); }
       .sticky-header { padding: 0.5rem 1rem; }
-      .section-break { max-height: 50vh; min-height: 40vh; }
-      .section-break-overlay { min-height: 40vh; max-height: 50vh; }
-      .section-break-title { font-size: clamp(1.8rem, 8vw, 3rem); }
-      .cta-close { padding: 3.5rem 1.25rem; }
-      .cta-line { font-size: 1.25rem; }
-      .marquee-strip img { height: 140px; width: 210px; }
-      .marquee-label { padding: 0 1rem 0.25rem; font-size: 0.6rem; }
-      .credentials { font-size: 0.75rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .tile:hover img { transform: none; }
       .reveal { opacity: 1; transform: none; transition: none; }
     }
 
@@ -802,7 +657,7 @@
       transform: translateY(0);
     }
 
-    a:focus-visible, .tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
     @media print {
       .hero-card { min-height: auto; padding: 2rem; background: #fff; color: #000; }
@@ -815,12 +670,10 @@
       .section-hero-overlay { background: none; }
       .section-hero-title { color: #000; }
       .section-hero-meta { color: #555; }
-      .gallery, .gallery-hint, .section-break { margin-left: 0; width: 100%; }
+      .gallery, .gallery-hint { margin-left: 0; width: 100%; }
       .gallery-scroll { flex-wrap: wrap; overflow: visible; height: auto; }
       .slide, .slide-page, .slide-wide, .slide-screen { height: auto; flex: 0 0 48%; }
       .slide img { height: auto; width: 100%; }
-      .tile-grid { grid-template-columns: repeat(3, 1fr); }
-      .tile-label { opacity: 1; }
       .video-wrap { display: none; }
       .video-print-fallback { display: block !important; font-size: 0.85em; color: #555; margin: 1rem 0; }
       .lightbox { display: none !important; }
@@ -982,6 +835,11 @@
         </div>
       </div>
 
+      <div class="backstory" style="max-width: var(--content-w); margin: 1.5rem auto 2rem; padding: 0 2rem;">
+        <p>None of this was solo work. The best of it came from photographers, illustrators, reporters, designers and editors &mdash; people who chose a brutal, important profession and got better at it together on deadline. Too many to name. I miss that. I&rsquo;d like to find some version of it again.</p>
+        <p>In the meantime, I&rsquo;ve spent the last two years learning how to work with machines the same way I learned to work with people &mdash; by doing it every day. That part of the story is <a href="/derek">over here</a>.</p>
+      </div>
+
       <div class="scroll-gallery">
         <!-- Row 1: scrolls left -->
         <div class="scroll-row" data-dir="left">
@@ -1119,7 +977,7 @@
 
       <p class="case-label" style="max-width: var(--content-w); margin: 2rem auto 0.5rem; padding: 0 2rem;">Quote</p>
       <div class="pull-quote" style="max-width: var(--content-w); margin: 0 auto 3rem;">
-        <p>&ldquo;I have worked with Derek over the course of 17 years on a variety of illustration projects and have always appreciated his ability to communicate how to get the best work from me. He clearly communicates the project and its goals to make the project go smoothly and to end up with the best results. Derek has always been receptive to my input so our work together is a true collaboration which I greatly appreciate.&rdquo;</p>
+        <p>&ldquo;I have worked with Derek over the course of 17 years on a variety of illustration projects and have always appreciated his ability to communicate how to get the best work from me. He clearly communicates the project and its goals to make the project go smoothly and to end up with the best results.&rdquo;</p>
         <p class="attr">&mdash; Joel Kimmel, illustrator</p>
       </div>
     </section>
@@ -1301,7 +1159,7 @@
     const lbCap = document.getElementById('lightbox-caption');
     function openLB(src, alt, caption) { lbImg.src = src; lbImg.alt = alt; lbCap.textContent = caption; lightbox.classList.add('active'); document.body.style.overflow = 'hidden'; }
     // Gallery slides + scroll gallery + grid figures — click to zoom
-    document.querySelectorAll('.slide, .slide-page, .slide-wide, .slide-screen, .scroll-large, .work-grid figure').forEach(slide => {
+    document.querySelectorAll('.slide, .slide-page, .slide-wide, .slide-screen, .scroll-large').forEach(slide => {
       var img = slide.querySelector('img');
       var cap = slide.querySelector('figcaption');
       if (!img) return;
