@@ -306,18 +306,20 @@
       gap: 1rem;
       padding-bottom: 0.75rem;
       -webkit-overflow-scrolling: touch;
+      height: 420px;
+      align-items: flex-start;
     }
 
     .gallery-scroll::-webkit-scrollbar { height: 3px; }
     .gallery-scroll::-webkit-scrollbar-track { background: var(--border); }
     .gallery-scroll::-webkit-scrollbar-thumb { background: var(--dim); border-radius: 2px; }
 
-    .slide { flex: 0 0 42%; scroll-snap-align: start; }
-    .slide-page { flex: 0 0 56%; scroll-snap-align: start; }
-    .slide-wide { flex: 0 0 72%; }
-    .slide-screen { flex: 0 0 52%; }
+    .slide { flex: 0 0 auto; scroll-snap-align: start; height: 100%; }
+    .slide-page { flex: 0 0 auto; scroll-snap-align: start; height: 100%; }
+    .slide-wide { flex: 0 0 auto; height: 100%; }
+    .slide-screen { flex: 0 0 auto; height: 100%; }
 
-    .slide img { width: 100%; height: auto; display: block; }
+    .slide img { height: 100%; width: auto; display: block; }
 
     .slide figcaption {
       font-family: var(--mono);
@@ -758,10 +760,8 @@
       .section-hero-title { font-size: 1.8rem; }
       .gallery { padding: 0 1rem; }
       .gallery-hint { padding: 0 1rem; }
-      .slide { flex: 0 0 68%; }
-      .slide-page { flex: 0 0 80%; }
-      .slide-wide { flex: 0 0 92%; }
-      .slide-screen { flex: 0 0 78%; }
+      .gallery-scroll { height: 320px; }
+      .slide, .slide-page, .slide-wide, .slide-screen { flex: 0 0 auto; height: 100%; }
       .tile-grid { grid-template-columns: repeat(2, 1fr); }
       .sticky-header { padding: 0.5rem 1rem; }
       .section-break { max-height: 50vh; min-height: 40vh; }
@@ -808,8 +808,9 @@
       .section-hero-title { color: #000; }
       .section-hero-meta { color: #555; }
       .gallery, .gallery-hint, .section-break { margin-left: 0; width: 100%; }
-      .gallery-scroll { flex-wrap: wrap; overflow: visible; }
-      .slide { flex: 0 0 48%; }
+      .gallery-scroll { flex-wrap: wrap; overflow: visible; height: auto; }
+      .slide, .slide-page, .slide-wide, .slide-screen { height: auto; flex: 0 0 48%; }
+      .slide img { height: auto; width: 100%; }
       .tile-grid { grid-template-columns: repeat(3, 1fr); }
       .tile-label { opacity: 1; }
       .video-wrap { display: none; }
