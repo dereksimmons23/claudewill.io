@@ -57,21 +57,26 @@
 
     .hero-card-inner {
       display: flex;
-      gap: 3rem;
+      flex-direction: column;
+      gap: 2rem;
       align-items: center;
       max-width: 960px;
       width: 100%;
     }
 
     .hero-photo {
-      flex: 0 0 280px;
-      height: 340px;
+      width: 100%;
+      height: 260px;
       background: rgba(255,255,255,0.08);
       border-radius: 4px;
       overflow: hidden;
     }
 
-    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+
+    .hero-text {
+      text-align: center;
+    }
 
     .hero-text h1 {
       font-size: 2.4rem;
@@ -92,14 +97,16 @@
       line-height: 1.7;
       color: rgba(255,255,255,0.8);
       margin-bottom: 1.25rem;
-      max-width: 480px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .voice-cta {
       margin-bottom: 1.25rem;
     }
 
-    .hero-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 
     .hero-btn {
       display: inline-block;
@@ -210,6 +217,7 @@
     }
 
     .section { padding: 4.5rem 0 3.5rem; }
+    .section:first-child { padding-top: 0; }
     .section + .section { border-top: 1px solid var(--border); }
 
     .section-hero {
@@ -486,10 +494,10 @@
     .footer-email a:hover { color: var(--accent); }
 
     @media (prefers-color-scheme: dark) {
-      html:not(.light) body { --bg: #0a1628; --text: #e0e0e0; --dim: #888; --border: rgba(255,255,255,0.18); --link: #6ba8d4; }
+      html:not(.light) body { --bg: #0b1a2e; --text: #e0e0e0; --dim: #888; --border: rgba(255,255,255,0.18); --link: #6ba8d4; }
       html:not(.light) .gallery-scroll { background: #fff; }
     }
-    html.dark body { --bg: #0a1628; --text: #e0e0e0; --dim: #888; --border: rgba(255,255,255,0.18); --link: #6ba8d4; }
+    html.dark body { --bg: #0b1a2e; --text: #e0e0e0; --dim: #888; --border: rgba(255,255,255,0.18); --link: #6ba8d4; }
     html.dark .gallery-scroll { background: #fff; }
 
     @media (max-width: 768px) {
@@ -499,9 +507,9 @@
     }
     @media (max-width: 640px) {
       .hero-card { padding: 2.5rem 1.25rem; min-height: auto; }
-      .hero-card-inner { flex-direction: column; text-align: center; gap: 2rem; }
-      .hero-photo { flex: none; width: 200px; height: 240px; }
-      .hero-text .intro { max-width: 100%; }
+      .hero-card-inner { gap: 1.5rem; }
+      .hero-photo { width: 100%; height: 200px; }
+      .hero-text .intro { max-width: 100%; margin: 0 auto; }
       .hero-text h1 { font-size: 1.8rem; }
       .hero-buttons { justify-content: center; flex-wrap: wrap; }
       .content { padding: 0 1.25rem; }
@@ -560,7 +568,7 @@
   <div class="hero-card">
     <div class="hero-card-inner">
       <div class="hero-photo">
-        <img src="/images/gallery/derek-self-portrait.png" alt="Derek Simmons" loading="eager">
+        <img src="/images/gallery/star-tribune-team-2024.png" alt="Star Tribune visual journalism team" loading="eager">
       </div>
       <div class="hero-text">
         <h1>Derek Simmons</h1>
@@ -607,12 +615,12 @@
       </div>
 
       <p class="case-label">Breaking News</p>
-      <p class="backstory">Prince died on a Thursday. Every paper in the country would run Prince coverage. Minnesota&rsquo;s paper had to own it.</p>
+      <p class="backstory">Prince died on a Thursday. Every paper in the country would run it. Minnesota&rsquo;s paper &mdash; his home state &mdash; had to own it. We did.</p>
 
       <p class="case-label">Approach</p>
       <div class="backstory">
         <p>By Friday morning we published &ldquo;Purple Majesty.&rdquo; Over the next 10 days I art directed a 16-page commemorative section with four unique zoned covers. Commissioned two original paintings from Robert Carter in less than a week. Negotiated rights to a rarely seen 1977 photograph taken when Prince was 19.</p>
-        <p>The editorial decisions &mdash; when to use illustration vs. photography, how to hold the tone of a state&rsquo;s mourning &mdash; those are the work behind the work.</p>
+        <p>Every pixel and pica had to meet the moment &mdash; illustration or photography, restraint or celebration, a state&rsquo;s mourning held without exploiting it. That&rsquo;s the work behind the work.</p>
       </div>
 
       <div class="gallery">
@@ -645,8 +653,8 @@
       <p class="video-print-fallback">Video: https://www.youtube.com/watch?v=M6tn3Q7i7-c</p>
 
       <div class="links">
-        <a href="https://stribstore.com/products/remembering-a-minnesota-icon-prince-page-poster-reprint-set" class="link-btn" target="_blank" rel="noopener">Reprints (Strib Store)</a>
-        <a href="https://www.startribune.com/remembering-prince-an-icon-for-minnesota-and-the-world/377316801" class="link-btn" target="_blank" rel="noopener">Digital presentation</a>
+        <a href="https://stribstore.com/products/remembering-a-minnesota-icon-prince-page-poster-reprint-set" class="link-btn" target="_blank" rel="noopener">Reprints</a>
+        <a href="https://www.startribune.com/remembering-prince-an-icon-for-minnesota-and-the-world/377316801" class="link-btn" target="_blank" rel="noopener">The full series</a>
       </div>
     </section>
 
@@ -695,8 +703,8 @@
       <p class="video-print-fallback">Video: https://www.youtube.com/watch?v=zIeFt2JIveM</p>
 
       <div class="links">
-        <a href="https://www2.startribune.com/denied-justice-minnesota-s-failed-rape-investigations/487400761/" class="link-btn" target="_blank" rel="noopener">Digital presentation</a>
-        <a href="https://static.startribune.com/assets/news/justice-denied/deniedjustice_final.pdf" class="link-btn" target="_blank" rel="noopener">Print PDF, 33 pages</a>
+        <a href="https://www2.startribune.com/denied-justice-minnesota-s-failed-rape-investigations/487400761/" class="link-btn" target="_blank" rel="noopener">The series</a>
+        <a href="https://static.startribune.com/assets/news/justice-denied/deniedjustice_final.pdf" class="link-btn" target="_blank" rel="noopener">Print edition</a>
       </div>
     </section>
 
@@ -711,8 +719,8 @@
       </div>
 
       <div class="backstory" style="max-width: var(--content-w); margin: 1.5rem auto 2rem; padding: 0 2rem;">
-        <p>None of this was solo work. The best of it came from photographers, illustrators, reporters, designers and editors &mdash; people who chose a brutal, important profession and got better at it together on deadline. Too many to name. I miss that. I&rsquo;d like to find some version of it again.</p>
-        <p>I built claudewill.io from scratch using AI as my collaborator &mdash; HTML, CSS, vanilla JavaScript, serverless, Anthropic AI. No frameworks. No templates. The code was written in daily conversation with <a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview">Claude Code</a>, the same way I used to work with designers: here&rsquo;s what I&rsquo;m thinking, go try it, let&rsquo;s iterate. The method didn&rsquo;t change. The collaborator did.</p>
+        <p>I built this site in daily conversation with an AI &mdash; same method I&rsquo;ve always used. Here&rsquo;s what I&rsquo;m thinking. Go try it. Let&rsquo;s see.</p>
+        <p>But none of what&rsquo;s on it was solo work. The best of it came from photographers, illustrators, reporters, designers and editors &mdash; people who chose a brutal, important profession and got better at it together on deadline. Too many to name. I miss that. I&rsquo;d like to find some version of it again.</p>
       </div>
 
       <div class="scroll-gallery">
