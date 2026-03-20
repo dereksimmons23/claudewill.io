@@ -11,9 +11,9 @@ const VOICES = {
 // Per-voice settings — tuned for natural delivery
 const VOICE_SETTINGS = {
   derek: {
-    stability: 0.45,          // moderate = natural but steadier pacing
+    stability: 0.35,          // lower = more variation in pacing/pitch, less monotone
     similarity_boost: 0.6,    // loosened — less rigid adherence to clone
-    style: 0.7,               // high = conversational, expressive
+    style: 0.85,              // higher = more expressive, conversational energy
     use_speaker_boost: true
   },
   interviewer: {
