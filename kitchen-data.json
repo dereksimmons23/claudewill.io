@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-03-19T11:17:36.022Z",
+  "lastUpdated": "2026-03-20T11:13:43.207Z",
   "agents": {
     "morningEdition": {
       "name": "Morning Edition",
-      "lastRun": "2026-03-19T11:17:36.021Z",
+      "lastRun": "2026-03-20T11:13:43.205Z",
       "status": "ok",
-      "summary": "How the military is using AI in war",
+      "summary": "Three Charged With Conspiring To Unlawfully Divert U.S. Artificial Intelligence Technology To China",
       "flags": [],
       "sections": {
         "Headlines": {
@@ -29,44 +29,43 @@
           "status": "not configured"
         }
       },
-      "findings": "12 headlines curated across 5 topics. 9 AI citations. 0 business sources."
+      "findings": "12 headlines curated across 5 topics. 9 AI citations. 18 business sources."
     },
     "housekeeping": {
       "name": "Housekeeping",
-      "lastRun": "2026-03-19T11:17:36.021Z",
+      "lastRun": "2026-03-20T11:13:43.205Z",
       "status": "ok",
-      "summary": "All 10 pages + 2 subdomains responding. Avg 181ms.",
+      "summary": "All 10 pages + 2 subdomains responding. Avg 309ms.",
       "flags": [],
       "details": [
-        "https://claudewill.io/ — 200 31ms",
-        "https://claudewill.io/derek — 200 112ms",
-        "https://claudewill.io/story — 200 112ms",
-        "https://claudewill.io/workshop — 200 391ms",
-        "https://claudewill.io/privacy — 200 206ms",
-        "https://claudewill.io/terms — 200 218ms",
-        "https://claudewill.io/kitchen — 200 115ms",
-        "https://claudewill.io/arcade — 200 467ms",
-        "https://claudewill.io/map — 200 71ms",
-        "https://claudewill.io/being-claude — 200 88ms",
-        "Coach D (https://coach.claudewill.io) — 200 392ms",
-        "BOB (https://bob.claudewill.io) — 200 281ms"
+        "https://claudewill.io/ — 200 9ms",
+        "https://claudewill.io/derek — 200 9ms",
+        "https://claudewill.io/story — 200 127ms",
+        "https://claudewill.io/workshop — 200 669ms",
+        "https://claudewill.io/privacy — 200 46ms",
+        "https://claudewill.io/terms — 200 76ms",
+        "https://claudewill.io/kitchen — 200 120ms",
+        "https://claudewill.io/arcade — 200 661ms",
+        "https://claudewill.io/map — 200 698ms",
+        "https://claudewill.io/being-claude — 200 677ms",
+        "Coach D (https://coach.claudewill.io) — 200 935ms",
+        "BOB (https://bob.claudewill.io) — 200 1021ms"
       ]
     },
     "analytics": {
       "name": "Analytics",
-      "lastRun": "2026-03-19T11:17:36.022Z",
+      "lastRun": "2026-03-20T11:13:43.206Z",
       "status": "flags",
-      "summary": "Conversations: 105 total (24h: 0 | 7d: 5 | 30d: 105)",
+      "summary": "Conversations: 97 total (24h: 0 | 7d: 5 | 30d: 97)",
       "flags": [
-        "Conversation volume declining: 0.7/day (7d) vs 3.5/day (30d)",
-        "35.1 hours last 7d — exceeds sovereignty target (21h)"
+        "Conversation volume declining: 0.7/day (7d) vs 3.2/day (30d)"
       ],
       "metrics": {
         "conversations": {
-          "total": 105,
+          "total": 97,
           "day": 0,
           "week": 5,
-          "month": 105
+          "month": 97
         },
         "visitors": {
           "total": 6,
@@ -75,65 +74,65 @@
           "named": 2
         },
         "pipeline": {
-          "count30d": 2,
+          "count30d": 1,
           "count7d": 0,
           "total": 4
         },
         "derekTime": {
-          "hours7d": 35.1,
-          "sessions7d": 28
+          "hours7d": 8.2,
+          "sessions7d": 33
         },
-        "apiCost30d": 1.03
+        "apiCost30d": 0.95
       }
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-03-19T11:17:36.022Z",
+      "lastRun": "2026-03-20T11:13:43.206Z",
       "status": "flags",
       "summary": "**Pipeline:** 7 items (3 draft, 2 planned, 1 idea, 1 in-progress)",
       "flags": [
-        "Being Claude #11: The Manual: draft for 7 days — review or reject",
-        "Being Claude: The Scoreboard: draft for 15 days — review or reject",
-        "Being Claude: The Brightness (warm/hot/cold): draft for 15 days — review or reject"
+        "Being Claude #11: The Manual: draft for 8 days — review or reject",
+        "Being Claude: The Scoreboard: draft for 16 days — review or reject",
+        "Being Claude: The Brightness (warm/hot/cold): draft for 16 days — review or reject"
       ]
     },
     "research": {
       "name": "Research Brief",
-      "lastRun": "2026-03-19T11:17:36.022Z",
+      "lastRun": "2026-03-20T11:13:43.206Z",
       "status": "not-configured",
       "summary": "No research brief report found.",
       "sources": []
     },
     "gemini": {
       "name": "Industry Brief",
-      "lastRun": "2026-03-19T11:17:36.022Z",
+      "lastRun": "2026-03-20T11:13:43.206Z",
       "status": "not-configured",
       "summary": "No industry brief report found.",
       "sources": []
     },
     "codeReview": {
       "name": "Code Review",
-      "lastRun": "2026-03-19T11:17:36.022Z",
+      "lastRun": "2026-03-20T11:13:43.206Z",
       "status": "not-configured",
       "summary": "No code review report found."
     },
     "contentScan": {
       "name": "Content Scan",
-      "lastRun": "2026-03-19T11:17:36.022Z",
+      "lastRun": "2026-03-20T11:13:43.206Z",
       "status": "not-configured",
       "summary": "No content scan report found.",
       "flags": []
     },
     "researchStatus": {
       "name": "Research Status",
-      "lastRun": "2026-03-19T11:17:36.022Z",
+      "lastRun": "2026-03-20T11:13:43.206Z",
       "status": "not-configured",
       "summary": "No research status report found.",
       "flags": []
     },
     "socialDraft": {
       "name": "Social Drafts",
-      "lastRun": "2026-03-19T11:17:36.022Z",
+      "lastRun": "2026-03-20T11:13:43.206Z",
       "status": "not-configured",
       "summary": "No social draft report found.",
       "flags": []
