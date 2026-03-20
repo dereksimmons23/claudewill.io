@@ -343,6 +343,22 @@ async function main() {
   findings.push(`Repo hygiene: ${hygieneIssues === 0 ? 'clean' : hygieneIssues + ' issues'}.`)
   findings.push(`Map: ${mapCoverage.length === 0 ? 'complete' : mapCoverage.length + ' pages missing'}.`)
 
+  // ── Cleanup Agent ──
+  // Runs monthly as part of housekeeping. Quarterly flag adds asset review.
+  try {
+    const month = new Date().getMonth() // 0-indexed
+    const isQuarterly = [2, 5, 8, 11].includes(month) // Mar, Jun, Sep, Dec
+    const cleanupArgs = ['--dry-run'] // default dry-run in automated mode
+    if (isQuarterly) cleanupArgs.push('--quarterly')
+    const cleanupScript = join(dirname(fileURLToPath(import.meta.url)), '..', '..', '..', 'the-standard', 'scripts', 'cleanup-agent.mjs')
+    if (existsSync(cleanupScript)) {
+      const cleanupOutput = execFileSync('node', [cleanupScript, ...cleanupArgs]).toString()
+      findings.push('Cleanup agent: ran successfully (dry-run). Review report at the-standard/reports/flags/')
+    }
+  } catch (err) {
+    findings.push(`Cleanup agent: failed — ${err.message}`)
+  }
+
   // ── Build Report ──
 
   let report = `# Housekeeping \u2014 claudewill.io\n`
