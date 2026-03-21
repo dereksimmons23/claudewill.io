@@ -640,12 +640,13 @@
                     a.textContent = star.text;
 
                     var top = (i * step) + (Math.random() * step * 0.6);
-                    var left = 4 + Math.random() * 80;
+                    var left = 10 + Math.random() * 80;
                     var size = sizes[Math.floor(Math.random() * sizes.length)];
                     var opacity = opacities[Math.floor(Math.random() * opacities.length)];
 
                     a.style.top = top + '%';
                     a.style.left = left + '%';
+                    a.style.transform = 'translateX(-50%)';
                     a.style.fontSize = size + 'rem';
                     a.style.color = 'rgba(200,210,220,' + opacity + ')';
 
@@ -707,14 +708,14 @@
 
                 if (arriveProgress > 0) {
                     // Arriving: brighten, grow, settle above "built by"
-                    scale = 0.15 + arriveProgress * 0.2;
+                    scale = 0.15 + arriveProgress * 0.15;
                     opacity = 0.08 + arriveProgress * 0.92;
-                    yShift = 30 + arriveProgress * 15;
+                    yShift = 8;
                 } else {
-                    // Receding: shrink, fade, drift down through the stars
+                    // Receding: shrink, fade, drift slightly down
                     scale = 1 - recedeProgress * 0.85;
                     opacity = Math.max(0.08, 1 - recedeProgress * 0.92);
-                    yShift = recedeProgress * 30;
+                    yShift = recedeProgress * 8;
                 }
 
                 nameEl.style.transform = 'translate(-50%, calc(-50% + ' + yShift + 'vh)) scale(' + scale + ')';
