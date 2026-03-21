@@ -659,11 +659,24 @@
 
                 var recedeProgress = Math.min(1, scrollY / (vh * 0.8));
 
-                // Recede into the stars, stay as a ghost. Never return.
-                var scale = 1 - recedeProgress * 0.85;
-                var opacity = Math.max(0.08, 1 - recedeProgress * 0.92);
+                var scrollFraction = maxScroll > 0 ? scrollY / maxScroll : 0;
+                var arriveProgress = Math.max(0, (scrollFraction - 0.7) / 0.3);
 
-                nameEl.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
+                var scale, opacity, yShift;
+
+                if (arriveProgress > 0) {
+                    // Arriving: brighten, grow, settle above "built by"
+                    scale = 0.15 + arriveProgress * 0.2;
+                    opacity = 0.08 + arriveProgress * 0.92;
+                    yShift = 30 + arriveProgress * 15;
+                } else {
+                    // Receding: shrink, fade, drift down through the stars
+                    scale = 1 - recedeProgress * 0.85;
+                    opacity = Math.max(0.08, 1 - recedeProgress * 0.92);
+                    yShift = recedeProgress * 30;
+                }
+
+                nameEl.style.transform = 'translate(-50%, calc(-50% + ' + yShift + 'vh)) scale(' + scale + ')';
                 nameEl.style.opacity = opacity;
 
                 // Hook fades with the name
@@ -673,11 +686,14 @@
                     hookEl.style.visibility = hookOpacity === 0 ? 'hidden' : 'visible';
                 }
 
-                // Period drops as name fades — gone by 60% scroll
+                // Period: drops during recede, returns during arrive
                 if (recedeProgress > 0.5 && !periodDropped) {
                     periodDropped = true;
                     if (periodEl) periodEl.style.display = 'none';
-                } else if (recedeProgress < 0.3 && periodDropped) {
+                } else if (arriveProgress > 0.7 && periodDropped) {
+                    periodDropped = false;
+                    if (periodEl) periodEl.style.display = '';
+                } else if (recedeProgress < 0.3 && periodDropped && arriveProgress === 0) {
                     periodDropped = false;
                     if (periodEl) periodEl.style.display = '';
                 }
