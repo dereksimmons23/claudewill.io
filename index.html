@@ -455,6 +455,9 @@
         .site-footer a:hover { color: var(--bright); }
         .site-footer a:visited { color: var(--dim); }
         .footer-note + .footer-note { margin-top: 0.25rem; }
+        .book-countdown { color: var(--accent); text-decoration: none; letter-spacing: 0.06em; font-size: 0.8rem; }
+        .book-countdown:hover { text-shadow: 0 0 10px rgba(212, 168, 75, 0.3); }
+        .book-countdown:visited { color: var(--accent); }
 
         /* ── Claude Will — typewriter section ── */
         .claude-will-section {
@@ -637,6 +640,7 @@
     </main>
 
     <footer class="site-footer" role="contentinfo">
+        <p class="footer-note"><a href="/book" class="book-countdown" id="book-countdown"></a></p>
         <p class="footer-note">&copy; 2026 CW Strategies LLC</p>
         <p class="footer-note"><a href="/standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
     </footer>
@@ -918,5 +922,19 @@
     <script src="/js/cw-link-renderer.js"></script>
     <script src="/js/porch-widget.js" defer></script>
     <script src="/js/shared-nav.js"></script>
+    <script>
+    (function() {
+      var el = document.getElementById('book-countdown');
+      if (!el) return;
+      var bookDate = new Date('2026-06-28T00:00:00');
+      var now = new Date();
+      var days = Math.ceil((bookDate - now) / 86400000);
+      if (days > 0) {
+        el.textContent = days + ' days to the book';
+      } else {
+        el.textContent = 'the book is here';
+      }
+    })();
+    </script>
 </body>
 </html>
