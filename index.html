@@ -640,7 +640,10 @@
                     a.textContent = star.text;
 
                     var top = (i * step) + (Math.random() * step * 0.6);
-                    var left = 10 + Math.random() * 80;
+                    // Short words scatter wide, long phrases stay near center
+                    var len = star.text.length;
+                    var margin = Math.min(40, len * 2);
+                    var left = margin + Math.random() * (100 - margin * 2);
                     var size = sizes[Math.floor(Math.random() * sizes.length)];
                     var opacity = opacities[Math.floor(Math.random() * opacities.length)];
 
