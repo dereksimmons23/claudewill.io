@@ -688,8 +688,14 @@
                 nameEl.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
                 nameEl.style.opacity = opacity;
                 if (nameSubEl) {
-                    nameSubEl.style.opacity = Math.max(0, 1 - recedeProgress * 1.5);
-                    nameSubEl.style.transform = 'translateX(-50%) scale(' + Math.max(0.8, scale) + ')';
+                    // Subtitle fades fast and stays gone — never returns with the name
+                    var subOpacity = returnProgress > 0 ? 0 : Math.max(0, 1 - recedeProgress * 3);
+                    nameSubEl.style.opacity = subOpacity;
+                    if (subOpacity === 0) {
+                        nameSubEl.style.visibility = 'hidden';
+                    } else {
+                        nameSubEl.style.visibility = 'visible';
+                    }
                 }
                 ticking = false;
             }
