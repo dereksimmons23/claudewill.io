@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-21T00:57:28.243Z",
+  "generated": "2026-03-21T11:07:09.727Z",
   "date": "2026-03-21",
   "porch": {
     "total": 640,
@@ -19,12 +19,13 @@
     "maxVisits": 6
   },
   "sessions": {
-    "thisWeek": 38,
-    "avgWeight": 6.9,
+    "thisWeek": 42,
+    "avgWeight": 7,
     "byProject": {
-      "claudewill-io": 9,
-      "desktop": 21,
-      "writing": 6,
+      "claudewill-io": 10,
+      "writing": 7,
+      "dawn": 1,
+      "desktop": 22,
       "hancock": 2
     }
   },
