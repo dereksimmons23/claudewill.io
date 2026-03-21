@@ -471,12 +471,12 @@
             font-size: 1rem;
             color: var(--bright);
             min-height: 1.6em;
-            opacity: 0;
-            transition: opacity 0.6s;
         }
 
-        .typewriter-container.visible {
-            opacity: 1;
+        .typewriter-label {
+            color: var(--dim);
+            margin-right: 0.25em;
+            white-space: nowrap;
         }
 
         .typewriter-text {
@@ -621,7 +621,7 @@
 
         <section class="claude-will-section" aria-label="Claude Will">
             <div class="typewriter-container" aria-live="polite" aria-atomic="true">
-                <span class="typewriter-text" id="typewriter-text"></span><span class="typewriter-cursor">_</span>
+                <span class="typewriter-label">claude will</span><span class="typewriter-text" id="typewriter-text"></span><span class="typewriter-cursor">_</span>
             </div>
         </section>
 
@@ -647,7 +647,6 @@
             var nameEl = document.getElementById('name');
             var hookEl = document.getElementById('name-hook');
             var periodEl = document.getElementById('name-period');
-            var typewriterEl = document.querySelector('.typewriter-container');
             var periodDropped = false;
             var vh = window.innerHeight;
             var ticking = false;
@@ -694,15 +693,14 @@
                     hookEl.style.visibility = hookOpacity === 0 ? 'hidden' : 'visible';
                 }
 
-                // When name returns to full brightness, drop the period and show typewriter
-                if (returnProgress > 0.9 && !periodDropped) {
+                // When name returns to full brightness, drop the period
+                if (returnProgress > 0.85 && !periodDropped) {
                     periodDropped = true;
                     if (periodEl) {
                         periodEl.style.setProperty('animation', 'none');
                         periodEl.style.setProperty('opacity', '0');
                     }
-                    if (typewriterEl) typewriterEl.classList.add('visible');
-                } else if (returnProgress < 0.5 && periodDropped) {
+                } else if (returnProgress < 0.4 && periodDropped) {
                     periodDropped = false;
                     if (periodEl) {
                         periodEl.style.removeProperty('animation');
