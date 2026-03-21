@@ -75,15 +75,15 @@ async function buildHeadlines() {
 async function buildAIDeepDive() {
   console.log('  [ai] Calling Perplexity...')
   const result = await callPerplexity(
-    `What are the 3-5 most significant AI developments in the last 24 hours? Focus on:
+    `What are the most significant AI developments this week? Focus on:
 - New model releases, benchmarks, or capabilities
 - AI company funding, acquisitions, or strategic moves
 - AI policy, regulation, or governance developments
 - Tools or frameworks that change how people build with AI
 
-For each development: one headline sentence, then 2-3 sentences of substance. Include specific names, numbers, dates. Skip rumors and speculation.`,
+Report 3-5 items. For each: one headline sentence, then 2-3 sentences of substance. Include specific names, numbers, dates. Skip rumors and speculation. If you can't verify something happened this week, don't include it.`,
     {
-      systemPrompt: 'You are a senior technology reporter. Write like a wire service: facts first, analysis second, no filler. Every sentence earns its space.',
+      systemPrompt: 'You are a senior technology reporter. Write like a wire service: facts first, analysis second, no filler. Every sentence earns its space. Never say you cannot provide information — report what you know.',
     }
   )
 
@@ -105,7 +105,7 @@ async function buildBusinessMedia() {
 - Digital strategy: new platforms, business model innovations
 - The intersection of AI and media/business
 
-Report 4-6 items. For each: headline, 2-3 sentences of substance, and why it matters for a digital strategy consultant. Be specific with numbers and names.`,
+Report 4-6 items. For each: headline, 2-3 sentences of substance, and why it matters for someone building AI coaching products and writing about human-AI collaboration. Be specific with numbers and names.`,
     {
       searchGrounding: true,
       temperature: 0.2,
@@ -137,19 +137,21 @@ async function buildPracticeAnalysis(aiContent, businessContent, headlines) {
   }
 
   const result = await callMistral(
-    `You are the morning analyst for a solo digital strategy and AI consulting practice (CW Strategies). The consultant has 30 years in media (Star Tribune, LA Times), now builds AI-native workflows for clients.
+    `You are the morning analyst for a creative practice coach. He spent 30 years in media (Star Tribune, LA Times), now coaches people through creative work using AI. He's building a voice-first AI coaching product (D), writing a book (Claude Will, June 28), and publishing a weekly series (Being Claude). He is NOT a consultant. He does NOT chase retainers. He coaches.
 
 Based on today's developments below, write 3-5 bullet points answering: "What does this mean for the practice today?"
 
 Rules:
 - Each bullet: one sentence, specific and actionable
-- Connect developments to real work: client proposals, positioning, content ideas, competitive landscape
-- Flag anything that changes the game, not just makes noise
+- Connect to real work: the book, the coaching product, the writing, the method
+- What should he write about, build, or pay attention to?
+- Flag anything that changes the landscape for a coach building with AI
 - If nothing moves the needle today, say so in one line
+- Never suggest cold-emailing clients or pitching retainers — that life is over
 
 ${context}`,
     {
-      systemPrompt: 'You are a strategic business analyst. Every sentence must be actionable. No filler, no hedging, no "it remains to be seen." Say what to do.',
+      systemPrompt: 'You are a sharp editorial assistant for a creative practice coach. Direct, no filler, no hedging. Say what matters for a coach, not a consultant.',
       temperature: 0.4,
     }
   )
