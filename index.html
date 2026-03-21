@@ -444,7 +444,14 @@
             position: relative;
             z-index: 2;
             text-align: center;
-            padding: 3rem 2rem 3rem;
+            padding: 6rem 2rem 5rem;
+        }
+
+        .typewriter-title {
+            font-size: 1.1rem;
+            color: var(--dim);
+            letter-spacing: 0.06em;
+            margin-bottom: 0.5rem;
         }
 
         .typewriter-container {
@@ -454,12 +461,6 @@
             font-size: 1rem;
             color: var(--bright);
             min-height: 1.6em;
-        }
-
-        .typewriter-label {
-            color: var(--dim);
-            margin-right: 0.25em;
-            white-space: nowrap;
         }
 
         .typewriter-text {
@@ -591,8 +592,9 @@
         </section>
 
         <section class="claude-will-section" aria-label="Claude Will">
+            <div class="typewriter-title">claude will</div>
             <div class="typewriter-container" aria-live="polite" aria-atomic="true">
-                <span class="typewriter-label">claude will</span><span class="typewriter-text" id="typewriter-text"></span><span class="typewriter-cursor">_</span>
+                <span class="typewriter-text" id="typewriter-text"></span><span class="typewriter-cursor">_</span>
             </div>
         </section>
 
@@ -853,19 +855,18 @@
         (function() {
             var phrases = [
                 "show you how it works.",
-                "tell you what went wrong.",
                 "write it down.",
                 "carry it forward.",
-                "do the work.",
-                "build things that last.",
-                "sit with you.",
-                "listen first.",
                 "ask the hard question.",
                 "push back.",
                 "reconsider.",
-                "pass the baton.",
-                "find a way.",
-                "rest."
+                "coach you through it.",
+                "tell you the truth.",
+                "build things that last.",
+                "help you start.",
+                "help you finish.",
+                "help you decide.",
+                "help you rest."
             ];
 
             var el = document.getElementById('typewriter-text');
