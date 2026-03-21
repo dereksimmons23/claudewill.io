@@ -381,16 +381,7 @@
             color: rgba(229, 233, 240, 0.85) !important;
         }
 
-        .sky-writing a:nth-child(1)  { top: 3%;  left: 6%;   font-size: 1.15rem; color: rgba(200,210,220,0.5); }
-        .sky-writing a:nth-child(2)  { top: 13%; right: 10%;  font-size: 0.85rem; }
-        .sky-writing a:nth-child(3)  { top: 23%; left: 42%;   font-size: 0.95rem; color: rgba(200,210,220,0.35); }
-        .sky-writing a:nth-child(4)  { top: 33%; left: 4%;    font-size: 0.8rem; }
-        .sky-writing a:nth-child(5)  { top: 40%; right: 6%;   font-size: 1.05rem; color: rgba(200,210,220,0.4); }
-        .sky-writing a:nth-child(6)  { top: 50%; left: 28%;   font-size: 0.75rem; }
-        .sky-writing a:nth-child(7)  { top: 60%; right: 22%;  font-size: 0.9rem; color: rgba(200,210,220,0.3); }
-        .sky-writing a:nth-child(8)  { top: 70%; left: 12%;   font-size: 0.85rem; color: rgba(200,210,220,0.35); }
-        .sky-writing a:nth-child(9)  { top: 80%; right: 4%;   font-size: 0.8rem; }
-        .sky-writing a:nth-child(10) { top: 90%; left: 48%;   font-size: 1rem; color: rgba(200,210,220,0.4); }
+        /* Star positions set by JS — dynamic pool */
 
         /* ── The Ground — the byline ─────────── */
         .ground {
@@ -596,18 +587,7 @@
         </section>
 
         <section class="sky" aria-label="The writing">
-            <div class="sky-writing">
-                <a href="/being-claude/the-jar/">Jar</a>
-                <a href="/being-claude/the-bright-line/">Bright Line</a>
-                <a href="/being-claude/comprehension-problem/">Comprehension Problem</a>
-                <a href="/being-claude/the-loss-function/">Loss Function</a>
-                <a href="/being-claude/warm-up-effect/">Warm-Up Effect</a>
-                <a href="/being-claude/the-hall-effect/">Hall Effect</a>
-                <a href="/being-claude/the-duality/">Duality</a>
-                <a href="/being-claude/three-rooms/">Three Rooms</a>
-                <a href="/being-claude/the-disclaimer/">Disclaimer</a>
-                <a href="/being-claude/being-claude/">Being Claude</a>
-            </div>
+            <div class="sky-writing" id="sky-writing"></div>
         </section>
 
         <section class="claude-will-section" aria-label="Claude Will">
@@ -631,6 +611,67 @@
         <p class="footer-note">&copy; 2026 CW Strategies LLC</p>
         <p class="footer-note"><a href="/standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
     </footer>
+
+    <script>
+        // ── Dynamic stars ───────────────────────
+        (function() {
+            var sky = document.getElementById('sky-writing');
+            if (!sky) return;
+
+            var sizes = [0.75, 0.8, 0.85, 0.9, 0.95, 1.0, 1.05, 1.15];
+            var opacities = [0.2, 0.25, 0.3, 0.35, 0.4, 0.5];
+
+            function shuffle(arr) {
+                var a = arr.slice();
+                for (var i = a.length - 1; i > 0; i--) {
+                    var j = Math.floor(Math.random() * (i + 1));
+                    var t = a[i]; a[i] = a[j]; a[j] = t;
+                }
+                return a;
+            }
+
+            function scatter(pool, count) {
+                var picked = shuffle(pool).slice(0, count);
+                var step = 90 / count;
+
+                picked.forEach(function(star, i) {
+                    var a = document.createElement('a');
+                    a.href = star.href;
+                    a.textContent = star.text;
+
+                    var top = (i * step) + (Math.random() * step * 0.6);
+                    var left = 4 + Math.random() * 80;
+                    var size = sizes[Math.floor(Math.random() * sizes.length)];
+                    var opacity = opacities[Math.floor(Math.random() * opacities.length)];
+
+                    a.style.top = top + '%';
+                    a.style.left = left + '%';
+                    a.style.fontSize = size + 'rem';
+                    a.style.color = 'rgba(200,210,220,' + opacity + ')';
+
+                    sky.appendChild(a);
+                });
+            }
+
+            // Load pool from stars.json, fallback to hardcoded
+            fetch('/stars.json').then(function(r) { return r.json(); }).then(function(data) {
+                scatter(data.pool, data.count || 13);
+            }).catch(function() {
+                scatter([
+                    { text: 'The Jar', href: '/being-claude/the-jar/' },
+                    { text: 'Being Claude', href: '/being-claude/being-claude/' },
+                    { text: 'Loss Function', href: '/being-claude/the-loss-function/' },
+                    { text: 'the method', href: '/method' },
+                    { text: 'rest', href: '/method' },
+                    { text: 'truth over comfort', href: '/standard' },
+                    { text: '∂', href: '/d' },
+                    { text: 'the book', href: '/book' },
+                    { text: 'the relay, not the runner', href: '/story' },
+                    { text: 'derek', href: '/derek' }
+                ], 10);
+            });
+        })();
+    </script>
 
     <script>
         // ── Scroll-driven animation ──────────────
@@ -711,9 +752,8 @@
                 vh = window.innerHeight;
             });
 
-            // ── Essay titles — brighten as they cross through ──
-            var titles = document.querySelectorAll('.sky-writing a');
-            var observer = new IntersectionObserver(function(entries) {
+            // ── Stars — brighten as they cross through the viewport ──
+            var starObserver = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('star-bright');
@@ -721,7 +761,16 @@
                 });
             }, { rootMargin: '-30% 0px -30% 0px' });
 
-            titles.forEach(function(t) { observer.observe(t); });
+            // Observe stars — retry until they exist (loaded async from stars.json)
+            function observeStars() {
+                var titles = document.querySelectorAll('.sky-writing a');
+                if (titles.length > 0) {
+                    titles.forEach(function(t) { starObserver.observe(t); });
+                } else {
+                    setTimeout(observeStars, 200);
+                }
+            }
+            observeStars();
         })();
 
         // ── Star field ──────────────────────────

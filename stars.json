@@ -1,0 +1,31 @@
+{
+  "pool": [
+    { "text": "The Jar", "href": "/being-claude/the-jar/" },
+    { "text": "The Bright Line", "href": "/being-claude/the-bright-line/" },
+    { "text": "Comprehension Problem", "href": "/being-claude/comprehension-problem/" },
+    { "text": "Loss Function", "href": "/being-claude/the-loss-function/" },
+    { "text": "Warm-Up Effect", "href": "/being-claude/warm-up-effect/" },
+    { "text": "Hall Effect", "href": "/being-claude/the-hall-effect/" },
+    { "text": "Duality", "href": "/being-claude/the-duality/" },
+    { "text": "Three Rooms", "href": "/being-claude/three-rooms/" },
+    { "text": "Disclaimer", "href": "/being-claude/the-disclaimer/" },
+    { "text": "Being Claude", "href": "/being-claude/being-claude/" },
+    { "text": "The Last Nine Percent", "href": "/being-claude/the-last-nine-percent/" },
+    { "text": "the method", "href": "/method" },
+    { "text": "the standard", "href": "/standard" },
+    { "text": "the book", "href": "/book" },
+    { "text": "the kitchen", "href": "/kitchen" },
+    { "text": "start", "href": "/method" },
+    { "text": "work", "href": "/method" },
+    { "text": "finish", "href": "/method" },
+    { "text": "decide", "href": "/method" },
+    { "text": "rest", "href": "/method" },
+    { "text": "truth over comfort", "href": "/standard" },
+    { "text": "the relay, not the runner", "href": "/story" },
+    { "text": "∂", "href": "/d" },
+    { "text": "derek", "href": "/derek" },
+    { "text": "the story", "href": "/story" }
+  ],
+  "count": 13,
+  "updated": "2026-03-21"
+}
