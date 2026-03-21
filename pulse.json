@@ -1,0 +1,61 @@
+{
+  "generated": "2026-03-21T00:57:28.243Z",
+  "date": "2026-03-21",
+  "porch": {
+    "total": 640,
+    "thisWeek": 6,
+    "today": 0
+  },
+  "d": {
+    "total": 0,
+    "thisWeek": 0,
+    "today": 0,
+    "modes": {}
+  },
+  "visitors": {
+    "total": 6,
+    "returning": 2,
+    "named": 2,
+    "maxVisits": 6
+  },
+  "sessions": {
+    "thisWeek": 38,
+    "avgWeight": 6.9,
+    "byProject": {
+      "claudewill-io": 9,
+      "desktop": 21,
+      "writing": 6,
+      "hancock": 2
+    }
+  },
+  "dawn": {
+    "lastEntry": "2026-03-14",
+    "dayNumber": 74,
+    "raidRate": "3/6",
+    "latestWeight": null,
+    "daysSinceEntry": 7
+  },
+  "revenue": {
+    "cascadia": {
+      "monthly": 10000,
+      "status": "active",
+      "endsApprox": "2026-04-30"
+    },
+    "coachD": {
+      "monthly": 400,
+      "status": "active"
+    },
+    "d": {
+      "monthly": 0,
+      "status": "not launched",
+      "subscribers": 0
+    },
+    "note": "Stripe not yet connected. D has zero paying users."
+  },
+  "bottomLine": [
+    "6 visitors in 3.5 months. Distribution is the gap.",
+    "D has zero real users. Paywall is built. Stripe is not.",
+    "Dawn: 7 days since last entry.",
+    "$0 from D. $0 from the practice. Cascadia is the only income."
+  ]
+}
