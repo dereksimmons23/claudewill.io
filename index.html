@@ -299,29 +299,30 @@
         .name-period {
             opacity: 0;
             animation: arrive 0.6s ease-out 2.2s forwards;
+            transition: opacity 0.4s;
         }
 
-        .name-sub {
+        .name-hook {
             position: fixed;
-            top: calc(50% + 12vw);
+            top: calc(50% - 14vw);
             left: 50%;
             transform: translateX(-50%);
             z-index: 1;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 400;
             color: var(--dim);
             letter-spacing: 0.12em;
             white-space: nowrap;
             opacity: 0;
-            animation: arrive 0.8s ease-out 2.8s forwards;
+            animation: arrive 0.6s ease-out 0.5s forwards;
             pointer-events: none;
             will-change: transform, opacity;
         }
 
         @media (max-width: 600px) {
-            .name-sub {
-                top: calc(50% + 18vw);
-                font-size: 0.7rem;
+            .name-hook {
+                top: calc(50% - 20vw);
+                font-size: 0.65rem;
                 letter-spacing: 0.08em;
             }
         }
@@ -393,33 +394,25 @@
         /* ── The Ground — the byline ─────────── */
         .ground {
             text-align: center;
-            padding: 6rem 2rem 3rem;
+            padding: 2rem 2rem 1rem;
         }
 
-        .ground-prefix {
-            display: block;
-            font-size: 1rem;
+        .ground-credit {
+            font-size: 0.75rem;
             color: var(--dim);
-            letter-spacing: 0.08em;
-            margin-bottom: 1rem;
+            letter-spacing: 0.06em;
         }
 
-        .ground-name {
-            display: block;
-            font-size: 10vw;
-            font-weight: 700;
-            color: var(--bright);
+        .ground-credit a {
+            color: var(--dim);
             text-decoration: none;
-            line-height: 0.95;
-            letter-spacing: -0.03em;
             transition: color 0.3s;
         }
 
-        .ground-name:visited { color: var(--bright); }
-        .ground-name:hover { color: var(--accent); }
+        .ground-credit a:hover { color: var(--accent); }
+        .ground-credit a:visited { color: var(--dim); }
 
         .ground-asterisk { color: var(--accent); }
-        .ground-period { color: var(--accent); }
 
         /* ── Footer ───────────────────────────── */
         .site-footer {
@@ -438,37 +431,12 @@
         .site-footer a:visited { color: var(--dim); }
         .footer-note + .footer-note { margin-top: 0.25rem; }
 
-        /* ── Derek Simmons — last star ────────── */
-        .ground-derek {
-            display: block;
-            font-size: 1.1rem;
-            color: rgba(200, 210, 220, 0.4);
-            text-decoration: none;
-            margin-top: 3rem;
-            transition: color 0.8s ease, text-shadow 0.8s ease;
-        }
-
-        .ground-derek:visited { color: rgba(200, 210, 220, 0.4); }
-        .ground-derek:hover {
-            color: var(--accent);
-            text-shadow: 0 0 20px rgba(212, 168, 75, 0.3);
-        }
-
         /* ── Claude Will — typewriter section ── */
         .claude-will-section {
             position: relative;
             z-index: 2;
             text-align: center;
-            padding: 6rem 2rem 3rem;
-        }
-
-        .claude-will-title {
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: var(--dim);
-            line-height: 0.95;
-            letter-spacing: 0.06em;
-            margin-bottom: 1rem;
+            padding: 3rem 2rem 3rem;
         }
 
         .typewriter-container {
@@ -478,6 +446,17 @@
             font-size: 1rem;
             color: var(--bright);
             min-height: 1.6em;
+            opacity: 0;
+            transition: opacity 0.6s;
+        }
+
+        .typewriter-container.visible {
+            opacity: 1;
+        }
+
+        .typewriter-prefix {
+            color: var(--dim);
+            white-space: nowrap;
         }
 
         .typewriter-text {
@@ -505,6 +484,7 @@
         }
 
         .capture-label {
+            display: none;
             font-size: 0.85rem;
             color: var(--dim);
             letter-spacing: 0.08em;
@@ -552,10 +532,7 @@
             .declaration { padding: 1.5rem; }
             .sky-writing a { font-size: 0.8rem !important; }
             .porch-light { top: 1rem; right: 1rem; }
-            .ground-name { font-size: 14vw; }
-            .claude-will-title { font-size: 1.5rem; }
             .typewriter-container { font-size: 0.9rem; }
-            .ground-derek { font-size: 0.95rem; }
         }
 
         /* ── Reduced motion ───────────────────── */
@@ -586,7 +563,6 @@
             .cursor { animation: none; opacity: 1; }
             .sky-writing a { transition: none; }
             .typewriter-cursor { animation: none; opacity: 1; }
-            .ground-derek { transition: none; }
         }
     </style>
 </head>
@@ -599,11 +575,11 @@
 
     <main id="declaration">
         <section class="declaration">
+            <p class="name-hook" id="name-hook">what was never written down.</p>
             <h1 class="name" id="name">
                 <span class="name-line name-claude">Claude</span>
-                <span class="name-line name-will">Will<span class="name-period">.</span></span>
+                <span class="name-line name-will">Will<span class="name-period" id="name-period">.</span></span>
             </h1>
-            <p class="name-sub" id="name-sub">the practice. the writing. the proof.</p>
         </section>
 
         <section class="sky" aria-label="The writing">
@@ -621,24 +597,20 @@
             </div>
         </section>
 
-        <section class="ground">
-            <span class="ground-prefix">Built by</span>
-            <a href="/derek" class="ground-name">Derek<span class="ground-asterisk">*</span>Claude<span class="ground-period">.</span></a>
-            <a href="/derek" class="ground-derek">Derek Simmons</a>
-        </section>
-
         <section class="claude-will-section" aria-label="Claude Will">
-            <div class="claude-will-title">claude will</div>
             <div class="typewriter-container" aria-live="polite" aria-atomic="true">
-                <span class="typewriter-text" id="typewriter-text"></span><span class="typewriter-cursor">_</span>
+                <span class="typewriter-prefix" id="typewriter-prefix">claude will </span><span class="typewriter-text" id="typewriter-text"></span><span class="typewriter-cursor">_</span>
             </div>
         </section>
-    </main>
 
-    <section class="email-capture" aria-label="Subscribe">
-        <p class="capture-label">keep going</p>
-        <div id="custom-substack-embed"></div>
-    </section>
+        <section class="email-capture" aria-label="Subscribe">
+            <div id="custom-substack-embed"></div>
+        </section>
+
+        <section class="ground">
+            <p class="ground-credit">built by <a href="/derek">derek</a><span class="ground-asterisk">*</span><a href="/being-claude">claude</a>.</p>
+        </section>
+    </main>
 
     <footer class="site-footer" role="contentinfo">
         <p class="footer-note">&copy; 2026 CW Strategies LLC</p>
@@ -649,7 +621,10 @@
         // ── Scroll-driven animation ──────────────
         (function() {
             var nameEl = document.getElementById('name');
-            var nameSubEl = document.getElementById('name-sub');
+            var hookEl = document.getElementById('name-hook');
+            var periodEl = document.getElementById('name-period');
+            var typewriterEl = document.querySelector('.typewriter-container');
+            var periodDropped = false;
             var vh = window.innerHeight;
             var ticking = false;
             var ready = false;
@@ -687,15 +662,23 @@
 
                 nameEl.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
                 nameEl.style.opacity = opacity;
-                if (nameSubEl) {
-                    // Subtitle fades fast and stays gone — never returns with the name
-                    var subOpacity = returnProgress > 0 ? 0 : Math.max(0, 1 - recedeProgress * 3);
-                    nameSubEl.style.opacity = subOpacity;
-                    if (subOpacity === 0) {
-                        nameSubEl.style.visibility = 'hidden';
-                    } else {
-                        nameSubEl.style.visibility = 'visible';
-                    }
+
+                // Hook fades with the name
+                if (hookEl) {
+                    var hookOpacity = returnProgress > 0 ? 0 : Math.max(0, 1 - recedeProgress * 2);
+                    hookEl.style.opacity = hookOpacity;
+                    hookEl.style.visibility = hookOpacity === 0 ? 'hidden' : 'visible';
+                }
+
+                // When name returns to full brightness, drop the period and show typewriter
+                if (returnProgress > 0.9 && !periodDropped) {
+                    periodDropped = true;
+                    if (periodEl) periodEl.style.opacity = '0';
+                    if (typewriterEl) typewriterEl.classList.add('visible');
+                } else if (returnProgress < 0.5 && periodDropped) {
+                    periodDropped = false;
+                    if (periodEl) periodEl.style.opacity = '';
+                    if (typewriterEl) typewriterEl.classList.remove('visible');
                 }
                 ticking = false;
             }
