@@ -213,11 +213,12 @@
             overflow-x: hidden;
         }
 
-        /* ── The Porch Light — nav trigger ────── */
+        /* ── The North Star — nav trigger ────── */
         .porch-light {
             position: fixed;
             top: 1.5rem;
-            right: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--accent);
@@ -304,11 +305,11 @@
 
         .name-hook {
             position: fixed;
-            top: calc(50% - 14vw);
+            top: calc(50% - 16vw);
             left: 50%;
             transform: translateX(-50%);
             z-index: 1;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 400;
             color: var(--dim);
             letter-spacing: 0.12em;
@@ -321,8 +322,8 @@
 
         @media (max-width: 600px) {
             .name-hook {
-                top: calc(50% - 20vw);
-                font-size: 0.65rem;
+                top: calc(50% - 24vw);
+                font-size: 0.7rem;
                 letter-spacing: 0.08em;
             }
         }
@@ -394,25 +395,49 @@
         /* ── The Ground — the byline ─────────── */
         .ground {
             text-align: center;
-            padding: 2rem 2rem 1rem;
+            padding: 3rem 2rem 1.5rem;
         }
 
-        .ground-credit {
-            font-size: 0.75rem;
+        .ground-built-by {
+            display: block;
+            font-size: 0.8rem;
             color: var(--dim);
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
         }
 
-        .ground-credit a {
-            color: var(--dim);
+        .ground-names {
+            display: block;
+            font-size: 4vw;
+            font-weight: 600;
+            color: var(--bright);
+            letter-spacing: -0.02em;
+        }
+
+        .ground-names a {
+            color: var(--bright);
             text-decoration: none;
             transition: color 0.3s;
         }
 
-        .ground-credit a:hover { color: var(--accent); }
-        .ground-credit a:visited { color: var(--dim); }
+        .ground-names a:hover { color: var(--accent); }
+        .ground-names a:visited { color: var(--bright); }
 
         .ground-asterisk { color: var(--accent); }
+
+        .ground-derek {
+            display: block;
+            font-size: 6vw;
+            font-weight: 700;
+            color: var(--bright);
+            text-decoration: none;
+            letter-spacing: -0.03em;
+            margin-top: 0.25rem;
+            transition: color 0.3s;
+        }
+
+        .ground-derek:hover { color: var(--accent); }
+        .ground-derek:visited { color: var(--bright); }
 
         /* ── Footer ───────────────────────────── */
         .site-footer {
@@ -452,11 +477,6 @@
 
         .typewriter-container.visible {
             opacity: 1;
-        }
-
-        .typewriter-prefix {
-            color: var(--dim);
-            white-space: nowrap;
         }
 
         .typewriter-text {
@@ -531,7 +551,9 @@
             .name-line { font-size: 22vw; }
             .declaration { padding: 1.5rem; }
             .sky-writing a { font-size: 0.8rem !important; }
-            .porch-light { top: 1rem; right: 1rem; }
+            .porch-light { top: 1rem; }
+            .ground-names { font-size: 7vw; }
+            .ground-derek { font-size: 10vw; }
             .typewriter-container { font-size: 0.9rem; }
         }
 
@@ -599,7 +621,7 @@
 
         <section class="claude-will-section" aria-label="Claude Will">
             <div class="typewriter-container" aria-live="polite" aria-atomic="true">
-                <span class="typewriter-prefix" id="typewriter-prefix">claude will </span><span class="typewriter-text" id="typewriter-text"></span><span class="typewriter-cursor">_</span>
+                <span class="typewriter-text" id="typewriter-text"></span><span class="typewriter-cursor">_</span>
             </div>
         </section>
 
@@ -608,7 +630,9 @@
         </section>
 
         <section class="ground">
-            <p class="ground-credit">built by <a href="/derek">derek</a><span class="ground-asterisk">*</span><a href="/being-claude">claude</a>.</p>
+            <span class="ground-built-by">built by</span>
+            <span class="ground-names"><a href="/derek">derek</a><span class="ground-asterisk">*</span><a href="/being-claude">claude</a></span>
+            <a href="/derek" class="ground-derek">derek</a>
         </section>
     </main>
 
@@ -673,11 +697,17 @@
                 // When name returns to full brightness, drop the period and show typewriter
                 if (returnProgress > 0.9 && !periodDropped) {
                     periodDropped = true;
-                    if (periodEl) periodEl.style.opacity = '0';
+                    if (periodEl) {
+                        periodEl.style.setProperty('animation', 'none');
+                        periodEl.style.setProperty('opacity', '0');
+                    }
                     if (typewriterEl) typewriterEl.classList.add('visible');
                 } else if (returnProgress < 0.5 && periodDropped) {
                     periodDropped = false;
-                    if (periodEl) periodEl.style.opacity = '';
+                    if (periodEl) {
+                        periodEl.style.removeProperty('animation');
+                        periodEl.style.removeProperty('opacity');
+                    }
                     if (typewriterEl) typewriterEl.classList.remove('visible');
                 }
                 ticking = false;
