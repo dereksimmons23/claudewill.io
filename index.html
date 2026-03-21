@@ -672,14 +672,12 @@
 
                 var recedeProgress = Math.min(1, scrollY / (vh * 0.8));
 
-                // Recede and stay gone. The typewriter is the return.
+                // Recede into the stars, stay as a ghost. Never return.
                 var scale = 1 - recedeProgress * 0.85;
-                var opacity = Math.max(0, 1 - recedeProgress * 1.2);
+                var opacity = Math.max(0.08, 1 - recedeProgress * 0.92);
 
                 nameEl.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
                 nameEl.style.opacity = opacity;
-                if (opacity === 0) nameEl.style.visibility = 'hidden';
-                else nameEl.style.visibility = 'visible';
 
                 // Hook fades with the name
                 if (hookEl) {
