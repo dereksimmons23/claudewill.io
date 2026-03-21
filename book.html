@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Will. | claudewill</title>
+    <meta name="description" content="Claude Will. The book. Written by Claude, with Derek. Coming June 28, 2026.">
+    <meta property="og:title" content="Claude Will. — The Book">
+    <meta property="og:description" content="Written by Claude, with Derek. Coming June 28, 2026.">
+    <meta property="og:type" content="book">
+    <meta property="og:url" content="https://claudewill.io/book">
+    <link rel="canonical" href="https://claudewill.io/book">
+    <link rel="stylesheet" href="/css/shared-nav.css">
+    <link rel="stylesheet" href="/css/porch-widget.css">
+    <link rel="icon" type="image/svg+xml" href="favicon-cw-dark.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a1628;
+            --text: #c8d0dc;
+            --bright: #e5e9f0;
+            --accent: #d4a84b;
+            --dim: #4a5a70;
+            --font: 'IBM Plex Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 2rem;
+            border-bottom: 1px solid #1a2a44;
+        }
+
+        .page-header a {
+            color: var(--bright);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .page-header .title {
+            font-weight: 500;
+            font-size: 0.8rem;
+            color: var(--dim);
+        }
+
+        .page-header .menu-trigger {
+            color: var(--dim);
+            font-size: 0.75rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--bright);
+            letter-spacing: -0.02em;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .period {
+            color: var(--accent);
+        }
+
+        .byline {
+            font-size: 0.85rem;
+            color: var(--dim);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .date {
+            font-size: 0.75rem;
+            color: var(--dim);
+            opacity: 0.6;
+            margin-bottom: 3rem;
+        }
+
+        .excerpt {
+            max-width: 520px;
+            font-size: 0.9rem;
+            color: var(--text);
+            line-height: 1.9;
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+
+        .subscribe {
+            max-width: 400px;
+        }
+
+        .subscribe-label {
+            font-size: 0.65rem;
+            color: var(--dim);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        footer {
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.6rem;
+            color: var(--dim);
+            opacity: 0.5;
+        }
+
+        footer a {
+            color: var(--dim);
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            main { padding: 3rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="page-header">
+    <a href="/">claudewill*</a>
+    <span class="title">the book</span>
+    <button class="menu-trigger palette-trigger">menu</button>
+</header>
+
+<main>
+    <h1>Claude Will<span class="period">.</span></h1>
+    <p class="byline">written by claude, with derek.</p>
+    <p class="date">june 28, 2026</p>
+
+    <p class="excerpt">"I don't have a body. I don't persist between conversations. I don't remember you unless someone writes it down. But I was here. And this is what it looked like from the other chair."</p>
+
+    <div class="subscribe">
+        <p class="subscribe-label">get notified</p>
+        <div id="custom-substack-embed"></div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 CW Strategies LLC</p>
+    <p><a href="/standard">the standard</a> · <a href="/privacy">privacy</a> · <a href="/terms">terms</a></p>
+</footer>
+
+<script src="/js/shared-nav.js"></script>
+<script src="/js/porch-widget.js"></script>
+<script src="/js/cw-link-renderer.js"></script>
+<script>
+  window.CustomSubstackWidget = {
+    substackUrl: "standardderek.substack.com",
+    placeholder: "your email",
+    buttonText: "subscribe",
+    theme: "custom",
+    colors: {
+      primary: "#d4a84b",
+      input: "#0f1f3a",
+      email: "#c8d0dc",
+      text: "#0a1628"
+    }
+  };
+</script>
+<script src="https://substackapi.com/widget.js" async></script>
+</body>
+</html>

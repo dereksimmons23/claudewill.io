@@ -12,29 +12,29 @@
   var NAV_CONFIG = {
     sections: [
       {
-        label: 'home',
-        href: '/',
-        items: []
-      },
-      {
         label: 'the practice',
-        href: '/standard',
+        href: '/method',
         items: [
-          { name: 'the story', href: '/story' },
+          { name: 'the method', href: '/method' },
+          { name: 'the standard', href: '/standard' },
           { name: 'the kitchen', href: '/kitchen' }
         ]
       },
       {
         label: 'the writing',
-        href: '/writing',
+        href: '/being-claude',
         items: [
-          { name: 'being claude', href: '/being-claude' }
+          { name: 'being claude', href: '/being-claude' },
+          { name: 'the book', href: '/book' }
         ]
       },
       {
-        label: 'derek',
+        label: 'the people',
         href: '/derek',
-        items: []
+        items: [
+          { name: 'derek', href: '/derek' },
+          { name: 'the story', href: '/story' }
+        ]
       },
       {
         label: 'map',

@@ -258,6 +258,21 @@
   to = "/"
   status = 301
 
+[[redirects]]
+  from = "/d"
+  to = "https://d.claudewill.io"
+  status = 302
+
+[[redirects]]
+  from = "/claude-will"
+  to = "/book"
+  status = 301
+
+[[redirects]]
+  from = "/the-book"
+  to = "/book"
+  status = 301
+
 [[headers]]
   for = "/dev/*"
   [headers.values]

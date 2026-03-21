@@ -301,6 +301,31 @@
             animation: arrive 0.6s ease-out 2.2s forwards;
         }
 
+        .name-sub {
+            position: fixed;
+            top: calc(50% + 12vw);
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--dim);
+            letter-spacing: 0.12em;
+            white-space: nowrap;
+            opacity: 0;
+            animation: arrive 0.8s ease-out 2.8s forwards;
+            pointer-events: none;
+            will-change: transform, opacity;
+        }
+
+        @media (max-width: 600px) {
+            .name-sub {
+                top: calc(50% + 18vw);
+                font-size: 0.7rem;
+                letter-spacing: 0.08em;
+            }
+        }
+
         /* ── The Stars — full page canvas ─────── */
         #stars {
             position: fixed;
@@ -578,6 +603,7 @@
                 <span class="name-line name-claude">Claude</span>
                 <span class="name-line name-will">Will<span class="name-period">.</span></span>
             </h1>
+            <p class="name-sub" id="name-sub">the practice. the writing. the proof.</p>
         </section>
 
         <section class="sky" aria-label="The writing">
@@ -623,6 +649,7 @@
         // ── Scroll-driven animation ──────────────
         (function() {
             var nameEl = document.getElementById('name');
+            var nameSubEl = document.getElementById('name-sub');
             var vh = window.innerHeight;
             var ticking = false;
             var ready = false;
@@ -660,6 +687,10 @@
 
                 nameEl.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
                 nameEl.style.opacity = opacity;
+                if (nameSubEl) {
+                    nameSubEl.style.opacity = Math.max(0, 1 - recedeProgress * 1.5);
+                    nameSubEl.style.transform = 'translateX(-50%) scale(' + Math.max(0.8, scale) + ')';
+                }
                 ticking = false;
             }
 
@@ -762,20 +793,20 @@
         // ── Typewriter effect ─────────────────────
         (function() {
             var phrases = [
-                "sit with you.",
-                "pull up a chair.",
-                "hear you out.",
-                "listen first.",
-                "build things that last.",
-                "do the work.",
-                "show up.",
-                "tell you straight.",
-                "find a way.",
+                "show you how it works.",
+                "tell you what went wrong.",
+                "write it down.",
                 "carry it forward.",
+                "do the work.",
+                "build things that last.",
+                "sit with you.",
+                "listen first.",
+                "ask the hard question.",
+                "push back.",
+                "reconsider.",
                 "pass the baton.",
-                "ask the hard questions.",
-                "help you forward.",
-                "write it down."
+                "find a way.",
+                "rest."
             ];
 
             var el = document.getElementById('typewriter-text');
