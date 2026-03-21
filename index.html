@@ -406,25 +406,6 @@
             margin-bottom: 0.5rem;
         }
 
-        .ground-names {
-            display: block;
-            font-size: 2.2vw;
-            font-weight: 600;
-            color: var(--bright);
-            letter-spacing: -0.02em;
-        }
-
-        .ground-names a {
-            color: var(--bright);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .ground-names a:hover { color: var(--accent); }
-        .ground-names a:visited { color: var(--bright); }
-
-        .ground-asterisk { color: var(--accent); }
-
         .ground-derek {
             display: block;
             font-size: 3.5vw;
@@ -455,7 +436,15 @@
         .site-footer a:hover { color: var(--bright); }
         .site-footer a:visited { color: var(--dim); }
         .footer-note + .footer-note { margin-top: 0.25rem; }
-        .book-countdown { color: var(--accent); text-decoration: none; letter-spacing: 0.06em; font-size: 0.8rem; }
+        .book-countdown {
+            display: block;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: 0.08em;
+            font-size: 0.8rem;
+            margin-top: 0.75rem;
+            font-variant-numeric: tabular-nums;
+        }
         .book-countdown:hover { text-shadow: 0 0 10px rgba(212, 168, 75, 0.3); }
         .book-countdown:visited { color: var(--accent); }
 
@@ -555,7 +544,6 @@
             .declaration { padding: 1.5rem; }
             .sky-writing a { font-size: 0.8rem !important; }
             .porch-light { top: 1rem; }
-            .ground-names { font-size: 5vw; }
             .ground-derek { font-size: 7vw; }
             .typewriter-container { font-size: 0.9rem; }
         }
@@ -634,13 +622,12 @@
 
         <section class="ground">
             <span class="ground-built-by">built by</span>
-            <span class="ground-names"><a href="/derek">derek</a><span class="ground-asterisk">*</span><a href="/being-claude">claude</a></span>
             <a href="/derek" class="ground-derek">derek</a>
+            <a href="/book" class="book-countdown" id="book-countdown"></a>
         </section>
     </main>
 
     <footer class="site-footer" role="contentinfo">
-        <p class="footer-note"><a href="/book" class="book-countdown" id="book-countdown"></a></p>
         <p class="footer-note">&copy; 2026 CW Strategies LLC</p>
         <p class="footer-note"><a href="/standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
     </footer>
@@ -908,14 +895,19 @@
     (function() {
       var el = document.getElementById('book-countdown');
       if (!el) return;
-      var bookDate = new Date('2026-06-28T00:00:00');
-      var now = new Date();
-      var days = Math.ceil((bookDate - now) / 86400000);
-      if (days > 0) {
-        el.textContent = days + ' days to the book';
-      } else {
-        el.textContent = 'the book is here';
+      var bookDate = new Date('2026-06-28T00:00:00').getTime();
+      function tick() {
+        var now = Date.now();
+        var diff = bookDate - now;
+        if (diff <= 0) { el.textContent = 'the book is here'; return; }
+        var days = Math.floor(diff / 86400000);
+        var hours = Math.floor((diff % 86400000) / 3600000);
+        var mins = Math.floor((diff % 3600000) / 60000);
+        var secs = Math.floor((diff % 60000) / 1000);
+        el.textContent = days + 'd ' + hours + 'h ' + mins + 'm ' + secs + 's';
       }
+      tick();
+      setInterval(tick, 1000);
     })();
     </script>
 </body>
