@@ -408,7 +408,7 @@
 
         .ground-names {
             display: block;
-            font-size: 4vw;
+            font-size: 2.2vw;
             font-weight: 600;
             color: var(--bright);
             letter-spacing: -0.02em;
@@ -427,7 +427,7 @@
 
         .ground-derek {
             display: block;
-            font-size: 6vw;
+            font-size: 3.5vw;
             font-weight: 700;
             color: var(--bright);
             text-decoration: none;
@@ -555,8 +555,8 @@
             .declaration { padding: 1.5rem; }
             .sky-writing a { font-size: 0.8rem !important; }
             .porch-light { top: 1rem; }
-            .ground-names { font-size: 7vw; }
-            .ground-derek { font-size: 10vw; }
+            .ground-names { font-size: 5vw; }
+            .ground-derek { font-size: 7vw; }
             .typewriter-container { font-size: 0.9rem; }
         }
 
@@ -670,47 +670,31 @@
                 var scrollY = window.scrollY;
                 var maxScroll = document.documentElement.scrollHeight - vh;
 
-                // Phase 1: recede (first viewport of scroll)
                 var recedeProgress = Math.min(1, scrollY / (vh * 0.8));
 
-                // Phase 2: return (last 30% of page)
-                var returnProgress = maxScroll > 0 ? Math.max(0, (scrollY / maxScroll - 0.7) / 0.3) : 0;
-
-                var scale, opacity;
-                if (returnProgress > 0) {
-                    // Returning: ghost becomes visible again
-                    scale = 0.15 + returnProgress * 0.15;
-                    opacity = 0.08 + returnProgress * 0.82;
-                } else {
-                    // Receding into the stars
-                    scale = 1 - recedeProgress * 0.85;
-                    opacity = Math.max(0.08, 1 - recedeProgress * 0.92);
-                }
+                // Recede and stay gone. The typewriter is the return.
+                var scale = 1 - recedeProgress * 0.85;
+                var opacity = Math.max(0, 1 - recedeProgress * 1.2);
 
                 nameEl.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
                 nameEl.style.opacity = opacity;
+                if (opacity === 0) nameEl.style.visibility = 'hidden';
+                else nameEl.style.visibility = 'visible';
 
                 // Hook fades with the name
                 if (hookEl) {
-                    var hookOpacity = returnProgress > 0 ? 0 : Math.max(0, 1 - recedeProgress * 2);
+                    var hookOpacity = Math.max(0, 1 - recedeProgress * 2);
                     hookEl.style.opacity = hookOpacity;
                     hookEl.style.visibility = hookOpacity === 0 ? 'hidden' : 'visible';
                 }
 
-                // When name returns to full brightness, drop the period
-                if (returnProgress > 0.85 && !periodDropped) {
+                // Period drops as name fades — gone by 60% scroll
+                if (recedeProgress > 0.5 && !periodDropped) {
                     periodDropped = true;
-                    if (periodEl) {
-                        periodEl.style.setProperty('animation', 'none');
-                        periodEl.style.setProperty('opacity', '0');
-                    }
-                } else if (returnProgress < 0.4 && periodDropped) {
+                    if (periodEl) periodEl.style.display = 'none';
+                } else if (recedeProgress < 0.3 && periodDropped) {
                     periodDropped = false;
-                    if (periodEl) {
-                        periodEl.style.removeProperty('animation');
-                        periodEl.style.removeProperty('opacity');
-                    }
-                    if (typewriterEl) typewriterEl.classList.remove('visible');
+                    if (periodEl) periodEl.style.display = '';
                 }
                 ticking = false;
             }
