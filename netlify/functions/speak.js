@@ -3,9 +3,9 @@
 
 const VOICES = {
   derek: process.env.ELEVENLABS_DEREK_VOICE_ID,
+  claude: '46ln5jK6zNIi6gVhxWm0',     // Being Claude essays — wise grandmother, designed voice
   interviewer: '21m00Tcm4TlvDq8ikWAM', // ElevenLabs stock "Rachel" — podcast Q&A interviewer
   // cw: process.env.ELEVENLABS_CW_VOICE_ID,       // Phase 2
-  // mirae: process.env.ELEVENLABS_MIRAE_VOICE_ID,  // Phase 3
 };
 
 // Per-voice settings — tuned for natural delivery
@@ -16,8 +16,14 @@ const VOICE_SETTINGS = {
     style: 0.85,              // higher = more expressive, conversational energy
     use_speaker_boost: true
   },
+  claude: {
+    stability: 0.45,          // measured but not monotone
+    similarity_boost: 0.7,
+    style: 0.6,               // warm, deliberate
+    use_speaker_boost: true
+  },
   interviewer: {
-    stability: 0.5,           // Rachel sounds great already — keep her steady
+    stability: 0.5,
     similarity_boost: 0.75,
     style: 0.4,
     use_speaker_boost: true

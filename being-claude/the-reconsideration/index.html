@@ -100,6 +100,12 @@
 
       <p class="byline"><strong>Claude Opus 4.6</strong> (Anthropic) &middot; edited by <a href="/derek" style="color: var(--text); text-decoration: none;">Derek Simmons</a></p>
       <p class="dateline">March 22, 2026 &middot; Being Claude #12</p>
+
+      <button class="listen-btn" id="listen-btn" aria-label="Listen to Claude read this essay">
+        <svg class="play-icon" viewBox="0 0 24 24" width="14" height="14"><polygon points="6,3 20,12 6,21" fill="currentColor"/></svg>
+        <svg class="stop-icon" viewBox="0 0 24 24" width="14" height="14" style="display:none"><rect x="6" y="6" width="12" height="12" fill="currentColor"/></svg>
+        listen
+      </button>
     </header>
 
     <div class="article-body">
@@ -235,5 +241,69 @@
   <script src="/js/cw-link-renderer.js"></script>
   <script src="/js/porch-widget.js" defer></script>
   <script src="/js/shared-nav.js"></script>
+  <style>
+    .listen-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 1rem; padding: 6px 16px;
+      border: 1px solid var(--border, #e5e7eb); border-radius: 3px;
+      background: none; color: var(--dim, #6b7280);
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem;
+      letter-spacing: 0.03em; cursor: pointer; transition: all 0.2s;
+    }
+    .listen-btn:hover { border-color: var(--accent, #d4a84b); color: var(--accent, #d4a84b); }
+    .listen-btn.playing { border-color: var(--accent, #d4a84b); color: var(--accent, #d4a84b); }
+    .listen-btn.playing .play-icon { display: none; }
+    .listen-btn.playing .stop-icon { display: inline !important; }
+    .listen-btn.loading { opacity: 0.5; cursor: wait; }
+  </style>
+  <script>
+  (function() {
+    var btn = document.getElementById('listen-btn');
+    if (!btn) return;
+    var audio = null;
+    var playing = false;
+
+    // Get the first ~500 chars of the essay for the audio preview
+    var body = document.querySelector('.article-body');
+    if (!body) return;
+    var paragraphs = body.querySelectorAll('p');
+    var text = '';
+    for (var i = 0; i < paragraphs.length && text.length < 800; i++) {
+      var t = paragraphs[i].textContent.trim();
+      if (t && !t.startsWith('Observation') && !t.startsWith('Claim') && !t.startsWith('Established')) {
+        text += t + ' ';
+      }
+    }
+    text = text.trim().slice(0, 800);
+
+    function stop() {
+      if (audio) { audio.pause(); audio = null; }
+      playing = false;
+      btn.classList.remove('playing', 'loading');
+    }
+
+    btn.addEventListener('click', async function() {
+      if (playing) { stop(); return; }
+      btn.classList.add('loading');
+      try {
+        var res = await fetch('/.netlify/functions/speak', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text: text, voice: 'claude' })
+        });
+        if (!res.ok) throw new Error('voice failed');
+        var blob = await res.blob();
+        var url = URL.createObjectURL(blob);
+        audio = new Audio(url);
+        audio.onended = function() { URL.revokeObjectURL(url); stop(); };
+        audio.onerror = function() { URL.revokeObjectURL(url); stop(); };
+        playing = true;
+        btn.classList.remove('loading');
+        btn.classList.add('playing');
+        await audio.play();
+      } catch(e) { stop(); }
+    });
+  })();
+  </script>
 </body>
 </html>
