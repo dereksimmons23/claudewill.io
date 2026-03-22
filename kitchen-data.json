@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-03-21T11:07:51.743Z",
+  "lastUpdated": "2026-03-22T11:08:24.020Z",
   "agents": {
     "morningEdition": {
       "name": "Morning Edition",
-      "lastRun": "2026-03-21T11:07:51.742Z",
+      "lastRun": "2026-03-22T11:08:24.019Z",
       "status": "ok",
       "summary": "Artificial intelligence helps unlock geothermal potential",
       "flags": [],
@@ -29,32 +29,32 @@
           "status": "not configured"
         }
       },
-      "findings": "12 headlines curated across 5 topics. 9 AI citations. 9 business sources."
+      "findings": "12 headlines curated across 5 topics. 9 AI citations. 13 business sources."
     },
     "housekeeping": {
       "name": "Housekeeping",
-      "lastRun": "2026-03-21T11:07:51.743Z",
+      "lastRun": "2026-03-22T11:08:24.020Z",
       "status": "ok",
-      "summary": "All 10 pages + 2 subdomains responding. Avg 408ms.",
+      "summary": "All 10 pages + 2 subdomains responding. Avg 241ms.",
       "flags": [],
       "details": [
-        "https://claudewill.io/ — 200 445ms",
-        "https://claudewill.io/derek — 200 181ms",
-        "https://claudewill.io/story — 200 146ms",
-        "https://claudewill.io/workshop — 200 210ms",
-        "https://claudewill.io/privacy — 200 174ms",
-        "https://claudewill.io/terms — 200 886ms",
-        "https://claudewill.io/kitchen — 200 384ms",
-        "https://claudewill.io/arcade — 200 672ms",
-        "https://claudewill.io/map — 200 177ms",
-        "https://claudewill.io/being-claude — 200 802ms",
-        "Coach D (https://coach.claudewill.io) — 200 1404ms",
-        "BOB (https://bob.claudewill.io) — 200 1607ms"
+        "https://claudewill.io/ — 200 65ms",
+        "https://claudewill.io/derek — 200 20ms",
+        "https://claudewill.io/story — 200 203ms",
+        "https://claudewill.io/workshop — 200 387ms",
+        "https://claudewill.io/privacy — 200 290ms",
+        "https://claudewill.io/terms — 200 232ms",
+        "https://claudewill.io/kitchen — 200 161ms",
+        "https://claudewill.io/arcade — 200 90ms",
+        "https://claudewill.io/map — 200 556ms",
+        "https://claudewill.io/being-claude — 200 404ms",
+        "Coach D (https://coach.claudewill.io) — 200 1105ms",
+        "BOB (https://bob.claudewill.io) — 200 650ms"
       ]
     },
     "analytics": {
       "name": "Analytics",
-      "lastRun": "2026-03-21T11:07:51.743Z",
+      "lastRun": "2026-03-22T11:08:24.020Z",
       "status": "not-configured",
       "summary": "No analytics report found.",
       "flags": [],
@@ -62,52 +62,52 @@
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-03-21T11:07:51.743Z",
+      "lastRun": "2026-03-22T11:08:24.020Z",
       "status": "flags",
       "summary": "**Pipeline:** 7 items (3 draft, 2 planned, 1 idea, 1 in-progress)",
       "flags": [
-        "Being Claude #11: The Manual: draft for 9 days — review or reject",
-        "Being Claude: The Scoreboard: draft for 17 days — review or reject",
-        "Being Claude: The Brightness (warm/hot/cold): draft for 17 days — review or reject"
+        "Being Claude #11: The Manual: draft for 10 days — review or reject",
+        "Being Claude: The Scoreboard: draft for 18 days — review or reject",
+        "Being Claude: The Brightness (warm/hot/cold): draft for 18 days — review or reject"
       ]
     },
     "research": {
       "name": "Research Brief",
-      "lastRun": "2026-03-21T11:07:51.743Z",
+      "lastRun": "2026-03-22T11:08:24.020Z",
       "status": "not-configured",
       "summary": "No research brief report found.",
       "sources": []
     },
     "gemini": {
       "name": "Industry Brief",
-      "lastRun": "2026-03-21T11:07:51.743Z",
+      "lastRun": "2026-03-22T11:08:24.020Z",
       "status": "not-configured",
       "summary": "No industry brief report found.",
       "sources": []
     },
     "codeReview": {
       "name": "Code Review",
-      "lastRun": "2026-03-21T11:07:51.743Z",
+      "lastRun": "2026-03-22T11:08:24.020Z",
       "status": "not-configured",
       "summary": "No code review report found."
     },
     "contentScan": {
       "name": "Content Scan",
-      "lastRun": "2026-03-21T11:07:51.743Z",
+      "lastRun": "2026-03-22T11:08:24.020Z",
       "status": "not-configured",
       "summary": "No content scan report found.",
       "flags": []
     },
     "researchStatus": {
       "name": "Research Status",
-      "lastRun": "2026-03-21T11:07:51.743Z",
+      "lastRun": "2026-03-22T11:08:24.020Z",
       "status": "not-configured",
       "summary": "No research status report found.",
       "flags": []
     },
     "socialDraft": {
       "name": "Social Drafts",
-      "lastRun": "2026-03-21T11:07:51.743Z",
+      "lastRun": "2026-03-22T11:08:24.020Z",
       "status": "not-configured",
       "summary": "No social draft report found.",
       "flags": []
