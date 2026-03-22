@@ -4,7 +4,47 @@
 
 const Anthropic = require('@anthropic-ai/sdk');
 const { createClient } = require('@supabase/supabase-js');
+const fs = require('fs');
+const path = require('path');
 const { SYSTEM_PROMPT, VERNIE_PROMPT, KITCHEN_PROMPT } = require('./cw-prompt');
+
+// ── Live site knowledge — reads current state at runtime ──
+function getLiveSiteKnowledge() {
+  try {
+    const rootDir = path.join(__dirname, '..', '..');
+    const parts = [];
+
+    // Read site-registry.json for current pages
+    const registryPath = path.join(rootDir, 'site-registry.json');
+    if (fs.existsSync(registryPath)) {
+      const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+      const pages = registry.pages.filter(p => p.cw).map(p => `${p.path} — ${p.title}: ${p.description}`);
+      parts.push('CURRENT SITE PAGES:\n' + pages.join('\n'));
+    }
+
+    // Read stars.json for current content in the sky
+    const starsPath = path.join(rootDir, 'stars.json');
+    if (fs.existsSync(starsPath)) {
+      const stars = JSON.parse(fs.readFileSync(starsPath, 'utf8'));
+      const titles = stars.pool.map(s => s.text).join(', ');
+      parts.push('CONTENT ON THE SITE (stars in the sky): ' + titles);
+    }
+
+    // Read being-claude directory for current essay count
+    const bcDir = path.join(rootDir, 'being-claude');
+    if (fs.existsSync(bcDir)) {
+      const essays = fs.readdirSync(bcDir).filter(f => {
+        const stat = fs.statSync(path.join(bcDir, f));
+        return stat.isDirectory() && f !== 'articles' && fs.existsSync(path.join(bcDir, f, 'index.html'));
+      });
+      parts.push('Being Claude essays published: ' + essays.length + ' (' + essays.join(', ') + ')');
+    }
+
+    return parts.length > 0 ? '\n\nLIVE SITE STATE (auto-updated, overrides any static knowledge above):\n' + parts.join('\n\n') : '';
+  } catch (err) {
+    return '';
+  }
+}
 
 // Initialize Supabase client (only if env vars are present)
 let supabase = null;
@@ -413,7 +453,8 @@ exports.handler = async (event, context) => {
       visitorContext = buildVisitorPrompt(context);
     }
 
-    const systemWithCondition = basePrompt + dateContext + visitorContext + `\nCurrent condition: ${condition || 'clear'}`;
+    const liveKnowledge = getLiveSiteKnowledge();
+    const systemWithCondition = basePrompt + dateContext + visitorContext + liveKnowledge + `\nCurrent condition: ${condition || 'clear'}`;
 
     const response = await client.messages.create({
       model: selectedModel,
