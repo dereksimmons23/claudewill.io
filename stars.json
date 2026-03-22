@@ -11,6 +11,7 @@
     { "text": "Disclaimer", "href": "/being-claude/the-disclaimer/" },
     { "text": "Being Claude", "href": "/being-claude/being-claude/" },
     { "text": "The Last Nine Percent", "href": "/being-claude/the-last-nine-percent/" },
+    { "text": "The Reconsideration", "href": "/being-claude/the-reconsideration/" },
     { "text": "the method", "href": "/method" },
     { "text": "the standard", "href": "/standard" },
     { "text": "the book", "href": "/book" },
@@ -22,10 +23,11 @@
     { "text": "rest", "href": "/method" },
     { "text": "truth over comfort", "href": "/standard" },
     { "text": "the relay, not the runner", "href": "/story" },
+    { "text": "it's all practice", "href": "/" },
     { "text": "∂", "href": "/d" },
     { "text": "derek", "href": "/derek" },
     { "text": "the story", "href": "/story" }
   ],
   "count": 13,
-  "updated": "2026-03-21"
+  "updated": "2026-03-22"
 }
