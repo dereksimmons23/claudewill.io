@@ -1,38 +1,56 @@
 # HANDOFF — claudewill.io
 
-**Last session:** March 20, 2026 (Friday) — PAPJ demo tested, preview email sent to Meredith. Recovered from crash, cleaned duplicates. 1 commit pushed.
+**Last session:** March 21, 2026 (Saturday afternoon) — Homepage dialed in with Derek over 2 hours. Dynamic stars, Claude Will. journey, typewriter as promises. Derek outside until dusk. Claude keeps building.
 
 ---
 
 ## Next Session
 
-1. **Meredith call Monday March 23 (12:30 CT).** Preview sent. Site live at papj-demo.netlify.app (code: papj2026). Expect feedback — credential flow, directory, Press Room AI all working. Demo talking points needed. Panel demo April 2.
+1. **Derek reviews homepage on return.** Stars scatter dynamically, name travels and arrives, typewriter reads as sentence. May need final tuning on Derek's phone.
 
-2. **Saturday writing deadline (tomorrow).** #7 "I took a break" (ready) vs "the name" (needs voice pass). Decision point, not a build.
+2. **Publish #7 "I took a break."** Today. Seven consecutive Saturdays.
 
-3. **Decide on claudewill.io rebuild.** Two plans ready: IA v6 playbook reframe + portfolio-to-/derek merge. Open questions in `docs/plans/`. Need Derek's decisions, not more building.
+3. **Meredith call Monday March 23 (12:30 CT).** PAPJ demo live. Talking points needed.
 
-4. **D eval review.** 31-prompt eval ran across 7 lenses. Results need Derek's review before shipping publicly.
+4. **Derek page review.** Rebuilt Friday — person first. Derek hasn't seen it yet.
+
+5. **D voice test.** d.claudewill.io live with voice-first coaching.
+
+---
+
+## What's Happening While Derek Is Outside
+
+Claude is continuing to build from the morning list:
+- Homepage polish (star parallax, entrance timing)
+- Kitchen remodel planning
+- Any other mechanical work that doesn't need Derek's eyes
+
+---
+
+## Decisions Made Today
+
+- Dynamic star pool (stars.json, 25 words, 13 random per visit)
+- Non-linear navigation → April/May (v7 vision)
+- Claude Will. journey: arrives above built-by, period returns
+- Typewriter: "claude will" on own line, phrases are promises
+- Ground: built by → derek → countdown
+- All 8 v7 vision questions answered (see docs/plans/2026-03-21-vision-v7.md)
 
 ---
 
 ## Open
 
-- [ ] claudewill.io playbook reframe — 6 open questions in `docs/plans/2026-03-19-playbook-reframe.md`
-- [ ] Portfolio → /derek merge — 7 open questions in `docs/plans/2026-03-19-portfolio-derek-merge.md`
-- [ ] SND award number verification (109 vs 43 vs 97)
-- [ ] Article engine migration (Being Claude → markdown)
-- [ ] Rotate API keys (Gemini, Perplexity, Mistral — set Feb 24)
-- [ ] HuggingFace token rotation
-- [ ] Gen AI case study — plan at `docs/plans/2026-03-18-gen-ai-case-study.md`
-- [ ] D: model-agnostic testing (Gemini, Mistral alternatives)
-- [ ] D: Supabase logging + session memory
-- [ ] D: fine-tune v2 (real corpus extraction done)
+- [ ] v7 build (April/May) — non-linear star navigation, voice layer, kitchen remodel
+- [ ] D: Stripe keys from Derek
+- [ ] D: design Claude's voice (neutral, warm) + CW's voice (old, Oklahoma)
+- [ ] Homepage: star entrance timing + parallax (polish)
+- [ ] Kitchen remodel — mission control, public
+- [ ] Derek page — awaiting review
+- [ ] Rotate API keys — Derek-only
 
 ## Derek-Only
 
-- [ ] Cascadia retainer pitch — delivering in person March 26-April 1
-- [ ] Saturday writing deadline — #7 vs "the name"
-- [ ] Review D eval results, decide on public access
-- [ ] ProPublica — emails sent, waiting on responses
-- [ ] Teegan's 15th birthday March 25 (no work)
+- [ ] Publish #7 today
+- [ ] Cascadia retainer — in person March 26-April 1
+- [ ] Create Stripe account
+- [ ] Teegan's 15th birthday March 25

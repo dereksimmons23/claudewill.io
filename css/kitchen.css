@@ -1,18 +1,18 @@
-/* Kitchen — Terminal/TUI aesthetic
-   Light-mode first. Clean monospace. Details/summary sections. */
+/* Kitchen — Mission Control
+   Light-mode first. Clean monospace. Scannable. Not decorative. */
 
 /* ── Base variables (light mode) ─────────────────── */
 
 .kitchen-page {
-  --bg: #fafaf9;
-  --text: #1a1a1a;
-  --dim: #737373;
-  --accent-ok: #059669;
-  --accent-flag: #d97706;
-  --accent-error: #dc2626;
-  --border: #e5e5e5;
-  --stove-primary: #8B4513;
-  --stove-shadow: #3E2723;
+  --bg: #fafaf8;
+  --text: #0a1628;
+  --dim: #6b7280;
+  --accent: #d4a84b;
+  --green: #059669;
+  --red: #dc2626;
+  --amber: #d97706;
+  --border: #e5e7eb;
+  --card-bg: #f3f4f6;
   --font: 'IBM Plex Mono', 'Courier New', Courier, monospace;
 
   background: var(--bg);
@@ -21,7 +21,7 @@
   min-height: 100vh;
   margin: 0;
   line-height: 1.6;
-  font-size: 14px;
+  font-size: 1rem;
 }
 
 /* ── Dark mode override ──────────────────────────── */
@@ -31,12 +31,11 @@
     --bg: #0a0a0a;
     --text: #e5e5e5;
     --dim: #737373;
-    --accent-ok: #34d399;
-    --accent-flag: #f59e0b;
-    --accent-error: #f87171;
+    --green: #34d399;
+    --red: #f87171;
+    --amber: #f59e0b;
     --border: #262626;
-    --stove-primary: #A0522D;
-    --stove-shadow: #5D3A1A;
+    --card-bg: #171717;
   }
 }
 
@@ -53,234 +52,295 @@
   .kitchen-page .page-header-right.palette-trigger {
     color: var(--text);
   }
-  .kitchen-page .page-dropdown {
-    background: #171717;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
-  }
-  .kitchen-page .page-dropdown a { color: var(--dim); }
-  .kitchen-page .page-dropdown a:hover { color: var(--accent-ok); }
   .kitchen-page footer,
   .kitchen-page .footer-note,
   .kitchen-page .footer-note a { color: var(--dim); }
   .kitchen-page .footer-note a:hover { color: var(--text); }
 }
 
-/* ── Terminal container ──────────────────────────── */
+/* ── Container ───────────────────────────────────── */
 
 .kitchen-page .container {
-  max-width: 720px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 80px 24px 80px;
+  padding: 80px 1.5rem 80px;
 }
 
-/* ── Stove art ───────────────────────────────────── */
+/* ── Page heading ────────────────────────────────── */
 
-.stove-art {
-  text-align: center;
-  line-height: 1.0;
-  font-size: 10px;
-  margin: 0 auto 1rem;
-  user-select: none;
-  -webkit-user-select: none;
-}
-.stove-art pre {
-  margin: 0;
-  font-family: var(--font);
-  font-size: inherit;
-  line-height: inherit;
-}
-
-/* ── Kitchen title ───────────────────────────────── */
-
-.kitchen-title {
-  text-align: center;
-  letter-spacing: 0.3em;
-  font-size: 0.9rem;
-  color: var(--dim);
+.kitchen-heading {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   margin-bottom: 2.5rem;
-  font-weight: 400;
+  color: var(--text);
 }
 
-/* ── TUI sections (details/summary) ──────────────── */
+/* ── Section ─────────────────────────────────────── */
 
-.tui-section { border-top: 1px solid var(--border); }
-.tui-section:last-child { border-bottom: 1px solid var(--border); }
+.mc-section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+}
 
-.tui-section summary {
+.mc-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.mc-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+  margin-bottom: 1rem;
+}
+
+/* ── 1. Status grid ──────────────────────────────── */
+
+.mc-status-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-green { background: var(--green); }
+.dot-red { background: var(--red); }
+.dot-amber { background: var(--amber); }
+.dot-loading { background: var(--dim); }
+
+.status-name {
+  font-weight: 500;
+}
+
+.status-detail {
+  color: var(--dim);
+  font-size: 0.8rem;
+  margin-left: 0.25rem;
+}
+
+/* ── 2. Pulse grid ───────────────────────────────── */
+
+.mc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.mc-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mc-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.mc-stat-label {
+  font-size: 0.75rem;
+  color: var(--dim);
+  letter-spacing: 0.03em;
+}
+
+.mc-revenue {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--dim);
+  line-height: 1.7;
+}
+
+/* ── 3. Morning Edition ──────────────────────────── */
+
+.mc-lead {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.mc-lead .lead-source {
+  font-weight: 400;
+  color: var(--dim);
+  font-size: 0.8rem;
+}
+
+.mc-headlines-list {
   list-style: none;
-  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  counter-reset: headline;
+}
+
+.mc-headlines-list li {
+  counter-increment: headline;
+  padding: 0.4rem 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 0.75rem;
+}
+
+.mc-headlines-list li:last-child {
+  border-bottom: none;
+}
+
+.mc-headlines-list li::before {
+  content: counter(headline);
+  color: var(--dim);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  width: 1.5ch;
+  text-align: right;
+  padding-top: 0.1rem;
+}
+
+.mc-headline-title {
+  font-weight: 500;
+}
+
+.mc-headline-source {
+  color: var(--dim);
+  font-size: 0.75rem;
+}
+
+.mc-headline-placeholder {
+  color: var(--dim);
+  font-style: italic;
+}
+
+.mc-edition-meta {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--dim);
+}
+
+/* ── 4. Bottom line ──────────────────────────────── */
+
+.mc-bottom-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mc-bottom-list li {
+  padding: 0.35rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.mc-bottom-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* ── 5. Method steps ─────────────────────────────── */
+
+.mc-method-steps {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.mc-step {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+
+.mc-step-arrow::after {
+  content: '\2192';
+  color: var(--dim);
+  font-size: 0.85rem;
+}
+
+/* ── 6. Stack cost ───────────────────────────────── */
+
+.mc-stack-total {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.mc-stack-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.mc-stack-item {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: 0.75rem 0;
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-.tui-section summary::-webkit-details-marker { display: none; }
-.tui-section summary::marker { display: none; }
-
-.tui-section .section-count {
-  font-weight: 400;
-  color: var(--dim);
   font-size: 0.85rem;
+  padding: 0.2rem 0;
 }
 
-.tui-section .section-right {
-  font-weight: 400;
+.mc-stack-name {
+  color: var(--text);
+}
+
+.mc-stack-cost {
   color: var(--dim);
-  font-size: 0.85rem;
-  margin-left: auto;
-  padding-left: 1rem;
-}
-
-.section-body {
-  padding: 0 0 1rem;
-}
-
-/* ── TUI lines (agent/project/stack rows) ────────── */
-
-.tui-line {
-  display: flex;
-  align-items: baseline;
-  padding: 2px 0;
-  gap: 0;
-  font-size: 0.85rem;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.tui-line .tree {
-  color: var(--dim);
-  width: 2ch;
-  flex-shrink: 0;
-  text-align: center;
-}
-
-.tui-line .status {
-  width: 2ch;
-  flex-shrink: 0;
-  text-align: center;
-}
-.tui-line .status.ok { color: var(--accent-ok); }
-.tui-line .status.flag { color: var(--accent-flag); }
-.tui-line .status.error { color: var(--accent-error); }
-
-.tui-line .name {
-  width: 16ch;
-  flex-shrink: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.tui-line .value {
-  color: var(--dim);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-left: auto;
-  padding-left: 1ch;
-}
-
-/* ── Nested sub-lines (expanded agent flags) ─────── */
-
-.tui-sub {
-  padding-left: 4ch;
-}
-.tui-sub .tui-line {
-  font-size: 0.8rem;
-  color: var(--dim);
-}
-.tui-sub .tui-line .name {
-  width: auto;
-  flex: 1;
-}
-
-/* ── Agent detail toggle ─────────────────────────── */
-
-.agent-detail { display: none; }
-.agent-detail.open { display: block; }
-
-/* ── Now divider ─────────────────────────────────── */
-
-.now-divider {
-  display: flex;
-  align-items: center;
-  margin: 1.5rem 0;
-  color: var(--dim);
-  font-size: 0.85rem;
-}
-.now-divider::before {
-  content: '───';
-  margin-right: 0.75ch;
-}
-.now-divider::after {
-  content: '';
-  flex: 1;
-  border-top: 1px solid var(--border);
-  margin-left: 0.75ch;
-}
-
-.now-section {
-  padding: 0.25rem 0 0.5rem;
-  font-size: 0.85rem;
-}
-.now-section .now-line {
-  display: flex;
-  gap: 2ch;
-  padding: 2px 0;
-  flex-wrap: wrap;
-}
-.now-section .now-label { color: var(--dim); }
-
-/* ── Sparkline and progress bar ──────────────────── */
-
-.sparkline {
-  letter-spacing: 0;
-  font-size: 0.85rem;
-}
-.progress-filled { color: var(--accent-ok); }
-.progress-empty { color: var(--border); }
-
-/* ── Method single line ──────────────────────────── */
-
-.method-line {
-  font-size: 0.85rem;
-  padding: 0.25rem 0;
-  color: var(--dim);
-}
-
-/* ── Loading state ───────────────────────────────── */
-
-.loading-state {
-  color: var(--dim);
-  font-size: 0.85rem;
-  padding: 2rem 0;
-  text-align: center;
-}
-
-/* ── Smoke animation ─────────────────────────────── */
-
-@media (prefers-reduced-motion: no-preference) {
-  .smoke-char {
-    animation: smoke-drift 4s ease-in-out infinite;
-  }
-  .smoke-char:nth-child(2) { animation-delay: 1s; }
-  .smoke-char:nth-child(3) { animation-delay: 2s; }
-}
-@keyframes smoke-drift {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.8; }
+  text-align: right;
 }
 
 /* ── Mobile ──────────────────────────────────────── */
 
 @media (max-width: 700px) {
-  .kitchen-page .container { padding: 80px 16px 80px; }
-  .stove-art { font-size: 7px; }
-  .tui-line .name { width: 13ch; }
+  .kitchen-page .container {
+    padding: 80px 1rem 80px;
+  }
+
+  .mc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mc-status-grid {
+    gap: 0.5rem 1.5rem;
+  }
+
+  .mc-method-steps {
+    gap: 0.35rem;
+  }
+
+  .mc-step {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+  }
 }
 
 @media (max-width: 400px) {
-  .stove-art { font-size: 5px; }
-  .tui-line { flex-wrap: wrap; }
-  .tui-line .value { width: 100%; padding-left: 4ch; margin-left: 0; }
+  .mc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .kitchen-heading {
+    font-size: 1.2rem;
+  }
 }

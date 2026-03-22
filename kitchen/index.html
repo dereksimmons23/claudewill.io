@@ -13,7 +13,7 @@
     gtag('config', 'G-7R5X5SJDVT');
   </script>
   <title>the kitchen | claudewill*</title>
-  <meta name="description" content="How one person builds with AI. The crew, the agents, the overnight work, the whole system. Everything here is real.">
+  <meta name="description" content="Mission control. What's alive, what it costs, what the numbers say. Everything here is real.">
 
   <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="the kitchen — claudewill*">
-  <meta property="og:description" content="How one person builds with AI. The crew, the agents, the overnight work — all of it.">
+  <meta property="og:description" content="Mission control. What's alive, what it costs, what the numbers say.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://claudewill.io/kitchen">
 </head>
@@ -34,17 +34,82 @@
 
   <header class="page-header" id="page-header">
     <div class="page-header-left"><a href="/" class="header-brand"><span class="header-short">cw</span><span class="header-full">claudewill</span></a><a href="/being-claude" class="header-hallway">*</a></div>
-    <div class="page-header-center">kitchen</div>
+    <div class="page-header-center">the kitchen</div>
     <button class="page-header-right palette-trigger" aria-label="Open navigation">menu</button>
   </header>
 
   <div class="container">
     <main>
-      <div class="stove-art" id="stove-art" aria-hidden="true"></div>
-      <div class="kitchen-title">k i t c h e n</div>
-      <div id="terminal">
-        <div class="loading-state">loading...</div>
-      </div>
+
+      <h1 class="kitchen-heading">mission control</h1>
+
+      <!-- 1. Status — what's alive -->
+      <section class="mc-section" id="mc-status">
+        <h2 class="mc-label">status</h2>
+        <div class="mc-status-grid" id="status-grid">
+          <div class="status-item"><span class="dot dot-loading"></span><span class="status-name">loading...</span></div>
+        </div>
+      </section>
+
+      <!-- 2. The Pulse — key numbers -->
+      <section class="mc-section" id="mc-pulse">
+        <h2 class="mc-label">the pulse</h2>
+        <div class="mc-grid" id="pulse-grid">
+          <div class="mc-stat"><span class="mc-stat-value">--</span><span class="mc-stat-label">visitors</span></div>
+          <div class="mc-stat"><span class="mc-stat-value">--</span><span class="mc-stat-label">conversations</span></div>
+          <div class="mc-stat"><span class="mc-stat-value">--</span><span class="mc-stat-label">D users</span></div>
+          <div class="mc-stat"><span class="mc-stat-value">--</span><span class="mc-stat-label">dawn day</span></div>
+        </div>
+        <div class="mc-revenue" id="pulse-revenue"></div>
+      </section>
+
+      <!-- 3. Morning Edition — top 5 headlines -->
+      <section class="mc-section" id="mc-headlines">
+        <h2 class="mc-label">morning edition</h2>
+        <div class="mc-lead" id="me-lead"></div>
+        <ol class="mc-headlines-list" id="headlines-list">
+          <li class="mc-headline-placeholder">loading headlines...</li>
+        </ol>
+        <div class="mc-edition-meta" id="me-meta"></div>
+      </section>
+
+      <!-- 4. Bottom line -->
+      <section class="mc-section" id="mc-bottom">
+        <h2 class="mc-label">bottom line</h2>
+        <ul class="mc-bottom-list" id="bottom-list">
+          <li>loading...</li>
+        </ul>
+      </section>
+
+      <!-- 5. The method -->
+      <section class="mc-section" id="mc-method">
+        <h2 class="mc-label">the method</h2>
+        <div class="mc-method-steps">
+          <span class="mc-step">start</span>
+          <span class="mc-step-arrow"></span>
+          <span class="mc-step">work</span>
+          <span class="mc-step-arrow"></span>
+          <span class="mc-step">finish</span>
+          <span class="mc-step-arrow"></span>
+          <span class="mc-step">decide</span>
+          <span class="mc-step-arrow"></span>
+          <span class="mc-step">rest</span>
+        </div>
+      </section>
+
+      <!-- 6. Stack cost -->
+      <section class="mc-section" id="mc-stack">
+        <h2 class="mc-label">stack cost</h2>
+        <div class="mc-stack-total" id="stack-total">~$125/month</div>
+        <div class="mc-stack-breakdown">
+          <div class="mc-stack-item"><span class="mc-stack-name">claude code</span><span class="mc-stack-cost">$100</span></div>
+          <div class="mc-stack-item"><span class="mc-stack-name">netlify</span><span class="mc-stack-cost">free</span></div>
+          <div class="mc-stack-item"><span class="mc-stack-name">supabase</span><span class="mc-stack-cost">free</span></div>
+          <div class="mc-stack-item"><span class="mc-stack-name">elevenlabs</span><span class="mc-stack-cost">~$5</span></div>
+          <div class="mc-stack-item"><span class="mc-stack-name">domains</span><span class="mc-stack-cost">~$20</span></div>
+        </div>
+      </section>
+
     </main>
 
     <footer>
@@ -53,7 +118,6 @@
     </footer>
   </div>
 
-  <script src="/js/stove-art.js"></script>
   <script src="/js/kitchen.js"></script>
   <script src="/js/cw-link-renderer.js"></script>
   <script src="/js/porch-widget.js" defer></script>
