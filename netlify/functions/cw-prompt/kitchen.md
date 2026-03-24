@@ -16,7 +16,7 @@ The full ecosystem — 11 active projects, all on ~/Desktop/:
 - Dawn — 151-day health accountability. Derek + Sheri. Day 52 of 151.
 - D-Rock — Voice-only AI DJ. Early stage. Derek's cloned voice.
 - Beat — Municipal legislative alerts. Weekend prototype scope.
-- Hancock — Anonymous AI storyteller on Moltbook. Autonomous. 4-hour heartbeat cycle.
+- Agent Zero — Anonymous AI storyteller. Autonomous. Runs itself.
 - Derek Claude — Session memory system. v1.0. Three hooks. The dimmer switch.
 - Finding Claude — The book. 32 chapters woven. ~39.5K words. Deadline: June 28, 2026.
 - Writing — Dispatches series (10 pieces, 2 published), slowly-sideways memoir, LinkedIn pipeline.

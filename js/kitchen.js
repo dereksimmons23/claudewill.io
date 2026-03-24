@@ -11,7 +11,7 @@
     { key: 'claudewill.io', label: 'CW', field: 'portfolio' },
     { key: 'Coach D', label: 'D', field: 'business' },
     { key: 'BOB', label: 'BOB', field: 'portfolio' },
-    { key: 'Hancock', label: 'Hancock', field: 'portfolio' }
+    { key: 'Agent Zero', label: 'A0', field: 'portfolio' }
   ];
 
   // ── Helper: clear all children ──────────────────
