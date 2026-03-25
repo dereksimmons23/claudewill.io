@@ -1,5 +1,5 @@
 # The Morning Edition
-### Tuesday, 2026-03-24
+### Wednesday, 2026-03-25
 **Agent:** morning-edition
 **Type:** newspaper
 
@@ -7,58 +7,74 @@
 
 ## Front Page
 
-> **Prediction: This Artificial Intelligence (AI) Stock Will Be Worth $5 Trillion by the End of 2026**
-> — The Motley Fool
+> **Nvidia CEO Jensen Huang says ‘I think we’ve achieved AGI’**
+> — The Verge
 
 ## Headlines
 
-- **Braid: Smith is all in with artificial intelligence. Does she see the creepy side?** — Calgary Herald
+- **The most innovative artificial intelligence companies of 2026** — Fast Company
+- **In Marathon, A.I. Is Everywhere and Humanity Is an Anomaly** — The New York Times
+- **Arm Debuts New Artificial Intelligence (AI) CPU, Nabs Meta, OpenAI, Cloudflare as First Customers** — Yahoo Finance
 - **Tolkkinen: I was ready to skewer AI for a Tennessee grandma’s arrest. Now I’m not so sure.** — Star Tribune
-- **Ground truth: When the Earth moves, AI can spot it** — BBC
-- **Amount of AI-generated child sexual abuse material found online surged in 2025** — The Guardian
-- **Nvidia CEO Jensen Huang says ‘I think we’ve achieved AGI’** — The Verge
+- **Autonomous agents are coming: What it will take to make them work** — cio.com
+- **Kleiner Perkins Raises $3.5B For AI-Focused Funds** — Crunchbase News
 - **AI startup funding hits $220 billion in two months ...** — eeNews Europe
-- **US Startup Funding Slows Sharply In March** — Crunchbase News
 - **Doctronic raises $40 million as race to apply AI in clinical care heats up** — statnews.com
-- **Chip interconnect startup Kandou AI raises $225M in funding** — SiliconANGLE
-- **AI startups are eating the venture industry and the returns, so far, are good** — TechCrunch
-- **AI Startups Capture Record 41% of $128B Venture Haul** — The Tech Buzz
+- **AI Inference Software Startup Gimlet Labs Raises $80M In Series A Funding** — crn.com
+- **Exclusive: Interloom, which wants to solve AI agents' 'tacit knowledge' problem, raises $16.5 million in VC funding** — Fortune
+- **Orlando fintech secures largest funding round yet amid AI investment surge** — The Business Journals
 
 ---
 
 ## AI & Technology
 
-# AI Developments: Week of March 24, 2026
+**OpenAI releases GPT-5.4 on March 5 with 1M token context and 83% success on job tasks benchmark.**  
+The model cuts hallucinations by 33% versus GPT-5.2 and leads GDPval internal benchmarks at 83.0% success rate on real-world professional tasks like documents and legal analyses.[3][5]  
+It tops rankings on SWE-bench Pro (57.7%) and Terminal-Bench 2.0 (75.1%), enabling reliable multi-step engineering workflows.[8][2]
 
-**OpenAI releases GPT-5.4 with 1M token context and 33% fewer hallucinations.** Launched March 5, GPT-5.4 achieved an 83.0% success rate on the GDPval benchmark for real-world job tasks versus 70.9% for GPT-5.2[5]. The model features a 1M token context window and excels at creating long-form documents, spreadsheets, and legal analyses[4]. A lighter GPT-5.4 mini version now approaches the flagship model's performance on some benchmarks[6].
+**DeepSeek launches V4 around March 3 featuring 1T parameters and 1M token context.**  
+The open-weight model uses MODEL1 architecture with tiered KV cache for 40% memory reduction, sparse FP8 for 1.8x inference speedup, and native multimodal support.[1]  
+Active parameters drop to 32B for efficiency over V3, matching Claude Opus 4.6 context while allowing self-hosting for privacy.[1]
 
-**Gemini 3.1 Pro reclaims benchmark leadership across 13 of 16 tests.** Released February 19, Google's model posted **77.1% on ARC-AGI-2**, more than double its predecessor, and **94.3% on GPQA Diamond** for expert-level scientific knowledge[3]. At $2/$12 per million tokens, it offers the best value among frontier models[3].
+**OpenAI announces GPT-5.3 “Garlic” with 6x knowledge density and 400K token context.**  
+Enhanced Pre-Training Efficiency packs more knowledge per byte, with Perfect Recall attention and 128K output tokens at 2x speed and 0.5x cost of GPT-5.2.[1]  
+Native agentic capabilities simplify autonomous workflows; reasoning mode cuts tokens 50-80% versus o3 while reducing deception from 4.8% to 2.1%.[1]
 
-**DeepSeek V4 launches with 1 trillion parameters and 40% memory reduction.** Expected around March 3, the model introduces MODEL1 architecture with tiered KV cache storage that cuts memory by 40% and sparse FP8 decoding achieving 1.8x inference speedup[1]. It handles 1M+ token contexts with conditional memory and Engram architecture[1].
+**LM Council benchmarks show GPT-5.4 leading at 83.0%, Claude Opus 4.6 at 59.6%.**  
+March 2026 tables rank GPT-5.4 first overall, with GPT-5.3 Codex at 70.9%; o3 hits 100% on one reasoning test, Grok 4 at 96.9%.[2]  
+Sonnet 4.6 scores 100% on 38 coding tasks for $0.20, setting value benchmark ceiling.[7]
 
-**Claude Sonnet 4.6 becomes preferred choice for production work.** Anthropic's model achieved 100% accuracy on 38 real coding tasks for $0.20 total cost with 4.6-second median response time[8]. It delivers expert-level output quality with a 1M context window at the best cost-to-performance ratio for agency and professional work[3].
-
-**OpenAI's GPT-5.3 "Garlic" achieves 6x knowledge density improvement.** The model delivers Enhanced Pre-Training Efficiency with 400,000-token context featuring "Perfect Recall" attention and 128,000-token output capability, enabling complete large-output tasks without multiple requests[1]. It runs at 2x inference speed at 0.5x cost versus GPT-5.2[1].
-
-*Sources: https://blog.mean.ceo/new-ai-model-releases-news-march-2026/, https://lmcouncil.ai/benchmarks, https://designforonline.com/the-best-ai-models-so-far-in-2026/, https://vertu.com/guides/top-10-ai-models-2026-complete-ranking/, https://www.riskinfo.ai/post/ai-insights-key-global-developments-in-march-2026*
+*Sources: https://blog.mean.ceo/new-ai-model-releases-news-march-2026/, https://lmcouncil.ai/benchmarks, https://vertu.com/guides/top-10-ai-models-2026-complete-ranking/, https://designforonline.com/the-best-ai-models-so-far-in-2026/, https://www.riskinfo.ai/post/ai-insights-key-global-developments-in-march-2026*
 
 ---
 
 ## Business & Media
 
-Here are today's most important developments in business and media, focusing on key trends and their implications for AI coaching products and human-AI collaboration:
+Here are some of today's most important developments in business and media, focusing on the intersection of AI and human-AI collaboration:
 
-### 1. CBS News Shuts Down Radio Division, Cuts 6% of Staff Amid Broader Restructuring
+### 1. CBS News Announces Significant Layoffs and Exits Radio After Nearly a Century
 
-**Substance:** On March 20, 2026, CBS News announced the cessation of its nearly century-old CBS News Radio service, impacting all radio staff and approximately 700 affiliate stations. This move is part of a larger restructuring effort under editor-in-chief Bari Weiss and president Tom Cibrowski, leading to about 60 to 70 job cuts, representing 6% to 7% of the remaining headcount across the newsroom. The company cited changing news consumption habits and challenging economic realities as drivers for the strategic shift towards new growth areas.
+**Substance:** CBS News initiated another round of layoffs on March 20, 2026, impacting approximately 6% to 7% of its remaining workforce, translating to about 60 to 70 jobs. As part of this restructuring, the company also announced the closure of its CBS News Radio division, which had been operating since 1927, effective May 22, 2026. This move, announced by editor-in-chief Bari Weiss and president Tom Cibrowski, is reportedly tied to Paramount Skydance's new strategic direction, which includes cost-cutting and a focus on new competitive areas.
 
-**Why it matters for AI coaching products and human-AI collaboration:** This development underscores the intense pressure on traditional media to adapt to digital transformation and cost efficiencies. For AI coaching, it highlights the critical need for products that can support individuals through career transitions, reskilling initiatives, and adapting to evolving industry landscapes. For human-AI collaboration, it emphasizes how automation and new digital strategies can lead to workforce reductions, making it crucial for AI tools to focus on augmenting human capabilities rather than solely replacing them, and for organizations to consider ethical implications in AI deployment.
+**Why it matters for AI coaching products and human-AI collaboration:** This development highlights the intense pressure on traditional media companies to adapt to changing consumption habits and economic realities. For AI coaching products, it underscores the need for tools that can help individuals and organizations navigate career transitions, reskill workforces, and identify new opportunities in evolving industries. In human-AI collaboration, it suggests that while AI can drive efficiencies, the human element of strategic decision-making, empathy, and adapting to market shifts remains paramount, especially in guiding significant organizational changes and supporting affected employees.
 
-### 2. Major Tech IPOs Expected in 2026, Led by AI Giants OpenAI and Anthropic
+### 2. Nexstar Media Group Completes Acquisition of TEGNA, Consolidating Local TV Market
 
-**Substance:** The year 2026 is poised to be significant for tech Initial Public Offerings (IPOs), with several high-profile companies reportedly preparing for public listings. AI pioneers OpenAI, with an estimated valuation of $830 billion to $1 trillion, and Anthropic, valued at $350 billion to $450 billion, are among the most anticipated, targeting IPOs in late 2026/early 2027 and H2 2026, respectively. Additionally, Discord, a popular community platform
+**Substance:** On March 19, 2026, Nexstar Media Group, Inc. (Nasdaq: NXST) finalized its acquisition of TEGNA Inc. after receiving approvals from the Federal Communications Commission (FCC) and the United States Department of Justice (DOJ). This significant deal positions Nexstar as a dominant force in local television, covering 80% of U.S. TV households when including partner stations. The merger, valued at $6.2 billion, aims to strengthen local journalism and enhance Nexstar's capabilities and assets. However, this consolidation has also led to a wave of layoffs at Nexstar-owned outlets, including longtime local TV anchors and staff.
 
-*Sources: [newscaststudio.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFzC_518hB6dmr8bWj3gUr2-fYKkSe7UTISSsWSLBJJKG2vu3OA_YpQSEs7PdUToVODbFNSDVPqeqtvmmRNLNbSeG2NO1_4DE7kzFySUuZvzA8nlIygT53cpPxP-ka7zJXpaeXK9sL2Yf_V9640YW5Bqss3bclzD3K7HX1-WXNPicBErIqlVw==), [pressgazette.co.uk](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFTVc3cmhVZzNA_STydYunLeKlY0qNfk6ZclO5u4NH75pBU5ZUEuoKzzO1I437MlbDuomodc3i1UFViLUBo-NLYUP-vytNBqSvcN2w3VOZtOtemyd0CMJlZxmg35Sur3oi96WkQhlwNIluUOHcmdz9NMQKwF3KJ8ELAFMniNtUV), [poynter.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFQREZfzR4Invqbz27-Tp2jYtDTThlf6tsu0QzPzE4haop-HZNHt5L9JDkFpC5DWtNub_TeFnA9FFnQ22GyJ_Qz70X2SD5s_pd0g5EGYXhf_u4XJI0Pryyi6pfLNM-BARJMpQax_paO0BQ8uANM9G9IQ8mwivnLuRfSIlm2d_KuJr8i4Nh83Rw=), [washingtonpost.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEFI4xEsvlIrD-KkBdroW6m3VQ-29afOIHa4TbiZEdIb6cEFkq5lFPfaTCJIgt35fEaECEosVmomMKTMVZI9oOorGFU-bxA-NO7I8xZtIURXgmbAcCGUyYbkdQzTDARWduH-GTb6g1tWU2QmYlz2gMQ2wPR-nYJU74lxL6ms10xXTSYjSUs01r5PsY=), [superhero.com.au](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHSqY6CtMW3-FUtozChnYevOYHqsPPl8kRcqY9B-K8c4MKJRY6ntd2iGiRcGgTASd-xPxnxZs3aCt48zsACapi77BH4sqROsAX6gEktrFhPUxyRBQFKzOYvbK__dBq2OsAyaRDEXuoFM1heWnNGMqTW)*
+**Why it matters for AI coaching products and human-AI collaboration:** This acquisition demonstrates a trend of consolidation in mature industries facing digital disruption. For AI coaching, it emphasizes the growing demand for tools that can help professionals in consolidating sectors understand market dynamics, adapt to new corporate structures, and develop skills relevant to larger, more integrated organizations. In terms of human-AI collaboration, it highlights how strategic business decisions, often informed by data analytics (which AI can enhance), lead to significant human impact, necessitating AI tools that can support change management, employee retraining, and the ethical considerations of workforce restructuring.
+
+### 3. Mega Tech IPOs on the Horizon: OpenAI, Anthropic, and SpaceX Eye Public Listings
+
+**Substance:** The year 2026 is anticipated to be a landmark year for tech IPOs, with industry giants like SpaceX (valued at approximately $1.25 trillion), OpenAI ($840 billion), and Anthropic ($330 billion) reportedly planning public listings. If these companies proceed, each would set new records for the largest U.S. venture-capital-backed tech IPOs in history, collectively aiming to raise over $100 billion. These potential listings reflect a shift in the tech landscape, with AI companies playing a central role in driving market excitement and investment.
+
+**Why it matters for AI coaching products and human-AI collaboration:** The immense valuations and anticipated public offerings of leading AI companies signal a robust and rapidly expanding AI market. For AI coaching products, this means increased investment, innovation, and competition in the AI space, creating both opportunities and challenges. It underscores the importance of AI coaching tools that can help entrepreneurs and professionals navigate high-growth, high-stakes environments, understand complex financial markets, and develop leadership skills for scaling innovative technologies. The success of these companies also highlights the critical role of human talent in driving AI innovation, making human-AI collaboration essential for continued growth and market leadership.
+
+### 4. Micron Technology Reports Record Q2 Earnings, Driven by Surging AI Demand
+
+**Substance:** Micron Technology, Inc. (Nasdaq: MU) announced record-breaking results for its second quarter of fiscal 2026, which ended February 26, 2026. The company reported revenue of $23.86 billion, a significant increase from $13.64 billion in the prior quarter and $8.05 billion year-over-year. This exceptional performance, including GAAP net income of
+
+*Sources: [newscaststudio.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGjmwkGgqhfLrZTeq4CLKyiqvpAmFE94mseZPgOy-tkrpMEZGPk8PjzmqKRYKd9Z_JvPsqhzu_y4bL2rMz2bMdF9N50VVyXE743KBn_jN2JByLeqxA_EzeDgRk0x_bodNH2Kt1JgTrVJMWhMPIyQ-JKvheFf2eOm0oFjHQ_A2SQrXWHfmkcEw==), [nexstar.tv](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHP50Sq3YTxHY5i5qG-7N8be2XdQB3hCMaY89_pYQPvwsvh8XS8-yNaDSbkxncpd21ILACQOZzkcLkb6asmbhPKHKNscGGg3_9mFhiJSuMPJ7-Jp2Uv0fFKd4vlKAMGor1k9D4FOx-7oi0dHC5ijveMV_ON-D3mJdd1wpfUTMKyk5iGhqku1YwUo4g=), [broadcastlawblog.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEFFGs9OcBzhdTUTZ_Na9JHXrGJMPO6Ts5zF_sgKGCd_LBr1vVT7E3qBZx5VpuwHVVGFVPRVJHXiVVjewS7qQyTpbtTzGgtmc09D6r45MTp1efwpZxTL2Hv_Kv_fuAFgI8Ug6h6YAH7bOXbdG0oPlHphSRqulww48UItbzVrzRc4GPkzVqpDlicF0pdqsF_faQl3RpfQzDXFocf78BM78TC2BiBBHJj6FJLuefqeR6_aoQ081yb6BqbMvhv3WP5gkt1t3AyNRcQvAFZbV8XJQfwzj1ImPBNECcwY66eXC9nUI8RmbwBmOssc_nJ), [spglobal.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH7mxR7fhsDkxRcpqSXluK2san5NF9YggVUFGVn8size232VpM7hCXCDtwgwUTBdfPPKOXS_sjCItuV3kkHTqxoRKm_jP0u76ANIrARJAlnPgszyEBmcZ4YJxpHXVAq4Yy4G7tdrzjPANBE68998oeoHNmmmxGGHJjRHpRXXBRoS_EwOkFzeVCc28_3rJ8=), [mediapost.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFcxKScep4H3M7TI2aA_dTWCPaMwff4R304Jj5xhbCsWm6a9FMubdU8D0LoTouOs1peqwuoh6QfC2HITKKzy22OBDdEsuq8NSLXc2CK4bEZ3akXAofsl8E_4TL7WpZRJKLkaJ0CYT4muq3FiIYxSlS01996PGY7pFxj7OX33qCVyQ61m4xfPkV2yvRuGl79DAFjvgXlwz0kLXtGoRJu_r6XjbiIODdWg4KaPRWv0ajc1BQ_WlRHyQQ=)*
 
 ---
 
@@ -66,15 +82,15 @@ Here are today's most important developments in business and media, focusing on 
 
 *What this means for CW Strategies today:*
 
-- **Shift focus in *Being Claude* to ethical AI use in creative work**—write a practical guide on how creatives can audit their AI tools for bias, hallucinations, and unintended consequences, tying it to your coaching method’s emphasis on integrity in creative practice.
+- **Shift focus to agentic workflows in coaching product (D):** With OpenAI’s GPT-5.3 and GPT-5.4 leading benchmarks for autonomous tasks, prioritize building native agentic capabilities into your voice-first AI coaching product—this is where creative work gets scalable.
 
-- **Prioritize *Claude Sonnet 4.6* for *D*’s backend**—its 100% accuracy on coding tasks and 1M context window make it the most reliable model for production work, reducing hallucinations in long-form coaching outputs.
+- **Write a *Being Claude* piece on AGI’s impact on creative practice:** Jensen Huang’s AGI claim demands a direct response—address what this means for artists, writers, and creators now, not in some distant future.
 
-- **Address the surge in AI-generated abuse material in *Claude Will***—tie it to the moral responsibility of creators using AI, framing it as a chapter on "Ethical Creation in the Age of Generative Tools."
+- **Leverage 1M+ token context in your book (*Claude Will*):** GPT-5.4’s expanded context window changes how deep research and narrative structure can be—use this to push the boundaries of your book’s depth and coherence.
 
-- **Ignore the $5T AI stock hype**—it’s noise; focus instead on *Nvidia’s AGI claim* and how it accelerates the need for coaches to prepare clients for a world where AI is a co-creator, not just a tool.
+- **Ignore the noise around funding frenzies:** $220B in AI startup funding is noise—focus on what actually improves creative practice, not hype cycles.
 
-- **Update your coaching method to account for *DeepSeek V4’s* memory reduction**—highlight how creatives can leverage sparse memory models to streamline workflows without sacrificing depth in their work.
+- **Monitor DeepSeek V4’s privacy angle for coaching:** If your product relies on self-hosting or sensitive creative work, DeepSeek’s efficiency and native multimodal support could be a game-changer—test it immediately.
 
 ---
 
@@ -94,4 +110,4 @@ None.
 
 ## Findings
 
-12 headlines curated across 5 topics. 9 AI citations. 7 business sources.
+12 headlines curated across 5 topics. 9 AI citations. 11 business sources.
