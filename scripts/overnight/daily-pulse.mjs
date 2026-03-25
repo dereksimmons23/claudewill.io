@@ -97,9 +97,11 @@ async function main() {
     .order('session_date', { ascending: false })
 
   const sessions = sessionsRes.data || []
+  const SANITIZE = { hancock: 'agent-zero' }
   const sessionsByProject = {}
   for (const s of sessions) {
-    sessionsByProject[s.project] = (sessionsByProject[s.project] || 0) + 1
+    const name = SANITIZE[s.project] || s.project
+    sessionsByProject[name] = (sessionsByProject[name] || 0) + 1
   }
 
   pulse.sessions = {
