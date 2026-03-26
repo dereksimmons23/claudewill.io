@@ -1,45 +1,67 @@
 # HANDOFF — claudewill.io
 
-**Last session:** March 25-26, 2026 (train) — Massive cross-project session. PAPJ v2 built and deployed (8-screen homepage, credential flow, directory, Hot Type, Press Box). Meredith call processed. Book manuscript read: 21,377 words, 25 chapters, done. claude-will-book repo designed. ai-practice knowledge base filled for Episode 1. 12+ commits across repos.
+**Last session:** March 23-26, 2026 (Monday + train to Seattle) — Coach D summer page rebuilt and shipped ($100/session, photo gallery, social carousel, SEO schema). Who's Who in America edited across all four tabs. Hancock anonymity breach fixed (Agent Zero in all public files, sanitize map in daily-pulse.mjs). D wired to Cohere Command A — model-agnostic coaching proved. GObag synced with Ghostty + bootstrap + keys. Resume button on /derek. The thesis: the model is the lightning, the prompt is the bug.
 
 ---
 
 ## Next Session
 
-1. **Build claude-will-book/ repo.** Design approved. Curate source from full ecosystem (6.2M words, 8.3M tokens across 7 repos). Assemble reading copy (25 chapters, ordered, stripped). Write CLAUDE.md. Push to private GitHub. Derek reviews on return.
+1. **claudewill.io simplification.** Three things: writing (brings people in), porch (greets them), D (coaches them). Strip the dead pages. Kitchen becomes a live feed, not a dashboard.
 
-2. **PAPJ: press pass credential.** The credential should look like a modern press pass — downloadable PNG, shareable on social, embeddable badge. Same visual in directory cards. This is the product.
+2. **Build claude-will-book/ repo.** Design approved. Curate source from full ecosystem. Assemble reading copy (25 chapters). Push to private GitHub.
 
-3. **PAPJ: Meredith content zip.** Content files + screenshots + README for Claude Desktop. Send before April 6.
+3. **PAPJ: press pass credential.** Downloadable PNG, shareable, embeddable badge. Same visual in directory cards.
 
-4. **Review overnight work.** Kitchen remodel, derek page rebuild, UX audit, grandmother voice.
+4. **PAPJ: Meredith content zip.** Content files + screenshots + README. Send before April 6.
+
+5. **Between Claudes Episode 1.** Review test footage from train. Fix format issues.
+
+6. **Lightning/Bug.** 23 dream stills need review. Runway deadline March 31. 5 days.
 
 ---
 
 ## Open
 
-- [ ] claude-will-book/ repo build (big job)
+- [ ] claudewill.io simplification (writing, porch, D)
+- [ ] Kitchen → live feed (replace half-broken dashboard)
+- [ ] claude-will-book/ repo build
 - [ ] PAPJ press pass credential visual
 - [ ] PAPJ Meredith content zip
 - [ ] PAPJ mobile testing pass
-- [ ] PAPJ BD comparison one-pager for panel
+- [ ] Between Claudes: review train footage, fix format
+- [ ] Lightning/Bug: review 23 stills, Runway deadline March 31
+- [ ] D: test Command A vs Sonnet in real coaching sessions
 - [ ] v7 build (April/May)
-- [ ] UX audit fixes (5 header patterns, font inconsistency)
-- [ ] Kitchen: verify remodel renders
-- [ ] Grandmother voice: audition previews
-- [ ] D: model-agnostic testing
-- [ ] Morning Edition: verify Perplexity fix
-- [ ] Between Claudes Episode 1: review footage from train
-
----
+- [ ] UX audit fixes
+- [ ] Google Business Profile for Coach D (Derek — google.com/business)
+- [ ] GObag: upgrade to USB-C 32GB drive, re-sync
 
 ## Derek-Only
 
 - [x] Meredith call March 23 — done
-- [x] KDP decided — self-publish, June 28 movable
-- [ ] Teegan birthday (March 25)
-- [ ] Cascadia retainer — in person in Bellingham (Mar 26 - Apr 1)
+- [x] Teegan birthday March 25 — done
+- [x] Who's Who submitted — done
+- [ ] Cascadia in-person Bellingham (Mar 26 - Apr 1)
 - [ ] Robotics tournament Apr 3-4
 - [ ] PAPJ prep call with Meredith: April 6, 12:30 CT
 - [ ] PAPJ panel presentation: April 9
-- [ ] ProPublica application — waiting
+- [ ] Saturday streak decision: publish March 29 from Bellingham?
+
+## Key Decisions (This Session)
+
+- **Model-agnostic thesis:** The prompt is the IP, not the model. D coaches through any engine. Proved on Sonnet + Command A.
+- **claudewill.io is three things:** writing, porch, D. Everything else is scaffolding.
+- **Coach D summer pricing:** $100/session (not $150/week program). Flexible scheduling. Tim's drills are his — removed from all public pages.
+- **Anonymity fix permanent:** daily-pulse.mjs SANITIZE map renames hancock → agent-zero before writing to public files.
+- **GObag portable practice:** 8GB CF card with everything. Ghostty + bootstrap + keys. Upgrade to USB-C 32GB next.
+
+## What Shipped
+
+- Coach D summer page (rebuilt, photo gallery, social assets, SEO schema, structured data)
+- 5-slide Instagram/Facebook carousel
+- Resume button on /derek
+- Hancock → Agent Zero across all public files (6 files + permanent fix in pulse script)
+- D Cohere Command A endpoint (d-cohere.js)
+- GObag sync script + Ghostty + bootstrap + README + keys
+- Who's Who in America — all four tabs edited and submitted
+- Testimony transcribed (March 24 Lightning/Bug recording)
