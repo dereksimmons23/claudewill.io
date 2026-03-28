@@ -347,6 +347,8 @@ export async function queryAll(prompt, {
     perplexity: () => callPerplexity(prompt, { systemPrompt, maxTokens }),
     mistral: () => callMistral(prompt, { systemPrompt, maxTokens }),
     huggingface: () => callHuggingFace(prompt, { systemPrompt, maxTokens }),
+    deepseek: () => callDeepSeek(prompt, { systemPrompt, maxTokens }),
+    grok: () => callGrok(prompt, { systemPrompt, maxTokens }),
   }
 
   const results = {}
@@ -360,6 +362,82 @@ export async function queryAll(prompt, {
 
   await Promise.all(promises)
   return results
+}
+
+// ─── OpenAI-Compatible (DeepSeek, Grok, Together, any) ────────────
+
+/**
+ * Generic caller for any OpenAI-compatible API.
+ * DeepSeek, xAI/Grok, Together, Fireworks, etc.
+ */
+export async function callOpenAICompatible(prompt, {
+  apiKey,
+  baseUrl,
+  model,
+  name = 'OpenAI-Compatible',
+  maxTokens = 1000,
+  temperature = 0.5,
+  systemPrompt = 'You are a helpful assistant.',
+  timeoutMs = 30000,
+} = {}) {
+  if (!apiKey) return { error: `${name}: API key not set`, content: null }
+
+  try {
+    const res = await fetch(`${baseUrl}/chat/completions`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model,
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: prompt },
+        ],
+        max_tokens: maxTokens,
+        temperature,
+      }),
+      signal: AbortSignal.timeout(timeoutMs),
+    })
+
+    if (!res.ok) {
+      const err = await res.text()
+      return { error: `${name} ${res.status}: ${err.slice(0, 200)}`, content: null }
+    }
+
+    const data = await res.json()
+    const content = data.choices?.[0]?.message?.content || null
+    return { error: null, content, usage: data.usage, model: data.model }
+  } catch (err) {
+    return { error: `${name}: ${err.message}`, content: null }
+  }
+}
+
+/**
+ * DeepSeek Chat — cheapest frontier model (~$0.27/M input).
+ */
+export async function callDeepSeek(prompt, opts = {}) {
+  return callOpenAICompatible(prompt, {
+    apiKey: opts.apiKey || process.env.DEEPSEEK_API_KEY,
+    baseUrl: 'https://api.deepseek.com/v1',
+    model: opts.model || 'deepseek-chat',
+    name: 'DeepSeek',
+    ...opts,
+  })
+}
+
+/**
+ * xAI Grok — least filtered frontier model.
+ */
+export async function callGrok(prompt, opts = {}) {
+  return callOpenAICompatible(prompt, {
+    apiKey: opts.apiKey || process.env.XAI_API_KEY,
+    baseUrl: 'https://api.x.ai/v1',
+    model: opts.model || 'grok-3-latest',
+    name: 'Grok',
+    ...opts,
+  })
 }
 
 // ─── HuggingFace Inference ─────────────────────────────────────────
