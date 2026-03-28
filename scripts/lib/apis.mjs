@@ -200,7 +200,7 @@ export async function cohereRerank(query, documents, {
  */
 export async function callCohere(prompt, {
   apiKey = process.env.COHERE_API_KEY,
-  model = 'command-a',
+  model = 'command-a-03-2025',
   maxTokens = 2000,
   temperature = 0.3,
   systemPrompt = 'You are a helpful assistant.',
@@ -238,6 +238,128 @@ export async function callCohere(prompt, {
   } catch (err) {
     return { error: `Cohere: ${err.message}`, content: null }
   }
+}
+
+// ─── Anthropic (Claude) ───────────────────────────────────────────
+
+/**
+ * Call Anthropic Claude for chat/coaching/analysis.
+ * Haiku: $0.80/$4 per M tokens. Sonnet: $3/$15. Opus: $15/$75.
+ */
+export async function callAnthropic(prompt, {
+  apiKey = process.env.ANTHROPIC_API_KEY,
+  model = 'claude-haiku-4-5-20251001',
+  maxTokens = 1000,
+  temperature = 0.5,
+  systemPrompt = 'You are a helpful assistant.',
+  timeoutMs = 30000,
+} = {}) {
+  if (!apiKey) return { error: 'ANTHROPIC_API_KEY not set', content: null }
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model,
+        max_tokens: maxTokens,
+        temperature,
+        system: systemPrompt,
+        messages: [{ role: 'user', content: prompt }],
+      }),
+      signal: AbortSignal.timeout(timeoutMs),
+    })
+
+    if (!res.ok) {
+      const err = await res.text()
+      return { error: `Anthropic ${res.status}: ${err.slice(0, 200)}`, content: null }
+    }
+
+    const data = await res.json()
+    const content = data.content?.[0]?.text || null
+    return { error: null, content, usage: data.usage, model: data.model }
+  } catch (err) {
+    return { error: `Anthropic: ${err.message}`, content: null }
+  }
+}
+
+// ─── Cohere Embed ─────────────────────────────────────────────────
+
+/**
+ * Generate embeddings with Cohere Embed v4.
+ * Returns 1536-dimensional vectors for semantic search.
+ */
+export async function cohereEmbed(texts, {
+  apiKey = process.env.COHERE_API_KEY,
+  model = 'embed-v4.0',
+  inputType = 'search_document',
+  timeoutMs = 15000,
+} = {}) {
+  if (!apiKey) return { error: 'COHERE_API_KEY not set', embeddings: null }
+
+  try {
+    const res = await fetch('https://api.cohere.com/v2/embed', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        texts,
+        model,
+        input_type: inputType,
+        embedding_types: ['float'],
+      }),
+      signal: AbortSignal.timeout(timeoutMs),
+    })
+
+    if (!res.ok) {
+      const err = await res.text()
+      return { error: `Cohere Embed ${res.status}: ${err.slice(0, 200)}`, embeddings: null }
+    }
+
+    const data = await res.json()
+    return { error: null, embeddings: data.embeddings?.float || [], dimensions: data.embeddings?.float?.[0]?.length }
+  } catch (err) {
+    return { error: `Cohere Embed: ${err.message}`, embeddings: null }
+  }
+}
+
+// ─── Multi-Model Query ────────────────────────────────────────────
+
+/**
+ * Send the same prompt to multiple models in parallel.
+ * Returns { modelName: { content, error, elapsed } } for each.
+ */
+export async function queryAll(prompt, {
+  models = ['anthropic', 'cohere', 'gemini', 'perplexity', 'mistral'],
+  systemPrompt = 'You are a direct, concise analyst.',
+  maxTokens = 1000,
+} = {}) {
+  const dispatchers = {
+    anthropic: () => callAnthropic(prompt, { systemPrompt, maxTokens }),
+    cohere: () => callCohere(prompt, { systemPrompt, maxTokens }),
+    gemini: () => callGemini(prompt, { maxTokens }),
+    perplexity: () => callPerplexity(prompt, { systemPrompt, maxTokens }),
+    mistral: () => callMistral(prompt, { systemPrompt, maxTokens }),
+    huggingface: () => callHuggingFace(prompt, { systemPrompt, maxTokens }),
+  }
+
+  const results = {}
+  const promises = models.map(async (name) => {
+    const fn = dispatchers[name]
+    if (!fn) { results[name] = { error: `Unknown model: ${name}`, content: null }; return }
+    const start = Date.now()
+    const result = await fn()
+    results[name] = { ...result, elapsed: Date.now() - start }
+  })
+
+  await Promise.all(promises)
+  return results
 }
 
 // ─── HuggingFace Inference ─────────────────────────────────────────
