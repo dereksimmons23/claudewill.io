@@ -25,7 +25,8 @@
         href: '/being-claude',
         items: [
           { name: 'being claude', href: '/being-claude' },
-          { name: 'the book', href: '/book' }
+          { name: 'the book', href: '/book' },
+          { name: 'lightning/bug', href: '/lightning/bug' }
         ]
       },
       {

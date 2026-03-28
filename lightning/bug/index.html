@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#070d1a">
+    <title>LIGHTNING/bug | claudewill</title>
+    <meta name="description" content="An 8.8-minute AI-generated short film about two kinds of light. Built entirely from terminal. Directed by Derek Claude Simmons.">
+    <meta property="og:title" content="LIGHTNING/bug — a short film">
+    <meta property="og:description" content="Two kinds of light. 8.8 minutes. Built entirely from terminal.">
+    <meta property="og:type" content="video.movie">
+    <meta property="og:url" content="https://claudewill.io/lightning/bug">
+    <meta property="og:image" content="https://claudewill.io/images/lightning-bug/og-poster.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://claudewill.io/lightning/bug">
+    <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+    <link rel="stylesheet" href="/css/shared-nav.css">
+    <link rel="stylesheet" href="/css/porch-widget.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7R5X5SJDVT"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7R5X5SJDVT');</script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "LIGHTNING/bug",
+        "description": "An 8.8-minute AI-generated short film about two kinds of light. A boy in a can. A bug on a bat. Built entirely from terminal.",
+        "duration": "PT8M48S",
+        "uploadDate": "2026-03-28",
+        "director": {
+            "@type": "Person",
+            "name": "Derek Claude Simmons",
+            "url": "https://claudewill.io/derek"
+        },
+        "productionCompany": {
+            "@type": "Organization",
+            "name": "CW Strategies LLC"
+        },
+        "genre": ["Short Film", "AI-Generated", "Experimental"],
+        "thumbnailUrl": "https://claudewill.io/images/lightning-bug/og-poster.jpg"
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg: #070d1a;
+            --text: #c8d0dc;
+            --bright: #e5e9f0;
+            --accent: #d4a84b;
+            --dim: #4a5a70;
+            --border: rgba(255, 255, 255, 0.06);
+            --card-bg: #0c1829;
+            --font: 'IBM Plex Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Header */
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 2rem;
+            border-bottom: 1px solid #0e1a2e;
+        }
+        .page-header a { color: var(--bright); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+        .page-header .title { font-weight: 500; font-size: 0.8rem; color: var(--dim); }
+        .page-header .menu-trigger { color: var(--dim); font-size: 0.75rem; cursor: pointer; background: none; border: none; font-family: inherit; }
+
+        /* Hero */
+        .hero {
+            padding: 2rem 0 0;
+        }
+        .video-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding-bottom: 56.25%;
+        }
+        .video-wrap iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .video-placeholder {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dim);
+            font-size: 0.85rem;
+        }
+        .video-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+        }
+
+        .hero-text {
+            text-align: center;
+            padding: 2.5rem 2rem 1rem;
+        }
+        .film-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--bright);
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+        .film-title .slash { color: var(--accent); }
+        .film-title .bug { font-weight: 400; font-size: 2rem; color: var(--dim); }
+        .tagline {
+            font-size: 0.8rem;
+            color: var(--dim);
+            margin-top: 1rem;
+            letter-spacing: 0.04em;
+        }
+        .credit {
+            font-size: 0.75rem;
+            color: var(--accent);
+            margin-top: 0.5rem;
+        }
+
+        /* Sections */
+        section {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 24px;
+        }
+        section + section {
+            border-top: 1px solid var(--border);
+        }
+
+        h2 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--dim);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+        p:last-child { margin-bottom: 0; }
+
+        .statement {
+            font-size: 1.1rem;
+            color: var(--bright);
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.9;
+        }
+
+        /* Gallery */
+        .gallery-section {
+            max-width: none;
+            padding: 3rem 0;
+        }
+        .gallery-label {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .scroll-gallery {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 1rem 24px 1.5rem;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        .scroll-gallery::-webkit-scrollbar { height: 4px; }
+        .scroll-gallery::-webkit-scrollbar-track { background: transparent; }
+        .scroll-gallery::-webkit-scrollbar-thumb { background: var(--dim); border-radius: 2px; }
+        .scroll-img {
+            flex: 0 0 auto;
+            width: 320px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 4px;
+            scroll-snap-align: start;
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
+        .scroll-img:hover { opacity: 1; }
+        .gallery-caption {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+            font-size: 0.7rem;
+            color: var(--dim);
+        }
+
+        /* Three columns */
+        .three-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .col h3 {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+        .col.human h3 { color: var(--accent); }
+        .col.artificial h3 { color: #6b9fd4; }
+        .col.both h3 { color: var(--bright); }
+        .col ul {
+            list-style: none;
+            font-size: 0.8rem;
+            line-height: 2;
+        }
+
+        /* Audio */
+        .audio-wrap {
+            margin-top: 1rem;
+        }
+        .audio-wrap audio {
+            width: 100%;
+            height: 40px;
+            filter: brightness(0.8);
+        }
+
+        /* Festival status */
+        .festivals {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .festival-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background: var(--card-bg);
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        .festival-name { color: var(--bright); font-weight: 500; }
+        .festival-date { color: var(--dim); font-size: 0.75rem; }
+        .festival-status {
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        .status-pending { background: #1a2a3a; color: var(--dim); }
+        .status-submitted { background: #1a2a20; color: #6bc46b; }
+
+        /* Tools */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .tool-group h3 {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .tool-group ul {
+            list-style: none;
+            font-size: 0.78rem;
+            line-height: 2;
+            color: var(--text);
+        }
+        .tool-name { color: var(--bright); }
+
+        /* Footer */
+        .site-footer {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 24px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.7rem;
+            color: var(--dim);
+        }
+        .site-footer a { color: var(--dim); text-decoration: none; }
+        .site-footer a:hover { color: var(--accent); }
+
+        /* Print */
+        @media print {
+            .video-wrap, .video-placeholder, .scroll-gallery, .audio-wrap { display: none; }
+            body { background: white; color: black; }
+            .film-title, h2, h3 { color: black; }
+        }
+
+        /* Mobile */
+        @media (max-width: 700px) {
+            .film-title { font-size: 2rem; }
+            .film-title .bug { font-size: 1.4rem; }
+            .three-col { grid-template-columns: 1fr; gap: 1.5rem; }
+            .tools-grid { grid-template-columns: 1fr; }
+            .scroll-img { width: 280px; height: 157px; }
+            .festival-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="page-header">
+        <a href="/">claudewill</a>
+        <span class="title">lightning/bug</span>
+        <button class="menu-trigger" onclick="document.querySelector('.command-palette-overlay')?.classList.add('active')">menu</button>
+    </div>
+
+    <!-- Hero: The Film -->
+    <div class="hero">
+        <div class="video-wrap">
+            <!-- Replace with YouTube/Vimeo embed when uploaded -->
+            <div class="video-placeholder">
+                <img src="/images/lightning-bug/D41-abundance-field.jpg" alt="LIGHTNING/bug — a boy in a field of fireflies" loading="lazy">
+            </div>
+        </div>
+        <div class="hero-text">
+            <h1 class="film-title">LIGHTNING<span class="slash">/</span><span class="bug">bug</span></h1>
+            <p class="tagline">Two kinds of light. 8 minutes. Built from terminal.</p>
+            <p class="credit">Derek Claude Simmons &mdash; March 2025 / March 2026</p>
+        </div>
+    </div>
+
+    <!-- Director's Statement -->
+    <section>
+        <h2>Director's Statement</h2>
+        <p class="statement">The light transforming them. Helping. Hurting. Artificial. Natural. Both. None.</p>
+        <p>I grew up in a single-wide mobile home on North Nickerson Street in Kansas. The trailer was aluminum, and when it rained it was like the end of days. I was scared to death of the rain as a kid. I remember bumping into my mom in the hallway during one of those storms.</p>
+        <p>Back then there were lightning bugs in the summer. Thick. They would light up the sky. The mean kids would take a wiffle ball bat and track them down and hit them and make their bat glow a little. You don't see fireflies much anymore. There's really no need for them.</p>
+        <p>I wrote a short film about a boy and a lightning bug in March 2025. I didn't know what it meant yet. A year later, I wrote almost the same sentence in different vocabulary. The ten-year-old in the wheat field saw it before the fifty-three-year-old could name it.</p>
+        <p>I believe we need both types of light. But when the power goes out &mdash; and it always goes out &mdash; the imperfect one gets you home. It was always enough.</p>
+    </section>
+
+    <!-- Dream Stills Gallery -->
+    <section class="gallery-section">
+        <div class="gallery-label">
+            <h2>Dream Stills</h2>
+        </div>
+        <div class="scroll-gallery">
+            <img class="scroll-img" src="/images/lightning-bug/D32-depot-tracks-arriving.jpg" alt="Railroad tracks approaching Nickerson at dusk" loading="lazy">
+            <img class="scroll-img" src="/images/lightning-bug/D30-rain-on-can-interior.jpg" alt="Inside the aluminum trailer during a storm" loading="lazy">
+            <img class="scroll-img" src="/images/lightning-bug/D28-boy-exits-can.jpg" alt="Boy stepping out of the can with a bat" loading="lazy">
+            <img class="scroll-img" src="/images/lightning-bug/D07-boy-on-porch.jpg" alt="Boy on the porch, bat raised, firefly at the tip" loading="lazy">
+            <img class="scroll-img" src="/images/lightning-bug/D08-porch-detaches.jpg" alt="The porch lifts off into the field" loading="lazy">
+            <img class="scroll-img" src="/images/lightning-bug/D41-abundance-field.jpg" alt="Thousands of fireflies rising from the stubble field" loading="lazy">
+            <img class="scroll-img" src="/images/lightning-bug/D24-two-kinds-of-light.jpg" alt="Two kinds of light splitting the field" loading="lazy">
+            <img class="scroll-img" src="/images/lightning-bug/D10-stadium-born.jpg" alt="The stubble field transforms into a stadium of light" loading="lazy">
+            <img class="scroll-img" src="/images/lightning-bug/D16-changeup-contact.jpg" alt="The bat connects — everything becomes light" loading="lazy">
+            <img class="scroll-img" src="/images/lightning-bug/D17-ball-becomes-night.jpg" alt="The ball becomes the night sky" loading="lazy">
+            <img class="scroll-img" src="/images/lightning-bug/D11-tunnel-corridor.jpg" alt="Hospital corridor, fluorescent, the hallway" loading="lazy">
+            <img class="scroll-img" src="/images/lightning-bug/D01-approach-stoplight.jpg" alt="Approaching Nickerson on Highway 96" loading="lazy">
+            <img class="scroll-img" src="/images/lightning-bug/D23-mason-jar-final.jpg" alt="Mason jar with firefly — the last light" loading="lazy">
+            <img class="scroll-img" src="/images/lightning-bug/D33-union-station-hall.jpg" alt="Union Station great hall — the station that endured" loading="lazy">
+            <img class="scroll-img" src="/images/lightning-bug/D36-union-station-doorway.jpg" alt="The doorway — the last aperture" loading="lazy">
+        </div>
+        <p class="gallery-caption">48 dream stills generated with Fal.ai FLUX. Every image was dreamed by a machine that has never been to Kansas.</p>
+    </section>
+
+    <!-- What's Human / Artificial / Both -->
+    <section>
+        <h2>What's Human / What's Artificial / What's Both</h2>
+        <div class="three-col">
+            <div class="col human">
+                <h3>Human</h3>
+                <ul>
+                    <li>The voice (31 min, unscripted, iPhone)</li>
+                    <li>Mother's voicemails (Sandra Sue Simmons)</li>
+                    <li>1983 newscast recording</li>
+                    <li>Creative direction</li>
+                    <li>The memory</li>
+                    <li>The dream</li>
+                </ul>
+            </div>
+            <div class="col artificial">
+                <h3>Artificial</h3>
+                <ul>
+                    <li>48 dream stills (Fal.ai FLUX)</li>
+                    <li>60+ video clips (Fal.ai Kling 2.1 Pro)</li>
+                    <li>Voice clone (ElevenLabs &mdash; rejected)</li>
+                    <li>Assembly pipeline (Python + ffmpeg)</li>
+                    <li>Title cards (ImageMagick)</li>
+                    <li>Four hums (synthesized)</li>
+                </ul>
+            </div>
+            <div class="col both">
+                <h3>Both</h3>
+                <ul>
+                    <li>Script (Claude + Derek)</li>
+                    <li>Color grading (human eye, machine process)</li>
+                    <li>Sound design (real recordings + synthesis)</li>
+                    <li>The decision to reject the AI voice</li>
+                    <li>The film</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Companion: NotebookLM Podcast -->
+    <section>
+        <h2>Companion</h2>
+        <p>A NotebookLM-generated podcast discussing the original Lightning/Bug script. Recorded March 2025 &mdash; before the filmmaker knew what the film meant. Two AI hosts try to explain a boy and a bug. The gap between their discussion and the actual film is the whole thesis.</p>
+        <div class="audio-wrap">
+            <!-- Audio file to be hosted or linked -->
+            <p style="font-size: 0.75rem; color: var(--dim); margin-top: 0.5rem;">Coming soon.</p>
+        </div>
+    </section>
+
+    <!-- Festival Submissions -->
+    <section>
+        <h2>Festival Submissions</h2>
+        <div class="festivals">
+            <div class="festival-row">
+                <div>
+                    <span class="festival-name">Runway AI Festival</span><br>
+                    <span class="festival-date">NYC Jun 11 + LA Jun 18 &mdash; Deadline Apr 20</span>
+                </div>
+                <span class="festival-status status-pending">Pending</span>
+            </div>
+            <div class="festival-row">
+                <div>
+                    <span class="festival-name">AI for Good Film Festival (ITU/UN)</span><br>
+                    <span class="festival-date">Geneva Jul 7-10 &mdash; Deadline May 1</span>
+                </div>
+                <span class="festival-status status-pending">Pending</span>
+            </div>
+            <div class="festival-row">
+                <div>
+                    <span class="festival-name">Reply AI Film Festival</span><br>
+                    <span class="festival-date">Venice Sep 2026 &mdash; Deadline Jun 1</span>
+                </div>
+                <span class="festival-status status-pending">Pending</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools -->
+    <section>
+        <h2>Tools</h2>
+        <div class="tools-grid">
+            <div class="tool-group">
+                <h3>Creative Direction</h3>
+                <ul>
+                    <li><span class="tool-name">Anthropic Claude</span> (Opus 4.6 + Sonnet 4.6)</li>
+                </ul>
+            </div>
+            <div class="tool-group">
+                <h3>Image Generation</h3>
+                <ul>
+                    <li><span class="tool-name">Fal.ai FLUX</span> &mdash; 48 dream stills</li>
+                </ul>
+            </div>
+            <div class="tool-group">
+                <h3>Video Generation</h3>
+                <ul>
+                    <li><span class="tool-name">Fal.ai Kling 2.1 Pro</span> &mdash; 60+ clips</li>
+                </ul>
+            </div>
+            <div class="tool-group">
+                <h3>Voice</h3>
+                <ul>
+                    <li><span class="tool-name">ElevenLabs</span> &mdash; clone (rejected)</li>
+                    <li><span class="tool-name">iPhone</span> &mdash; real narration</li>
+                    <li><span class="tool-name">Google Voice</span> &mdash; Sandra's voicemails</li>
+                </ul>
+            </div>
+            <div class="tool-group">
+                <h3>Sound Design</h3>
+                <ul>
+                    <li><span class="tool-name">Suno Pro</span> &mdash; score</li>
+                    <li><span class="tool-name">Stable Audio 3.0</span> &mdash; ambient</li>
+                    <li><span class="tool-name">ElevenLabs SFX</span> &mdash; foley</li>
+                </ul>
+            </div>
+            <div class="tool-group">
+                <h3>Assembly</h3>
+                <ul>
+                    <li><span class="tool-name">ffmpeg</span> &mdash; video + audio + grading</li>
+                    <li><span class="tool-name">ImageMagick</span> &mdash; title cards</li>
+                    <li><span class="tool-name">Python</span> &mdash; pipeline automation</li>
+                    <li><span class="tool-name">OpenAI Whisper</span> &mdash; transcription</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2026 CW Strategies LLC. Built by Derek<span style="color: var(--accent);">*</span>Claude.</p>
+        <p style="margin-top: 0.5rem;"><a href="/">claudewill.io</a> &middot; <a href="/derek">derek</a> &middot; <a href="/book">the book</a> &middot; <a href="https://derek4thecws.substack.com">substack</a></p>
+    </footer>
+
+    <script src="/js/cw-link-renderer.js"></script>
+    <script src="/js/porch-widget.js"></script>
+    <script src="/js/shared-nav.js"></script>
+</body>
+</html>
