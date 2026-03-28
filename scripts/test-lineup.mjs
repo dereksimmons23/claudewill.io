@@ -72,7 +72,7 @@ const CHAT_MODELS = [
   { name: 'Perplexity Sonar', fn: () => callPerplexity(COACHING_PROMPT, { systemPrompt: SYSTEM_PROMPT, maxTokens: 200 }) },
   { name: 'DeepSeek Chat', fn: () => callDeepSeek(COACHING_PROMPT, { systemPrompt: SYSTEM_PROMPT, maxTokens: 200 }) },
   { name: 'Grok', fn: () => callGrok(COACHING_PROMPT, { systemPrompt: SYSTEM_PROMPT, maxTokens: 200 }) },
-  { name: 'HuggingFace (Mistral 7B)', fn: () => callHuggingFace(COACHING_PROMPT, { systemPrompt: SYSTEM_PROMPT, maxTokens: 200 }) },
+  { name: 'HuggingFace (Llama 3.1 8B)', fn: () => callHuggingFace(COACHING_PROMPT, { systemPrompt: SYSTEM_PROMPT, maxTokens: 200 }) },
 ]
 
 // ── Run ──

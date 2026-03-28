@@ -448,7 +448,7 @@ export async function callGrok(prompt, opts = {}) {
  */
 export async function callHuggingFace(prompt, {
   apiKey = process.env.HF_TOKEN,
-  model = 'mistralai/Mistral-7B-Instruct-v0.3',
+  model = 'meta-llama/Llama-3.1-8B-Instruct',
   maxTokens = 1000,
   temperature = 0.3,
   systemPrompt = 'You are a helpful assistant.',
