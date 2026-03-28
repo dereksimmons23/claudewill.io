@@ -237,6 +237,67 @@
   status = 301
   force = true
 
+# Simplified — March 28, 2026
+[[redirects]]
+  from = "/kitchen"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/kitchen/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/method"
+  to = "/derek"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/method.html"
+  to = "/derek"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/standard"
+  to = "/derek"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/standard.html"
+  to = "/derek"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/story"
+  to = "/derek"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/story.html"
+  to = "/derek"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/map"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/map.html"
+  to = "/"
+  status = 301
+  force = true
+
 # Dead pages — files removed March 12, 2026
 [[redirects]]
   from = "/deck"
