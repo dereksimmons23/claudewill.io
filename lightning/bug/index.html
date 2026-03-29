@@ -342,10 +342,12 @@
     <!-- Hero: The Film -->
     <div class="hero">
         <div class="video-wrap">
-            <!-- Replace with YouTube/Vimeo embed when uploaded -->
-            <div class="video-placeholder">
-                <img src="/images/lightning-bug/D41-abundance-field.jpg" alt="LIGHTNING/bug — a boy in a field of fireflies" loading="lazy">
-            </div>
+            <!-- Hero loop — replace with YouTube/Vimeo embed when full film is uploaded -->
+            <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+                <source src="/video/lightning-bug-hero.mp4" type="video/mp4">
+                <!-- Fallback for no-video -->
+                <img src="/images/lightning-bug/D41-abundance-field.jpg" alt="LIGHTNING/bug — a boy in a field of fireflies">
+            </video>
         </div>
         <div class="hero-text">
             <h1 class="film-title">LIGHTNING<span class="slash">/</span><span class="bug">bug</span></h1>
