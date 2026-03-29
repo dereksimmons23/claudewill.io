@@ -1,5 +1,5 @@
 # The Morning Edition
-### Saturday, 2026-03-28
+### Sunday, 2026-03-29
 **Agent:** morning-edition
 **Type:** newspaper
 
@@ -7,44 +7,43 @@
 
 ## Front Page
 
-> **Major outgoing CEOs are citing AI as a factor in their decisions to step down**
-> — CNBC
+> **‘Soon publishers won’t stand a chance’: literary world in struggle to detect AI-written books**
+> — The Guardian
 
 ## Headlines
 
-- **Artificial intelligence will see you now: Bots to prescribe mental health drugs** — nypost.com
+- **Developers Warn Flood of Vibe-Coded Apps Could Slow Apple Approvals** — Business Insider
+- **This Artificial Intelligence (AI) Stock Could Handily Outperform Management's Own Guidance. Buy It Now.** — The Motley Fool
 - **Trump wants a deadlocked Congress to move on AI. Frustrated states say they already have** — NPR
-- **Smaller Is Better in Silicon Valley’s ‘Tiny Team’ Moment** — nytimes.com
-- **A teacher-free AI school is coming to Chicago, with tuition at $55,000 a year** — Chicago Tribune
-- **Number of AI chatbots ignoring human instructions increasing, study says** — The Guardian
-- **The Week’s 10 Biggest Funding Rounds: A Varied Week For Big Deals, Led By AI And Defense** — Crunchbase News
+- **AI Schism Grips Washington as Tech, Labor Vie for Upper Hand** — Bloomberg.com
+- **Judge Stays Pentagon’s Labeling of Anthropic as ‘Supply Chain Risk’** — The New York Times
 - **Legal AI startup Harvey valued at $11 billion in funding round, as VCs spread bets beyond model companies** — CNBC
 - **AI startup funding hits $220 billion in two months ...** — eeNews Europe
-- **OpenAI Joins Funding for Isara's $94M Raise to Develop AI Agent Swarms** — mlq.ai
+- **The Week’s 10 Biggest Funding Rounds: A Varied Week For Big Deals, Led By AI And Defense** — Crunchbase News
 - **Exclusive | Nvidia-Backed Startup Seeking to Counter Chinese AI Eyes $25 Billion Valuation** — WSJ
-- **Legal AI Startup Harvey Raises Funds at $11 Billion Valuation** — Bloomberg.com
+- **Defense technology startup Shield AI valued at $12.7 billion in latest funding round** — Reuters
+- **Yann LeCun’s New AI Startup Raises $1 Billion in Seed Funding** — Bloomberg.com
 
 ---
 
 ## AI & Technology
 
-**OpenAI released GPT-5.4 on March 5, 2026, topping multiple benchmarks with a 1M token context window and 33% fewer hallucinations than GPT-5.2.**  
-The model achieved 83.0% on one benchmark, 57.17 on the Intelligence Index (virtually tied with Gemini 3.1 Pro Preview at 57.18), and leads rankings for production ecosystems at $2.50/$15 per million input/output tokens[1][2][5][7].  
-It ships in Pro and Thinking versions, excelling in long-form content and complex analysis[7].
+**OpenAI released GPT-5.4 on March 5, 2026, topping benchmarks for professional tasks.**  
+The model features a 1M token context window and 33% fewer hallucinations than GPT-5.2.[4][9] In internal GDPval tests of real-world job tasks like documents and analyses, it hit 83.0% success, up from 70.9% for GPT-5.2.[1][9]
 
-**Nine new LLMs launched in March 2026, including Qwen3.5, Mistral Small 4, MiMo-V2-Pro, MiniMax-M2.7, Grok 4.20, and Nemotron 3 Super.**  
-Grok 4.20 Beta set a record low hallucination rate of 22% for factual accuracy; MiniMax-M2.7 (49.62) and MiMo-V2-Pro (49) led open-weight value on the Intelligence Index[2].  
-These releases emphasized efficiency over scale, with GPT-5.4 matching top spots quietly amid industry focus shifts[2].
+**Anthropic launched Claude Opus 4.6 and Sonnet 4.6 in February 2026, leading coding and reasoning benchmarks.**  
+Claude Opus 4.6 ranks second overall with top scores in agentic tasks and coding at $5/$25 per million tokens.[4][5] Sonnet 4.6 scores 100% on 38 real coding tasks for $0.20 while offering 1M context, making it ideal for production.[3][10]
 
-**DeepSeek V4 launched around March 3, 2026, with 1 trillion parameters and four innovations cutting memory 40% and speeding inference 1.8x.**  
-Features include MODEL1 tiered KV cache, sparse FP8 decoding, 30% training efficiency gains, and Engram for 1M+ token contexts[9].  
-It ranks high for cost-constrained use in March top-5 lists[5].
+**Google's Gemini 3.1 Pro, released February 19, 2026, dominates 13 of 16 benchmarks at $2/$12 per million tokens.**  
+It achieved 77.1% on ARC-AGI-2 logic test—double Gemini 3 Pro's score—and 94.3% on GPQA Diamond science benchmark.[3][7] The model reclaims top raw scores and offers frontier value for teams.[3][5]
 
-**Claude Opus 4.6 and Sonnet 4.6 dominated March 2026 rankings for reasoning and coding, with Sonnet at near-Opus performance and $5/$25 per million tokens.**  
-Opus 4.6 scored 34.44% (max) on one benchmark and leads high-stakes engineering; Sonnet 4.6 hit 100% on 38 coding tasks for $0.20 and 1,633 GDPval-AA Elo points[1][5][8][9].  
-Both feature 1M context windows, prioritizing reliability for production[4][5].
+**DeepSeek V4 launched around March 3, 2026, with 1T parameters and efficiency innovations.**  
+Features include MODEL1 tiered KV cache cutting memory 40%, Sparse FP8 for 1.8x inference speedup, and 1M+ token contexts.[7] Ranks high in March 2026 lists for cost-constrained production.[5][7]
 
-*Sources: https://lmcouncil.ai/benchmarks, https://whatllm.org/blog/llm-releases-march-2026, https://admix.software/blog/ai-model-benchmarks-2026, https://designforonline.com/the-best-ai-models-so-far-in-2026/, https://www.alphacorp.ai/blog/top-5-llms-for-march-2026-benchmarks-pricing-picks*
+**New benchmarks from LMSYS and others in March 2026 rank GPT-5 variants, Claude 4.6, and Gemini 3 highest.**  
+GPT-5.4 leads at 83.0% on job tasks; Claude Opus 4.6 tops reasoning at 34.44% no-tools.[1][5] Independent tests of 15 models across coding and speed confirm leaders like Sonnet 4.6 at 100% on tasks.[2][10]
+
+*Sources: https://lmcouncil.ai/benchmarks, https://admix.software/blog/ai-model-benchmarks-2026, https://designforonline.com/the-best-ai-models-so-far-in-2026/, https://vertu.com/guides/top-10-ai-models-2026-complete-ranking/, https://www.alphacorp.ai/blog/top-5-llms-for-march-2026-benchmarks-pricing-picks*
 
 ---
 
@@ -52,39 +51,43 @@ Both feature 1M context windows, prioritizing reliability for production[4][5].
 
 Here are today's most important developments in business and media, focusing on the intersection of AI:
 
-### 1. Meta's Strategic Layoffs Amidst Aggressive AI Investment
+### 1. **AI Drives Shift from Generalist to Specialist in Consulting Industry**
 
-**Headline:** Meta Lays Off 700 Employees While Ramping Up AI Spending and Executive Compensation.
+The consulting industry is experiencing a significant transformation, with artificial intelligence leading to a decline in demand for generalist consultants. Analysts estimate that the hiring of specialist consultants has increased by 20% to 35% over the last three years, and could rise by as much as 60% in the next five years, driven by demand for expertise in AI and data. Conversely, demand for broader strategy consultants is projected to decline by another 10% over the same period. This shift highlights how AI is automating tasks traditionally performed by generalists, increasing pressure for consultants to develop more granular, specialized expertise.
 
-**Substance:** Meta has initiated layoffs affecting approximately 700 employees across Reality Labs, social media units, and recruitment, as the company aggressively reorients its resources towards artificial intelligence. This move comes as Meta projects its total expenses to climb as high as $169 billion by 2026, with a significant portion allocated to AI infrastructure, talent, and product development. CEO Mark Zuckerberg has indicated a strategy of "flattening teams" and elevating individual contributors, aiming for more efficient project completion with smaller, highly talented teams.
+**Why it matters for AI coaching products and human-AI collaboration:** This trend underscores the critical need for upskilling and reskilling in the workforce. AI coaching products can play a vital role in helping professionals, particularly those in consulting and other knowledge-based fields, acquire specialized AI and data skills. For human-AI collaboration, it suggests a future where humans focus on high-level, specialized problem-solving, augmented by AI tools that handle routine analytical and strategic tasks. Coaching products can facilitate this transition by providing targeted training on how to effectively collaborate with AI for specialized outcomes.
 
-**Why it matters for AI coaching products and human-AI collaboration:** This development highlights a critical trend: companies are willing to make significant workforce adjustments to fund and prioritize AI initiatives. For AI coaching products, this signals a growing need for training that helps remaining employees adapt to AI-augmented workflows and for leaders to manage teams where AI tools are integral. For human-AI collaboration, it underscores the evolving nature of roles, where "a single very talented person" leveraging AI might replace larger teams, necessitating new models for collaboration between humans and advanced AI systems.
+### 2. **Social Media Giants Face Landmark Liabilities for Harm to Minors**
 
-### 2. CNN's Digital Transformation and Looming Layoffs
+In significant legal rulings, Meta (owner of Facebook and Instagram) and Google (owner of YouTube) have been found liable by juries for harming the mental health of young users due to the addictive properties of their platforms. A California jury ordered Meta to pay $4.2 million and Google $1.8 million in compensatory and punitive damages. Separately, a New Mexico jury ordered Meta to pay $375 million for knowingly harming children's mental health and concealing information about child sexual exploitation. These verdicts challenge the long-held protection of U.S. Section 230, which typically shields social media companies from responsibility for user-generated content.
 
-**Headline:** CNN Undergoes Digital Overhaul with Layoffs, Further Cuts Possible with Warner Bros. Discovery-Paramount Merger.
+**Why it matters for AI coaching products and human-AI collaboration:** These rulings emphasize the growing societal and regulatory scrutiny on the ethical implications and potential harms of digital platforms, including those powered by AI. For AI coaching products, this highlights the importance of incorporating ethical AI design principles and responsible use guidelines. When developing AI for human-AI collaboration, it's crucial to consider the potential for misuse, addiction, and psychological impact, and to design systems that prioritize user well-being and transparency. Coaching products can also help individuals and organizations navigate the ethical landscape of AI, fostering responsible development and deployment.
 
-**Substance:** CNN is implementing significant layoffs, targeting roles not aligned with its new digital-first growth strategy, as CEO Mark Thompson pushes for a shift away from traditional cable models. These cuts are part of a broader effort to streamline operations and optimize content for online reach and engagement. Further, a potential $110 billion merger between Warner Bros. Discovery (CNN's parent company) and Paramount could lead to even deeper job losses due to the elimination of duplicative roles across the combined entities, including CBS News, which is also undergoing layoffs.
+### 3. **OpenAI Shuts Down Sora Public API Due to Unsustainable Costs**
 
-**Why it matters for AI coaching products and human-AI collaboration:** This illustrates the intense pressure on traditional media to adapt to digital consumption patterns, often leading to painful restructuring. For AI coaching, this means a demand for programs that help media professionals reskill for digital-first content creation, data analytics, and AI-powered tools. It also emphasizes the need for coaching on navigating organizational change and fostering resilience in environments where human roles are being redefined by both digital shifts and potential AI integration, even if not explicitly stated as AI-driven in this instance.
+OpenAI has quietly discontinued the public API for its Sora video-creation app, citing unsustainable inference costs per generated minute. This shutdown has prompted a re-evaluation across the video AI sector regarding which generation workloads are economically viable at scale.
 
-### 3. Gap Pioneers AI-Powered Shopping with Google Gemini
+**Why it matters for AI coaching products and human-AI collaboration:** This development highlights the significant computational and financial realities of advanced AI models, particularly in resource-intensive areas like video generation. For those building AI coaching products, it underscores the need for cost-effective and efficient model deployment strategies. It also suggests that while AI capabilities are rapidly advancing, the practical application and scalability of certain AI-powered media generation tools may still face economic hurdles. For human-AI collaboration, it means understanding the limitations and costs associated with specific AI tools and focusing on areas where AI provides clear, sustainable value. Coaching products can help users understand these economic constraints and guide them toward more practical and efficient uses of AI in creative and business contexts.
 
-**Headline:** Gap Integrates AI Checkout in Google Gemini, Signaling Major Shift in Retail Digital Strategy.
+### 4. **Gap Integrates AI Checkout in Google Gemini, Signaling Shift in E-commerce**
 
-**Substance:** Gap has become the first major fashion retailer to launch a checkout integration within Google Gemini, allowing customers to browse its catalog, receive styling recommendations, and complete purchases directly through the AI chat interface. Sven Gerjets, Chief Technology Officer at Gap, stated that these partnerships are focused on "solving real customer problems" like fit confidence and simplifying purchases. This move represents a significant shift in consumer shopping behavior, potentially bypassing traditional e-commerce sites for autonomous, AI-driven systems.
+Gap has become the first major fashion retailer to integrate an AI checkout experience within Google Gemini, allowing customers to browse Gap's catalog, receive styling recommendations, and complete purchases directly through the AI chat assistant. This move, which utilizes Google's Universal Commerce Protocol (UCP), signals a major shift in how consumers may shop, potentially bypassing traditional e-commerce sites for autonomous AI systems.
 
-**Why it matters for AI coaching products and human-AI collaboration:** This is a concrete example of AI directly impacting business models and customer interaction. For AI coaching, it highlights the growing need for training in conversational AI design, personalized customer experience strategies, and understanding the ethical implications of AI in sales. For human-AI collaboration, it demonstrates how AI can act as a direct customer interface, requiring human teams to collaborate with AI on product curation, recommendation algorithms, and backend fulfillment, shifting human roles towards oversight, refinement, and strategic development of these AI systems.
+**Why it matters for AI coaching products and human-AI collaboration:** This represents a significant business model innovation in digital strategy, demonstrating AI's potential to transform the entire customer journey. For AI coaching products, this illustrates the growing importance of conversational AI and personalized experiences in commerce. Coaching products can help businesses understand and implement similar AI-driven strategies, focusing on how AI can enhance customer engagement and streamline purchasing. For human-AI collaboration, it showcases how AI can act as a sophisticated sales assistant, requiring humans to focus on product development, brand strategy, and managing the AI's performance and ethical considerations in customer interactions.
 
-### 4. SpaceX and Anthropic Eye Potential IPOs Amidst AI Chip Innovation
+### 5. **Enterprises Struggle to Realize Full Cloud Value, Jeopardizing AI Ambitions**
 
-**Headline:** SpaceX Considers IPO as Tesla Collaboration on "Terafab" for AI Chips Advances; Anthropic Discusses Q4 IPO Valued Over $60 Billion.
+A new report by NTT DATA reveals that despite nearly two decades of cloud adoption, only 14% of organizations have achieved the highest level of cloud maturity. This is particularly concerning as 99% of organizations acknowledge that AI is increasing their demand for cloud investment, yet 88% state that current cloud investment levels are putting their AI, cloud-native, and modernization initiatives at risk. The study, based on a global survey of over 2,300 senior decision-makers, highlights a critical disconnect between AI ambitions and the foundational cloud infrastructure required to support them.
 
-**Substance:** Elon Musk announced that Tesla and SpaceX will collaborate to build a "Terafab" in Austin, Texas, dedicated to designing and manufacturing semiconductors for both companies, including specialized chips for Tesla's Cybercab and Optimus robot, and for SpaceX. This development comes as The Information reported that SpaceX could file its long-awaited IPO as early as next week. Separately, Anthropic, a prominent AI company, is reportedly discussing a potential IPO as soon as Q4, with bankers expecting it to raise over US$60 billion.
+**Why it matters for AI coaching products and human-AI collaboration:** This finding is crucial for anyone building AI coaching products, as it highlights a fundamental challenge in enterprise AI adoption. Effective AI coaching must address not only the "how-to" of AI but also the underlying infrastructure and strategic alignment. Coaching products can help organizations assess their cloud maturity, develop strategies to optimize cloud investments for AI, and bridge the gap between AI aspirations and operational reality. For human-AI collaboration, it emphasizes that successful AI integration requires a robust and mature digital foundation, and coaching can guide leaders and teams in building this essential groundwork.
 
-**Why it matters for AI coaching products and human-AI collaboration:** These developments underscore the massive capital flowing into AI and the strategic importance of controlling AI hardware. For AI coaching, it signals a demand for specialized training in AI ethics, governance, and the business implications of AI at scale, particularly for companies going public with AI as a core offering. For human-AI collaboration, the "Terafab" concept suggests a future where humans
+### 6. **Media Companies Face Continued Layoffs Amidst Industry Shifts**
 
-*Sources: [peoplematters.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE9J-ZUzQROAHdWC0J1gNi4UnC3E37qLBRMtsjVXIztTvPdOU4B0pLbJ41aFcF-wlQjHNd-l2B0I1bpJyhlJ3Js8obLbDtgJbyY1LFZWoF2pEJK4RphtqPZM6LbhJFnWa5aW_2CE1yoLM4WhSHJbZqgdlNXv8eHsN7lFV_-JiWjQJBu6rbjct7a2Fjsk_U7ICDP9-8ZxuCsrVMn0p74BtKZMiJBw8KMzZaD99Q1IGwA2QxzcKE=), [theregister.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQECB91Ahp3ioZXNSpI8z5iPhC0SpX0d1I8B1H7YewjcdLNjNiN2hYnDm74G1U_R6pLIVrcIvj5GvIVnPS3hTZsv9bbjDCAMU_yE5cerJLAAbQcQGyyvBFInWuUNbB4NoAUb53Dfl9ZSMPddDVpXP0GN), [youtube.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGxU1iji1wiDomGDgCRkDtC4qu90pFAjUpU8wfUXZJFyRaGRrsTPdF3A-OuywzGka0_OVWaDLodEimFOcMRgHG2lyELfUnYKfMdoAR7fWoXNQ17uA5lTHVKVAi2PkSFk1756l-kQCw=), [mediapost.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHs83jnlHt7Dr5Ll79kZF_LKAhk8rbMic5kt3h3p8MY5sXoccfHeLIRKVVAb-XZd2wp2vSH85muODlXK9xwQddPBPmgfRwvUb_s2-vWPRwaawFUMoKOQa_FyAf6pylqUd4bquGPT251A3R2MBiaYcIHw8BTxRQqK0HbIglcNJ_IrzxGZRppBJvVWLeWZq1CAt_TEDhAia7MpxCE4jPIe3svoDfvYyUlMc55_uyrfhXUqan1CBYfwDo=), [investingnews.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFGWVSmn_diILHUz2nEzqLRfYplT3Roe_B9AurrosPzI799c-b4wXqKIIRd0NqcvQmuWVfaAUakO__9dpMdgsg5Ja-J1Qc8GJpVy0rtBdTcb13GT8rL9c26eSTU3Qto533AhXw=)*
+The media industry continues to experience significant layoffs and consolidation. CBS News is cutting approximately 66 people, or 6% of its staff, including the closure of CBS News Radio. Spotify-owned The Ringer is also laying off up to six editorial staffers, and LGBTQ+ publisher Pink News has put the jobs of its four website reporters at risk, stating a shift away from a "reporter-led newsroom." CNBC is restructuring its newsroom, resulting in nearly a dozen layoffs, though it plans to hire over 40 new editorial roles. This comes alongside broader trends of consolidation, such as the FCC approving Nexstar Media Group's $6.2 billion merger with Tegna, which is expected to lead to a wave of layoffs at Nexstar-owned outlets.
+
+**Why it matters for AI coaching products and human-AI collaboration:** These ongoing layoffs and strategic shifts in media underscore the profound impact of digital transformation and AI on traditional business models. For AI coaching products, this highlights the urgent need for media professionals to adapt to new roles and acquire AI-driven skills, such as content creation, data analysis, and audience engagement using AI tools. Coaching can help individuals navigate
+
+*Sources: [businessinsider.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFu5TdHuXzZZjBpIkk94Y3V7rvVIjrpHd5JQwg1IAFZQ4iEUSdr95wpzKhG8Urf0DTaA5FM2b41AgIVjFnyS2rPBT4FlqyT2OEJdhz3jnZv92I7W5-thabsNlgrPcIhsK0s1SJG7yuT2ZUqkOQBEizVwun8yhvGrP6L79wm6mr7dRAePYTC-TB6CiPjBEsoelMyLxr-ykxwyqpn1Pq4_Gq93cJyIX7ckg==), [asisonline.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGKZ7ZOBXI0pJVXVhvzBw2c7pJ76BtuBoCQrh1aZf3L9ofNLcBbETPGKngrl4p01dzOPsBbQaNngliuXt3-isSkzIEJN71WjYh7WuDAf-eedfpARYXFHYiVqDSZSui7yErt99G015OPEERqGV40saCtzJ9D9GH230SShKJF0-kCd10uI4p8iNhOcsBoHq_Iy7TJjgTgDNM8y7rMABnkIptsDWoTgbMAoP10ZktpoaZfWcCAybxf_WHQq17BynMtOnqugIpvGdyOLw==), [digitalapplied.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFdfUSFQjsNjjloU5UlIwv6DRgQRg_YJxcKDfVO_XNbHG6w9PTPl2Q10FszYTjmfatyBJukBx2dBj00sWZcf5VrifJgrnklbpWrFIFJhLl1FjyLR7dGnf1w-sLmdmdMykZDpMqTh8_hGX7Ozt7NGPHlk0danEJjK6RYU4OrweT78oU6gIdaboS8_b9VKnyiCpviTg==), [mediapost.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFa027Qi2S_FUNWCYcnfOdhxsES-VMrEglIQqfcLE61qNleWAElt0iQUSWdJJpe2fcyW3_NQRY65pPpTia1Evi-W7GhpuZVAXp-iukRMxyeHIo2yBWZ7njB1yCBPJYxzNdbsV9FDpOjHMQpyejjtbQWceVLjrM6scMWtGXP19R6_oS9CKc4Ajs4aYMRXorlvUfyteTHtqBeFL0sETFIX9bREgGpMj36Kg0ObXy1T-ZknUR3Hzlwooc=), [global.ntt](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE78UomvbvgO8_IhHeT2Kz9U5ldwyePVjoX8T4dOVT_E7KK5fLLvgJyFhAhJZUw9rhn5mgTGBDXbDZCxGBEadtje38qrlriAL1dzOizcwpWK4_Z_PEQL6YwNTWbh6U5AlXiBPthdkO2jHQm3RvNOS3m2a8gM-kOj6Ab4-uaUP6tGcvAqsUvljNN3H5T)*
 
 ---
 
@@ -92,15 +95,15 @@ Here are today's most important developments in business and media, focusing on 
 
 *What this means for CW Strategies today:*
 
-- **GPT-5.4’s 1M token context window and 33% fewer hallucinations** demand immediate integration into *Claude Will*—use it to refine long-form analysis and reduce editorial revisions in the book’s final drafts.
+- **Double down on 1M token context in D**—train users to leverage long-form reasoning for deep creative work, not just memory dumping; this is your edge against short-context churn.
 
-- **Claude Opus 4.6 and Sonnet 4.6’s dominance in reasoning and coding** means prioritize these models for *D*, the voice-first AI coaching product—test their ability to handle complex creative workflows and real-time feedback.
+- **Write the next Being Claude on "AI vs. the Literary Economy"**—publishers losing ground to AI-written books is your market signal: creatives need to weaponize AI, not fear it.
 
-- **DeepSeek V4’s 40% memory reduction and 1.8x inference speed** changes the cost calculus for *D*—build a lightweight, high-efficiency version of the coaching product to compete on accessibility and speed.
+- **Build a "vibe-coding" guardrail in D**—since Apple’s clamping down on low-signal apps, pre-filter for high-intent creative prompts to avoid approval bottlenecks.
 
-- **Meta’s layoffs and AI investment signal shrinking teams but higher AI dependency**—focus *Being Claude* on coaching individuals to lead AI-augmented creative teams, not just tools.
+- **Ignore the noise on "AI stocks" and "VC hype"**—funding frenzies don’t change how creatives work; focus on the 83% job-task success in GPT-5.4 and 100% coding reliability in Sonnet 4.6.
 
-- **Grok 4.20’s 22% hallucination rate and open-weight models (MiniMax-M2.7, MiMo-V2-Pro)** shift the reliability benchmark for AI coaching—flag hallucination risks in *D*’s voice responses and train users to verify outputs.
+- **Track the Pentagon’s Anthropic ruling**—if AI gets labeled a supply chain risk, your coaching product’s compliance layer just became a selling point.
 
 ---
 
@@ -120,4 +123,4 @@ None.
 
 ## Findings
 
-12 headlines curated across 5 topics. 10 AI citations. 5 business sources.
+12 headlines curated across 5 topics. 10 AI citations. 7 business sources.

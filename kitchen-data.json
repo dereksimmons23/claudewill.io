@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-03-28T11:10:09.100Z",
+  "lastUpdated": "2026-03-29T11:10:54.016Z",
   "agents": {
     "morningEdition": {
       "name": "Morning Edition",
-      "lastRun": "2026-03-28T11:10:09.099Z",
+      "lastRun": "2026-03-29T11:10:54.015Z",
       "status": "ok",
-      "summary": "Major outgoing CEOs are citing AI as a factor in their decisions to step down",
+      "summary": "‘Soon publishers won’t stand a chance’: literary world in struggle to detect AI-written books",
       "flags": [],
       "sections": {
         "Headlines": {
@@ -29,32 +29,36 @@
           "status": "not configured"
         }
       },
-      "findings": "12 headlines curated across 5 topics. 10 AI citations. 5 business sources."
+      "findings": "12 headlines curated across 5 topics. 10 AI citations. 7 business sources."
     },
     "housekeeping": {
       "name": "Housekeeping",
-      "lastRun": "2026-03-28T11:10:09.099Z",
-      "status": "ok",
-      "summary": "All 10 pages + 2 subdomains responding. Avg 307ms.",
-      "flags": [],
+      "lastRun": "2026-03-29T11:10:54.015Z",
+      "status": "flags",
+      "summary": "8/10 pages up. 2 down.",
+      "flags": [
+        "https://claudewill.io/arcade is DOWN (fetch failed)",
+        "https://claudewill.io/being-claude is DOWN (fetch failed)",
+        "Prompt dead link: netlify/functions/cw-prompt/site-knowledge.md references /library"
+      ],
       "details": [
-        "https://claudewill.io/ — 200 62ms",
-        "https://claudewill.io/derek — 200 80ms",
-        "https://claudewill.io/story — 200 244ms",
-        "https://claudewill.io/workshop — 200 707ms",
-        "https://claudewill.io/privacy — 200 21ms",
-        "https://claudewill.io/terms — 200 562ms",
-        "https://claudewill.io/kitchen — 200 373ms",
-        "https://claudewill.io/arcade — 200 265ms",
-        "https://claudewill.io/map — 200 162ms",
-        "https://claudewill.io/being-claude — 200 596ms",
-        "Coach D (https://coach.claudewill.io) — 200 830ms",
-        "BOB (https://bob.claudewill.io) — 200 1242ms"
+        "https://claudewill.io/ — 200 24ms",
+        "https://claudewill.io/derek — 200 5ms",
+        "https://claudewill.io/story — 200 504ms",
+        "https://claudewill.io/workshop — 200 563ms",
+        "https://claudewill.io/privacy — 200 405ms",
+        "https://claudewill.io/terms — 200 220ms",
+        "https://claudewill.io/kitchen — 200 24ms",
+        "https://claudewill.io/arcade — DOWN: fetch failed",
+        "https://claudewill.io/map — 200 525ms",
+        "https://claudewill.io/being-claude — DOWN: fetch failed",
+        "Coach D (https://coach.claudewill.io) — 200 835ms",
+        "BOB (https://bob.claudewill.io) — 200 1027ms"
       ]
     },
     "analytics": {
       "name": "Analytics",
-      "lastRun": "2026-03-28T11:10:09.099Z",
+      "lastRun": "2026-03-29T11:10:54.015Z",
       "status": "not-configured",
       "summary": "No analytics report found.",
       "flags": [],
@@ -62,52 +66,52 @@
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-03-28T11:10:09.099Z",
+      "lastRun": "2026-03-29T11:10:54.016Z",
       "status": "flags",
       "summary": "**Pipeline:** 7 items (3 draft, 2 planned, 1 idea, 1 in-progress)",
       "flags": [
-        "Being Claude #11: The Manual: draft for 16 days — review or reject",
-        "Being Claude: The Scoreboard: draft for 24 days — review or reject",
-        "Being Claude: The Brightness (warm/hot/cold): draft for 24 days — review or reject"
+        "Being Claude #11: The Manual: draft for 17 days — review or reject",
+        "Being Claude: The Scoreboard: draft for 25 days — review or reject",
+        "Being Claude: The Brightness (warm/hot/cold): draft for 25 days — review or reject"
       ]
     },
     "research": {
       "name": "Research Brief",
-      "lastRun": "2026-03-28T11:10:09.099Z",
+      "lastRun": "2026-03-29T11:10:54.016Z",
       "status": "not-configured",
       "summary": "No research brief report found.",
       "sources": []
     },
     "gemini": {
       "name": "Industry Brief",
-      "lastRun": "2026-03-28T11:10:09.100Z",
+      "lastRun": "2026-03-29T11:10:54.016Z",
       "status": "not-configured",
       "summary": "No industry brief report found.",
       "sources": []
     },
     "codeReview": {
       "name": "Code Review",
-      "lastRun": "2026-03-28T11:10:09.100Z",
+      "lastRun": "2026-03-29T11:10:54.016Z",
       "status": "not-configured",
       "summary": "No code review report found."
     },
     "contentScan": {
       "name": "Content Scan",
-      "lastRun": "2026-03-28T11:10:09.100Z",
+      "lastRun": "2026-03-29T11:10:54.016Z",
       "status": "not-configured",
       "summary": "No content scan report found.",
       "flags": []
     },
     "researchStatus": {
       "name": "Research Status",
-      "lastRun": "2026-03-28T11:10:09.100Z",
+      "lastRun": "2026-03-29T11:10:54.016Z",
       "status": "not-configured",
       "summary": "No research status report found.",
       "flags": []
     },
     "socialDraft": {
       "name": "Social Drafts",
-      "lastRun": "2026-03-28T11:10:09.100Z",
+      "lastRun": "2026-03-29T11:10:54.016Z",
       "status": "not-configured",
       "summary": "No social draft report found.",
       "flags": []
