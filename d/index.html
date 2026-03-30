@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <title>D | claudewill</title>
+  <meta name="description" content="Option D. Model-agnostic coaching. One prompt, nine providers, zero dependencies.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #0a1628;
+      --text: #c8d0dc;
+      --bright: #e5e9f0;
+      --accent: #d4a84b;
+      --dim: #4a5a70;
+      --input-bg: #0d1a30;
+      --border: rgba(255,255,255,0.1);
+      --font: 'IBM Plex Mono', 'Courier New', monospace;
+    }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; font-size: 15px; min-height: 100vh; display: flex; flex-direction: column; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Gate ─────────────────────── */
+    .gate {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      padding: 2rem;
+    }
+    .gate-inner { max-width: 360px; width: 100%; }
+    .gate-title { font-size: 1.8rem; font-weight: 700; color: var(--bright); margin-bottom: 0.25rem; }
+    .gate-sub { font-size: 0.8rem; color: var(--dim); margin-bottom: 2rem; letter-spacing: 0.05em; }
+    .gate-field { display: block; width: 100%; margin-bottom: 1rem; }
+    .gate-field label { display: block; font-size: 0.7rem; color: var(--dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.35rem; }
+    .gate-field input {
+      display: block; width: 100%; padding: 0.6rem 0.75rem;
+      background: var(--input-bg); border: 1px solid var(--border); border-radius: 3px;
+      color: var(--bright); font-family: var(--font); font-size: 0.85rem;
+    }
+    .gate-field input:focus { outline: none; border-color: var(--accent); }
+    .gate-field input::placeholder { color: var(--dim); }
+    .gate-btn {
+      display: block; width: 100%; padding: 0.65rem; margin-top: 0.5rem;
+      background: none; border: 1px solid var(--accent); border-radius: 3px;
+      color: var(--accent); font-family: var(--font); font-size: 0.8rem;
+      cursor: pointer; letter-spacing: 0.03em; transition: all 0.15s;
+    }
+    .gate-btn:hover { background: var(--accent); color: var(--bg); }
+    .gate-error { font-size: 0.75rem; color: #e05555; margin-top: 0.75rem; display: none; }
+    .gate-footer { font-size: 0.7rem; color: var(--dim); margin-top: 1.5rem; text-align: center; }
+
+    /* ── Chat ─────────────────────── */
+    .chat { flex: 1; display: none; flex-direction: column; max-width: 640px; width: 100%; margin: 0 auto; }
+    .chat-header {
+      padding: 1rem 1.5rem; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .chat-brand { font-weight: 700; color: var(--bright); font-size: 1.1rem; }
+    .chat-back { font-size: 0.7rem; color: var(--dim); background: none; border: none; cursor: pointer; font-family: var(--font); }
+    .chat-back:hover { color: var(--accent); }
+    .chat-messages { flex: 1; overflow-y: auto; padding: 1.5rem; }
+    .msg { margin-bottom: 1.25rem; max-width: 85%; }
+    .msg-user { margin-left: auto; }
+    .msg-user .msg-text { background: rgba(212,168,75,0.12); border: 1px solid rgba(212,168,75,0.2); border-radius: 8px 8px 2px 8px; padding: 0.6rem 0.85rem; color: var(--bright); }
+    .msg-d .msg-text { color: var(--text); line-height: 1.65; }
+    .msg-label { font-size: 0.65rem; color: var(--dim); margin-bottom: 0.2rem; letter-spacing: 0.05em; }
+    .msg-user .msg-label { text-align: right; }
+    .typing { color: var(--dim); font-style: italic; font-size: 0.8rem; padding: 0 1.5rem 1rem; display: none; }
+    .chat-input-wrap {
+      padding: 1rem 1.5rem; border-top: 1px solid var(--border);
+      display: flex; gap: 8px;
+    }
+    .chat-input {
+      flex: 1; padding: 0.6rem 0.75rem;
+      background: var(--input-bg); border: 1px solid var(--border); border-radius: 3px;
+      color: var(--bright); font-family: var(--font); font-size: 0.85rem; resize: none;
+    }
+    .chat-input:focus { outline: none; border-color: var(--accent); }
+    .chat-input::placeholder { color: var(--dim); }
+    .chat-send {
+      padding: 0.6rem 1rem; background: none; border: 1px solid var(--accent);
+      border-radius: 3px; color: var(--accent); font-family: var(--font);
+      font-size: 0.8rem; cursor: pointer; transition: all 0.15s; white-space: nowrap;
+    }
+    .chat-send:hover { background: var(--accent); color: var(--bg); }
+    .chat-send:disabled { opacity: 0.3; cursor: default; }
+    .chat-send:disabled:hover { background: none; color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .chat-input-wrap { padding: 0.75rem 1rem; }
+      .chat-messages { padding: 1rem; }
+      .msg { max-width: 92%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Gate ─────────────────────── -->
+  <div class="gate" id="gate">
+    <div class="gate-inner">
+      <h1 class="gate-title">D</h1>
+      <p class="gate-sub">model-agnostic coaching</p>
+      <div class="gate-field">
+        <label for="gate-code">Access Code</label>
+        <input type="text" id="gate-code" placeholder="enter code" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="gate-field">
+        <label for="gate-email">Email</label>
+        <input type="email" id="gate-email" placeholder="you@example.com">
+      </div>
+      <button class="gate-btn" id="gate-submit">Enter</button>
+      <p class="gate-error" id="gate-error">Invalid code.</p>
+      <p class="gate-footer"><a href="/">claudewill</a></p>
+    </div>
+  </div>
+
+  <!-- ── Chat ─────────────────────── -->
+  <div class="chat" id="chat">
+    <div class="chat-header">
+      <span class="chat-brand">D</span>
+      <button class="chat-back" id="chat-reset">reset</button>
+    </div>
+    <div class="chat-messages" id="chat-messages"></div>
+    <div class="typing" id="typing">D is thinking...</div>
+    <div class="chat-input-wrap">
+      <textarea class="chat-input" id="chat-input" rows="1" placeholder="What are you working on?"></textarea>
+      <button class="chat-send" id="chat-send">Send</button>
+    </div>
+  </div>
+
+  <script>
+  (function() {
+    var gate = document.getElementById('gate');
+    var chatEl = document.getElementById('chat');
+    var codeInput = document.getElementById('gate-code');
+    var emailInput = document.getElementById('gate-email');
+    var submitBtn = document.getElementById('gate-submit');
+    var errorEl = document.getElementById('gate-error');
+    var messagesEl = document.getElementById('chat-messages');
+    var inputEl = document.getElementById('chat-input');
+    var sendBtn = document.getElementById('chat-send');
+    var typingEl = document.getElementById('typing');
+    var resetBtn = document.getElementById('chat-reset');
+
+    var accessCode = '';
+    var history = [];
+    var sending = false;
+
+    // Check for stored session
+    var stored = localStorage.getItem('option-d-session');
+    if (stored) {
+      try {
+        var session = JSON.parse(stored);
+        if (session.code) {
+          accessCode = session.code;
+          showChat();
+        }
+      } catch (e) { /* ignore */ }
+    }
+
+    // Gate
+    submitBtn.addEventListener('click', tryAccess);
+    codeInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') tryAccess(); });
+    emailInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') tryAccess(); });
+
+    async function tryAccess() {
+      var code = codeInput.value.trim();
+      var email = emailInput.value.trim();
+      if (!code) { showError('Code required.'); return; }
+      if (!email || email.indexOf('@') === -1) { showError('Email required.'); return; }
+
+      submitBtn.textContent = '...';
+      submitBtn.disabled = true;
+      errorEl.style.display = 'none';
+
+      try {
+        var res = await fetch('/.netlify/functions/option-d', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ code: code, email: email, action: 'verify' }),
+        });
+        if (!res.ok) {
+          showError('Invalid code.');
+          return;
+        }
+        accessCode = code;
+        localStorage.setItem('option-d-session', JSON.stringify({ code: code, email: email }));
+        showChat();
+      } catch (e) {
+        showError('Connection error.');
+      } finally {
+        submitBtn.textContent = 'Enter';
+        submitBtn.disabled = false;
+      }
+    }
+
+    function showError(msg) {
+      errorEl.textContent = msg;
+      errorEl.style.display = 'block';
+    }
+
+    function showChat() {
+      gate.style.display = 'none';
+      chatEl.style.display = 'flex';
+      inputEl.focus();
+    }
+
+    // Chat
+    sendBtn.addEventListener('click', sendMessage);
+    inputEl.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    inputEl.addEventListener('input', function() {
+      this.style.height = 'auto';
+      this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+    });
+
+    resetBtn.addEventListener('click', function() {
+      history = [];
+      while (messagesEl.firstChild) {
+        messagesEl.removeChild(messagesEl.firstChild);
+      }
+      inputEl.focus();
+    });
+
+    async function sendMessage() {
+      var text = inputEl.value.trim();
+      if (!text || sending) return;
+
+      appendMessage('you', text);
+      inputEl.value = '';
+      inputEl.style.height = 'auto';
+      sending = true;
+      sendBtn.disabled = true;
+      typingEl.style.display = 'block';
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+
+      try {
+        var res = await fetch('/.netlify/functions/option-d', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            code: accessCode,
+            message: text,
+            history: history,
+          }),
+        });
+
+        var data = await res.json();
+        if (data.error) {
+          appendMessage('d', 'Something went wrong. Try again.');
+        } else {
+          history.push({ role: 'user', content: text });
+          history.push({ role: 'assistant', content: data.content });
+          appendMessage('d', data.content);
+        }
+      } catch (e) {
+        appendMessage('d', 'Connection lost. Try again.');
+      } finally {
+        sending = false;
+        sendBtn.disabled = false;
+        typingEl.style.display = 'none';
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+        inputEl.focus();
+      }
+    }
+
+    function appendMessage(role, text) {
+      var msg = document.createElement('div');
+      msg.className = 'msg msg-' + role;
+      var label = document.createElement('div');
+      label.className = 'msg-label';
+      label.textContent = role === 'you' ? 'you' : 'D';
+      var bubble = document.createElement('div');
+      bubble.className = 'msg-text';
+      bubble.textContent = text;
+      msg.appendChild(label);
+      msg.appendChild(bubble);
+      messagesEl.appendChild(msg);
+    }
+  })();
+  </script>
+</body>
+</html>

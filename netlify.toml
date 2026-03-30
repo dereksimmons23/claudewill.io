@@ -319,20 +319,7 @@
   to = "/"
   status = 301
 
-[[redirects]]
-  from = "/d"
-  to = "/"
-  status = 301
-
-[[redirects]]
-  from = "/d/"
-  to = "/"
-  status = 301
-
-[[redirects]]
-  from = "/d"
-  to = "https://d.claudewill.io"
-  status = 302
+# /d serves Option D coaching page (d/index.html)
 
 [[redirects]]
   from = "/claude-will"
