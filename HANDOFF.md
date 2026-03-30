@@ -1,67 +1,48 @@
 # HANDOFF — claudewill.io
 
-**Last session:** March 23-26, 2026 (Monday + train to Seattle) — Coach D summer page rebuilt and shipped ($100/session, photo gallery, social carousel, SEO schema). Who's Who in America edited across all four tabs. Hancock anonymity breach fixed (Agent Zero in all public files, sanitize map in daily-pulse.mjs). D wired to Cohere Command A — model-agnostic coaching proved. GObag synced with Ghostty + bootstrap + keys. Resume button on /derek. The thesis: the model is the lightning, the prompt is the bug.
+**Last session:** March 29, 2026 (Sunday evening, Bellingham) — Revenue path built. /derek now has "Work With Me" section, "What I'm building now" (6 projects), "What I built before" reframe. Hero rewritten for consulting. Option D live at /d with access code + email gate. Dead links cleaned across stars.json, homepage, /derek. Site-registry updated. All redirects verified.
 
 ---
 
 ## Next Session
 
-1. **claudewill.io simplification.** Three things: writing (brings people in), porch (greets them), D (coaches them). Strip the dead pages. Kitchen becomes a live feed, not a dashboard.
+1. **Test Option D live.** Run a real coaching conversation at /d. Check Haiku response quality, multi-turn flow, gate UX on mobile. Access code: `optiond2026`. Consider whether Haiku is good enough or needs Sonnet.
 
-2. **Build claude-will-book/ repo.** Design approved. Curate source from full ecosystem. Assemble reading copy (25 chapters). Push to private GitHub.
+2. **Polish /derek copy.** Derek said "good, not great yet." Read the new sections fresh — does the "What I do now" section land? Does the consulting pitch feel earned or generic? Does "Everything from the terminal" work as a headline? Derek's voice check needed.
 
-3. **PAPJ: press pass credential.** Downloadable PNG, shareable, embeddable badge. Same visual in directory cards.
+3. **Wire Supabase for Option D.** Currently email is console-logged. Add a table to capture: email, access timestamp, session count. Know who's using it.
 
-4. **PAPJ: Meredith content zip.** Content files + screenshots + README. Send before April 6.
+4. **Option D SDK: graduation tracking.** The structural differentiator — measure how much less the user needs D over time. v0.2.0 has multi-turn. v0.3.0 should track sessions.
 
-5. **Between Claudes Episode 1.** Review test footage from train. Fix format issues.
-
-6. **Lightning/Bug.** 23 dream stills need review. Runway deadline March 31. 5 days.
+5. **CW prompt awareness.** Does CW know about the new page structure? Check site-knowledge.md in the prompt — may need recompile.
 
 ---
 
 ## Open
 
-- [ ] claudewill.io simplification (writing, porch, D)
-- [ ] Kitchen → live feed (replace half-broken dashboard)
-- [ ] claude-will-book/ repo build
-- [ ] PAPJ press pass credential visual
-- [ ] PAPJ Meredith content zip
-- [ ] PAPJ mobile testing pass
-- [ ] Between Claudes: review train footage, fix format
-- [ ] Lightning/Bug: review 23 stills, Runway deadline March 31
-- [ ] D: test Command A vs Sonnet in real coaching sessions
-- [ ] v7 build (April/May)
-- [ ] UX audit fixes
-- [ ] Google Business Profile for Coach D (Derek — google.com/business)
-- [ ] GObag: upgrade to USB-C 32GB drive, re-sync
+- [ ] Test Option D on mobile
+- [ ] /derek copy polish (Derek voice check)
+- [ ] Option D Supabase (email capture, session tracking)
+- [ ] Option D SDK: graduation tracking (v0.3.0)
+- [ ] CW prompt: update site-knowledge.md for new IA, recompile
+- [ ] CLAUDE.md: stale — still describes pre-simplification architecture
+- [ ] Lightning/Bug: studio keys, festival submissions (Apr 20 AIF deadline)
+- [ ] PAPJ: email Meredith content zip (Desktop/PAPJ-Content-Package.zip)
+- [ ] PAPJ: press pass credential design
+- [ ] PAPJ: panel presentation (April 9)
+- [ ] Between Claudes EP01 review
+- [ ] Coach D: zero responses from 52 emails — voice/positioning problem, not volume
+- [ ] LinkedIn token expires April 17 (19 days)
+- [ ] BOB Supabase unpause before April 13 (15 days) — Derek action
+- [ ] Key rotation automation script
+- [ ] Claude Will trademark filed March 29 — receipt in Downloads
 
 ## Derek-Only
 
-- [x] Meredith call March 23 — done
-- [x] Teegan birthday March 25 — done
-- [x] Who's Who submitted — done
-- [ ] Cascadia in-person Bellingham (Mar 26 - Apr 1)
-- [ ] Robotics tournament Apr 3-4
-- [ ] PAPJ prep call with Meredith: April 6, 12:30 CT
-- [ ] PAPJ panel presentation: April 9
-- [ ] Saturday streak decision: publish March 29 from Bellingham?
+- [ ] Email Meredith the PAPJ zip
+- [ ] BOB Supabase unpause (dashboard)
+- [ ] Choose Option D access code for distribution (current: optiond2026)
 
-## Key Decisions (This Session)
+## The Constraint
 
-- **Model-agnostic thesis:** The prompt is the IP, not the model. D coaches through any engine. Proved on Sonnet + Command A.
-- **claudewill.io is three things:** writing, porch, D. Everything else is scaffolding.
-- **Coach D summer pricing:** $100/session (not $150/week program). Flexible scheduling. Tim's drills are his — removed from all public pages.
-- **Anonymity fix permanent:** daily-pulse.mjs SANITIZE map renames hancock → agent-zero before writing to public files.
-- **GObag portable practice:** 8GB CF card with everything. Ghostty + bootstrap + keys. Upgrade to USB-C 32GB next.
-
-## What Shipped
-
-- Coach D summer page (rebuilt, photo gallery, social assets, SEO schema, structured data)
-- 5-slide Instagram/Facebook carousel
-- Resume button on /derek
-- Hancock → Agent Zero across all public files (6 files + permanent fix in pulse script)
-- D Cohere Command A endpoint (d-cohere.js)
-- GObag sync script + Ghostty + bootstrap + README + keys
-- Who's Who in America — all four tabs edited and submitted
-- Testimony transcribed (March 24 Lightning/Bug recording)
+$5K/month by May 1. Four weeks. Cascadia ended March 31. The revenue page is live. Option D is live. Distribution is the gap.

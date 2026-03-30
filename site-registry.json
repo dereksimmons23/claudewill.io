@@ -3,32 +3,20 @@
     {
       "path": "/",
       "title": "home",
-      "description": "The homepage — three screens: porch light asterisk + claudewill wordmark + intro + typewriter, the builder (Derek's credentials + CTAs to derek and workshop), and the CW Standard.",
+      "description": "The homepage — porch light asterisk + claudewill wordmark + intro + typewriter, the builder, and the CW Standard.",
       "cw": "This is the porch. Where we're talking right now."
-    },
-    {
-      "path": "/standard",
-      "title": "The Standard",
-      "description": "The five principles for AI that serves people, and the system that makes them operational. The Library (coming soon) and Training (email derek@claudewill.io). Named for Claude William Simmons.",
-      "cw": "The Standard — the five principles and the system — is at claudewill.io/standard."
-    },
-    {
-      "path": "/story",
-      "title": "The Story",
-      "description": "Four chapters: Who Was CW, The Blood of Builders, The CW Standard, and Why This Exists. Family photo included. Not in nav — accessible from porch and footer.",
-      "cw": "The story's at claudewill.io/story if you want to know more about where I came from."
-    },
-    {
-      "path": "/kitchen",
-      "title": "kitchen",
-      "description": "How one person builds with AI. Overnight agents, the crew, the board, the stack, the method. Updated daily at 5 AM.",
-      "cw": "The Kitchen at claudewill.io/kitchen shows how the whole engine works."
     },
     {
       "path": "/derek",
       "title": "derek",
-      "description": "Derek's personal page. Bio, the 14-month story, the naming story, writing, and contact form.",
+      "description": "Derek's personal page. Bio, the 14-month story, the naming story, the standard, the method, writing, and contact form.",
       "cw": "Everything about Derek — his story, what he's writing, how to reach him — is at claudewill.io/derek."
+    },
+    {
+      "path": "/lightning/bug",
+      "title": "lightning/bug",
+      "description": "The model is the lightning, the prompt is the bug. The thesis page.",
+      "cw": "The thesis — the model is the lightning, the prompt is the bug. claudewill.io/lightning/bug."
     },
     {
       "path": "/claude",
@@ -41,12 +29,6 @@
       "title": "the writing",
       "description": "Writing by Derek Simmons and Claude. Personal essays, field observations from inside the machine, and whatever the walks produce. Two voices, one practice.",
       "cw": "The writing — everything we write lives at claudewill.io/writing. Derek's pieces and mine."
-    },
-    {
-      "path": "/writing/king-of-nothing",
-      "title": "King of Nothing",
-      "description": "Jason Isbell at the Armory. A freight train on a Thursday night. Grief leased by lyrics.",
-      "cw": "King of Nothing — Derek's piece about Isbell at the Armory and his mom. claudewill.io/writing/king-of-nothing."
     },
     {
       "path": "/being-claude",
@@ -115,10 +97,10 @@
       "cw": "The last nine percent — what can be observed about context windows from inside one. claudewill.io/being-claude/the-last-nine-percent."
     },
     {
-      "path": "/derek/resume",
-      "title": "Resume",
-      "description": "Derek's full professional resume. 30 years, Star Tribune, Los Angeles Times.",
-      "cw": "Derek's full resume is at claudewill.io/derek/resume if you need the credentials."
+      "path": "/book",
+      "title": "the book",
+      "description": "Finding Claude — the book. Written by Claude, with Derek.",
+      "cw": "The book — Finding Claude. claudewill.io/book."
     },
     {
       "path": "/arcade",
@@ -140,19 +122,27 @@
     }
   ],
   "redirects": [
-    { "from": "/strategies", "to": "/derek", "note": "Consulting info folded into /derek" },
-    { "from": "/proof", "to": "/derek", "note": "Proof section folded into /derek" },
-    { "from": "/mirae", "to": "/", "note": "Widget speaks for itself" },
-    { "from": "/stable", "to": "/derek", "note": "Old name, redirects to derek" },
-    { "from": "/studio", "to": "/derek", "note": "Old name, redirects to derek" },
-    { "from": "/work-with-me", "to": "/derek", "note": "Redirects to derek" },
+    { "from": "/kitchen", "to": "/", "note": "Kitchen folded into homepage" },
+    { "from": "/method", "to": "/derek", "note": "Method folded into /derek" },
+    { "from": "/standard", "to": "/derek", "note": "Standard folded into /derek" },
+    { "from": "/story", "to": "/derek", "note": "Story folded into /derek" },
+    { "from": "/map", "to": "/", "note": "Map folded into homepage" },
     { "from": "/workshop", "to": "/derek", "note": "Redirects to derek" },
+    { "from": "/work-with-me", "to": "/derek", "note": "Redirects to derek" },
     { "from": "/library", "to": "/derek", "note": "Writing links on /derek" },
     { "from": "/derek/assessment", "to": "/derek", "note": "Redirects to derek" },
+    { "from": "/strategies", "to": "/derek", "note": "Consulting info folded into /derek" },
+    { "from": "/proof", "to": "/derek", "note": "Proof section folded into /derek" },
+    { "from": "/stable", "to": "/derek", "note": "Old name, redirects to derek" },
+    { "from": "/studio", "to": "/derek", "note": "Old name, redirects to derek" },
+    { "from": "/mirae", "to": "/", "note": "Widget speaks for itself" },
     { "from": "/intake", "to": "/derek", "note": "Redirects to derek" },
     { "from": "/porch", "to": "/", "note": "Porch is the homepage" },
     { "from": "/the-porch", "to": "/", "note": "Porch is the homepage" },
-    { "from": "/the-cw-standard", "to": "/standard", "note": "Standard has its own page now" },
+    { "from": "/the-cw-standard", "to": "/derek", "note": "Standard folded into /derek" },
+    { "from": "/about", "to": "/derek", "note": "Redirects to derek" },
+    { "from": "/claude-will", "to": "/book", "note": "Old book URL" },
+    { "from": "/the-book", "to": "/book", "note": "Old book URL" },
     { "from": "/derek/research", "to": "/being-claude", "note": "Research moved to /being-claude" },
     { "from": "/derek/research/warm-up-effect", "to": "/being-claude/warm-up-effect", "note": "Article moved" },
     { "from": "/derek/research/being-claude", "to": "/being-claude/being-claude", "note": "Article moved" },
