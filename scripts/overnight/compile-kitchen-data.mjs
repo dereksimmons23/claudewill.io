@@ -26,6 +26,16 @@ function readReport(filename) {
   }
 }
 
+function readJson(filename) {
+  const path = join(REPO_ROOT, filename)
+  if (!existsSync(path)) return null
+  try {
+    return JSON.parse(readFileSync(path, 'utf-8'))
+  } catch {
+    return null
+  }
+}
+
 function parseHousekeeping(content) {
   if (!content) {
     return {
@@ -76,364 +86,89 @@ function parseHousekeeping(content) {
   }
 }
 
-function parseResearchBrief(content) {
-  if (!content) {
+// Legacy parsers removed — research-brief, gemini-brief, code-review
+// were replaced by Morning Edition (March 2026).
+
+function parsePulse(pulse) {
+  if (!pulse) {
     return {
-      name: 'Research Brief',
+      name: 'Daily Pulse',
       lastRun: new Date().toISOString(),
       status: 'not-configured',
-      summary: 'No research brief report found.',
-      sources: [],
-    }
-  }
-
-  const sources = []
-  let status = 'ok'
-  let summary = ''
-
-  // Check if not configured
-  if (content.includes('not configured') || content.includes('no API key')) {
-    status = 'not-configured'
-    summary = 'Perplexity agent not configured — add PERPLEXITY_API_KEY to GitHub secrets.'
-    return { name: 'Research Brief', lastRun: new Date().toISOString(), status, summary, sources }
-  }
-
-  // Check if agent errored
-  if (content.includes('Agent error')) {
-    status = 'error'
-    summary = 'Research brief agent encountered an error.'
-    return { name: 'Research Brief', lastRun: new Date().toISOString(), status, summary, sources }
-  }
-
-  // Extract findings as summary (first ~200 chars)
-  const findingsSection = content.match(/## Findings\n([\s\S]*?)(?=\n## )/)?.[1] || ''
-  const cleanFindings = findingsSection.trim()
-  summary = cleanFindings.length > 200
-    ? cleanFindings.slice(0, 200).replace(/\s+\S*$/, '') + '...'
-    : cleanFindings
-
-  // Extract sources
-  const sourcesSection = content.match(/## Sources\n([\s\S]*?)(?=\n## )/)?.[1] || ''
-  const sourceLines = sourcesSection.match(/- .+/g) || []
-  for (const line of sourceLines) {
-    sources.push(line.replace(/^- /, ''))
-  }
-
-  return {
-    name: 'Research Brief',
-    lastRun: new Date().toISOString(),
-    status,
-    summary: summary || 'Research brief complete.',
-    sources,
-  }
-}
-
-function parseGeminiBrief(content) {
-  if (!content) {
-    return {
-      name: 'Industry Brief',
-      lastRun: new Date().toISOString(),
-      status: 'not-configured',
-      summary: 'No industry brief report found.',
-      sources: [],
-    }
-  }
-
-  const sources = []
-  let status = 'ok'
-  let summary = ''
-
-  // Check if not configured
-  if (content.includes('not configured') || content.includes('no API key')) {
-    status = 'not-configured'
-    summary = 'Gemini agent not configured — add GEMINI_API_KEY to GitHub secrets.'
-    return { name: 'Industry Brief', lastRun: new Date().toISOString(), status, summary, sources }
-  }
-
-  // Check if agent errored
-  if (content.includes('Agent error')) {
-    status = 'error'
-    summary = 'Industry brief agent encountered an error.'
-    return { name: 'Industry Brief', lastRun: new Date().toISOString(), status, summary, sources }
-  }
-
-  // Extract findings as summary (first ~200 chars)
-  const findingsSection = content.match(/## Findings\n([\s\S]*?)(?=\n## )/)?.[1] || ''
-  const cleanFindings = findingsSection.trim()
-  summary = cleanFindings.length > 200
-    ? cleanFindings.slice(0, 200).replace(/\s+\S*$/, '') + '...'
-    : cleanFindings
-
-  // Extract sources
-  const sourcesSection = content.match(/## Sources\n([\s\S]*?)(?=\n## |$)/)?.[1] || ''
-  const sourceLines = sourcesSection.match(/- .+/g) || []
-  for (const line of sourceLines) {
-    sources.push(line.replace(/^- /, ''))
-  }
-
-  return {
-    name: 'Industry Brief',
-    lastRun: new Date().toISOString(),
-    status,
-    summary: summary || 'Industry brief complete.',
-    sources,
-  }
-}
-
-function parseCodeReview(content) {
-  if (!content) {
-    return {
-      name: 'Code Review',
-      lastRun: new Date().toISOString(),
-      status: 'not-configured',
-      summary: 'No code review report found.',
-    }
-  }
-
-  let status = 'ok'
-  let summary = ''
-
-  // Check if not configured
-  if (content.includes('not configured') || content.includes('no API key')) {
-    status = 'not-configured'
-    summary = 'Mistral agent not configured — add MISTRAL_API_KEY to GitHub secrets.'
-    return { name: 'Code Review', lastRun: new Date().toISOString(), status, summary }
-  }
-
-  // Check if no recent commits
-  if (content.includes('No commits in last 24 hours')) {
-    status = 'no-changes'
-    summary = 'No commits in last 24 hours. Nothing to review.'
-    return { name: 'Code Review', lastRun: new Date().toISOString(), status, summary }
-  }
-
-  // Check if agent errored
-  if (content.includes('Agent error')) {
-    status = 'error'
-    summary = 'Code review agent encountered an error.'
-    return { name: 'Code Review', lastRun: new Date().toISOString(), status, summary }
-  }
-
-  // Check for security flags
-  const hasFlags = content.includes('Security-related findings detected')
-  if (hasFlags) status = 'flags'
-
-  // Extract findings as summary (first ~200 chars)
-  const findingsSection = content.match(/## Findings\n([\s\S]*?)(?=\n## )/)?.[1] || ''
-  const cleanFindings = findingsSection.trim()
-  summary = cleanFindings.length > 200
-    ? cleanFindings.slice(0, 200).replace(/\s+\S*$/, '') + '...'
-    : cleanFindings
-
-  return {
-    name: 'Code Review',
-    lastRun: new Date().toISOString(),
-    status,
-    summary: summary || 'Code review complete.',
-  }
-}
-
-function parseAnalytics(content) {
-  if (!content) {
-    return {
-      name: 'Analytics',
-      lastRun: new Date().toISOString(),
-      status: 'not-configured',
-      summary: 'No analytics report found.',
+      summary: 'No pulse.json found.',
       flags: [],
       metrics: {},
     }
   }
 
-  let status = 'ok'
   const flags = []
-  let summary = ''
   const metrics = {}
+  let status = 'ok'
 
-  if (content.includes('not configured') || content.includes('no Supabase')) {
-    status = 'not-configured'
-    summary = 'Analytics not configured — add SUPABASE_URL and SUPABASE_ANON_KEY to GitHub secrets.'
-    return { name: 'Analytics', lastRun: new Date().toISOString(), status, summary, flags, metrics }
-  }
-
-  if (content.includes('Agent error')) {
-    status = 'error'
-    summary = 'Analytics agent encountered an error.'
-    return { name: 'Analytics', lastRun: new Date().toISOString(), status, summary, flags, metrics }
-  }
-
-  // Extract flags
-  const flagsSection = content.match(/## Flags \(Decisions Needed\)\n([\s\S]*?)(?=\n## )/)?.[1] || ''
-  const flagLines = flagsSection.match(/- \[.\] .+/g) || []
-  for (const line of flagLines) flags.push(line.replace(/- \[.\] /, ''))
-  if (flags.length > 0) status = 'flags'
-
-  // Extract metrics from findings
-  const findingsSection = content.match(/## Findings\n([\s\S]*?)(?=\n## )/)?.[1] || ''
-
-  const convoMatch = findingsSection.match(/\*\*Conversations:\*\*\s*(\d+)\s*total.*?24h:\s*(\d+).*?7d:\s*(\d+).*?30d:\s*(\d+)/)
-  if (convoMatch) {
+  if (pulse.porch) {
     metrics.conversations = {
-      total: parseInt(convoMatch[1]),
-      day: parseInt(convoMatch[2]),
-      week: parseInt(convoMatch[3]),
-      month: parseInt(convoMatch[4]),
+      total: pulse.porch.total || 0,
+      week: pulse.porch.thisWeek || 0,
+      today: pulse.porch.today || 0,
     }
   }
 
-  const visitorMatch = findingsSection.match(/\*\*Visitors:\*\*\s*(\d+)\s*total.*?(\d+)\s*new.*?(\d+)\s*returning.*?(\d+)\s*named/)
-  if (visitorMatch) {
+  if (pulse.d) {
+    metrics.d = {
+      total: pulse.d.total || 0,
+      week: pulse.d.thisWeek || 0,
+      today: pulse.d.today || 0,
+    }
+  }
+
+  if (pulse.visitors) {
     metrics.visitors = {
-      total: parseInt(visitorMatch[1]),
-      new7d: parseInt(visitorMatch[2]),
-      returning: parseInt(visitorMatch[3]),
-      named: parseInt(visitorMatch[4]),
+      total: pulse.visitors.total || 0,
+      returning: pulse.visitors.returning || 0,
+      named: pulse.visitors.named || 0,
     }
   }
 
-  const pipelineMatch = findingsSection.match(/\*\*Pipeline:\*\*\s*(\d+)\s*intake.*?30d.*?(\d+)\s*this week.*?(\d+)\s*all time/)
-  if (pipelineMatch) {
-    metrics.pipeline = { count30d: parseInt(pipelineMatch[1]), count7d: parseInt(pipelineMatch[2]), total: parseInt(pipelineMatch[3]) }
+  if (pulse.sessions) {
+    metrics.sessions = {
+      thisWeek: pulse.sessions.thisWeek || 0,
+      avgWeight: pulse.sessions.avgWeight || 0,
+      byProject: pulse.sessions.byProject || {},
+    }
   }
 
-  const timeMatch = findingsSection.match(/\*\*Derek's time \(7d\):\*\*\s*([\d.]+)\s*hours.*?(\d+)\s*sessions/)
-  if (timeMatch) {
-    metrics.derekTime = { hours7d: parseFloat(timeMatch[1]), sessions7d: parseInt(timeMatch[2]) }
+  if (pulse.dawn) {
+    metrics.dawn = {
+      dayNumber: pulse.dawn.dayNumber || 0,
+      raidRate: pulse.dawn.raidRate || '0/0',
+      daysSinceEntry: pulse.dawn.daysSinceEntry,
+    }
   }
 
-  const costMatch = findingsSection.match(/\*\*Est\. API cost \(30d\):\*\*\s*\$([\d.]+)/)
-  if (costMatch) {
-    metrics.apiCost30d = parseFloat(costMatch[1])
+  // Surface bottom-line flags
+  if (pulse.bottomLine && pulse.bottomLine.length > 0) {
+    for (const line of pulse.bottomLine) flags.push(line)
+    status = 'flags'
   }
 
-  // First finding line as summary
-  const findingLines = findingsSection.match(/\*\*.+?\*\*.*$/gm) || []
-  if (findingLines.length > 0) {
-    summary = findingLines[0].replace(/\*\*/g, '').trim()
-  }
+  const parts = []
+  if (metrics.conversations) parts.push(`${metrics.conversations.total} conversations`)
+  if (metrics.visitors) parts.push(`${metrics.visitors.total} visitors`)
+  if (metrics.d) parts.push(`${metrics.d.total} D sessions`)
+  const summary = parts.length > 0 ? parts.join(', ') : 'Pulse collected.'
 
   return {
-    name: 'Analytics',
-    lastRun: new Date().toISOString(),
+    name: 'Daily Pulse',
+    lastRun: pulse.generated || new Date().toISOString(),
     status,
-    summary: summary || 'Analytics complete.',
+    summary,
     flags,
     metrics,
   }
 }
 
-function parseContentScan(content) {
-  if (!content) {
-    return {
-      name: 'Content Scan',
-      lastRun: new Date().toISOString(),
-      status: 'not-configured',
-      summary: 'No content scan report found.',
-      flags: [],
-    }
-  }
-
-  const flags = []
-  let status = 'ok'
-  let summary = ''
-
-  const flagsSection = content.match(/## Flags \(Decisions Needed\)\n([\s\S]*?)(?=\n## )/)?.[1] || ''
-  const flagLines = flagsSection.match(/- \[.\] .+/g) || []
-  for (const line of flagLines) flags.push(line.replace(/- \[.\] /, ''))
-  if (flags.length > 0) status = 'flags'
-
-  const findingsSection = content.match(/## Findings\n([\s\S]*?)(?=\n## )/)?.[1] || ''
-  const findingsLines = findingsSection.match(/- .+/g) || []
-  const findings = findingsLines.map(l => l.replace(/^- /, ''))
-  const firstLine = findingsSection.trim().split('\n')[0]
-  summary = firstLine || 'Content scan complete.'
-
-  if (findings.length > 0 && status === 'ok') status = 'findings'
-
-  return {
-    name: 'Content Scan',
-    lastRun: new Date().toISOString(),
-    status,
-    summary,
-    flags,
-    findings,
-  }
-}
-
-function parseResearchStatus(content) {
-  if (!content) {
-    return {
-      name: 'Research Status',
-      lastRun: new Date().toISOString(),
-      status: 'not-configured',
-      summary: 'No research status report found.',
-      flags: [],
-    }
-  }
-
-  const flags = []
-  let status = 'ok'
-  let summary = ''
-
-  const flagsSection = content.match(/## Flags \(Decisions Needed\)\n([\s\S]*?)(?=\n## )/)?.[1] || ''
-  const flagLines = flagsSection.match(/- \[.\] .+/g) || []
-  for (const line of flagLines) flags.push(line.replace(/- \[.\] /, ''))
-  if (flags.length > 0) status = 'flags'
-
-  const findingsSection = content.match(/## Findings\n([\s\S]*?)(?=\n## )/)?.[1] || ''
-  const pipelineMatch = findingsSection.match(/\*\*Being Claude Pipeline:\*\*(.+)/)
-  summary = pipelineMatch ? pipelineMatch[1].trim() : 'Research status complete.'
-
-  return {
-    name: 'Research Status',
-    lastRun: new Date().toISOString(),
-    status,
-    summary,
-    flags,
-  }
-}
-
-function parseSocialDraft(content) {
-  if (!content) {
-    return {
-      name: 'Social Drafts',
-      lastRun: new Date().toISOString(),
-      status: 'not-configured',
-      summary: 'No social draft report found.',
-      flags: [],
-    }
-  }
-
-  const flags = []
-  let status = 'ok'
-  let summary = ''
-
-  if (content.includes('not configured') || content.includes('no API key')) {
-    status = 'not-configured'
-    summary = 'Social draft agent not configured.'
-    return { name: 'Social Drafts', lastRun: new Date().toISOString(), status, summary, flags }
-  }
-
-  const flagsSection = content.match(/## Flags \(Decisions Needed\)\n([\s\S]*?)(?=\n## )/)?.[1] || ''
-  const flagLines = flagsSection.match(/- \[.\] .+/g) || []
-  for (const line of flagLines) flags.push(line.replace(/- \[.\] /, ''))
-  if (flags.length > 0) status = 'flags'
-
-  const findingsSection = content.match(/## Findings\n([\s\S]*?)(?=\n## )/)?.[1] || ''
-  const newMatch = findingsSection.match(/\*\*New drafts generated:\*\*\s*(\d+)/)
-  const skipMatch = findingsSection.match(/\*\*Skipped.*?:\*\*\s*(\d+)/)
-  const newCount = newMatch ? parseInt(newMatch[1]) : 0
-  const skipCount = skipMatch ? parseInt(skipMatch[1]) : 0
-  summary = `${newCount} new drafts, ${skipCount} skipped.`
-
-  return {
-    name: 'Social Drafts',
-    lastRun: new Date().toISOString(),
-    status,
-    summary,
-    flags,
-  }
-}
+// Legacy parsers removed — content-scan, research-status, social-draft
+// were replaced by Morning Edition and pipeline-scan (March 2026).
 
 function parsePipelineScan(content) {
   if (!content) {
@@ -530,32 +265,19 @@ function parseMorningEdition(content) {
 function main() {
   const date = new Date().toISOString().split('T')[0]
 
-  // Read reports — 4 agents (down from 9)
+  // Read reports — 4 agents
   const morningEditionContent = readReport('morning-edition.md')
   const housekeepingContent = readReport('housekeeping.md')
-  const analyticsContent = readReport('analytics.md')
   const pipelineScanContent = readReport('pipeline-scan.md')
 
-  // Legacy reports — parse if they exist (backward compat during transition)
-  const researchBriefContent = readReport('research-brief.md')
-  const geminiBriefContent = readReport('gemini-brief.md')
-  const codeReviewContent = readReport('code-review.md')
-  const contentScanContent = readReport('content-scan.md')
-  const researchStatusContent = readReport('research-status.md')
-  const socialDraftContent = readReport('social-draft.md')
+  // Read pulse.json (produced by daily-pulse agent)
+  const pulseData = readJson('pulse.json')
 
   // Parse all
   const morningEdition = parseMorningEdition(morningEditionContent)
   const housekeeping = parseHousekeeping(housekeepingContent)
-  const analytics = parseAnalytics(analyticsContent)
+  const pulse = parsePulse(pulseData)
   const pipelineScan = parsePipelineScan(pipelineScanContent)
-
-  const research = parseResearchBrief(researchBriefContent)
-  const gemini = parseGeminiBrief(geminiBriefContent)
-  const codeReview = parseCodeReview(codeReviewContent)
-  const contentScan = parseContentScan(contentScanContent)
-  const researchStatus = parseResearchStatus(researchStatusContent)
-  const socialDraft = parseSocialDraft(socialDraftContent)
 
   const projects = loadProjects()
 
@@ -564,15 +286,8 @@ function main() {
     agents: {
       morningEdition,
       housekeeping,
-      analytics,
+      pulse,
       pipelineScan,
-      // Legacy — kept for backward compat, will phase out
-      research,
-      gemini,
-      codeReview,
-      contentScan,
-      researchStatus,
-      socialDraft,
     },
     projects,
     ecosystem: {
@@ -607,7 +322,7 @@ function main() {
 
   console.log(`  Morning Edition: ${morningEdition.status}`)
   console.log(`  Housekeeping: ${housekeeping.status}`)
-  console.log(`  Analytics: ${analytics.status}`)
+  console.log(`  Pulse: ${pulse.status}`)
   console.log(`  Pipeline Scan: ${pipelineScan.status}`)
   console.log(`  Projects: ${projects.length}`)
 }

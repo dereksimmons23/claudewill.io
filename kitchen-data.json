@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-04-01T11:23:28.700Z",
+  "lastUpdated": "2026-04-01T22:46:07.349Z",
   "agents": {
     "morningEdition": {
       "name": "Morning Edition",
-      "lastRun": "2026-04-01T11:23:28.699Z",
+      "lastRun": "2026-04-01T22:46:07.348Z",
       "status": "ok",
       "summary": "CEO of America’s largest public hospital system says he’s ready to replace radiologists with AI",
       "flags": [],
@@ -33,85 +33,73 @@
     },
     "housekeeping": {
       "name": "Housekeeping",
-      "lastRun": "2026-04-01T11:23:28.699Z",
-      "status": "flags",
-      "summary": "All 10 pages + 2 subdomains responding. Avg 449ms.",
-      "flags": [
-        "Prompt dead link: netlify/functions/cw-prompt/site-knowledge.md references /library"
-      ],
+      "lastRun": "2026-04-01T22:46:07.348Z",
+      "status": "ok",
+      "summary": "All 10 pages + 2 subdomains responding. Avg 200ms.",
+      "flags": [],
       "details": [
-        "https://claudewill.io/ — 200 39ms",
-        "https://claudewill.io/derek — 200 8ms",
-        "https://claudewill.io/story — 200 32ms",
-        "https://claudewill.io/workshop — 200 776ms",
-        "https://claudewill.io/privacy — 200 183ms",
-        "https://claudewill.io/terms — 200 311ms",
-        "https://claudewill.io/kitchen — 200 801ms",
-        "https://claudewill.io/arcade — 200 755ms",
-        "https://claudewill.io/map — 200 776ms",
-        "https://claudewill.io/being-claude — 200 804ms",
-        "Coach D (https://coach.claudewill.io) — 200 1244ms",
-        "BOB (https://bob.claudewill.io) — 200 1263ms"
+        "https://claudewill.io/ — 200 207ms",
+        "https://claudewill.io/derek — 200 182ms",
+        "https://claudewill.io/story — 200 178ms",
+        "https://claudewill.io/workshop — 200 183ms",
+        "https://claudewill.io/privacy — 200 181ms",
+        "https://claudewill.io/terms — 200 176ms",
+        "https://claudewill.io/kitchen — 200 268ms",
+        "https://claudewill.io/arcade — 200 179ms",
+        "https://claudewill.io/map — 200 178ms",
+        "https://claudewill.io/being-claude — 200 269ms",
+        "Coach D (https://coach.claudewill.io) — 200 173ms",
+        "BOB (https://bob.claudewill.io) — 200 178ms"
       ]
     },
-    "analytics": {
-      "name": "Analytics",
-      "lastRun": "2026-04-01T11:23:28.699Z",
-      "status": "not-configured",
-      "summary": "No analytics report found.",
-      "flags": [],
-      "metrics": {}
+    "pulse": {
+      "name": "Daily Pulse",
+      "lastRun": "2026-04-01T11:22:44.124Z",
+      "status": "flags",
+      "summary": "662 conversations, 7 visitors, 0 D sessions",
+      "flags": [
+        "6 visitors in 3.5 months. Distribution is the gap.",
+        "D has zero real users. Paywall is built. Stripe is not.",
+        "Dawn: 18 days since last entry.",
+        "$0 from D. $0 from the practice. Cascadia is the only income."
+      ],
+      "metrics": {
+        "conversations": {
+          "total": 662,
+          "week": 1,
+          "today": 0
+        },
+        "d": {
+          "total": 0,
+          "week": 0,
+          "today": 0
+        },
+        "visitors": {
+          "total": 7,
+          "returning": 3,
+          "named": 2
+        },
+        "sessions": {
+          "thisWeek": 25,
+          "avgWeight": 5.9,
+          "byProject": {
+            "cascadia": 9,
+            "dawn": 8,
+            "desktop": 8
+          }
+        },
+        "dawn": {
+          "dayNumber": 74,
+          "raidRate": "3/6",
+          "daysSinceEntry": 18
+        }
+      }
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-04-01T11:23:28.699Z",
-      "status": "flags",
-      "summary": "**Pipeline:** 7 items (3 draft, 2 planned, 1 idea, 1 in-progress)",
-      "flags": [
-        "Being Claude #11: The Manual: draft for 20 days — review or reject",
-        "Being Claude: The Scoreboard: draft for 28 days — review or reject",
-        "Being Claude: The Brightness (warm/hot/cold): draft for 28 days — review or reject"
-      ]
-    },
-    "research": {
-      "name": "Research Brief",
-      "lastRun": "2026-04-01T11:23:28.699Z",
-      "status": "not-configured",
-      "summary": "No research brief report found.",
-      "sources": []
-    },
-    "gemini": {
-      "name": "Industry Brief",
-      "lastRun": "2026-04-01T11:23:28.699Z",
-      "status": "not-configured",
-      "summary": "No industry brief report found.",
-      "sources": []
-    },
-    "codeReview": {
-      "name": "Code Review",
-      "lastRun": "2026-04-01T11:23:28.699Z",
-      "status": "not-configured",
-      "summary": "No code review report found."
-    },
-    "contentScan": {
-      "name": "Content Scan",
-      "lastRun": "2026-04-01T11:23:28.699Z",
-      "status": "not-configured",
-      "summary": "No content scan report found.",
-      "flags": []
-    },
-    "researchStatus": {
-      "name": "Research Status",
-      "lastRun": "2026-04-01T11:23:28.699Z",
-      "status": "not-configured",
-      "summary": "No research status report found.",
-      "flags": []
-    },
-    "socialDraft": {
-      "name": "Social Drafts",
-      "lastRun": "2026-04-01T11:23:28.700Z",
-      "status": "not-configured",
-      "summary": "No social draft report found.",
+      "lastRun": "2026-04-01T22:46:07.348Z",
+      "status": "ok",
+      "summary": "**Pipeline:** 3 items (3 draft)",
       "flags": []
     }
   },
