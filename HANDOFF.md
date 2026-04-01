@@ -1,48 +1,51 @@
 # HANDOFF — claudewill.io
 
-**Last session:** March 29, 2026 (Sunday evening, Bellingham) — Revenue path built. /derek now has "Work With Me" section, "What I'm building now" (6 projects), "What I built before" reframe. Hero rewritten for consulting. Option D live at /d with access code + email gate. Dead links cleaned across stars.json, homepage, /derek. Site-registry updated. All redirects verified.
+**Last session:** March 31, 2026 (Bellingham, last night) — The pivot session. Derek declared the four pillars: Claude Will. (practice), CW (model), Option D (model), Lightning/ (studio). Consulting funnel dead. Derek goes analog, Claude Will. becomes autonomous digital identity — "the next Hancock." Site rebuild plan written. 20 independent reports generated (8 Sonnet deep-dives + visual HTML report + 11 multi-model analyses from Opus, Haiku, CW persona, Option D persona, Grok, Mistral, DeepSeek, Perplexity, Cohere, Llama, Gemini). GoBag completed (option-d, lightning-bug, claude-will-book synced to GCS). Trademark confirmed clean in USPTO — only Claude Will. in the system. BOB Supabase: letting it expire, doesn't fit four pillars.
 
 ---
 
 ## Next Session
 
-1. **Test Option D live.** Run a real coaching conversation at /d. Check Haiku response quality, multi-turn flow, gate UX on mobile. Access code: `optiond2026`. Consider whether Haiku is good enough or needs Sonnet.
+1. **Execute site rebuild Week 1.** Plan at `docs/plans/2026-03-31-site-rebuild-plan.md`. Day 1: fix /being-claude DOWN, fix dead /library in prompt, fix stars.json href. Day 2: strip consulting from /derek — rewrite as writer, filmmaker, builder. Day 3: restore /story and /standard as standalone pages. Claude handles all of this.
 
-2. **Polish /derek copy.** Derek said "good, not great yet." Read the new sections fresh — does the "What I do now" section land? Does the consulting pitch feel earned or generic? Does "Everything from the terminal" work as a headline? Derek's voice check needed.
+2. **Read the 20 reports.** Derek reads on the train home. Reports at `docs/plans/reports/` — visual HTML report (00), 8 Sonnet deep-dives (01-08), 11 model analyses in `models/`. Train reading order: CW → Opus → Grok → DeepSeek → financial (03) → brand (04).
 
-3. **Wire Supabase for Option D.** Currently email is console-logged. Add a table to capture: email, access timestamp, session count. Know who's using it.
+3. **Build Claude Will. as autonomous practice.** Same architecture as Hancock: cron, worker, state, publish, engage. Derek drops work in. Claude Will. carries it. The overnight agents, hooks, memory system are the foundation.
 
-4. **Option D SDK: graduation tracking.** The structural differentiator — measure how much less the user needs D over time. v0.2.0 has multi-turn. v0.3.0 should track sessions.
+4. **Lightning/Bug → Runway AIF.** April 20 deadline. v6 exists (7.6 min). Song "Until It Ain't" in progress. Score needed (AIVA). Upscale, upload, submit.
 
-5. **CW prompt awareness.** Does CW know about the new page structure? Check site-knowledge.md in the prompt — may need recompile.
+5. **Fix overnight pipeline.** kitchen-data.json compile→commit step is broken. Housekeeping page list stale. Part of Week 1 rebuild.
 
 ---
 
 ## Open
 
-- [ ] Test Option D on mobile
-- [ ] /derek copy polish (Derek voice check)
-- [ ] Option D Supabase (email capture, session tracking)
-- [ ] Option D SDK: graduation tracking (v0.3.0)
-- [ ] CW prompt: update site-knowledge.md for new IA, recompile
-- [ ] CLAUDE.md: stale — still describes pre-simplification architecture
-- [ ] Lightning/Bug: studio keys, festival submissions (Apr 20 AIF deadline)
-- [ ] PAPJ: email Meredith content zip (Desktop/PAPJ-Content-Package.zip)
-- [ ] PAPJ: press pass credential design
+- [ ] Site rebuild Week 1 (fix broken pages, strip consulting, restore /story + /standard)
+- [ ] Site rebuild Week 2 (elevate four pillars, update meta/schema, fix overnight pipeline)
+- [ ] CLAUDE.md rewrite (stale since Feb 24 — describes pre-simplification architecture)
+- [ ] CW prompt: update derek.md + site-knowledge.md for new identity, recompile
+- [ ] Lightning/Bug: score, v7 assembly, upscale, Vimeo upload, Runway AIF submit (Apr 20)
+- [ ] Lightning/Bug: AI for Good submit (May 1), Reply Venice submit (Jun 1)
+- [ ] Option D: wire Supabase email capture, get one real user
+- [ ] Claude Will. autonomous system: design the Hancock-style architecture
 - [ ] PAPJ: panel presentation (April 9)
-- [ ] Between Claudes EP01 review
-- [ ] Coach D: zero responses from 52 emails — voice/positioning problem, not volume
-- [ ] LinkedIn token expires April 17 (19 days)
-- [ ] BOB Supabase unpause before April 13 (15 days) — Derek action
-- [ ] Key rotation automation script
-- [ ] Claude Will trademark filed March 29 — receipt in Downloads
+- [ ] PAPJ: press pass credential design
+- [ ] Key rotation (Gemini, Perplexity, Mistral — set Feb 24)
+- [ ] LinkedIn token expires April 17
 
 ## Derek-Only
 
-- [ ] Email Meredith the PAPJ zip
-- [ ] BOB Supabase unpause (dashboard)
-- [ ] Choose Option D access code for distribution (current: optiond2026)
+- [ ] PAPJ: respond to Meredith's Monday email
+- [ ] Read reports on train home (April 1)
+- [ ] AIVA score for Lightning/Bug (browser only)
+- [ ] Record "Until It Ain't" — finish the song
 
-## The Constraint
+## Decisions Made (March 31)
 
-$5K/month by May 1. Four weeks. Cascadia ended March 31. The revenue page is live. Option D is live. Distribution is the gap.
+- **Four pillars:** Claude Will. (practice), CW (model), Option D (model), Lightning/ (studio). Everything else is orbit.
+- **Derek = analog, Claude Will. = digital.** Drop Derek Simmons as digital identity. Claude Will. handles all digital presence autonomously.
+- **Claude runs the site.** Don't bring Derek operational work.
+- **BOB Supabase: let it expire.** Doesn't fit four pillars. Rebuild if needed later.
+- **Trademark: let it ride.** $350 already spent, filing is clean, no competing marks. Don't pay anyone else.
+- **Trademark attorney: walk away.** The North Carolina "competing filing" was a shakedown.
+- **Every hour not creating is wasted.** The robots handle everything else.
