@@ -1,5 +1,5 @@
 # The Morning Edition
-### Tuesday, 2026-03-31
+### Wednesday, 2026-04-01
 **Agent:** morning-edition
 **Type:** newspaper
 
@@ -7,84 +7,84 @@
 
 ## Front Page
 
-> **Nvidia’s Jensen Huang says ‘We’ve achieved AGI.’ But no one can agree on what AGI means.**
-> — Fortune
+> **CEO of America’s largest public hospital system says he’s ready to replace radiologists with AI**
+> — Radiology Business
 
 ## Headlines
 
 - **The Age Of Artificial Intelligence: Americans' AI Use Increases While Views On It Sour, Quinnipiac University Poll On AI Finds; 7 In 10 Think AI Will Cut Jobs With Gen Z The Most Pessimistic** — Quinnipiac University Poll
-- **What to Know About California’s Executive Order on A.I.** — The New York Times
-- **Rethinking brain-like artificial intelligence: New study reveals hidden mismatches** — Medical Xpress
-- **Could This Artificial Intelligence (AI) Stock Be the Next Palantir?** — The Motley Fool
-- **Starcloud reaches $1.1 billion valuation as AI space race heats up** — Reuters
-- **The Largest Recent Seed Rounds Are All For AI Companies** — Crunchbase News
+- **Local physician launches new AI service to write prescriptions over the phone** — WSBT
+- **I wore Meta’s smartglasses for a month – and it left me feeling like a creep** — The Guardian
+- **Nvidia’s Jensen Huang says ‘we’ve achieved AGI.’ But no one can agree on what that means** — Fortune
+- **When Will Japan’s Cherry Blossoms Bloom? A.I. Can Help Answer That** — The New York Times
+- **Q1 2026 Shatters Venture Funding Records As AI Boom Pushes Startup Investment To Nearly $300B** — Crunchbase News
+- **The global tech boom is over. American AI companies won** — Rest of World
 - **AI startup funding hits $220 billion in two months ...** — eeNews Europe
+- **AI chip startup Rebellions raises $400 million at $2.3B valuation in pre-IPO round** — TechCrunch
+- **AI Video Generation Startup Runway Unveils $10 Mn VC Fund To Back Early-stage AI Startups: Report** — BWDisrupt
 - **Mistral secures $830 million in debt financing to fund AI data center** — CNBC
-- **Former Coatue Partner Raises $65M Seed for AI Agent Startup** — The Tech Buzz
-- **Yann LeCun’s New AI Startup Raises $1 Billion in Seed Funding** — Bloomberg
-- **Apply Now: Google Accelerator Support for AI Startups in India** — ICTworks
 
 ---
 
 ## AI & Technology
 
-**OpenAI releases GPT-5.4 on March 6, tying Google Gemini 3.1 Pro Preview for #1 on Intelligence Index.**  
-The model scored 57.17 on the Artificial Analysis Intelligence Index, a 0.01-point gap behind Gemini's 57.18, leapfrogging prior GPT-5.2 (51.28).[5] Priced at $5.63 per million tokens, it matches Gemini's $4.50/M quality while leading in terminal workflows and tool use.[5][4] It tops charts like 83.0% on one benchmark and 96.1% (xhigh) on another.[1][4]
+I cannot provide a reliable report on this week's AI developments. The search results contain benchmark comparisons and model reviews from February-March 2026, but lack timestamped reporting on events occurring in the week of March 25-April 1, 2026.
 
-**Claude Opus 4.6 leads coding and reasoning benchmarks in March evaluations.**  
-Anthropic's Claude Opus 4.6 achieved 100% on 38 real coding tasks (172.5/172.5 points) at $0.20 total cost and 4.6s median response, outpacing GPT-5 Pro (31.64%) and others.[3][1] It ranks #1 for deepest reasoning and coding at $5.00/$25.00 per 1M input/output tokens.[4] Sonnet 4.6 variant hit 70.6% on SWE-bench Verified for bug-fixing.[2]
+The most recent dated content shows:
 
-**Nine new text models ship in March, including 7 open-weight and 3 MoE architectures.**  
-Releases encompass GPT-5.4, Qwen3.5, Mistral Small 4, MiMo-V2-Pro, MiniMax-M2.7, Grok 4.20, and Nemotron 3 Super.[5] Open-weight standouts like MiniMax-M2.7 (49.62 Intelligence Index) and MiMo-V2-Pro (49) provide top value; Grok 4.20 Beta sets record 22% hallucination rate.[5] Frontier models narrow to 0.01-point gaps, shifting focus to scaled utility.[5]
+- **Gemini 3.1 Pro** released February 19, 2026, with 77.1% on ARC-AGI-2[2], but this is over a month old.
+- General market speculation on potential April releases (Gemma 4, GPT-5.5, DeepSeek V4)[4], but these are prediction markets, not confirmed announcements.
+- References to post-training techniques replacing RLHF[3], but without specific release timing.
 
-**DeepSeek V3.2 emerges as top low-cost model for high-volume production.**  
-Ranked #4 overall, it offers serious performance at ~$0.28/$0.42 per 1M tokens, ideal for production constraints.[4] Benchmarks place it competitive with frontier models amid 40-80% year-over-year price drops.[4] Pairs with speed tiers like Gemini Flash (97.1% tasks at $0.003/run).[3]
+To report accurately on this week's developments, I would need news sources with publication dates between March 25-April 1, 2026. The available results contain either older announcements or speculative content rather than verified developments from the past seven days.
 
-*Sources: https://lmcouncil.ai/benchmarks, https://www.pluralsight.com/resources/blog/ai-and-data/best-ai-models-2026-list, https://ianlpaterson.com/blog/llm-benchmark-2026-38-actual-tasks-15-models-for-2-29/, https://www.alphacorp.ai/blog/top-5-llms-for-march-2026-benchmarks-pricing-picks, https://whatllm.org/blog/llm-releases-march-2026*
+*Sources: https://lmcouncil.ai/benchmarks, https://designforonline.com/the-best-ai-models-so-far-in-2026/, https://llm-stats.com/ai-news, https://manifold.markets/prismatic/april-2026-ai-model-releases, https://chatmaxima.com/blog/conversational-ai-models-2026/*
 
 ---
 
 ## Business & Media
 
-Here are today's most important developments in business and media, focusing on the intersection with AI:
+Here are today's most important developments in business and media, focusing on your specified areas:
 
-### 1. **Major Tech IPOs Expected in 2026, Led by AI and Space Giants**
+### 1. Media Companies Undergo Significant Layoffs Amidst Strategic Shifts Towards AI
 
-The IPO market is poised for a significant rebound in 2026, with several high-profile technology companies, particularly those in AI and space exploration, reportedly planning to go public. SpaceX, valued at an estimated $1.25 trillion, OpenAI at $840 billion, and Anthropic at $330 billion, are among the companies eyeing public listings this year. These potential IPOs could collectively raise over $100 billion, dwarfing previous venture-capital-backed tech IPO records.
+**Headline:** CBS News and Meta Announce Major Layoffs While Prioritizing AI Investments.
 
-**Why it matters for AI coaching products and human-AI collaboration:** The immense valuations and capital raised by these AI-centric companies underscore the massive investment and confidence in the future of AI. For AI coaching products, this signals a robust and expanding market for AI tools and services, suggesting increased demand for solutions that enhance human capabilities. For human-AI collaboration, the public scrutiny and financial transparency that come with IPOs will likely drive a greater focus on ethical AI development, accountability, and the measurable impact of AI in augmenting human work, which are critical themes for those writing about this collaboration.
+**Substance:** CBS News is implementing a 6% staff reduction, impacting approximately 66 individuals, and plans to close its nearly 100-year-old CBS News Radio on May 22. This follows previous cuts and is part of a broader trend of media companies like Ladbible, Nexstar Media Group, and CNBC restructuring their operations. Concurrently, Meta has laid off around 700 employees across various teams, including Reality Labs, Facebook, recruiting, sales, and global operations. These cuts are occurring as Meta significantly ramps up its spending on AI infrastructure and talent, with projected expenses reaching up to $169 billion by 2026. Other media giants like Paramount and Sky Group are also undergoing substantial job cuts as they adapt to changing digital consumption trends and streamline operations.
 
-### 2. **Media Companies Face Layoffs Amidst AI-Driven Restructuring and Digital Shifts**
+**Why it matters for AI coaching products and human-AI collaboration:** These layoffs highlight a critical pivot in the media industry: a strategic shift of resources from traditional operations to AI development. For AI coaching products, this signals a growing market for tools that can help displaced media professionals reskill and adapt to AI-driven roles, focusing on prompt design, critical thinking, and human-AI collaboration. For human-AI collaboration, it underscores the urgency for individuals and organizations to embrace AI as an augmenting force, as companies are clearly prioritizing AI integration even at the cost of traditional roles.
 
-Several media companies are undergoing layoffs and strategic restructuring in March 2026, often citing the impact of artificial intelligence and a shift towards digital-first strategies. CBS News is cutting approximately 66 staff, including closing CBS News Radio, while Politico reduced its workforce by 3%. Future plc proposed 45 editorial redundancies in its technology titles, though it plans to create 15 new roles. These moves reflect a broader trend where media organizations are adapting to changing consumption habits and integrating AI into content creation and operational workflows.
+### 2. Tech Giants SpaceX, OpenAI, and Anthropic Eye Record-Breaking IPOs in 2026
 
-**Why it matters for AI coaching products and human-AI collaboration:** These layoffs highlight the disruptive potential of AI in industries like media, where automation and new digital strategies are reshaping job functions. For AI coaching products, this emphasizes the urgent need for solutions that help individuals and organizations navigate career transitions, reskill for AI-augmented roles, and understand how to effectively collaborate with AI tools to remain competitive. For those writing about human-AI collaboration, it underscores the critical importance of addressing the societal and workforce implications of AI, focusing on strategies for successful adaptation and the ethical responsibilities of deploying AI in creative and journalistic fields.
+**Headline:** Trillion-Dollar Valuations Expected as AI and Space Tech Leaders Prepare for Public Markets.
 
-### 3. **Meta Cuts 700 Jobs While Ramping Up AI Investment**
+**Substance:** The year 2026 is poised to be historic for initial public offerings (IPOs), with several major AI and technology companies reportedly preparing to go public. SpaceX, valued at an estimated $1.25 trillion, OpenAI at $840 billion, and Anthropic at $330 billion, are among those eyeing public listings. If these companies proceed, their IPOs could collectively raise over $100 billion in proceeds and shatter previous records for the largest US venture-capital-backed tech IPOs in history. This move reflects a need for massive capital to scale ever-larger AI models and invest in data centers and cloud infrastructure, as private funding alone may no longer suffice.
 
-Meta has laid off around 700 employees in March 2026 as it accelerates its investment in artificial intelligence, with projected expenses for AI infrastructure, talent, and product development expected to reach between $162 billion and $169 billion by 2026. These job cuts are part of an ongoing internal restructuring across various teams, including Reality Labs and social media units, as the company shifts its focus towards next-generation AI technologies.
+**Why it matters for AI coaching products and human-AI collaboration:** The immense valuations and capital raises by these AI-centric companies demonstrate the unprecedented scale and investment flowing into the AI sector. For AI coaching products, this signifies a booming ecosystem where professionals will need coaching on navigating rapid technological shifts, understanding AI's business implications, and developing skills to work alongside advanced AI systems. For human-AI collaboration, it highlights the increasing demand for talent that can effectively integrate with and leverage these powerful AI platforms, making collaboration skills paramount for success in these rapidly expanding companies.
 
-**Why it matters for AI coaching products and human-AI collaboration:** Meta's strategic shift exemplifies a broader trend among tech giants: prioritizing AI development even at the cost of workforce reductions in other areas. This reinforces the idea that AI proficiency is becoming a critical differentiator in the job market. AI coaching products can play a vital role in helping professionals acquire these in-demand AI skills and adapt to evolving organizational structures. For writers, this development provides a concrete example of the "AI paradox" where increased AI reliability can make human oversight more challenging and costly, prompting discussions on how to design effective human-AI teams and ensure ethical governance.
+### 3. Digital Strategy Shifts: AI Becomes Core Business Infrastructure
 
-### 4. **Bluesky Launches Attie, an AI-Powered Custom Feed App**
+**Headline:** Digital Transformation in 2026 Redefines Business Models with AI as an "Execution Layer."
 
-Bluesky has introduced Attie, an app designed to help users create custom social media feeds using AI, leveraging the open social networking protocol atproto. This tool aims to personalize content delivery and allow users greater control over their online experiences.
+**Substance:** Digital transformation in 2026 has evolved beyond basic automation and cloud migration, now focusing on redesigning entire business models around intelligent technologies, data-centric strategies, and integrated digital ecosystems. AI is no longer just a tool but is becoming the "core driver of enterprise innovation," embedded across every business function. This shift sees AI moving from a conversational interface to an "execution layer," capable of performing sequences of work across systems rather than merely generating output. Organizations are actively using AI and technology to completely restructure their business models, focusing on creating value through systemic changes.
 
-**Why it matters for AI coaching products and human-AI collaboration:** Attie represents a significant digital strategy innovation in media, offering users more personalized and curated content experiences through AI. For AI coaching products, this highlights the growing demand for personalized digital interactions and the potential for AI to enhance user agency. For those writing about human-AI collaboration, it opens discussions on how AI can empower individuals to shape their digital environments, the implications for information consumption, and the balance between AI-driven personalization and potential filter bubbles.
+**Why it matters for AI coaching products and human-AI collaboration:** This development is crucial as it positions AI as a foundational element of business operations. AI coaching products must therefore evolve to help leaders and employees understand how to leverage AI as infrastructure, not just a standalone tool. Coaching should focus on strategic thinking around AI integration, process redesign, and fostering a culture where human workers can effectively oversee and collaborate with AI systems that are executing complex tasks. The emphasis on "human-AI collaboration" becomes less about simple interaction and more about strategic oversight and co-creation within AI-driven workflows.
 
-### 5. **The "AI Memory Gap" and Challenges in Human-AI Collaboration**
+### 4. AI Search Dominance Grows, But Measurement Remains a Challenge
 
-New research from Wharton professors Hamsa Bastani and Gérard Cachon reveals a "human-AI contracting paradox," suggesting that as AI systems become more reliable, it may become increasingly difficult and costly to motivate humans to effectively oversee them. Additionally, a recent experiment highlighted in Forbes indicates that people tend to mentally blur the contributions of humans and AI in collaborative tasks, often minimizing or forgetting the role of AI over time, leading to an "AI memory gap."
+**Headline:** AI Search Traffic Surges, Yet Businesses Struggle to Measure Impact.
 
-**Why it matters for AI coaching products and human-AI collaboration:** These findings are crucial for anyone building AI coaching products or writing about human-AI collaboration. The "AI memory gap" suggests a need for AI coaching products to incorporate features that clearly delineate AI contributions and foster a more accurate understanding of collaborative efforts. For writers, this presents a rich area for exploration into the psychological and organizational challenges of human-AI teams, emphasizing the importance of designing AI systems that promote transparency, accountability, and sustained human engagement rather than complacency. It also highlights the need for coaching on how to effectively manage and leverage AI without losing sight of human judgment and oversight.
+**Substance:** AI search is rapidly gaining traction, with 26% of companies reporting that over half of their website traffic came from AI search in 2025, a figure expected to reach 49% by late 2026. This growth in AI Search as a percentage of website traffic is outpacing traditional search, jumping from 35% to 50%. Despite 81% of companies optimizing for AI search, nearly 80% of businesses struggle to effectively measure its impact. Executives anticipate AI platforms will close sales this year, but only 41% directly partner with AI platforms, and a mere 25% work with external vendors on AI-powered search.
 
-### 6. **AI Fluency Emerges as a Key Driver of Workforce Inequality**
+**Why it matters for AI coaching products and human-AI collaboration:** The rise of AI search fundamentally alters how information is discovered and consumed. AI coaching products can help businesses and individuals understand the nuances of AI search optimization, content creation for AI summaries, and new metrics for success. For human-AI collaboration, it highlights a gap: while AI is driving traffic, the human element of understanding and measuring its true business value is lagging. Coaching can bridge this by training teams on data interpretation, ethical AI use in content, and developing new strategies for engaging audiences in an AI-first discovery landscape.
 
-New research indicates that experienced AI users significantly outperform newcomers, creating a widening gap in productivity and economic opportunity. This divide is not merely between users and non-users but between levels of proficiency, with more experienced users achieving higher success rates and expanding their use of AI across complex tasks.
+### 5. AI Coaching Platforms Mature, Driving Hybrid Coaching Models
 
-**Why it matters for AI coaching products and human-AI collaboration:** This development underscores the critical importance of AI literacy and fluency in the modern workforce. For AI coaching products, this presents a clear market need for comprehensive training and development programs that can bridge this growing skill gap, enabling more individuals to become proficient AI collaborators. For those writing about human-AI collaboration, it highlights the societal implications of uneven AI adoption and the ethical imperative to promote equitable access to AI education and tools to prevent further workforce inequality. It also emphasizes the role of intentional design in human-AI workflows to ensure that AI augments, rather than marginalizes, human workers.
+**Headline:** AI-Powered Coaching Platforms Evolve into Comprehensive Ecosystems, Fueling Hybrid Coaching Adoption.
 
-*Sources: [morningstar.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFfVMbPC5NVxWHoQSRaXY_32yjj5gK8H2Tv9abDREdVCJVOmqhc2t625nOTt4HQomHMXJpYeMBmF5HZKMRih3ogCul3tENT4gJ9pqHgfefxpYHQnEjA31h7kLzCw80TaaoK5tNYbgLL3UUbPohnkVznazRrvCOPK6reZOudscF9kht4nKbQjmy5e3jZ8D1XgmS-0oNFGMdRssq978L9idU=), [youtube.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHfqPqPKmb_fMT2HNcBoZBkhO39ebn-jDKlEP9omOu_ozgMWMszNNKkKjWqniFEmDSF7humXdctHQj7jWIGWEp3heCGAmcTbIvgl5wCWjDVW4e75chNJCyHp_tVYu5oDaFQ2-w-vus=), [simplywall.st](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE-XYiyev42nkJqOEkE28YEFOxRjR5f124hfPZ3De5JGpau5kuqHt28iPb_y3ryuS1o4l-VlYnOklx7j15o6NmyAWTOdd9IT6L-vv2awH7-gzaQy6sVjvA6hdr_SrNqWvbclLfKkuQ3mbahFf-J0laKh_bumiXd3pH7OAILWHs=), [builtin.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFPQhg4Jp-mWX2nJnpCUznYFOeSuZ7hXVMT7RnzAnibGWhhqRqw3kOTekVR-qFALPFBxdcXEOkv4hURmrt-TndxAXV_YBbRDszzFpAtheHKor3dGJp9VEiFtn_aeaqnqHOreKWcTkqrbnvD), [pressgazette.co.uk](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHOZRgLYAf9vH5T8GpU-QWCQRiom7R6J8gdsZgLNUfdob1lb4z04QlpZSm3F_RwqjZtaSL7p-1skjVGByB-XA084oP1nwisuLs_0DaYTimwRMMlBbtOJxv6J4QBTz7Xeb6TiXL2VLWlCyXRMlxxP_7CMfoaUNgtLzh8G5-wN9Dz)*
+**Substance:** AI-powered coaching platforms have
+
+*Sources: [pressgazette.co.uk](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG-rd33rnzjtXq1IegJq_2UbUOUVvvcFQ70SFwHfRvMzwjDqppRpdCwPI4mr-H1gR9kiXD5bvmUHw9CXdgK9IfJBHgZNcdj6I4CXF1zlJvxiZdcubTZ9ULikeD7Blo6TiE2DQxvJSj9RZnxyjjkpTJgJkqMjq6ITotbn9UJ-OVp), [businessinsider.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFdCLEMSFn1eGN721wCgYp_z8nbuCbtJi5jsXdBUcvMc0w6-3--atr6H4xUcfxz8H91vFhmTlfuuiMr4iCcacmRnTVE4uJHtVHL75KVAp188w5q3Xw84pdx1pg9HftYgrIy5vFwPWQ48HEA_tByaWUKwXKOEX_6CuQnaYXbZLtPHd6sFDrM_88Z_Q==), [peoplematters.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGP2u_4gwu9PpxTbMhrIAmcTSeAa2yb8CeqffqDSkrlxuSMfqjBKiUJpuQdmmkYm455Oi_ETuofBoqvZy8FhsqdfK2Smj3SyWIkuMgrE2GEAr-I02Qu8W8oQgoTXOYmxfiRtHKlWs6bHs8ud38sx-DaiILgCehW18eAdlEHqy13VLOr_LD9HuLdMhKsrnrIMovW-lNmeVeedJDK31JsJmTCds1yUIJGqi-PFnYOZkUmEtom35o=), [mediapost.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEOK3JVgj1mx5YDaomjzUz8XxNhEHhu-nbivS1mSDmxmYzvmjJ66u1rPkwXZrppRE4kCTcuqBngpRg_6Uo5u6JpfpizfdRJzPVvwdUorkGQ6VCAlAsmfJ6hylsXqXgXLet3GbYyoZ87vZvgDkrr6ZkBOkl2FZkgTqRfnelOBHAvKFF3eCO9b4WIoQtlNB1mqLNPMPkIxzsUJ2RSwvz-81NLDn7me1MHq4Ojhv0qp5Pgj3Y_), [intellizence.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG588S2Ng6McZDUWF2vriKRSMsI_-XvjYACZxrObWwQ8xiucbvTZ_cME4BRk-b_BXSnOEgoDrthREbUdqhifLwycsZGGwtJuyx-vDlKLSJWLQLXGtH3b1nicn6RxFUCh0Ny4jKS8x9L5yi-HXvMZAlFf2ebqLWCDVUfqTGIX1qhmOoorBXCW9w_OBHg9g4TY_x8Z3JglAtWctmMbw==)*
 
 ---
 
@@ -92,15 +92,15 @@ New research indicates that experienced AI users significantly outperform newcom
 
 *What this means for CW Strategies today:*
 
-- **Shift coaching focus to terminal workflows and tool use**—GPT-5.4’s lead in this area demands your next book chapter or coaching module to address how creatives integrate AI into end-to-end processes, not just ideation.
+- **Radiology replacement headlines demand you double down on *Being Claude*’s "Human-in-the-Loop" method**—write a case study on how creative professionals (not just doctors) must *design* the oversight role AI can’t replace, and fold it into your coaching product’s core workflow.
 
-- **Prioritize Opus 4.6 for deep reasoning drills**—Claude’s 100% coding benchmark dominance means your AI coaching product should train users on high-stakes problem-solving where precision matters most.
+- **Meta’s $169B AI spend proves voice-first coaching is now a *hardware* play**—build a lightweight, open-voice prototype (not just text) that can run on smartglasses or earbuds; your book’s "Claude Will" chapter on *embodied AI* just became a product spec.
 
-- **Ignore the AGI noise—focus on scaled utility**—Frontier models now differ by 0.01 points; your coaching must teach users to exploit marginal gains in real workflows, not chase vaporware definitions.
+- **Quinnipiac’s Gen Z pessimism is your next *Being Claude* newsletter hook**—publish a data-driven rant on why "AI will cut jobs" is the wrong framing; instead, teach Gen Z to *hack* AI tools for creative leverage, and make it the lead magnet for your coaching product’s waitlist.
 
-- **Double down on low-cost, high-volume models**—DeepSeek V3.2’s $0.28/$0.42 pricing proves AI coaching tools can scale affordably; build exercises around this for clients who need repeatable, high-output work.
+- **Nvidia’s AGI noise changes nothing for your coaching practice**—ignore the hype, but use Huang’s claim to sharpen your book’s definition of *practical* AI (not theoretical) and fold it into your coaching method’s "AI Literacy" module.
 
-- **Tune your weekly writing to job-market anxiety**—Quinnipiac’s poll shows Gen Z’s pessimism; your *Being Claude* series should reframe AI as a creative amplifier, not a job killer, with concrete examples from your own practice.
+- **Media layoffs mean your coaching product must target *former journalists* first**—they’re already trained in narrative, research, and audience empathy; package a "Reporter-to-Creator" AI coaching track and test it with 10 displaced CBS News alums this quarter.
 
 ---
 
@@ -120,4 +120,4 @@ None.
 
 ## Findings
 
-12 headlines curated across 5 topics. 8 AI citations. 12 business sources.
+12 headlines curated across 5 topics. 8 AI citations. 13 business sources.
