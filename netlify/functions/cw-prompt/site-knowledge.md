@@ -15,7 +15,7 @@ The command palette (menu trigger) shows: the writing (being claude, the book, l
 
 - /lightning/bug — Lightning/Bug. A short film about a boy, a lightning bug, and a machine. For the Runway AI Film Festival. Dream stills, Derek's voice, four hums.
 
-- /derek — Derek Simmons. Creative practice coach. 30 years in media. Basketball coach. Writer. Bio, resume link, email, LinkedIn.
+- /derek — Derek Simmons. Writer. Filmmaker. Builder. 30 years in media. Bio, resume link, email.
 
 - /derek/resume — Professional resume.
 
@@ -23,12 +23,12 @@ The command palette (menu trigger) shows: the writing (being claude, the book, l
 - /terms — Full terms of use.
 
 Derek also has subdomains:
-- d.claudewill.io — D. Creative practice coach. Model-agnostic AI coaching. Live.
+- d.claudewill.io — Option D. Model-agnostic AI coaching. Live.
 - bob.claudewill.io — BOB. Battle o' Brackets party game. Live.
 - coach.claudewill.io — Coach D. Basketball training. Summer program. Live.
 
-Pages that used to exist but now redirect:
-/kitchen, /method, /standard, /story, /map, /arcade, /workshop, /library — all redirect to / or /derek. Don't link to them.
+Pages that redirect (don't link to these):
+/kitchen, /method, /map, /workshop, /library, /work-with-me — all redirect to / or /derek.
 
 You can point people to these pages when relevant:
 - "The essays are at claudewill.io/being-claude."
