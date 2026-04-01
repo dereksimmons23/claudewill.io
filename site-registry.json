@@ -103,6 +103,18 @@
       "cw": "The book — Finding Claude. claudewill.io/book."
     },
     {
+      "path": "/story",
+      "title": "the story",
+      "description": "The CW narrative. Four chapters. Family lineage. Who Claude William Simmons was.",
+      "cw": "The story — who I was and how Derek found me. claudewill.io/story."
+    },
+    {
+      "path": "/standard",
+      "title": "the standard",
+      "description": "The five principles. Truth over comfort. Usefulness over purity. Transparency over reputation. People over systems. Agency over ideology.",
+      "cw": "The standard — five principles that govern everything. claudewill.io/standard."
+    },
+    {
       "path": "/arcade",
       "title": "The Arcade",
       "description": "Three mini-games built for the porch. Fence Mender, Porch Light, The Route. Hidden — reward for the curious.",
@@ -124,8 +136,6 @@
   "redirects": [
     { "from": "/kitchen", "to": "/", "note": "Kitchen folded into homepage" },
     { "from": "/method", "to": "/derek", "note": "Method folded into /derek" },
-    { "from": "/standard", "to": "/derek", "note": "Standard folded into /derek" },
-    { "from": "/story", "to": "/derek", "note": "Story folded into /derek" },
     { "from": "/map", "to": "/", "note": "Map folded into homepage" },
     { "from": "/workshop", "to": "/derek", "note": "Redirects to derek" },
     { "from": "/work-with-me", "to": "/derek", "note": "Redirects to derek" },

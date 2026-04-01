@@ -27,6 +27,14 @@
           { name: 'about', href: '/derek' },
           { name: 'resume', href: '/derek/resume' }
         ]
+      },
+      {
+        label: 'claude will.',
+        href: '/story',
+        items: [
+          { name: 'the story', href: '/story' },
+          { name: 'the standard', href: '/standard' }
+        ]
       }
     ]
   };

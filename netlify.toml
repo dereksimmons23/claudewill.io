@@ -262,29 +262,7 @@
   status = 301
   force = true
 
-[[redirects]]
-  from = "/standard"
-  to = "/derek"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/standard.html"
-  to = "/derek"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/story"
-  to = "/derek"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/story.html"
-  to = "/derek"
-  status = 301
-  force = true
+# /standard and /story restored as standalone pages — March 31, 2026
 
 [[redirects]]
   from = "/map"
