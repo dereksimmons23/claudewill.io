@@ -1,5 +1,5 @@
 # The Morning Edition
-### Wednesday, 2026-04-01
+### Thursday, 2026-04-02
 **Agent:** morning-edition
 **Type:** newspaper
 
@@ -12,79 +12,75 @@
 
 ## Headlines
 
-- **The Age Of Artificial Intelligence: Americans' AI Use Increases While Views On It Sour, Quinnipiac University Poll On AI Finds; 7 In 10 Think AI Will Cut Jobs With Gen Z The Most Pessimistic** — Quinnipiac University Poll
-- **Local physician launches new AI service to write prescriptions over the phone** — WSBT
-- **I wore Meta’s smartglasses for a month – and it left me feeling like a creep** — The Guardian
-- **Nvidia’s Jensen Huang says ‘we’ve achieved AGI.’ But no one can agree on what that means** — Fortune
-- **When Will Japan’s Cherry Blossoms Bloom? A.I. Can Help Answer That** — The New York Times
-- **Q1 2026 Shatters Venture Funding Records As AI Boom Pushes Startup Investment To Nearly $300B** — Crunchbase News
-- **The global tech boom is over. American AI companies won** — Rest of World
+- **Tech Sell-Off: 1 No-Brainer Artificial Intelligence (AI) ETF to Buy With $62 and Hold for the Long Term** — The Motley Fool
+- **How A.I. Helped One Man (and His Brother) Build a $1.8 Billion Company** — nytimes.com
+- **'Not how you build a digital mind': How reasoning failures are preventing AI models from achieving human-level intelligence** — Live Science
+- **A.I. Could Change the World. But First It Is Changing Silicon Valley.** — nytimes.com
+- **Don’t blame AI for the Iran school bombing | Letters** — The Guardian
+- **Sector Snapshot: Venture Funding To Foundational AI Startups In Q1 Was Double All Of 2025** — Crunchbase News
+- **Gen AI startup Runway announces $10m venture fund** — Global Venturing
 - **AI startup funding hits $220 billion in two months ...** — eeNews Europe
-- **AI chip startup Rebellions raises $400 million at $2.3B valuation in pre-IPO round** — TechCrunch
-- **AI Video Generation Startup Runway Unveils $10 Mn VC Fund To Back Early-stage AI Startups: Report** — BWDisrupt
-- **Mistral secures $830 million in debt financing to fund AI data center** — CNBC
+- **Intel plans new investment in AI startup SambaNova** — News.az
+- **AI was supposed to be the great equaliser — instead it produced the most concentrated investment cycle in VC history** — Silicon Canals
+- **AI Startups Raised Nearly $300 Billion in a Single Quarter** — Startup Fortune
 
 ---
 
 ## AI & Technology
 
-I cannot provide a reliable report on this week's AI developments. The search results contain benchmark comparisons and model reviews from February-March 2026, but lack timestamped reporting on events occurring in the week of March 25-April 1, 2026.
+**OpenAI valued at $852 billion after $122 billion funding round including retail investors**
 
-The most recent dated content shows:
+OpenAI closed a massive capital raise on approximately April 1, 2026, with $122 billion in total funding that includes $3 billion from retail investors, valuing the company at $852 billion[3]. The influx signals strong investor confidence in AI's commercial trajectory and is fueling rapid advancements across the sector, though it's also inflating valuations for AI startups, with some seed rounds reaching $40 million[3].
 
-- **Gemini 3.1 Pro** released February 19, 2026, with 77.1% on ARC-AGI-2[2], but this is over a month old.
-- General market speculation on potential April releases (Gemma 4, GPT-5.5, DeepSeek V4)[4], but these are prediction markets, not confirmed announcements.
-- References to post-training techniques replacing RLHF[3], but without specific release timing.
+**Anthropic's Claude Code CLI source code leaked, exposing 512,000+ lines**
 
-To report accurately on this week's developments, I would need news sources with publication dates between March 25-April 1, 2026. The available results contain either older announcements or speculative content rather than verified developments from the past seven days.
+Anthropic faced a significant security breach when its entire Claude Code CLI source code was leaked, exposing over 512,000 lines to competitors and hackers[3]. The incident comes as the company scales Claude across multiple use cases and represents a notable setback in an otherwise aggressive expansion period for the AI safety-focused startup.
 
-*Sources: https://lmcouncil.ai/benchmarks, https://designforonline.com/the-best-ai-models-so-far-in-2026/, https://llm-stats.com/ai-news, https://manifold.markets/prismatic/april-2026-ai-model-releases, https://chatmaxima.com/blog/conversational-ai-models-2026/*
+**Salesforce deploys 30 new AI features for Slack to streamline enterprise collaboration**
+
+Salesforce rolled out an AI-heavy overhaul for Slack featuring 30 new capabilities designed to make workplace collaboration smarter and more efficient[3]. The updates include automated summaries and intelligent search functionality, exemplifying the broader shift toward AI-powered productivity tools that integrate directly into existing enterprise workflows.
+
+**Meta advances custom chip independence with MTIA 450 and 500 roadmap**
+
+Meta's MTIA 400 custom AI chip is already in testing with performance competitive with leading commercial products, while the MTIA 450 and 500 are scheduled for mass deployment in 2027[1]. The four-chip strategy—including the MTIA 300 and 400—aims to reduce Meta's reliance on Nvidia and cut infrastructure costs across content ranking, recommendations, and generative AI inferencing.
+
+**Agentic AI emerges as the defining industry shift of early 2026**
+
+The most significant trend reshaping the sector is the transition from generative AI to **agentic AI**, where models operate as autonomous digital coworkers executing multi-step workflows[6]. OpenAI's GPT-5.4 exemplifies this shift, scoring 75% on the OSWorld-V desktop productivity benchmark—above the 72.4% human baseline—with a 1-million-token context window enabling autonomous execution across software environments[1].
+
+*Sources: https://www.crescendo.ai/news/latest-ai-news-and-updates, https://news.microsoft.com/source/features/ai/whats-next-in-ai-7-trends-to-watch-in-2026/, https://coaio.com/news/2026/04/breaking-tech-news-on-april-1-2026-ai-surge-cyber-threats-and-startup-2l4c/, https://techcrunch.com/2026/03/13/the-biggest-ai-stories-of-the-year-so-far/, https://www.morningstar.com/news/accesswire/1149272msn/ai4-2026-agenda-now-live-featuring-the-worlds-most-influential-leaders-in-applied-artificial-intelligence*
 
 ---
 
 ## Business & Media
 
-Here are today's most important developments in business and media, focusing on your specified areas:
+Here are today's most important developments in business and media, with a focus on their implications for AI coaching products and human-AI collaboration:
 
-### 1. Media Companies Undergo Significant Layoffs Amidst Strategic Shifts Towards AI
+### 1. **SpaceX Confidentially Files for IPO, Integrating with xAI**
 
-**Headline:** CBS News and Meta Announce Major Layoffs While Prioritizing AI Investments.
+Elon Musk's SpaceX has confidentially submitted paperwork for an Initial Public Offering (IPO) that could be one of the largest ever, potentially raising between $40 billion and $80 billion. This move follows SpaceX's recent integration with Musk's artificial intelligence venture, xAI, expanding the company's scope beyond rockets and satellite connectivity into AI infrastructure. The combined entity was valued at approximately $1.25 trillion earlier this year, positioning SpaceX at the nexus of space technology and AI, with ambitions including orbital data centers and expanded satellite networks.
 
-**Substance:** CBS News is implementing a 6% staff reduction, impacting approximately 66 individuals, and plans to close its nearly 100-year-old CBS News Radio on May 22. This follows previous cuts and is part of a broader trend of media companies like Ladbible, Nexstar Media Group, and CNBC restructuring their operations. Concurrently, Meta has laid off around 700 employees across various teams, including Reality Labs, Facebook, recruiting, sales, and global operations. These cuts are occurring as Meta significantly ramps up its spending on AI infrastructure and talent, with projected expenses reaching up to $169 billion by 2026. Other media giants like Paramount and Sky Group are also undergoing substantial job cuts as they adapt to changing digital consumption trends and streamline operations.
+**Why it matters for AI coaching products and human-AI collaboration:** This development highlights the increasing convergence of advanced technologies and the massive capital flowing into ventures that combine physical infrastructure with cutting-edge AI. For AI coaching products, it underscores the potential for AI to manage incredibly complex, large-scale operations and the need for human-AI collaboration in strategic decision-making for such ambitious projects. For those writing about human-AI collaboration, it showcases a real-world example of how AI is not just a tool for automation but a fundamental component of new, expansive business models that require human oversight, ethical considerations, and strategic direction. The integration of xAI suggests a future where AI is deeply embedded in critical infrastructure, demanding sophisticated human-AI interfaces and collaborative frameworks.
 
-**Why it matters for AI coaching products and human-AI collaboration:** These layoffs highlight a critical pivot in the media industry: a strategic shift of resources from traditional operations to AI development. For AI coaching products, this signals a growing market for tools that can help displaced media professionals reskill and adapt to AI-driven roles, focusing on prompt design, critical thinking, and human-AI collaboration. For human-AI collaboration, it underscores the urgency for individuals and organizations to embrace AI as an augmenting force, as companies are clearly prioritizing AI integration even at the cost of traditional roles.
+### 2. **Media Companies Undergo Layoffs Amidst AI Integration and Strategy Shifts**
 
-### 2. Tech Giants SpaceX, OpenAI, and Anthropic Eye Record-Breaking IPOs in 2026
+Several major media companies are implementing significant layoffs as they restructure and pivot towards new digital strategies and increased AI integration. Sky Group plans to cut around 600 jobs in the UK as it streamlines operations to adapt to changing viewer habits and digital consumption trends. Business Insider announced a 21% reduction in staff, with CEO Barbara Peng citing the need to focus on business, tech, and innovation, and a shift towards generative AI tools, events, and subscriptions to reduce reliance on unpredictable external traffic. Similarly, Meta has conducted layoffs across various departments, including Reality Labs, while simultaneously ramping up its investment in AI, with plans to spend $135 billion on AI initiatives. Omnicom is also set to lay off over 4,000 employees following its acquisition of Interpublic Group, with the advertising industry facing disruption from AI reshaping creative production.
 
-**Headline:** Trillion-Dollar Valuations Expected as AI and Space Tech Leaders Prepare for Public Markets.
+**Why it matters for AI coaching products and human-AI collaboration:** These widespread layoffs in media, often explicitly linked to AI adoption and strategic shifts, demonstrate the immediate and tangible impact of AI on the workforce. For AI coaching products, this highlights a critical need for tools that help individuals reskill, adapt to AI-augmented roles, and understand how to collaborate effectively with AI to remain competitive. For writers on human-AI collaboration, it emphasizes the urgency of addressing the "future of work" narrative, focusing on how AI can augment human capabilities rather than solely replacing jobs, and the ethical responsibilities of companies in managing this transition. The union pushback at Business Insider, condemning layoffs alongside AI triumphalism, further underscores the importance of transparent policies and retraining commitments in human-AI integration.
 
-**Substance:** The year 2026 is poised to be historic for initial public offerings (IPOs), with several major AI and technology companies reportedly preparing to go public. SpaceX, valued at an estimated $1.25 trillion, OpenAI at $840 billion, and Anthropic at $330 billion, are among those eyeing public listings. If these companies proceed, their IPOs could collectively raise over $100 billion in proceeds and shatter previous records for the largest US venture-capital-backed tech IPOs in history. This move reflects a need for massive capital to scale ever-larger AI models and invest in data centers and cloud infrastructure, as private funding alone may no longer suffice.
+### 3. **AI-Driven Reinvention and Ecosystem Orchestration Dominate Digital Strategy**
 
-**Why it matters for AI coaching products and human-AI collaboration:** The immense valuations and capital raises by these AI-centric companies demonstrate the unprecedented scale and investment flowing into the AI sector. For AI coaching products, this signifies a booming ecosystem where professionals will need coaching on navigating rapid technological shifts, understanding AI's business implications, and developing skills to work alongside advanced AI systems. For human-AI collaboration, it highlights the increasing demand for talent that can effectively integrate with and leverage these powerful AI platforms, making collaboration skills paramount for success in these rapidly expanding companies.
+Digital strategy is increasingly centered on AI-driven reinvention and the orchestration of expansive, cross-sector ecosystems. Platform business models are evolving beyond simple multi-sided marketplaces to become hubs that aggregate capabilities from partners, customers, and even competitors. A global survey in 2025 revealed that 77% of CEOs and business leaders are rebuilding business models around AI, predicting it as the single biggest disruptor by 2028, with 93% accelerating investment in digital capabilities. This shift emphasizes data synergies, co-innovation, and embedding AI not just for automation but to fundamentally reimagine customer value and organizational agility.
 
-### 3. Digital Strategy Shifts: AI Becomes Core Business Infrastructure
+**Why it matters for AI coaching products and human-AI collaboration:** This trend signifies a profound transformation in how businesses operate and create value. AI coaching products can play a crucial role in guiding leaders and teams through this reinvention, helping them understand ecosystem dynamics, data-driven decision-making, and how to leverage AI for strategic innovation. For those writing about human-AI collaboration, it provides a rich context for exploring how humans can effectively design, manage, and participate in complex AI-powered ecosystems, focusing on skills like strategic thinking, ethical AI governance, and fostering collaborative intelligence across diverse stakeholders.
 
-**Headline:** Digital Transformation in 2026 Redefines Business Models with AI as an "Execution Layer."
+### 4. **Agentic AI and Content Creation at Scale Reshape Media Production**
 
-**Substance:** Digital transformation in 2026 has evolved beyond basic automation and cloud migration, now focusing on redesigning entire business models around intelligent technologies, data-centric strategies, and integrated digital ecosystems. AI is no longer just a tool but is becoming the "core driver of enterprise innovation," embedded across every business function. This shift sees AI moving from a conversational interface to an "execution layer," capable of performing sequences of work across systems rather than merely generating output. Organizations are actively using AI and technology to completely restructure their business models, focusing on creating value through systemic changes.
+The media industry is experiencing a seismic shift due to AI, particularly with the rise of "agentic AI" and AI-assisted content creation at scale. Agentic AI, intelligent semi-autonomous systems, is projected to see its market size within media, entertainment, and content creation reach 35.9% by 2030, supporting tasks like localization, metadata generation, and workflow optimization. Media companies are leveraging AI for automatic transcription, video editing, and generating written content, streamlining operations and reducing costs. This allows for faster production timelines, more personalized content, and the ability to reach global audiences with instant translations and subtitles. However, there's a growing need for trust and transparency in media's AI age, with concerns about algorithms perpetuating biases or misinformation.
 
-**Why it matters for AI coaching products and human-AI collaboration:** This development is crucial as it positions AI as a foundational element of business operations. AI coaching products must therefore evolve to help leaders and employees understand how to leverage AI as infrastructure, not just a standalone tool. Coaching should focus on strategic thinking around AI integration, process redesign, and fostering a culture where human workers can effectively oversee and collaborate with AI systems that are executing complex tasks. The emphasis on "human-AI collaboration" becomes less about simple interaction and more about strategic oversight and co-creation within AI-driven workflows.
+**Why it matters for AI coaching products and human-AI collaboration:** The rapid advancement of agentic AI and AI-driven content creation presents both opportunities and challenges. AI coaching products can help media professionals adapt to these new tools, focusing on how to effectively prompt, review, and refine AI-generated content, ensuring quality and ethical standards. For writers, this trend offers a compelling narrative on the evolving nature of creativity and the critical role of human oversight in an AI-powered content ecosystem. It highlights the importance of developing "AI literacy" and ethical frameworks for human-AI collaboration in creative fields, ensuring that AI amplifies human creativity rather than diminishing it, and addressing concerns around bias and misinformation.
 
-### 4. AI Search Dominance Grows, But Measurement Remains a Challenge
-
-**Headline:** AI Search Traffic Surges, Yet Businesses Struggle to Measure Impact.
-
-**Substance:** AI search is rapidly gaining traction, with 26% of companies reporting that over half of their website traffic came from AI search in 2025, a figure expected to reach 49% by late 2026. This growth in AI Search as a percentage of website traffic is outpacing traditional search, jumping from 35% to 50%. Despite 81% of companies optimizing for AI search, nearly 80% of businesses struggle to effectively measure its impact. Executives anticipate AI platforms will close sales this year, but only 41% directly partner with AI platforms, and a mere 25% work with external vendors on AI-powered search.
-
-**Why it matters for AI coaching products and human-AI collaboration:** The rise of AI search fundamentally alters how information is discovered and consumed. AI coaching products can help businesses and individuals understand the nuances of AI search optimization, content creation for AI summaries, and new metrics for success. For human-AI collaboration, it highlights a gap: while AI is driving traffic, the human element of understanding and measuring its true business value is lagging. Coaching can bridge this by training teams on data interpretation, ethical AI use in content, and developing new strategies for engaging audiences in an AI-first discovery landscape.
-
-### 5. AI Coaching Platforms Mature, Driving Hybrid Coaching Models
-
-**Headline:** AI-Powered Coaching Platforms Evolve into Comprehensive Ecosystems, Fueling Hybrid Coaching Adoption.
-
-**Substance:** AI-powered coaching platforms have
-
-*Sources: [pressgazette.co.uk](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG-rd33rnzjtXq1IegJq_2UbUOUVvvcFQ70SFwHfRvMzwjDqppRpdCwPI4mr-H1gR9kiXD5bvmUHw9CXdgK9IfJBHgZNcdj6I4CXF1zlJvxiZdcubTZ9ULikeD7Blo6TiE2DQxvJSj9RZnxyjjkpTJgJkqMjq6ITotbn9UJ-OVp), [businessinsider.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFdCLEMSFn1eGN721wCgYp_z8nbuCbtJi5jsXdBUcvMc0w6-3--atr6H4xUcfxz8H91vFhmTlfuuiMr4iCcacmRnTVE4uJHtVHL75KVAp188w5q3Xw84pdx1pg9HftYgrIy5vFwPWQ48HEA_tByaWUKwXKOEX_6CuQnaYXbZLtPHd6sFDrM_88Z_Q==), [peoplematters.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGP2u_4gwu9PpxTbMhrIAmcTSeAa2yb8CeqffqDSkrlxuSMfqjBKiUJpuQdmmkYm455Oi_ETuofBoqvZy8FhsqdfK2Smj3SyWIkuMgrE2GEAr-I02Qu8W8oQgoTXOYmxfiRtHKlWs6bHs8ud38sx-DaiILgCehW18eAdlEHqy13VLOr_LD9HuLdMhKsrnrIMovW-lNmeVeedJDK31JsJmTCds1yUIJGqi-PFnYOZkUmEtom35o=), [mediapost.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEOK3JVgj1mx5YDaomjzUz8XxNhEHhu-nbivS1mSDmxmYzvmjJ66u1rPkwXZrppRE4kCTcuqBngpRg_6Uo5u6JpfpizfdRJzPVvwdUorkGQ6VCAlAsmfJ6hylsXqXgXLet3GbYyoZ87vZvgDkrr6ZkBOkl2FZkgTqRfnelOBHAvKFF3eCO9b4WIoQtlNB1mqLNPMPkIxzsUJ2RSwvz-81NLDn7me1MHq4Ojhv0qp5Pgj3Y_), [intellizence.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG588S2Ng6McZDUWF2vriKRSMsI_-XvjYACZxrObWwQ8xiucbvTZ_cME4BRk-b_BXSnOEgoDrthREbUdqhifLwycsZGGwtJuyx-vDlKLSJWLQLXGtH3b1nicn6RxFUCh0Ny4jKS8x9L5yi-HXvMZAlFf2ebqLWCDVUfqTGIX1qhmOoorBXCW9w_OBHg9g4TY_x8Z3JglAtWctmMbw==)*
+*Sources: [investmentnews.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFDlp8z4hBI4_QzVmFC1pN1ymPl3pboObCOSgsFGQn2jdTot615CqA9jqApkpciKrrYU-EtnsEFmxE35vVmEZs1e0RfNJzuh65zuyEdZYWTE5sW_vgzvf2t2z0WxuVem4d-mUD03tEP_dC_j7hKM3BvzxCvdDM8oa64Hv5W3OBMut0Nc0HLAPE-TnNu0rolF9sAT1-8f7DnzkahpMAXDsiAbo3f3F-sut-2SrKFeXlZq3KNUAXO9te2kUCdFe2Zd6T0BpNhmGc=), [marketwise.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEuBz0SH2gVbjoIdGnghUt1fHg0lOPH_nw72sCx5sOFOE1kl_Jz7rwb8vjeCztetb0DBfdKzZNMop2aKmQclO1DPS97xE3f9lIU3cUgD_Lgv85r8XdSVDUxxkdgR1yHARXbchdBjTJ6anoUpMbz0ndy6Kq5xJjqrrbiiM07YnWC3Gkw), [intellizence.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHfb7KSxHKCDbxW3UA7g1OMn0KZsImh-cfSf8dkEkIPDrCYeGFaAUGCBK4RBX1Gg2f6tAa_nrAFCctqeX0hP-hAmnkVc6DH3-J-NQn1nqlmc0JeMAg7DGAK61DPSgdAGEouj-MJPnOtNRdYLtzvAqJGsI6dyk16pcE3MecCEQD7VxDnz5ryzNtGF0EKnG2ZFbZ2Nb68n_zUmwf8nw==), [aicerts.ai](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGKkp3D9NqAt9K1UjzCViPBvcIfDfe76Uh862KlC_cqZm6KyT6CqXKTnyjm84OVQAiWDkPp87OcLDxPVjtZTzjx_QCum4vM3phdnmgUa_EwmNAOFSaPq1hyG6qnJBgjnkzoDgHHM8cqCPUzP_pmSI7RFTcRjXtb51bKI0HAd2eSAil54xxYvdYQgxt8Zilz3zVRHA==), [thestreet.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFcsE1N01yBC9lXak7hrNeV2NMEXzMkb7PbbCFVPoKQaBp-cb1nRf5L2ylI0rRFKp0K3x0IV6HMZ-Rfj8TGsDDzMkmN016navGGa9ntKCfi7wCHvGB0z3-vybhCnigvCEUKO1iKP6OEY4H11aB5lqFBjKLriltriZwes0-61fEPkldPsRvfggy4n6DhGXUzNP1BS6Y7w9LI-c1jrEE=)*
 
 ---
 
@@ -92,15 +88,15 @@ Here are today's most important developments in business and media, focusing on 
 
 *What this means for CW Strategies today:*
 
-- **Radiology replacement headlines demand you double down on *Being Claude*’s "Human-in-the-Loop" method**—write a case study on how creative professionals (not just doctors) must *design* the oversight role AI can’t replace, and fold it into your coaching product’s core workflow.
+- **Radiologist replacement by AI** is a direct threat to creative professionals who rely on traditional gatekeepers—flag this in *Being Claude* as a wake-up call to double down on **AI-native creative methods** and **voice-first coaching** to stay ahead of commoditization.
 
-- **Meta’s $169B AI spend proves voice-first coaching is now a *hardware* play**—build a lightweight, open-voice prototype (not just text) that can run on smartglasses or earbuds; your book’s "Claude Will" chapter on *embodied AI* just became a product spec.
+- **OpenAI’s $852B valuation** proves AI’s commercial dominance—use this in your book (*Claude Will*) to argue that **creative coaches must build AI-first products now**, not just advise on them, or risk irrelevance.
 
-- **Quinnipiac’s Gen Z pessimism is your next *Being Claude* newsletter hook**—publish a data-driven rant on why "AI will cut jobs" is the wrong framing; instead, teach Gen Z to *hack* AI tools for creative leverage, and make it the lead magnet for your coaching product’s waitlist.
+- **Anthropic’s source code leak** is a brutal reminder: **security and proprietary workflows matter**—audit your coaching product (D) for vulnerabilities and tighten your method to protect client IP.
 
-- **Nvidia’s AGI noise changes nothing for your coaching practice**—ignore the hype, but use Huang’s claim to sharpen your book’s definition of *practical* AI (not theoretical) and fold it into your coaching method’s "AI Literacy" module.
+- **Salesforce’s AI Slack overhaul** shows enterprises are embedding AI into daily work—**your voice-first coaching must integrate with tools like Slack, Notion, or email** to stay embedded in real workflows.
 
-- **Media layoffs mean your coaching product must target *former journalists* first**—they’re already trained in narrative, research, and audience empathy; package a "Reporter-to-Creator" AI coaching track and test it with 10 displaced CBS News alums this quarter.
+- **Meta’s custom chip roadmap** signals AI infrastructure is getting cheaper and faster—**focus your coaching on leveraging these tools** to help clients scale creative work, not just ideate.
 
 ---
 
@@ -120,4 +116,4 @@ None.
 
 ## Findings
 
-12 headlines curated across 5 topics. 8 AI citations. 13 business sources.
+12 headlines curated across 5 topics. 8 AI citations. 11 business sources.

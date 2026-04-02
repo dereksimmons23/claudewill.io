@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-04-01T22:46:07.349Z",
+  "lastUpdated": "2026-04-02T11:20:19.906Z",
   "agents": {
     "morningEdition": {
       "name": "Morning Edition",
-      "lastRun": "2026-04-01T22:46:07.348Z",
+      "lastRun": "2026-04-02T11:20:19.906Z",
       "status": "ok",
       "summary": "CEO of America’s largest public hospital system says he’s ready to replace radiologists with AI",
       "flags": [],
@@ -29,44 +29,47 @@
           "status": "not configured"
         }
       },
-      "findings": "12 headlines curated across 5 topics. 8 AI citations. 13 business sources."
+      "findings": "12 headlines curated across 5 topics. 8 AI citations. 11 business sources."
     },
     "housekeeping": {
       "name": "Housekeeping",
-      "lastRun": "2026-04-01T22:46:07.348Z",
-      "status": "ok",
-      "summary": "All 10 pages + 2 subdomains responding. Avg 200ms.",
-      "flags": [],
+      "lastRun": "2026-04-02T11:20:19.906Z",
+      "status": "flags",
+      "summary": "9/10 pages up. 1 down.",
+      "flags": [
+        "https://claudewill.io/ is DOWN (fetch failed)",
+        "Prompt dead link: netlify/functions/cw-prompt/site-knowledge.md references /library"
+      ],
       "details": [
-        "https://claudewill.io/ — 200 207ms",
-        "https://claudewill.io/derek — 200 182ms",
-        "https://claudewill.io/story — 200 178ms",
-        "https://claudewill.io/workshop — 200 183ms",
-        "https://claudewill.io/privacy — 200 181ms",
-        "https://claudewill.io/terms — 200 176ms",
-        "https://claudewill.io/kitchen — 200 268ms",
-        "https://claudewill.io/arcade — 200 179ms",
-        "https://claudewill.io/map — 200 178ms",
-        "https://claudewill.io/being-claude — 200 269ms",
-        "Coach D (https://coach.claudewill.io) — 200 173ms",
-        "BOB (https://bob.claudewill.io) — 200 178ms"
+        "https://claudewill.io/ — DOWN: fetch failed",
+        "https://claudewill.io/derek — 200 29ms",
+        "https://claudewill.io/story — 200 181ms",
+        "https://claudewill.io/workshop — 200 763ms",
+        "https://claudewill.io/privacy — 200 737ms",
+        "https://claudewill.io/terms — 200 215ms",
+        "https://claudewill.io/kitchen — 200 787ms",
+        "https://claudewill.io/arcade — 200 737ms",
+        "https://claudewill.io/map — 200 875ms",
+        "https://claudewill.io/being-claude — 200 804ms",
+        "Coach D (https://coach.claudewill.io) — 200 1162ms",
+        "BOB (https://bob.claudewill.io) — 200 1421ms"
       ]
     },
     "pulse": {
       "name": "Daily Pulse",
-      "lastRun": "2026-04-01T11:22:44.124Z",
+      "lastRun": "2026-04-02T11:19:39.642Z",
       "status": "flags",
-      "summary": "662 conversations, 7 visitors, 0 D sessions",
+      "summary": "663 conversations, 7 visitors, 0 D sessions",
       "flags": [
         "6 visitors in 3.5 months. Distribution is the gap.",
         "D has zero real users. Paywall is built. Stripe is not.",
-        "Dawn: 18 days since last entry.",
+        "Dawn: 19 days since last entry.",
         "$0 from D. $0 from the practice. Cascadia is the only income."
       ],
       "metrics": {
         "conversations": {
-          "total": 662,
-          "week": 1,
+          "total": 663,
+          "week": 2,
           "today": 0
         },
         "d": {
@@ -80,27 +83,32 @@
           "named": 2
         },
         "sessions": {
-          "thisWeek": 25,
-          "avgWeight": 5.9,
+          "thisWeek": 28,
+          "avgWeight": 6.1,
           "byProject": {
             "cascadia": 9,
-            "dawn": 8,
-            "desktop": 8
+            "dawn": 9,
+            "writing": 1,
+            "desktop": 9
           }
         },
         "dawn": {
           "dayNumber": 74,
           "raidRate": "3/6",
-          "daysSinceEntry": 18
+          "daysSinceEntry": 19
         }
       }
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-04-01T22:46:07.348Z",
-      "status": "ok",
-      "summary": "**Pipeline:** 3 items (3 draft)",
-      "flags": []
+      "lastRun": "2026-04-02T11:20:19.906Z",
+      "status": "flags",
+      "summary": "**Pipeline:** 7 items (3 draft, 2 planned, 1 idea, 1 in-progress)",
+      "flags": [
+        "Being Claude #11: The Manual: draft for 21 days — review or reject",
+        "Being Claude: The Scoreboard: draft for 29 days — review or reject",
+        "Being Claude: The Brightness (warm/hot/cold): draft for 29 days — review or reject"
+      ]
     }
   },
   "projects": [

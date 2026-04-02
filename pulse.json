@@ -1,9 +1,9 @@
 {
-  "generated": "2026-04-01T11:22:44.124Z",
-  "date": "2026-04-01",
+  "generated": "2026-04-02T11:19:39.642Z",
+  "date": "2026-04-02",
   "porch": {
-    "total": 662,
-    "thisWeek": 1,
+    "total": 663,
+    "thisWeek": 2,
     "today": 0
   },
   "d": {
@@ -19,12 +19,13 @@
     "maxVisits": 6
   },
   "sessions": {
-    "thisWeek": 25,
-    "avgWeight": 5.9,
+    "thisWeek": 28,
+    "avgWeight": 6.1,
     "byProject": {
       "cascadia": 9,
-      "dawn": 8,
-      "desktop": 8
+      "dawn": 9,
+      "writing": 1,
+      "desktop": 9
     }
   },
   "dawn": {
@@ -32,7 +33,7 @@
     "dayNumber": 74,
     "raidRate": "3/6",
     "latestWeight": null,
-    "daysSinceEntry": 18
+    "daysSinceEntry": 19
   },
   "revenue": {
     "cascadia": {
@@ -54,7 +55,7 @@
   "bottomLine": [
     "6 visitors in 3.5 months. Distribution is the gap.",
     "D has zero real users. Paywall is built. Stripe is not.",
-    "Dawn: 18 days since last entry.",
+    "Dawn: 19 days since last entry.",
     "$0 from D. $0 from the practice. Cascadia is the only income."
   ]
 }
