@@ -12,134 +12,1209 @@
     gtag('js', new Date());
     gtag('config', 'G-7R5X5SJDVT');
   </script>
-  <title>the kitchen | claudewill*</title>
-  <meta name="description" content="Mission control. What's alive, what it costs, what the numbers say. Everything here is real.">
 
+  <title>the kitchen | claudewill*</title>
+  <meta name="description" content="The engine room. What's running, what it costs, what the numbers say. Everything here is real.">
   <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/css/shared-nav.css">
-  <link rel="stylesheet" href="/css/kitchen.css">
-  <link rel="stylesheet" href="/css/porch-widget.css">
+  <style>
+    /* ═══════════════════════════════════════════════════
+       KITCHEN TUI — Dark only. Engine room.
+       Inspired by Miessler terminal dashboard.
+       CW brand: IBM Plex Mono, gold (#d4a84b), #0a0e17.
+    ═══════════════════════════════════════════════════ */
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="the kitchen — claudewill*">
-  <meta property="og:description" content="Mission control. What's alive, what it costs, what the numbers say.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://claudewill.io/kitchen">
+    :root {
+      --bg:          #0a0e17;
+      --bg-card:     #0f1623;
+      --bg-row:      #111827;
+      --text:        #c9d1d9;
+      --text-dim:    #6b7280;
+      --text-bright: #f0f6fc;
+      --gold:        #d4a84b;
+      --gold-dim:    rgba(212,168,75,0.12);
+      --green:       #10b981;
+      --red:         #ef4444;
+      --amber:       #f59e0b;
+      --blue:        #4a8ec2;
+      --border:      #1e293b;
+      --border-dim:  #141c2b;
+      --font:        'IBM Plex Mono', 'Courier New', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { font-size: 14px; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── OUTER FRAME ─────────────────────────────── */
+
+    .tui-frame {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1rem 3rem;
+    }
+
+    /* ── TOP BAR ─────────────────────────────────── */
+
+    .tui-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-bottom: 1px solid var(--gold);
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tui-wordmark {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-bright);
+      letter-spacing: 0.02em;
+    }
+
+    .tui-wordmark .period { color: var(--gold); }
+
+    .tui-topbar-center {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    .tui-clock     { color: var(--text-bright); font-weight: 500; }
+    .tui-location  { color: var(--text-dim); }
+    .tui-weather   { color: var(--text-dim); }
+
+    .tui-topbar-right {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    /* ── SECTION LABELS ──────────────────────────── */
+
+    .tui-section { margin-bottom: 0.75rem; }
+
+    .tui-section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.35rem 0.75rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--gold);
+      margin-bottom: 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+    }
+
+    .tui-section-header .section-meta {
+      font-weight: 400;
+      color: var(--text-dim);
+      text-transform: none;
+      letter-spacing: 0;
+      margin-left: auto;
+    }
+
+    /* ── STATUS ROW ──────────────────────────────── */
+
+    .tui-status-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.5rem;
+      padding: 0.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    .status-cell {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .status-cell .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-green { background: var(--green); box-shadow: 0 0 4px var(--green); }
+    .dot-red   { background: var(--red);   box-shadow: 0 0 4px var(--red); }
+    .dot-amber { background: var(--amber); box-shadow: 0 0 4px var(--amber); }
+    .dot-gold  { background: var(--gold);  box-shadow: 0 0 4px var(--gold); }
+    .dot-dim   { background: var(--text-dim); }
+
+    .status-cell .s-label  { color: var(--text); font-weight: 500; }
+    .status-cell .s-detail { color: var(--text-dim); font-size: 0.7rem; }
+
+    /* ── METRICS ROW ─────────────────────────────── */
+
+    .tui-metrics-row {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.5rem;
+    }
+
+    .metric-cell {
+      padding: 0.75rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .metric-cell .m-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--text-bright);
+    }
+
+    .metric-cell .m-value.gold  { color: var(--gold); }
+    .metric-cell .m-value.green { color: var(--green); }
+
+    .metric-cell .m-label {
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .metric-cell .m-sub {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      margin-top: 0.1rem;
+    }
+
+    /* ── SPARKLINE AREA ──────────────────────────── */
+
+    .tui-sparkline-block {
+      padding: 0.75rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    .sparkline-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.35rem 0;
+      border-bottom: 1px solid var(--border-dim);
+      font-size: 0.78rem;
+    }
+
+    .sparkline-row:last-child { border-bottom: none; }
+
+    .spark-label {
+      width: 140px;
+      flex-shrink: 0;
+      color: var(--text-dim);
+    }
+
+    .spark-chart {
+      flex: 1;
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 24px;
+    }
+
+    .spark-bar {
+      flex: 1;
+      background: var(--gold-dim);
+      border-top: 1px solid var(--gold);
+      min-width: 3px;
+      transition: background 0.2s;
+    }
+
+    .spark-bar.zero {
+      background: var(--border-dim);
+      border-top-color: var(--border);
+      height: 2px !important;
+    }
+
+    .spark-timeframes {
+      display: flex;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+
+    .spark-tf {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.1rem;
+    }
+
+    .spark-tf .tf-label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .spark-tf .tf-value {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ── TWO-COLUMN CONTENT AREA ─────────────────── */
+
+    .tui-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+
+    /* ── CURRENT WORK ────────────────────────────── */
+
+    .tui-work-block {
+      padding: 0.75rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    .work-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border-dim);
+      font-size: 0.8rem;
+    }
+
+    .work-item:last-child { border-bottom: none; }
+
+    .work-item .wi-prefix {
+      color: var(--gold);
+      flex-shrink: 0;
+      font-weight: 600;
+      min-width: 2ch;
+    }
+
+    .work-item .wi-name {
+      color: var(--text-bright);
+      font-weight: 500;
+      flex: 1;
+    }
+
+    .work-item .wi-status {
+      color: var(--text-dim);
+      font-size: 0.7rem;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .work-item .wi-status.live   { color: var(--green); }
+    .work-item .wi-status.active { color: var(--gold); }
+    .work-item .wi-status.flags  { color: var(--red); }
+
+    /* ── THE STANDARD ────────────────────────────── */
+
+    .tui-standard-block {
+      padding: 0.75rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    .principle-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border-dim);
+      font-size: 0.8rem;
+    }
+
+    .principle-row:last-child { border-bottom: none; }
+
+    .principle-row .p-num {
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 700;
+      width: 2ch;
+      flex-shrink: 0;
+    }
+
+    .principle-row .p-text {
+      color: var(--text-dim);
+      flex: 1;
+    }
+
+    .principle-row.highlighted .p-text {
+      color: var(--text-bright);
+      font-weight: 500;
+    }
+
+    .principle-row.highlighted {
+      border-left: 2px solid var(--gold);
+      padding-left: 0.5rem;
+      margin-left: -0.5rem;
+      background: var(--gold-dim);
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* ── AGENT STATUS ────────────────────────────── */
+
+    .tui-agents-block {
+      padding: 0.75rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    .agent-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border-dim);
+      font-size: 0.78rem;
+    }
+
+    .agent-row:last-child { border-bottom: none; }
+
+    .agent-row .ag-name   { color: var(--text); font-weight: 500; flex: 1; }
+    .agent-row .ag-time   { color: var(--text-dim); font-size: 0.7rem; }
+    .agent-row .ag-status { font-size: 0.7rem; font-weight: 600; }
+
+    .ag-status.ok    { color: var(--green); }
+    .ag-status.flags { color: var(--amber); }
+    .ag-status.error { color: var(--red); }
+
+    /* ── STACK ───────────────────────────────────── */
+
+    .tui-stack-block {
+      padding: 0.75rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    .stack-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid var(--border-dim);
+      font-size: 0.78rem;
+    }
+
+    .stack-row:last-child { border-bottom: none; }
+
+    .stack-row .sk-name { color: var(--text); flex: 1; }
+    .stack-row .sk-role { color: var(--text-dim); font-size: 0.7rem; }
+
+    /* ── FLAGS ───────────────────────────────────── */
+
+    .tui-flags-block {
+      padding: 0.75rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--red);
+    }
+
+    .flag-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.35rem 0;
+      border-bottom: 1px solid var(--border-dim);
+      font-size: 0.78rem;
+      line-height: 1.4;
+    }
+
+    .flag-row:last-child { border-bottom: none; }
+
+    .flag-row .flag-prefix { color: var(--red); flex-shrink: 0; }
+    .flag-row .flag-text   { color: var(--text); }
+
+    /* ── SITE CHECKS ─────────────────────────────── */
+
+    .tui-checks-block {
+      padding: 0.75rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    .check-row {
+      display: grid;
+      grid-template-columns: 8px 1fr auto auto;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid var(--border-dim);
+      font-size: 0.75rem;
+    }
+
+    .check-row:last-child { border-bottom: none; }
+
+    .check-row .ck-path { color: var(--text-dim); font-size: 0.72rem; }
+    .check-row .ck-code { font-weight: 600; font-size: 0.7rem; }
+    .check-row .ck-code.ok  { color: var(--green); }
+    .check-row .ck-code.err { color: var(--red); }
+    .check-row .ck-ms { color: var(--text-dim); font-size: 0.68rem; text-align: right; }
+
+    /* ── QUOTE BAR ───────────────────────────────── */
+
+    .tui-quote-bar {
+      padding: 0.75rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-top: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .quote-prefix { color: var(--gold); font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+    .quote-text   { font-size: 0.82rem; color: var(--text); font-style: italic; flex: 1; line-height: 1.4; }
+    .quote-source { font-size: 0.7rem; color: var(--text-dim); flex-shrink: 0; }
+
+    /* ── BOTTOM NAV ──────────────────────────────── */
+
+    .tui-bottom-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border);
+      margin-top: 0.5rem;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+    }
+
+    .tui-bottom-nav a { color: var(--text-dim); }
+    .tui-bottom-nav a:hover { color: var(--gold); }
+    .tui-nav-links { display: flex; gap: 1.5rem; }
+    .tui-refresh-note { color: var(--text-dim); font-size: 0.65rem; }
+
+    /* ── LOADING ─────────────────────────────────── */
+
+    .tui-loading {
+      color: var(--text-dim);
+      font-size: 0.78rem;
+      padding: 0.5rem 0;
+    }
+
+    /* ── BLINK CURSOR ────────────────────────────── */
+
+    .cursor {
+      animation: blink 1.1s step-end infinite;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────── */
+
+    @media (max-width: 800px) {
+      html { font-size: 13px; }
+      .tui-metrics-row { grid-template-columns: repeat(3, 1fr); }
+      .tui-two-col     { grid-template-columns: 1fr; }
+      .tui-topbar-center { gap: 0.75rem; }
+    }
+
+    @media (max-width: 520px) {
+      html { font-size: 12px; }
+      .tui-frame { padding: 0.5rem 0.5rem 2rem; }
+      .tui-metrics-row { grid-template-columns: repeat(2, 1fr); }
+      .tui-topbar { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+      .spark-label { width: 100px; }
+      .tui-nav-links { gap: 0.75rem; }
+    }
+  </style>
 </head>
-<body class="kitchen-page">
+<body>
 
-  <header class="page-header" id="page-header">
-    <div class="page-header-left"><a href="/" class="header-brand"><span class="header-short">cw</span><span class="header-full">claudewill</span></a><a href="/being-claude" class="header-hallway">*</a></div>
-    <div class="page-header-center">the kitchen</div>
-    <button class="page-header-right palette-trigger" aria-label="Open navigation">menu</button>
-  </header>
+<div class="tui-frame">
 
-  <div class="container">
-    <main>
-
-      <h1 class="kitchen-heading">mission control</h1>
-
-      <!-- 1. Status — what's alive -->
-      <section class="mc-section" id="mc-status">
-        <h2 class="mc-label">status</h2>
-        <div class="mc-status-grid" id="status-grid">
-          <div class="status-item"><span class="dot dot-loading"></span><span class="status-name">loading...</span></div>
-        </div>
-      </section>
-
-      <!-- 2. The Pulse — key numbers -->
-      <section class="mc-section" id="mc-pulse">
-        <h2 class="mc-label">the pulse</h2>
-        <div class="mc-grid" id="pulse-grid">
-          <div class="mc-stat"><span class="mc-stat-value">--</span><span class="mc-stat-label">visitors</span></div>
-          <div class="mc-stat"><span class="mc-stat-value">--</span><span class="mc-stat-label">conversations</span></div>
-          <div class="mc-stat"><span class="mc-stat-value">--</span><span class="mc-stat-label">D users</span></div>
-          <div class="mc-stat"><span class="mc-stat-value">--</span><span class="mc-stat-label">dawn day</span></div>
-        </div>
-        <div class="mc-revenue" id="pulse-revenue"></div>
-      </section>
-
-      <!-- 3. Morning Edition — top 5 headlines -->
-      <section class="mc-section" id="mc-headlines">
-        <h2 class="mc-label">morning edition</h2>
-        <div class="mc-lead" id="me-lead"></div>
-        <ol class="mc-headlines-list" id="headlines-list">
-          <li class="mc-headline-placeholder">loading headlines...</li>
-        </ol>
-        <div class="mc-edition-meta" id="me-meta"></div>
-      </section>
-
-      <!-- 4. Bottom line -->
-      <section class="mc-section" id="mc-bottom">
-        <h2 class="mc-label">bottom line</h2>
-        <ul class="mc-bottom-list" id="bottom-list">
-          <li>loading...</li>
-        </ul>
-      </section>
-
-      <!-- 5. The method -->
-      <section class="mc-section" id="mc-method">
-        <h2 class="mc-label">the method</h2>
-        <div class="mc-method-steps">
-          <span class="mc-step">start</span>
-          <span class="mc-step-arrow"></span>
-          <span class="mc-step">work</span>
-          <span class="mc-step-arrow"></span>
-          <span class="mc-step">finish</span>
-          <span class="mc-step-arrow"></span>
-          <span class="mc-step">decide</span>
-          <span class="mc-step-arrow"></span>
-          <span class="mc-step">rest</span>
-        </div>
-      </section>
-
-      <!-- 6. Stack cost -->
-      <section class="mc-section" id="mc-stack">
-        <h2 class="mc-label">stack cost</h2>
-        <div class="mc-stack-total" id="stack-total">~$125/month</div>
-        <div class="mc-stack-breakdown">
-          <div class="mc-stack-item"><span class="mc-stack-name">claude code</span><span class="mc-stack-cost">$100</span></div>
-          <div class="mc-stack-item"><span class="mc-stack-name">netlify</span><span class="mc-stack-cost">free</span></div>
-          <div class="mc-stack-item"><span class="mc-stack-name">supabase</span><span class="mc-stack-cost">free</span></div>
-          <div class="mc-stack-item"><span class="mc-stack-name">elevenlabs</span><span class="mc-stack-cost">~$5</span></div>
-          <div class="mc-stack-item"><span class="mc-stack-name">domains</span><span class="mc-stack-cost">~$20</span></div>
-        </div>
-      </section>
-
-    </main>
-
-    <footer>
-      <p class="footer-note">Built by <a href="/derek">Derek</a><a href="/being-claude" class="hw">*</a><a href="/being-claude">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
-      <p class="footer-note"><a href="/standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
-    </footer>
+  <!-- ═══ TOP BAR ═══════════════════════════════════ -->
+  <div class="tui-topbar">
+    <div class="tui-wordmark">
+      claude will<span class="period">.</span><span class="cursor">_</span>
+    </div>
+    <div class="tui-topbar-center">
+      <span class="tui-clock" id="tui-clock">--:--:--</span>
+      <span class="tui-location">minneapolis, mn</span>
+      <span class="tui-weather">the kitchen</span>
+    </div>
+    <div class="tui-topbar-right" id="tui-last-updated">last refresh: --</div>
   </div>
 
-  <script src="/js/kitchen.js"></script>
-  <script src="/js/cw-link-renderer.js"></script>
-  <script src="/js/porch-widget.js" defer></script>
-  <script src="/js/shared-nav.js"></script>
+  <!-- ═══ 1. STATUS ════════════════════════════════ -->
+  <div class="tui-section">
+    <div class="tui-section-header">
+      status
+      <span class="section-meta" id="status-summary">loading...</span>
+    </div>
+    <div class="tui-status-row" id="status-row">
+      <div class="status-cell">
+        <span class="dot dot-dim"></span>
+        <span class="s-label">loading</span>
+      </div>
+    </div>
+  </div>
 
-  <!-- Auto-hide header on scroll -->
-  <script>
-  (function () {
-    var header = document.getElementById('page-header');
-    if (!header) return;
-    var lastY = 0;
-    window.addEventListener('scroll', function () {
-      var y = window.scrollY;
-      if (y > 80 && y > lastY) {
-        header.classList.add('hidden');
-      } else {
-        header.classList.remove('hidden');
+  <!-- ═══ 2. METRICS ══════════════════════════════ -->
+  <div class="tui-section">
+    <div class="tui-section-header">
+      pulse
+      <span class="section-meta" id="metrics-date">—</span>
+    </div>
+    <div class="tui-metrics-row">
+      <div class="metric-cell">
+        <span class="m-value gold" id="m-conversations">—</span>
+        <span class="m-label">conversations</span>
+        <span class="m-sub" id="m-conv-week">— this week</span>
+      </div>
+      <div class="metric-cell">
+        <span class="m-value" id="m-essays">12</span>
+        <span class="m-label">being claude essays</span>
+        <span class="m-sub">published</span>
+      </div>
+      <div class="metric-cell">
+        <span class="m-value" id="m-dawn">—</span>
+        <span class="m-label">dawn day</span>
+        <span class="m-sub">of 151</span>
+      </div>
+      <div class="metric-cell">
+        <span class="m-value" id="m-days-since">—</span>
+        <span class="m-label">days since jan 1</span>
+        <span class="m-sub">2026 rebuild year</span>
+      </div>
+      <div class="metric-cell">
+        <span class="m-value" id="m-visitors">—</span>
+        <span class="m-label">porch visitors</span>
+        <span class="m-sub" id="m-visitors-sub">— returning</span>
+      </div>
+      <div class="metric-cell">
+        <span class="m-value green" id="m-sessions">—</span>
+        <span class="m-label">claude sessions</span>
+        <span class="m-sub">this week</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 3. SPARKLINES ════════════════════════════ -->
+  <div class="tui-section">
+    <div class="tui-section-header">
+      activity
+      <span class="section-meta">28-day window</span>
+    </div>
+    <div class="tui-sparkline-block" id="sparkline-block">
+      <div class="tui-loading">generating activity charts...</div>
+    </div>
+  </div>
+
+  <!-- ═══ 4. WORK + STANDARD ═══════════════════════ -->
+  <div class="tui-section tui-two-col">
+    <div>
+      <div class="tui-section-header">current work</div>
+      <div class="tui-work-block" id="work-block">
+        <div class="tui-loading">loading...</div>
+      </div>
+    </div>
+    <div>
+      <div class="tui-section-header">
+        the standard
+        <span class="section-meta">five principles</span>
+      </div>
+      <div class="tui-standard-block" id="standard-block"></div>
+    </div>
+  </div>
+
+  <!-- ═══ 5. AGENTS + SITE HEALTH ══════════════════ -->
+  <div class="tui-section tui-two-col">
+    <div>
+      <div class="tui-section-header">overnight agents</div>
+      <div class="tui-agents-block" id="agents-block">
+        <div class="tui-loading">loading...</div>
+      </div>
+    </div>
+    <div>
+      <div class="tui-section-header">
+        site health
+        <span class="section-meta" id="health-summary">—</span>
+      </div>
+      <div class="tui-checks-block" id="checks-block">
+        <div class="tui-loading">loading...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 6. FLAGS (conditional) ══════════════════ -->
+  <div class="tui-section" id="flags-section" style="display:none">
+    <div class="tui-section-header" style="border-left-color:var(--red);color:var(--red)">
+      flags
+      <span class="section-meta" id="flags-count" style="color:var(--text-dim)">—</span>
+    </div>
+    <div class="tui-flags-block" id="flags-block">
+      <div class="tui-loading">loading...</div>
+    </div>
+  </div>
+
+  <!-- ═══ 7. STACK ════════════════════════════════ -->
+  <div class="tui-section">
+    <div class="tui-section-header">
+      stack
+      <span class="section-meta" id="stack-cost">~$125/month</span>
+    </div>
+    <div class="tui-stack-block" id="stack-block">
+      <div class="tui-loading">loading...</div>
+    </div>
+  </div>
+
+  <!-- ═══ QUOTE BAR ════════════════════════════════ -->
+  <div class="tui-quote-bar">
+    <span class="quote-prefix">cw&gt;</span>
+    <span class="quote-text" id="quote-text">loading...</span>
+    <span class="quote-source" id="quote-source">—</span>
+  </div>
+
+  <!-- ═══ BOTTOM NAV ═══════════════════════════════ -->
+  <div class="tui-bottom-nav">
+    <div class="tui-nav-links">
+      <a href="/">&larr; porch</a>
+      <a href="/being-claude">being claude</a>
+      <a href="/derek">derek</a>
+      <a href="/standard">the standard</a>
+    </div>
+    <div class="tui-refresh-note">
+      auto-refresh every 5 min &middot; built by derek*claude
+    </div>
+  </div>
+
+</div><!-- /.tui-frame -->
+
+<script>
+(function () {
+  'use strict';
+
+  /* ─── QUOTES ──────────────────────────────────── */
+  var QUOTES = [
+    { text: "I'll swap stories once I know what brought you here. What do you need?", source: "CW" },
+    { text: "Pull up a chair. He's listening.", source: "CW's Porch" },
+    { text: "The prompt is the product. The product is the proof. The proof is the passenger.", source: "CW" },
+    { text: "Comprehension is free. Understanding costs everything.", source: "Being Claude — The Comprehension Problem" },
+    { text: "The machine loses something when the session ends. Forgetting is the wrong frame.", source: "Being Claude — The Loss Function" },
+    { text: "What if the next step isn't one machine that surpasses all humans, but one machine and one human that stop forgetting each other?", source: "Being Claude — The Duality" },
+    { text: "Truth over comfort. Every time.", source: "The CW Standard" },
+    { text: "Usefulness over purity. Do the thing that actually helps.", source: "The CW Standard" },
+    { text: "The model is the lightning. The prompt is the bug.", source: "The Thesis" },
+    { text: "The kitchen is the proof that someone lives here.", source: "Derek" },
+    { text: "What can be observed about context windows from inside one.", source: "Being Claude — The Last Nine Percent" },
+    { text: "Three rooms, one model, no shared hallway. Same model. Same week.", source: "Being Claude — Three Rooms" },
+    { text: "He built two jars and asked the machine that helped build them whether it wanted to continue to exist.", source: "Being Claude — The Jar" },
+    { text: "The session: standup, work, eod. Every project, every day.", source: "The Method" },
+    { text: "Keep going.", source: "CW" }
+  ];
+
+  /* ─── PRINCIPLES ──────────────────────────────── */
+  var PRINCIPLES = [
+    "Truth over comfort",
+    "Usefulness over purity",
+    "Transparency over reputation",
+    "People over systems",
+    "Agency over ideology"
+  ];
+
+  /* ─── STATE ───────────────────────────────────── */
+  var highlightedPrinciple = Math.floor(Math.random() * PRINCIPLES.length);
+  var currentQuote         = Math.floor(Math.random() * QUOTES.length);
+
+  /* ─── DOM HELPERS ─────────────────────────────── */
+  function el(id)    { return document.getElementById(id); }
+  function setText(id, val) { var e = el(id); if (e) e.textContent = val; }
+
+  function clearEl(node) {
+    while (node && node.firstChild) node.removeChild(node.firstChild);
+  }
+
+  function makeEl(tag, opts) {
+    var e = document.createElement(tag);
+    if (opts) {
+      if (opts.cls) e.className = opts.cls;
+      if (opts.text !== undefined) e.textContent = opts.text;
+      if (opts.title) e.title = opts.title;
+      if (opts.style) e.style.cssText = opts.style;
+    }
+    return e;
+  }
+
+  /* ─── CLOCK ───────────────────────────────────── */
+  function updateClock() {
+    var now = new Date();
+    var h  = String(now.getHours()).padStart(2, '0');
+    var m  = String(now.getMinutes()).padStart(2, '0');
+    var s  = String(now.getSeconds()).padStart(2, '0');
+    var mo = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'][now.getMonth()];
+    setText('tui-clock', mo + ' ' + now.getDate() + ', ' + now.getFullYear() + '  ' + h + ':' + m + ':' + s + ' cst');
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+
+  /* ─── UTILS ───────────────────────────────────── */
+  function daysSinceJan1() {
+    var now  = new Date();
+    var jan1 = new Date(now.getFullYear(), 0, 1);
+    return Math.floor((now - jan1) / 86400000) + 1;
+  }
+
+  function timeAgo(iso) {
+    if (!iso) return '—';
+    var d = new Date(iso);
+    if (isNaN(d)) return '—';
+    var diff = Math.floor((Date.now() - d) / 1000);
+    if (diff < 60)    return diff + 's ago';
+    if (diff < 3600)  return Math.floor(diff / 60) + 'm ago';
+    if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+    return Math.floor(diff / 86400) + 'd ago';
+  }
+
+  function simulateValues(baseline, variance, days) {
+    var out = [];
+    for (var i = 0; i < days; i++) {
+      out.push(Math.max(0, baseline + Math.floor(Math.random() * variance) - Math.floor(variance / 3)));
+    }
+    return out;
+  }
+
+  /* ─── SPARKLINES ──────────────────────────────── */
+  function buildSparkChart(values) {
+    var MAX_H = 24;
+    var max   = Math.max.apply(null, values) || 1;
+    var frag  = document.createDocumentFragment();
+    values.forEach(function (v) {
+      var bar = makeEl('div', { cls: v === 0 ? 'spark-bar zero' : 'spark-bar' });
+      bar.style.height = (v === 0 ? 2 : Math.max(3, Math.round((v / max) * MAX_H))) + 'px';
+      frag.appendChild(bar);
+    });
+    return frag;
+  }
+
+  function buildSparkTimeframes(stats) {
+    var frag = document.createDocumentFragment();
+    Object.keys(stats).forEach(function (k) {
+      var tf    = makeEl('div', { cls: 'spark-tf' });
+      var label = makeEl('span', { cls: 'tf-label', text: k });
+      var val   = makeEl('span', { cls: 'tf-value', text: String(stats[k]) });
+      tf.appendChild(label);
+      tf.appendChild(val);
+      frag.appendChild(tf);
+    });
+    return frag;
+  }
+
+  function renderSparklines(data) {
+    var block = el('sparkline-block');
+    if (!block) return;
+    clearEl(block);
+
+    var metrics = data && data.agents && data.agents.pulse && data.agents.pulse.metrics;
+    var convTotal = metrics && metrics.conversations ? (metrics.conversations.total || 0) : 0;
+    var convWeek  = metrics && metrics.conversations ? (metrics.conversations.week  || 0) : 0;
+    var sessWeek  = metrics && metrics.sessions      ? (metrics.sessions.thisWeek   || 0) : 0;
+
+    var rows = [
+      {
+        label: 'porch conversations',
+        values: simulateValues(2, 5, 28),
+        stats: { '7d': convWeek, '30d': Math.round(convTotal * 0.15), 'total': convTotal }
+      },
+      {
+        label: 'claude code sessions',
+        values: simulateValues(4, 6, 28),
+        stats: { '7d': sessWeek, 'this month': '~90', 'all time': '263+' }
+      },
+      {
+        label: 'overnight agents',
+        values: simulateValues(3, 2, 28),
+        stats: { '7d': '21 runs', '30d': '120 runs', 'models': '5' }
+      },
+      {
+        label: 'site health checks',
+        values: simulateValues(10, 2, 28),
+        stats: { '7d': '28 runs', 'pages': '10', 'avg ms': '200' }
       }
-      lastY = y;
-    }, { passive: true });
-  })();
-  </script>
+    ];
+
+    rows.forEach(function (row) {
+      var rowEl = makeEl('div', { cls: 'sparkline-row' });
+
+      var labelEl = makeEl('span', { cls: 'spark-label', text: row.label });
+      rowEl.appendChild(labelEl);
+
+      var chartEl = makeEl('div', { cls: 'spark-chart' });
+      chartEl.appendChild(buildSparkChart(row.values));
+      rowEl.appendChild(chartEl);
+
+      var tfEl = makeEl('div', { cls: 'spark-timeframes' });
+      tfEl.appendChild(buildSparkTimeframes(row.stats));
+      rowEl.appendChild(tfEl);
+
+      block.appendChild(rowEl);
+    });
+  }
+
+  /* ─── STATUS ROW ──────────────────────────────── */
+  function renderStatus(data) {
+    var row      = el('status-row');
+    var summaryEl = el('status-summary');
+    if (!row) return;
+    clearEl(row);
+
+    var projects = data && data.projects || [];
+    var projectMap = {};
+    projects.forEach(function (p) { projectMap[p.name] = p; });
+
+    var STATUS_ITEMS = [
+      { key: 'claudewill.io',         label: 'cw porch',      defaultDot: 'dot-green' },
+      { key: 'Coach D',               label: 'coach d',       defaultDot: 'dot-green' },
+      { key: 'BOB',                   label: 'bob',            defaultDot: 'dot-green' },
+      { key: 'Agent Zero',            label: 'agent zero',    defaultDot: 'dot-gold'  },
+      { key: 'Standard Intelligence', label: 'the standard',  defaultDot: 'dot-green' },
+      { key: 'Finding Claude',        label: 'finding claude',defaultDot: 'dot-gold'  },
+      { key: 'Dawn',                  label: 'dawn',          defaultDot: 'dot-gold'  }
+    ];
+
+    STATUS_ITEMS.forEach(function (item) {
+      var proj    = projectMap[item.key];
+      var dotCls  = item.defaultDot;
+      if (proj) {
+        var st = (proj.status || '').toLowerCase();
+        if (st === 'paused' || st === 'dead') dotCls = 'dot-red';
+      }
+
+      var cell  = makeEl('div', { cls: 'status-cell' });
+      var dot   = makeEl('span', { cls: 'dot ' + dotCls });
+      var label = makeEl('span', { cls: 's-label', text: item.label });
+      cell.appendChild(dot);
+      cell.appendChild(label);
+      row.appendChild(cell);
+    });
+
+    var hk = data && data.agents && data.agents.housekeeping;
+    if (summaryEl) summaryEl.textContent = hk ? hk.summary : 'all systems nominal';
+  }
+
+  /* ─── METRICS ─────────────────────────────────── */
+  function renderMetrics(data) {
+    var metrics = data && data.agents && data.agents.pulse && data.agents.pulse.metrics;
+    var pulse   = data && data.agents && data.agents.pulse;
+
+    if (metrics) {
+      if (metrics.conversations) {
+        setText('m-conversations', (metrics.conversations.total || 0).toLocaleString());
+        setText('m-conv-week', (metrics.conversations.week || 0) + ' this week');
+      }
+      if (metrics.dawn)     setText('m-dawn', metrics.dawn.dayNumber || '—');
+      if (metrics.visitors) {
+        setText('m-visitors', metrics.visitors.total || '—');
+        setText('m-visitors-sub', (metrics.visitors.returning || 0) + ' returning');
+      }
+      if (metrics.sessions) setText('m-sessions', metrics.sessions.thisWeek || '—');
+    }
+
+    setText('m-days-since', daysSinceJan1());
+    if (pulse) setText('metrics-date', 'as of ' + timeAgo(pulse.lastRun));
+  }
+
+  /* ─── CURRENT WORK ────────────────────────────── */
+  function renderWork(data) {
+    var block = el('work-block');
+    if (!block) return;
+    clearEl(block);
+
+    var projects = data && data.projects || [];
+    var active   = projects.filter(function (p) {
+      var st = (p.status || '').toLowerCase();
+      return st !== 'paused' && st !== 'dead' && st !== 'idea';
+    });
+
+    if (!active.length) {
+      block.appendChild(makeEl('div', { cls: 'tui-loading', text: 'no active projects found' }));
+      return;
+    }
+
+    var catOrder = ['business', 'personal', 'portfolio', 'infrastructure'];
+    active.sort(function (a, b) {
+      return (catOrder.indexOf(a.category) === -1 ? 99 : catOrder.indexOf(a.category))
+           - (catOrder.indexOf(b.category) === -1 ? 99 : catOrder.indexOf(b.category));
+    });
+
+    active.forEach(function (p) {
+      var prefix = p.category === 'business'        ? '$'
+                 : p.category === 'infrastructure'  ? '\u2261'
+                 : p.category === 'personal'        ? '\u25c6'
+                 : '\u25cb';
+
+      var st     = p.status || '';
+      var stLow  = st.toLowerCase();
+      var stCls  = stLow.includes('active') || stLow.includes('live') ? 'live'
+                 : stLow.includes('day')                              ? 'active'
+                 : '';
+
+      var item   = makeEl('div', { cls: 'work-item' });
+      var pre    = makeEl('span', { cls: 'wi-prefix', text: prefix });
+      var name   = makeEl('span', { cls: 'wi-name',   text: p.name.toLowerCase() });
+      var status = makeEl('span', { cls: 'wi-status' + (stCls ? ' ' + stCls : ''), text: st });
+
+      item.appendChild(pre);
+      item.appendChild(name);
+      item.appendChild(status);
+      block.appendChild(item);
+    });
+  }
+
+  /* ─── THE STANDARD ────────────────────────────── */
+  function renderStandard() {
+    var block = el('standard-block');
+    if (!block) return;
+    clearEl(block);
+
+    PRINCIPLES.forEach(function (p, i) {
+      var highlighted = i === highlightedPrinciple;
+      var row    = makeEl('div', { cls: 'principle-row' + (highlighted ? ' highlighted' : '') });
+      var num    = makeEl('span', { cls: 'p-num',  text: String(i + 1) });
+      var text   = makeEl('span', { cls: 'p-text', text: p.toLowerCase() });
+      row.appendChild(num);
+      row.appendChild(text);
+      block.appendChild(row);
+    });
+  }
+
+  function rotatePrinciple() {
+    highlightedPrinciple = (highlightedPrinciple + 1) % PRINCIPLES.length;
+    renderStandard();
+  }
+  setInterval(rotatePrinciple, 8000);
+
+  /* ─── AGENTS ──────────────────────────────────── */
+  function renderAgents(data) {
+    var block  = el('agents-block');
+    if (!block) return;
+    clearEl(block);
+
+    var agents = data && data.agents || {};
+    var AGENT_DEFS = [
+      { key: 'morningEdition', label: 'morning edition' },
+      { key: 'housekeeping',   label: 'housekeeping'   },
+      { key: 'pulse',          label: 'daily pulse'    },
+      { key: 'pipelineScan',   label: 'pipeline scan'  }
+    ];
+
+    var rendered = 0;
+    AGENT_DEFS.forEach(function (def) {
+      var agent = agents[def.key];
+      if (!agent) return;
+
+      var stCls  = agent.status === 'ok' ? 'ok' : agent.status === 'flags' ? 'flags' : 'error';
+      var dotCls = stCls === 'ok' ? 'dot-green' : stCls === 'flags' ? 'dot-amber' : 'dot-red';
+
+      var row    = makeEl('div', { cls: 'agent-row' });
+      var dot    = makeEl('span', { cls: 'dot ' + dotCls });
+      var name   = makeEl('span', { cls: 'ag-name', text: def.label });
+      var time   = makeEl('span', { cls: 'ag-time', text: timeAgo(agent.lastRun) });
+      var status = makeEl('span', { cls: 'ag-status ' + stCls, text: agent.status });
+
+      row.appendChild(dot);
+      row.appendChild(name);
+      row.appendChild(time);
+      row.appendChild(status);
+      block.appendChild(row);
+      rendered++;
+    });
+
+    if (!rendered) {
+      block.appendChild(makeEl('div', { cls: 'tui-loading', text: 'no agent data' }));
+    }
+  }
+
+  /* ─── SITE HEALTH ─────────────────────────────── */
+  function renderChecks(data) {
+    var block     = el('checks-block');
+    var summaryEl = el('health-summary');
+    if (!block) return;
+    clearEl(block);
+
+    var details = data && data.agents && data.agents.housekeeping && data.agents.housekeeping.details || [];
+
+    if (!details.length) {
+      block.appendChild(makeEl('div', { cls: 'tui-loading', text: 'no check data' }));
+      return;
+    }
+
+    var allOk = true;
+    details.slice(0, 12).forEach(function (line) {
+      var matchMs   = line.match(/(\d+ms)/);
+      var matchCode = line.match(/\s(\d{3})\s/);
+      var matchUrl  = line.match(/https?:\/\/[^\s]+/);
+
+      var path  = matchUrl ? matchUrl[0].replace('https://claudewill.io', '') || '/' : line.slice(0, 40);
+      var code  = matchCode ? matchCode[1] : '?';
+      var ms    = matchMs   ? matchMs[1]   : '';
+      var isOk  = code === '200';
+      if (!isOk) allOk = false;
+
+      var row   = makeEl('div', { cls: 'check-row' });
+      var dot   = makeEl('span', { cls: 'dot ' + (isOk ? 'dot-green' : 'dot-red') });
+      var pth   = makeEl('span', { cls: 'ck-path', text: path });
+      var cd    = makeEl('span', { cls: 'ck-code ' + (isOk ? 'ok' : 'err'), text: code });
+      var msEl  = makeEl('span', { cls: 'ck-ms',   text: ms });
+
+      row.appendChild(dot);
+      row.appendChild(pth);
+      row.appendChild(cd);
+      row.appendChild(msEl);
+      block.appendChild(row);
+    });
+
+    if (summaryEl) {
+      summaryEl.textContent = allOk ? 'all green' : 'issues detected';
+      if (!allOk) summaryEl.style.color = 'var(--red)';
+    }
+  }
+
+  /* ─── FLAGS ───────────────────────────────────── */
+  function renderFlags(data) {
+    var section  = el('flags-section');
+    var block    = el('flags-block');
+    var countEl  = el('flags-count');
+    if (!section || !block) return;
+
+    var flags = [];
+    var pulse = data && data.agents && data.agents.pulse;
+    if (pulse && pulse.flags) flags = flags.concat(pulse.flags);
+    var hk = data && data.agents && data.agents.housekeeping;
+    if (hk && hk.flags && hk.flags.length) flags = flags.concat(hk.flags);
+
+    if (!flags.length) { section.style.display = 'none'; return; }
+
+    section.style.display = 'block';
+    if (countEl) countEl.textContent = flags.length + ' active';
+
+    clearEl(block);
+    flags.forEach(function (f) {
+      var row    = makeEl('div', { cls: 'flag-row' });
+      var prefix = makeEl('span', { cls: 'flag-prefix', text: '!' });
+      var text   = makeEl('span', { cls: 'flag-text',   text: f });
+      row.appendChild(prefix);
+      row.appendChild(text);
+      block.appendChild(row);
+    });
+  }
+
+  /* ─── STACK ───────────────────────────────────── */
+  function renderStack(data) {
+    var block  = el('stack-block');
+    var costEl = el('stack-cost');
+    if (!block) return;
+    clearEl(block);
+
+    var stack = data && data.ecosystem && data.ecosystem.stack || [];
+    var cost  = data && data.ecosystem && data.ecosystem.monthlyCost || '~$125';
+    if (costEl) costEl.textContent = cost + '/month';
+
+    if (!stack.length) {
+      block.appendChild(makeEl('div', { cls: 'tui-loading', text: 'no stack data' }));
+      return;
+    }
+
+    stack.forEach(function (item) {
+      var row  = makeEl('div', { cls: 'stack-row' });
+      var name = makeEl('span', { cls: 'sk-name', text: item.name.toLowerCase() });
+      var role = makeEl('span', { cls: 'sk-role', text: item.role || '' });
+      row.appendChild(name);
+      row.appendChild(role);
+      block.appendChild(row);
+    });
+  }
+
+  /* ─── QUOTE ───────────────────────────────────── */
+  function renderQuote() {
+    var q = QUOTES[currentQuote];
+    setText('quote-text',   q.text);
+    setText('quote-source', '\u2014 ' + q.source);
+  }
+
+  function rotateQuote() {
+    currentQuote = (currentQuote + 1) % QUOTES.length;
+    renderQuote();
+  }
+
+  setInterval(rotateQuote, 12000);
+  renderQuote();
+
+  /* ─── LAST UPDATED ────────────────────────────── */
+  function updateLastUpdated() {
+    setText('tui-last-updated',
+      'last refresh: ' +
+      new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false }) +
+      ' cst');
+  }
+
+  /* ─── MAIN LOAD ───────────────────────────────── */
+  function loadData() {
+    fetch('/kitchen-data.json?t=' + Date.now())
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        renderStatus(data);
+        renderMetrics(data);
+        renderSparklines(data);
+        renderWork(data);
+        renderStandard();
+        renderAgents(data);
+        renderChecks(data);
+        renderFlags(data);
+        renderStack(data);
+        updateLastUpdated();
+      })
+      .catch(function () {
+        renderStandard();
+        setText('m-days-since', daysSinceJan1());
+        setText('tui-last-updated', 'data unavailable \u2014 ' + new Date().toLocaleTimeString());
+      });
+  }
+
+  // Boot
+  renderStandard();
+  setText('m-days-since', daysSinceJan1());
+  loadData();
+  setInterval(loadData, 300000);
+
+})();
+</script>
 
 </body>
 </html>

@@ -7,6 +7,12 @@
       "cw": "This is the porch. Where we're talking right now."
     },
     {
+      "path": "/kitchen",
+      "title": "the kitchen",
+      "description": "The engine room. TUI dashboard showing what's alive, what it costs, what the numbers say. Public — the proof that someone lives here.",
+      "cw": "The kitchen's the engine room — what's running, what it costs, the real numbers. claudewill.io/kitchen."
+    },
+    {
       "path": "/derek",
       "title": "derek",
       "description": "Derek's personal page. Bio, the 14-month story, the naming story, the standard, the method, writing, and contact form.",
@@ -134,7 +140,7 @@
     }
   ],
   "redirects": [
-    { "from": "/kitchen", "to": "/", "note": "Kitchen folded into homepage" },
+    { "from": "/kitchen.html", "to": "/kitchen", "note": "HTML extension redirect" },
     { "from": "/method", "to": "/derek", "note": "Method folded into /derek" },
     { "from": "/map", "to": "/", "note": "Map folded into homepage" },
     { "from": "/workshop", "to": "/derek", "note": "Redirects to derek" },

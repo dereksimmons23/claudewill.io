@@ -237,18 +237,8 @@
   status = 301
   force = true
 
-# Simplified — March 28, 2026
-[[redirects]]
-  from = "/kitchen"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/kitchen/"
-  to = "/"
-  status = 301
-  force = true
+# Kitchen is live — March 30, 2026
+# (removed redirects that were blocking /kitchen and /kitchen/)
 
 [[redirects]]
   from = "/method"
