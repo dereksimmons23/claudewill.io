@@ -325,6 +325,42 @@ function main() {
   console.log(`  Pulse: ${pulse.status}`)
   console.log(`  Pipeline Scan: ${pipelineScan.status}`)
   console.log(`  Projects: ${projects.length}`)
+
+  // Update cw-current.json — preserve existing summary/upcoming, refresh date and recent
+  const currentPath = join(REPO_ROOT, 'cw-current.json')
+  let cwCurrent = {}
+  if (existsSync(currentPath)) {
+    try {
+      cwCurrent = JSON.parse(readFileSync(currentPath, 'utf-8'))
+    } catch {
+      cwCurrent = {}
+    }
+  }
+
+  // Build fresh recent array from overnight agent findings
+  const freshRecent = []
+  if (morningEdition.summary && morningEdition.status !== 'not-configured') {
+    freshRecent.push(`Morning Edition (${date}): ${morningEdition.summary}`)
+  }
+  if (pipelineScan.flags && pipelineScan.flags.length > 0) {
+    freshRecent.push(...pipelineScan.flags.slice(0, 2))
+  }
+  if (pulse.metrics && pulse.metrics.conversations) {
+    freshRecent.push(`Porch conversations: ${pulse.metrics.conversations.total} total, ${pulse.metrics.conversations.week} this week`)
+  }
+
+  // Use fresh recent if we got meaningful data, otherwise preserve existing
+  const recentToWrite = freshRecent.length > 0 ? freshRecent : (cwCurrent.recent || [])
+
+  cwCurrent = {
+    updated: date,
+    summary: cwCurrent.summary || '',
+    recent: recentToWrite,
+    upcoming: cwCurrent.upcoming || [],
+  }
+
+  writeFileSync(currentPath, JSON.stringify(cwCurrent, null, 2) + '\n')
+  console.log(`[${date}] cw-current.json updated.`)
 }
 
 main()

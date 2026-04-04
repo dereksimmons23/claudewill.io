@@ -40,6 +40,13 @@ function getLiveSiteKnowledge() {
       parts.push('Being Claude essays published: ' + essays.length + ' (' + essays.join(', ') + ')');
     }
 
+    // Read cw-current.json for auto-updated current state (written by overnight agents)
+    const currentPath = path.join(rootDir, 'cw-current.json');
+    if (fs.existsSync(currentPath)) {
+      const current = JSON.parse(fs.readFileSync(currentPath, 'utf8'));
+      parts.push('CURRENT STATE (auto-updated daily):\n' + current.summary);
+    }
+
     return parts.length > 0 ? '\n\nLIVE SITE STATE (auto-updated, overrides any static knowledge above):\n' + parts.join('\n\n') : '';
   } catch (err) {
     return '';
