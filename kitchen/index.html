@@ -1118,6 +1118,8 @@
     if (pulse && pulse.flags) flags = flags.concat(pulse.flags);
     var hk = data && data.agents && data.agents.housekeeping;
     if (hk && hk.flags && hk.flags.length) flags = flags.concat(hk.flags);
+    var ps = data && data.agents && data.agents.pipelineScan;
+    if (ps && ps.flags && ps.flags.length) flags = flags.concat(ps.flags);
 
     if (!flags.length) { section.style.display = 'none'; return; }
 
