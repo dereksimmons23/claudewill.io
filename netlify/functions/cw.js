@@ -90,6 +90,24 @@ const rateLimiter = {
 };
 
 // ── CW Remembers — Visitor Context ─────────────────────
+// STATUS AUDIT (March 30, 2026):
+// WORKING:
+//   - visitorToken generated in porch-widget.js localStorage, sent in every request body
+//   - getVisitorContext: reads visitors + visitor_notes tables (porch mode only)
+//   - New visitor record created on first message (insert to visitors)
+//   - Returning visitor: last_visit + visit_count updated on first message of session
+//   - Past notes (up to 5) injected into system prompt via buildVisitorPrompt
+//   - handleCloseSession: summarizes conversation via Haiku, writes to visitor_notes
+//   - Name detection: Haiku extracts first name from conversation, stored in visitors.name
+//   - Recurring tag analysis: tags counted across notes, shown to CW if 2+ occurrences
+// GAPS / NOT YET IMPLEMENTED:
+//   - No UI for visitors to see or clear their own data (privacy gap — policy says they can)
+//   - Vernie gate validation call does not send visitorToken (acceptable — not a real convo)
+//   - visitor_notes has no max cap; could grow unbounded for very frequent visitors
+//   - No degrade/expire path for old visitor_notes (unlike session_memories dimmer switch)
+//   - buildVisitorPrompt assumes visitor.last_visit is non-null on returning visitors —
+//     if last_visit is null (edge case on insert race), toLocaleDateString will throw
+// SUPABASE TABLES CONFIRMED: visitors, visitor_notes (RLS: anon can SELECT + INSERT)
 
 async function getVisitorContext(visitorToken, isFirstMessage) {
   if (!supabase || !visitorToken) return null;
@@ -329,7 +347,7 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    let { messages, condition, vernieCode, mode, kitchenCode, action, visitorToken, sessionId: bodySessionId } = JSON.parse(event.body);
+    let { messages, condition, vernieCode, mode, kitchenCode, action, visitorToken, sessionId: bodySessionId, healthCheck } = JSON.parse(event.body);
 
     // Handle close-session action (from sendBeacon on tab close)
     // Must await — Netlify kills the function after return, so fire-and-forget never completes
@@ -465,13 +483,14 @@ exports.handler = async (event, context) => {
 
     const cwResponse = response.content[0].text;
 
-    // Log conversation (non-blocking)
+    // Log conversation (non-blocking) — skip if healthCheck flag is set
     const userMessage = messages[messages.length - 1]?.content || '';
     const sessionId = event.headers['x-session-id'] || 'unknown';
     const ipHash = createSimpleHash(ip);
 
     // Await logging — Netlify kills function after return, fire-and-forget is unreliable
-    await logConversation({
+    // healthCheck: true skips logging so autonomous health pings don't pollute conversation tables
+    if (!healthCheck) await logConversation({
       userMessage,
       cwResponse,
       condition: isKitchenMode ? 'kitchen' : (condition || 'clear'),

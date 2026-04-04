@@ -207,6 +207,7 @@
     panelOpen = false;
     panel.classList.remove('open');
     widget.style.display = '';
+    resetPanelSize();
   }
 
   // ── Messages ───────────────────────────────────────
@@ -443,6 +444,40 @@
         closePanel();
       }
     });
+  }
+
+  // ── Mobile keyboard: resize chat panel when virtual keyboard opens ──
+  // Uses visualViewport API to avoid the chat being hidden under the keyboard.
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', function () {
+      if (!panelOpen) return;
+      var vvh = window.visualViewport.height;
+      var vvt = window.visualViewport.offsetTop;
+      // Position panel to fit within the visible viewport
+      panel.style.height = vvh + 'px';
+      panel.style.top = vvt + 'px';
+      panel.style.bottom = 'auto';
+      // Scroll messages to latest after resize
+      var messages = document.getElementById('porch-messages');
+      if (messages) messages.scrollTop = messages.scrollHeight;
+    });
+
+    window.visualViewport.addEventListener('scroll', function () {
+      if (!panelOpen) return;
+      var vvh = window.visualViewport.height;
+      var vvt = window.visualViewport.offsetTop;
+      panel.style.height = vvh + 'px';
+      panel.style.top = vvt + 'px';
+      panel.style.bottom = 'auto';
+    });
+  }
+
+  // Reset panel sizing when keyboard closes (viewport back to full height)
+  function resetPanelSize() {
+    if (!panel) return;
+    panel.style.height = '';
+    panel.style.top = '';
+    panel.style.bottom = '';
   }
 
   // Expose API for external triggers (e.g. homepage invitation CTA)
