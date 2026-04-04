@@ -65,9 +65,11 @@
   font-weight: 600;
   color: #f0f0f0;
   text-decoration: none;
-  padding: 0.5rem 0;
+  padding: 0.75rem 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
   transition: color 0.2s;
-  display: block;
 }
 
 .cw-palette-section:visited { color: #f0f0f0; }
@@ -86,9 +88,11 @@
   font-size: 0.9rem;
   color: #9ca3af;
   text-decoration: none;
-  padding: 0.3rem 0 0.3rem 1.5rem;
+  padding: 0.6rem 0 0.6rem 1.5rem;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
   transition: color 0.2s;
-  display: block;
 }
 
 .cw-palette-item:visited { color: #9ca3af; }
@@ -129,7 +133,11 @@
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--dim, #6b7280);
-  padding: 0.25rem 0.5rem;
+  padding: 0.75rem 0.75rem;
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
   line-height: 1;
   transition: color 0.2s;
 }
@@ -306,8 +314,10 @@ a.hw:hover { opacity: 1; text-shadow: 0 0 8px rgba(212, 168, 75, 0.6); }
 }
 
 .page-dropdown a {
-  display: block;
-  padding: 0.4rem 1.2rem;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.6rem 1.2rem;
   font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
   font-size: 0.8rem;
   color: var(--dim, #6b7280);
@@ -327,7 +337,11 @@ a.hw:hover { opacity: 1; text-shadow: 0 0 8px rgba(212, 168, 75, 0.6); }
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   transition: color 0.2s;
   flex: 1;
   text-align: right;

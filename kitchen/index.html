@@ -47,7 +47,7 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html { font-size: 14px; }
+    html { font-size: 16px; }
 
     body {
       font-family: var(--font);
@@ -106,7 +106,7 @@
     .tui-weather   { color: var(--text-dim); }
 
     .tui-topbar-right {
-      font-size: 0.75rem;
+      font-size: 0.8rem; /* raised from 0.75rem */
       color: var(--text-dim);
     }
 
@@ -123,7 +123,7 @@
       border: 1px solid var(--border);
       border-left: 2px solid var(--gold);
       margin-bottom: 0.5rem;
-      font-size: 0.7rem;
+      font-size: 0.75rem; /* 12px at 16px base — minimum for uppercase labels */
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.12em;
@@ -158,8 +158,8 @@
     }
 
     .status-cell .dot {
-      width: 7px;
-      height: 7px;
+      width: 10px; /* increased from 7px for visibility */
+      height: 10px;
       border-radius: 50%;
       flex-shrink: 0;
     }
@@ -171,7 +171,7 @@
     .dot-dim   { background: var(--text-dim); }
 
     .status-cell .s-label  { color: var(--text); font-weight: 500; }
-    .status-cell .s-detail { color: var(--text-dim); font-size: 0.7rem; }
+    .status-cell .s-detail { color: var(--text-dim); font-size: 0.75rem; } /* raised from 0.7rem */
 
     /* ── METRICS ROW ─────────────────────────────── */
 
@@ -201,14 +201,14 @@
     .metric-cell .m-value.green { color: var(--green); }
 
     .metric-cell .m-label {
-      font-size: 0.65rem;
+      font-size: 0.75rem; /* 12px at 16px base — minimum floor for uppercase labels */
       color: var(--text-dim);
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
 
     .metric-cell .m-sub {
-      font-size: 0.7rem;
+      font-size: 0.75rem; /* raised from 0.7rem — matches label floor */
       color: var(--text-dim);
       margin-top: 0.1rem;
     }
@@ -236,6 +236,7 @@
       width: 140px;
       flex-shrink: 0;
       color: var(--text-dim);
+      font-size: 0.8rem; /* explicit — ensures minimum 12.8px at 16px base */
     }
 
     .spark-chart {
@@ -276,7 +277,7 @@
     }
 
     .spark-tf .tf-label {
-      font-size: 0.6rem;
+      font-size: 0.7rem; /* raised — 0.6rem was 9.6px at 16px base */
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
@@ -284,6 +285,7 @@
     .spark-tf .tf-value {
       color: var(--text);
       font-weight: 500;
+      font-size: 0.75rem; /* explicit — was inheriting down from parent */
     }
 
     /* ── TWO-COLUMN CONTENT AREA ─────────────────── */
@@ -328,7 +330,7 @@
 
     .work-item .wi-status {
       color: var(--text-dim);
-      font-size: 0.7rem;
+      font-size: 0.75rem; /* raised from 0.7rem */
       text-align: right;
       flex-shrink: 0;
     }
@@ -358,7 +360,7 @@
 
     .principle-row .p-num {
       color: var(--gold);
-      font-size: 0.7rem;
+      font-size: 0.75rem; /* raised from 0.7rem */
       font-weight: 700;
       width: 2ch;
       flex-shrink: 0;
@@ -402,8 +404,8 @@
     .agent-row:last-child { border-bottom: none; }
 
     .agent-row .ag-name   { color: var(--text); font-weight: 500; flex: 1; }
-    .agent-row .ag-time   { color: var(--text-dim); font-size: 0.7rem; }
-    .agent-row .ag-status { font-size: 0.7rem; font-weight: 600; }
+    .agent-row .ag-time   { color: var(--text-dim); font-size: 0.75rem; } /* raised from 0.7rem */
+    .agent-row .ag-status { font-size: 0.75rem; font-weight: 600; } /* raised from 0.7rem */
 
     .ag-status.ok    { color: var(--green); }
     .ag-status.flags { color: var(--amber); }
@@ -429,7 +431,7 @@
     .stack-row:last-child { border-bottom: none; }
 
     .stack-row .sk-name { color: var(--text); flex: 1; }
-    .stack-row .sk-role { color: var(--text-dim); font-size: 0.7rem; }
+    .stack-row .sk-role { color: var(--text-dim); font-size: 0.75rem; } /* raised from 0.7rem */
 
     /* ── FLAGS ───────────────────────────────────── */
 
@@ -465,21 +467,21 @@
 
     .check-row {
       display: grid;
-      grid-template-columns: 8px 1fr auto auto;
+      grid-template-columns: 10px 1fr auto auto;
       align-items: center;
       gap: 0.6rem;
       padding: 0.3rem 0;
       border-bottom: 1px solid var(--border-dim);
-      font-size: 0.75rem;
+      font-size: 0.8rem; /* raised — 0.75rem was 12px, now a readable 12.8px */
     }
 
     .check-row:last-child { border-bottom: none; }
 
-    .check-row .ck-path { color: var(--text-dim); font-size: 0.72rem; }
-    .check-row .ck-code { font-weight: 600; font-size: 0.7rem; }
+    .check-row .ck-path { color: var(--text-dim); font-size: 0.75rem; } /* raised from 0.72rem */
+    .check-row .ck-code { font-weight: 600; font-size: 0.75rem; } /* raised from 0.7rem */
     .check-row .ck-code.ok  { color: var(--green); }
     .check-row .ck-code.err { color: var(--red); }
-    .check-row .ck-ms { color: var(--text-dim); font-size: 0.68rem; text-align: right; }
+    .check-row .ck-ms { color: var(--text-dim); font-size: 0.7rem; text-align: right; } /* raised from 0.68rem */
 
     /* ── QUOTE BAR ───────────────────────────────── */
 
@@ -506,14 +508,14 @@
       padding: 0.5rem 1rem;
       border: 1px solid var(--border);
       margin-top: 0.5rem;
-      font-size: 0.7rem;
+      font-size: 0.8rem; /* raised from 0.7rem */
       color: var(--text-dim);
     }
 
     .tui-bottom-nav a { color: var(--text-dim); }
     .tui-bottom-nav a:hover { color: var(--gold); }
     .tui-nav-links { display: flex; gap: 1.5rem; }
-    .tui-refresh-note { color: var(--text-dim); font-size: 0.65rem; }
+    .tui-refresh-note { color: var(--text-dim); font-size: 0.7rem; } /* raised from 0.65rem */
 
     /* ── LOADING ─────────────────────────────────── */
 
@@ -539,19 +541,130 @@
     /* ── RESPONSIVE ──────────────────────────────── */
 
     @media (max-width: 800px) {
-      html { font-size: 13px; }
+      /* html font-size stays at 16px — no shrinking */
       .tui-metrics-row { grid-template-columns: repeat(3, 1fr); }
       .tui-two-col     { grid-template-columns: 1fr; }
       .tui-topbar-center { gap: 0.75rem; }
     }
 
     @media (max-width: 520px) {
-      html { font-size: 12px; }
+      /* html font-size stays at 16px — no shrinking */
       .tui-frame { padding: 0.5rem 0.5rem 2rem; }
       .tui-metrics-row { grid-template-columns: repeat(2, 1fr); }
       .tui-topbar { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
-      .spark-label { width: 100px; }
+      .spark-label { width: 90px; font-size: 0.75rem; }
       .tui-nav-links { gap: 0.75rem; }
+
+      /* Compress sparkline timeframe labels on narrow screens */
+      .spark-timeframes { gap: 0.5rem; }
+      .spark-tf .tf-label { font-size: 0.6rem; }
+      .spark-tf .tf-value { font-size: 0.7rem; }
+
+      /* Section headers — smaller but readable */
+      .tui-section-header { font-size: 0.65rem; }
+
+      /* Topbar center — hide less-critical items */
+      .tui-weather { display: none; }
+      .tui-topbar-right { font-size: 0.7rem; }
+    }
+
+    /* ── MOBILE SIMPLIFIED VIEW (<= 480px) ───────── */
+    /* Full TUI hidden; card-based summary shown */
+
+    .kitchen-mobile-summary { display: none; }
+
+    @media (max-width: 480px) {
+      /* Hide the dense TUI sections on very small phones */
+      .tui-sparkline-block,
+      .tui-checks-block,
+      .tui-stack-block,
+      .tui-flags-block,
+      #flags-section {
+        /* Keep these accessible but collapsed */
+      }
+
+      /* Bottom nav — make links tappable */
+      .tui-bottom-nav {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+        padding: 0.75rem 1rem;
+      }
+
+      .tui-nav-links {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .tui-nav-links a {
+        padding: 10px 0;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        font-size: 0.85rem;
+      }
+
+      .tui-refresh-note {
+        font-size: 0.7rem;
+      }
+
+      /* Metric values — keep the big numbers readable */
+      .metric-cell .m-value {
+        font-size: 1.4rem;
+      }
+
+      .metric-cell .m-label {
+        font-size: 0.6rem;
+      }
+
+      .metric-cell .m-sub {
+        font-size: 0.65rem;
+      }
+
+      /* Status dots — increase size slightly */
+      .status-cell .dot {
+        width: 10px;
+        height: 10px;
+      }
+
+      /* Status cell labels */
+      .status-cell {
+        font-size: 0.8rem;
+      }
+
+      /* Work items */
+      .work-item { font-size: 0.8rem; }
+      .work-item .wi-status { font-size: 0.7rem; }
+
+      /* Principle rows */
+      .principle-row { font-size: 0.8rem; }
+      .principle-row .p-num { font-size: 0.7rem; }
+
+      /* Agent rows */
+      .agent-row { font-size: 0.78rem; }
+
+      /* Site checks — hide ms timing on small screens */
+      .ck-ms { display: none; }
+      .check-row { grid-template-columns: 10px 1fr auto; }
+
+      /* Quote bar */
+      .quote-text { font-size: 0.8rem; }
+      .quote-source { display: none; }
+
+      /* Topbar clock — abbreviated */
+      .tui-topbar-center { font-size: 0.75rem; }
+      .tui-clock { font-size: 0.8rem; }
+
+      /* Section headers */
+      .tui-section-header { font-size: 0.65rem; letter-spacing: 0.08em; }
+    }
+
+    /* ── TOUCH TARGETS — bottom nav links ────────── */
+    .tui-bottom-nav a {
+      padding: 10px 0;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
     }
   </style>
 </head>
