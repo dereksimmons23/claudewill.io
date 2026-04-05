@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-04-04T11:10:56.020Z",
+  "lastUpdated": "2026-04-05T11:11:48.130Z",
   "agents": {
     "morningEdition": {
       "name": "Morning Edition",
-      "lastRun": "2026-04-04T11:10:56.020Z",
+      "lastRun": "2026-04-05T11:11:48.130Z",
       "status": "ok",
-      "summary": "Economists Are Drawing Stronger Connections Between A.I. and Jobs",
+      "summary": "How A.I. Helped One Man (and His Brother) Build a $1.8 Billion Company",
       "flags": [],
       "sections": {
         "Headlines": {
@@ -29,48 +29,47 @@
           "status": "not configured"
         }
       },
-      "findings": "12 headlines curated across 5 topics. 8 AI citations. 14 business sources."
+      "findings": "12 headlines curated across 5 topics. 8 AI citations. 9 business sources."
     },
     "housekeeping": {
       "name": "Housekeeping",
-      "lastRun": "2026-04-04T11:10:56.020Z",
+      "lastRun": "2026-04-05T11:11:48.130Z",
       "status": "flags",
-      "summary": "9/10 pages up. 1 down.",
+      "summary": "All 10 pages + 2 subdomains responding. Avg 381ms.",
       "flags": [
-        "https://claudewill.io/story is DOWN (fetch failed)",
         "Prompt dead link: netlify/functions/cw-prompt/site-knowledge.md references /library"
       ],
       "details": [
-        "https://claudewill.io/ — 200 20ms",
-        "https://claudewill.io/derek — 200 37ms",
-        "https://claudewill.io/story — DOWN: fetch failed",
-        "https://claudewill.io/workshop — 200 123ms",
-        "https://claudewill.io/privacy — 200 36ms",
-        "https://claudewill.io/terms — 200 145ms",
-        "https://claudewill.io/kitchen — 200 708ms",
-        "https://claudewill.io/arcade — 200 678ms",
-        "https://claudewill.io/map — 200 672ms",
-        "https://claudewill.io/being-claude — 200 964ms",
-        "Coach D (https://coach.claudewill.io) — 200 456ms",
-        "BOB (https://bob.claudewill.io) — 200 33ms"
+        "https://claudewill.io/ — 200 16ms",
+        "https://claudewill.io/derek — 200 179ms",
+        "https://claudewill.io/story — 200 642ms",
+        "https://claudewill.io/workshop — 200 250ms",
+        "https://claudewill.io/privacy — 200 628ms",
+        "https://claudewill.io/terms — 200 622ms",
+        "https://claudewill.io/kitchen — 200 276ms",
+        "https://claudewill.io/arcade — 200 682ms",
+        "https://claudewill.io/map — 200 136ms",
+        "https://claudewill.io/being-claude — 200 378ms",
+        "Coach D (https://coach.claudewill.io) — 200 830ms",
+        "BOB (https://bob.claudewill.io) — 200 403ms"
       ]
     },
     "pulse": {
       "name": "Daily Pulse",
-      "lastRun": "2026-04-04T11:10:07.944Z",
+      "lastRun": "2026-04-05T11:11:00.056Z",
       "status": "flags",
-      "summary": "673 conversations, 7 visitors, 0 D sessions",
+      "summary": "682 conversations, 8 visitors, 0 D sessions",
       "flags": [
         "6 visitors in 3.5 months. Distribution is the gap.",
         "D has zero real users. Paywall is built. Stripe is not.",
-        "Dawn: 21 days since last entry.",
+        "Dawn: 22 days since last entry.",
         "$0 from D. $0 from the practice. Cascadia is the only income."
       ],
       "metrics": {
         "conversations": {
-          "total": 673,
-          "week": 11,
-          "today": 2
+          "total": 682,
+          "week": 20,
+          "today": 0
         },
         "d": {
           "total": 0,
@@ -78,37 +77,37 @@
           "today": 0
         },
         "visitors": {
-          "total": 7,
+          "total": 8,
           "returning": 3,
           "named": 2
         },
         "sessions": {
-          "thisWeek": 28,
-          "avgWeight": 6.7,
+          "thisWeek": 30,
+          "avgWeight": 6.9,
           "byProject": {
+            "writing": 2,
             "agent-zero": 1,
-            "cascadia": 5,
-            "dawn": 7,
-            "writing": 1,
-            "desktop": 14
+            "cascadia": 4,
+            "dawn": 5,
+            "desktop": 18
           }
         },
         "dawn": {
           "dayNumber": 74,
           "raidRate": "3/6",
-          "daysSinceEntry": 21
+          "daysSinceEntry": 22
         }
       }
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-04-04T11:10:56.020Z",
+      "lastRun": "2026-04-05T11:11:48.130Z",
       "status": "flags",
       "summary": "**Pipeline:** 7 items (3 draft, 2 planned, 1 idea, 1 in-progress)",
       "flags": [
-        "Being Claude #11: The Manual: draft for 23 days — review or reject",
-        "Being Claude: The Scoreboard: draft for 31 days — review or reject",
-        "Being Claude: The Brightness (warm/hot/cold): draft for 31 days — review or reject"
+        "Being Claude #11: The Manual: draft for 24 days — review or reject",
+        "Being Claude: The Scoreboard: draft for 32 days — review or reject",
+        "Being Claude: The Brightness (warm/hot/cold): draft for 32 days — review or reject"
       ]
     }
   },
