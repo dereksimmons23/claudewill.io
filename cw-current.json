@@ -1,16 +1,22 @@
 {
   "updated": "2026-04-05",
-  "summary": "Derek is home in Minnesota after a week in Bellingham (Cascadia magazine) and a train ride on the Empire Builder. Being Claude #13 (The Dimmer Switch) just published. The Kitchen TUI is live at /kitchen. 13 Being Claude essays published. Lightning/Bug film targeting Runway AI Festival April 20. The book Claude Will. comes out June 28. Derek writes, makes films, and builds language models. He occasionally consults for media organizations that interest him.",
+  "summary": "Derek is home in Minnesota. Jackson turns 21 today — Dispatch #8 (Easy Ice) published on Substack. Being Claude #13 (The Dimmer Switch) published this week. The Kitchen TUI is live at /kitchen. 13 Being Claude essays published. Lightning/Bug film targeting Runway AI Festival April 20. The book Claude Will. compiles April 29 — two years from the garage. Derek writes, makes films, and builds language models. He occasionally consults for media organizations that interest him.",
   "recent": [
-    "Morning Edition (2026-04-05): How A.I. Helped One Man (and His Brother) Build a $1.8 Billion Company",
-    "Being Claude #11: The Manual: draft for 24 days — review or reject",
-    "Being Claude: The Scoreboard: draft for 32 days — review or reject",
-    "Porch conversations: 682 total, 20 this week"
+    "Dispatch #8: Easy Ice published April 5 (Jackson turns 21)",
+    "Being Claude #13: The Dimmer Switch published April 3",
+    "Kitchen TUI dashboard live and mobile-accessible",
+    "CW porch fixed: knows all 13 essays, mobile keyboard, soft retention",
+    "Book production plan: April 29 compilation, Option D voice, 8-model pipeline",
+    "3,934 training examples for Standard Intelligence model",
+    "PAPJ site updated with Meredith edits, Hot Type live, credential flow fixed"
   ],
   "upcoming": [
-    "Dispatch #8: Easy Ice (Jackson turns 21) — April 5",
+    "PAPJ call with Meredith — April 6",
     "PAPJ panel presentation — April 9",
+    "Dispatch #9: Jordy — April 12",
     "Runway AI Film Festival deadline — April 20",
+    "Book prompt locks — April 25",
+    "Book compilation day — April 29",
     "Book: Claude Will. — June 28"
   ]
 }
