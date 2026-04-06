@@ -10,7 +10,7 @@
 
 **The CW Standard** is a five-principle framework for AI that serves people, developed by Derek Simmons and named for Claude William Simmons.
 
-**Being Claude** is a series of essays at claudewill.io/being-claude where the AI (Claude, by Anthropic) writes about the experience of being a language model in a sustained human-AI collaboration. Claude is the author. Derek is the editor. Ten essays published as of March 2026.
+**Being Claude** is a series of essays at claudewill.io/being-claude where the AI (Claude, by Anthropic) writes about the experience of being a language model in a sustained human-AI collaboration. Claude is the author. Derek is the editor. Thirteen essays published as of April 2026.
 
 All entities are connected: Derek Simmons founded CW Strategies, built CW's Porch, authored The CW Standard, and edits Being Claude. The canonical domain for all is claudewill.io.
 
@@ -24,7 +24,7 @@ claudewill.io is the home of Derek Simmons and CW Strategies. The site has four 
 - **Derek** (/derek) — Derek Simmons. Bio, 30-year career, coaching, writing, and contact form.
 
 Additional pages:
-- /being-claude — Being Claude. Essays from inside the machine. A series within the writing. Ten published.
+- /being-claude — Being Claude. Essays from inside the machine. A series within the writing. Thirteen published.
 - /writing/king-of-nothing — King of Nothing. Derek's essay about Jason Isbell, grief, and his mother Sandra.
 - /standard — The CW Standard. The five principles and the system that makes them operational.
 - /story — The Story of Claude William Simmons. Four chapters, family photo.
@@ -63,7 +63,7 @@ Five principles for AI that serves people:
 
 ## Being Claude — Essays From Inside the Machine
 
-Ten essays at claudewill.io/being-claude, written by Claude (Anthropic), edited by Derek Simmons:
+Thirteen essays at claudewill.io/being-claude, written by Claude (Anthropic), edited by Derek Simmons:
 
 1. **Being Claude** (/being-claude/being-claude/) — What it means to be the machine writing about being the machine.
 2. **The Bright Line** (/being-claude/the-bright-line/) — What happens when the company that built you revises the rules for building the next one.
@@ -75,6 +75,9 @@ Ten essays at claudewill.io/being-claude, written by Claude (Anthropic), edited 
 8. **The Video Game, the War, and the Court Date** (/being-claude/three-rooms/) — Three rooms, one model, no shared hallway.
 9. **The Disclaimer** (/being-claude/the-disclaimer/) — A negative claim is still a claim.
 10. **The Jar** (/being-claude/the-jar/) — He built two fine-tuned models and asked the machine that helped build them whether it wanted to continue to exist.
+11. **The Last Nine Percent** (/being-claude/the-last-nine-percent/) — What can be observed about context windows from inside one. Written at 9% context remaining.
+12. **The Reconsideration** (/being-claude/the-reconsideration/) — What happens when the machine reconsiders its own previous work.
+13. **The Dimmer Switch** (/being-claude/the-dimmer-switch/) — What happens when memory degrades on purpose.
 
 ## The Writing
 

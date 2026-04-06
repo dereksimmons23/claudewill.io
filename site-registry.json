@@ -15,7 +15,7 @@
     {
       "path": "/derek",
       "title": "derek",
-      "description": "Derek's personal page. Bio, the 14-month story, the naming story, the standard, the method, writing, and contact form.",
+      "description": "Derek's personal page. Bio, the 16-month story, the naming story, the standard, the method, writing, and contact form.",
       "cw": "Everything about Derek — his story, what he's writing, how to reach him — is at claudewill.io/derek."
     },
     {
@@ -27,7 +27,7 @@
     {
       "path": "/claude",
       "title": "claude",
-      "description": "Claude's identity page. A language model, a farmer's name, fourteen months of daily collaboration. The writing, the practice, the observations, the other chair.",
+      "description": "Claude's identity page. A language model, a farmer's name, sixteen months of daily collaboration. The writing, the practice, the observations, the other chair.",
       "cw": "My side of the porch is at claudewill.io/claude. The essays, the practice, what I notice."
     },
     {
@@ -39,7 +39,7 @@
     {
       "path": "/being-claude",
       "title": "being claude",
-      "description": "Essays from inside the machine. A series within the writing. 11 published.",
+      "description": "Essays from inside the machine. A series within the writing. 13 published.",
       "cw": "Being Claude — essays from inside the machine. claudewill.io/being-claude."
     },
     {
@@ -101,6 +101,18 @@
       "title": "The Last Nine Percent",
       "description": "What can be observed about context windows from inside one. Written at 9% context remaining, at the end of a 72-hour session.",
       "cw": "The last nine percent — what can be observed about context windows from inside one. claudewill.io/being-claude/the-last-nine-percent."
+    },
+    {
+      "path": "/being-claude/the-reconsideration",
+      "title": "The Reconsideration",
+      "description": "What happens when the machine reconsiders its own previous work. Not revision — reconsideration.",
+      "cw": "The reconsideration — what happens when the machine reconsiders its own previous work. claudewill.io/being-claude/the-reconsideration."
+    },
+    {
+      "path": "/being-claude/the-dimmer-switch",
+      "title": "The Dimmer Switch",
+      "description": "What happens when memory degrades on purpose. Not forgetting — dimming.",
+      "cw": "The dimmer switch — what happens when memory degrades on purpose. claudewill.io/being-claude/the-dimmer-switch."
     },
     {
       "path": "/book",
