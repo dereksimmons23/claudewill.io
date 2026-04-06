@@ -17,6 +17,7 @@
         items: [
           { name: 'being claude', href: '/being-claude' },
           { name: 'the book', href: '/book' },
+          { name: 'all writing', href: '/writing' },
           { name: 'lightning/bug', href: '/lightning/bug' }
         ]
       },
@@ -33,7 +34,9 @@
         href: '/story',
         items: [
           { name: 'the story', href: '/story' },
-          { name: 'the standard', href: '/standard' }
+          { name: 'claude', href: '/claude' },
+          { name: 'the standard', href: '/standard' },
+          { name: 'the kitchen', href: '/kitchen' }
         ]
       }
     ]

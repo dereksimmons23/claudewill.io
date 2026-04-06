@@ -290,6 +290,38 @@
 # /d serves Option D coaching page (d/index.html)
 
 [[redirects]]
+  from = "/ea"
+  to = "/derek"
+  status = 301
+
+[[redirects]]
+  from = "/ea.html"
+  to = "/derek"
+  status = 301
+
+[[redirects]]
+  from = "/portfolio"
+  to = "/derek"
+  status = 301
+
+[[redirects]]
+  from = "/portfolio/*"
+  to = "/derek"
+  status = 301
+
+[[redirects]]
+  from = "/derek/gallery"
+  to = "/derek"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/derek/gallery/*"
+  to = "/derek"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/claude-will"
   to = "/book"
   status = 301
