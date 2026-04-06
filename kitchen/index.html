@@ -54,7 +54,8 @@
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      line-height: 1.5;
+      line-height: 1.6;
+      font-size: 13px;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -225,9 +226,9 @@
       display: flex;
       align-items: center;
       gap: 1rem;
-      padding: 0.35rem 0;
+      padding: 0.45rem 0;
       border-bottom: 1px solid var(--border-dim);
-      font-size: 0.78rem;
+      font-size: 0.82rem;
     }
 
     .sparkline-row:last-child { border-bottom: none; }
@@ -277,7 +278,7 @@
     }
 
     .spark-tf .tf-label {
-      font-size: 0.7rem; /* raised — 0.6rem was 9.6px at 16px base */
+      font-size: 0.75rem; /* 12px at 16px base — floor for uppercase labels */
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
@@ -285,7 +286,7 @@
     .spark-tf .tf-value {
       color: var(--text);
       font-weight: 500;
-      font-size: 0.75rem; /* explicit — was inheriting down from parent */
+      font-size: 0.82rem; /* ~13px at 16px base */
     }
 
     /* ── TWO-COLUMN CONTENT AREA ─────────────────── */
@@ -308,9 +309,9 @@
       display: flex;
       align-items: flex-start;
       gap: 0.75rem;
-      padding: 0.4rem 0;
+      padding: 0.45rem 0;
       border-bottom: 1px solid var(--border-dim);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
     }
 
     .work-item:last-child { border-bottom: none; }
@@ -351,9 +352,9 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      padding: 0.4rem 0;
+      padding: 0.45rem 0;
       border-bottom: 1px solid var(--border-dim);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
     }
 
     .principle-row:last-child { border-bottom: none; }
@@ -396,9 +397,9 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      padding: 0.4rem 0;
+      padding: 0.45rem 0;
       border-bottom: 1px solid var(--border-dim);
-      font-size: 0.78rem;
+      font-size: 0.82rem;
     }
 
     .agent-row:last-child { border-bottom: none; }
@@ -423,9 +424,9 @@
       display: flex;
       align-items: baseline;
       gap: 0.5rem;
-      padding: 0.3rem 0;
+      padding: 0.4rem 0;
       border-bottom: 1px solid var(--border-dim);
-      font-size: 0.78rem;
+      font-size: 0.82rem;
     }
 
     .stack-row:last-child { border-bottom: none; }
@@ -446,10 +447,10 @@
       display: flex;
       align-items: flex-start;
       gap: 0.75rem;
-      padding: 0.35rem 0;
+      padding: 0.45rem 0;
       border-bottom: 1px solid var(--border-dim);
-      font-size: 0.78rem;
-      line-height: 1.4;
+      font-size: 0.82rem;
+      line-height: 1.5;
     }
 
     .flag-row:last-child { border-bottom: none; }
@@ -467,12 +468,12 @@
 
     .check-row {
       display: grid;
-      grid-template-columns: 10px 1fr auto auto;
+      grid-template-columns: 12px 1fr auto auto;
       align-items: center;
       gap: 0.6rem;
-      padding: 0.3rem 0;
+      padding: 0.4rem 0;
       border-bottom: 1px solid var(--border-dim);
-      font-size: 0.8rem; /* raised — 0.75rem was 12px, now a readable 12.8px */
+      font-size: 0.82rem;
     }
 
     .check-row:last-child { border-bottom: none; }
@@ -481,7 +482,7 @@
     .check-row .ck-code { font-weight: 600; font-size: 0.75rem; } /* raised from 0.7rem */
     .check-row .ck-code.ok  { color: var(--green); }
     .check-row .ck-code.err { color: var(--red); }
-    .check-row .ck-ms { color: var(--text-dim); font-size: 0.7rem; text-align: right; } /* raised from 0.68rem */
+    .check-row .ck-ms { color: var(--text-dim); font-size: 0.82rem; text-align: right; }
 
     /* ── QUOTE BAR ───────────────────────────────── */
 
@@ -496,8 +497,8 @@
     }
 
     .quote-prefix { color: var(--gold); font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
-    .quote-text   { font-size: 0.82rem; color: var(--text); font-style: italic; flex: 1; line-height: 1.4; }
-    .quote-source { font-size: 0.7rem; color: var(--text-dim); flex-shrink: 0; }
+    .quote-text   { font-size: 0.85rem; color: var(--text); font-style: italic; flex: 1; line-height: 1.5; }
+    .quote-source { font-size: 0.82rem; color: var(--text-dim); flex-shrink: 0; }
 
     /* ── BOTTOM NAV ──────────────────────────────── */
 
@@ -515,7 +516,7 @@
     .tui-bottom-nav a { color: var(--text-dim); }
     .tui-bottom-nav a:hover { color: var(--gold); }
     .tui-nav-links { display: flex; gap: 1.5rem; }
-    .tui-refresh-note { color: var(--text-dim); font-size: 0.7rem; } /* raised from 0.65rem */
+    .tui-refresh-note { color: var(--text-dim); font-size: 0.82rem; } /* ~13px at 16px base */
 
     /* ── LOADING ─────────────────────────────────── */
 
@@ -548,24 +549,58 @@
     }
 
     @media (max-width: 520px) {
-      /* html font-size stays at 16px — no shrinking */
+      /* Mobile base — 14px floor for readability */
+      body { font-size: 14px; }
+
       .tui-frame { padding: 0.5rem 0.5rem 2rem; }
       .tui-metrics-row { grid-template-columns: repeat(2, 1fr); }
       .tui-topbar { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
-      .spark-label { width: 90px; font-size: 0.75rem; }
+      .spark-label { width: 100px; font-size: 13px; }
       .tui-nav-links { gap: 0.75rem; }
 
-      /* Compress sparkline timeframe labels on narrow screens */
+      /* Sparkline timeframe labels — readable on mobile */
       .spark-timeframes { gap: 0.5rem; }
-      .spark-tf .tf-label { font-size: 0.6rem; }
-      .spark-tf .tf-value { font-size: 0.7rem; }
+      .spark-tf .tf-label { font-size: 11px; }
+      .spark-tf .tf-value { font-size: 12px; }
 
-      /* Section headers — smaller but readable */
-      .tui-section-header { font-size: 0.65rem; }
+      /* Section headers — uppercase labels can be smaller, but readable */
+      .tui-section-header { font-size: 11px; letter-spacing: 0.1em; }
 
       /* Topbar center — hide less-critical items */
       .tui-weather { display: none; }
-      .tui-topbar-right { font-size: 0.7rem; }
+      .tui-topbar-right { font-size: 12px; }
+
+      /* Status dots — bigger on mobile */
+      .status-cell .dot {
+        width: 12px;
+        height: 12px;
+      }
+
+      /* Sparkline charts — taller bars on mobile */
+      .spark-chart { height: 32px; }
+      .spark-bar { min-width: 4px; }
+
+      /* All rows need comfortable touch spacing */
+      .sparkline-row { padding: 0.5rem 0; font-size: 14px; }
+      .work-item { padding: 0.55rem 0; font-size: 14px; }
+      .principle-row { padding: 0.55rem 0; font-size: 14px; }
+      .agent-row { padding: 0.55rem 0; font-size: 14px; }
+      .stack-row { padding: 0.45rem 0; font-size: 14px; }
+      .flag-row { padding: 0.5rem 0; font-size: 14px; line-height: 1.5; }
+      .check-row { padding: 0.45rem 0; font-size: 14px; }
+      .status-cell { padding: 0.5rem; font-size: 14px; }
+
+      /* Sub-labels stay dimmer but still readable */
+      .status-cell .s-detail { font-size: 12px; }
+      .work-item .wi-status { font-size: 12px; }
+      .principle-row .p-num { font-size: 12px; }
+      .agent-row .ag-time { font-size: 12px; }
+      .agent-row .ag-status { font-size: 12px; }
+      .stack-row .sk-role { font-size: 12px; }
+      .check-row .ck-path { font-size: 12px; }
+      .check-row .ck-code { font-size: 12px; }
+      .metric-cell .m-label { font-size: 11px; }
+      .metric-cell .m-sub { font-size: 11px; }
     }
 
     /* ── MOBILE SIMPLIFIED VIEW (<= 480px) ───────── */
@@ -574,15 +609,6 @@
     .kitchen-mobile-summary { display: none; }
 
     @media (max-width: 480px) {
-      /* Hide the dense TUI sections on very small phones */
-      .tui-sparkline-block,
-      .tui-checks-block,
-      .tui-stack-block,
-      .tui-flags-block,
-      #flags-section {
-        /* Keep these accessible but collapsed */
-      }
-
       /* Bottom nav — make links tappable */
       .tui-bottom-nav {
         flex-direction: column;
@@ -597,15 +623,16 @@
       }
 
       .tui-nav-links a {
-        padding: 10px 0;
+        padding: 10px 8px;
         min-height: 44px;
+        min-width: 44px;
         display: inline-flex;
         align-items: center;
-        font-size: 0.85rem;
+        font-size: 14px;
       }
 
       .tui-refresh-note {
-        font-size: 0.7rem;
+        font-size: 12px;
       }
 
       /* Metric values — keep the big numbers readable */
@@ -613,58 +640,39 @@
         font-size: 1.4rem;
       }
 
-      .metric-cell .m-label {
-        font-size: 0.6rem;
-      }
-
-      .metric-cell .m-sub {
-        font-size: 0.65rem;
-      }
-
-      /* Status dots — increase size slightly */
-      .status-cell .dot {
-        width: 10px;
-        height: 10px;
-      }
-
-      /* Status cell labels */
-      .status-cell {
-        font-size: 0.8rem;
-      }
-
-      /* Work items */
-      .work-item { font-size: 0.8rem; }
-      .work-item .wi-status { font-size: 0.7rem; }
-
-      /* Principle rows */
-      .principle-row { font-size: 0.8rem; }
-      .principle-row .p-num { font-size: 0.7rem; }
-
-      /* Agent rows */
-      .agent-row { font-size: 0.78rem; }
-
       /* Site checks — hide ms timing on small screens */
       .ck-ms { display: none; }
-      .check-row { grid-template-columns: 10px 1fr auto; }
+      .check-row { grid-template-columns: 12px 1fr auto; }
 
       /* Quote bar */
-      .quote-text { font-size: 0.8rem; }
+      .quote-text { font-size: 14px; }
       .quote-source { display: none; }
 
-      /* Topbar clock — abbreviated */
-      .tui-topbar-center { font-size: 0.75rem; }
-      .tui-clock { font-size: 0.8rem; }
-
-      /* Section headers */
-      .tui-section-header { font-size: 0.65rem; letter-spacing: 0.08em; }
+      /* Topbar clock */
+      .tui-topbar-center { font-size: 13px; }
+      .tui-clock { font-size: 14px; }
     }
 
-    /* ── TOUCH TARGETS — bottom nav links ────────── */
+    /* ── TOUCH TARGETS ────────────────────────────── */
     .tui-bottom-nav a {
-      padding: 10px 0;
+      padding: 10px 4px;
       min-height: 44px;
       display: inline-flex;
       align-items: center;
+    }
+
+    /* ── MOBILE READABILITY ─────────────────────── */
+    @media (max-width: 520px) {
+      /* Ensure all interactive/tappable rows meet 44px min */
+      .status-cell { min-height: 44px; }
+      .work-item { min-height: 44px; display: flex; align-items: center; }
+      .principle-row { min-height: 44px; }
+      .agent-row { min-height: 44px; }
+      .check-row { min-height: 44px; }
+      .sparkline-row { min-height: 44px; }
+      .stack-row { min-height: 44px; display: flex; align-items: center; }
+      .flag-row { min-height: 44px; display: flex; align-items: flex-start; }
+      .quote-prefix { font-size: 13px; }
     }
   </style>
 </head>
