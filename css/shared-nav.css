@@ -106,11 +106,13 @@
 /* Site index link */
 .cw-palette-index {
   font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: #6b7280;
   text-decoration: none;
   margin-top: 2rem;
-  display: block;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
   letter-spacing: 0.06em;
   transition: color 0.2s;
 }
@@ -404,11 +406,19 @@ a.hw:hover { opacity: 1; text-shadow: 0 0 8px rgba(212, 168, 75, 0.6); }
   }
 
   .page-header-center {
-    font-size: 0.8rem;
+    font-size: 0.875rem;
   }
 
   .page-header-right.palette-trigger {
-    font-size: 0.8rem;
+    font-size: 0.875rem;
+  }
+
+  .signoff {
+    font-size: 0.875rem;
+  }
+
+  .page-dropdown a {
+    font-size: 0.875rem;
   }
 }
 

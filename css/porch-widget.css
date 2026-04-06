@@ -359,11 +359,19 @@
 
   .porch-chip {
     white-space: nowrap;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     padding: 10px 14px;
     min-height: 44px;
     display: inline-flex;
     align-items: center;
+  }
+
+  .porch-panel-disclaimer {
+    font-size: 0.75rem;
+  }
+
+  .porch-msg {
+    font-size: 1rem;
   }
 }
 

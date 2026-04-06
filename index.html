@@ -225,7 +225,12 @@
             background: none;
             border: none;
             cursor: pointer;
-            padding: 0.25rem;
+            padding: 0.5rem;
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             line-height: 1;
             font-family: var(--font);
             z-index: 100;
@@ -323,7 +328,7 @@
         @media (max-width: 600px) {
             .name-hook {
                 top: calc(50% - 30vw);
-                font-size: 0.7rem;
+                font-size: 0.875rem;
                 letter-spacing: 0.08em;
             }
         }
@@ -422,6 +427,10 @@
         .site-footer a {
             color: var(--dim);
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
+            padding: 0.25rem 0.5rem;
         }
 
         .site-footer a:hover { color: var(--bright); }
@@ -534,11 +543,44 @@
         @media (max-width: 600px) {
             .name-line { font-size: 22vw; }
             .declaration { padding: 1.5rem; }
-            .sky-writing a { font-size: 0.8rem !important; }
+            .sky-writing a { font-size: 0.875rem !important; } /* 14px floor */
             .porch-light { top: 1rem; }
             .ground-derek { font-size: 7vw; }
+            .ground-built-by { font-size: 0.875rem; }
             .typewriter-container { font-size: 0.9rem; }
+            .typewriter-title { font-size: 1rem; }
+            .site-footer { font-size: 0.875rem; }
+            .book-countdown { font-size: 0.875rem; }
         }
+
+        /* ── Scroll Hint ─────────────────────── */
+        .scroll-hint {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            color: var(--dim);
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: var(--font);
+            opacity: 0;
+            animation: arrive 1s ease-out 3s forwards;
+            transition: opacity 0.4s, color 0.3s;
+        }
+
+        .scroll-hint:hover { color: var(--accent); }
+        .scroll-hint.hidden { opacity: 0; pointer-events: none; }
 
         /* ── Reduced motion ───────────────────── */
         @media (prefers-reduced-motion: reduce) {
@@ -568,6 +610,7 @@
             .cursor { animation: none; opacity: 1; }
             .sky-writing a { transition: none; }
             .typewriter-cursor { animation: none; opacity: 1; }
+            .scroll-hint { animation: none; opacity: 1; }
         }
     </style>
 </head>
@@ -586,6 +629,8 @@
                 <span class="name-line name-will">Will<span class="name-period" id="name-period">.</span></span>
             </h1>
         </section>
+
+        <button class="scroll-hint" id="scroll-hint" aria-label="Scroll down">&#8595;</button>
 
         <section class="sky" aria-label="The writing">
             <div class="sky-writing" id="sky-writing"></div>
@@ -675,6 +720,26 @@
                     { text: 'claude will', href: '/book' },
                     { text: 'derek', href: '/derek' }
                 ], 10);
+            });
+        })();
+    </script>
+
+    <script>
+        // ── Scroll hint ───────────────────────────
+        (function() {
+            var hint = document.getElementById('scroll-hint');
+            if (!hint) return;
+
+            hint.addEventListener('click', function() {
+                window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+            });
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 80) {
+                    hint.classList.add('hidden');
+                } else {
+                    hint.classList.remove('hidden');
+                }
             });
         })();
     </script>
