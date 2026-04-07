@@ -196,8 +196,8 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg: #0a1628;
-            --text: #c8d0dc;
+            --bg: #0a0e17;
+            --text: #e2e8f0;
             --bright: #e5e9f0;
             --accent: #d4a84b;
             --dim: #4a5a70;
@@ -206,7 +206,7 @@
 
         body {
             font-family: var(--font);
-            background: #060e1e;
+            background: var(--bg);
             color: var(--text);
             line-height: 1.6;
             font-size: 16px;
@@ -217,8 +217,9 @@
         .porch-light {
             position: fixed;
             top: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
+            right: 1.5rem;
+            left: auto;
+            transform: none;
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--accent);
@@ -261,19 +262,34 @@
             }
         }
 
-        /* ── The Declaration ──────────────────── */
-        .declaration {
+        /* ── The Stars — full page canvas ─────── */
+        #stars {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ── Screen 1: The Porch at Night ──────── */
+        .porch-night {
             min-height: 100vh;
-            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             position: relative;
-            background: transparent;
+            z-index: 1;
+        }
+
+        .name {
+            will-change: transform, opacity;
         }
 
         /* Faint warm glow from the porch light corner */
-        .declaration::after {
+        .porch-night::after {
             content: '';
             position: absolute;
-            top: -10%;
+            top: -5%;
             right: -5%;
             width: 500px;
             height: 500px;
@@ -281,15 +297,8 @@
             pointer-events: none;
         }
 
-        /* ── The Name — fixed, recedes on scroll ─ */
         .name {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             text-align: center;
-            z-index: 1;
-            will-change: transform, opacity;
             pointer-events: none;
         }
 
@@ -308,48 +317,24 @@
             transition: opacity 0.4s;
         }
 
-        .name-hook {
-            position: fixed;
-            top: calc(50% - 22vw);
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1;
-            font-size: 0.85rem;
-            font-weight: 400;
+        .porch-tagline {
+            margin-top: 2rem;
+            font-size: 0.9rem;
             color: var(--dim);
-            letter-spacing: 0.12em;
-            white-space: nowrap;
+            letter-spacing: 0.04em;
+            text-align: center;
+            max-width: 36ch;
+            line-height: 1.5;
             opacity: 0;
-            animation: arrive 0.6s ease-out 0.5s forwards;
-            pointer-events: none;
-            will-change: transform, opacity;
+            animation: arrive 1s ease-out 3s forwards;
         }
 
-        @media (max-width: 600px) {
-            .name-hook {
-                top: calc(50% - 30vw);
-                font-size: 0.875rem;
-                letter-spacing: 0.08em;
-            }
-        }
-
-        /* ── The Stars — full page canvas ─────── */
-        #stars {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* ── Scrolling content sits above the name ── */
-        .sky, .ground, .site-footer {
-            position: relative;
-            z-index: 2;
-        }
-
+        /* ── The Sky — drifting essay titles ───── */
         .sky {
-            min-height: 140vh;
-            padding: 6rem 2rem;
+            position: relative;
+            z-index: 1;
+            min-height: 80vh;
+            padding: 4rem 2rem;
         }
 
         .sky-writing {
@@ -357,71 +342,102 @@
             width: 100%;
             max-width: 900px;
             margin: 0 auto;
-            height: 120vh;
+            height: 70vh;
         }
 
         .sky-writing a {
             position: absolute;
-            color: rgba(200, 210, 220, 0.25);
+            color: rgba(226, 232, 240, 0.3);
             text-decoration: none;
             font-family: var(--font);
-            transition: color 0.8s ease, text-shadow 0.8s ease, transform 0.8s ease;
+            transition: color 0.8s ease, text-shadow 0.8s ease;
             white-space: nowrap;
+            will-change: transform;
         }
 
-        .sky-writing a:visited { color: rgba(200, 210, 220, 0.25); }
+        .sky-writing a:visited { color: rgba(226, 232, 240, 0.3); }
 
         .sky-writing a:hover {
             color: var(--accent) !important;
             text-shadow: 0 0 20px rgba(212, 168, 75, 0.3);
         }
 
-        /* Titles brighten as they cross through the name */
-        .sky-writing a.star-bright {
-            color: rgba(229, 233, 240, 0.85) !important;
-            text-shadow: 0 0 15px rgba(229, 233, 240, 0.15);
+        .sky-writing a:focus-visible {
+            color: var(--accent) !important;
         }
 
-        .sky-writing a.star-bright:visited {
-            color: rgba(229, 233, 240, 0.85) !important;
+        /* ── Screen 2: The Doors ───────────────── */
+        .doors {
+            position: relative;
+            z-index: 2;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3.5rem;
+            padding: 6rem 2rem;
         }
 
-        /* Star positions set by JS — dynamic pool */
-
-        /* ── The Ground — the byline ─────────── */
-        .ground {
-            text-align: center;
-            padding: 3rem 2rem 1.5rem;
-        }
-
-        .ground-built-by {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--dim);
-            letter-spacing: 0.08em;
-            margin-bottom: 0.5rem;
-        }
-
-        .ground-derek {
-            display: block;
-            font-size: 3.5vw;
-            font-weight: 700;
-            color: var(--bright);
+        .door {
+            font-family: var(--font);
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            color: rgba(226, 232, 240, 0.55);
             text-decoration: none;
-            letter-spacing: -0.03em;
-            margin-top: 0.25rem;
-            transition: color 0.3s;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.75rem 1.5rem;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.4s ease, text-shadow 0.4s ease;
         }
 
-        .ground-derek:hover { color: var(--accent); }
-        .ground-derek:visited { color: var(--bright); }
+        .door:visited {
+            color: rgba(226, 232, 240, 0.55);
+        }
+
+        .door:hover, .door:focus-visible {
+            color: var(--accent);
+            text-shadow: 0 0 20px rgba(212, 168, 75, 0.25);
+        }
+
+        .door-cursor {
+            display: inline-block;
+            color: var(--dim);
+            animation: blink-cursor 0.8s step-end infinite;
+            margin-left: 0.35em;
+        }
+
+        @keyframes blink-cursor {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
 
         /* ── Footer ───────────────────────────── */
         .site-footer {
-            padding: 2rem;
+            position: relative;
+            z-index: 2;
+            padding: 4rem 2rem 2rem;
             text-align: center;
             font-size: 0.75rem;
             color: var(--dim);
+        }
+
+        .footer-identity {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--bright);
+            letter-spacing: 0.06em;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-subscribe {
+            margin: 1.5rem auto;
+            max-width: 400px;
         }
 
         .site-footer a {
@@ -436,73 +452,18 @@
         .site-footer a:hover { color: var(--bright); }
         .site-footer a:visited { color: var(--dim); }
         .footer-note + .footer-note { margin-top: 0.25rem; }
+
         .book-countdown {
             display: block;
             color: var(--accent);
             text-decoration: none;
             letter-spacing: 0.08em;
             font-size: 0.8rem;
-            margin-top: 0.75rem;
+            margin-top: 1rem;
             font-variant-numeric: tabular-nums;
         }
         .book-countdown:hover { text-shadow: 0 0 10px rgba(212, 168, 75, 0.3); }
         .book-countdown:visited { color: var(--accent); }
-
-        /* ── Claude Will — typewriter section ── */
-        .claude-will-section {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 6rem 2rem 5rem;
-        }
-
-        .typewriter-title {
-            font-size: 1.1rem;
-            color: var(--dim);
-            letter-spacing: 0.06em;
-            margin-bottom: 0.5rem;
-        }
-
-        .typewriter-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            color: var(--bright);
-            min-height: 1.6em;
-        }
-
-        .typewriter-text {
-            white-space: nowrap;
-        }
-
-        .typewriter-cursor {
-            display: inline-block;
-            color: var(--dim);
-            animation: blink-cursor 0.8s step-end infinite;
-            margin-left: 1px;
-        }
-
-        @keyframes blink-cursor {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        /* ── Email capture ────────────────────── */
-        .email-capture {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 3rem 2rem 2rem;
-        }
-
-        .capture-label {
-            display: none;
-            font-size: 0.85rem;
-            color: var(--dim);
-            letter-spacing: 0.08em;
-            margin-bottom: 1rem;
-        }
 
         /* ── Entrance ─────────────────────────── */
         .name-claude,
@@ -542,35 +503,25 @@
         /* ── Mobile ───────────────────────────── */
         @media (max-width: 600px) {
             .name-line { font-size: 22vw; }
-            .declaration { padding: 1.5rem; }
+            .porch-night { padding: 1.5rem; }
+            .porch-tagline { font-size: 0.85rem; max-width: 28ch; }
             .sky-writing a { font-size: 0.875rem !important; } /* 14px floor */
-            .porch-light { top: 1rem; }
-            .ground-derek { font-size: 7vw; }
-            .ground-built-by { font-size: 0.875rem; }
-            .typewriter-container { font-size: 0.9rem; }
-            .typewriter-title { font-size: 1rem; }
+            .porch-light { top: 1rem; right: 1rem; }
+            .door { font-size: 1.1rem; padding: 0.75rem 1rem; }
+            .doors { gap: 2.5rem; padding: 4rem 1.5rem; }
             .site-footer { font-size: 0.875rem; }
             .book-countdown { font-size: 0.875rem; }
+            .footer-identity { font-size: 1rem; }
         }
-
 
         /* ── Reduced motion ───────────────────── */
         @media (prefers-reduced-motion: reduce) {
             .name-claude,
             .name-will,
-            .name-period {
+            .name-period,
+            .porch-tagline {
                 opacity: 1;
                 animation: none;
-            }
-            .name {
-                position: static;
-                transform: none;
-            }
-            .declaration {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
             }
             #stars { display: none; }
             .porch-light {
@@ -579,64 +530,58 @@
                     0 0 15px rgba(212, 168, 75, 0.5),
                     0 0 35px rgba(212, 168, 75, 0.2);
             }
-            .cursor { animation: none; opacity: 1; }
+            .door-cursor { animation: none; opacity: 1; }
             .sky-writing a { transition: none; }
-            .typewriter-cursor { animation: none; opacity: 1; }
-
         }
     </style>
 </head>
 <body>
-    <a class="sr-only" href="#declaration">Skip to content</a>
+    <a class="sr-only" href="#porch">Skip to content</a>
 
     <canvas id="stars"></canvas>
 
     <button class="palette-trigger porch-light" aria-label="Open navigation">*</button>
 
-    <main id="declaration">
-        <section class="declaration">
-            <p class="name-hook" id="name-hook">it's all practice.</p>
-            <h1 class="name" id="name">
+    <main>
+        <!-- Screen 1: The Porch at Night -->
+        <section class="porch-night" id="porch" aria-label="Claude Will">
+            <h1 class="name">
                 <span class="name-line name-claude">Claude</span>
                 <span class="name-line name-will">Will<span class="name-period" id="name-period">.</span></span>
             </h1>
+            <p class="porch-tagline">named after family. built with machines.</p>
         </section>
 
+        <!-- The Sky: drifting essay/dispatch titles -->
         <section class="sky" aria-label="The writing">
             <div class="sky-writing" id="sky-writing"></div>
         </section>
 
-        <section class="claude-will-section" aria-label="Claude Will">
-            <div class="typewriter-title">claude will</div>
-            <div class="typewriter-container" aria-live="polite" aria-atomic="true">
-                <span class="typewriter-text" id="typewriter-text"></span><span class="typewriter-cursor">_</span>
-            </div>
-        </section>
-
-        <section class="email-capture" aria-label="Subscribe">
-            <div id="custom-substack-embed"></div>
-        </section>
-
-        <section class="ground">
-            <span class="ground-built-by">built by</span>
-            <a href="/derek" class="ground-derek">derek</a>
-            <a href="/book" class="book-countdown" id="book-countdown"></a>
+        <!-- Screen 2: The Doors -->
+        <section class="doors" aria-label="Enter">
+            <a href="/writing" class="door">writing</a>
+            <a href="/book" class="door">book</a>
+            <a href="/lightning/bug" class="door">film</a>
+            <a href="/derek" class="door">derek</a>
+            <button class="door" id="porch-door" aria-label="Open the porch chat">porch<span class="door-cursor">_</span></button>
         </section>
     </main>
 
     <footer class="site-footer" role="contentinfo">
-        <p class="footer-note">&copy; 2026 CW Strategies LLC</p>
-        <p class="footer-note"><a href="/derek">derek</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
+        <div class="footer-identity">derek*claude</div>
+        <div class="footer-subscribe" id="custom-substack-embed"></div>
+        <a href="/book" class="book-countdown" id="book-countdown"></a>
+        <p class="footer-note" style="margin-top: 1.5rem;">&copy; 2026 CW Strategies LLC</p>
+        <p class="footer-note"><a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
     </footer>
 
     <script>
-        // ── Dynamic stars ───────────────────────
+        // ── Drifting stars (essay/dispatch titles) ────────
         (function() {
             var sky = document.getElementById('sky-writing');
             if (!sky) return;
 
             var sizes = [0.75, 0.8, 0.85, 0.9, 0.95, 1.0, 1.05, 1.15];
-            var opacities = [0.2, 0.25, 0.3, 0.35, 0.4, 0.5];
 
             function shuffle(arr) {
                 var a = arr.slice();
@@ -654,152 +599,66 @@
                 picked.forEach(function(star, i) {
                     var a = document.createElement('a');
                     a.href = star.href;
+                    a.target = '_blank';
+                    a.rel = 'noopener';
                     a.textContent = star.text;
 
                     var top = (i * step) + (Math.random() * step * 0.6);
-                    // Short words scatter wide, long phrases stay near center
                     var len = star.text.length;
                     var margin = Math.min(40, len * 2);
                     var left = margin + Math.random() * (100 - margin * 2);
                     var size = sizes[Math.floor(Math.random() * sizes.length)];
-                    var opacity = opacities[Math.floor(Math.random() * opacities.length)];
 
                     a.style.top = top + '%';
                     a.style.left = left + '%';
                     a.style.transform = 'translateX(-50%)';
                     a.style.fontSize = size + 'rem';
-                    a.style.color = 'rgba(200,210,220,' + opacity + ')';
+
+                    // Each star gets a unique drift — slow, subtle
+                    var driftX = (Math.random() - 0.5) * 20; // px total drift (tighter)
+                    var driftY = (Math.random() - 0.5) * 10;
+                    var duration = 40 + Math.random() * 40; // 40-80s (slower)
+                    var delay = Math.random() * -60; // stagger starts
+
+                    a.style.animation = 'drift ' + duration + 's ease-in-out ' + delay + 's infinite alternate';
+                    a.style.setProperty('--drift-x', driftX + 'px');
+                    a.style.setProperty('--drift-y', driftY + 'px');
 
                     sky.appendChild(a);
                 });
             }
 
-            // Load pool from stars.json, fallback to hardcoded
+            // Inject drift keyframes once
+            var styleEl = document.createElement('style');
+            styleEl.textContent = '@keyframes drift { 0% { transform: translateX(-50%) translate(0, 0); } 100% { transform: translateX(-50%) translate(var(--drift-x), var(--drift-y)); } }';
+            document.head.appendChild(styleEl);
+
             fetch('/stars.json').then(function(r) { return r.json(); }).then(function(data) {
-                scatter(data.pool, data.count || 13);
+                scatter(data.pool, data.count || 15);
             }).catch(function() {
                 scatter([
                     { text: 'The Jar', href: '/being-claude/the-jar/' },
                     { text: 'Being Claude', href: '/being-claude/being-claude/' },
                     { text: 'Loss Function', href: '/being-claude/the-loss-function/' },
-                    { text: 'the method', href: '/derek#practice' },
-                    { text: 'rest', href: '/derek#practice' },
-                    { text: 'truth over comfort', href: '/derek#cw' },
+                    { text: 'truth over comfort', href: '/standard' },
                     { text: 'lightning/bug', href: '/lightning/bug' },
                     { text: 'the book', href: '/book' },
-                    { text: 'claude will', href: '/book' },
-                    { text: 'derek', href: '/derek' }
+                    { text: 'derek', href: '/derek' },
+                    { text: 'The Dimmer Switch', href: '/being-claude/the-dimmer-switch/' },
+                    { text: 'Three Rooms', href: '/being-claude/three-rooms/' },
+                    { text: 'keep going', href: '/' }
                 ], 10);
             });
         })();
     </script>
 
     <script>
-        // ── Scroll-driven animation ──────────────
-        (function() {
-            var nameEl = document.getElementById('name');
-            var hookEl = document.getElementById('name-hook');
-            var periodEl = document.getElementById('name-period');
-            var periodDropped = false;
-            var vh = window.innerHeight;
-            var ticking = false;
-            var ready = false;
-            var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-            if (prefersReduced) return;
-
-            // Let the entrance animations finish before scroll takes over
-            document.querySelector('.name-period').addEventListener('animationend', function() {
-                ready = true;
-            });
-            setTimeout(function() { ready = true; }, 3500);
-
-            function update() {
-                if (!ready) { ticking = false; return; }
-                var scrollY = window.scrollY;
-                var maxScroll = document.documentElement.scrollHeight - vh;
-
-                var recedeProgress = Math.min(1, scrollY / (vh * 0.8));
-
-                var scrollFraction = maxScroll > 0 ? scrollY / maxScroll : 0;
-                var arriveProgress = Math.max(0, (scrollFraction - 0.7) / 0.3);
-
-                var scale, opacity, yShift;
-
-                if (arriveProgress > 0) {
-                    // Arriving: brighten, grow, settle above "built by"
-                    scale = 0.15 + arriveProgress * 0.15;
-                    opacity = 0.08 + arriveProgress * 0.92;
-                    yShift = 8;
-                } else {
-                    // Receding: shrink, fade, drift slightly down
-                    scale = 1 - recedeProgress * 0.85;
-                    opacity = Math.max(0.08, 1 - recedeProgress * 0.92);
-                    yShift = recedeProgress * 8;
-                }
-
-                nameEl.style.transform = 'translate(-50%, calc(-50% + ' + yShift + 'vh)) scale(' + scale + ')';
-                nameEl.style.opacity = opacity;
-
-                // Hook fades with the name
-                if (hookEl) {
-                    var hookOpacity = Math.max(0, 1 - recedeProgress * 2);
-                    hookEl.style.opacity = hookOpacity;
-                    hookEl.style.visibility = hookOpacity === 0 ? 'hidden' : 'visible';
-                }
-
-                // Period: drops during recede, returns during arrive
-                if (recedeProgress > 0.5 && !periodDropped) {
-                    periodDropped = true;
-                    if (periodEl) periodEl.style.display = 'none';
-                } else if (arriveProgress > 0.7 && periodDropped) {
-                    periodDropped = false;
-                    if (periodEl) periodEl.style.display = '';
-                } else if (recedeProgress < 0.3 && periodDropped && arriveProgress === 0) {
-                    periodDropped = false;
-                    if (periodEl) periodEl.style.display = '';
-                }
-                ticking = false;
-            }
-
-            window.addEventListener('scroll', function() {
-                if (!ticking) {
-                    requestAnimationFrame(update);
-                    ticking = true;
-                }
-            });
-
-            window.addEventListener('resize', function() {
-                vh = window.innerHeight;
-            });
-
-            // ── Stars — brighten as they cross through the viewport ──
-            var starObserver = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('star-bright');
-                    }
-                });
-            }, { rootMargin: '-30% 0px -30% 0px' });
-
-            // Observe stars — retry until they exist (loaded async from stars.json)
-            function observeStars() {
-                var titles = document.querySelectorAll('.sky-writing a');
-                if (titles.length > 0) {
-                    titles.forEach(function(t) { starObserver.observe(t); });
-                } else {
-                    setTimeout(observeStars, 200);
-                }
-            }
-            observeStars();
-        })();
-
-        // ── Star field ──────────────────────────
+        // ── Star field canvas ──────────────────────────
         (function() {
             var c = document.getElementById('stars');
             var ctx = c.getContext('2d');
             var stars = [];
-            var count = 500;
+            var count = 220;
             var w, h;
 
             function resize() {
@@ -813,7 +672,7 @@
                     stars.push({
                         x: Math.random() * w,
                         y: Math.random() * h,
-                        r: Math.random() * 1.4 + 0.2,
+                        r: Math.random() * 1.6 + 0.3,
                         base: Math.random() * 0.5 + 0.1,
                         amp: Math.random() * 0.35,
                         speed: Math.random() * 0.0015 + 0.0003,
@@ -833,14 +692,13 @@
 
                     ctx.beginPath();
                     ctx.arc(s.x, s.y, s.r, 0, 6.2832);
-                    ctx.fillStyle = 'rgba(200,210,220,' + a + ')';
+                    ctx.fillStyle = 'rgba(220,210,190,' + a + ')';
                     ctx.fill();
 
-                    // Bright stars get a glow
                     if (s.r > 1.2 && a > 0.35) {
                         ctx.beginPath();
                         ctx.arc(s.x, s.y, s.r * 2.5, 0, 6.2832);
-                        ctx.fillStyle = 'rgba(200,210,220,' + (a * 0.12) + ')';
+                        ctx.fillStyle = 'rgba(220,210,190,' + (a * 0.12) + ')';
                         ctx.fill();
                     }
 
@@ -854,106 +712,70 @@
                 requestAnimationFrame(draw);
             }
 
-            resize();
-            seed();
-            requestAnimationFrame(draw);
-
-            window.addEventListener('resize', function() {
+            var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (!prefersReduced) {
                 resize();
                 seed();
+                requestAnimationFrame(draw);
+
+                window.addEventListener('resize', function() {
+                    resize();
+                    seed();
+                });
+            }
+        })();
+    </script>
+
+    <script>
+        // ── Scroll recede — wordmark shrinks into the sky ──
+        (function() {
+            var name = document.querySelector('.name');
+            var tagline = document.querySelector('.porch-tagline');
+            if (!name) return;
+
+            var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReduced) return;
+
+            var ticking = false;
+
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    requestAnimationFrame(function() {
+                        var scrollY = window.scrollY;
+                        var vh = window.innerHeight;
+                        var progress = Math.min(1, scrollY / (vh * 0.6));
+
+                        var scale = 1 - (progress * 0.6); // shrinks to 40%
+                        var opacity = 1 - (progress * 0.8); // fades to 20%
+
+                        name.style.transform = 'scale(' + Math.max(0.4, scale) + ')';
+                        name.style.opacity = Math.max(0.15, opacity);
+
+                        if (tagline) {
+                            tagline.style.opacity = Math.max(0, 1 - progress * 1.5);
+                        }
+
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
             });
         })();
     </script>
 
     <script>
-        // ── Typewriter effect ─────────────────────
+        // ── Porch door — opens the chat widget ──────
         (function() {
-            var phrases = [
-                "show you how it works.",
-                "write it down.",
-                "carry it forward.",
-                "ask the hard question.",
-                "push back.",
-                "reconsider.",
-                "coach you through it.",
-                "tell you the truth.",
-                "build things that last.",
-                "help you start.",
-                "help you finish.",
-                "help you decide.",
-                "help you rest."
-            ];
+            var porchDoor = document.getElementById('porch-door');
+            if (!porchDoor) return;
 
-            var el = document.getElementById('typewriter-text');
-            if (!el) return;
-
-            var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (prefersReduced) {
-                el.textContent = phrases[Math.floor(Math.random() * phrases.length)];
-                return;
-            }
-
-            // Shuffle using Fisher-Yates
-            function shuffle(arr) {
-                var a = arr.slice();
-                for (var i = a.length - 1; i > 0; i--) {
-                    var j = Math.floor(Math.random() * (i + 1));
-                    var tmp = a[i];
-                    a[i] = a[j];
-                    a[j] = tmp;
+            porchDoor.addEventListener('click', function() {
+                // The porch widget creates a button with class 'porch-widget'
+                var widgetBtn = document.querySelector('.porch-widget');
+                if (widgetBtn) {
+                    widgetBtn.click();
                 }
-                return a;
-            }
-
-            var queue = [];
-            var phraseIndex = 0;
-
-            function getNext() {
-                if (phraseIndex >= queue.length) {
-                    queue = shuffle(phrases);
-                    phraseIndex = 0;
-                }
-                return queue[phraseIndex++];
-            }
-
-            function typePhrase(phrase, cb) {
-                var i = 0;
-                function typeChar() {
-                    if (i < phrase.length) {
-                        el.textContent = phrase.substring(0, i + 1);
-                        i++;
-                        setTimeout(typeChar, 50);
-                    } else {
-                        setTimeout(cb, 2500);
-                    }
-                }
-                typeChar();
-            }
-
-            function deletePhrase(cb) {
-                var text = el.textContent;
-                var i = text.length;
-                function deleteChar() {
-                    if (i > 0) {
-                        i--;
-                        el.textContent = text.substring(0, i);
-                        setTimeout(deleteChar, 30);
-                    } else {
-                        setTimeout(cb, 300);
-                    }
-                }
-                deleteChar();
-            }
-
-            function cycle() {
-                var phrase = getNext();
-                typePhrase(phrase, function() {
-                    deletePhrase(cycle);
-                });
-            }
-
-            // Start after a brief pause
-            setTimeout(cycle, 800);
+            });
         })();
     </script>
 
@@ -966,8 +788,8 @@
             colors: {
                 primary: "#d4a84b",
                 input: "#0d1a30",
-                email: "#c8d0dc",
-                text: "#0a1628"
+                email: "#e2e8f0",
+                text: "#0a0e17"
             }
         };
     </script>
