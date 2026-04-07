@@ -355,3 +355,8 @@
   from = "/derek/portfolio/*"
   to = "/derek"
   status = 301
+
+[[redirects]]
+  from = "/report"
+  to = "/report.html"
+  status = 200
