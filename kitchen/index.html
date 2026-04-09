@@ -692,6 +692,13 @@
 
     /* ── MOBILE READABILITY ─────────────────────── */
     @media (max-width: 520px) {
+      /* Desktop-only sections: too much detail for phone */
+      #section-health { display: none; }
+      #section-stack  { display: none; }
+
+      /* Flag text: truncate on mobile, don't wrap */
+      .flag-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
       /* Ensure all interactive/tappable rows meet 44px min */
       .status-cell { min-height: 44px; }
       .work-item { min-height: 44px; display: flex; align-items: center; }
@@ -814,7 +821,7 @@
         <div class="tui-loading">loading...</div>
       </div>
     </div>
-    <div>
+    <div id="section-health">
       <div class="tui-section-header">
         site health
         <span class="section-meta" id="health-summary">—</span>
@@ -837,7 +844,7 @@
   </div>
 
   <!-- ═══ 7. STACK ════════════════════════════════ -->
-  <div class="tui-section">
+  <div class="tui-section" id="section-stack">
     <div class="tui-section-header">
       stack
       <span class="section-meta" id="stack-cost">~$125/month</span>
