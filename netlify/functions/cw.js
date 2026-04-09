@@ -8,21 +8,46 @@ const fs = require('fs');
 const path = require('path');
 const { SYSTEM_PROMPT, VERNIE_PROMPT, KITCHEN_PROMPT } = require('./cw-prompt');
 
-// ── Live site knowledge — lightweight version (cost optimization) ──
+// ── Live site knowledge — reads current state at runtime ──
 function getLiveSiteKnowledge() {
   try {
     const rootDir = path.join(__dirname, '..', '..');
+    const parts = [];
 
-    // Only cache essay count — cheapest operation
+    // Read site-registry.json for current pages
+    const registryPath = path.join(rootDir, 'site-registry.json');
+    if (fs.existsSync(registryPath)) {
+      const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+      const pages = registry.pages.filter(p => p.cw).map(p => `${p.path} — ${p.title}: ${p.description}`);
+      parts.push('CURRENT SITE PAGES:\n' + pages.join('\n'));
+    }
+
+    // Read stars.json for current content in the sky
+    const starsPath = path.join(rootDir, 'stars.json');
+    if (fs.existsSync(starsPath)) {
+      const stars = JSON.parse(fs.readFileSync(starsPath, 'utf8'));
+      const titles = stars.pool.map(s => s.text).join(', ');
+      parts.push('CONTENT ON THE SITE (stars in the sky): ' + titles);
+    }
+
+    // Read being-claude directory for current essay count
     const bcDir = path.join(rootDir, 'being-claude');
     if (fs.existsSync(bcDir)) {
       const essays = fs.readdirSync(bcDir).filter(f => {
         const stat = fs.statSync(path.join(bcDir, f));
         return stat.isDirectory() && f !== 'articles' && fs.existsSync(path.join(bcDir, f, 'index.html'));
       });
-      return essays.length > 0 ? `\n\nBeing Claude: ${essays.length} essays published` : '';
+      parts.push('Being Claude essays published: ' + essays.length + ' (' + essays.join(', ') + ')');
     }
-    return '';
+
+    // Read cw-current.json for auto-updated current state (written by overnight agents)
+    const currentPath = path.join(rootDir, 'cw-current.json');
+    if (fs.existsSync(currentPath)) {
+      const current = JSON.parse(fs.readFileSync(currentPath, 'utf8'));
+      parts.push('CURRENT STATE (auto-updated daily):\n' + current.summary);
+    }
+
+    return parts.length > 0 ? '\n\nLIVE SITE STATE (auto-updated, overrides any static knowledge above):\n' + parts.join('\n\n') : '';
   } catch (err) {
     return '';
   }
@@ -177,27 +202,26 @@ async function handleCloseSession(visitorToken, sessionId, messages) {
   if (!supabase || !visitorToken || !messages || messages.length < 2) return;
 
   try {
-    // Generate summary locally without API call — cheap and fast
-    const getTagsFromMessages = (msgs) => {
-      const text = msgs.map(m => m.content.toLowerCase()).join(' ');
-      const tags = [];
-      const vocab = ['family', 'career', 'grief', 'business', 'stuck', 'heritage', 'faith', 'health', 'creative', 'technical', 'personal'];
-      for (const tag of vocab) {
-        if (text.includes(tag) && tags.length < 3) {
-          tags.push(tag);
-        }
-      }
-      return tags.length > 0 ? tags : ['general'];
-    };
+    const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
-    const nameMatch = messages
-      .map(m => m.content)
-      .join(' ')
-      .match(/(?:I'm|I am|my name is|call me)\s+([A-Z][a-z]+)/i);
+    const conversationText = messages.map(m => `${m.role}: ${m.content}`).join('\n');
 
-    const conversationText = messages.slice(-3).map(m => `${m.role}: ${m.content.substring(0, 200)}`).join('\n');
-    const summary = conversationText.substring(0, 300);
-    const tags = getTagsFromMessages(messages);
+    const summaryResponse = await client.messages.create({
+      model: 'claude-haiku-4-5',
+      max_tokens: 200,
+      system: 'Summarize this conversation in 2-3 sentences from the perspective of what the visitor wanted. Then provide 1-3 topic tags from ONLY this vocabulary: family, career, grief, business, stuck, heritage, faith, health, creative, technical, personal, general. If the visitor shared their first name, include it. Format exactly as:\nNAME: [name or "none"]\nSUMMARY: [your summary]\nTAGS: [tag1, tag2]',
+      messages: [{ role: 'user', content: conversationText }]
+    });
+
+    const result = summaryResponse.content[0].text;
+    const nameMatch = result.match(/NAME:\s*(.+)/);
+    const summaryMatch = result.match(/SUMMARY:\s*(.+?)(?:\nTAGS:|$)/s);
+    const tagsMatch = result.match(/TAGS:\s*(.+)/);
+
+    const summary = summaryMatch ? summaryMatch[1].trim() : result.substring(0, 500).trim();
+    const tags = tagsMatch
+      ? tagsMatch[1].split(',').map(t => t.trim().toLowerCase()).filter(Boolean)
+      : ['general'];
 
     // Store visitor name if detected and not already known
     const detectedName = nameMatch ? nameMatch[1].trim() : null;
@@ -434,8 +458,8 @@ exports.handler = async (event, context) => {
     let basePrompt, selectedModel, maxTokens;
     if (isKitchenMode) {
       basePrompt = KITCHEN_PROMPT;
-      selectedModel = 'claude-haiku-4-5';  // Reduced from Opus to Haiku — cost optimization
-      maxTokens = 500;
+      selectedModel = 'claude-opus-4-20250514';
+      maxTokens = 1500;
     } else if (isVernieMode) {
       basePrompt = VERNIE_PROMPT;
       selectedModel = 'claude-haiku-4-5';
