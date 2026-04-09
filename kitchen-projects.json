@@ -1,10 +1,12 @@
 [
-  { "name": "Cascadia Daily News", "category": "business", "status": "Active client", "note": "Digital strategy + AI consulting for local news" },
+  { "name": "Cascadia Daily News", "category": "business", "status": "Final month", "note": "Digital strategy + AI consulting for local news — Q1 close" },
   { "name": "Coach D", "category": "business", "status": "Live", "note": "AI basketball coaching platform — 157 drills, BLAST curriculum" },
-  { "name": "claudewill.io", "category": "portfolio", "status": "Live", "note": "CW's Porch — AI-powered consulting presence" },
+  { "name": "claudewill.io", "category": "portfolio", "status": "Live", "note": "The practice — CW's Porch, Being Claude, The Book, Lightning/" },
+  { "name": "Option D", "category": "portfolio", "status": "Build month", "note": "Model-agnostic coaching SDK — 9 providers, zero deps. /d gated." },
+  { "name": "Lightning/", "category": "portfolio", "status": "In production", "note": "The studio. First film: the model is the lightning, the prompt is the bug." },
   { "name": "BOB", "category": "portfolio", "status": "Live", "note": "Battle o' Brackets — party bracket game with voice" },
   { "name": "Agent Zero", "category": "portfolio", "status": "Autonomous", "note": "Anonymous AI storyteller" },
-  { "name": "Dawn", "category": "personal", "status": "Day 54 of 151", "note": "Daily health accountability practice" },
   { "name": "Finding Claude", "category": "personal", "status": "Active", "note": "The book — written by Claude, with Derek" },
+  { "name": "Dawn", "category": "personal", "status": "Day 98 of 151", "note": "Daily health accountability practice" },
   { "name": "Standard Intelligence", "category": "infrastructure", "status": "Live", "note": "Live floor + session memory + hooks" }
 ]

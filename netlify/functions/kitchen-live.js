@@ -71,6 +71,17 @@ async function safeLength(promise) {
   }
 }
 
+// Safe row-fetch query — returns empty array on any error
+async function safeRows(promise) {
+  try {
+    const { data, error } = await promise;
+    if (error || !data) return [];
+    return data;
+  } catch {
+    return [];
+  }
+}
+
 exports.handler = async (event) => {
   // Handle preflight
   if (event.httpMethod === 'OPTIONS') {
@@ -110,6 +121,7 @@ exports.handler = async (event) => {
     sessionsWeek,
     sessionsTotal,
     visitorsTotal,
+    recentConvos,
   ] = await Promise.all([
     safeCount(
       supabase
@@ -146,10 +158,23 @@ exports.handler = async (event) => {
         .from('visitors')
         .select('visitor_token')
     ),
+    // Recent porch conversations — last 5, trimmed to 80 chars for display
+    safeRows(
+      supabase
+        .from('conversations')
+        .select('timestamp, user_message')
+        .order('timestamp', { ascending: false })
+        .limit(5)
+    ),
   ]);
 
   const dawnDay = getDawnDay();
   const dawnRemaining = Math.max(0, DAWN_TOTAL - dawnDay);
+
+  const recent = recentConvos.map(c => ({
+    ts: c.timestamp,
+    text: (c.user_message || '').slice(0, 80),
+  }));
 
   const payload = {
     conversations: {
@@ -168,6 +193,7 @@ exports.handler = async (event) => {
       day: dawnDay,
       remaining: dawnRemaining,
     },
+    recent,
     updatedAt: new Date().toISOString(),
   };
 

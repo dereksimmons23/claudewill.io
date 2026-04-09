@@ -35,12 +35,13 @@ function main() {
   const flags = []
   const actions = []
 
-  // Check for stuck drafts (draft for 7+ days)
-  const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000)
+  // Check for stuck drafts (draft for 30+ days — skip parked items)
+  const thirtyDaysAgoDraft = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000)
   for (const item of pipeline.items) {
+    if (item.status === 'parked') continue // intentionally held — skip
     if (item.status === 'draft' && item.created) {
       const created = new Date(item.created)
-      if (created < sevenDaysAgo) {
+      if (created < thirtyDaysAgoDraft) {
         const days = Math.floor((now - created) / (24 * 60 * 60 * 1000))
         flags.push(`${item.title}: draft for ${days} days — review or reject`)
       }
