@@ -539,6 +539,36 @@
       50%       { opacity: 0; }
     }
 
+    /* ── LIVE HEARTBEAT DOT ─────────────────────── */
+
+    .live-pulse {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 5px var(--green);
+      vertical-align: middle;
+      margin-right: 0.3rem;
+      animation: heartbeat 2.5s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.25; }
+    }
+
+    /* ── VALUE FLASH (live data update) ─────────── */
+
+    .value-updated {
+      animation: cell-flash 1.5s ease-out forwards;
+    }
+
+    @keyframes cell-flash {
+      0%   { background: rgba(212, 168, 75, 0.2); border-color: rgba(212, 168, 75, 0.4); }
+      100% { background: var(--bg-card); border-color: var(--border); }
+    }
+
     /* ── RESPONSIVE ──────────────────────────────── */
 
     @media (max-width: 800px) {
@@ -689,7 +719,9 @@
       <span class="tui-location">woodbury, mn</span>
       <span class="tui-weather" id="tui-weather">—</span>
     </div>
-    <div class="tui-topbar-right" id="tui-last-updated">last refresh: --</div>
+    <div class="tui-topbar-right">
+      <span class="live-pulse"></span><span id="tui-refresh-timer">—</span>
+    </div>
   </div>
 
   <!-- ═══ 1. STATUS ════════════════════════════════ -->
@@ -1334,26 +1366,52 @@
   }
 
   /* ─── LIVE DATA (Supabase via Netlify function) ── */
+  var LIVE_INTERVAL_MS = 30000; // 30 seconds
+  var lastLiveFetch    = Date.now();
+
+  function flashCell(id) {
+    var e = el(id);
+    if (!e) return;
+    var cell = e.parentElement; // the .metric-cell
+    if (!cell) return;
+    cell.classList.remove('value-updated');
+    void cell.offsetWidth; // force reflow
+    cell.classList.add('value-updated');
+  }
+
   function fetchLiveData() {
+    setText('tui-refresh-timer', '...');
     fetch('/.netlify/functions/kitchen-live')
       .then(function(r) { return r.json(); })
       .then(function(d) {
+        lastLiveFetch = Date.now();
         if (d.conversations) {
           setText('m-conversations', String(d.conversations.total));
           setText('m-conv-week', d.conversations.week + ' this week');
+          flashCell('m-conversations');
         }
         if (d.dawn) {
           setText('m-dawn', String(d.dawn.day));
+          flashCell('m-dawn');
         }
         if (d.visitors) {
           setText('m-visitors', String(d.visitors.total));
+          flashCell('m-visitors');
         }
         if (d.sessions) {
           setText('m-sessions', String(d.sessions.week));
+          flashCell('m-sessions');
         }
       })
-      .catch(function() { /* non-blocking — static data still shows */ });
+      .catch(function() { setText('tui-refresh-timer', 'err'); });
   }
+
+  // Countdown to next live fetch (updates every second)
+  setInterval(function() {
+    var elapsed   = Math.round((Date.now() - lastLiveFetch) / 1000);
+    var remaining = Math.round(LIVE_INTERVAL_MS / 1000) - elapsed;
+    setText('tui-refresh-timer', remaining > 0 ? remaining + 's' : '...');
+  }, 1000);
 
   /* ─── WEATHER ─────────────────────────────────── */
   var WEATHER_ICONS = {
@@ -1383,7 +1441,7 @@
   loadData();
   setInterval(loadData, 300000);
   fetchLiveData();
-  setInterval(fetchLiveData, 60000); // live refresh every 60 sec
+  setInterval(fetchLiveData, LIVE_INTERVAL_MS);
 
 })();
 </script>
