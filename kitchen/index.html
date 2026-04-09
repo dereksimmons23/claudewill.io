@@ -1100,6 +1100,10 @@
                  : '\u25cb';
 
       var st     = p.status || '';
+      // Dawn: always compute current day from date math — never stale
+      if (p.name.toLowerCase() === 'dawn') {
+        st = 'Day ' + daysSinceJan1() + ' of 151';
+      }
       var stLow  = st.toLowerCase();
       var stCls  = stLow.includes('active') || stLow.includes('live') ? 'live'
                  : stLow.includes('day')                              ? 'active'
