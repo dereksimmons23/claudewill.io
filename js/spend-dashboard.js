@@ -1,95 +1,83 @@
 /**
  * Spend Dashboard — Tech budget transparency
- * Aggregates all services, APIs, and subscriptions
- * Data sources: Anthropic, Netlify, Supabase, Cloudflare, Stripe, external APIs
+ * Fetches live data from /.netlify/functions/spend-data
+ * Falls back to defaults if API unavailable
  */
 
-// ═══════════════════════════════════════════════════════════════════════════
-// HARDCODED DATA (until live API wiring)
-// ═══════════════════════════════════════════════════════════════════════════
-
-const MONTHLY_REVENUE = 10000; // Conservative estimate for 5% calculation
+const MONTHLY_REVENUE = 10000;
 const FIVE_PERCENT_THRESHOLD = MONTHLY_REVENUE * 0.05; // $500
 
-const SERVICES = {
+// Service metadata — updated with real costs from API
+const SERVICE_META = {
   anthropic: {
     name: 'Anthropic',
     plan: 'Max + API',
-    cost: 100,
     status: 'active',
-    notes: 'Max: $100/month, API: ~$5-15/month, Haiku for ops, research varies',
-  },
-  netlify: {
-    name: 'Netlify',
-    plan: 'Free',
-    cost: 0,
-    status: 'active',
-    notes: 'Functions + static hosting, under free tier limits',
-  },
-  supabase: {
-    name: 'Supabase',
-    plan: 'Free',
-    cost: 0,
-    status: 'active',
-    notes: 'PostgreSQL, ~250MB, session_memories, under 1GB free limit',
-  },
-  cloudflare: {
-    name: 'Cloudflare',
-    plan: 'Free',
-    cost: 0,
-    status: 'active',
-    notes: 'Workers + Pages, no add-ons',
-  },
-  github: {
-    name: 'GitHub',
-    plan: 'Free',
-    cost: 0,
-    status: 'active',
-    notes: 'Repos + Actions, private repos, under free limits',
+    notes: 'Claude Max: $100/month + API usage',
   },
   stripe: {
     name: 'Stripe',
     plan: 'Pay-per-transaction',
-    cost: 0,
-    status: 'inactive',
-    notes: 'Coach D only, ~2.2% + $0.30 per transaction, typically $0-5/month',
+    status: 'active',
+    notes: 'Coach D transactions: 2.2% + $0.30',
+  },
+  netlify: {
+    name: 'Netlify',
+    plan: 'Free',
+    status: 'active',
+    notes: 'Functions + static hosting, free tier',
+  },
+  supabase: {
+    name: 'Supabase',
+    plan: 'Free',
+    status: 'active',
+    notes: 'PostgreSQL, ~250MB, free tier',
+  },
+  cloudflare: {
+    name: 'Cloudflare',
+    plan: 'Free',
+    status: 'active',
+    notes: 'Workers + Pages, free tier',
+  },
+  github: {
+    name: 'GitHub',
+    plan: 'Free',
+    status: 'active',
+    notes: 'Repos + Actions, free tier',
   },
   gemini: {
     name: 'Google Gemini',
     plan: 'Free tier',
-    cost: 0,
     status: 'active',
-    notes: 'Overnight agents, rate limited, no spend cap set',
+    notes: 'Overnight agents, quota-limited',
   },
   perplexity: {
     name: 'Perplexity',
-    plan: 'Unknown',
-    cost: 0,
+    plan: 'API',
     status: 'active',
-    notes: 'Overnight agents, no spend cap verified',
+    notes: 'Overnight agents, manual verification',
   },
   mistral: {
     name: 'Mistral',
-    plan: 'Unknown',
-    cost: 0,
+    plan: 'API',
     status: 'active',
-    notes: 'Overnight agents, no spend cap verified',
+    notes: 'Overnight agents, manual verification',
   },
   cohere: {
     name: 'Cohere',
     plan: 'Free tier',
-    cost: 0,
     status: 'active',
-    notes: 'Overnight agents, reranking, under free limits',
+    notes: 'Reranking, free tier',
   },
   huggingface: {
     name: 'HuggingFace',
     plan: 'Free tier',
-    cost: 0,
     status: 'active',
-    notes: 'Inference, training infrastructure, free tier',
+    notes: 'Inference + training, free tier',
   },
 };
+
+let SERVICES = {};
 
 // ═══════════════════════════════════════════════════════════════════════════
 // DATA AGGREGATION
@@ -316,10 +304,52 @@ function renderSparkline(elementId, data) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
+// FETCH LIVE DATA
+// ═══════════════════════════════════════════════════════════════════════════
+
+async function fetchSpendData() {
+  try {
+    const res = await fetch('/.netlify/functions/spend-data');
+    if (!res.ok) throw new Error('API error: ' + res.status);
+
+    const data = await res.json();
+    const liveSpend = data.services || {};
+
+    // Merge API costs with metadata
+    Object.keys(SERVICE_META).forEach(function(key) {
+      const cost = liveSpend[key];
+      SERVICES[key] = Object.assign(
+        {},
+        SERVICE_META[key],
+        { cost: cost !== null && cost !== undefined ? cost : 0 }
+      );
+    });
+
+    return true;
+  } catch (error) {
+    console.warn('Spend API failed, using defaults:', error.message);
+
+    // Fallback: zero costs (all free tier)
+    Object.keys(SERVICE_META).forEach(function(key) {
+      SERVICES[key] = Object.assign({}, SERVICE_META[key], { cost: 0 });
+    });
+
+    // Add back Anthropic Max cost manually since it doesn't come from API
+    if (SERVICES.anthropic) {
+      SERVICES.anthropic.cost = 100;
+    }
+
+    return false;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════════════════════════════════════════
 
-function init() {
+async function init() {
+  await fetchSpendData();
+
   renderDate();
   renderMetrics();
   renderAlerts();
@@ -329,6 +359,16 @@ function init() {
 
   // Update date/time every minute
   setInterval(function() { renderDate(); }, 60000);
+
+  // Refresh spend data every 5 minutes
+  setInterval(function() {
+    fetchSpendData().then(function() {
+      renderMetrics();
+      renderAlerts();
+      renderServiceStatus();
+      renderServiceTable();
+    });
+  }, 5 * 60 * 1000);
 }
 
 if (document.readyState === 'loading') {
