@@ -202,14 +202,14 @@
     .metric-cell .m-value.green { color: var(--green); }
 
     .metric-cell .m-label {
-      font-size: 0.75rem; /* 12px at 16px base — minimum floor for uppercase labels */
+      font-size: 0.87rem;
       color: var(--text-dim);
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
 
     .metric-cell .m-sub {
-      font-size: 0.75rem; /* raised from 0.7rem — matches label floor */
+      font-size: 0.87rem;
       color: var(--text-dim);
       margin-top: 0.1rem;
     }
@@ -311,7 +311,7 @@
       gap: 0.75rem;
       padding: 0.45rem 0;
       border-bottom: 1px solid var(--border-dim);
-      font-size: 0.82rem;
+      font-size: 1rem;
     }
 
     .work-item:last-child { border-bottom: none; }
@@ -354,7 +354,7 @@
       gap: 0.75rem;
       padding: 0.45rem 0;
       border-bottom: 1px solid var(--border-dim);
-      font-size: 0.82rem;
+      font-size: 1rem;
     }
 
     .principle-row:last-child { border-bottom: none; }
@@ -399,7 +399,7 @@
       gap: 0.75rem;
       padding: 0.45rem 0;
       border-bottom: 1px solid var(--border-dim);
-      font-size: 0.82rem;
+      font-size: 1rem;
     }
 
     .agent-row:last-child { border-bottom: none; }
@@ -449,7 +449,7 @@
       gap: 0.75rem;
       padding: 0.45rem 0;
       border-bottom: 1px solid var(--border-dim);
-      font-size: 0.82rem;
+      font-size: 1rem;
       line-height: 1.5;
     }
 
@@ -497,7 +497,7 @@
     }
 
     .quote-prefix { color: var(--gold); font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
-    .quote-text   { font-size: 0.85rem; color: var(--text); font-style: italic; flex: 1; line-height: 1.5; }
+    .quote-text   { font-size: 1rem; color: var(--text); font-style: italic; flex: 1; line-height: 1.5; }
     .quote-source { font-size: 0.82rem; color: var(--text-dim); flex-shrink: 0; }
 
     /* ── BOTTOM NAV ──────────────────────────────── */
@@ -566,8 +566,7 @@
       /* Section headers — uppercase labels can be smaller, but readable */
       .tui-section-header { font-size: 11px; letter-spacing: 0.1em; }
 
-      /* Topbar center — hide less-critical items */
-      .tui-weather { display: none; }
+      /* Topbar center — show weather on mobile */
       .tui-topbar-right { font-size: 12px; }
 
       /* Status dots — bigger on mobile */
@@ -599,8 +598,8 @@
       .stack-row .sk-role { font-size: 12px; }
       .check-row .ck-path { font-size: 12px; }
       .check-row .ck-code { font-size: 12px; }
-      .metric-cell .m-label { font-size: 11px; }
-      .metric-cell .m-sub { font-size: 11px; }
+      .metric-cell .m-label { font-size: 13px; }
+      .metric-cell .m-sub { font-size: 13px; }
     }
 
     /* ── MOBILE SIMPLIFIED VIEW (<= 480px) ───────── */
@@ -687,7 +686,7 @@
     </div>
     <div class="tui-topbar-center">
       <span class="tui-clock" id="tui-clock">--:--:--</span>
-      <span class="tui-location">minneapolis, mn</span>
+      <span class="tui-location">woodbury, mn</span>
       <span class="tui-weather" id="tui-weather">—</span>
     </div>
     <div class="tui-topbar-right" id="tui-last-updated">last refresh: --</div>
@@ -720,7 +719,7 @@
         <span class="m-sub" id="m-conv-week">— this week</span>
       </div>
       <div class="metric-cell">
-        <span class="m-value" id="m-essays">12</span>
+        <span class="m-value" id="m-essays">13</span>
         <span class="m-label">being claude essays</span>
         <span class="m-sub">published</span>
       </div>
@@ -1330,6 +1329,28 @@
       });
   }
 
+  /* ─── LIVE DATA (Supabase via Netlify function) ── */
+  function fetchLiveData() {
+    fetch('/.netlify/functions/kitchen-live')
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        if (d.conversations) {
+          setText('m-conversations', String(d.conversations.total));
+          setText('m-conv-week', d.conversations.week + ' this week');
+        }
+        if (d.dawn) {
+          setText('m-dawn', String(d.dawn.day));
+        }
+        if (d.visitors) {
+          setText('m-visitors', String(d.visitors.total));
+        }
+        if (d.sessions) {
+          setText('m-sessions', String(d.sessions.week));
+        }
+      })
+      .catch(function() { /* non-blocking — static data still shows */ });
+  }
+
   /* ─── WEATHER ─────────────────────────────────── */
   var WEATHER_ICONS = {
     0:'☀️',1:'🌤️',2:'⛅',3:'☁️',45:'🌫️',48:'🌫️',
@@ -1357,6 +1378,8 @@
   setText('m-days-since', daysSinceJan1());
   loadData();
   setInterval(loadData, 300000);
+  fetchLiveData();
+  setInterval(fetchLiveData, 60000); // live refresh every 60 sec
 
 })();
 </script>
