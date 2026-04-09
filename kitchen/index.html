@@ -688,7 +688,7 @@
     <div class="tui-topbar-center">
       <span class="tui-clock" id="tui-clock">--:--:--</span>
       <span class="tui-location">minneapolis, mn</span>
-      <span class="tui-weather">the kitchen</span>
+      <span class="tui-weather" id="tui-weather">—</span>
     </div>
     <div class="tui-topbar-right" id="tui-last-updated">last refresh: --</div>
   </div>
@@ -1329,6 +1329,28 @@
         setText('tui-last-updated', 'data unavailable \u2014 ' + new Date().toLocaleTimeString());
       });
   }
+
+  /* ─── WEATHER ─────────────────────────────────── */
+  var WEATHER_ICONS = {
+    0:'☀️',1:'🌤️',2:'⛅',3:'☁️',45:'🌫️',48:'🌫️',
+    51:'🌦️',53:'🌦️',55:'🌦️',56:'🌦️',57:'🌦️',
+    61:'🌧️',63:'🌧️',65:'🌧️',66:'🌧️',67:'🌧️',
+    71:'❄️',73:'❄️',75:'❄️',77:'❄️',
+    80:'🌦️',81:'🌦️',82:'🌦️',85:'🌨️',86:'🌨️',
+    95:'⛈️',96:'⛈️',99:'⛈️'
+  };
+  function fetchWeather() {
+    fetch('https://api.open-meteo.com/v1/forecast?latitude=44.92&longitude=-92.96&current=temperature_2m,weather_code&temperature_unit=fahrenheit&timezone=America%2FChicago')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var temp = Math.round(data.current.temperature_2m);
+        var icon = WEATHER_ICONS[data.current.weather_code] || '🌡️';
+        setText('tui-weather', temp + '°F ' + icon);
+      })
+      .catch(function() { /* non-blocking */ });
+  }
+  fetchWeather();
+  setInterval(fetchWeather, 1800000); // refresh every 30 min
 
   // Boot
   renderStandard();
