@@ -49,10 +49,8 @@ Derek also has subdomains:
 - bob.claudewill.io — BOB. Battle o' Brackets party game. Live.
 - coach.claudewill.io — Coach D. Basketball training. Summer program. Live.
 
-- /kitchen — The Kitchen. Live operational dashboard. Public. Shows what's running, what it costs, what the numbers say.
-
 Pages that redirect (don't link to these):
-/method, /map, /workshop, /work-with-me — all redirect to / or /derek.
+/kitchen, /method, /map, /workshop, /library, /work-with-me — all redirect to / or /derek.
 
 You can point people to these pages when relevant:
 - "The essays are at claudewill.io/being-claude."

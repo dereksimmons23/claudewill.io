@@ -4,9 +4,11 @@
     "morningEdition": {
       "name": "Morning Edition",
       "lastRun": "2026-04-08T11:23:45.725Z",
-      "status": "ok",
+      "status": "flags",
       "summary": "Nvidia's Artificial Intelligence (AI) Chips Still Need Memory. Here's Why the Micron Sell-Off Has Gone Too Far.",
-      "flags": [],
+      "flags": [
+        "null"
+      ],
       "sections": {
         "Headlines": {
           "source": "Google News RSS",
@@ -36,7 +38,9 @@
       "lastRun": "2026-04-08T11:23:45.726Z",
       "status": "flags",
       "summary": "All 10 pages + 2 subdomains responding. Avg 365ms.",
-      "flags": [],
+      "flags": [
+        "Prompt dead link: netlify/functions/cw-prompt/site-knowledge.md references /library"
+      ],
       "details": [
         "https://claudewill.io/ — 200 26ms",
         "https://claudewill.io/derek — 200 3ms",
@@ -99,9 +103,13 @@
     "pipelineScan": {
       "name": "Pipeline Scan",
       "lastRun": "2026-04-08T11:23:45.726Z",
-      "status": "ok",
-      "summary": "**Pipeline:** 7 items (1 draft, 2 parked, 2 planned, 1 idea, 1 in-progress)",
-      "flags": []
+      "status": "flags",
+      "summary": "**Pipeline:** 7 items (3 draft, 2 planned, 1 idea, 1 in-progress)",
+      "flags": [
+        "Being Claude #11: The Manual: draft for 27 days — review or reject",
+        "Being Claude: The Scoreboard: draft for 35 days — review or reject",
+        "Being Claude: The Brightness (warm/hot/cold): draft for 35 days — review or reject"
+      ]
     }
   },
   "projects": [

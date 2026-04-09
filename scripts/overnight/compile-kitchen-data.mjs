@@ -57,8 +57,7 @@ function parseHousekeeping(content) {
   const flagsSection = content.match(/## Flags \(Decisions Needed\)\n([\s\S]*?)(?=\n## )/)?.[1] || ''
   const flagLines = flagsSection.match(/- \[.\] .+/g) || []
   for (const line of flagLines) {
-    const flag = line.replace(/- \[.\] /, '').trim()
-    if (flag && flag !== 'null' && flag !== 'undefined') flags.push(flag)
+    flags.push(line.replace(/- \[.\] /, ''))
   }
 
   // Extract findings for summary

@@ -222,8 +222,8 @@ async function main() {
       paper += `*Sources: ${ai.citations.slice(0, 5).join(', ')}*\n\n`
     }
   } else {
-    paper += `*Section unavailable: ${ai.error || 'no content returned'}*\n\n`
-    if (ai.error) errors.push(ai.error)
+    paper += `*Section unavailable: ${ai.error}*\n\n`
+    errors.push(ai.error)
   }
 
   paper += `---\n\n`
@@ -236,8 +236,8 @@ async function main() {
       paper += `*Sources: ${business.sources.slice(0, 5).map(s => `[${s.title}](${s.url})`).join(', ')}*\n\n`
     }
   } else {
-    paper += `*Section unavailable: ${business.error || 'no content returned'}*\n\n`
-    if (business.error) errors.push(business.error)
+    paper += `*Section unavailable: ${business.error}*\n\n`
+    errors.push(business.error)
   }
 
   paper += `---\n\n`
@@ -248,8 +248,8 @@ async function main() {
   if (practice.content) {
     paper += `${practice.content}\n\n`
   } else {
-    paper += `*Section unavailable: ${practice.error || 'no content returned'}*\n\n`
-    if (practice.error) errors.push(practice.error)
+    paper += `*Section unavailable: ${practice.error}*\n\n`
+    errors.push(practice.error)
   }
 
   paper += `---\n\n`
