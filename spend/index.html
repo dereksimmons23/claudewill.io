@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>the spend | claudewill*</title>
+  <meta name="description" content="Tech budget transparency. Monthly spend across all services, APIs, and subscriptions.">
+  <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ═══════════════════════════════════════════════════
+       SPEND TUI — Dark. Budget transparency.
+       Matches Kitchen aesthetic: IBM Plex Mono, gold, #0a0e17.
+    ═══════════════════════════════════════════════════ */
+
+    :root {
+      --bg:          #0a0e17;
+      --bg-card:     #0f1623;
+      --bg-row:      #111827;
+      --text:        #c9d1d9;
+      --text-dim:    #6b7280;
+      --text-bright: #f0f6fc;
+      --gold:        #d4a84b;
+      --gold-dim:    rgba(212,168,75,0.12);
+      --green:       #10b981;
+      --red:         #ef4444;
+      --amber:       #f59e0b;
+      --blue:        #4a8ec2;
+      --border:      #1e293b;
+      --border-dim:  #141c2b;
+      --font:        'IBM Plex Mono', 'Courier New', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .tui-frame {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1rem 3rem;
+    }
+
+    .tui-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-bottom: 1px solid var(--gold);
+      margin-bottom: 1rem;
+      gap: 0.5rem;
+    }
+
+    .tui-wordmark {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-bright);
+      letter-spacing: 0.02em;
+    }
+
+    .tui-wordmark .period { color: var(--gold); }
+
+    .tui-topbar-right {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    .tui-section { margin-bottom: 1rem; }
+
+    .tui-section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.35rem 0.75rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--gold);
+      margin-bottom: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+    }
+
+    .section-meta {
+      font-weight: 400;
+      color: var(--text-dim);
+      text-transform: none;
+      letter-spacing: 0;
+      margin-left: auto;
+    }
+
+    .tui-status-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.5rem;
+      padding: 0.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    .status-cell {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .status-cell .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-green { background: var(--green); box-shadow: 0 0 4px var(--green); }
+    .dot-red   { background: var(--red);   box-shadow: 0 0 4px var(--red); }
+    .dot-amber { background: var(--amber); box-shadow: 0 0 4px var(--amber); }
+    .dot-gold  { background: var(--gold);  box-shadow: 0 0 4px var(--gold); }
+    .dot-dim   { background: var(--text-dim); }
+
+    .status-cell .s-label  { color: var(--text); font-weight: 500; }
+    .status-cell .s-detail { color: var(--text-dim); font-size: 0.75rem; }
+
+    .tui-metrics-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .metric-cell {
+      padding: 0.75rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .metric-cell .m-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--text-bright);
+    }
+
+    .metric-cell .m-value.gold  { color: var(--gold); }
+    .metric-cell .m-value.green { color: var(--green); }
+    .metric-cell .m-value.red   { color: var(--red); }
+
+    .metric-cell .m-label {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .metric-cell .m-sub {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin-top: 0.1rem;
+    }
+
+    .service-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+
+    .service-table thead {
+      background: var(--bg-row);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .service-table th {
+      padding: 0.6rem 0.75rem;
+      text-align: left;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+    }
+
+    .service-table td {
+      padding: 0.6rem 0.75rem;
+      border-top: 1px solid var(--border-dim);
+      color: var(--text);
+    }
+
+    .service-table tr:hover {
+      background: var(--bg-row);
+    }
+
+    .service-name {
+      font-weight: 500;
+      color: var(--text-bright);
+    }
+
+    .service-cost {
+      text-align: right;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .service-status {
+      text-align: center;
+    }
+
+    .alert-box {
+      padding: 0.75rem 1rem;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid var(--red);
+      border-left: 3px solid var(--red);
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+
+    .alert-box.warning {
+      background: rgba(245, 158, 11, 0.1);
+      border-color: var(--amber);
+      border-left-color: var(--amber);
+    }
+
+    .alert-box .alert-label {
+      color: var(--red);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+    }
+
+    .alert-box.warning .alert-label {
+      color: var(--amber);
+    }
+
+    .sparkline-block {
+      padding: 0.75rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      margin-bottom: 1rem;
+    }
+
+    .sparkline-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--border-dim);
+      font-size: 0.82rem;
+    }
+
+    .sparkline-row:last-child { border-bottom: none; }
+
+    .spark-label {
+      width: 100px;
+      flex-shrink: 0;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+    }
+
+    .spark-chart {
+      flex: 1;
+      display: flex;
+      align-items: flex-end;
+      gap: 1px;
+      height: 20px;
+    }
+
+    .spark-bar {
+      flex: 1;
+      background: var(--gold-dim);
+      border-top: 1px solid var(--gold);
+      min-width: 2px;
+    }
+
+    .spark-bar.zero {
+      background: var(--border-dim);
+      border-top-color: var(--border);
+      height: 1px !important;
+    }
+
+    .spark-value {
+      flex-shrink: 0;
+      text-align: right;
+      width: 60px;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .loading { opacity: 0.5; }
+
+    @media (max-width: 768px) {
+      .tui-metrics-row {
+        grid-template-columns: 1fr;
+      }
+      .tui-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tui-frame">
+    <!-- TOP BAR -->
+    <div class="tui-topbar">
+      <div class="tui-wordmark">the spend<span class="period">.</span></div>
+      <div class="tui-topbar-right" id="topbar-date">loading…</div>
+    </div>
+
+    <!-- MONTHLY SUMMARY METRICS -->
+    <div class="tui-metrics-row">
+      <div class="metric-cell">
+        <div class="m-value gold" id="total-spend">$0</div>
+        <div class="m-label">Total Monthly</div>
+        <div class="m-sub" id="total-sub"></div>
+      </div>
+      <div class="metric-cell">
+        <div class="m-value" id="threshold-status">$0</div>
+        <div class="m-label">5% Threshold</div>
+        <div class="m-sub" id="threshold-sub"></div>
+      </div>
+      <div class="metric-cell">
+        <div class="m-value" id="budget-pct">100%</div>
+        <div class="m-label">Budget Used</div>
+        <div class="m-sub" id="budget-sub"></div>
+      </div>
+    </div>
+
+    <!-- ALERTS -->
+    <div id="alerts-container"></div>
+
+    <!-- SERVICE STATUS -->
+    <div class="tui-section">
+      <div class="tui-section-header">Service Status</div>
+      <div class="tui-status-row" id="service-status"></div>
+    </div>
+
+    <!-- SPEND BREAKDOWN TABLE -->
+    <div class="tui-section">
+      <div class="tui-section-header">Monthly Breakdown</div>
+      <table class="service-table">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Plan</th>
+            <th>Monthly Cost</th>
+            <th>Status</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody id="service-table-body">
+          <tr><td colspan="5" class="loading">loading…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ANTHROPIC DETAIL (if available) -->
+    <div class="tui-section" id="anthropic-section" style="display: none;">
+      <div class="tui-section-header">Anthropic API — Daily Trend</div>
+      <div class="sparkline-block">
+        <div class="sparkline-row">
+          <div class="spark-label">Max Plan</div>
+          <div class="spark-chart" id="spark-max"></div>
+          <div class="spark-value" id="spark-max-total">$0</div>
+        </div>
+        <div class="sparkline-row">
+          <div class="spark-label">API Key</div>
+          <div class="spark-chart" id="spark-api"></div>
+          <div class="spark-value" id="spark-api-total">$0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER LINK -->
+    <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-dim);">
+      <a href="/kitchen">← back to kitchen</a> — Budget audited monthly. <a href="/derek">contact</a>.
+    </div>
+  </div>
+
+  <script src="/js/spend-dashboard.js"></script>
+</body>
+</html>
