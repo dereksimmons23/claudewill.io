@@ -25,6 +25,7 @@
        KITCHEN TUI — Dark only. Engine room.
        Inspired by Miessler terminal dashboard.
        CW brand: IBM Plex Mono, gold (#d4a84b), #0a0e17.
+       Mobile-first rewrite — April 2026.
     ═══════════════════════════════════════════════════ */
 
     :root {
@@ -55,7 +56,7 @@
       color: var(--text);
       min-height: 100vh;
       line-height: 1.6;
-      font-size: 14px;
+      font-size: 14px; /* base — never goes smaller on any screen */
       -webkit-font-smoothing: antialiased;
     }
 
@@ -67,10 +68,11 @@
     .tui-frame {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 1rem 1rem 3rem;
+      padding: 0.5rem 0.5rem 3rem;
     }
 
     /* ── TOP BAR ─────────────────────────────────── */
+    /* Always horizontal — never stacks on any screen */
 
     .tui-topbar {
       display: flex;
@@ -81,7 +83,7 @@
       border: 1px solid var(--border);
       border-bottom: 1px solid var(--gold);
       margin-bottom: 1rem;
-      flex-wrap: wrap;
+      /* no flex-wrap — topbar is always one row */
       gap: 0.5rem;
     }
 
@@ -90,25 +92,51 @@
       font-weight: 700;
       color: var(--text-bright);
       letter-spacing: 0.02em;
+      flex-shrink: 0;
     }
 
     .tui-wordmark .period { color: var(--gold); }
 
-    .tui-topbar-center {
+    /* Right zone: clock + weather + live indicator — single flex row */
+    .tui-topbar-right {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 0.75rem;
       font-size: 0.8rem;
       color: var(--text-dim);
+      flex-shrink: 0;
     }
 
-    .tui-clock     { color: var(--text-bright); font-weight: 500; }
-    .tui-location  { color: var(--text-dim); }
-    .tui-weather   { color: var(--text-dim); }
+    .tui-clock   { color: var(--text-bright); font-weight: 500; white-space: nowrap; }
+    .tui-weather { color: var(--text-dim); white-space: nowrap; }
 
-    .tui-topbar-right {
-      font-size: 0.8rem; /* raised from 0.75rem */
+    /* Live indicator — subtle green pulse dot */
+    #live-indicator {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--text-dim);
+      flex-shrink: 0;
+      transition: background 0.3s;
+    }
+
+    #live-indicator.live {
+      background: var(--green);
+      box-shadow: 0 0 4px var(--green);
+      animation: live-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes live-pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.5; }
+    }
+
+    /* Last-updated note — hidden on mobile, shown on tablet+ */
+    .tui-last-updated {
+      display: none;
+      font-size: 0.75rem;
       color: var(--text-dim);
+      white-space: nowrap;
     }
 
     /* ── SECTION LABELS ──────────────────────────── */
@@ -124,7 +152,7 @@
       border: 1px solid var(--border);
       border-left: 2px solid var(--gold);
       margin-bottom: 0.5rem;
-      font-size: 0.75rem; /* 12px at 16px base — minimum for uppercase labels */
+      font-size: 0.75rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.12em;
@@ -140,10 +168,11 @@
     }
 
     /* ── STATUS ROW ──────────────────────────────── */
+    /* 4-per-row on mobile (2 rows for 7 items), 7-per-row on desktop */
 
     .tui-status-row {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 0.5rem;
       padding: 0.5rem;
       background: var(--bg-card);
@@ -154,12 +183,13 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.35rem 0.5rem;
+      padding: 0.4rem 0.5rem;
       font-size: 0.8rem;
+      min-height: 44px; /* touch target */
     }
 
     .status-cell .dot {
-      width: 10px; /* increased from 7px for visibility */
+      width: 10px;
       height: 10px;
       border-radius: 50%;
       flex-shrink: 0;
@@ -172,13 +202,14 @@
     .dot-dim   { background: var(--text-dim); }
 
     .status-cell .s-label  { color: var(--text); font-weight: 500; }
-    .status-cell .s-detail { color: var(--text-dim); font-size: 0.75rem; } /* raised from 0.7rem */
+    .status-cell .s-detail { color: var(--text-dim); font-size: 0.75rem; }
 
     /* ── METRICS ROW ─────────────────────────────── */
+    /* 3-col on mobile (2 rows for 6 metrics — clean and readable) */
 
     .tui-metrics-row {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 0.5rem;
     }
 
@@ -191,8 +222,24 @@
       gap: 0.25rem;
     }
 
+    /* Live metric indicator inline with value */
+    .metric-cell .m-live-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 3px var(--green);
+      vertical-align: middle;
+      margin-left: 4px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .metric-cell .m-live-dot.active { opacity: 1; }
+
     .metric-cell .m-value {
-      font-size: 1.6rem;
+      font-size: 1.6rem; /* same on all screens — never reduce */
       font-weight: 700;
       line-height: 1;
       color: var(--text-bright);
@@ -202,19 +249,24 @@
     .metric-cell .m-value.green { color: var(--green); }
 
     .metric-cell .m-label {
-      font-size: 0.75rem; /* 12px at 16px base — minimum floor for uppercase labels */
+      font-size: 0.75rem;
       color: var(--text-dim);
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
 
     .metric-cell .m-sub {
-      font-size: 0.75rem; /* raised from 0.7rem — matches label floor */
+      font-size: 0.75rem;
       color: var(--text-dim);
       margin-top: 0.1rem;
     }
 
     /* ── SPARKLINE AREA ──────────────────────────── */
+    /* Hidden on mobile (<640px), shown on tablet+ */
+
+    .tui-section-sparklines {
+      display: none;
+    }
 
     .tui-sparkline-block {
       padding: 0.75rem 1rem;
@@ -237,7 +289,7 @@
       width: 140px;
       flex-shrink: 0;
       color: var(--text-dim);
-      font-size: 0.8rem; /* explicit — ensures minimum 12.8px at 16px base */
+      font-size: 0.8rem;
     }
 
     .spark-chart {
@@ -278,7 +330,7 @@
     }
 
     .spark-tf .tf-label {
-      font-size: 0.75rem; /* 12px at 16px base — floor for uppercase labels */
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
@@ -286,14 +338,53 @@
     .spark-tf .tf-value {
       color: var(--text);
       font-weight: 500;
-      font-size: 0.82rem; /* ~13px at 16px base */
+      font-size: 0.82rem;
+    }
+
+    /* ── MORNING EDITION ─────────────────────────── */
+
+    .tui-morning-block {
+      padding: 0.75rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    .me-headline {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--border-dim);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .me-headline:last-child { border-bottom: none; }
+
+    .me-headline .me-bullet {
+      color: var(--gold);
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+
+    .me-headline .me-title {
+      color: var(--text);
+      flex: 1;
+    }
+
+    .me-headline .me-source {
+      color: var(--text-dim);
+      font-size: 0.72rem;
+      flex-shrink: 0;
+      text-align: right;
     }
 
     /* ── TWO-COLUMN CONTENT AREA ─────────────────── */
+    /* 1 column on mobile, 2 columns on 640px+ */
 
     .tui-two-col {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 0.5rem;
     }
 
@@ -312,6 +403,8 @@
       padding: 0.45rem 0;
       border-bottom: 1px solid var(--border-dim);
       font-size: 0.82rem;
+      min-height: 44px;
+      align-items: center;
     }
 
     .work-item:last-child { border-bottom: none; }
@@ -331,7 +424,7 @@
 
     .work-item .wi-status {
       color: var(--text-dim);
-      font-size: 0.75rem; /* raised from 0.7rem */
+      font-size: 0.75rem;
       text-align: right;
       flex-shrink: 0;
     }
@@ -355,13 +448,14 @@
       padding: 0.45rem 0;
       border-bottom: 1px solid var(--border-dim);
       font-size: 0.82rem;
+      min-height: 44px;
     }
 
     .principle-row:last-child { border-bottom: none; }
 
     .principle-row .p-num {
       color: var(--gold);
-      font-size: 0.75rem; /* raised from 0.7rem */
+      font-size: 0.75rem;
       font-weight: 700;
       width: 2ch;
       flex-shrink: 0;
@@ -400,19 +494,25 @@
       padding: 0.45rem 0;
       border-bottom: 1px solid var(--border-dim);
       font-size: 0.82rem;
+      min-height: 44px;
     }
 
     .agent-row:last-child { border-bottom: none; }
 
     .agent-row .ag-name   { color: var(--text); font-weight: 500; flex: 1; }
-    .agent-row .ag-time   { color: var(--text-dim); font-size: 0.75rem; } /* raised from 0.7rem */
-    .agent-row .ag-status { font-size: 0.75rem; font-weight: 600; } /* raised from 0.7rem */
+    .agent-row .ag-time   { color: var(--text-dim); font-size: 0.75rem; }
+    .agent-row .ag-status { font-size: 0.75rem; font-weight: 600; }
 
     .ag-status.ok    { color: var(--green); }
     .ag-status.flags { color: var(--amber); }
     .ag-status.error { color: var(--red); }
 
     /* ── STACK ───────────────────────────────────── */
+    /* Hidden on mobile (<800px), shown on desktop */
+
+    .tui-section-stack {
+      display: none;
+    }
 
     .tui-stack-block {
       padding: 0.75rem 1rem;
@@ -432,7 +532,7 @@
     .stack-row:last-child { border-bottom: none; }
 
     .stack-row .sk-name { color: var(--text); flex: 1; }
-    .stack-row .sk-role { color: var(--text-dim); font-size: 0.75rem; } /* raised from 0.7rem */
+    .stack-row .sk-role { color: var(--text-dim); font-size: 0.75rem; }
 
     /* ── FLAGS ───────────────────────────────────── */
 
@@ -451,6 +551,7 @@
       border-bottom: 1px solid var(--border-dim);
       font-size: 0.82rem;
       line-height: 1.5;
+      min-height: 44px;
     }
 
     .flag-row:last-child { border-bottom: none; }
@@ -459,6 +560,11 @@
     .flag-row .flag-text   { color: var(--text); }
 
     /* ── SITE CHECKS ─────────────────────────────── */
+    /* Hidden on mobile (<640px), shown on tablet+ */
+
+    .tui-section-health {
+      display: none;
+    }
 
     .tui-checks-block {
       padding: 0.75rem 1rem;
@@ -478,8 +584,8 @@
 
     .check-row:last-child { border-bottom: none; }
 
-    .check-row .ck-path { color: var(--text-dim); font-size: 0.75rem; } /* raised from 0.72rem */
-    .check-row .ck-code { font-weight: 600; font-size: 0.75rem; } /* raised from 0.7rem */
+    .check-row .ck-path { color: var(--text-dim); font-size: 0.75rem; }
+    .check-row .ck-code { font-weight: 600; font-size: 0.75rem; }
     .check-row .ck-code.ok  { color: var(--green); }
     .check-row .ck-code.err { color: var(--red); }
     .check-row .ck-ms { color: var(--text-dim); font-size: 0.82rem; text-align: right; }
@@ -498,25 +604,55 @@
 
     .quote-prefix { color: var(--gold); font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
     .quote-text   { font-size: 0.85rem; color: var(--text); font-style: italic; flex: 1; line-height: 1.5; }
-    .quote-source { font-size: 0.82rem; color: var(--text-dim); flex-shrink: 0; }
+    .quote-source { font-size: 0.82rem; color: var(--text-dim); flex-shrink: 0; display: none; }
 
     /* ── BOTTOM NAV ──────────────────────────────── */
+    /* Always horizontal — scrollable if needed, never vertical */
 
     .tui-bottom-nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 0.75rem;
       border: 1px solid var(--border);
       margin-top: 0.5rem;
-      font-size: 0.8rem; /* raised from 0.7rem */
-      color: var(--text-dim);
+      gap: 0.75rem;
+      overflow: hidden;
     }
 
-    .tui-bottom-nav a { color: var(--text-dim); }
-    .tui-bottom-nav a:hover { color: var(--gold); }
-    .tui-nav-links { display: flex; gap: 1.5rem; }
-    .tui-refresh-note { color: var(--text-dim); font-size: 0.82rem; } /* ~13px at 16px base */
+    .tui-nav-links {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+      flex-shrink: 1;
+      min-width: 0;
+    }
+
+    .tui-nav-links::-webkit-scrollbar { display: none; }
+
+    .tui-nav-links a {
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      padding: 10px 2px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .tui-nav-links a:hover { color: var(--gold); text-decoration: none; }
+
+    .tui-refresh-note {
+      color: var(--text-dim);
+      font-size: 0.72rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: none; /* hidden on mobile */
+    }
 
     /* ── LOADING ─────────────────────────────────── */
 
@@ -539,141 +675,42 @@
       50%       { opacity: 0; }
     }
 
-    /* ── RESPONSIVE ──────────────────────────────── */
+    /* ══════════════════════════════════════════════
+       RESPONSIVE — mobile-first, enhance upward
+    ══════════════════════════════════════════════ */
 
-    @media (max-width: 800px) {
-      /* html font-size stays at 16px — no shrinking */
-      .tui-metrics-row { grid-template-columns: repeat(3, 1fr); }
-      .tui-two-col     { grid-template-columns: 1fr; }
-      .tui-topbar-center { gap: 0.75rem; }
+    /* ── 640px+ TABLET ───────────────────────────── */
+    @media (min-width: 640px) {
+      .tui-frame { padding: 1rem 1rem 3rem; }
+
+      /* Sparklines: show on tablet */
+      .tui-section-sparklines { display: block; }
+
+      /* Site health: show on tablet */
+      .tui-section-health { display: block; }
+
+      /* Two-col layouts: activate on tablet */
+      .tui-two-col { grid-template-columns: 1fr 1fr; }
+
+      /* Quote source: show on tablet */
+      .quote-source { display: block; }
+
+      /* Refresh note: show on tablet */
+      .tui-refresh-note { display: block; }
+
+      /* Last-updated in topbar: show on tablet */
+      .tui-last-updated { display: block; }
     }
 
-    @media (max-width: 520px) {
-      /* Mobile base — 14px floor for readability */
-      body { font-size: 14px; }
+    /* ── 800px+ DESKTOP ──────────────────────────── */
+    @media (min-width: 800px) {
+      /* Stack section: show on desktop */
+      .tui-section-stack { display: block; }
 
-      .tui-frame { padding: 0.5rem 0.5rem 2rem; }
-      .tui-metrics-row { grid-template-columns: repeat(2, 1fr); }
-      .tui-topbar { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
-      .spark-label { width: 100px; font-size: 13px; }
-      .tui-nav-links { gap: 0.75rem; }
-
-      /* Sparkline timeframe labels — readable on mobile */
-      .spark-timeframes { gap: 0.5rem; }
-      .spark-tf .tf-label { font-size: 11px; }
-      .spark-tf .tf-value { font-size: 12px; }
-
-      /* Section headers — uppercase labels can be smaller, but readable */
-      .tui-section-header { font-size: 11px; letter-spacing: 0.1em; }
-
-      /* Topbar center — hide less-critical items */
-      .tui-weather { display: none; }
-      .tui-topbar-right { font-size: 12px; }
-
-      /* Status dots — bigger on mobile */
-      .status-cell .dot {
-        width: 12px;
-        height: 12px;
-      }
-
-      /* Sparkline charts — taller bars on mobile */
-      .spark-chart { height: 32px; }
-      .spark-bar { min-width: 4px; }
-
-      /* All rows need comfortable touch spacing */
-      .sparkline-row { padding: 0.5rem 0; font-size: 14px; }
-      .work-item { padding: 0.55rem 0; font-size: 14px; }
-      .principle-row { padding: 0.55rem 0; font-size: 14px; }
-      .agent-row { padding: 0.55rem 0; font-size: 14px; }
-      .stack-row { padding: 0.45rem 0; font-size: 14px; }
-      .flag-row { padding: 0.5rem 0; font-size: 14px; line-height: 1.5; }
-      .check-row { padding: 0.45rem 0; font-size: 14px; }
-      .status-cell { padding: 0.5rem; font-size: 14px; }
-
-      /* Sub-labels stay dimmer but still readable */
-      .status-cell .s-detail { font-size: 12px; }
-      .work-item .wi-status { font-size: 12px; }
-      .principle-row .p-num { font-size: 12px; }
-      .agent-row .ag-time { font-size: 12px; }
-      .agent-row .ag-status { font-size: 12px; }
-      .stack-row .sk-role { font-size: 12px; }
-      .check-row .ck-path { font-size: 12px; }
-      .check-row .ck-code { font-size: 12px; }
-      .metric-cell .m-label { font-size: 11px; }
-      .metric-cell .m-sub { font-size: 11px; }
+      /* Status row: all 7 in one line */
+      .tui-status-row { grid-template-columns: repeat(7, 1fr); }
     }
 
-    /* ── MOBILE SIMPLIFIED VIEW (<= 480px) ───────── */
-    /* Full TUI hidden; card-based summary shown */
-
-    .kitchen-mobile-summary { display: none; }
-
-    @media (max-width: 480px) {
-      /* Bottom nav — make links tappable */
-      .tui-bottom-nav {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: flex-start;
-        padding: 0.75rem 1rem;
-      }
-
-      .tui-nav-links {
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-
-      .tui-nav-links a {
-        padding: 10px 8px;
-        min-height: 44px;
-        min-width: 44px;
-        display: inline-flex;
-        align-items: center;
-        font-size: 14px;
-      }
-
-      .tui-refresh-note {
-        font-size: 12px;
-      }
-
-      /* Metric values — keep the big numbers readable */
-      .metric-cell .m-value {
-        font-size: 1.4rem;
-      }
-
-      /* Site checks — hide ms timing on small screens */
-      .ck-ms { display: none; }
-      .check-row { grid-template-columns: 12px 1fr auto; }
-
-      /* Quote bar */
-      .quote-text { font-size: 14px; }
-      .quote-source { display: none; }
-
-      /* Topbar clock */
-      .tui-topbar-center { font-size: 13px; }
-      .tui-clock { font-size: 14px; }
-    }
-
-    /* ── TOUCH TARGETS ────────────────────────────── */
-    .tui-bottom-nav a {
-      padding: 10px 4px;
-      min-height: 44px;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    /* ── MOBILE READABILITY ─────────────────────── */
-    @media (max-width: 520px) {
-      /* Ensure all interactive/tappable rows meet 44px min */
-      .status-cell { min-height: 44px; }
-      .work-item { min-height: 44px; display: flex; align-items: center; }
-      .principle-row { min-height: 44px; }
-      .agent-row { min-height: 44px; }
-      .check-row { min-height: 44px; }
-      .sparkline-row { min-height: 44px; }
-      .stack-row { min-height: 44px; display: flex; align-items: center; }
-      .flag-row { min-height: 44px; display: flex; align-items: flex-start; }
-      .quote-prefix { font-size: 13px; }
-    }
   </style>
 </head>
 <body>
@@ -681,16 +718,17 @@
 <div class="tui-frame">
 
   <!-- ═══ TOP BAR ═══════════════════════════════════ -->
+  <!-- Always horizontal. Two zones: left (wordmark), right (clock + weather + indicator) -->
   <div class="tui-topbar">
     <div class="tui-wordmark">
       claude will<span class="period">.</span><span class="cursor">_</span>
     </div>
-    <div class="tui-topbar-center">
+    <div class="tui-topbar-right">
+      <span class="tui-last-updated" id="tui-last-updated"></span>
+      <span class="tui-weather" id="tui-weather"></span>
       <span class="tui-clock" id="tui-clock">--:--:--</span>
-      <span class="tui-location">minneapolis, mn</span>
-      <span class="tui-weather" id="tui-weather">—</span>
+      <span id="live-indicator" title="live data"></span>
     </div>
-    <div class="tui-topbar-right" id="tui-last-updated">last refresh: --</div>
   </div>
 
   <!-- ═══ 1. STATUS ════════════════════════════════ -->
@@ -708,6 +746,7 @@
   </div>
 
   <!-- ═══ 2. METRICS ══════════════════════════════ -->
+  <!-- 3-col on all screens. Live data wired via IDs. -->
   <div class="tui-section">
     <div class="tui-section-header">
       pulse
@@ -716,39 +755,39 @@
     <div class="tui-metrics-row">
       <div class="metric-cell">
         <span class="m-value gold" id="m-conversations">—</span>
-        <span class="m-label">conversations</span>
+        <span class="m-label">conversations<span class="m-live-dot" id="ldot-conversations"></span></span>
         <span class="m-sub" id="m-conv-week">— this week</span>
       </div>
       <div class="metric-cell">
-        <span class="m-value" id="m-essays">12</span>
+        <span class="m-value" id="m-conv-today">—</span>
+        <span class="m-label">today<span class="m-live-dot" id="ldot-today"></span></span>
+        <span class="m-sub">conversations</span>
+      </div>
+      <div class="metric-cell">
+        <span class="m-value" id="m-essays">13</span>
         <span class="m-label">being claude essays</span>
         <span class="m-sub">published</span>
       </div>
       <div class="metric-cell">
         <span class="m-value" id="m-dawn">—</span>
-        <span class="m-label">dawn day</span>
-        <span class="m-sub">of 151</span>
-      </div>
-      <div class="metric-cell">
-        <span class="m-value" id="m-days-since">—</span>
-        <span class="m-label">days since jan 1</span>
-        <span class="m-sub">2026 rebuild year</span>
+        <span class="m-label">dawn day<span class="m-live-dot" id="ldot-dawn"></span></span>
+        <span class="m-sub" id="m-dawn-sub">of 151</span>
       </div>
       <div class="metric-cell">
         <span class="m-value" id="m-visitors">—</span>
-        <span class="m-label">porch visitors</span>
+        <span class="m-label">porch visitors<span class="m-live-dot" id="ldot-visitors"></span></span>
         <span class="m-sub" id="m-visitors-sub">— returning</span>
       </div>
       <div class="metric-cell">
         <span class="m-value green" id="m-sessions">—</span>
-        <span class="m-label">claude sessions</span>
-        <span class="m-sub">this week</span>
+        <span class="m-label">sessions this week<span class="m-live-dot" id="ldot-sessions"></span></span>
+        <span class="m-sub" id="m-days-since">— days since jan 1</span>
       </div>
     </div>
   </div>
 
-  <!-- ═══ 3. SPARKLINES ════════════════════════════ -->
-  <div class="tui-section">
+  <!-- ═══ 3. SPARKLINES — tablet+ only ════════════ -->
+  <div class="tui-section tui-section-sparklines">
     <div class="tui-section-header">
       activity
       <span class="section-meta">28-day window</span>
@@ -758,14 +797,27 @@
     </div>
   </div>
 
-  <!-- ═══ 4. WORK + STANDARD ═══════════════════════ -->
-  <div class="tui-section tui-two-col">
-    <div>
-      <div class="tui-section-header">current work</div>
-      <div class="tui-work-block" id="work-block">
-        <div class="tui-loading">loading...</div>
-      </div>
+  <!-- ═══ 4. CURRENT WORK ══════════════════════════ -->
+  <div class="tui-section">
+    <div class="tui-section-header">current work</div>
+    <div class="tui-work-block" id="work-block">
+      <div class="tui-loading">loading...</div>
     </div>
+  </div>
+
+  <!-- ═══ 5. MORNING EDITION ══════════════════════ -->
+  <div class="tui-section">
+    <div class="tui-section-header">
+      morning edition
+      <span class="section-meta" id="me-meta">overnight</span>
+    </div>
+    <div class="tui-morning-block" id="morning-block">
+      <div class="tui-loading">loading headlines...</div>
+    </div>
+  </div>
+
+  <!-- ═══ 6. WORK + STANDARD (two-col) ════════════ -->
+  <div class="tui-section tui-two-col">
     <div>
       <div class="tui-section-header">
         the standard
@@ -773,28 +825,26 @@
       </div>
       <div class="tui-standard-block" id="standard-block"></div>
     </div>
-  </div>
-
-  <!-- ═══ 5. AGENTS + SITE HEALTH ══════════════════ -->
-  <div class="tui-section tui-two-col">
     <div>
       <div class="tui-section-header">overnight agents</div>
       <div class="tui-agents-block" id="agents-block">
         <div class="tui-loading">loading...</div>
       </div>
     </div>
-    <div>
-      <div class="tui-section-header">
-        site health
-        <span class="section-meta" id="health-summary">—</span>
-      </div>
-      <div class="tui-checks-block" id="checks-block">
-        <div class="tui-loading">loading...</div>
-      </div>
+  </div>
+
+  <!-- ═══ 7. SITE HEALTH — tablet+ only ══════════ -->
+  <div class="tui-section tui-section-health">
+    <div class="tui-section-header">
+      site health
+      <span class="section-meta" id="health-summary">—</span>
+    </div>
+    <div class="tui-checks-block" id="checks-block">
+      <div class="tui-loading">loading...</div>
     </div>
   </div>
 
-  <!-- ═══ 6. FLAGS (conditional) ══════════════════ -->
+  <!-- ═══ 8. FLAGS (conditional) ══════════════════ -->
   <div class="tui-section" id="flags-section" style="display:none">
     <div class="tui-section-header" style="border-left-color:var(--red);color:var(--red)">
       flags
@@ -805,8 +855,8 @@
     </div>
   </div>
 
-  <!-- ═══ 7. STACK ════════════════════════════════ -->
-  <div class="tui-section">
+  <!-- ═══ 9. STACK — desktop only ═════════════════ -->
+  <div class="tui-section tui-section-stack">
     <div class="tui-section-header">
       stack
       <span class="section-meta" id="stack-cost">~$125/month</span>
@@ -824,6 +874,7 @@
   </div>
 
   <!-- ═══ BOTTOM NAV ═══════════════════════════════ -->
+  <!-- Horizontal scroll — never vertical -->
   <div class="tui-bottom-nav">
     <div class="tui-nav-links">
       <a href="/">&larr; porch</a>
@@ -873,6 +924,7 @@
   /* ─── STATE ───────────────────────────────────── */
   var highlightedPrinciple = Math.floor(Math.random() * PRINCIPLES.length);
   var currentQuote         = Math.floor(Math.random() * QUOTES.length);
+  var staticData           = null; // kitchen-data.json fallback store
 
   /* ─── DOM HELPERS ─────────────────────────────── */
   function el(id)    { return document.getElementById(id); }
@@ -885,22 +937,28 @@
   function makeEl(tag, opts) {
     var e = document.createElement(tag);
     if (opts) {
-      if (opts.cls) e.className = opts.cls;
+      if (opts.cls)   e.className  = opts.cls;
       if (opts.text !== undefined) e.textContent = opts.text;
-      if (opts.title) e.title = opts.title;
+      if (opts.title) e.title      = opts.title;
       if (opts.style) e.style.cssText = opts.style;
     }
     return e;
   }
 
   /* ─── CLOCK ───────────────────────────────────── */
+  function getTimezone() {
+    // DST: CDT = UTC-5 (offset 300 min), CST = UTC-6 (offset 360 min)
+    var offset = new Date().getTimezoneOffset();
+    return offset === 300 ? 'CDT' : 'CST';
+  }
+
   function updateClock() {
     var now = new Date();
-    var h  = String(now.getHours()).padStart(2, '0');
-    var m  = String(now.getMinutes()).padStart(2, '0');
-    var s  = String(now.getSeconds()).padStart(2, '0');
-    var mo = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'][now.getMonth()];
-    setText('tui-clock', mo + ' ' + now.getDate() + ', ' + now.getFullYear() + '  ' + h + ':' + m + ':' + s + ' cst');
+    var h   = String(now.getHours()).padStart(2, '0');
+    var m   = String(now.getMinutes()).padStart(2, '0');
+    var s   = String(now.getSeconds()).padStart(2, '0');
+    var mo  = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'][now.getMonth()];
+    setText('tui-clock', mo + ' ' + now.getDate() + ', ' + now.getFullYear() + '  ' + h + ':' + m + ':' + s + ' ' + getTimezone());
   }
   setInterval(updateClock, 1000);
   updateClock();
@@ -929,6 +987,33 @@
       out.push(Math.max(0, baseline + Math.floor(Math.random() * variance) - Math.floor(variance / 3)));
     }
     return out;
+  }
+
+  /* ─── LIVE INDICATOR ──────────────────────────── */
+  function setLiveIndicator(alive) {
+    var dot = el('live-indicator');
+    if (!dot) return;
+    if (alive) {
+      dot.classList.add('live');
+    } else {
+      dot.classList.remove('live');
+    }
+  }
+
+  function setLiveDot(dotId, alive) {
+    var dot = el(dotId);
+    if (!dot) return;
+    if (alive) {
+      dot.classList.add('active');
+    } else {
+      dot.classList.remove('active');
+    }
+  }
+
+  function activateAllLiveDots() {
+    ['ldot-conversations','ldot-today','ldot-dawn','ldot-visitors','ldot-sessions'].forEach(function(id) {
+      setLiveDot(id, true);
+    });
   }
 
   /* ─── SPARKLINES ──────────────────────────────── */
@@ -962,7 +1047,7 @@
     if (!block) return;
     clearEl(block);
 
-    var metrics = data && data.agents && data.agents.pulse && data.agents.pulse.metrics;
+    var metrics  = data && data.agents && data.agents.pulse && data.agents.pulse.metrics;
     var convTotal = metrics && metrics.conversations ? (metrics.conversations.total || 0) : 0;
     var convWeek  = metrics && metrics.conversations ? (metrics.conversations.week  || 0) : 0;
     var sessWeek  = metrics && metrics.sessions      ? (metrics.sessions.thisWeek   || 0) : 0;
@@ -991,8 +1076,7 @@
     ];
 
     rows.forEach(function (row) {
-      var rowEl = makeEl('div', { cls: 'sparkline-row' });
-
+      var rowEl   = makeEl('div', { cls: 'sparkline-row' });
       var labelEl = makeEl('span', { cls: 'spark-label', text: row.label });
       rowEl.appendChild(labelEl);
 
@@ -1010,12 +1094,12 @@
 
   /* ─── STATUS ROW ──────────────────────────────── */
   function renderStatus(data) {
-    var row      = el('status-row');
+    var row       = el('status-row');
     var summaryEl = el('status-summary');
     if (!row) return;
     clearEl(row);
 
-    var projects = data && data.projects || [];
+    var projects   = data && data.projects || [];
     var projectMap = {};
     projects.forEach(function (p) { projectMap[p.name] = p; });
 
@@ -1030,8 +1114,8 @@
     ];
 
     STATUS_ITEMS.forEach(function (item) {
-      var proj    = projectMap[item.key];
-      var dotCls  = item.defaultDot;
+      var proj   = projectMap[item.key];
+      var dotCls = item.defaultDot;
       if (proj) {
         var st = (proj.status || '').toLowerCase();
         if (st === 'paused' || st === 'dead') dotCls = 'dot-red';
@@ -1049,7 +1133,7 @@
     if (summaryEl) summaryEl.textContent = hk ? hk.summary : 'all systems nominal';
   }
 
-  /* ─── METRICS ─────────────────────────────────── */
+  /* ─── METRICS (static data) ───────────────────── */
   function renderMetrics(data) {
     var metrics = data && data.agents && data.agents.pulse && data.agents.pulse.metrics;
     var pulse   = data && data.agents && data.agents.pulse;
@@ -1067,8 +1151,156 @@
       if (metrics.sessions) setText('m-sessions', metrics.sessions.thisWeek || '—');
     }
 
-    setText('m-days-since', daysSinceJan1());
+    setText('m-days-since', daysSinceJan1() + ' days since jan 1');
     if (pulse) setText('metrics-date', 'as of ' + timeAgo(pulse.lastRun));
+  }
+
+  /* ─── LIVE METRICS (/.netlify/functions/kitchen-live) ── */
+  function applyLiveMetrics(live) {
+    if (!live) return;
+
+    // conversations.total
+    if (live.conversations) {
+      if (live.conversations.total !== undefined) {
+        setText('m-conversations', Number(live.conversations.total).toLocaleString());
+      }
+      if (live.conversations.today !== undefined) {
+        setText('m-conv-today', live.conversations.today);
+      }
+      if (live.conversations.week !== undefined) {
+        setText('m-conv-week', live.conversations.week + ' this week');
+      }
+    }
+
+    // sessions.week
+    if (live.sessions && live.sessions.week !== undefined) {
+      setText('m-sessions', live.sessions.week);
+    }
+
+    // visitors.total
+    if (live.visitors && live.visitors.total !== undefined) {
+      setText('m-visitors', live.visitors.total);
+    }
+
+    // dawn.day
+    if (live.dawn) {
+      if (live.dawn.day !== undefined) {
+        setText('m-dawn', live.dawn.day);
+      }
+      if (live.dawn.remaining !== undefined) {
+        setText('m-dawn-sub', live.dawn.remaining + ' days remain');
+      }
+    }
+
+    // Mark live
+    activateAllLiveDots();
+    setLiveIndicator(true);
+
+    // Update last-refreshed timestamp
+    var ts = live.updatedAt ? timeAgo(live.updatedAt) : 'just now';
+    setText('tui-last-updated', 'live: ' + ts);
+  }
+
+  function fetchLiveData() {
+    fetch('/.netlify/functions/kitchen-live')
+      .then(function (r) {
+        if (!r.ok) throw new Error('live fetch failed');
+        return r.json();
+      })
+      .then(function (live) {
+        applyLiveMetrics(live);
+      })
+      .catch(function () {
+        // Silently fall back — static data already rendered
+        setLiveIndicator(false);
+      });
+  }
+
+  /* ─── MORNING EDITION ─────────────────────────── */
+  function renderMorningEdition(data) {
+    var block  = el('morning-block');
+    var metaEl = el('me-meta');
+    if (!block) return;
+
+    var me = data && data.agents && data.agents.morningEdition;
+    if (me && me.lastRun && metaEl) {
+      metaEl.textContent = timeAgo(me.lastRun);
+    }
+
+    // Fetch the markdown report for actual headlines
+    fetch('/reports/morning-edition.md')
+      .then(function (r) { return r.text(); })
+      .then(function (text) {
+        var headlines = parseMeHeadlines(text);
+        clearEl(block);
+
+        if (!headlines.length) {
+          block.appendChild(makeEl('div', { cls: 'tui-loading', text: 'no headlines found' }));
+          return;
+        }
+
+        headlines.slice(0, 5).forEach(function (h) {
+          var row    = makeEl('div', { cls: 'me-headline' });
+          var bullet = makeEl('span', { cls: 'me-bullet', text: '>' });
+          var title  = makeEl('span', { cls: 'me-title',  text: h.title });
+          row.appendChild(bullet);
+          row.appendChild(title);
+          if (h.source) {
+            var src = makeEl('span', { cls: 'me-source', text: h.source });
+            row.appendChild(src);
+          }
+          block.appendChild(row);
+        });
+      })
+      .catch(function () {
+        // Fall back to summary from kitchen-data.json
+        clearEl(block);
+        var summary = me && me.summary ? me.summary : 'no morning edition data';
+        block.appendChild(makeEl('div', { cls: 'me-headline',
+          text: '' }));
+        var row    = makeEl('div', { cls: 'me-headline' });
+        var bullet = makeEl('span', { cls: 'me-bullet', text: '>' });
+        var title  = makeEl('span', { cls: 'me-title',  text: summary });
+        row.appendChild(bullet);
+        row.appendChild(title);
+        block.appendChild(row);
+      });
+  }
+
+  function parseMeHeadlines(md) {
+    var headlines = [];
+    var lines = md.split('\n');
+    var inSection = false;
+
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i].trim();
+
+      if (line === '## Headlines') { inSection = true; continue; }
+      if (inSection && /^##\s/.test(line) && line !== '## Headlines') break;
+
+      if (inSection && /^-\s\*\*/.test(line)) {
+        var match = line.match(/^-\s\*\*(.+?)\*\*\s*(?:\u2014|—|--)\s*(.+)$/);
+        if (match) {
+          headlines.push({ title: match[1].trim(), source: match[2].trim() });
+        } else {
+          var bold = line.match(/^-\s\*\*(.+?)\*\*/);
+          if (bold) headlines.push({ title: bold[1].trim(), source: '' });
+        }
+      }
+    }
+
+    // Fallback: front-page blockquotes
+    if (!headlines.length) {
+      for (var j = 0; j < lines.length; j++) {
+        var l = lines[j].trim();
+        if (/^>\s\*\*/.test(l)) {
+          var fp = l.match(/^>\s\*\*(.+?)\*\*\s*(?:\u2014|—|--)\s*(.+)$/);
+          if (fp) headlines.push({ title: fp[1].trim(), source: fp[2].trim() });
+        }
+      }
+    }
+
+    return headlines;
   }
 
   /* ─── CURRENT WORK ────────────────────────────── */
@@ -1095,16 +1327,16 @@
     });
 
     active.forEach(function (p) {
-      var prefix = p.category === 'business'        ? '$'
-                 : p.category === 'infrastructure'  ? '\u2261'
-                 : p.category === 'personal'        ? '\u25c6'
+      var prefix = p.category === 'business'       ? '$'
+                 : p.category === 'infrastructure' ? '\u2261'
+                 : p.category === 'personal'       ? '\u25c6'
                  : '\u25cb';
 
-      var st     = p.status || '';
-      var stLow  = st.toLowerCase();
-      var stCls  = stLow.includes('active') || stLow.includes('live') ? 'live'
-                 : stLow.includes('day')                              ? 'active'
-                 : '';
+      var st    = p.status || '';
+      var stLow = st.toLowerCase();
+      var stCls = stLow.includes('active') || stLow.includes('live') ? 'live'
+                : stLow.includes('day')                              ? 'active'
+                : '';
 
       var item   = makeEl('div', { cls: 'work-item' });
       var pre    = makeEl('span', { cls: 'wi-prefix', text: prefix });
@@ -1126,9 +1358,9 @@
 
     PRINCIPLES.forEach(function (p, i) {
       var highlighted = i === highlightedPrinciple;
-      var row    = makeEl('div', { cls: 'principle-row' + (highlighted ? ' highlighted' : '') });
-      var num    = makeEl('span', { cls: 'p-num',  text: String(i + 1) });
-      var text   = makeEl('span', { cls: 'p-text', text: p.toLowerCase() });
+      var row  = makeEl('div', { cls: 'principle-row' + (highlighted ? ' highlighted' : '') });
+      var num  = makeEl('span', { cls: 'p-num',  text: String(i + 1) });
+      var text = makeEl('span', { cls: 'p-text', text: p.toLowerCase() });
       row.appendChild(num);
       row.appendChild(text);
       block.appendChild(row);
@@ -1143,11 +1375,11 @@
 
   /* ─── AGENTS ──────────────────────────────────── */
   function renderAgents(data) {
-    var block  = el('agents-block');
+    var block = el('agents-block');
     if (!block) return;
     clearEl(block);
 
-    var agents = data && data.agents || {};
+    var agents    = data && data.agents || {};
     var AGENT_DEFS = [
       { key: 'morningEdition', label: 'morning edition' },
       { key: 'housekeeping',   label: 'housekeeping'   },
@@ -1197,6 +1429,7 @@
     }
 
     var allOk = true;
+
     details.slice(0, 12).forEach(function (line) {
       var matchMs   = line.match(/(\d+ms)/);
       var matchCode = line.match(/\s(\d{3})\s/);
@@ -1208,11 +1441,11 @@
       var isOk  = code === '200';
       if (!isOk) allOk = false;
 
-      var row   = makeEl('div', { cls: 'check-row' });
-      var dot   = makeEl('span', { cls: 'dot ' + (isOk ? 'dot-green' : 'dot-red') });
-      var pth   = makeEl('span', { cls: 'ck-path', text: path });
-      var cd    = makeEl('span', { cls: 'ck-code ' + (isOk ? 'ok' : 'err'), text: code });
-      var msEl  = makeEl('span', { cls: 'ck-ms',   text: ms });
+      var row  = makeEl('div', { cls: 'check-row' });
+      var dot  = makeEl('span', { cls: 'dot ' + (isOk ? 'dot-green' : 'dot-red') });
+      var pth  = makeEl('span', { cls: 'ck-path', text: path });
+      var cd   = makeEl('span', { cls: 'ck-code ' + (isOk ? 'ok' : 'err'), text: code });
+      var msEl = makeEl('span', { cls: 'ck-ms',   text: ms });
 
       row.appendChild(dot);
       row.appendChild(pth);
@@ -1235,7 +1468,7 @@
     if (!section || !block) return;
 
     var flags = [];
-    var pulse = data && data.agents && data.agents.pulse;
+    var pulse  = data && data.agents && data.agents.pulse;
     if (pulse && pulse.flags) flags = flags.concat(pulse.flags);
     var hk = data && data.agents && data.agents.housekeeping;
     if (hk && hk.flags && hk.flags.length) flags = flags.concat(hk.flags);
@@ -1302,16 +1535,17 @@
   /* ─── LAST UPDATED ────────────────────────────── */
   function updateLastUpdated() {
     setText('tui-last-updated',
-      'last refresh: ' +
+      'updated: ' +
       new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false }) +
-      ' cst');
+      ' ' + getTimezone());
   }
 
-  /* ─── MAIN LOAD ───────────────────────────────── */
+  /* ─── MAIN LOAD (kitchen-data.json) ──────────── */
   function loadData() {
     fetch('/kitchen-data.json?t=' + Date.now())
       .then(function (r) { return r.json(); })
       .then(function (data) {
+        staticData = data;
         renderStatus(data);
         renderMetrics(data);
         renderSparklines(data);
@@ -1321,12 +1555,17 @@
         renderChecks(data);
         renderFlags(data);
         renderStack(data);
+        renderMorningEdition(data);
         updateLastUpdated();
+        // After static data loads, fetch live data on top
+        fetchLiveData();
       })
       .catch(function () {
         renderStandard();
-        setText('m-days-since', daysSinceJan1());
-        setText('tui-last-updated', 'data unavailable \u2014 ' + new Date().toLocaleTimeString());
+        setText('m-days-since', daysSinceJan1() + ' days since jan 1');
+        setText('tui-last-updated', 'data unavailable');
+        // Still attempt live fetch — it may work even if static fails
+        fetchLiveData();
       });
   }
 
@@ -1339,24 +1578,27 @@
     80:'🌦️',81:'🌦️',82:'🌦️',85:'🌨️',86:'🌨️',
     95:'⛈️',96:'⛈️',99:'⛈️'
   };
+
   function fetchWeather() {
     fetch('https://api.open-meteo.com/v1/forecast?latitude=44.92&longitude=-92.96&current=temperature_2m,weather_code&temperature_unit=fahrenheit&timezone=America%2FChicago')
-      .then(function(r) { return r.json(); })
-      .then(function(data) {
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
         var temp = Math.round(data.current.temperature_2m);
         var icon = WEATHER_ICONS[data.current.weather_code] || '🌡️';
         setText('tui-weather', temp + '°F ' + icon);
       })
-      .catch(function() { /* non-blocking */ });
+      .catch(function () { /* non-blocking */ });
   }
-  fetchWeather();
-  setInterval(fetchWeather, 1800000); // refresh every 30 min
 
-  // Boot
+  fetchWeather();
+  setInterval(fetchWeather, 1800000); // every 30 min
+
+  /* ─── BOOT ────────────────────────────────────── */
   renderStandard();
-  setText('m-days-since', daysSinceJan1());
+  setText('m-days-since', daysSinceJan1() + ' days since jan 1');
   loadData();
-  setInterval(loadData, 300000);
+  setInterval(loadData, 300000);           // static refresh every 5 min
+  setInterval(fetchLiveData, 60000);       // live refresh every 60 sec
 
 })();
 </script>
