@@ -1,14 +1,12 @@
 {
-  "lastUpdated": "2026-04-08T11:23:45.726Z",
+  "lastUpdated": "2026-04-10T11:21:44.802Z",
   "agents": {
     "morningEdition": {
       "name": "Morning Edition",
-      "lastRun": "2026-04-08T11:23:45.725Z",
-      "status": "flags",
-      "summary": "Nvidia's Artificial Intelligence (AI) Chips Still Need Memory. Here's Why the Micron Sell-Off Has Gone Too Far.",
-      "flags": [
-        "null"
-      ],
+      "lastRun": "2026-04-10T11:21:44.802Z",
+      "status": "ok",
+      "summary": "If I Had $5,000 to Invest in Artificial Intelligence (AI) Right Now, I'd Buy These 2 Stocks Before They Rebound",
+      "flags": [],
       "sections": {
         "Headlines": {
           "source": "Google News RSS",
@@ -20,7 +18,7 @@
         },
         "Business": {
           "source": "Gemini Flash (search)",
-          "status": "null"
+          "status": "ok"
         },
         "The Practice": {
           "source": "Mistral Small",
@@ -31,46 +29,49 @@
           "status": "not configured"
         }
       },
-      "findings": "12 headlines curated across 5 topics. 8 AI citations. 0 business sources."
+      "findings": "12 headlines curated across 5 topics. 7 AI citations. 0 business sources."
     },
     "housekeeping": {
       "name": "Housekeeping",
-      "lastRun": "2026-04-08T11:23:45.726Z",
+      "lastRun": "2026-04-10T11:21:44.802Z",
       "status": "flags",
-      "summary": "All 10 pages + 2 subdomains responding. Avg 365ms.",
+      "summary": "7/10 pages up. 3 down.",
       "flags": [
+        "https://claudewill.io/story is DOWN (fetch failed)",
+        "https://claudewill.io/privacy is DOWN (23)",
+        "https://claudewill.io/being-claude is DOWN (23)",
         "Prompt dead link: netlify/functions/cw-prompt/site-knowledge.md references /library"
       ],
       "details": [
-        "https://claudewill.io/ — 200 26ms",
-        "https://claudewill.io/derek — 200 3ms",
-        "https://claudewill.io/story — 200 171ms",
-        "https://claudewill.io/workshop — 200 512ms",
-        "https://claudewill.io/privacy — 200 304ms",
-        "https://claudewill.io/terms — 200 191ms",
-        "https://claudewill.io/kitchen — 200 639ms",
-        "https://claudewill.io/arcade — 200 523ms",
-        "https://claudewill.io/map — 200 681ms",
-        "https://claudewill.io/being-claude — 200 604ms",
-        "Coach D (https://coach.claudewill.io) — 200 1030ms",
-        "BOB (https://bob.claudewill.io) — 200 1007ms"
+        "https://claudewill.io/ — 200 65ms",
+        "https://claudewill.io/derek — 200 25ms",
+        "https://claudewill.io/story — DOWN: fetch failed",
+        "https://claudewill.io/workshop — 200 412ms",
+        "https://claudewill.io/privacy — DOWN: 23",
+        "https://claudewill.io/terms — 200 457ms",
+        "https://claudewill.io/kitchen — 200 465ms",
+        "https://claudewill.io/arcade — 200 73ms",
+        "https://claudewill.io/map — 200 405ms",
+        "https://claudewill.io/being-claude — DOWN: 23",
+        "Coach D (https://coach.claudewill.io) — 200 879ms",
+        "BOB (https://bob.claudewill.io) — 200 1168ms"
       ]
     },
     "pulse": {
       "name": "Daily Pulse",
-      "lastRun": "2026-04-08T11:23:02.596Z",
+      "lastRun": "2026-04-10T11:20:48.901Z",
       "status": "flags",
       "summary": "682 conversations, 8 visitors, 0 D sessions",
       "flags": [
         "6 visitors in 3.5 months. Distribution is the gap.",
         "D has zero real users. Paywall is built. Stripe is not.",
-        "Dawn: 25 days since last entry.",
+        "Dawn: 27 days since last entry.",
         "$0 from D. $0 from the practice. Cascadia is the only income."
       ],
       "metrics": {
         "conversations": {
           "total": 682,
-          "week": 20,
+          "week": 17,
           "today": 0
         },
         "d": {
@@ -84,31 +85,31 @@
           "named": 2
         },
         "sessions": {
-          "thisWeek": 6,
-          "avgWeight": 6.7,
+          "thisWeek": 16,
+          "avgWeight": 6.4,
           "byProject": {
-            "desktop": 2,
+            "desktop": 11,
+            "claudewill-io": 1,
+            "ecosystem": 1,
             "agent-zero": 1,
-            "writing": 2,
-            "cascadia": 1
+            "writing": 2
           }
         },
         "dawn": {
           "dayNumber": 74,
           "raidRate": "3/6",
-          "daysSinceEntry": 25
+          "daysSinceEntry": 27
         }
       }
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-04-08T11:23:45.726Z",
+      "lastRun": "2026-04-10T11:21:44.802Z",
       "status": "flags",
       "summary": "**Pipeline:** 7 items (3 draft, 2 planned, 1 idea, 1 in-progress)",
       "flags": [
-        "Being Claude #11: The Manual: draft for 27 days — review or reject",
-        "Being Claude: The Scoreboard: draft for 35 days — review or reject",
-        "Being Claude: The Brightness (warm/hot/cold): draft for 35 days — review or reject"
+        "Being Claude: The Scoreboard: draft for 37 days — review or reject",
+        "Being Claude: The Brightness (warm/hot/cold): draft for 37 days — review or reject"
       ]
     }
   },
