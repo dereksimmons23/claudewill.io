@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-04-09T11:00:00.000Z",
+  "month": "2026-04",
+  "anthropic": {
+    "max": 200,
+    "api": 0,
+    "total": 200
+  },
+  "stripe": {
+    "fees": 0
+  },
+  "services": {
+    "anthropic": 200,
+    "stripe": 0,
+    "netlify": 0,
+    "supabase": 0,
+    "cloudflare": 0,
+    "github": 0,
+    "gemini": null,
+    "perplexity": null,
+    "mistral": null,
+    "cohere": null,
+    "huggingface": null
+  },
+  "monthly_total": 200,
+  "budget_threshold": 500,
+  "budget_used_pct": 40,
+  "history": [
+    {
+      "month": "2026-04",
+      "monthly_total": 200,
+      "budget_used_pct": 40
+    }
+  ],
+  "projections": {
+    "q2_projected": 600,
+    "monthly_avg": 200,
+    "trend": "insufficient_data"
+  }
+}
