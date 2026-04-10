@@ -112,104 +112,14 @@ async function getStripeSpend() {
 // COMPILE SPEND DATA
 // ═══════════════════════════════════════════════════════════════════════════
 
-function getYearMonth() {
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = String(now.getMonth() + 1).padStart(2, '0');
-  return `${year}-${month}`;
-}
-
-function loadHistory() {
-  try {
-    const outPath = path.join(__dirname, '../../spend-data.json');
-    if (fs.existsSync(outPath)) {
-      const data = JSON.parse(fs.readFileSync(outPath, 'utf8'));
-      return data.history || [];
-    }
-  } catch (error) {
-    console.warn('Could not load history:', error.message);
-  }
-  return [];
-}
-
-function calculateProjection(history, currentTotal) {
-  if (history.length < 2) {
-    // Not enough data, use current month as baseline
-    return {
-      q2_projected: currentTotal * 3,
-      monthly_avg: currentTotal,
-      trend: 'insufficient_data',
-    };
-  }
-
-  // Average of last 3 months (or fewer if not available)
-  const recentMonths = history.slice(-3);
-  const recentTotal = recentMonths.reduce((sum, m) => sum + m.monthly_total, 0);
-  const monthlyAvg = recentTotal / recentMonths.length;
-
-  // Remaining months in Q2 (April, May, June)
-  const now = new Date();
-  const currentMonth = now.getMonth(); // 0-11
-  const remainingInQ2 = currentMonth <= 3 ? 3 - (currentMonth - 2) : 0;
-  const q2Projected = monthlyAvg * remainingInQ2;
-
-  // Determine trend
-  let trend = 'stable';
-  if (recentMonths.length >= 2) {
-    const latest = recentMonths[recentMonths.length - 1].monthly_total;
-    const previous = recentMonths[recentMonths.length - 2].monthly_total;
-    if (latest > previous * 1.1) trend = 'increasing';
-    else if (latest < previous * 0.9) trend = 'decreasing';
-  }
-
-  return {
-    q2_projected: parseFloat(q2Projected.toFixed(2)),
-    monthly_avg: parseFloat(monthlyAvg.toFixed(2)),
-    trend,
-  };
-}
-
 async function compileSpendData() {
   console.log('📊 Spend audit running...');
 
   const anthropic = await getAnthropicSpend();
   const stripe = await getStripeSpend();
 
-  const monthlyTotal = parseFloat(
-    (anthropic.max + anthropic.api + stripe).toFixed(2)
-  );
-  const currentMonth = getYearMonth();
-  const budgetUsedPct = Math.round((monthlyTotal / 500) * 100);
-
-  // Load existing history
-  const history = loadHistory();
-
-  // Check if current month already exists
-  const existingIndex = history.findIndex(m => m.month === currentMonth);
-  if (existingIndex !== -1) {
-    history[existingIndex] = {
-      month: currentMonth,
-      monthly_total: monthlyTotal,
-      budget_used_pct: budgetUsedPct,
-    };
-  } else {
-    history.push({
-      month: currentMonth,
-      monthly_total: monthlyTotal,
-      budget_used_pct: budgetUsedPct,
-    });
-  }
-
-  // Keep last 12 months
-  if (history.length > 12) {
-    history.shift();
-  }
-
-  const projections = calculateProjection(history, monthlyTotal);
-
   const spendData = {
     timestamp: new Date().toISOString(),
-    month: currentMonth,
     anthropic: {
       max: anthropic.max,
       api: anthropic.api,
@@ -231,11 +141,13 @@ async function compileSpendData() {
       cohere: null,
       huggingface: null,
     },
-    monthly_total: monthlyTotal,
+    monthly_total: parseFloat(
+      (anthropic.max + anthropic.api + stripe).toFixed(2)
+    ),
     budget_threshold: 500,
-    budget_used_pct: budgetUsedPct,
-    history,
-    projections,
+    budget_used_pct: Math.round(
+      ((anthropic.max + anthropic.api + stripe) / 500) * 100
+    ),
   };
 
   return spendData;

@@ -314,55 +314,6 @@
 
     .loading { opacity: 0.5; }
 
-    .trends-metrics {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    @media (max-width: 768px) {
-      .trends-metrics {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .scenario-card {
-      padding: 0.75rem 1rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-left: 2px solid var(--gold);
-      font-size: 0.85rem;
-    }
-
-    .scenario-title {
-      color: var(--gold);
-      font-weight: 600;
-      text-transform: uppercase;
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.25rem;
-    }
-
-    .scenario-savings {
-      color: var(--green);
-      font-weight: 600;
-      font-size: 1.3rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .scenario-detail {
-      color: var(--text-dim);
-      font-size: 0.75rem;
-      line-height: 1.4;
-    }
-
-    .scenarios-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 0.5rem;
-    }
-
     @media (max-width: 768px) {
       .tui-metrics-row {
         grid-template-columns: 1fr;
@@ -445,25 +396,6 @@
           <div class="spark-value" id="spark-api-total">$0</div>
         </div>
       </div>
-    </div>
-
-    <!-- TRENDS & PROJECTIONS -->
-    <div class="tui-section" id="trends-section" style="display: none;">
-      <div class="tui-section-header">Historical Trends & Projections</div>
-      <div class="sparkline-block">
-        <div class="sparkline-row">
-          <div class="spark-label">Monthly</div>
-          <div class="spark-chart" id="spark-monthly"></div>
-          <div class="spark-value">trend</div>
-        </div>
-      </div>
-      <div class="trends-metrics" id="trends-metrics"></div>
-    </div>
-
-    <!-- COST OPTIMIZATION SCENARIOS -->
-    <div class="tui-section" id="scenarios-section" style="display: none;">
-      <div class="tui-section-header">Cost Optimization Scenarios</div>
-      <div class="scenarios-grid" id="scenarios-list"></div>
     </div>
 
     <!-- FOOTER LINK -->

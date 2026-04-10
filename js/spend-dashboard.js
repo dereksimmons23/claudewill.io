@@ -285,83 +285,6 @@ function renderSparklines() {
   document.getElementById('spark-api-total').textContent = '$' + apiSum.toFixed(2);
 }
 
-function renderTrends() {
-  if (!SPEND_DATA || !SPEND_DATA.history || SPEND_DATA.history.length === 0) {
-    return;
-  }
-
-  const section = document.getElementById('trends-section');
-  if (!section) return;
-  section.style.display = 'block';
-
-  // Render monthly trend sparkline
-  const monthlyData = SPEND_DATA.history.map(function(m) { return m.monthly_total; });
-  renderSparkline('spark-monthly', monthlyData);
-
-  // Show month-over-month change
-  const container = document.getElementById('trends-metrics');
-  if (!container) return;
-  container.innerHTML = '';
-
-  const currentMonth = SPEND_DATA.history[SPEND_DATA.history.length - 1];
-  const previousMonth = SPEND_DATA.history.length > 1 ? SPEND_DATA.history[SPEND_DATA.history.length - 2] : null;
-
-  if (previousMonth) {
-    const change = currentMonth.monthly_total - previousMonth.monthly_total;
-    const changePct = Math.round((change / previousMonth.monthly_total) * 100);
-    const trend = change > 0 ? '↑ up' : change < 0 ? '↓ down' : '→ flat';
-    const cell = document.createElement('div');
-    cell.className = 'metric-cell';
-    cell.innerHTML = '<div class="m-value ' + (change > 0 ? 'red' : change < 0 ? 'green' : 'gold') + '">' + (change > 0 ? '+' : '') + '$' + Math.abs(change).toFixed(2) + '</div><div class="m-label">Month over Month</div><div class="m-sub">' + trend + ' ' + Math.abs(changePct) + '%</div>';
-    container.appendChild(cell);
-  }
-
-  if (SPEND_DATA.projections) {
-    const proj = SPEND_DATA.projections;
-    const cell = document.createElement('div');
-    cell.className = 'metric-cell';
-    cell.innerHTML = '<div class="m-value gold">$' + proj.q2_projected.toFixed(2) + '</div><div class="m-label">Q2 Projection</div><div class="m-sub">' + proj.monthly_avg.toFixed(2) + '/mo avg · ' + proj.trend + '</div>';
-    container.appendChild(cell);
-  }
-}
-
-function renderScenarios() {
-  const section = document.getElementById('scenarios-section');
-  if (!section || !SPEND_DATA) return;
-  section.style.display = 'block';
-
-  const container = document.getElementById('scenarios-list');
-  if (!container) return;
-  container.innerHTML = '';
-
-  // Scenario: Switch Porch to Haiku
-  // Assuming porch uses ~50% of Anthropic API spend
-  const estimatedPorchApi = SPEND_DATA.anthropic.api * 0.5;
-  const haikuRate = 0.8; // Haiku is ~80% cheaper than Sonnet
-  const haikusavings = estimatedPorchApi * haikuRate;
-
-  const scenario1 = document.createElement('div');
-  scenario1.className = 'scenario-card';
-  scenario1.innerHTML = '<div class="scenario-title">Switch Porch to Haiku</div><div class="scenario-savings">Save ~$' + haikusavings.toFixed(2) + '/mo</div><div class="scenario-detail">Smaller responses, faster feedback loops, lower latency.</div>';
-  container.appendChild(scenario1);
-
-  // Scenario: Pause external APIs
-  const externalSpend = (SPEND_DATA.services.perplexity || 0) + (SPEND_DATA.services.mistral || 0);
-  if (externalSpend > 0) {
-    const scenario2 = document.createElement('div');
-    scenario2.className = 'scenario-card';
-    scenario2.innerHTML = '<div class="scenario-title">Pause External APIs</div><div class="scenario-savings">Save $' + externalSpend.toFixed(2) + '/mo</div><div class="scenario-detail">Use Anthropic for overnight agents instead.</div>';
-    container.appendChild(scenario2);
-  }
-
-  // Scenario: Batch API calls
-  const batchSavings = SPEND_DATA.anthropic.api * 0.15;
-  const scenario3 = document.createElement('div');
-  scenario3.className = 'scenario-card';
-  scenario3.innerHTML = '<div class="scenario-title">Batch Processing</div><div class="scenario-savings">Save ~$' + batchSavings.toFixed(2) + '/mo</div><div class="scenario-detail">Use batch API for overnight agents (50% discount).</div>';
-  container.appendChild(scenario3);
-}
-
 function renderSparkline(elementId, data) {
   const container = document.getElementById(elementId);
   if (!container) return;
@@ -433,8 +356,6 @@ async function init() {
   renderServiceStatus();
   renderServiceTable();
   renderSparklines();
-  renderTrends();
-  renderScenarios();
 
   // Update date/time every minute
   setInterval(function() { renderDate(); }, 60000);
