@@ -6,11 +6,13 @@
  * Matches Kitchen pipeline pattern
  */
 
+import dotenv from 'dotenv';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+dotenv.config({ path: path.join(__dirname, '../../.env') });
 
 // ═══════════════════════════════════════════════════════════════════════════
 // FETCH SPEND DATA
@@ -24,33 +26,51 @@ async function getAnthropicSpend() {
       return { max: 200, api: 0 };
     }
 
-    // Anthropic usage API — last 30 days
+    // Check if it's an Admin API key (required for usage API)
+    if (!apiKey.startsWith('sk-ant-admin')) {
+      console.warn('⚠️  ANTHROPIC_API_KEY is not an Admin key (must start with sk-ant-admin)');
+      console.warn('   Generate Admin key at: https://console.anthropic.com/');
+      return { max: 200, api: 0 };
+    }
+
+    // Anthropic usage report API — last 30 days
+    // Requires Admin API key. Returns cost report for all models used.
     const now = new Date();
     const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
-    const startDate = thirtyDaysAgo.toISOString().split('T')[0];
-    const endDate = now.toISOString().split('T')[0];
+    const startDate = thirtyDaysAgo.toISOString();
+    const endDate = now.toISOString();
 
+    // Query: /v1/organizations/cost_report (returns USD costs)
     const res = await fetch(
-      `https://api.anthropic.com/v1/usage?start_date=${startDate}&end_date=${endDate}`,
+      `https://api.anthropic.com/v1/organizations/cost_report?starting_at=${encodeURIComponent(startDate)}&ending_at=${encodeURIComponent(endDate)}`,
       {
         headers: {
           'x-api-key': apiKey,
-          'anthropic-beta': 'usage-2024-06-01',
+          'anthropic-version': '2024-06-01',
         },
       }
     );
 
     if (!res.ok) {
-      console.warn('⚠️  Anthropic API error:', res.status);
+      const errorBody = await res.text();
+      console.warn('⚠️  Anthropic API error:', res.status, errorBody.substring(0, 100));
       return { max: 200, api: 0 };
     }
 
     const data = await res.json();
-    const apiSpend = data.data?.reduce((sum, item) => sum + (item.final_cost || 0), 0) || 0;
+
+    // Parse cost report: data.data is array of cost entries
+    // Each entry has: model, cost_in_cents
+    const apiSpend = data.data?.reduce((sum, item) => {
+      if (item.cost_in_cents) {
+        return sum + (item.cost_in_cents / 100); // Convert cents to dollars
+      }
+      return sum;
+    }, 0) || 0;
 
     return {
-      max: 200,
-      api: parseFloat(apiSpend.toFixed(2)),
+      max: 200,  // Claude Max subscription (flat monthly fee)
+      api: parseFloat(apiSpend.toFixed(2)),  // Variable API usage
     };
   } catch (error) {
     console.error('Anthropic fetch error:', error.message);
