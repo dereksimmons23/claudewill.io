@@ -2,8 +2,10 @@ name: Overnight Agents
 
 on:
   schedule:
-    # 11:00 UTC = 5:00 AM CST
+    # 11:00 UTC = 5:00 AM CST (daily)
     - cron: '0 11 * * *'
+    # 10:00 UTC = 4:00 AM CST Monday (weekly key rotation)
+    - cron: '0 10 * * 1'
   workflow_dispatch:
 
 permissions:
@@ -111,9 +113,56 @@ jobs:
           path: reports/
           retention-days: 30
 
+  key-rotation:
+    runs-on: ubuntu-latest
+    if: github.event.schedule == '0 10 * * 1' || github.event_name == 'workflow_dispatch'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run Phase 3 Key Rotation
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+        run: npm install && node scripts/overnight/phase-3-key-rotation.mjs
+      - name: Upload rotation report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: key-rotation-report
+          path: reports/
+          retention-days: 30
+
+  alerts:
+    runs-on: ubuntu-latest
+    needs: [spend-aggregation]
+    if: always()
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run Phase 4 Alerts
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_ALERTS_WEBHOOK: ${{ secrets.SLACK_ALERTS_WEBHOOK }}
+        run: npm install && node scripts/overnight/phase-4-alerts.mjs
+      - name: Upload alerts report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: alerts-report
+          path: reports/
+          retention-days: 30
+
   compile:
     runs-on: ubuntu-latest
-    needs: [morning-edition, housekeeping, pulse, pipeline-scan, spend-aggregation]
+    needs: [morning-edition, housekeeping, pulse, pipeline-scan, spend-aggregation, alerts]
     if: always()
     steps:
       - uses: actions/checkout@v4
