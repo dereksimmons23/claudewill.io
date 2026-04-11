@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7R5X5SJDVT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7R5X5SJDVT');
+  </script>
+
+  <title>the report | claudewill*</title>
+  <meta name="description" content="Unified operations report. Kitchen, spend, agents, ecosystem — one view.">
+  <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:          #0a0e17;
+      --bg-card:     #0f1623;
+      --bg-row:      #111827;
+      --text:        #c9d1d9;
+      --text-dim:    #6b7280;
+      --text-bright: #f0f6fc;
+      --gold:        #d4a84b;
+      --gold-dim:    rgba(212,168,75,0.12);
+      --green:       #10b981;
+      --red:         #ef4444;
+      --amber:       #f59e0b;
+      --blue:        #4a8ec2;
+      --border:      #1e293b;
+      --border-dim:  #141c2b;
+      --font:        'IBM Plex Mono', 'Courier New', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .tui-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+      font-size: 0.75rem;
+    }
+    .topbar-left { color: var(--gold); font-weight: 600; }
+    .topbar-right { color: var(--text-dim); }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 2rem 0 0.75rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .section-header::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 0.75rem;
+    }
+    .metric-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      margin-bottom: 0.25rem;
+    }
+    .metric-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-bright);
+      line-height: 1.2;
+    }
+    .metric-value.gold { color: var(--gold); }
+    .metric-value.green { color: var(--green); }
+    .metric-value.red { color: var(--red); }
+    .metric-value.amber { color: var(--amber); }
+    .metric-sub {
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      margin-top: 0.15rem;
+    }
+
+    .agent-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.75rem;
+    }
+    .agent-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 0.75rem;
+    }
+    .agent-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin-bottom: 0.25rem;
+    }
+    .agent-status {
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-bottom: 0.35rem;
+    }
+    .agent-summary {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .dot-green { background: var(--green); }
+    .dot-amber { background: var(--amber); }
+    .dot-red { background: var(--red); }
+    .dot-dim { background: var(--text-dim); }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.5rem;
+    }
+    .service-cell {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dim);
+      border-radius: 3px;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .service-name {
+      font-size: 0.7rem;
+      color: var(--text);
+      flex: 1;
+    }
+    .service-cost {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+    }
+
+    .flag-list { list-style: none; }
+    .flag-item {
+      padding: 0.4rem 0.6rem;
+      border-left: 2px solid var(--amber);
+      background: rgba(245,158,11,0.05);
+      margin-bottom: 0.35rem;
+      font-size: 0.75rem;
+      color: var(--text);
+      border-radius: 0 3px 3px 0;
+    }
+    .flag-item.ok {
+      border-left-color: var(--green);
+      background: rgba(16,185,129,0.05);
+    }
+
+    .sparkline-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.35rem 0;
+    }
+    .sparkline-label {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      width: 100px;
+      flex-shrink: 0;
+    }
+    .sparkline {
+      display: flex;
+      align-items: flex-end;
+      gap: 1px;
+      height: 20px;
+      flex: 1;
+    }
+    .spark-bar {
+      flex: 1;
+      background: var(--gold);
+      border-radius: 1px 1px 0 0;
+      min-height: 1px;
+      opacity: 0.7;
+    }
+    .spark-bar.zero {
+      background: var(--border);
+      height: 1px;
+    }
+    .sparkline-value {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      width: 40px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .project-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.75rem;
+    }
+    .project-table th {
+      text-align: left;
+      padding: 0.4rem 0.5rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--gold);
+      font-weight: 500;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .project-table td {
+      padding: 0.4rem 0.5rem;
+      border-bottom: 1px solid var(--border-dim);
+      color: var(--text);
+    }
+    .project-table tr:last-child td { border-bottom: none; }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.7rem;
+    }
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .loading {
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      padding: 1rem 0;
+    }
+
+    @media (max-width: 600px) {
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+      .agent-grid { grid-template-columns: 1fr; }
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+<div class="tui-container">
+
+  <div class="topbar">
+    <div class="topbar-left">the report</div>
+    <div class="topbar-right" id="report-date">loading...</div>
+  </div>
+
+  <div class="section-header">Health</div>
+  <div class="metrics-grid" id="health-metrics">
+    <div class="metric-card">
+      <div class="metric-label">Agents</div>
+      <div class="metric-value" id="agents-ok">--</div>
+      <div class="metric-sub" id="agents-sub">loading</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Monthly Spend</div>
+      <div class="metric-value gold" id="monthly-spend">--</div>
+      <div class="metric-sub" id="spend-sub">loading</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Budget Used</div>
+      <div class="metric-value" id="budget-pct">--</div>
+      <div class="metric-sub" id="budget-sub">loading</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Flags</div>
+      <div class="metric-value" id="flag-count">--</div>
+      <div class="metric-sub" id="flag-sub">loading</div>
+    </div>
+  </div>
+
+  <div class="section-header">Overnight Agents</div>
+  <div class="agent-grid" id="agent-grid">
+    <div class="loading">loading agent status...</div>
+  </div>
+
+  <div class="section-header">Services</div>
+  <div class="service-grid" id="service-grid">
+    <div class="loading">loading services...</div>
+  </div>
+
+  <div class="section-header">Activity (28 days)</div>
+  <div id="sparklines-container">
+    <div class="loading">loading sparklines...</div>
+  </div>
+
+  <div class="section-header">Flags</div>
+  <ul class="flag-list" id="flag-list">
+    <li class="flag-item ok">No flags. All clear.</li>
+  </ul>
+
+  <div class="section-header">Projects</div>
+  <table class="project-table" id="project-table">
+    <thead>
+      <tr><th>Project</th><th>Status</th><th>Next</th></tr>
+    </thead>
+    <tbody id="project-tbody">
+      <tr><td colspan="3" class="loading">loading projects...</td></tr>
+    </tbody>
+  </table>
+
+  <div class="nav-links">
+    <a href="/kitchen">kitchen</a>
+    <a href="/spend">spend</a>
+    <a href="/">home</a>
+  </div>
+
+</div>
+
+<script>
+var KITCHEN = null;
+var SPEND = null;
+var PULSE = null;
+
+function renderDate() {
+  var now = new Date();
+  document.getElementById('report-date').textContent =
+    now.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) +
+    ' at ' +
+    now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+}
+
+function dotClass(status) {
+  if (status === 'ok') return 'dot-green';
+  if (status === 'flags') return 'dot-amber';
+  if (status === 'not-configured') return 'dot-dim';
+  return 'dot-red';
+}
+
+function collectFlags() {
+  var flags = [];
+  var internalPatterns = ['$0 from', 'Distribution is the gap', 'zero real users', 'only income'];
+
+  if (KITCHEN && KITCHEN.agents) {
+    Object.values(KITCHEN.agents).forEach(function(agent) {
+      if (agent.flags && agent.flags.length > 0) {
+        agent.flags.forEach(function(f) {
+          var isInternal = internalPatterns.some(function(p) { return f.indexOf(p) !== -1; });
+          if (!isInternal) flags.push(f);
+        });
+      }
+    });
+  }
+  return flags;
+}
+
+function renderHealth() {
+  var agents = KITCHEN ? KITCHEN.agents : {};
+  var agentList = Object.values(agents);
+  var okCount = agentList.filter(function(a) { return a.status === 'ok'; }).length;
+  var total = agentList.length;
+  var agentsEl = document.getElementById('agents-ok');
+  agentsEl.textContent = okCount + '/' + total;
+  agentsEl.className = 'metric-value ' + (okCount === total ? 'green' : 'amber');
+  document.getElementById('agents-sub').textContent = total + ' configured';
+
+  if (SPEND) {
+    document.getElementById('monthly-spend').textContent = '$' + (SPEND.monthly_total || 0).toFixed(0);
+    document.getElementById('spend-sub').textContent = SPEND.month || '';
+    var pct = SPEND.budget_used_pct || 0;
+    var pctEl = document.getElementById('budget-pct');
+    pctEl.textContent = pct + '%';
+    pctEl.className = 'metric-value ' + (pct > 100 ? 'red' : pct > 80 ? 'gold' : 'green');
+    var remaining = (SPEND.budget_threshold || 500) - (SPEND.monthly_total || 0);
+    document.getElementById('budget-sub').textContent = remaining >= 0
+      ? '$' + remaining.toFixed(0) + ' remaining'
+      : 'over by $' + Math.abs(remaining).toFixed(0);
+  }
+
+  var allFlags = collectFlags();
+  var flagEl = document.getElementById('flag-count');
+  flagEl.textContent = allFlags.length;
+  flagEl.className = 'metric-value ' + (allFlags.length === 0 ? 'green' : 'amber');
+  document.getElementById('flag-sub').textContent = allFlags.length === 0 ? 'all clear' : 'need attention';
+}
+
+function renderAgents() {
+  var container = document.getElementById('agent-grid');
+  container.textContent = '';
+
+  var agents = KITCHEN ? KITCHEN.agents : {};
+  var keys = Object.keys(agents);
+  if (keys.length === 0) {
+    var msg = document.createElement('div');
+    msg.className = 'loading';
+    msg.textContent = 'no agent data';
+    container.appendChild(msg);
+    return;
+  }
+
+  keys.forEach(function(key) {
+    var agent = agents[key];
+    var card = document.createElement('div');
+    card.className = 'agent-card';
+
+    var name = document.createElement('div');
+    name.className = 'agent-name';
+    name.textContent = agent.name || key;
+    card.appendChild(name);
+
+    var status = document.createElement('div');
+    status.className = 'agent-status';
+    var dot = document.createElement('span');
+    dot.className = 'dot ' + dotClass(agent.status);
+    status.appendChild(dot);
+    var statusText = document.createElement('span');
+    statusText.textContent = agent.status || 'unknown';
+    statusText.style.color = agent.status === 'ok' ? 'var(--green)' : agent.status === 'flags' ? 'var(--amber)' : 'var(--text-dim)';
+    status.appendChild(statusText);
+    card.appendChild(status);
+
+    var summary = document.createElement('div');
+    summary.className = 'agent-summary';
+    summary.textContent = agent.summary || '';
+    card.appendChild(summary);
+
+    container.appendChild(card);
+  });
+}
+
+function renderServices() {
+  var container = document.getElementById('service-grid');
+  container.textContent = '';
+
+  var services = SPEND ? SPEND.services : null;
+  if (!services) {
+    var msg = document.createElement('div');
+    msg.className = 'loading';
+    msg.textContent = 'no spend data';
+    container.appendChild(msg);
+    return;
+  }
+
+  var SERVICE_NAMES = {
+    anthropic: 'Anthropic', stripe: 'Stripe', netlify: 'Netlify',
+    supabase: 'Supabase', cloudflare: 'Cloudflare', github: 'GitHub',
+    gemini: 'Gemini', perplexity: 'Perplexity', mistral: 'Mistral',
+    cohere: 'Cohere', huggingface: 'HuggingFace'
+  };
+
+  Object.keys(services).forEach(function(key) {
+    var cost = services[key];
+    var cell = document.createElement('div');
+    cell.className = 'service-cell';
+
+    var dot = document.createElement('span');
+    dot.className = 'dot ' + (cost > 0 ? 'dot-green' : 'dot-dim');
+    cell.appendChild(dot);
+
+    var name = document.createElement('span');
+    name.className = 'service-name';
+    name.textContent = SERVICE_NAMES[key] || key;
+    cell.appendChild(name);
+
+    var costEl = document.createElement('span');
+    costEl.className = 'service-cost';
+    costEl.textContent = cost !== null && cost !== undefined ? '$' + (typeof cost === 'number' ? cost.toFixed(0) : '0') : '--';
+    cell.appendChild(costEl);
+
+    container.appendChild(cell);
+  });
+}
+
+function renderSparklines() {
+  var container = document.getElementById('sparklines-container');
+  container.textContent = '';
+
+  if (!PULSE || !PULSE.sparklines) {
+    var msg = document.createElement('div');
+    msg.className = 'loading';
+    msg.textContent = 'no sparkline data';
+    container.appendChild(msg);
+    return;
+  }
+
+  var datasets = {
+    conversations: PULSE.sparklines.conversations,
+    sessions: PULSE.sparklines.sessions
+  };
+
+  Object.keys(datasets).forEach(function(label) {
+    var data = datasets[label];
+    if (!data || data.length === 0) return;
+
+    var row = document.createElement('div');
+    row.className = 'sparkline-row';
+
+    var labelEl = document.createElement('div');
+    labelEl.className = 'sparkline-label';
+    labelEl.textContent = label;
+    row.appendChild(labelEl);
+
+    var sparkline = document.createElement('div');
+    sparkline.className = 'sparkline';
+    var max = Math.max.apply(null, data.concat([1]));
+
+    data.forEach(function(val) {
+      var bar = document.createElement('div');
+      bar.className = 'spark-bar' + (val === 0 ? ' zero' : '');
+      if (val > 0) bar.style.height = Math.max(1, (val / max) * 20) + 'px';
+      sparkline.appendChild(bar);
+    });
+
+    row.appendChild(sparkline);
+
+    var total = data.reduce(function(s, v) { return s + v; }, 0);
+    var valueEl = document.createElement('div');
+    valueEl.className = 'sparkline-value';
+    valueEl.textContent = total;
+    row.appendChild(valueEl);
+
+    container.appendChild(row);
+  });
+}
+
+function renderFlags() {
+  var container = document.getElementById('flag-list');
+  container.textContent = '';
+
+  var flags = collectFlags();
+  if (flags.length === 0) {
+    var li = document.createElement('li');
+    li.className = 'flag-item ok';
+    li.textContent = 'No flags. All clear.';
+    container.appendChild(li);
+    return;
+  }
+
+  flags.forEach(function(flag) {
+    var li = document.createElement('li');
+    li.className = 'flag-item';
+    li.textContent = flag;
+    container.appendChild(li);
+  });
+}
+
+function renderProjects() {
+  var tbody = document.getElementById('project-tbody');
+  tbody.textContent = '';
+
+  var projects = KITCHEN ? KITCHEN.projects : [];
+  if (!projects || projects.length === 0) {
+    var tr = document.createElement('tr');
+    var td = document.createElement('td');
+    td.colSpan = 3;
+    td.className = 'loading';
+    td.textContent = 'no project data';
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+    return;
+  }
+
+  projects.forEach(function(p) {
+    var tr = document.createElement('tr');
+
+    var nameTd = document.createElement('td');
+    nameTd.style.fontWeight = '600';
+    nameTd.style.color = 'var(--text-bright)';
+    nameTd.textContent = p.name || p.project || '';
+    tr.appendChild(nameTd);
+
+    var statusTd = document.createElement('td');
+    var dot = document.createElement('span');
+    dot.className = 'dot ' + (p.status === 'live' || p.status === 'active' ? 'dot-green' : p.status === 'paused' ? 'dot-dim' : 'dot-amber');
+    dot.style.marginRight = '0.35rem';
+    statusTd.appendChild(dot);
+    statusTd.appendChild(document.createTextNode(p.status || ''));
+    tr.appendChild(statusTd);
+
+    var nextTd = document.createElement('td');
+    nextTd.style.color = 'var(--text-dim)';
+    nextTd.textContent = p.next || p.description || '';
+    tr.appendChild(nextTd);
+
+    tbody.appendChild(tr);
+  });
+}
+
+async function init() {
+  renderDate();
+
+  var results = await Promise.allSettled([
+    fetch('/kitchen-data.json').then(function(r) { return r.ok ? r.json() : null; }),
+    fetch('/spend-data.json').then(function(r) { return r.ok ? r.json() : null; }),
+    fetch('/pulse.json').then(function(r) { return r.ok ? r.json() : null; })
+  ]);
+
+  KITCHEN = results[0].status === 'fulfilled' ? results[0].value : null;
+  SPEND = results[1].status === 'fulfilled' ? results[1].value : null;
+  PULSE = results[2].status === 'fulfilled' ? results[2].value : null;
+
+  renderHealth();
+  renderAgents();
+  renderServices();
+  renderSparklines();
+  renderFlags();
+  renderProjects();
+
+  setInterval(renderDate, 60000);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+</script>
+</body>
+</html>

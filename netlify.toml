@@ -357,6 +357,8 @@
   status = 301
 
 [[redirects]]
-  from = "/report"
-  to = "/report.html"
-  status = 200
+  from = "/report.html"
+  to = "/report"
+  status = 301
+
+# /report serves live ops dashboard (report/index.html)
