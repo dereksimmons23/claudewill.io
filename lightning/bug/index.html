@@ -6,9 +6,9 @@
     <meta name="color-scheme" content="dark">
     <meta name="theme-color" content="#070d1a">
     <title>LIGHTNING/bug | claudewill</title>
-    <meta name="description" content="An 8.8-minute AI-generated short film about two kinds of light. Built entirely from terminal. Directed by Derek Claude Simmons.">
+    <meta name="description" content="A ~7-minute AI-generated short film about two kinds of light. Built entirely from terminal. Directed by Derek Claude Simmons.">
     <meta property="og:title" content="LIGHTNING/bug — a short film">
-    <meta property="og:description" content="Two kinds of light. 8.8 minutes. Built entirely from terminal.">
+    <meta property="og:description" content="Two kinds of light. ~7 minutes. Built entirely from terminal.">
     <meta property="og:type" content="video.movie">
     <meta property="og:url" content="https://claudewill.io/lightning/bug">
     <meta property="og:image" content="https://claudewill.io/images/lightning-bug/og-poster.jpg">
@@ -28,8 +28,8 @@
         "@context": "https://schema.org",
         "@type": "VideoObject",
         "name": "LIGHTNING/bug",
-        "description": "An 8.8-minute AI-generated short film about two kinds of light. A boy in a can. A bug on a bat. Built entirely from terminal.",
-        "duration": "PT8M48S",
+        "description": "A ~7-minute AI-generated short film about two kinds of light. A boy in a can. A bug on a bat. Built entirely from terminal.",
+        "duration": "PT7M00S",
         "uploadDate": "2026-03-28",
         "director": {
             "@type": "Person",
@@ -237,6 +237,31 @@
             line-height: 2;
         }
 
+        /* Production Log */
+        .production-log {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-top: 1rem;
+        }
+        .log-entry {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+        .log-date {
+            flex: 0 0 auto;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            padding-top: 0.15rem;
+        }
+        .log-text {
+            color: var(--text);
+        }
+
         /* Audio */
         .audio-wrap {
             margin-top: 1rem;
@@ -351,7 +376,7 @@
         </div>
         <div class="hero-text">
             <h1 class="film-title">LIGHTNING<span class="slash">/</span><span class="bug">bug</span></h1>
-            <p class="tagline">Two kinds of light. 8 minutes. Built from terminal.</p>
+            <p class="tagline">Two kinds of light. ~7 minutes. Built from terminal.</p>
             <p class="credit">Derek Claude Simmons &mdash; March 2025 / March 2026</p>
         </div>
     </div>
@@ -359,11 +384,10 @@
     <!-- Director's Statement -->
     <section>
         <h2>Director's Statement</h2>
-        <p class="statement">The light transforming them. Helping. Hurting. Artificial. Natural. Both. None.</p>
-        <p>I grew up in a single-wide mobile home on North Nickerson Street in Kansas. The trailer was aluminum, and when it rained it was like the end of days. I was scared to death of the rain as a kid. I remember bumping into my mom in the hallway during one of those storms.</p>
-        <p>Back then there were lightning bugs in the summer. Thick. They would light up the sky. The mean kids would take a wiffle ball bat and track them down and hit them and make their bat glow a little. You don't see fireflies much anymore. There's really no need for them.</p>
-        <p>I wrote a short film about a boy and a lightning bug in March 2025. I didn't know what it meant yet. A year later, I wrote almost the same sentence in different vocabulary. The ten-year-old in the wheat field saw it before the fifty-three-year-old could name it.</p>
-        <p>I believe we need both types of light. But when the power goes out &mdash; and it always goes out &mdash; the imperfect one gets you home. It was always enough.</p>
+        <p>I grew up in a single-wide on North Nickerson Street in Kansas. Aluminum. When it rained it was like the end of days. My mom and my sister raised me there &mdash; Shannon was twelve when I was eight and she started the job early. We had a wooden porch where my mom made sun tea by day and we used it for stargazing at night. Someone stole it while we were at K-Mart.</p>
+        <p>Back then there were lightning bugs in the summer. Thick. They'd light up the whole sky. I wrote a short film about a boy and a bug in March 2025. Didn't know what it meant yet. A year later, at a bark park in Minnesota, the boy in the wheat field started talking. He told the man to get out of the chair. If you need two words, you know what they are.</p>
+        <p>I built the whole thing from terminal. No editing software. An AI cloned my voice and I rejected it. The machines dreamed the images. My real voice sings the song at the end. My mom's real voicemail opens the film &mdash; her calling "Marco," waiting for an answer. The film is the answer.</p>
+        <p>The film got quieter. Less narration. Sound design carries it now &mdash; rain on tin, a transformer hum, crickets, the purr of a lightning bug. Then a song called "Until It Ain't" breaks through at the end. I sing it. That part is real.</p>
     </section>
 
     <!-- Dream Stills Gallery -->
@@ -372,25 +396,51 @@
             <h2>Dream Stills</h2>
         </div>
         <div class="scroll-gallery">
+            <img class="scroll-img" src="/images/lightning-bug/S01-spec-of-light.jpg" alt="A single amber spec of light drifting into black — the first thing that enters the frame" loading="lazy">
             <img class="scroll-img" src="/images/lightning-bug/D32-depot-tracks-arriving.jpg" alt="Railroad tracks approaching Nickerson at dusk" loading="lazy">
             <img class="scroll-img" src="/images/lightning-bug/D30-rain-on-can-interior.jpg" alt="Inside the aluminum trailer during a storm" loading="lazy">
             <img class="scroll-img" src="/images/lightning-bug/NB2-wheat-field-01.jpg" alt="Oklahoma wheat field at night, hay bales like hash marks, a boy on a rock" loading="lazy">
             <img class="scroll-img" src="/images/lightning-bug/NB2-wheat-field-03.jpg" alt="Oklahoma wheat field at night, hay bales like hash marks, a boy on a rock" loading="lazy">
             <img class="scroll-img" src="/images/lightning-bug/D28-boy-exits-can.jpg" alt="Boy stepping out of the can with a bat" loading="lazy">
             <img class="scroll-img" src="/images/lightning-bug/D07-boy-on-porch.jpg" alt="Boy on the porch, bat raised, firefly at the tip" loading="lazy">
+            <img class="scroll-img" src="/images/lightning-bug/S05-shannon-lands-on-bat.jpg" alt="A firefly lands on the tip of the wiffle ball bat — the bat begins to glow" loading="lazy">
             <img class="scroll-img" src="/images/lightning-bug/D08-porch-detaches.jpg" alt="The porch lifts off into the field" loading="lazy">
             <img class="scroll-img" src="/images/lightning-bug/D41-abundance-field.jpg" alt="Thousands of fireflies rising from the stubble field" loading="lazy">
             <img class="scroll-img" src="/images/lightning-bug/D24-two-kinds-of-light.jpg" alt="Two kinds of light splitting the field" loading="lazy">
             <img class="scroll-img" src="/images/lightning-bug/D10-stadium-born.jpg" alt="The stubble field transforms into a stadium of light" loading="lazy">
             <img class="scroll-img" src="/images/lightning-bug/D16-changeup-contact.jpg" alt="The bat connects — everything becomes light" loading="lazy">
             <img class="scroll-img" src="/images/lightning-bug/D17-ball-becomes-night.jpg" alt="The ball becomes the night sky" loading="lazy">
+            <img class="scroll-img" src="/images/lightning-bug/S15-moon-and-firefly.jpg" alt="The moon and one firefly returning from total darkness" loading="lazy">
             <img class="scroll-img" src="/images/lightning-bug/D11-tunnel-corridor.jpg" alt="Hospital corridor, fluorescent, the hallway" loading="lazy">
             <img class="scroll-img" src="/images/lightning-bug/D01-approach-stoplight.jpg" alt="Approaching Nickerson on Highway 96" loading="lazy">
             <img class="scroll-img" src="/images/lightning-bug/D23-mason-jar-final.jpg" alt="Mason jar with firefly — the last light" loading="lazy">
             <img class="scroll-img" src="/images/lightning-bug/D33-union-station-hall.jpg" alt="Union Station great hall — the station that endured" loading="lazy">
             <img class="scroll-img" src="/images/lightning-bug/D36-union-station-doorway.jpg" alt="The doorway — the last aperture" loading="lazy">
         </div>
-        <p class="gallery-caption">50 dream stills generated with Fal.ai FLUX + Runway Gen-4.5. Every image was dreamed by a machine that has never been to Kansas.</p>
+        <p class="gallery-caption">Dream stills generated with Fal.ai FLUX + Runway Gen-4.5. Every image was dreamed by a machine that has never been to Kansas.</p>
+    </section>
+
+    <!-- Production Log -->
+    <section>
+        <h2>Production Log</h2>
+        <div class="production-log">
+            <div class="log-entry">
+                <span class="log-date">Day 3 (Apr 10)</span>
+                <span class="log-text">Song started. Three whispered lines recorded on a walk with the dog. Five new stills generated. Forty-five minutes of voice notes transcribed by Whisper. The film knows what it is now.</span>
+            </div>
+            <div class="log-entry">
+                <span class="log-date">Day 2 (Apr 9)</span>
+                <span class="log-text">The film found its spine. Shot list rewritten from scratch. Submission materials drafted. Eight shower vocal takes extracted and cataloged. The boy in the wheat field started talking.</span>
+            </div>
+            <div class="log-entry">
+                <span class="log-date">Day 1 (Apr 8)</span>
+                <span class="log-text">Full asset inventory. Research on nine festivals. Four overnight agents: shot list, sound design, submission materials, AI filmmaking research. Twenty-three documents in the repo by morning.</span>
+            </div>
+            <div class="log-entry">
+                <span class="log-date">Day 0 (Apr 3)</span>
+                <span class="log-text">The film changed. Less narration. More quiet. Sound design carries it. A song called "Until It Ain't" breaks through at the end. The boy talks to the man. The man gets one line.</span>
+            </div>
+        </div>
     </section>
 
     <!-- What's Human / Artificial / Both -->
@@ -414,6 +464,7 @@
                     <li>48 dream stills (Fal.ai FLUX)</li>
                     <li>60+ video clips (Fal.ai Kling 2.1 Pro)</li>
                     <li>Voice clone (ElevenLabs &mdash; rejected)</li>
+                    <li>Backing track (Suno)</li>
                     <li>Assembly pipeline (Python + ffmpeg)</li>
                     <li>Title cards (ImageMagick)</li>
                     <li>Four hums (synthesized)</li>
@@ -425,6 +476,7 @@
                     <li>Script (Claude + Derek)</li>
                     <li>Color grading (human eye, machine process)</li>
                     <li>Sound design (real recordings + synthesis)</li>
+                    <li>The song &mdash; Derek sings over AI-generated music</li>
                     <li>The decision to reject the AI voice</li>
                     <li>The film</li>
                 </ul>
