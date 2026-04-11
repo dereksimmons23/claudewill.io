@@ -54,12 +54,12 @@ const EXTERNAL_CHECKS = [
 
 const SLOW_MS = 3000
 
-async function checkPage(url, retries = 1) {
+async function checkPage(url, retries = 2) {
   const start = Date.now()
   try {
     const res = await fetch(url, {
       redirect: 'follow',
-      signal: AbortSignal.timeout(10000),
+      signal: AbortSignal.timeout(30000),
     })
     return {
       url,
@@ -69,15 +69,18 @@ async function checkPage(url, retries = 1) {
     }
   } catch (err) {
     if (retries > 0) {
-      await new Promise(r => setTimeout(r, 15000))
+      await new Promise(r => setTimeout(r, 5000))
       return checkPage(url, retries - 1)
     }
+    // Classify timeout (DOMException code 23) as TIMEOUT, not DOWN
+    const isTimeout = err.code === 23 || err.name === 'TimeoutError'
     return {
       url,
       status: 0,
       ok: false,
       elapsed: Date.now() - start,
-      error: err.code || err.message || 'Unknown error',
+      error: isTimeout ? 'timeout' : (err.code || err.message || 'Unknown error'),
+      timeout: isTimeout,
     }
   }
 }
@@ -305,15 +308,21 @@ async function main() {
     ? Math.round(upPages.reduce((sum, r) => sum + r.elapsed, 0) / upPages.length)
     : 0
 
-  for (const p of downPages) flags.push(`${p.url} is DOWN (${p.error || `status ${p.status}`})`)
-  for (const p of downExternal) flags.push(`${p.name || p.url} is DOWN (${p.error || `status ${p.status}`})`)
+  const reallyDown = downPages.filter(p => !p.timeout)
+  const timedOut = downPages.filter(p => p.timeout)
+  for (const p of reallyDown) flags.push(`${p.url} is DOWN (${p.error || `status ${p.status}`})`)
+  for (const p of timedOut) findings.push(`Timeout: ${p.url} (unreachable from runner after 3 attempts)`)
+  for (const p of downExternal) {
+    if (p.timeout) findings.push(`Timeout: ${p.name || p.url} (unreachable from runner)`)
+    else flags.push(`${p.name || p.url} is DOWN (${p.error || `status ${p.status}`})`)
+  }
   if (!ssl.valid) flags.push(`SSL certificate issue: ${ssl.error}`)
   for (const p of slowPages) findings.push(`Slow: ${p.url} \u2014 ${p.elapsed}ms`)
 
-  const allUp = downPages.length === 0 && downExternal.length === 0
+  const allUp = reallyDown.length === 0 && downExternal.filter(p => !p.timeout).length === 0
   findings.unshift(allUp
-    ? `All ${pageResults.length} pages + ${externalResults.length} subdomains responding. Avg ${avgTime}ms.`
-    : `${upPages.length}/${pageResults.length} pages up. ${downPages.length} down.`
+    ? `All ${pageResults.length} pages + ${externalResults.length} subdomains responding. Avg ${avgTime}ms.${timedOut.length ? ` (${timedOut.length} timed out from runner)` : ''}`
+    : `${upPages.length}/${pageResults.length} pages up. ${reallyDown.length} down.`
   )
 
   for (const r of [...pageResults, ...externalResults]) {

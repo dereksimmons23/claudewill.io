@@ -133,6 +133,32 @@ async function main() {
     daysSinceEntry: lastEntry ? Math.floor((now - new Date(lastEntry.entry_date)) / 86400000) : null
   }
 
+  // ── Sparkline History (28 days) ──
+  const day28ago = new Date(now - 28 * 86400000).toISOString()
+  const [convHistory, sessHistory] = await Promise.all([
+    supabase.from('conversations').select('timestamp').gte('timestamp', day28ago),
+    supabase.from('session_memories').select('session_date').gte('session_date', new Date(now - 28 * 86400000).toISOString().split('T')[0]),
+  ])
+
+  // Bucket by date
+  function bucketByDate(rows, dateField) {
+    const buckets = {}
+    for (let d = 27; d >= 0; d--) {
+      const dt = new Date(now - d * 86400000).toISOString().split('T')[0]
+      buckets[dt] = 0
+    }
+    for (const row of (rows || [])) {
+      const dt = (row[dateField] || '').slice(0, 10)
+      if (dt in buckets) buckets[dt]++
+    }
+    return Object.values(buckets)
+  }
+
+  pulse.sparklines = {
+    conversations: bucketByDate(convHistory.data, 'timestamp'),
+    sessions: bucketByDate(sessHistory.data, 'session_date'),
+  }
+
   // ── Revenue ──
   pulse.revenue = {
     cascadia: { monthly: 10000, status: 'active', endsApprox: '2026-04-30' },
@@ -142,11 +168,17 @@ async function main() {
   }
 
   // ── The Bottom Line ──
-  pulse.bottomLine = []
-  if (pulse.visitors.total < 10) pulse.bottomLine.push('6 visitors in 3.5 months. Distribution is the gap.')
-  if (pulse.d.total < 5) pulse.bottomLine.push('D has zero real users. Paywall is built. Stripe is not.')
-  if (pulse.dawn.daysSinceEntry > 3) pulse.bottomLine.push(`Dawn: ${pulse.dawn.daysSinceEntry} days since last entry.`)
-  if (pulse.revenue.d.subscribers === 0) pulse.bottomLine.push('$0 from D. $0 from the practice. Cascadia is the only income.')
+  // Split: operational flags show on public kitchen, business flags are internal-only
+  pulse.flags = {
+    operational: [],
+    internal: [],
+  }
+  if (pulse.dawn.daysSinceEntry > 7) pulse.flags.operational.push(`Dawn: ${pulse.dawn.daysSinceEntry} days since last entry.`)
+  if (pulse.visitors.total < 10) pulse.flags.internal.push(`${pulse.visitors.total} visitors in 3.5 months. Distribution is the gap.`)
+  if (pulse.d.total < 5) pulse.flags.internal.push('D has zero real users. Paywall is built. Stripe is not.')
+  if (pulse.revenue.d.subscribers === 0) pulse.flags.internal.push('$0 from D. $0 from the practice. Cascadia is the only income.')
+  // Legacy: keep bottomLine for backward compat but mark internal
+  pulse.bottomLine = pulse.flags.internal
 
   writeFileSync(OUT, JSON.stringify(pulse, null, 2))
   console.log(`Pulse: ${OUT}`)

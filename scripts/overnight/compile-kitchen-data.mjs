@@ -145,10 +145,19 @@ function parsePulse(pulse) {
     }
   }
 
-  // Surface bottom-line flags
-  if (pulse.bottomLine && pulse.bottomLine.length > 0) {
-    for (const line of pulse.bottomLine) flags.push(line)
+  // Surface operational flags only (business flags are internal)
+  if (pulse.flags && pulse.flags.operational && pulse.flags.operational.length > 0) {
+    for (const line of pulse.flags.operational) flags.push(line)
     status = 'flags'
+  } else if (pulse.bottomLine && pulse.bottomLine.length > 0) {
+    // Legacy format — filter out internal business metrics
+    const internalPatterns = ['$0 from', 'Distribution is the gap', 'zero real users', 'only income']
+    for (const line of pulse.bottomLine) {
+      if (!internalPatterns.some(p => line.includes(p))) {
+        flags.push(line)
+      }
+    }
+    if (flags.length > 0) status = 'flags'
   }
 
   const parts = []

@@ -242,11 +242,57 @@ async function writeSpendData(spendByService) {
 // MAIN
 // ═══════════════════════════════════════════════════════════════════════════
 
+async function writeSpendJson(spendByService) {
+  const { writeFileSync } = await import('fs');
+  const spendJsonPath = path.join(__dirname, '../../spend-data.json');
+
+  const anthropicApi = spendByService.anthropic || 0;
+  const stripeFees = spendByService.stripe || 0;
+  const maxPlan = 200; // Claude Max subscription
+
+  const services = {
+    anthropic: maxPlan + anthropicApi,
+    stripe: stripeFees,
+    netlify: 0,
+    supabase: 0,
+    cloudflare: 0,
+    github: 0,
+    gemini: spendByService.gemini || null,
+    perplexity: spendByService.perplexity || null,
+    mistral: spendByService.mistral || null,
+    cohere: spendByService.cohere || null,
+    huggingface: spendByService.huggingface || null,
+  };
+
+  const monthlyTotal = Object.values(services).reduce((sum, v) => sum + (v || 0), 0);
+
+  const data = {
+    timestamp: new Date().toISOString(),
+    month: new Date().toISOString().slice(0, 7),
+    anthropic: { max: maxPlan, api: anthropicApi, total: maxPlan + anthropicApi },
+    stripe: { fees: stripeFees },
+    services,
+    monthly_total: monthlyTotal,
+    budget_threshold: 500,
+    budget_used_pct: Math.round((monthlyTotal / 500) * 100),
+    history: [{ month: new Date().toISOString().slice(0, 7), monthly_total: monthlyTotal, budget_used_pct: Math.round((monthlyTotal / 500) * 100) }],
+    projections: {
+      q2_projected: monthlyTotal * 3,
+      monthly_avg: monthlyTotal,
+      trend: monthlyTotal > 0 ? 'stable' : 'insufficient_data',
+    },
+  };
+
+  writeFileSync(spendJsonPath, JSON.stringify(data, null, 2) + '\n');
+  console.log(`✅ spend-data.json written (total: $${monthlyTotal})`);
+}
+
 async function main() {
   console.log('🚀 Phase 2: Spend Aggregation starting...\n');
 
   const spendByService = await fetchAllSpend();
   await writeSpendData(spendByService);
+  await writeSpendJson(spendByService);
 
   console.log('\n✅ Phase 2 complete');
 }

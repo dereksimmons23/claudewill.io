@@ -267,22 +267,24 @@ function renderServiceTable() {
 }
 
 function renderSparklines() {
-  // Placeholder: actual implementation would fetch Anthropic CSV
-  const section = document.getElementById('anthropic-section');
+  var section = document.getElementById('anthropic-section');
+  if (!SPEND_DATA) { section.style.display = 'none'; return; }
+
   section.style.display = 'block';
 
-  // Mock daily data (7 days, Max and API)
-  const maxDays = [100, 100, 100, 100, 100, 100, 100];
-  const apiDays = [5, 8, 12, 6, 15, 10, 8];
+  // Use real data: Max is flat $200/month, API varies
+  var maxPlan = SPEND_DATA.anthropic ? SPEND_DATA.anthropic.max : 200;
+  var apiSpend = SPEND_DATA.anthropic ? SPEND_DATA.anthropic.api : 0;
+
+  // Show current month summary as single-bar sparklines (history requires multiple months)
+  var maxDays = [maxPlan];
+  var apiDays = [apiSpend];
 
   renderSparkline('spark-max', maxDays);
   renderSparkline('spark-api', apiDays);
 
-  const maxSum = maxDays.reduce(function(a, b) { return a + b; }, 0);
-  const apiSum = apiDays.reduce(function(a, b) { return a + b; }, 0);
-
-  document.getElementById('spark-max-total').textContent = '$' + maxSum.toFixed(2);
-  document.getElementById('spark-api-total').textContent = '$' + apiSum.toFixed(2);
+  document.getElementById('spark-max-total').textContent = '$' + maxPlan.toFixed(2);
+  document.getElementById('spark-api-total').textContent = '$' + apiSpend.toFixed(2);
 }
 
 function renderSparkline(elementId, data) {
@@ -313,6 +315,7 @@ async function fetchSpendData() {
     if (!res.ok) throw new Error('File read error: ' + res.status);
 
     const data = await res.json();
+    SPEND_DATA = data;
     const liveSpend = data.services || {};
 
     // Merge API costs with metadata

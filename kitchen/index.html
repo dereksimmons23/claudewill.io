@@ -1001,14 +1001,6 @@
     return Math.floor(diff / 86400) + 'd ago';
   }
 
-  function simulateValues(baseline, variance, days) {
-    var out = [];
-    for (var i = 0; i < days; i++) {
-      out.push(Math.max(0, baseline + Math.floor(Math.random() * variance) - Math.floor(variance / 3)));
-    }
-    return out;
-  }
-
   /* ─── SPARKLINES ──────────────────────────────── */
   function buildSparkChart(values) {
     var MAX_H = 24;
@@ -1045,26 +1037,21 @@
     var convWeek  = metrics && metrics.conversations ? (metrics.conversations.week  || 0) : 0;
     var sessWeek  = metrics && metrics.sessions      ? (metrics.sessions.thisWeek   || 0) : 0;
 
+    // Use real sparkline data from pulse.json if available, fall back to flat line
+    var sparkData = window.__pulseSparklines || {};
+    var emptyLine = [];
+    for (var e = 0; e < 28; e++) emptyLine.push(0);
+
     var rows = [
       {
         label: 'porch conversations',
-        values: simulateValues(2, 5, 28),
+        values: sparkData.conversations || emptyLine,
         stats: { '7d': convWeek, '30d': Math.round(convTotal * 0.15), 'total': convTotal }
       },
       {
         label: 'claude code sessions',
-        values: simulateValues(4, 6, 28),
+        values: sparkData.sessions || emptyLine,
         stats: { '7d': sessWeek, 'this month': '~90', 'all time': '263+' }
-      },
-      {
-        label: 'overnight agents',
-        values: simulateValues(3, 2, 28),
-        stats: { '7d': '21 runs', '30d': '120 runs', 'models': '5' }
-      },
-      {
-        label: 'site health checks',
-        values: simulateValues(10, 2, 28),
-        stats: { '7d': '28 runs', 'pages': '10', 'avg ms': '200' }
       }
     ];
 
@@ -1318,9 +1305,19 @@
     var countEl  = el('flags-count');
     if (!section || !block) return;
 
+    // Only show operational flags on the public kitchen — not business intelligence
     var flags = [];
     var pulse = data && data.agents && data.agents.pulse;
-    if (pulse && pulse.flags) flags = flags.concat(pulse.flags);
+    // Use new flags.operational if available, skip internal business metrics
+    if (pulse && pulse.flags && pulse.flags.operational) {
+      flags = flags.concat(pulse.flags.operational);
+    } else if (pulse && pulse.flags && Array.isArray(pulse.flags)) {
+      // Legacy format — skip known internal patterns
+      var internalPatterns = ['$0 from', 'Distribution is the gap', 'zero real users', 'only income'];
+      flags = flags.concat(pulse.flags.filter(function(f) {
+        return !internalPatterns.some(function(p) { return f.indexOf(p) !== -1; });
+      }));
+    }
     var hk = data && data.agents && data.agents.housekeeping;
     if (hk && hk.flags && hk.flags.length) flags = flags.concat(hk.flags);
     var ps = data && data.agents && data.agents.pipelineScan;
@@ -1507,6 +1504,16 @@
   }
   fetchWeather();
   setInterval(fetchWeather, 1800000); // refresh every 30 min
+
+  // Fetch pulse.json for real sparkline data
+  fetch('/pulse.json?t=' + Date.now())
+    .then(function (r) { return r.json(); })
+    .then(function (pulse) {
+      if (pulse && pulse.sparklines) {
+        window.__pulseSparklines = pulse.sparklines;
+      }
+    })
+    .catch(function () { /* sparklines will show flat line */ });
 
   // Boot
   renderStandard();
