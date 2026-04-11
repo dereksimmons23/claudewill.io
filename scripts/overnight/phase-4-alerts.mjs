@@ -206,15 +206,29 @@ async function createGitHubIssue(alert) {
   }
 
   try {
-    // TODO: Implement GitHub API call
-    // curl -X POST \
-    //   -H "Authorization: Bearer [GH_TOKEN]" \
-    //   -H "X-GitHub-Api-Version: 2022-11-28" \
-    //   https://api.github.com/repos/[owner]/[repo]/issues \
-    //   -d "{\"title\":\"${title}\",\"body\":\"${body}\",\"labels\":${JSON.stringify(labels)}}"
+    const res = await fetch('https://api.github.com/repos/dereksimmons23/claudewill.io/issues', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'X-GitHub-Api-Version': '2022-11-28',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        title,
+        body,
+        labels,
+      }),
+    });
 
-    console.log(`   ✅ Created GitHub Issue: ${title}`);
-    return { title, body, labels };
+    if (!res.ok) {
+      const error = await res.json();
+      console.error(`   ❌ GitHub API error:`, error.message);
+      return null;
+    }
+
+    const issue = await res.json();
+    console.log(`   ✅ Created GitHub Issue #${issue.number}: ${title}`);
+    return { title, body, labels, issueNumber: issue.number };
   } catch (error) {
     console.error(`   ❌ Failed to create GitHub Issue:`, error.message);
     return null;
@@ -251,11 +265,27 @@ async function sendSlackAlert(alert) {
   }
 
   try {
-    // TODO: Implement Slack webhook call
-    // curl -X POST \
-    //   -H 'Content-type: application/json' \
-    //   --data "{\"attachments\":[{\"color\":\"${color}\",\"title\":\"${title}\",\"text\":\"${text}\"}]}" \
-    //   ${SLACK_WEBHOOK}
+    const res = await fetch(SLACK_WEBHOOK, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        attachments: [
+          {
+            color,
+            title,
+            text,
+            ts: Math.floor(Date.now() / 1000),
+          },
+        ],
+      }),
+    });
+
+    if (!res.ok) {
+      console.error(`   ❌ Slack API error: ${res.status}`);
+      return;
+    }
 
     console.log(`   ✅ Sent Slack alert: ${title}`);
   } catch (error) {

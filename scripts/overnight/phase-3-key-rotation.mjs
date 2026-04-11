@@ -11,6 +11,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { createClient } from '@supabase/supabase-js';
+import nacl from 'tweetnacl';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.join(__dirname, '../../.env') });
@@ -107,6 +108,76 @@ function getRotationUrl(service) {
 // GITHUB SECRETS SYNC
 // ═══════════════════════════════════════════════════════════════════════════
 
+async function getGitHubPublicKey() {
+  if (!GITHUB_TOKEN) return null;
+
+  try {
+    const res = await fetch('https://api.github.com/repos/dereksimmons23/claudewill.io/actions/secrets/public-key', {
+      headers: {
+        'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'X-GitHub-Api-Version': '2022-11-28',
+      },
+    });
+
+    if (!res.ok) {
+      console.error('❌ Failed to fetch GitHub public key');
+      return null;
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error('❌ Error fetching GitHub public key:', error.message);
+    return null;
+  }
+}
+
+/**
+ * Encrypt secret value using libsodium-style sealed box
+ * GitHub API expects secrets encrypted with their public key
+ * This implements the sealed box algorithm: ephemeral_pk || nonce || ciphertext
+ */
+function encryptSecret(publicKeyBase64, secretValue) {
+  try {
+    // Decode public key from base64
+    const publicKeyBytes = Buffer.from(publicKeyBase64, 'base64');
+    const publicKey = new Uint8Array(publicKeyBytes);
+
+    // Convert secret to bytes
+    const message = Buffer.from(secretValue, 'utf8');
+
+    // Generate ephemeral keypair for this encryption
+    const ephemeral = nacl.box.keyPair();
+
+    // Generate random nonce
+    const nonce = nacl.randomBytes(24);
+
+    // Encrypt using box with ephemeral secret key
+    const ciphertext = nacl.box(
+      new Uint8Array(message),
+      nonce,
+      publicKey,
+      ephemeral.secretKey
+    );
+
+    // Construct sealed box: ephemeral_pk + nonce + ciphertext
+    const sealedBox = new Uint8Array(
+      ephemeral.publicKey.length + nonce.length + ciphertext.length
+    );
+    sealedBox.set(ephemeral.publicKey);
+    sealedBox.set(nonce, ephemeral.publicKey.length);
+    sealedBox.set(ciphertext, ephemeral.publicKey.length + nonce.length);
+
+    // Encode to base64
+    const encryptedBase64 = Buffer.from(sealedBox).toString('base64');
+
+    return encryptedBase64;
+  } catch (error) {
+    console.error('❌ Error encrypting secret:', error.message);
+    return null;
+  }
+}
+
 async function updateGitHubSecret(secretName, secretValue) {
   if (!GITHUB_TOKEN) {
     console.warn(`⚠️  GH_TOKEN not set — skipping GitHub Secrets update for ${secretName}`);
@@ -114,12 +185,39 @@ async function updateGitHubSecret(secretName, secretValue) {
   }
 
   try {
-    // TODO: Implement via GitHub API
-    // curl -X PUT \
-    //   -H "Authorization: Bearer [GH_TOKEN]" \
-    //   -H "X-GitHub-Api-Version: 2022-11-28" \
-    //   https://api.github.com/repos/[owner]/[repo]/actions/secrets/[secret_name] \
-    //   -d "{\"encrypted_value\":\"[encrypted_value]\",\"key_id\":\"[key_id]\"}"
+    // Get public key for encryption
+    const keyData = await getGitHubPublicKey();
+    if (!keyData) {
+      console.warn(`⚠️  Could not fetch GitHub public key for ${secretName}`);
+      return false;
+    }
+
+    // Encrypt the secret value
+    const encryptedValue = encryptSecret(keyData.key, secretValue);
+    if (!encryptedValue) {
+      console.warn(`⚠️  Could not encrypt secret ${secretName}`);
+      return false;
+    }
+
+    // Update the secret via GitHub API
+    const res = await fetch(`https://api.github.com/repos/dereksimmons23/claudewill.io/actions/secrets/${secretName}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'X-GitHub-Api-Version': '2022-11-28',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        encrypted_value: encryptedValue,
+        key_id: keyData.key_id,
+      }),
+    });
+
+    if (!res.ok) {
+      const error = await res.json();
+      console.error(`❌ GitHub API error for ${secretName}:`, error.message);
+      return false;
+    }
 
     console.log(`✅ Updated GitHub Secret: ${secretName}`);
     return true;
@@ -140,11 +238,33 @@ async function updateNetlifyEnvVar(envVarName, envVarValue) {
   }
 
   try {
-    // TODO: Implement via Netlify API
-    // curl -X POST \
-    //   -H "Authorization: Bearer [NETLIFY_TOKEN]" \
-    //   https://api.netlify.com/api/v1/sites/[site-id]/env \
-    //   -d "{\"key\":\"${envVarName}\",\"values\":[{\"value\":\"${envVarValue}\"}]}"
+    // First, get the site ID (stored as environment variable or config)
+    const NETLIFY_SITE_ID = process.env.NETLIFY_SITE_ID || 'claudewill';
+
+    // Netlify API requires the site ID to update env vars
+    // The endpoint is: /api/v1/sites/{siteId}/env
+    const res = await fetch(`https://api.netlify.com/api/v1/sites/${NETLIFY_SITE_ID}/env`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${NETLIFY_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        key: envVarName,
+        values: [
+          {
+            value: envVarValue,
+            context: 'production', // Can also be 'dev', 'deploy-preview', 'branch-deploy'
+          },
+        ],
+      }),
+    });
+
+    if (!res.ok) {
+      const error = await res.json();
+      console.error(`❌ Netlify API error for ${envVarName}:`, error.message);
+      return false;
+    }
 
     console.log(`✅ Updated Netlify env: ${envVarName}`);
     return true;
