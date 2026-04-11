@@ -299,6 +299,7 @@
             font-weight: 600;
         }
         .status-pending { background: #1a2a3a; color: var(--dim); }
+        .status-production { background: #2a2a1a; color: var(--accent); }
         .status-submitted { background: #1a2a20; color: #6bc46b; }
 
         /* Tools */
@@ -352,6 +353,7 @@
             .tools-grid { grid-template-columns: 1fr; }
             .scroll-img { width: 280px; height: 157px; }
             .festival-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+            .log-entry { flex-direction: column; gap: 0.25rem; }
         }
     </style>
 </head>
@@ -484,16 +486,6 @@
         </div>
     </section>
 
-    <!-- Companion: NotebookLM Podcast -->
-    <section>
-        <h2>Companion</h2>
-        <p>A NotebookLM-generated podcast discussing the original Lightning/Bug script. Recorded March 2025 &mdash; before the filmmaker knew what the film meant. Two AI hosts try to explain a boy and a bug. The gap between their discussion and the actual film is the whole thesis.</p>
-        <div class="audio-wrap">
-            <!-- Audio file to be hosted or linked -->
-            <p style="font-size: 0.75rem; color: var(--dim); margin-top: 0.5rem;">Coming soon.</p>
-        </div>
-    </section>
-
     <!-- Festival Submissions -->
     <section>
         <h2>Festival Submissions</h2>
@@ -501,21 +493,35 @@
             <div class="festival-row">
                 <div>
                     <span class="festival-name">Runway AI Festival</span><br>
-                    <span class="festival-date">NYC Jun 11 + LA Jun 18 &mdash; Deadline Apr 20</span>
+                    <span class="festival-date">NYC Jun 11 + LA Jun 18 &mdash; Deadline Apr 20 (10 days)</span>
+                </div>
+                <span class="festival-status status-production">In Production</span>
+            </div>
+            <div class="festival-row">
+                <div>
+                    <span class="festival-name">AI for Good Film Festival (ITU/UN)</span><br>
+                    <span class="festival-date">Geneva Jul 7-10 &mdash; Deadline May 1 (21 days)</span>
                 </div>
                 <span class="festival-status status-pending">Pending</span>
             </div>
             <div class="festival-row">
                 <div>
-                    <span class="festival-name">AI for Good Film Festival (ITU/UN)</span><br>
-                    <span class="festival-date">Geneva Jul 7-10 &mdash; Deadline May 1</span>
+                    <span class="festival-name">Cannes AI Film Awards</span><br>
+                    <span class="festival-date">Cannes &mdash; Deadline May 21</span>
                 </div>
                 <span class="festival-status status-pending">Pending</span>
             </div>
             <div class="festival-row">
                 <div>
                     <span class="festival-name">Reply AI Film Festival</span><br>
-                    <span class="festival-date">Venice Sep 2026 &mdash; Deadline Jun 1</span>
+                    <span class="festival-date">Venice Sep 2026 &mdash; Deadline Jun 1 (52 days)</span>
+                </div>
+                <span class="festival-status status-pending">Pending</span>
+            </div>
+            <div class="festival-row">
+                <div>
+                    <span class="festival-name">LifeArt AI Global Film Festival</span><br>
+                    <span class="festival-date">Deadline Jun 20</span>
                 </div>
                 <span class="festival-status status-pending">Pending</span>
             </div>
@@ -556,8 +562,8 @@
             <div class="tool-group">
                 <h3>Sound Design</h3>
                 <ul>
-                    <li><span class="tool-name">Suno Pro</span> &mdash; score</li>
-                    <li><span class="tool-name">Stable Audio 3.0</span> &mdash; ambient</li>
+                    <li><span class="tool-name">Suno</span> &mdash; song backing track</li>
+                    <li><span class="tool-name">Stable Audio 2.5</span> &mdash; ambient</li>
                     <li><span class="tool-name">ElevenLabs SFX</span> &mdash; foley</li>
                 </ul>
             </div>
