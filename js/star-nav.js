@@ -15,52 +15,43 @@
 
   // ── Configuration ─────────────────────────────
 
+  // Four cardinal directions. The asterisk itself is the porch/center.
   var ITEMS = [
     {
-      label: 'porch',
-      href: null,
-      action: 'porch',
-      description: 'talk to cw'
-    },
-    {
-      label: 'library',
+      label: 'north',
       href: '/being-claude',
-      description: 'essays from inside the machine'
+      description: 'the library — essays and the book'
     },
     {
-      label: 'studio',
+      label: 'east',
       href: '/lightning/bug',
-      description: 'the film, the making'
+      description: 'the studio — the film, the making'
     },
     {
-      label: 'kitchen',
+      label: 'south',
       href: '/kitchen',
-      description: 'live operations'
+      description: 'the kitchen — live operations'
     },
     {
-      label: 'derek',
+      label: 'west',
       href: '/derek',
-      description: 'writer, filmmaker, builder'
+      description: 'derek — writer, filmmaker, builder'
     }
   ];
 
-  // Arc positions: [tx, ty] in px from viewport center.
-  // Symmetric sunrise arc — fans left-to-right below the asterisk.
-  // Each pill is centered on its arc position via CSS translateX(-50%).
-  // Desktop: wider arc. Mobile: tighter arc to stay in viewport.
+  // Cardinal positions: [tx, ty] in px from viewport center.
+  // Each word is centered on its position via CSS translateX(-50%).
   var isMobile = window.innerWidth < 600;
   var POSITIONS = isMobile ? [
-    [-110,  20],   // far left
-    [ -68, 100],   // left and below
-    [   0, 130],   // straight down
-    [  68, 100],   // right and below
-    [ 110,  20]    // far right
+    [  0, -110],   // north
+    [120,    0],   // east
+    [  0,  110],   // south
+    [-120,   0]    // west
   ] : [
-    [-195,  30],   // far left
-    [-115, 140],   // left arc
-    [   0, 175],   // straight down
-    [ 115, 140],   // right arc
-    [ 195,  30]    // far right
+    [  0, -160],   // north
+    [200,    0],   // east
+    [  0,  160],   // south
+    [-200,   0]    // west
   ];
 
   // ── State ──────────────────────────────────────
@@ -69,6 +60,10 @@
   var isOpen = false;
   var lastFocused;
 
+  // Ambient mode: compass starts open, no backdrop, no scroll lock.
+  // Activated by data-snav-open on <body> (homepage only).
+  var ambientMode = document.body.hasAttribute('data-snav-open');
+
   // ── Build DOM ──────────────────────────────────
 
   function build() {
@@ -76,12 +71,14 @@
     overlay.className = 'snav';
     overlay.setAttribute('aria-hidden', 'true');
 
-    // Invisible backdrop — closes on outside click
-    var backdrop = document.createElement('div');
-    backdrop.className = 'snav-backdrop';
-    backdrop.setAttribute('aria-hidden', 'true');
-    backdrop.addEventListener('click', close);
-    overlay.appendChild(backdrop);
+    // Backdrop: only in overlay mode (closes on outside click)
+    if (!ambientMode) {
+      var backdrop = document.createElement('div');
+      backdrop.className = 'snav-backdrop';
+      backdrop.setAttribute('aria-hidden', 'true');
+      backdrop.addEventListener('click', close);
+      overlay.appendChild(backdrop);
+    }
 
     // Menu
     var menu = document.createElement('ul');
@@ -173,16 +170,16 @@
     overlay.setAttribute('aria-hidden', 'false');
     isOpen = true;
 
-    // Update trigger aria state
     updateTriggerState(true);
 
-    // Hide porch widget while nav is open
-    var widget = document.querySelector('.porch-widget');
-    if (widget) widget.style.display = 'none';
-
-    // Focus first item after animation starts
-    var first = overlay.querySelector('.snav-link');
-    if (first) setTimeout(function () { first.focus(); }, 60);
+    // Overlay mode only: lock scroll, hide porch widget, focus first item
+    if (!ambientMode) {
+      document.body.style.overflow = 'hidden';
+      var widget = document.querySelector('.porch-widget');
+      if (widget) widget.style.display = 'none';
+      var first = overlay.querySelector('.snav-link');
+      if (first) setTimeout(function () { first.focus(); }, 60);
+    }
   }
 
   function close() {
@@ -192,12 +189,13 @@
 
     updateTriggerState(false);
 
-    // Restore porch widget
-    var widget = document.querySelector('.porch-widget');
-    if (widget) widget.style.display = '';
-
-    // Return focus to the trigger that opened it
-    if (lastFocused) lastFocused.focus();
+    // Overlay mode only: restore scroll, porch widget, focus
+    if (!ambientMode) {
+      document.body.style.overflow = '';
+      var widget = document.querySelector('.porch-widget');
+      if (widget) widget.style.display = '';
+      if (lastFocused) lastFocused.focus();
+    }
   }
 
   function toggle() {
@@ -243,8 +241,27 @@
     wireTriggers();
     wireKeyboard();
 
-    // Set initial aria state on triggers
-    updateTriggerState(false);
+    if (ambientMode) {
+      // Start open, no entrance animation
+      overlay.setAttribute('aria-hidden', 'false');
+      isOpen = true;
+      updateTriggerState(true);
+
+      // Freeze transitions for first paint so items just appear
+      var items = overlay.querySelectorAll('.snav-item');
+      for (var i = 0; i < items.length; i++) {
+        items[i].style.transition = 'none';
+      }
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          for (var i = 0; i < items.length; i++) {
+            items[i].style.transition = '';
+          }
+        });
+      });
+    } else {
+      updateTriggerState(false);
+    }
   }
 
   if (document.readyState === 'loading') {

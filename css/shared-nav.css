@@ -532,12 +532,11 @@ a.hw:hover { opacity: 1; text-shadow: 0 0 8px rgba(212, 168, 75, 0.6); }
     opacity 0.2s ease;
 }
 
-/* Open stagger — first item leads */
-.snav-item:nth-child(1) { --open-delay: 0ms;   --close-delay: 120ms; }
-.snav-item:nth-child(2) { --open-delay: 40ms;  --close-delay: 80ms;  }
-.snav-item:nth-child(3) { --open-delay: 80ms;  --close-delay: 50ms;  }
-.snav-item:nth-child(4) { --open-delay: 120ms; --close-delay: 20ms;  }
-.snav-item:nth-child(5) { --open-delay: 160ms; --close-delay: 0ms;   }
+/* Cardinal stagger — N leads, then E/W together, S last */
+.snav-item:nth-child(1) { --open-delay: 0ms;   --close-delay: 90ms;  } /* north  */
+.snav-item:nth-child(2) { --open-delay: 50ms;  --close-delay: 50ms;  } /* east   */
+.snav-item:nth-child(3) { --open-delay: 100ms; --close-delay: 0ms;   } /* south  */
+.snav-item:nth-child(4) { --open-delay: 50ms;  --close-delay: 50ms;  } /* west   */
 
 /* Opening */
 .snav[aria-hidden="false"] .snav-item {
