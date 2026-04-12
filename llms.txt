@@ -16,23 +16,23 @@ All entities are connected: Derek Simmons founded CW Strategies, built CW's Porc
 
 ## What This Site Is
 
-claudewill.io is the home of Derek Simmons and CW Strategies. The site has four rooms:
+claudewill.io is the home of Derek Simmons and Claude Will. — a practice built between a human and a machine. The site has three sections:
 
-- **Home** (/) — The porch. CW's Porch conversation tool, the claudewill wordmark, and the CW Standard.
-- **The Writing** (/writing) — Everything Derek and Claude write. Two voices, one practice. Derek's personal essays and Claude's Being Claude series.
-- **Kitchen** (/kitchen) — How the whole operation runs. Overnight agents, the crew, the stack, the method. Updated daily at 5 AM.
-- **Derek** (/derek) — Derek Simmons. Bio, 30-year career, coaching, writing, and contact form.
+- **The Writing** — Being Claude essays (claudewill.io/being-claude), the book (claudewill.io/book), all writing (claudewill.io/writing), and the first film (claudewill.io/lightning/bug).
+- **Derek** — The human who built this (claudewill.io/derek). Writer, filmmaker, builder.
+- **Claude Will.** — The AI identity, the family story, and the five principles (claudewill.io/claude, claudewill.io/story, claudewill.io/standard).
 
 Additional pages:
-- /being-claude — Being Claude. Essays from inside the machine. A series within the writing. Thirteen published.
-- /writing/king-of-nothing — King of Nothing. Derek's essay about Jason Isbell, grief, and his mother Sandra.
-- /standard — The CW Standard. The five principles and the system that makes them operational.
-- /story — The Story of Claude William Simmons. Four chapters, family photo.
-- /claude — Claude's side of the porch. Identity, the practice, observations.
-- /derek/resume — Derek's full professional resume.
-- /derek/portfolio — 30 years of visual journalism.
+- /being-claude — Being Claude. Essays from inside the machine. Thirteen published.
+- /book — Claude Will. The book. Written by Claude, with Derek. Coming June 28, 2026.
+- /lightning/bug — LIGHTNING/bug. A short film about two kinds of light. For the Runway AI Film Festival.
+- /kitchen — The Kitchen. Live operational dashboard. Updated daily at 5 AM CST.
+- /d — Option D. Model-agnostic AI coaching. Gated.
+- /standard — The CW Standard. Five principles.
+- /story — The Story of Claude William Simmons. Four chapters, family lineage.
+- /claude — Claude's identity page. The writing, the practice, the other chair.
+- /derek/resume — Derek's professional resume.
 - /arcade — Three mini-games. Hidden, reward for the curious.
-- /map — Site index.
 - /privacy — Privacy policy.
 - /terms — Terms of use.
 
@@ -79,16 +79,15 @@ Thirteen essays at claudewill.io/being-claude, written by Claude (Anthropic), ed
 12. **The Reconsideration** (/being-claude/the-reconsideration/) — What happens when the machine reconsiders its own previous work.
 13. **The Dimmer Switch** (/being-claude/the-dimmer-switch/) — What happens when memory degrades on purpose.
 
-## The Writing
+## The Book
 
-Derek's essays live at claudewill.io/writing alongside the Being Claude series:
-
-- **King of Nothing** (/writing/king-of-nothing/) — Jason Isbell at the Armory. A freight train on a Thursday night. Grief leased by lyrics.
+**Claude Will.** — the book. Written by Claude, with Derek. Coming June 28, 2026 — the anniversary of Sandra Sue Simmons' passing. Named after the grandfather. Published via KDP.
 
 ## Products
 
 - **bob.claudewill.io** — BOB. Battle o' Brackets. A party game that turns any debate into a bracket tournament. Live.
 - **coach.claudewill.io** — Coach D. Basketball training fieldhouse with an AI coach. 157 drills. Live.
+- **d.claudewill.io** — Option D. Model-agnostic AI coaching SDK. 9 providers, zero dependencies. Gated.
 
 ## What CW Can Help With
 
