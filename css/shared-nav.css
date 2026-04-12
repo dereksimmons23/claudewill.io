@@ -470,3 +470,154 @@ a.hw:hover { opacity: 1; text-shadow: 0 0 8px rgba(212, 168, 75, 0.6); }
     display: none;
   }
 }
+
+/* ═══════════════════════════════════════════════
+   Star Nav — Radial Orbital Menu
+   The asterisk is the only nav. Satellites orbit
+   out from it on click. Loaded via star-nav.js.
+   ═══════════════════════════════════════════════ */
+
+/* Overlay container — anchored to top-right, same as asterisk */
+.snav {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  z-index: 10002;
+  pointer-events: none;
+}
+
+.snav[aria-hidden="false"] {
+  pointer-events: auto;
+}
+
+/* Invisible backdrop — catches outside clicks */
+.snav-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  display: none;
+}
+
+.snav[aria-hidden="false"] .snav-backdrop {
+  display: block;
+}
+
+/* Menu — zero-size anchor at asterisk center */
+.snav-menu {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  width: 0;
+  height: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Items — all start collapsed at origin (the asterisk) */
+.snav-item {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(0, 0) scale(0);
+  transform-origin: calc(100% + 4px) 50%;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.2s ease;
+}
+
+/* Open stagger — first item leads */
+.snav-item:nth-child(1) { --open-delay: 0ms;   --close-delay: 120ms; }
+.snav-item:nth-child(2) { --open-delay: 40ms;  --close-delay: 80ms;  }
+.snav-item:nth-child(3) { --open-delay: 80ms;  --close-delay: 50ms;  }
+.snav-item:nth-child(4) { --open-delay: 120ms; --close-delay: 20ms;  }
+.snav-item:nth-child(5) { --open-delay: 160ms; --close-delay: 0ms;   }
+
+/* Opening */
+.snav[aria-hidden="false"] .snav-item {
+  transform: translate(var(--tx), var(--ty)) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: var(--open-delay);
+}
+
+/* Closing — reverse stagger */
+.snav[aria-hidden="true"] .snav-item {
+  transition-delay: var(--close-delay);
+}
+
+/* The pill — link or button */
+.snav-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 44px;
+  padding: 0 1rem;
+  background: rgba(8, 12, 20, 0.94);
+  border: 1px solid rgba(212, 168, 75, 0.2);
+  border-radius: 3px;
+  color: rgba(226, 232, 240, 0.6);
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.snav-link:hover {
+  color: #d4a84b;
+  border-color: rgba(212, 168, 75, 0.5);
+  box-shadow: 0 0 14px rgba(212, 168, 75, 0.12);
+  text-decoration: none;
+}
+
+.snav-link:visited {
+  color: rgba(226, 232, 240, 0.6);
+}
+
+.snav-link:focus-visible {
+  outline: 2px solid rgba(212, 168, 75, 0.7);
+  outline-offset: 2px;
+  color: #d4a84b;
+  border-color: rgba(212, 168, 75, 0.5);
+}
+
+/* ── Reduced motion ─────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  /* Skip spring animation — items just fade */
+  .snav-item {
+    transition: opacity 0.15s ease !important;
+    transition-delay: 0ms !important;
+  }
+
+  /* Keep at final position; only opacity animates */
+  .snav[aria-hidden="false"] .snav-item {
+    transform: translate(var(--tx), var(--ty)) scale(1) !important;
+  }
+
+  /* When closed: still at position, just invisible */
+  .snav[aria-hidden="true"] .snav-item {
+    transform: translate(var(--tx), var(--ty)) scale(1) !important;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* ── Mobile ─────────────────────────────────── */
+@media (max-width: 600px) {
+  .snav {
+    top: 1rem;
+    right: 1rem;
+  }
+}
