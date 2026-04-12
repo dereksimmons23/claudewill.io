@@ -12,13 +12,13 @@
   var NAV_CONFIG = {
     sections: [
       {
-        label: 'the writing',
-        href: '/being-claude',
+        label: 'the work',
+        href: '/writing',
         items: [
           { name: 'being claude', href: '/being-claude' },
           { name: 'the book', href: '/book' },
-          { name: 'all writing', href: '/writing' },
-          { name: 'lightning/bug', href: '/lightning/bug' }
+          { name: 'lightning/bug', href: '/lightning/bug' },
+          { name: 'all writing', href: '/writing' }
         ]
       },
       {
