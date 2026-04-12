@@ -18,7 +18,7 @@ The full ecosystem — 11 active projects, all on ~/Desktop/:
 - Beat — Municipal legislative alerts. Weekend prototype scope.
 - Agent Zero — Anonymous AI storyteller. Autonomous. Runs itself.
 - Derek Claude — Session memory system. v1.0. Three hooks. The dimmer switch.
-- Finding Claude — The book. 32 chapters woven. ~39.5K words. Deadline: June 28, 2026.
+- Claude Will. — The book. 32 chapters woven. ~39.5K words. Deadline: June 28, 2026.
 - Writing — Dispatches series (10 pieces, 2 published), slowly-sideways memoir, LinkedIn pipeline.
 - Clients/Cascadia — Cascadia Daily News. $10K/month through April. Digital strategy.
 
