@@ -17,19 +17,20 @@
 
   var ITEMS = [
     {
-      label: 'being claude',
+      label: 'porch',
+      href: null,
+      action: 'porch',
+      description: 'talk to cw'
+    },
+    {
+      label: 'library',
       href: '/being-claude',
       description: 'essays from inside the machine'
     },
     {
-      label: 'the book',
-      href: '/book',
-      description: 'claude will. — june 28, 2026'
-    },
-    {
-      label: 'derek',
-      href: '/derek',
-      description: 'writer, filmmaker, builder'
+      label: 'studio',
+      href: '/lightning/bug',
+      description: 'the film, the making'
     },
     {
       label: 'kitchen',
@@ -37,10 +38,9 @@
       description: 'live operations'
     },
     {
-      label: 'porch',
-      href: null,
-      action: 'porch',
-      description: 'talk to cw'
+      label: 'derek',
+      href: '/derek',
+      description: 'writer, filmmaker, builder'
     }
   ];
 

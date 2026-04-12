@@ -552,35 +552,32 @@ a.hw:hover { opacity: 1; text-shadow: 0 0 8px rgba(212, 168, 75, 0.6); }
   transition-delay: var(--close-delay);
 }
 
-/* The pill — link or button */
+/* Word-star — floating label, no box */
 .snav-link {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 44px;
-  padding: 0 1rem;
-  background: rgba(8, 12, 20, 0.94);
-  border: 1px solid rgba(212, 168, 75, 0.2);
-  border-radius: 3px;
+  padding: 0.5rem 0.75rem;
+  background: none;
+  border: none;
   color: rgba(226, 232, 240, 0.6);
   font-family: 'IBM Plex Mono', 'Courier New', monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   transition:
-    color 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    color 0.25s ease,
+    text-shadow 0.25s ease;
 }
 
 .snav-link:hover {
   color: #d4a84b;
-  border-color: rgba(212, 168, 75, 0.5);
-  box-shadow: 0 0 14px rgba(212, 168, 75, 0.12);
+  text-shadow:
+    0 0 14px rgba(212, 168, 75, 0.6),
+    0 0 32px rgba(212, 168, 75, 0.2);
   text-decoration: none;
 }
 
@@ -589,10 +586,10 @@ a.hw:hover { opacity: 1; text-shadow: 0 0 8px rgba(212, 168, 75, 0.6); }
 }
 
 .snav-link:focus-visible {
-  outline: 2px solid rgba(212, 168, 75, 0.7);
-  outline-offset: 2px;
+  outline: 2px solid rgba(212, 168, 75, 0.5);
+  outline-offset: 4px;
   color: #d4a84b;
-  border-color: rgba(212, 168, 75, 0.5);
+  text-shadow: 0 0 14px rgba(212, 168, 75, 0.5);
 }
 
 /* ── Reduced motion ─────────────────────────── */
