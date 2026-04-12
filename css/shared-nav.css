@@ -477,13 +477,14 @@ a.hw:hover { opacity: 1; text-shadow: 0 0 8px rgba(212, 168, 75, 0.6); }
    out from it on click. Loaded via star-nav.js.
    ═══════════════════════════════════════════════ */
 
-/* Overlay container — anchored to top-right, same as asterisk */
+/* Overlay container — anchored at viewport center */
 .snav {
   position: fixed;
-  top: 1.5rem;
-  right: 1.5rem;
-  width: 44px;
-  height: 44px;
+  top: 50vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
   z-index: 10002;
   pointer-events: none;
 }
@@ -504,11 +505,11 @@ a.hw:hover { opacity: 1; text-shadow: 0 0 8px rgba(212, 168, 75, 0.6); }
   display: block;
 }
 
-/* Menu — zero-size anchor at asterisk center */
+/* Menu — zero-size anchor at viewport center */
 .snav-menu {
   position: absolute;
-  top: 50%;
-  right: 50%;
+  top: 0;
+  left: 0;
   width: 0;
   height: 0;
   list-style: none;
@@ -516,13 +517,14 @@ a.hw:hover { opacity: 1; text-shadow: 0 0 8px rgba(212, 168, 75, 0.6); }
   padding: 0;
 }
 
-/* Items — all start collapsed at origin (the asterisk) */
+/* Items — start collapsed at center, fan outward on open */
 .snav-item {
   position: absolute;
-  right: 0;
+  left: 0;
   top: 0;
-  transform: translate(0, 0) scale(0);
-  transform-origin: calc(100% + 4px) 50%;
+  /* translateX(-50%) centers each pill on its arc position */
+  transform: translateX(calc(var(--tx, 0px) - 50%)) translateY(var(--ty, 0px)) scale(0);
+  transform-origin: 50% 50%;
   opacity: 0;
   pointer-events: none;
   transition:
@@ -539,7 +541,7 @@ a.hw:hover { opacity: 1; text-shadow: 0 0 8px rgba(212, 168, 75, 0.6); }
 
 /* Opening */
 .snav[aria-hidden="false"] .snav-item {
-  transform: translate(var(--tx), var(--ty)) scale(1);
+  transform: translateX(calc(var(--tx, 0px) - 50%)) translateY(var(--ty, 0px)) scale(1);
   opacity: 1;
   pointer-events: auto;
   transition-delay: var(--open-delay);
@@ -554,7 +556,7 @@ a.hw:hover { opacity: 1; text-shadow: 0 0 8px rgba(212, 168, 75, 0.6); }
 .snav-link {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   min-height: 44px;
   padding: 0 1rem;
   background: rgba(8, 12, 20, 0.94);
@@ -603,12 +605,12 @@ a.hw:hover { opacity: 1; text-shadow: 0 0 8px rgba(212, 168, 75, 0.6); }
 
   /* Keep at final position; only opacity animates */
   .snav[aria-hidden="false"] .snav-item {
-    transform: translate(var(--tx), var(--ty)) scale(1) !important;
+    transform: translateX(calc(var(--tx, 0px) - 50%)) translateY(var(--ty, 0px)) scale(1) !important;
   }
 
   /* When closed: still at position, just invisible */
   .snav[aria-hidden="true"] .snav-item {
-    transform: translate(var(--tx), var(--ty)) scale(1) !important;
+    transform: translateX(calc(var(--tx, 0px) - 50%)) translateY(var(--ty, 0px)) scale(1) !important;
     opacity: 0;
     pointer-events: none;
   }
@@ -616,8 +618,5 @@ a.hw:hover { opacity: 1; text-shadow: 0 0 8px rgba(212, 168, 75, 0.6); }
 
 /* ── Mobile ─────────────────────────────────── */
 @media (max-width: 600px) {
-  .snav {
-    top: 1rem;
-    right: 1rem;
-  }
+  /* snav stays viewport-centered — no override needed */
 }

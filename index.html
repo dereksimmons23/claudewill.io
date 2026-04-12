@@ -213,14 +213,43 @@
             overflow-x: hidden;
         }
 
-        /* ── The North Star — nav trigger ────── */
+        /* ── The North Star — centered hero trigger ─ */
         .porch-light {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--accent);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.75rem;
+            min-height: 44px;
+            min-width: 44px;
+            margin: 2.5rem auto 0;
+            line-height: 1;
+            font-family: var(--font);
+            z-index: 10;
+            text-shadow:
+                0 0 20px rgba(212, 168, 75, 0.6),
+                0 0 50px rgba(212, 168, 75, 0.25);
+            animation: glow 4s ease-in-out infinite;
+        }
+
+        .porch-light:hover {
+            text-shadow:
+                0 0 30px rgba(212, 168, 75, 0.9),
+                0 0 65px rgba(212, 168, 75, 0.5),
+                0 0 100px rgba(212, 168, 75, 0.2);
+        }
+
+        /* ── Mini corner trigger — appears on scroll ── */
+        .porch-light-mini {
             position: fixed;
-            top: 1.5rem;
-            right: 1.5rem;
-            left: auto;
-            transform: none;
-            font-size: 1.5rem;
+            top: 1.25rem;
+            right: 1.25rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--accent);
             background: none;
@@ -235,30 +264,36 @@
             line-height: 1;
             font-family: var(--font);
             z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
             text-shadow:
-                0 0 15px rgba(212, 168, 75, 0.5),
-                0 0 35px rgba(212, 168, 75, 0.2);
-            animation: glow 4s ease-in-out infinite;
+                0 0 12px rgba(212, 168, 75, 0.5),
+                0 0 28px rgba(212, 168, 75, 0.2);
         }
 
-        .porch-light:hover {
+        .porch-light-mini.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .porch-light-mini:hover {
             text-shadow:
-                0 0 25px rgba(212, 168, 75, 0.8),
-                0 0 50px rgba(212, 168, 75, 0.4),
-                0 0 80px rgba(212, 168, 75, 0.15);
+                0 0 20px rgba(212, 168, 75, 0.8),
+                0 0 45px rgba(212, 168, 75, 0.35);
         }
 
         @keyframes glow {
             0%, 100% {
                 text-shadow:
-                    0 0 15px rgba(212, 168, 75, 0.5),
-                    0 0 35px rgba(212, 168, 75, 0.2);
+                    0 0 20px rgba(212, 168, 75, 0.6),
+                    0 0 50px rgba(212, 168, 75, 0.25);
             }
             50% {
                 text-shadow:
-                    0 0 20px rgba(212, 168, 75, 0.7),
-                    0 0 45px rgba(212, 168, 75, 0.3),
-                    0 0 70px rgba(212, 168, 75, 0.1);
+                    0 0 28px rgba(212, 168, 75, 0.8),
+                    0 0 65px rgba(212, 168, 75, 0.35),
+                    0 0 90px rgba(212, 168, 75, 0.12);
             }
         }
 
@@ -285,15 +320,16 @@
             will-change: transform, opacity;
         }
 
-        /* Faint warm glow from the porch light corner */
+        /* Faint warm glow radiating from the centered asterisk */
         .porch-night::after {
             content: '';
             position: absolute;
-            top: -5%;
-            right: -5%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(212, 168, 75, 0.04) 0%, transparent 60%);
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 168, 75, 0.05) 0%, transparent 55%);
             pointer-events: none;
         }
 
@@ -366,58 +402,7 @@
             color: var(--accent) !important;
         }
 
-        /* ── Screen 2: The Doors ───────────────── */
-        .doors {
-            position: relative;
-            z-index: 2;
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 3.5rem;
-            padding: 6rem 2rem;
-        }
-
-        .door {
-            font-family: var(--font);
-            font-size: 1.2rem;
-            font-weight: 400;
-            letter-spacing: 0.12em;
-            color: rgba(226, 232, 240, 0.55);
-            text-decoration: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.75rem 1.5rem;
-            min-height: 44px;
-            display: inline-flex;
-            align-items: center;
-            transition: color 0.4s ease, text-shadow 0.4s ease;
-        }
-
-        .door:visited {
-            color: rgba(226, 232, 240, 0.55);
-        }
-
-        .door:hover, .door:focus-visible {
-            color: var(--accent);
-            text-shadow: 0 0 20px rgba(212, 168, 75, 0.25);
-        }
-
-        .door-cursor {
-            display: inline-block;
-            color: var(--dim);
-            animation: blink-cursor 0.8s step-end infinite;
-            margin-left: 0.35em;
-        }
-
-        @keyframes blink-cursor {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        /* ── Footer ───────────────────────────── */
+/* ── Footer ───────────────────────────── */
         .site-footer {
             position: relative;
             z-index: 2;
@@ -506,9 +491,8 @@
             .porch-night { padding: 1.5rem; }
             .porch-tagline { font-size: 0.85rem; max-width: 28ch; }
             .sky-writing a { font-size: 0.875rem !important; } /* 14px floor */
-            .porch-light { top: 1rem; right: 1rem; }
-            .door { font-size: 1.1rem; padding: 0.75rem 1rem; }
-            .doors { gap: 2.5rem; padding: 4rem 1.5rem; }
+            .porch-light { font-size: 3rem; margin-top: 2rem; }
+            .porch-light-mini { top: 0.75rem; right: 0.75rem; }
             .site-footer { font-size: 0.875rem; }
             .book-countdown { font-size: 0.875rem; }
             .footer-identity { font-size: 1rem; }
@@ -524,13 +508,13 @@
                 animation: none;
             }
             #stars { display: none; }
-            .porch-light {
+            .porch-light,
+            .porch-light-mini {
                 animation: none;
                 text-shadow:
                     0 0 15px rgba(212, 168, 75, 0.5),
                     0 0 35px rgba(212, 168, 75, 0.2);
             }
-            .door-cursor { animation: none; opacity: 1; }
             .sky-writing a { transition: none; }
         }
     </style>
@@ -540,7 +524,8 @@
 
     <canvas id="stars"></canvas>
 
-    <button class="palette-trigger porch-light" aria-label="Open navigation">*</button>
+    <!-- Persistent mini trigger — visible when scrolled past main asterisk -->
+    <button class="palette-trigger porch-light-mini" aria-label="Open navigation" aria-hidden="true">*</button>
 
     <main>
         <!-- Screen 1: The Porch at Night -->
@@ -550,20 +535,12 @@
                 <span class="name-line name-will">Will<span class="name-period" id="name-period">.</span></span>
             </h1>
             <p class="porch-tagline">named after family. built with machines.</p>
+            <button class="palette-trigger porch-light" aria-label="Open navigation">*</button>
         </section>
 
         <!-- The Sky: drifting essay/dispatch titles -->
         <section class="sky" aria-label="The writing">
             <div class="sky-writing" id="sky-writing"></div>
-        </section>
-
-        <!-- Screen 2: The Doors -->
-        <section class="doors" aria-label="Enter">
-            <a href="/writing" class="door">writing</a>
-            <a href="/book" class="door">book</a>
-            <a href="/lightning/bug" class="door">film</a>
-            <a href="/derek" class="door">derek</a>
-            <button class="door" id="porch-door" aria-label="Open the porch chat">porch<span class="door-cursor">_</span></button>
         </section>
     </main>
 
@@ -764,22 +741,6 @@
     </script>
 
     <script>
-        // ── Porch door — opens the chat widget ──────
-        (function() {
-            var porchDoor = document.getElementById('porch-door');
-            if (!porchDoor) return;
-
-            porchDoor.addEventListener('click', function() {
-                // The porch widget creates a button with class 'porch-widget'
-                var widgetBtn = document.querySelector('.porch-widget');
-                if (widgetBtn) {
-                    widgetBtn.click();
-                }
-            });
-        })();
-    </script>
-
-    <script>
         window.CustomSubstackWidget = {
             substackUrl: "standardderek.substack.com",
             placeholder: "your email",
@@ -795,6 +756,20 @@
     </script>
     <script src="https://substackapi.com/widget.js" async></script>
 
+    <script>
+        // ── Mini nav trigger — shows when main asterisk leaves viewport ──
+        (function() {
+            var porch = document.getElementById('porch');
+            var mini = document.querySelector('.porch-light-mini');
+            if (!porch || !mini) return;
+            var observer = new IntersectionObserver(function(entries) {
+                var visible = entries[0].isIntersecting;
+                mini.classList.toggle('visible', !visible);
+                mini.setAttribute('aria-hidden', visible ? 'true' : 'false');
+            }, { threshold: 0.1 });
+            observer.observe(porch);
+        })();
+    </script>
     <script src="/js/cw-link-renderer.js"></script>
     <script src="/js/porch-widget.js" defer></script>
     <script src="/js/shared-nav.js"></script>

@@ -44,15 +44,23 @@
     }
   ];
 
-  // Arc positions: [tx, ty] in px from asterisk center.
-  // All go left (negative tx) and down (positive ty) — stays in viewport
-  // from top-right corner. Arc curves from hard-left to straight-down.
-  var POSITIONS = [
-    [-165,   5],   // hard left, same height
-    [-150,  62],   // left and below
-    [-112, 112],   // diagonal
-    [ -58, 142],   // mostly below
-    [ -10, 155]    // almost straight down
+  // Arc positions: [tx, ty] in px from viewport center.
+  // Symmetric sunrise arc — fans left-to-right below the asterisk.
+  // Each pill is centered on its arc position via CSS translateX(-50%).
+  // Desktop: wider arc. Mobile: tighter arc to stay in viewport.
+  var isMobile = window.innerWidth < 600;
+  var POSITIONS = isMobile ? [
+    [-110,  20],   // far left
+    [ -68, 100],   // left and below
+    [   0, 130],   // straight down
+    [  68, 100],   // right and below
+    [ 110,  20]    // far right
+  ] : [
+    [-195,  30],   // far left
+    [-115, 140],   // left arc
+    [   0, 175],   // straight down
+    [ 115, 140],   // right arc
+    [ 195,  30]    // far right
   ];
 
   // ── State ──────────────────────────────────────
