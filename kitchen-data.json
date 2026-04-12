@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-04-11T11:12:01.836Z",
+  "lastUpdated": "2026-04-12T11:15:29.599Z",
   "agents": {
     "morningEdition": {
       "name": "Morning Edition",
-      "lastRun": "2026-04-11T11:12:01.835Z",
+      "lastRun": "2026-04-12T11:15:29.598Z",
       "status": "ok",
       "summary": "If I Had $5,000 to Invest in Artificial Intelligence (AI) Right Now, I'd Buy These 2 Stocks Before They Rebound",
       "flags": [],
@@ -33,40 +33,42 @@
     },
     "housekeeping": {
       "name": "Housekeeping",
-      "lastRun": "2026-04-11T11:12:01.836Z",
-      "status": "flags",
-      "summary": "All 10 pages + 2 subdomains responding. Avg 481ms.",
-      "flags": [
-        "Prompt dead link: netlify/functions/cw-prompt/site-knowledge.md references /library"
-      ],
+      "lastRun": "2026-04-12T11:15:29.598Z",
+      "status": "ok",
+      "summary": "All 14 pages + 2 subdomains responding. Avg 351ms.",
+      "flags": [],
       "details": [
-        "https://claudewill.io/ — 200 24ms",
-        "https://claudewill.io/derek — 200 28ms",
-        "https://claudewill.io/story — 200 695ms",
-        "https://claudewill.io/workshop — 200 703ms",
-        "https://claudewill.io/privacy — 200 224ms",
-        "https://claudewill.io/terms — 200 733ms",
-        "https://claudewill.io/kitchen — 200 523ms",
-        "https://claudewill.io/arcade — 200 206ms",
-        "https://claudewill.io/map — 200 876ms",
-        "https://claudewill.io/being-claude — 200 793ms",
-        "Coach D (https://coach.claudewill.io) — 200 1093ms",
-        "BOB (https://bob.claudewill.io) — 200 1342ms"
+        "https://claudewill.io/ — 200 38ms",
+        "https://claudewill.io/derek — 200 182ms",
+        "https://claudewill.io/claude — 200 391ms",
+        "https://claudewill.io/book — 200 607ms",
+        "https://claudewill.io/story — 200 565ms",
+        "https://claudewill.io/standard — 200 431ms",
+        "https://claudewill.io/writing — 200 408ms",
+        "https://claudewill.io/privacy — 200 416ms",
+        "https://claudewill.io/terms — 200 421ms",
+        "https://claudewill.io/kitchen — 200 100ms",
+        "https://claudewill.io/arcade — 200 421ms",
+        "https://claudewill.io/being-claude — 200 378ms",
+        "https://claudewill.io/lightning/bug — 200 102ms",
+        "https://claudewill.io/d — 200 450ms",
+        "Coach D (https://coach.claudewill.io) — 200 869ms",
+        "BOB (https://bob.claudewill.io) — 200 1095ms"
       ]
     },
     "pulse": {
       "name": "Daily Pulse",
-      "lastRun": "2026-04-11T11:11:12.947Z",
+      "lastRun": "2026-04-12T11:14:26.764Z",
       "status": "flags",
-      "summary": "682 conversations, 8 visitors, 0 D sessions",
+      "summary": "687 conversations, 8 visitors, 0 D sessions",
       "flags": [
-        "Dawn: 28 days since last entry."
+        "Dawn: 29 days since last entry."
       ],
       "metrics": {
         "conversations": {
-          "total": 682,
-          "week": 11,
-          "today": 0
+          "total": 687,
+          "week": 5,
+          "today": 5
         },
         "d": {
           "total": 0,
@@ -90,19 +92,19 @@
         "dawn": {
           "dayNumber": 74,
           "raidRate": "3/6",
-          "daysSinceEntry": 28
+          "daysSinceEntry": 29
         }
       }
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-04-11T11:12:01.836Z",
+      "lastRun": "2026-04-12T11:15:29.599Z",
       "status": "flags",
       "summary": "**Pipeline:** 7 items (3 draft, 2 planned, 1 idea, 1 in-progress)",
       "flags": [
-        "Being Claude #11: The Manual: draft for 30 days — review or reject",
-        "Being Claude: The Scoreboard: draft for 38 days — review or reject",
-        "Being Claude: The Brightness (warm/hot/cold): draft for 38 days — review or reject"
+        "Being Claude #11: The Manual: draft for 31 days — review or reject",
+        "Being Claude: The Scoreboard: draft for 39 days — review or reject",
+        "Being Claude: The Brightness (warm/hot/cold): draft for 39 days — review or reject"
       ]
     }
   },
@@ -111,61 +113,61 @@
       "name": "Cascadia Daily News",
       "category": "business",
       "status": "Final month",
-      "note": "Digital strategy + AI consulting for local news — Q1 close"
+      "note": "Engagement ends ~Apr 30. Restaurant guide + style book + handoff remaining."
     },
     {
       "name": "Coach D",
       "category": "business",
       "status": "Live",
-      "note": "AI basketball coaching platform — 157 drills, BLAST curriculum"
+      "note": "AI basketball coaching — 157 drills, summer program, $400/month. 52 outreach emails sent."
     },
     {
       "name": "claudewill.io",
       "category": "portfolio",
       "status": "Live",
-      "note": "The practice — CW's Porch, Being Claude, The Book, Lightning/"
+      "note": "The practice — Being Claude (13 essays), The Book, Kitchen TUI, Porch. Ops system deployed."
     },
     {
       "name": "Option D",
       "category": "portfolio",
-      "status": "Build month",
-      "note": "Model-agnostic coaching SDK — 9 providers, zero deps. /d gated."
+      "status": "v0.2.0",
+      "note": "Model-agnostic coaching SDK — 9 providers, zero deps. Live at /d (gated)."
     },
     {
       "name": "Lightning/",
       "category": "portfolio",
       "status": "In production",
-      "note": "The studio. First film: the model is the lightning, the prompt is the bug."
+      "note": "First film: LIGHTNING/bug. Runway AIF submission Apr 20."
     },
     {
       "name": "BOB",
       "category": "portfolio",
       "status": "Live",
-      "note": "Battle o' Brackets — party bracket game with voice"
+      "note": "Battle o' Brackets v2.10.0 — March Madness + voice. Supabase unpaused."
     },
     {
       "name": "Agent Zero",
       "category": "portfolio",
       "status": "Autonomous",
-      "note": "Anonymous AI storyteller"
+      "note": "Karma 165, 50 exhibits, crosspost complete. Running itself."
     },
     {
-      "name": "Claude Will.",
+      "name": "Claude Will",
       "category": "personal",
       "status": "Active",
-      "note": "The book — written by Claude, with Derek"
+      "note": "The book — compiles Apr 29, publishes Jun 28. 45K words."
     },
     {
       "name": "Dawn",
       "category": "personal",
-      "status": "Day 98 of 151",
-      "note": "Daily health accountability practice"
+      "status": "Day 101 of 151",
+      "note": "Daily health practice. 50 days remaining."
     },
     {
-      "name": "Standard Intelligence",
+      "name": "The Standard",
       "category": "infrastructure",
-      "status": "Live",
-      "note": "Live floor + session memory + hooks"
+      "status": "v2.5",
+      "note": "Live floor + session memory + hooks + ops system (Phases 1-4 deployed)."
     }
   ],
   "ecosystem": {
