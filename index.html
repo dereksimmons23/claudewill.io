@@ -216,6 +216,8 @@
             color: var(--text);
             line-height: 1.6;
             font-size: 16px;
+            display: flex;
+            flex-direction: column;
         }
 
         /* ── Canvas layers — aurora behind stars ── */
@@ -223,7 +225,6 @@
         #stars {
             position: fixed;
             inset: 0;
-            z-index: 0;
             pointer-events: none;
         }
         #aurora { z-index: 0; }
@@ -234,128 +235,82 @@
             position: fixed;
             inset: 0;
             z-index: 2;
-            pointer-events: none; /* atmospheric — compass handles nav */
+            pointer-events: none;
         }
 
-        .sky-ambient a {
+        .sky-ambient span {
             position: absolute;
-            color: rgba(226, 232, 240, 0.12);
-            text-decoration: none;
+            color: rgba(226, 232, 240, 0.09);
             font-family: var(--font);
             white-space: nowrap;
             will-change: transform;
         }
 
-        /* ── The Porch — full viewport, one screen ── */
-        .porch-night {
-            height: 100vh;
+        /* ── Stage — fills viewport, compass in upper half ── */
+        .stage {
+            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
+            padding-top: clamp(8vh, 12vh, 15vh);
             position: relative;
             z-index: 3;
         }
 
-        /* Warm glow behind the asterisk */
-        .porch-night::after {
-            content: '';
-            position: absolute;
-            bottom: 25%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(212, 168, 75, 0.04) 0%, transparent 60%);
-            pointer-events: none;
-            z-index: -1;
+        /* ── Compass scene — north star + wordmark + rooms ── */
+        .compass-scene {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
         }
 
-        /* ── Wordmark ────────────────────────────── */
-        .name {
-            text-align: center;
-            pointer-events: none;
-            will-change: opacity;
+        /* ── Navigation word-stars — gold, no box ── */
+        .nav-star {
+            font-family: var(--font);
+            font-size: clamp(0.72rem, 1.8vw, 0.92rem);
+            font-weight: 400;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: 0.22em;
+            text-transform: lowercase;
+            opacity: 0.8;
+            transition: opacity 0.25s ease, text-shadow 0.25s ease;
+            padding: 0.4rem 0.5rem;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
         }
 
-        .name-line {
-            display: block;
-            font-size: clamp(4rem, 18vw, 16rem);
-            font-weight: 700;
-            color: var(--bright);
-            line-height: 0.92;
-            letter-spacing: -0.03em;
+        .nav-star:hover,
+        .nav-star:focus-visible {
+            opacity: 1;
+            text-shadow:
+                0 0 14px rgba(212, 168, 75, 0.65),
+                0 0 32px rgba(212, 168, 75, 0.25);
         }
 
-        .name-period {
+        .nav-star:visited { color: var(--accent); }
+
+        .nav-library {
+            margin-bottom: 0.25rem;
             opacity: 0;
-            animation: arrive 0.6s ease-out 2.2s forwards;
+            animation: starArrive 0.8s ease-out 0.6s forwards;
         }
 
-        .porch-tagline {
-            margin-top: 1.25rem;
-            font-size: 0.85rem;
-            color: var(--dim);
-            letter-spacing: 0.06em;
-            text-align: center;
-            line-height: 1.5;
+        .nav-kitchen {
+            margin-top: 0.25rem;
             opacity: 0;
-            animation: arrive 1s ease-out 3s forwards;
+            animation: starArrive 0.8s ease-out 1.4s forwards;
         }
 
-        /* ── Asterisk — the compass center ──────── */
-        .porch-light {
+        /* ── North star — the asterisk ── */
+        .asterisk-center {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: clamp(3rem, 6vw, 5rem);
-            font-weight: 700;
-            color: var(--accent);
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.75rem;
-            min-height: 44px;
-            min-width: 44px;
-            margin: 2rem auto 0;
-            line-height: 1;
-            font-family: var(--font);
-            z-index: 10;
-            text-shadow:
-                0 0 20px rgba(212, 168, 75, 0.7),
-                0 0 50px rgba(212, 168, 75, 0.3),
-                0 0 90px rgba(212, 168, 75, 0.1);
-            animation: glow 4s ease-in-out infinite;
-        }
-
-        .porch-light:hover {
-            text-shadow:
-                0 0 30px rgba(212, 168, 75, 1),
-                0 0 65px rgba(212, 168, 75, 0.55),
-                0 0 110px rgba(212, 168, 75, 0.2);
-        }
-
-        @keyframes glow {
-            0%, 100% {
-                text-shadow:
-                    0 0 20px rgba(212, 168, 75, 0.7),
-                    0 0 50px rgba(212, 168, 75, 0.3),
-                    0 0 90px rgba(212, 168, 75, 0.1);
-            }
-            50% {
-                text-shadow:
-                    0 0 28px rgba(212, 168, 75, 0.9),
-                    0 0 65px rgba(212, 168, 75, 0.45),
-                    0 0 110px rgba(212, 168, 75, 0.15);
-            }
-        }
-
-        /* ── Mini corner trigger — non-homepage pages ── */
-        .porch-light-mini {
-            position: fixed;
-            top: 1.25rem;
-            right: 1.25rem;
-            font-size: 1.5rem;
+            font-size: clamp(3.2rem, 7vw, 5.5rem);
             font-weight: 700;
             color: var(--accent);
             background: none;
@@ -364,81 +319,130 @@
             padding: 0.5rem;
             min-height: 44px;
             min-width: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             line-height: 1;
             font-family: var(--font);
-            z-index: 100;
+            text-shadow:
+                0 0 22px rgba(212, 168, 75, 0.75),
+                0 0 55px rgba(212, 168, 75, 0.35),
+                0 0 100px rgba(212, 168, 75, 0.12);
+            animation: starGlow 4s ease-in-out infinite;
+            margin-bottom: 1.25rem;
+        }
+
+        .asterisk-center:hover {
+            text-shadow:
+                0 0 30px rgba(212, 168, 75, 1),
+                0 0 70px rgba(212, 168, 75, 0.55),
+                0 0 120px rgba(212, 168, 75, 0.2);
+        }
+
+        @keyframes starGlow {
+            0%, 100% {
+                text-shadow:
+                    0 0 22px rgba(212, 168, 75, 0.75),
+                    0 0 55px rgba(212, 168, 75, 0.35),
+                    0 0 100px rgba(212, 168, 75, 0.12);
+            }
+            50% {
+                text-shadow:
+                    0 0 30px rgba(212, 168, 75, 0.95),
+                    0 0 70px rgba(212, 168, 75, 0.5),
+                    0 0 120px rgba(212, 168, 75, 0.18);
+            }
+        }
+
+        /* ── Wordmark row — derek | Claude Will. | studio ── */
+        .wordmark-row {
+            display: flex;
+            align-items: center;
+            gap: clamp(1.25rem, 4vw, 3rem);
             opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            text-shadow:
-                0 0 12px rgba(212, 168, 75, 0.5),
-                0 0 28px rgba(212, 168, 75, 0.2);
+            animation: fadeToDepth 1.8s ease-out 1s forwards;
         }
 
-        .porch-light-mini.visible {
-            opacity: 1;
-            pointer-events: auto;
+        /* Wordmark fades in faded — depth effect */
+        @keyframes fadeToDepth {
+            from { opacity: 0; transform: scale(1.04); }
+            to   { opacity: 0.42; transform: scale(1); }
         }
 
-        .porch-light-mini:hover {
-            text-shadow:
-                0 0 20px rgba(212, 168, 75, 0.8),
-                0 0 45px rgba(212, 168, 75, 0.35);
-        }
-
-        /* ── Entrance animations ─────────────────── */
-        .name-claude, .name-will { opacity: 0; }
-        .name-claude { animation: arrive 1.2s ease-out 0.3s forwards; }
-        .name-will   { animation: arrive 1.2s ease-out 1.2s forwards; }
-
-        @keyframes arrive {
-            from { opacity: 0; }
-            to   { opacity: 1; }
-        }
-
-        /* ── Footer — fixed at bottom ────────────── */
-        .site-footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 4;
-            padding: 0.875rem 2rem 1rem;
+        .name {
             text-align: center;
-            font-size: 0.7rem;
+            pointer-events: none;
+        }
+
+        .name-line {
+            display: block;
+            font-size: clamp(2.8rem, 12vw, 10rem);
+            font-weight: 700;
+            color: var(--bright);
+            line-height: 0.92;
+            letter-spacing: -0.03em;
+        }
+
+        /* ── Wordmark flanking stars (derek, studio) ── */
+        .nav-derek,
+        .nav-studio {
+            opacity: 0;
+            animation: starArrive 0.8s ease-out 1.0s forwards;
+            white-space: nowrap;
+        }
+
+        @keyframes starArrive {
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 0.8; transform: translateY(0); }
+        }
+
+        /* ── Subscribe + countdown — between kitchen and footer ── */
+        .porch-subscribe {
+            margin-top: clamp(1.25rem, 3vh, 2.5rem);
+            text-align: center;
+            opacity: 0;
+            animation: starArrive 1s ease-out 2s forwards;
+        }
+
+        .book-countdown-link {
+            display: block;
+            font-size: 0.72rem;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: 0.07em;
+            font-variant-numeric: tabular-nums;
+            margin-bottom: 0.6rem;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+        .book-countdown-link:hover { opacity: 1; text-shadow: 0 0 10px rgba(212, 168, 75, 0.4); }
+        .book-countdown-link:visited { color: var(--accent); }
+
+        .subscribe-wrap {
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        /* ── Footer ── */
+        .site-footer {
+            flex-shrink: 0;
+            padding: 0.75rem 2rem 1rem;
+            text-align: center;
+            font-size: 0.68rem;
             color: var(--dim);
             letter-spacing: 0.04em;
-        }
-
-        .footer-subscribe {
-            margin: 0 auto 0.5rem;
-            max-width: 320px;
+            z-index: 4;
+            position: relative;
         }
 
         .site-footer a {
             color: var(--dim);
             text-decoration: none;
-            padding: 0.25rem 0.4rem;
-            min-height: 44px;
-            display: inline-flex;
-            align-items: center;
+            padding: 0.2rem 0.3rem;
+            transition: color 0.2s;
         }
 
         .site-footer a:hover { color: var(--bright); }
         .site-footer a:visited { color: var(--dim); }
 
-        .book-countdown {
-            color: var(--accent);
-            font-variant-numeric: tabular-nums;
-            letter-spacing: 0.06em;
-        }
-        .book-countdown:visited { color: var(--accent); }
-        .book-countdown:hover { text-shadow: 0 0 10px rgba(212, 168, 75, 0.4); }
-
-        /* ── Accessibility ────────────────────── */
+        /* ── Accessibility ── */
         .sr-only {
             position: absolute;
             width: 1px; height: 1px;
@@ -455,61 +459,88 @@
         }
         button:focus:not(:focus-visible) { outline: none; }
 
-        /* ── Mobile ───────────────────────────── */
+        /* ── Mobile ── */
         @media (max-width: 600px) {
-            .porch-light { font-size: 3rem; margin-top: 1.5rem; }
-            .porch-light-mini { top: 0.75rem; right: 0.75rem; }
-            .porch-tagline { font-size: 0.8rem; }
-            .site-footer { padding: 0.75rem 1rem 0.875rem; }
+            .stage { padding-top: clamp(7vh, 10vh, 12vh); }
+            .asterisk-center { margin-bottom: 0.875rem; }
+            .wordmark-row { gap: 0.75rem; }
+            .nav-star { font-size: 0.68rem; letter-spacing: 0.18em; padding: 0.35rem 0.4rem; }
+            .site-footer { padding: 0.65rem 1rem 0.875rem; }
         }
 
-        /* ── Reduced motion ───────────────────── */
+        /* ── Very small screens ── */
+        @media (max-height: 580px) {
+            .stage { padding-top: 5vh; }
+            .porch-subscribe { margin-top: 0.75rem; }
+        }
+
+        /* ── Reduced motion ── */
         @media (prefers-reduced-motion: reduce) {
-            .name-claude, .name-will, .name-period, .porch-tagline {
-                opacity: 1; animation: none;
+            .nav-library, .nav-kitchen, .nav-derek, .nav-studio, .wordmark-row, .porch-subscribe {
+                opacity: 1; animation: none; transform: none;
             }
+            .wordmark-row { opacity: 0.42; }
             #aurora, #stars { display: none; }
-            .porch-light, .porch-light-mini {
+            .asterisk-center {
                 animation: none;
-                text-shadow: 0 0 15px rgba(212, 168, 75, 0.5);
+                text-shadow: 0 0 18px rgba(212, 168, 75, 0.6);
             }
         }
     </style>
 </head>
-<body data-snav-open>
-    <a class="sr-only" href="#porch">Skip to content</a>
+<body>
+    <a class="sr-only" href="#stage">Skip to content</a>
 
     <!-- Background layers -->
     <canvas id="aurora" aria-hidden="true"></canvas>
     <canvas id="stars" aria-hidden="true"></canvas>
 
-    <!-- Ambient essay titles — atmospheric, not navigation -->
+    <!-- Ambient essay titles — atmospheric only -->
     <div class="sky-ambient" id="sky-writing" aria-hidden="true"></div>
 
-    <!-- The porch — one screen -->
-    <section class="porch-night" id="porch" aria-label="Claude Will">
-        <h1 class="name">
-            <span class="name-line name-claude">Claude</span>
-            <span class="name-line name-will">Will<span class="name-period" id="name-period">.</span></span>
-        </h1>
-        <p class="porch-tagline">named after family. built with machines.</p>
-        <button class="palette-trigger porch-light" aria-label="Toggle compass" aria-expanded="true">*</button>
-    </section>
+    <!-- Main stage -->
+    <main class="stage" id="stage" aria-label="Claude Will">
 
-    <!-- Minimal fixed footer -->
+        <div class="compass-scene">
+
+            <!-- Library — above the north star -->
+            <a href="/being-claude" class="nav-star nav-library" aria-label="library — essays and the book">library</a>
+
+            <!-- The north star — opens porch chat -->
+            <button class="asterisk-center" id="asterisk-btn" aria-label="Open porch chat">*</button>
+
+            <!-- Wordmark row: derek | Claude Will. | studio -->
+            <div class="wordmark-row">
+                <a href="/derek" class="nav-star nav-derek" aria-label="derek — writer, filmmaker, builder">derek</a>
+                <h1 class="name">
+                    <span class="name-line">Claude</span>
+                    <span class="name-line">Will.</span>
+                </h1>
+                <a href="/lightning/bug" class="nav-star nav-studio" aria-label="studio — the film, the making">studio</a>
+            </div>
+
+            <!-- Kitchen — below the wordmark -->
+            <a href="/kitchen" class="nav-star nav-kitchen" aria-label="kitchen — live operations">kitchen</a>
+
+        </div>
+
+        <!-- Book countdown + subscribe — before footer -->
+        <div class="porch-subscribe">
+            <a href="/book" class="book-countdown-link" id="book-countdown"></a>
+            <div class="subscribe-wrap">
+                <div id="custom-substack-embed"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer: copyright · privacy · terms · standard -->
     <footer class="site-footer" role="contentinfo">
-        <div class="footer-subscribe" id="custom-substack-embed"></div>
-        <p>
-            <a href="/book" class="book-countdown" id="book-countdown"></a>
-            &nbsp;&middot;&nbsp;
-            <a href="/privacy">privacy</a>
-            &nbsp;&middot;&nbsp;
-            &copy; 2026 CW Strategies
-        </p>
+        <p>&copy; 2026 CW Strategies &nbsp;&middot;&nbsp; <a href="/privacy">privacy</a> &nbsp;&middot;&nbsp; <a href="/terms">terms</a> &nbsp;&middot;&nbsp; <a href="/standard">standard</a></p>
     </footer>
 
     <script>
-        // ── Aurora borealis — slow curtains of light ───────────────
+        // ── Aurora borealis — cinematic curtains of light ──────────
         (function() {
             var c = document.getElementById('aurora');
             if (!c) return;
@@ -518,19 +549,20 @@
 
             function resize() { w = c.width = window.innerWidth; h = c.height = window.innerHeight; }
 
-            // Three aurora bands — cool teal/violet palette, avoids warm green fighting the gold
+            // Four aurora bands — deeper movement, more dramatic
             var bands = [
-                { yRatio: 0.14, amp: 32, wl: 560, phase: 0,    color: '0, 200, 160',   alpha: 0.065, speed: 0.00016 }, // cool teal-green
-                { yRatio: 0.22, amp: 42, wl: 720, phase: 2.1,  color: '123, 104, 238', alpha: 0.048, speed: 0.00011 }, // soft indigo
-                { yRatio: 0.08, amp: 20, wl: 400, phase: 4.5,  color: '0, 229, 255',   alpha: 0.028, speed: 0.00020 }  // cyan accent
+                { yRatio: 0.12, amp: 38, wl: 520, phase: 0,    color: '0, 200, 160',   alpha: 0.075, speed: 0.00018 },
+                { yRatio: 0.20, amp: 52, wl: 680, phase: 2.1,  color: '123, 104, 238', alpha: 0.058, speed: 0.00012 },
+                { yRatio: 0.07, amp: 24, wl: 380, phase: 4.5,  color: '0, 229, 255',   alpha: 0.035, speed: 0.00022 },
+                { yRatio: 0.28, amp: 30, wl: 800, phase: 1.3,  color: '80, 60, 180',   alpha: 0.032, speed: 0.00008 }
             ];
 
             function drawBand(b, t) {
                 var y0 = h * b.yRatio;
-                var bandH = b.amp * 3.5;
+                var bandH = b.amp * 4;
                 ctx.beginPath();
                 ctx.moveTo(0, y0);
-                for (var x = 0; x <= w; x += 6) {
+                for (var x = 0; x <= w; x += 5) {
                     ctx.lineTo(x, y0 + Math.sin((x / b.wl) + b.phase + t * b.speed) * b.amp);
                 }
                 ctx.lineTo(w, y0 + bandH);
@@ -539,8 +571,8 @@
 
                 var grad = ctx.createLinearGradient(0, y0 - b.amp, 0, y0 + bandH);
                 grad.addColorStop(0,   'rgba(' + b.color + ', 0)');
-                grad.addColorStop(0.3, 'rgba(' + b.color + ', ' + b.alpha + ')');
-                grad.addColorStop(0.7, 'rgba(' + b.color + ', ' + (b.alpha * 0.6) + ')');
+                grad.addColorStop(0.25,'rgba(' + b.color + ', ' + b.alpha + ')');
+                grad.addColorStop(0.65,'rgba(' + b.color + ', ' + (b.alpha * 0.55) + ')');
                 grad.addColorStop(1,   'rgba(' + b.color + ', 0)');
                 ctx.fillStyle = grad;
                 ctx.fill();
@@ -562,12 +594,15 @@
     </script>
 
     <script>
-        // ── Star field canvas ──────────────────────────────────────
+        // ── Star field — constellation lines + shooting stars ─────
         (function() {
             var c = document.getElementById('stars');
+            if (!c) return;
             var ctx = c.getContext('2d');
             var stars = [];
-            var count = 260;
+            var connections = [];
+            var shooters = [];
+            var count = 280;
             var w, h;
 
             function resize() { w = c.width = window.innerWidth; h = c.height = window.innerHeight; }
@@ -577,7 +612,7 @@
                 for (var i = 0; i < count; i++) {
                     stars.push({
                         x: Math.random() * w, y: Math.random() * h,
-                        r: Math.random() * 1.5 + 0.2,
+                        r: Math.random() * 1.6 + 0.2,
                         base: Math.random() * 0.45 + 0.08,
                         amp: Math.random() * 0.3,
                         speed: Math.random() * 0.0012 + 0.0002,
@@ -586,10 +621,81 @@
                         dy: (Math.random() - 0.5) * 0.004
                     });
                 }
+                buildConnections();
+            }
+
+            // Build a stable set of constellation lines from nearby star pairs
+            function buildConnections() {
+                connections = [];
+                var maxDist = 140;
+                var limit = 18;
+                for (var i = 0; i < stars.length && connections.length < limit; i++) {
+                    for (var j = i + 1; j < stars.length && connections.length < limit; j++) {
+                        var dx = stars[i].x - stars[j].x;
+                        var dy = stars[i].y - stars[j].y;
+                        if (Math.sqrt(dx * dx + dy * dy) < maxDist) {
+                            connections.push([i, j]);
+                        }
+                    }
+                }
+            }
+
+            function drawConnections() {
+                ctx.save();
+                ctx.strokeStyle = 'rgba(200, 215, 240, 0.025)';
+                ctx.lineWidth = 0.5;
+                for (var k = 0; k < connections.length; k++) {
+                    var a = stars[connections[k][0]];
+                    var b = stars[connections[k][1]];
+                    ctx.beginPath();
+                    ctx.moveTo(a.x, a.y);
+                    ctx.lineTo(b.x, b.y);
+                    ctx.stroke();
+                }
+                ctx.restore();
+            }
+
+            function maybeShoot() {
+                if (shooters.length < 2 && Math.random() < 0.0008) {
+                    var fromRight = Math.random() > 0.5;
+                    shooters.push({
+                        x: fromRight ? w * 0.8 + Math.random() * w * 0.2 : Math.random() * w * 0.3,
+                        y: Math.random() * h * 0.45,
+                        vx: fromRight ? -(3 + Math.random() * 4) : (3 + Math.random() * 4),
+                        vy: 1.5 + Math.random() * 2,
+                        alpha: 0.9,
+                        len: 70 + Math.random() * 90,
+                        decay: 0.016 + Math.random() * 0.01
+                    });
+                }
+            }
+
+            function drawShooters() {
+                for (var i = shooters.length - 1; i >= 0; i--) {
+                    var s = shooters[i];
+                    ctx.save();
+                    var grad = ctx.createLinearGradient(s.x, s.y, s.x - s.vx * (s.len / 8), s.y - s.vy * (s.len / 8));
+                    grad.addColorStop(0, 'rgba(240, 230, 210, ' + s.alpha + ')');
+                    grad.addColorStop(1, 'rgba(240, 230, 210, 0)');
+                    ctx.strokeStyle = grad;
+                    ctx.lineWidth = 1.2;
+                    ctx.beginPath();
+                    ctx.moveTo(s.x, s.y);
+                    ctx.lineTo(s.x - s.vx * (s.len / 8), s.y - s.vy * (s.len / 8));
+                    ctx.stroke();
+                    ctx.restore();
+                    s.x += s.vx;
+                    s.y += s.vy;
+                    s.alpha -= s.decay;
+                    if (s.alpha <= 0 || s.x < -20 || s.x > w + 20 || s.y > h) {
+                        shooters.splice(i, 1);
+                    }
+                }
             }
 
             function draw(t) {
                 ctx.clearRect(0, 0, w, h);
+                drawConnections();
                 for (var i = 0; i < count; i++) {
                     var s = stars[i];
                     var a = s.base + Math.sin(t * s.speed + s.phase) * s.amp;
@@ -607,6 +713,8 @@
                     if (s.x < -2) s.x = w + 2; if (s.x > w + 2) s.x = -2;
                     if (s.y < -2) s.y = h + 2; if (s.y > h + 2) s.y = -2;
                 }
+                maybeShoot();
+                drawShooters();
                 requestAnimationFrame(draw);
             }
 
@@ -631,22 +739,19 @@
                 'The Reconsideration', 'The Hall Effect', 'The Warm-Up Effect'
             ];
 
-            var sizes = [0.62, 0.68, 0.72, 0.76, 0.8];
+            var sizes = [0.6, 0.65, 0.7, 0.74, 0.78];
 
-            // Inject drift keyframes
             var s = document.createElement('style');
             s.textContent = '@keyframes drift{0%{transform:translateX(-50%) translate(0,0)}100%{transform:translateX(-50%) translate(var(--dx),var(--dy))}}';
             document.head.appendChild(s);
 
-            // Scatter across full viewport, avoid center cluster
             for (var i = 0; i < 12; i++) {
                 var span = document.createElement('span');
                 span.textContent = titles[i % titles.length];
-                span.style.cssText = 'position:absolute;white-space:nowrap;font-family:var(--font,monospace);color:rgba(226,232,240,0.1);';
 
                 var top, left;
-                // Keep away from vertical center (40-60%) where compass lives
-                do { top = Math.random() * 90; } while (top > 35 && top < 65);
+                // Avoid center band (40–62%) where compass lives
+                do { top = Math.random() * 90; } while (top > 38 && top < 62);
                 left = 5 + Math.random() * 88;
 
                 span.style.top = top + '%';
@@ -654,10 +759,10 @@
                 span.style.transform = 'translateX(-50%)';
                 span.style.fontSize = sizes[Math.floor(Math.random() * sizes.length)] + 'rem';
 
-                var dx = (Math.random() - 0.5) * 18;
-                var dy = (Math.random() - 0.5) * 8;
-                var dur = 50 + Math.random() * 50;
-                var delay = Math.random() * -80;
+                var dx = (Math.random() - 0.5) * 20;
+                var dy = (Math.random() - 0.5) * 10;
+                var dur = 55 + Math.random() * 55;
+                var delay = Math.random() * -90;
 
                 span.style.setProperty('--dx', dx + 'px');
                 span.style.setProperty('--dy', dy + 'px');
@@ -666,6 +771,14 @@
                 sky.appendChild(span);
             }
         })();
+    </script>
+
+    <script>
+        // ── Asterisk opens porch chat widget ───────────────────────
+        document.getElementById('asterisk-btn').addEventListener('click', function() {
+            var widget = document.querySelector('.porch-widget');
+            if (widget) widget.click();
+        });
     </script>
 
     <script>
@@ -682,7 +795,6 @@
     <script src="/js/cw-link-renderer.js"></script>
     <script src="/js/porch-widget.js" defer></script>
     <script src="/js/shared-nav.js"></script>
-    <script src="/js/star-nav.js"></script>
 
     <script>
         // ── Book countdown ─────────────────────────────────────────
@@ -699,7 +811,7 @@
                 el.textContent = d + 'd ' + h + 'h ' + m + 'm until the book';
             }
             tick();
-            setInterval(tick, 60000); // minutes-only refresh — no second jitter
+            setInterval(tick, 60000);
         })();
     </script>
 </body>
