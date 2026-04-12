@@ -37,14 +37,18 @@ const SITE = 'https://claudewill.io'
 const PAGES = [
   '/',
   '/derek',
+  '/claude',
+  '/book',
   '/story',
-  '/workshop',
+  '/standard',
+  '/writing',
   '/privacy',
   '/terms',
   '/kitchen',
   '/arcade',
-  '/map',
   '/being-claude',
+  '/lightning/bug',
+  '/d',
 ]
 
 const EXTERNAL_CHECKS = [
@@ -235,27 +239,7 @@ function checkSiteRegistry() {
   }
 }
 
-// ── Map Coverage ────────────────────────────────────
-
-function checkMapCoverage() {
-  const issues = []
-  const mapPath = join(REPO_ROOT, 'map.html')
-  if (!existsSync(mapPath)) return ['map.html not found']
-
-  const mapContent = readFileSync(mapPath, 'utf-8')
-
-  const SHOULD_BE_IN_MAP = [
-    '/derek', '/story', '/workshop', '/kitchen',
-    '/arcade', '/being-claude',
-  ]
-
-  for (const path of SHOULD_BE_IN_MAP) {
-    if (!mapContent.includes(path)) {
-      issues.push(`${path} not in map.html`)
-    }
-  }
-  return issues
-}
+// ── Map Coverage (removed — map.html replaced by command palette) ──
 
 // ── Gitignore Pattern Check ─────────────────────────
 
@@ -336,7 +320,6 @@ async function main() {
   const promptURLs = checkPromptURLs()
   const redirectTargets = checkRedirectTargets()
   const registrySync = checkSiteRegistry()
-  const mapCoverage = checkMapCoverage()
   const gitignoreCheck = checkGitignorePatterns()
 
   for (const f of sensitiveFiles) flags.push(`Sensitive file tracked: ${f}`)
@@ -344,13 +327,11 @@ async function main() {
   for (const f of redirectTargets) flags.push(`Redirect gap: ${f}`)
   for (const f of registrySync) flags.push(`Registry: ${f}`)
   for (const f of gitignoreCheck) flags.push(`Gitignore: ${f}`)
-  for (const f of mapCoverage) findings.push(`Map: ${f}`)
 
   const hygieneIssues = sensitiveFiles.length + promptURLs.length + redirectTargets.length
     + registrySync.length + gitignoreCheck.length
 
   findings.push(`Repo hygiene: ${hygieneIssues === 0 ? 'clean' : hygieneIssues + ' issues'}.`)
-  findings.push(`Map: ${mapCoverage.length === 0 ? 'complete' : mapCoverage.length + ' pages missing'}.`)
 
   // ── Cleanup Agent ──
   // Runs monthly as part of housekeeping. Quarterly flag adds asset review.

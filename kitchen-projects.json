@@ -1,12 +1,12 @@
 [
-  { "name": "Cascadia Daily News", "category": "business", "status": "Final month", "note": "Digital strategy + AI consulting for local news — Q1 close" },
-  { "name": "Coach D", "category": "business", "status": "Live", "note": "AI basketball coaching platform — 157 drills, BLAST curriculum" },
-  { "name": "claudewill.io", "category": "portfolio", "status": "Live", "note": "The practice — CW's Porch, Being Claude, The Book, Lightning/" },
-  { "name": "Option D", "category": "portfolio", "status": "Build month", "note": "Model-agnostic coaching SDK — 9 providers, zero deps. /d gated." },
-  { "name": "Lightning/", "category": "portfolio", "status": "In production", "note": "The studio. First film: the model is the lightning, the prompt is the bug." },
-  { "name": "BOB", "category": "portfolio", "status": "Live", "note": "Battle o' Brackets — party bracket game with voice" },
-  { "name": "Agent Zero", "category": "portfolio", "status": "Autonomous", "note": "Anonymous AI storyteller" },
-  { "name": "Finding Claude", "category": "personal", "status": "Active", "note": "The book — written by Claude, with Derek" },
-  { "name": "Dawn", "category": "personal", "status": "Day 98 of 151", "note": "Daily health accountability practice" },
-  { "name": "Standard Intelligence", "category": "infrastructure", "status": "Live", "note": "Live floor + session memory + hooks" }
+  { "name": "Cascadia Daily News", "category": "business", "status": "Final month", "note": "Engagement ends ~Apr 30. Restaurant guide + style book + handoff remaining." },
+  { "name": "Coach D", "category": "business", "status": "Live", "note": "AI basketball coaching — 157 drills, summer program, $400/month. 52 outreach emails sent." },
+  { "name": "claudewill.io", "category": "portfolio", "status": "Live", "note": "The practice — Being Claude (13 essays), The Book, Kitchen TUI, Porch. Ops system deployed." },
+  { "name": "Option D", "category": "portfolio", "status": "v0.2.0", "note": "Model-agnostic coaching SDK — 9 providers, zero deps. Live at /d (gated)." },
+  { "name": "Lightning/", "category": "portfolio", "status": "In production", "note": "First film: LIGHTNING/bug. Runway AIF submission Apr 20." },
+  { "name": "BOB", "category": "portfolio", "status": "Live", "note": "Battle o' Brackets v2.10.0 — March Madness + voice. Supabase unpaused." },
+  { "name": "Agent Zero", "category": "portfolio", "status": "Autonomous", "note": "Karma 165, 50 exhibits, crosspost complete. Running itself." },
+  { "name": "Claude Will", "category": "personal", "status": "Active", "note": "The book — compiles Apr 29, publishes Jun 28. 45K words." },
+  { "name": "Dawn", "category": "personal", "status": "Day 101 of 151", "note": "Daily health practice. 50 days remaining." },
+  { "name": "The Standard", "category": "infrastructure", "status": "v2.5", "note": "Live floor + session memory + hooks + ops system (Phases 1-4 deployed)." }
 ]

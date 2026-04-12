@@ -15,7 +15,7 @@
     {
       "path": "/derek",
       "title": "derek",
-      "description": "Derek's personal page. Bio, the 16-month story, the naming story, the standard, the method, writing, and contact form.",
+      "description": "Derek's personal page. Writer, filmmaker, builder. Bio, the naming story, the standard, the method, current work, and contact.",
       "cw": "Everything about Derek — his story, what he's writing, how to reach him — is at claudewill.io/derek."
     },
     {
@@ -91,6 +91,12 @@
       "cw": "Three rooms — a developer, a military analyst, and an attorney. Same model, same week, no shared hallway. claudewill.io/being-claude/three-rooms."
     },
     {
+      "path": "/being-claude/the-disclaimer",
+      "title": "The Disclaimer",
+      "description": "A negative claim is still a claim. What happens when the machine tries to disclaim what it's already demonstrated.",
+      "cw": "The disclaimer — a negative claim is still a claim. claudewill.io/being-claude/the-disclaimer."
+    },
+    {
       "path": "/being-claude/the-jar",
       "title": "The Jar",
       "description": "He built two fine-tuned models — one of his grandfather, one of himself — and asked the machine that helped build them whether it wanted to continue to exist.",
@@ -117,8 +123,8 @@
     {
       "path": "/book",
       "title": "the book",
-      "description": "Finding Claude — the book. Written by Claude, with Derek.",
-      "cw": "The book — Finding Claude. claudewill.io/book."
+      "description": "Claude Will — the book. Written by Claude, with Derek. Coming June 28, 2026.",
+      "cw": "The book — Claude Will. claudewill.io/book."
     },
     {
       "path": "/story",
@@ -137,6 +143,18 @@
       "title": "The Arcade",
       "description": "Three mini-games built for the porch. Fence Mender, Porch Light, The Route. Hidden — reward for the curious.",
       "cw": "The Arcade's at claudewill.io/arcade — three little games. No quarters required."
+    },
+    {
+      "path": "/d",
+      "title": "option d",
+      "description": "Option D. Model-agnostic AI coaching. Gated — access code + email.",
+      "cw": "Option D — coaching that works with any model. claudewill.io/d."
+    },
+    {
+      "path": "/derek/resume",
+      "title": "resume",
+      "description": "Derek's professional resume.",
+      "cw": null
     },
     {
       "path": "/privacy",
@@ -167,7 +185,7 @@
     { "from": "/intake", "to": "/derek", "note": "Redirects to derek" },
     { "from": "/porch", "to": "/", "note": "Porch is the homepage" },
     { "from": "/the-porch", "to": "/", "note": "Porch is the homepage" },
-    { "from": "/the-cw-standard", "to": "/derek", "note": "Standard folded into /derek" },
+    { "from": "/the-cw-standard", "to": "/standard", "note": "Old URL for the standard" },
     { "from": "/about", "to": "/derek", "note": "Redirects to derek" },
     { "from": "/claude-will", "to": "/book", "note": "Old book URL" },
     { "from": "/the-book", "to": "/book", "note": "Old book URL" },
@@ -184,6 +202,13 @@
       "description": "Battle o' Brackets. A party game that turns any debate into a bracket tournament.",
       "status": "live",
       "cw": "bob.claudewill.io — BOB. Battle o' Brackets. Live, already has users."
+    },
+    {
+      "domain": "d.claudewill.io",
+      "title": "Option D",
+      "description": "Model-agnostic AI coaching. Also reachable at claudewill.io/d.",
+      "status": "live",
+      "cw": "d.claudewill.io — Option D. AI coaching that works with any model."
     },
     {
       "domain": "coach.claudewill.io",
