@@ -16,24 +16,29 @@
   // ── Configuration ─────────────────────────────
 
   // Four cardinal directions. The asterisk itself is the porch/center.
+  // label = direction shown at rest. room = destination revealed on hover.
   var ITEMS = [
     {
       label: 'north',
+      room: 'library',
       href: '/being-claude',
       description: 'the library — essays and the book'
     },
     {
       label: 'east',
+      room: 'studio',
       href: '/lightning/bug',
       description: 'the studio — the film, the making'
     },
     {
       label: 'south',
+      room: 'kitchen',
       href: '/kitchen',
       description: 'the kitchen — live operations'
     },
     {
       label: 'west',
+      room: 'derek',
       href: '/derek',
       description: 'derek — writer, filmmaker, builder'
     }
@@ -113,9 +118,10 @@
 
       el.className = 'snav-link';
       el.setAttribute('role', 'menuitem');
-      // Full accessible label includes description
       el.setAttribute('aria-label', item.label + ' — ' + item.description);
       el.textContent = item.label;
+      // Room name revealed on hover via CSS ::after + data attribute
+      if (item.room) el.dataset.room = item.room;
 
       li.appendChild(el);
       menu.appendChild(li);

@@ -580,6 +580,29 @@ a.hw:hover { opacity: 1; text-shadow: 0 0 8px rgba(212, 168, 75, 0.6); }
   text-decoration: none;
 }
 
+/* Room name fades in below the direction label on hover */
+.snav-link[data-room] {
+  position: relative;
+  flex-direction: column;
+  gap: 0.15em;
+  padding-bottom: 0.6rem;
+}
+
+.snav-link[data-room]::after {
+  content: attr(data-room);
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  color: rgba(212, 168, 75, 0);
+  transition: color 0.3s ease;
+  line-height: 1;
+}
+
+.snav-link[data-room]:hover::after,
+.snav-link[data-room]:focus-visible::after {
+  color: rgba(212, 168, 75, 0.55);
+}
+
 .snav-link:visited {
   color: rgba(226, 232, 240, 0.6);
 }

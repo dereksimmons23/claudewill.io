@@ -518,11 +518,11 @@
 
             function resize() { w = c.width = window.innerWidth; h = c.height = window.innerHeight; }
 
-            // Three aurora bands — each a slow sine curtain
+            // Three aurora bands — cool teal/violet palette, avoids warm green fighting the gold
             var bands = [
-                { yRatio: 0.12, amp: 28, wl: 520, phase: 0,    color: '72, 195, 128',  alpha: 0.055, speed: 0.00018 },
-                { yRatio: 0.20, amp: 40, wl: 700, phase: 2.1,  color: '60, 185, 190',  alpha: 0.045, speed: 0.00012 },
-                { yRatio: 0.08, amp: 18, wl: 380, phase: 4.5,  color: '130, 100, 210', alpha: 0.030, speed: 0.00022 }
+                { yRatio: 0.14, amp: 32, wl: 560, phase: 0,    color: '0, 200, 160',   alpha: 0.065, speed: 0.00016 }, // cool teal-green
+                { yRatio: 0.22, amp: 42, wl: 720, phase: 2.1,  color: '123, 104, 238', alpha: 0.048, speed: 0.00011 }, // soft indigo
+                { yRatio: 0.08, amp: 20, wl: 400, phase: 4.5,  color: '0, 229, 255',   alpha: 0.028, speed: 0.00020 }  // cyan accent
             ];
 
             function drawBand(b, t) {
