@@ -372,10 +372,148 @@
             .c-lines line { transition: none; }
             .c-dot, .c-label, .c-star.hub .c-dot, .c-star.hub .c-label { transition: none; }
         }
+
+        /* ── Two-mode homepage ───────────────────────────────────── */
+        .simple-home {
+            position: fixed;
+            inset: 0;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 6vh;
+            animation: sfade 1.2s ease-out both;
+            transition: opacity 0.5s ease;
+        }
+        @keyframes sfade { from { opacity: 0; } to { opacity: 1; } }
+
+        body.game-mode .simple-home {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Hide game layer in simple mode */
+        body:not(.game-mode) #sky-map,
+        body:not(.game-mode) .stage,
+        body:not(.game-mode) .asterisk-center {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        body.game-mode #sky-map,
+        body.game-mode .stage {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease;
+        }
+
+        .simple-wordmark {
+            font-family: var(--font);
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--bright);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.6rem;
+        }
+        .simple-tagline {
+            font-family: var(--font);
+            font-size: clamp(0.62rem, 1.1vw, 0.78rem);
+            color: var(--dim);
+            letter-spacing: 0.2em;
+            margin-bottom: 2.8rem;
+        }
+        .simple-nav {
+            display: flex;
+            gap: clamp(1rem, 3.5vw, 2.5rem);
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2.2rem;
+        }
+        .simple-nav a {
+            font-family: var(--font);
+            font-size: clamp(0.78rem, 1.4vw, 0.9rem);
+            letter-spacing: 0.16em;
+            color: var(--text);
+            text-decoration: none;
+            opacity: 0.55;
+            transition: opacity 0.2s, color 0.2s;
+            padding: 0.45rem 0.15rem;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+        .simple-nav a:hover { opacity: 1; color: var(--accent); }
+        .simple-cw-btn {
+            background: none;
+            border: 1px solid rgba(212, 168, 75, 0.3);
+            color: var(--accent);
+            font-family: var(--font);
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            padding: 0.5rem 1.8rem;
+            cursor: pointer;
+            transition: border-color 0.2s, color 0.2s;
+            margin-bottom: 3rem;
+        }
+        .simple-cw-btn:hover { border-color: rgba(212, 168, 75, 0.7); color: var(--bright); }
+        .simple-explore-btn {
+            background: none;
+            border: none;
+            color: var(--dim);
+            font-family: var(--font);
+            font-size: 0.6rem;
+            letter-spacing: 0.22em;
+            cursor: pointer;
+            opacity: 0.35;
+            transition: opacity 0.2s;
+            padding: 0.4rem;
+        }
+        .simple-explore-btn:hover { opacity: 0.85; }
+        .back-simple-btn {
+            position: fixed;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: none;
+            border: none;
+            color: var(--dim);
+            font-family: var(--font);
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 20;
+            transition: opacity 0.35s;
+            padding: 0.4rem;
+            white-space: nowrap;
+        }
+        body.game-mode .back-simple-btn { opacity: 0.3; pointer-events: all; }
+        body.game-mode .back-simple-btn:hover { opacity: 0.75; }
+
+        @media (max-width: 600px) {
+            .simple-nav { gap: 0.8rem; }
+            .simple-wordmark { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
     <a class="sr-only" href="#stage">Skip to content</a>
+
+    <div class="simple-home" id="simple-home" aria-label="claudewill home">
+        <span class="simple-wordmark">Claude Will.</span>
+        <p class="simple-tagline">writer · filmmaker · builder</p>
+        <nav class="simple-nav" aria-label="Navigate site">
+            <a href="/being-claude">library</a>
+            <a href="/lightning/bug">studio</a>
+            <a href="/derek">derek</a>
+            <a href="/kitchen">kitchen</a>
+        </nav>
+        <button class="simple-cw-btn" id="simple-cw-btn">* talk to cw</button>
+        <button class="simple-explore-btn" id="explore-btn">✦ explore the sky</button>
+    </div>
+    <button class="back-simple-btn" id="back-btn">← simple</button>
 
     <canvas id="aurora" aria-hidden="true"></canvas>
     <canvas id="stars"  aria-hidden="true"></canvas>
@@ -767,6 +905,25 @@
             var widget = document.querySelector('.porch-widget');
             if (widget) widget.click();
         });
+    </script>
+
+    <script>
+    (function () {
+        var exploreBtn  = document.getElementById('explore-btn');
+        var backBtn     = document.getElementById('back-btn');
+        var simpleCwBtn = document.getElementById('simple-cw-btn');
+        function enterGame() { document.body.classList.add('game-mode'); }
+        function exitGame()  { document.body.classList.remove('game-mode'); }
+        if (exploreBtn)  exploreBtn.addEventListener('click', enterGame);
+        if (backBtn)     backBtn.addEventListener('click', exitGame);
+        if (simpleCwBtn) simpleCwBtn.addEventListener('click', function () {
+            var w = document.querySelector('.porch-widget');
+            if (w) w.click();
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && document.body.classList.contains('game-mode')) exitGame();
+        });
+    })();
     </script>
 
     <script src="/js/cw-link-renderer.js"></script>
