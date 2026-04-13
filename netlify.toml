@@ -1,5 +1,5 @@
 [build]
-  command = "node scripts/compile-prompt.js"
+  command = "node scripts/build-pages.js && node scripts/compile-prompt.js"
   functions = "netlify/functions"
   publish = "."
 
