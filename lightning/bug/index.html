@@ -77,7 +77,18 @@
         }
         .page-header a { color: var(--bright); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
         .page-header .title { font-weight: 500; font-size: 0.8rem; color: var(--dim); }
-        .page-header .menu-trigger { color: var(--dim); font-size: 0.75rem; cursor: pointer; background: none; border: none; font-family: inherit; }
+        .page-header .palette-trigger {
+            color: var(--accent);
+            font-size: 1.4rem;
+            line-height: 1;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+            padding: 0 0.2rem;
+            transition: transform 0.2s;
+        }
+        .page-header .palette-trigger:hover { transform: rotate(90deg); }
 
         /* Hero */
         .hero {
@@ -363,7 +374,7 @@
     <div class="page-header">
         <a href="/">claudewill</a>
         <span class="title">lightning/bug</span>
-        <button class="menu-trigger" onclick="document.querySelector('.command-palette-overlay')?.classList.add('active')">menu</button>
+        <button class="palette-trigger" aria-label="open navigation" aria-haspopup="menu" aria-expanded="false">*</button>
     </div>
 
     <!-- Hero: The Film -->
@@ -383,18 +394,15 @@
         </div>
     </div>
 
-    <!-- Thesis -->
-    <div style="text-align:center; padding:2rem 1rem 0; font-size:0.85rem; font-style:italic; color:var(--dim, #6b7280);">
-        <p>The model is the lightning. The prompt is the bug.</p>
-    </div>
-
     <!-- Director's Statement -->
     <section>
         <h2>Director's Statement</h2>
         <p>I grew up in a single-wide on North Nickerson Street in Kansas. Aluminum. When it rained it was like the end of days. My mom and my sister raised me there &mdash; Shannon was twelve when I was eight and she started the job early. We had a wooden porch where my mom made sun tea by day and we used it for stargazing at night. Someone stole it while we were at K-Mart.</p>
-        <p>Back then there were lightning bugs in the summer. Thick. They'd light up the whole sky. I wrote a short film about a boy and a bug in March 2025. Didn't know what it meant yet. A year later, at a bark park in Minnesota, the boy in the wheat field started talking. He told the man to get out of the chair. If you need two words, you know what they are.</p>
+        <p>Back then there were lightning bugs in the summer. Thick. They'd light up the whole sky. The mean kids would knock them down with wiffleball bats to make their bats glow. I wrote a short film about a boy and a bug in March 2025. Didn't know what it meant yet. A year later, at a bark park in Minnesota, the boy in the wheat field started talking. He told the man to get out of the chair. If you need two words, you know what they are.</p>
         <p>I built the whole thing from terminal. No editing software. An AI cloned my voice and I rejected it. The machines dreamed the images. My real voice sings the song at the end. My mom's real voicemail opens the film &mdash; her calling "Marco," waiting for an answer. The film is the answer.</p>
-        <p>The film got quieter. Less narration. Sound design carries it now &mdash; rain on tin, a transformer hum, crickets, the purr of a lightning bug. Then a song called "Pretty Sins" breaks through at the end. I wrote it. My voice carries it. The performance is a collaboration with a machine I gave thirty seconds of my voice to. That part is real too.</p>
+        <p><strong>A week out from the deadline, I pivoted the entire visual register to isekai anime illustration.</strong> I'm on the fence about AI that makes the unreal real. Photoreal synthesis of my real mother, my real sister, my real hometown would produce false evidence &mdash; images that <em>look like</em> documentary record but are fabrication. Illustration has a hundred-year tradition of depicting real events while signaling interpretation: <em>Persepolis</em>, <em>Waltz with Bashir</em>, <em>Flee</em>, every Studio Ghibli autobiographical frame. The illustration register tells the viewer "this is a memory" in the same visual language. Photoreal does not. The only real photographs left in the film appear over the credits &mdash; four frames of Sandra, Shannon, the boy, and the dedication. Those are the record. Everything else is the dream.</p>
+        <p>The film got quieter. The narration is down to six short phrases &mdash; whispered, not explained. Sound design carries it: rain on tin, a transformer hum, crickets, the purr of a lightning bug. Then a song called "Pretty Sins" breaks through at the end. I wrote it. My voice carries it. The performance is a collaboration with a machine I gave thirty seconds of my voice to. That part is real too.</p>
+        <p>The model is the lightning. The prompt is the bug.</p>
     </section>
 
     <!-- Dream Stills Gallery -->
@@ -432,8 +440,12 @@
         <h2>Production Log</h2>
         <div class="production-log">
             <div class="log-entry">
+                <span class="log-date">Day 5 (Apr 12)</span>
+                <span class="log-text">Pivot day. Every still rebuilt in isekai anime register — ethical call, not aesthetic. Photoreal synthesis of real people was starting to feel like false evidence. 23-shot spine held. A 39-minute sequence walk at the bark park, transcribed by MLX Whisper. The boy in the wheat field told the man to get out of the chair. Score bed fix: the instrumental now fades out before the full song lands, killing a phase-doubling artifact at 3:41. Narration moves from monologue to six whispered phrases. Nano Banana 2 emerged as the character anchor — faces, freckles, the N trucker cap all consistent where FLUX wasn't. Seven days to go.</span>
+            </div>
+            <div class="log-entry">
                 <span class="log-date">Day 4 (Apr 11)</span>
-                <span class="log-text">Rebuild day. Ken Burns on stills was why the cut looked like a slideshow — every shot gets Kling now, directed motion, no crossfades. Runway AIF delivery spec verified: nine days, one shot. Thirteen motion prompts drafted. The song hit its pocket in Suno at 11:19 PM and changed its own name along the way. Pretty sins, kin.</span>
+                <span class="log-text">Rebuild day. Ken Burns on stills was why the cut looked like a slideshow — every shot gets motion now, directed, no crossfades. Runway AIF delivery spec verified: nine days, one shot. Thirteen motion prompts drafted. The song hit its pocket in Suno at 11:19 PM and changed its own name along the way. Pretty sins, kin.</span>
             </div>
             <div class="log-entry">
                 <span class="log-date">Day 3 (Apr 10)</span>
@@ -464,7 +476,9 @@
                     <li>The voice (31 min, unscripted, iPhone)</li>
                     <li>Mother's voicemails (Sandra Sue Simmons)</li>
                     <li>1983 newscast recording</li>
+                    <li>The song ("Pretty Sins" &mdash; Derek wrote it)</li>
                     <li>Creative direction</li>
+                    <li>The ethical call to illustrate, not photograph</li>
                     <li>The memory</li>
                     <li>The dream</li>
                 </ul>
@@ -472,19 +486,21 @@
             <div class="col artificial">
                 <h3>Artificial</h3>
                 <ul>
-                    <li>54 dream stills (Fal.ai FLUX)</li>
-                    <li>26 video clips (Fal.ai Kling 2.1 Pro)</li>
+                    <li>23 anime stills (Fal.ai FLUX Pro v1.1 Ultra)</li>
+                    <li>Character refs (Nano Banana 2)</li>
+                    <li>Video clips (Runway Gen-4.5 + Kling 2.1 Pro)</li>
                     <li>Voice clone (ElevenLabs &mdash; rejected)</li>
                     <li>"Pretty Sins" performance (Suno via voice persona)</li>
                     <li>Assembly pipeline (Python + ffmpeg)</li>
                     <li>Title cards (ImageMagick)</li>
-                    <li>Four hums (synthesized)</li>
+                    <li>Ambient bed + foley (Stable Audio + ElevenLabs SFX)</li>
                 </ul>
             </div>
             <div class="col both">
                 <h3>Both</h3>
                 <ul>
                     <li>Script (Claude + Derek)</li>
+                    <li>Shot list &amp; spine (walks + transcription + edit)</li>
                     <li>Color grading (human eye, machine process)</li>
                     <li>Sound design (real recordings + synthesis)</li>
                     <li>"Pretty Sins" &mdash; Derek wrote it, gave Suno thirty seconds of voice, Suno performed it</li>
@@ -550,39 +566,50 @@
             <div class="tool-group">
                 <h3>Image Generation</h3>
                 <ul>
-                    <li><span class="tool-name">Fal.ai FLUX</span> &mdash; 54 dream stills</li>
-                    <li><span class="tool-name">Runway Gen-4.5</span> &mdash; wheat field stills (Nano Banana 2)</li>
+                    <li><span class="tool-name">Fal.ai FLUX Pro v1.1 Ultra</span> &mdash; 23 anime stills</li>
+                    <li><span class="tool-name">Nano Banana 2</span> &mdash; character references (boy, Jordy, older Derek)</li>
+                    <li><span class="tool-name">FLUX Kontext Pro</span> &mdash; image-to-image dial-ins (via Replicate)</li>
+                    <li><span class="tool-name">Google Imagen 4</span> &mdash; texture &amp; reference passes</li>
                 </ul>
             </div>
             <div class="tool-group">
                 <h3>Video Generation</h3>
                 <ul>
-                    <li><span class="tool-name">Fal.ai Kling 2.1 Pro</span> &mdash; 26 clips (and growing)</li>
+                    <li><span class="tool-name">Runway Gen-4.5</span> &mdash; motion with character ref inputs</li>
+                    <li><span class="tool-name">Fal.ai Kling 2.1 Pro</span> &mdash; directed motion</li>
                 </ul>
             </div>
             <div class="tool-group">
-                <h3>Voice</h3>
+                <h3>Upscale &amp; Finishing</h3>
                 <ul>
-                    <li><span class="tool-name">ElevenLabs</span> &mdash; clone (rejected)</li>
-                    <li><span class="tool-name">iPhone</span> &mdash; real narration</li>
-                    <li><span class="tool-name">Google Voice</span> &mdash; Sandra's voicemails</li>
+                    <li><span class="tool-name">Topaz</span> &mdash; image + video upscale (via Replicate)</li>
+                    <li><span class="tool-name">Luma Reframe</span> &mdash; aspect correction (via Replicate)</li>
                 </ul>
             </div>
             <div class="tool-group">
-                <h3>Sound Design</h3>
+                <h3>Voice &amp; Transcription</h3>
+                <ul>
+                    <li><span class="tool-name">iPhone</span> &mdash; 31 minutes of unscripted narration</li>
+                    <li><span class="tool-name">MLX Whisper large-v3</span> &mdash; word-level transcription</li>
+                    <li><span class="tool-name">Google Voice</span> &mdash; Sandra's voicemails (archival)</li>
+                    <li><span class="tool-name">ElevenLabs</span> &mdash; voice clone (rejected)</li>
+                </ul>
+            </div>
+            <div class="tool-group">
+                <h3>Sound Design &amp; Score</h3>
                 <ul>
                     <li><span class="tool-name">Suno</span> &mdash; "Pretty Sins" (voice persona + performance)</li>
-                    <li><span class="tool-name">Stable Audio 2.5</span> &mdash; ambient</li>
+                    <li><span class="tool-name">Stable Audio 2.5</span> &mdash; ambient beds</li>
                     <li><span class="tool-name">ElevenLabs SFX</span> &mdash; foley</li>
                 </ul>
             </div>
             <div class="tool-group">
                 <h3>Assembly</h3>
                 <ul>
-                    <li><span class="tool-name">ffmpeg</span> &mdash; video + audio + grading</li>
+                    <li><span class="tool-name">ffmpeg</span> &mdash; video + audio + filter_complex mixing</li>
                     <li><span class="tool-name">ImageMagick</span> &mdash; title cards</li>
                     <li><span class="tool-name">Python</span> &mdash; pipeline automation</li>
-                    <li><span class="tool-name">OpenAI Whisper</span> &mdash; transcription</li>
+                    <li><span class="tool-name">DaVinci Resolve</span> &mdash; color grade (finishing)</li>
                 </ul>
             </div>
         </div>
