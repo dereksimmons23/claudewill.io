@@ -92,13 +92,11 @@
 
         /* Hero */
         .hero {
-            padding: 2rem 0 0;
+            padding: 0;
         }
         .video-wrap {
             position: relative;
             width: 100%;
-            max-width: 960px;
-            margin: 0 auto;
             padding-bottom: 56.25%;
         }
         .video-wrap iframe {
@@ -133,13 +131,11 @@
         }
         .film-title {
             font-size: 2.8rem;
-            font-weight: 700;
+            font-weight: 400;
             color: var(--bright);
-            letter-spacing: -0.02em;
+            letter-spacing: -0.01em;
             line-height: 1;
         }
-        .film-title .slash { color: var(--accent); }
-        .film-title .bug { font-weight: 400; font-size: 2rem; color: var(--dim); }
         .film-title .cursor {
             display: inline-block;
             width: 0.55em;
@@ -372,7 +368,6 @@
         /* Mobile */
         @media (max-width: 700px) {
             .film-title { font-size: 2rem; }
-            .film-title .bug { font-size: 1.4rem; }
             .three-col { grid-template-columns: 1fr; gap: 1.5rem; }
             .tools-grid { grid-template-columns: 1fr; }
             .scroll-img { width: 280px; height: 157px; }
@@ -401,8 +396,8 @@
             </video>
         </div>
         <div class="hero-text">
-            <h1 class="film-title">lightning<span class="slash">/</span><span class="bug">bug</span><span class="cursor" aria-hidden="true"></span></h1>
-            <p class="tagline">Two kinds of light. ~7 minutes. Built from terminal.</p>
+            <h1 class="film-title">lightning/bug<span class="cursor" aria-hidden="true"></span></h1>
+            <p class="tagline">The absence of darkness. ~8 minutes. Built from terminal.</p>
             <p class="credit">Derek Claude Simmons &mdash; March 2025 / March 2026</p>
         </div>
     </div>
@@ -414,7 +409,7 @@
         <p>Back then there were lightning bugs in the summer. Thick. They'd light up the whole sky. The mean kids would knock them down with wiffleball bats to make their bats glow. I wrote a short film about a boy and a bug in March 2025. Didn't know what it meant yet. A year later, at a bark park in Minnesota, the boy in the wheat field started talking. He told the man to get out of the chair. If you need two words, you know what they are.</p>
         <p>I built the whole thing from terminal. No editing software. An AI cloned my voice and I rejected it. The machines dreamed the images. My real voice sings the song at the end. My mom's real voicemail opens the film &mdash; her calling "Marco," waiting for an answer. The film is the answer.</p>
         <p><strong>The visual register is built from what I see when I close my eyes and think about that wheat field.</strong> No named artists. No borrowed aesthetics. No anime. I spent a night reviewing every still we had — fifty-six images I'd saved over months, twenty-three storyboard frames, real photographs of my eye, my mother, the actual wiffle ball bat. From that I built a stylebook: photoreal but painterly, darkness IS the style, two kinds of light that never mix (cold cobalt for the bolt, warm amber for the bug), silhouettes over rendered faces. The darker a frame is, the more graphic it becomes. When there's less light, there's less detail to expose — and the image becomes pure shape. I built the style from what the machine found when I described what I remembered. That's the only honest version.</p>
-        <p>The film got quieter. The narration is down to six short phrases &mdash; whispered, not explained. Sound design carries it: rain on tin, a transformer hum, crickets, the purr of a lightning bug. Then a song called "Pretty Sins" breaks through at the end. I wrote it. My voice carries it. The performance is a collaboration with a machine I gave thirty seconds of my voice to. That part is real too.</p>
+        <p>The film got quieter. The narration is down to six short phrases &mdash; whispered, not explained. Sound design carries it: rain on tin, a transformer hum, crickets, the purr of a lightning bug. Then a song called "Here We Are, Kid" breaks through at the end. I wrote it. My voice carries it. The performance is a collaboration with a machine I gave thirty seconds of my voice to. That part is real too.</p>
         <p>The model is the lightning. The prompt is the bug.</p>
     </section>
 
@@ -497,7 +492,7 @@
                     <li>The voice (31 min, unscripted, iPhone)</li>
                     <li>Mother's voicemails (Sandra Sue Simmons)</li>
                     <li>1983 newscast recording</li>
-                    <li>The song ("Pretty Sins" &mdash; Derek wrote it)</li>
+                    <li>The song ("Here We Are, Kid" &mdash; Derek wrote it)</li>
                     <li>Creative direction</li>
                     <li>The ethical call to illustrate, not photograph</li>
                     <li>The memory</li>
@@ -511,7 +506,7 @@
                     <li>Character refs — firefly, boy at 10, wiffle bat</li>
                     <li>Video clips (Runway Gen-4.5 + Kling 2.1 Pro)</li>
                     <li>Voice clone (ElevenLabs &mdash; rejected)</li>
-                    <li>"Pretty Sins" performance (Suno via voice persona)</li>
+                    <li>"Here We Are, Kid" performance (Suno via voice persona)</li>
                     <li>Assembly pipeline (Python + ffmpeg)</li>
                     <li>Title cards (ImageMagick)</li>
                     <li>Ambient bed + foley (Stable Audio + ElevenLabs SFX)</li>
@@ -524,7 +519,7 @@
                     <li>Shot list &amp; spine (walks + transcription + edit)</li>
                     <li>Color grading (human eye, machine process)</li>
                     <li>Sound design (real recordings + synthesis)</li>
-                    <li>"Pretty Sins" &mdash; Derek wrote it, gave Suno thirty seconds of voice, Suno performed it</li>
+                    <li>"Here We Are, Kid" &mdash; Derek wrote it, gave Suno thirty seconds of voice, Suno performed it</li>
                     <li>The decision to reject the AI voice</li>
                     <li>The film</li>
                 </ul>
@@ -619,7 +614,7 @@
             <div class="tool-group">
                 <h3>Sound Design &amp; Score</h3>
                 <ul>
-                    <li><span class="tool-name">Suno</span> &mdash; "Pretty Sins" (voice persona + performance)</li>
+                    <li><span class="tool-name">Suno</span> &mdash; "Here We Are, Kid" (voice persona + performance)</li>
                     <li><span class="tool-name">Stable Audio 2.5</span> &mdash; ambient beds</li>
                     <li><span class="tool-name">ElevenLabs SFX</span> &mdash; foley</li>
                 </ul>
