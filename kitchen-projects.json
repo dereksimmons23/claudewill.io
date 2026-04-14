@@ -1,6 +1,5 @@
 [
-  { "name": "Cascadia Daily News", "category": "business", "status": "Final month", "note": "Engagement ends ~Apr 30. Restaurant guide + style book + handoff remaining." },
-  { "name": "Coach D", "category": "business", "status": "Live", "note": "AI basketball coaching — 157 drills, summer program, $400/month. 52 outreach emails sent." },
+{ "name": "Coach D", "category": "business", "status": "Live", "note": "AI basketball coaching — 157 drills, summer program, $400/month. 52 outreach emails sent." },
   { "name": "claudewill.io", "category": "portfolio", "status": "Live", "note": "The practice — Being Claude (13 essays), The Book, Kitchen TUI, Porch. Ops system deployed." },
   { "name": "Option D", "category": "portfolio", "status": "v0.2.0", "note": "Model-agnostic coaching SDK — 9 providers, zero deps. Live at /d (gated)." },
   { "name": "Lightning/", "category": "portfolio", "status": "In production", "note": "First film: LIGHTNING/bug. Runway AIF submission Apr 20." },
