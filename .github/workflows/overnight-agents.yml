@@ -215,3 +215,18 @@ jobs:
           git add kitchen-data.json cw-current.json pulse.json spend-data.json reports/morning-edition.md
           git diff --cached --quiet || git commit -m "chore: morning edition + spend audit + kitchen-data from overnight agents"
           git push
+
+      - name: Notify Derek via Telegram
+        if: always()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          if [ "$JOB_STATUS" = "success" ]; then
+            MSG="✅ *Overnight agents complete*%0A%0AMorning Edition compiled. Kitchen updated."
+          else
+            MSG="⚠️ *Overnight agents — ${JOB_STATUS}*%0A%0ACheck GitHub Actions for details."
+          fi
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d "chat_id=${TELEGRAM_CHAT_ID}&text=${MSG}&parse_mode=Markdown" > /dev/null
