@@ -202,18 +202,24 @@ async function handleCloseSession(visitorToken, sessionId, messages) {
   if (!supabase || !visitorToken || !messages || messages.length < 2) return;
 
   try {
-    const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-
     const conversationText = messages.map(m => `${m.role}: ${m.content}`).join('\n');
 
-    const summaryResponse = await client.messages.create({
-      model: 'claude-haiku-4-5',
-      max_tokens: 200,
-      system: 'Summarize this conversation in 2-3 sentences from the perspective of what the visitor wanted. Then provide 1-3 topic tags from ONLY this vocabulary: family, career, grief, business, stuck, heritage, faith, health, creative, technical, personal, general. If the visitor shared their first name, include it. Format exactly as:\nNAME: [name or "none"]\nSUMMARY: [your summary]\nTAGS: [tag1, tag2]',
-      messages: [{ role: 'user', content: conversationText }]
-    });
+    // Try Anthropic first, fall back to Gemini
+    let result = null;
+    try {
+      const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+      const summaryResponse = await client.messages.create({
+        model: 'claude-haiku-4-5',
+        max_tokens: 200,
+        system: 'Summarize this conversation in 2-3 sentences from the perspective of what the visitor wanted. Then provide 1-3 topic tags from ONLY this vocabulary: family, career, grief, business, stuck, heritage, faith, health, creative, technical, personal, general. If the visitor shared their first name, include it. Format exactly as:\nNAME: [name or "none"]\nSUMMARY: [your summary]\nTAGS: [tag1, tag2]',
+        messages: [{ role: 'user', content: conversationText }]
+      });
+      result = summaryResponse.content[0].text;
+    } catch {
+      result = await summarizeWithGemini(conversationText);
+    }
 
-    const result = summaryResponse.content[0].text;
+    if (!result) return; // Both providers failed — skip visitor note silently
     const nameMatch = result.match(/NAME:\s*(.+)/);
     const summaryMatch = result.match(/SUMMARY:\s*(.+?)(?:\nTAGS:|$)/s);
     const tagsMatch = result.match(/TAGS:\s*(.+)/);
@@ -276,6 +282,65 @@ async function logConversation(data) {
 
 // SYSTEM_PROMPT is now imported from ./cw-prompt/index.js
 // Edit prompt content in cw-prompt/*.md files
+
+// ── Gemini fallback — used when Anthropic API limit is hit ──
+async function callGeminiPorch(systemPrompt, messages, maxTokens = 500) {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) return null; // Signal caller to use offline message
+
+  try {
+    // Convert Anthropic message format to Gemini format
+    const geminiMessages = messages.map(m => ({
+      role: m.role === 'assistant' ? 'model' : 'user',
+      parts: [{ text: m.content }]
+    }));
+
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        system_instruction: { parts: [{ text: systemPrompt }] },
+        contents: geminiMessages,
+        generationConfig: { maxOutputTokens: maxTokens, temperature: 0.7 }
+      })
+    });
+
+    if (!res.ok) throw new Error(`Gemini ${res.status}`);
+    const data = await res.json();
+    return data.candidates?.[0]?.content?.parts?.[0]?.text || null;
+  } catch (err) {
+    console.error('Gemini fallback error:', err.message);
+    return null;
+  }
+}
+
+// Gemini fallback for visitor note summarization (close-session)
+async function summarizeWithGemini(conversationText) {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) return null;
+
+  try {
+    const prompt = `Summarize this conversation in 2-3 sentences from the perspective of what the visitor wanted. Then provide 1-3 topic tags from ONLY this vocabulary: family, career, grief, business, stuck, heritage, faith, health, creative, technical, personal, general. If the visitor shared their first name, include it. Format exactly as:\nNAME: [name or "none"]\nSUMMARY: [your summary]\nTAGS: [tag1, tag2]\n\n${conversationText}`;
+
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: { maxOutputTokens: 200, temperature: 0.3 }
+      })
+    });
+
+    if (!res.ok) throw new Error(`Gemini ${res.status}`);
+    const data = await res.json();
+    return data.candidates?.[0]?.content?.parts?.[0]?.text || null;
+  } catch (err) {
+    console.error('Gemini summarize error:', err.message);
+    return null;
+  }
+}
 
 // Old inline prompt removed - was ~530 lines
 // Now organized as:
@@ -481,14 +546,30 @@ exports.handler = async (event, context) => {
     const liveKnowledge = getLiveSiteKnowledge();
     const systemWithCondition = basePrompt + dateContext + visitorContext + liveKnowledge + `\nCurrent condition: ${condition || 'clear'}`;
 
-    const response = await client.messages.create({
-      model: selectedModel,
-      max_tokens: maxTokens,
-      system: systemWithCondition,
-      messages: messages
-    });
+    // Try Anthropic first; fall back to Gemini Flash when API limit is hit
+    let cwResponse;
+    let usedModel = selectedModel;
+    let tokenUsage = { input: 0, output: 0 };
 
-    const cwResponse = response.content[0].text;
+    try {
+      const response = await client.messages.create({
+        model: selectedModel,
+        max_tokens: maxTokens,
+        system: systemWithCondition,
+        messages: messages
+      });
+      cwResponse = response.content[0].text;
+      tokenUsage = { input: response.usage.input_tokens, output: response.usage.output_tokens };
+    } catch (anthropicError) {
+      // Anthropic unavailable (rate limit, API cap, etc.) — try Gemini
+      console.log('Anthropic unavailable, trying Gemini fallback:', anthropicError.message);
+      usedModel = 'gemini-2.5-flash';
+      cwResponse = await callGeminiPorch(systemWithCondition, messages, maxTokens);
+      if (!cwResponse) {
+        cwResponse = "Having trouble thinking right now. Come back in a bit.";
+        usedModel = 'offline';
+      }
+    }
 
     // Log conversation (non-blocking) — skip if healthCheck flag is set
     const userMessage = messages[messages.length - 1]?.content || '';
@@ -503,10 +584,7 @@ exports.handler = async (event, context) => {
       condition: isKitchenMode ? 'kitchen' : (condition || 'clear'),
       sessionId,
       ipHash,
-      tokenUsage: {
-        input: response.usage.input_tokens,
-        output: response.usage.output_tokens
-      },
+      tokenUsage,
       table: isVernieMode ? 'family_conversations' : 'conversations'
     });
 
@@ -517,11 +595,8 @@ exports.handler = async (event, context) => {
         response: cwResponse,
         vernieMode: isVernieMode,
         kitchenMode: isKitchenMode,
-        model: selectedModel,
-        usage: {
-          input_tokens: response.usage.input_tokens,
-          output_tokens: response.usage.output_tokens
-        }
+        model: usedModel,
+        usage: { input_tokens: tokenUsage.input, output_tokens: tokenUsage.output }
       })
     };
 
