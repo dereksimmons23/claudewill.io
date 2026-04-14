@@ -330,7 +330,14 @@
 <body>
   <header class="page-header" id="page-header">
     <div class="page-header-left"><a href="/" class="header-brand"><span class="header-short">cw</span><span class="header-full">claudewill</span></a><a href="/" class="header-hallway">*</a></div>
-    
+    <div class="page-header-center">
+      <button class="page-dropdown-toggle" aria-expanded="false" aria-haspopup="true">the essays <span class="dropdown-caret">&#9662;</span></button>
+      <nav class="page-dropdown" aria-label="Page sections">
+        <a href="#published">published</a>
+        <a href="#coming">coming</a>
+        <a href="#method">method</a>
+      </nav>
+    </div>
     <button class="page-header-right palette-trigger" aria-label="Open navigation">menu</button>
   </header>
 
@@ -534,10 +541,10 @@
       <div id="custom-substack-embed"></div>
     </div>
 
-      <footer class="site-footer" role="contentinfo">
-    <p class="footer-note">Built by <a href="/derek">Derek</a><a href="/being-claude" class="hw">*</a><a href="/being-claude">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
-    <p class="footer-note"><a href="/standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
-  </footer>
+    <footer class="footer">
+      <p class="footer-note">Built by <a href="/derek">Derek</a><a href="/" class="hw">*</a><a href="/being-claude">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
+      <p class="footer-note"><a href="/standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
+    </footer>
   </div>
 
   <script>
@@ -572,7 +579,7 @@
   </script>
   <script src="https://substackapi.com/widget.js" async></script>
   <script src="/js/cw-link-renderer.js"></script>
-  <script src="/js/porch-widget.js"></script>
+  <script src="/js/porch-widget.js" defer></script>
   <script src="/js/shared-nav.js"></script>
   <script src="/js/star-nav.js"></script>
 </body>

@@ -460,7 +460,16 @@
     <!-- Story Header -->
     <header class="page-header" id="page-header">
         <div class="page-header-left"><a href="/" class="header-brand"><span class="header-short">cw</span><span class="header-full">claudewill</span></a><a href="/being-claude" class="header-hallway">*</a></div>
-        
+        <div class="page-header-center">
+            <button class="page-dropdown-toggle" aria-expanded="false" aria-haspopup="true">the story <span class="dropdown-caret">&#9662;</span></button>
+            <nav class="page-dropdown" aria-label="Page sections">
+                <a href="#who-was-cw">who was cw</a>
+                <a href="#on-the-porch">on the porch</a>
+                <a href="/standard">the standard</a>
+                <a href="#how-this-got-built">how this got built</a>
+                <a href="#cw-strategies">cw strategies</a>
+            </nav>
+        </div>
         <button class="page-header-right palette-trigger" aria-label="Open navigation">menu</button>
     </header>
 
@@ -645,11 +654,10 @@
 
         </main>
 
-          <footer class="site-footer" role="contentinfo">
-    <p class="footer-note">derek<span class="hw">*</span>claude</p>
-    <p class="footer-note">&copy; 2026 CW Strategies LLC</p>
-    <p class="footer-note"><a href="/">claudewill</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
-  </footer>
+        <footer class="footer">
+            <p class="footer-note">Built by <a href="/derek">Derek</a><a href="/being-claude" class="hw">*</a><a href="/being-claude">Claude</a> &middot; &copy; 2026 CW Strategies LLC</p>
+            <p class="footer-note"><a href="#the-cw-standard">the standard</a> &middot; <a href="/privacy">privacy</a> &middot; <a href="/terms">terms</a></p>
+        </footer>
     </div>
 
     <script>
@@ -787,9 +795,9 @@
             });
         });
     </script>
-  <script src="/js/cw-link-renderer.js"></script>
-  <script src="/js/porch-widget.js"></script>
-  <script src="/js/shared-nav.js"></script>
+    <script src="/js/cw-link-renderer.js"></script>
+    <script src="/js/porch-widget.js" defer></script>
+    <script src="/js/shared-nav.js"></script>
   <script src="/js/star-nav.js"></script>
 </body>
 </html>
