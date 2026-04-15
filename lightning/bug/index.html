@@ -6,9 +6,9 @@
     <meta name="color-scheme" content="dark">
     <meta name="theme-color" content="#070d1a">
     <title>lightning/bug | claudewill</title>
-    <meta name="description" content="An AI-generated short film about two kinds of light. ~6:30. Directed by Derek Claude Simmons. Assembled from terminal.">
+    <meta name="description" content="An AI-generated short film about two kinds of light. ~8 minutes. Directed by Derek Claude Simmons. Assembled from terminal.">
     <meta property="og:title" content="lightning/bug — a short film">
-    <meta property="og:description" content="The absence of darkness. ~8 minutes. Directed by Derek Claude Simmons.
+    <meta property="og:description" content="The absence of darkness. ~8 minutes. Directed by Derek Claude Simmons.">
     <meta property="og:type" content="video.movie">
     <meta property="og:url" content="https://claudewill.io/lightning/bug">
     <meta property="og:image" content="https://claudewill.io/images/lightning-bug/og-poster.jpg">
@@ -91,40 +91,20 @@
         .page-header .palette-trigger:hover { transform: rotate(90deg); }
 
         /* Hero */
-        .hero {
-            padding: 0;
-        }
+        .hero { padding: 0; }
         .video-wrap {
             position: relative;
             width: 100%;
             padding-bottom: 56.25%;
         }
-        .video-wrap iframe {
+        .video-wrap video, .video-wrap iframe {
             position: absolute;
             inset: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        .video-placeholder {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--card-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--dim);
-            font-size: 0.85rem;
-        }
-        .video-placeholder img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.6;
+            border: none;
         }
-
         .hero-text {
             text-align: center;
             padding: 2.5rem 2rem 1rem;
@@ -161,15 +141,42 @@
             margin-top: 0.5rem;
         }
 
+        /* Tab nav */
+        .tab-nav {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 1.5rem 24px 0;
+            display: flex;
+            gap: 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .tab-btn {
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: var(--dim);
+            font-family: var(--font);
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: lowercase;
+            padding: 0.4rem 1.5rem 0.75rem;
+            cursor: pointer;
+            transition: color 0.2s, border-color 0.2s;
+            margin-bottom: -1px;
+        }
+        .tab-btn:first-child { padding-left: 0; }
+        .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+        .tab-btn:hover:not(.active) { color: var(--bright); }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+
         /* Sections */
         section {
             max-width: 720px;
             margin: 0 auto;
             padding: 3rem 24px;
         }
-        section + section {
-            border-top: 1px solid var(--border);
-        }
+        section + section { border-top: 1px solid var(--border); }
 
         h2 {
             font-size: 0.75rem;
@@ -179,19 +186,87 @@
             text-transform: uppercase;
             margin-bottom: 1.5rem;
         }
-
-        p {
-            font-size: 0.9rem;
-            margin-bottom: 1.2rem;
-        }
+        p { font-size: 0.9rem; margin-bottom: 1.2rem; }
         p:last-child { margin-bottom: 0; }
 
         .statement {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--bright);
             font-style: italic;
             margin-bottom: 2rem;
-            line-height: 1.9;
+            line-height: 2;
+        }
+        .statement p { font-size: 1.05rem; color: var(--bright); }
+
+        .thesis {
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-top: 2rem;
+            letter-spacing: 0.02em;
+        }
+
+        /* Process photos */
+        .process-photos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 2rem 0 1rem;
+        }
+        .process-photo { border-radius: 4px; overflow: hidden; }
+        .process-photo img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            display: block;
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
+        .process-photo img:hover { opacity: 1; }
+        .process-caption {
+            font-size: 0.68rem;
+            color: var(--dim);
+            padding: 0.35rem 0;
+            line-height: 1.4;
+        }
+
+        /* Process video */
+        .process-video {
+            margin: 2rem 0;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            background: #000;
+        }
+        .process-video video {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+        .process-video-caption {
+            font-size: 0.68rem;
+            color: var(--dim);
+            padding: 0.5rem 0;
+        }
+
+        /* Hero photo — single portrait */
+        .hero-photo {
+            margin: 2rem 0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .hero-photo img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            opacity: 0.9;
+        }
+        .hero-photo-caption {
+            font-size: 0.68rem;
+            color: var(--dim);
+            padding: 0.4rem 0;
         }
 
         /* Gallery */
@@ -199,6 +274,7 @@
             max-width: none;
             padding: 3rem 0;
         }
+        .gallery-section + section { border-top: 1px solid var(--border); }
         .gallery-label {
             max-width: 720px;
             margin: 0 auto;
@@ -251,11 +327,7 @@
         .col.human h3 { color: var(--accent); }
         .col.artificial h3 { color: #6b9fd4; }
         .col.both h3 { color: var(--bright); }
-        .col ul {
-            list-style: none;
-            font-size: 0.8rem;
-            line-height: 2;
-        }
+        .col ul { list-style: none; font-size: 0.8rem; line-height: 2; }
 
         /* Production Log */
         .production-log {
@@ -264,12 +336,7 @@
             gap: 1.25rem;
             margin-top: 1rem;
         }
-        .log-entry {
-            display: flex;
-            gap: 1.5rem;
-            font-size: 0.85rem;
-            line-height: 1.7;
-        }
+        .log-entry { display: flex; gap: 1.5rem; font-size: 0.85rem; line-height: 1.7; }
         .log-date {
             flex: 0 0 auto;
             color: var(--accent);
@@ -278,19 +345,7 @@
             white-space: nowrap;
             padding-top: 0.15rem;
         }
-        .log-text {
-            color: var(--text);
-        }
-
-        /* Audio */
-        .audio-wrap {
-            margin-top: 1rem;
-        }
-        .audio-wrap audio {
-            width: 100%;
-            height: 40px;
-            filter: brightness(0.8);
-        }
+        .log-text { color: var(--text); }
 
         /* Festival status */
         .festivals {
@@ -337,12 +392,7 @@
             text-transform: uppercase;
             margin-bottom: 0.5rem;
         }
-        .tool-group ul {
-            list-style: none;
-            font-size: 0.78rem;
-            line-height: 2;
-            color: var(--text);
-        }
+        .tool-group ul { list-style: none; font-size: 0.78rem; line-height: 2; color: var(--text); }
         .tool-name { color: var(--bright); }
 
         /* Footer */
@@ -358,13 +408,6 @@
         .site-footer a { color: var(--dim); text-decoration: none; }
         .site-footer a:hover { color: var(--accent); }
 
-        /* Print */
-        @media print {
-            .video-wrap, .video-placeholder, .scroll-gallery, .audio-wrap { display: none; }
-            body { background: white; color: black; }
-            .film-title, h2, h3 { color: black; }
-        }
-
         /* Mobile */
         @media (max-width: 700px) {
             .film-title { font-size: 2rem; }
@@ -373,6 +416,14 @@
             .scroll-img { width: 280px; height: 157px; }
             .festival-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
             .log-entry { flex-direction: column; gap: 0.25rem; }
+            .process-photos { grid-template-columns: 1fr; }
+            .tab-btn { padding-left: 1rem; padding-right: 1rem; }
+        }
+
+        @media print {
+            .video-wrap, .scroll-gallery { display: none; }
+            body { background: white; color: black; }
+            .film-title, h2, h3 { color: black; }
         }
     </style>
 </head>
@@ -388,265 +439,295 @@
     <!-- Hero: The Film -->
     <div class="hero">
         <div class="video-wrap">
-            <!-- Hero loop — replace with YouTube/Vimeo embed when full film is uploaded -->
             <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
                 <source src="/video/lightning-bug-hero.mp4" type="video/mp4">
-                <!-- Fallback for no-video -->
                 <img src="/images/lightning-bug/D41-abundance-field.jpg" alt="lightning/bug — a boy in a field of fireflies">
             </video>
         </div>
         <div class="hero-text">
             <h1 class="film-title">lightning/bug<span class="cursor" aria-hidden="true"></span></h1>
-            <p class="tagline">The absence of darkness. ~8 minutes.</p>
-            <p class="credit">Derek Claude Simmons &mdash; March 2025 / March 2026</p>
+            <p class="tagline">the absence of darkness &mdash; ~8 minutes</p>
+            <p class="credit">Derek Claude Simmons &mdash; March 2025 / April 2026</p>
         </div>
     </div>
 
-    <!-- Director's Statement -->
-    <section>
-        <h2>Director's Statement</h2>
-        <p>I grew up in a single-wide on North Nickerson Street in Kansas. Aluminum. When it rained it was like the end of days. My mom and my sister raised me there &mdash; Shannon was twelve when I was eight and she started the job early. We had a wooden porch where my mom made sun tea by day and we used it for stargazing at night. Someone stole it while we were at K-Mart.</p>
-        <p>Back then there were lightning bugs in the summer. Thick. They'd light up the whole sky. The mean kids would knock them down with wiffleball bats to make their bats glow. I wrote a short film about a boy and a bug in March 2025. Didn't know what it meant yet. A year later, at a bark park in Minnesota, the boy in the wheat field started talking. He told the man to get out of the chair. If you need two words, you know what they are.</p>
-        <p>An AI cloned my voice and I rejected it. The machines dreamed the images. My real voice sings the song at the end. My mom's real voicemail opens the film &mdash; her calling "Marco," waiting for an answer. The film is the answer.</p>
-        <p><strong>The visual register is built from what I see when I close my eyes and think about that wheat field.</strong> No named artists. No borrowed aesthetics. No anime. I spent a night reviewing every still we had — fifty-six images I'd saved over months, twenty-three storyboard frames, real photographs of my eye, my mother, the actual wiffle ball bat. From that I built a stylebook: photoreal but painterly, darkness IS the style, two kinds of light that never mix (cold cobalt for the bolt, warm amber for the bug), silhouettes over rendered faces. The darker a frame is, the more graphic it becomes. When there's less light, there's less detail to expose — and the image becomes pure shape. I built the style from what the machine found when I described what I remembered. That's the only honest version.</p>
-        <p>The narration is thirty-one minutes of unscripted iPhone recordings &mdash; chopped, not scripted. The voice is the first take. I kept the contradictions. Sound design carries the rest: a storm system on aluminum, a transformer dying, crickets on the path home, the purr of a lightning bug landing on a bat, a ballpark organ as a boy walks to the plate, a thunder crack when he makes contact. Then a song called "Here We Are, Kid" breaks through at the end. I wrote it. My voice carries it. The performance is a collaboration with a machine I gave thirty seconds of my voice to. That part is real too.</p>
-        <p>Every shot in this film is locked. The camera does not move. This was a decision, not a default. Memories don't have camera operators. When you close your eyes and remember a wheat field at night, the field doesn't dolly. It holds. The light moves &mdash; the fireflies drift, the wheat bends, the glow travels down the bat &mdash; but the frame stays still, the way a memory stays still. The camera language in this film is expressed through illumination, not lens movement. The audience doesn't need the camera to move. They need to breathe.</p>
-        <p>This is painting with language. Words matter more now than they ever have. AI either taught us that or proved it. Depends on your perspective.</p>
-        <p>The model is the lightning. The prompt is the bug.</p>
-    </section>
+    <!-- Tab Navigation -->
+    <nav class="tab-nav" role="tablist" aria-label="Film sections">
+        <button class="tab-btn active" role="tab" aria-selected="true" data-tab="story">story</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="film">film</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="process">process</button>
+    </nav>
 
-    <!-- Dream Stills Gallery -->
-    <section class="gallery-section">
-        <div class="gallery-label">
-            <h2>Dream Stills</h2>
-        </div>
-        <div class="scroll-gallery">
-            <img class="scroll-img" src="/images/lightning-bug/S01-spec-of-light.jpg" alt="A single amber spec of light drifting into black — the first thing that enters the frame" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/bug-lands-on-bat-v3.jpg" alt="A firefly lands on the tip of the yellow wiffle ball bat — the inciting moment" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D03-water-tower.jpg" alt="Nickerson water tower against the storm — NICKERSON in the cobalt sky" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D32-depot-tracks-arriving.jpg" alt="Railroad tracks approaching Nickerson at dusk" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D26-can-in-field-v2.jpg" alt="The aluminum can trailer in the wheat field — amber inside, storm outside" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D30-rain-on-can-interior.jpg" alt="Inside the aluminum trailer during a storm — porthole, bolt, amber bulb" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D28-boy-exits-can.jpg" alt="Boy stepping out of the can with a bat — the poster frame" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D08-porch-detaches.jpg" alt="The porch lifts off into the field" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D41-abundance-field.jpg" alt="Boy surrounded by thousands of fireflies in the wheat field — the payoff frame" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D24-two-kinds-of-light.jpg" alt="Two kinds of light splitting the field — man at the seam" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D15-curveball-ahead.jpg" alt="The curveball made visible — storm spiral over the wheat field" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D16-changeup-contact.jpg" alt="The bat connects — cold cobalt meets warm amber at the point of impact" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D17-ball-becomes-night.jpg" alt="The ball becomes the night sky — enormous amber orb over the wheat" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D47-transformer-night.jpg" alt="Transformer blowing — cold cobalt electrical discharge, one pole, one field" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/fireflies-go-dark.jpg" alt="The bolt hits — amber field dying, cold light taking over" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/S15-moon-and-firefly-v2.jpg" alt="Crescent moon behind clouds — one firefly still burning in the lower right" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D18-darkness-hospital-returns.jpg" alt="Man alone on a foggy road — single cold streetlight, two amber specs" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D25-summoning-amber-flash.jpg" alt="Hospital hallway — green fluorescent, man walking, firefly on the floor" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D44-hallway-clock.jpg" alt="Clock on the hospital wall — man pacing the corridor" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D12-doors-unlock.jpg" alt="The hallway door opens — wheat field on the other side, amber light pouring in" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D33-union-station-hall.jpg" alt="Union Station great hall — amber, arched windows, lone figure" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D48-lightning-field.jpg" alt="Road to the vanishing point — cold bolt, silhouette walking toward it" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D23-mason-jar-final.jpg" alt="Mason jar with firefly on a nightstand — the last light before sleep" loading="lazy">
-            <img class="scroll-img" src="/images/lightning-bug/D21-man-wakes-laptop.jpg" alt="Laptop keys glowing amber in the dark — each key a firefly" loading="lazy">
-        </div>
-        <p class="gallery-caption">Dream stills generated with Fal.ai FLUX Pro v1.1 Ultra. Derek Claude Simmons style — built from what he sees when he closes his eyes and thinks about that wheat field.</p>
-    </section>
+    <!-- ==================== STORY TAB ==================== -->
+    <div class="tab-panel active" id="tab-story" role="tabpanel">
 
-    <!-- Production Status — updates daily until film is complete -->
-    <section>
-        <h2>Production Status</h2>
-        <div class="production-log">
-            <div class="log-entry" style="border-left: 2px solid #d4a84b; padding-left: 1rem;">
-                <span class="log-date">Day 9 — Apr 16</span>
-                <span class="log-text"><strong>Where we are:</strong> 18-shot tighter cut proposed. 12 Runway clips generated overnight. 12 FLUX candidates ready across 5 shots. Analysis: cut the hospital hallway (the transformer IS the hospital), cut the cosmic reverse (the whisper is the ending), trim the 82-second walking sequence to 25s. <strong>Clips done:</strong> 12 of 18 shots, including fireflies forming a stadium, transformer extinction, moon + firefly return, Jordy, the man waking. <strong>Next:</strong> Derek reviews candidates (30 min), picks a/b, Claude runs remaining Runway shots. First rough cut assembling as clips land.</span>
+        <section>
+            <div class="statement">
+                <p>I did not have this dream. It just feels like one.</p>
+                <p>It&rsquo;s artificial. I made it with machines, and the machines were good at it. But the story is real &mdash; I know because I lived it. Not exactly how it happened. As I remember it.</p>
+                <p>If I could make it shift from what the machine made to what actually was, I would. I try to do that a lot. Some swings connect. Some don&rsquo;t. I&rsquo;m going to keep going because the absence of darkness is a gift. Maybe the greatest one.</p>
             </div>
-        </div>
-        <h2>Production Log</h2>
-        <div class="production-log">
-            <div class="log-entry">
-                <span class="log-date">Day 8 (Apr 15)</span>
-                <span class="log-text">The v8 rough cut ran. Everything was wrong. Runway clips generated from generic stills — no depot, no hallway, no dugout, no breathing rule between shots. Rebuilt the film from scratch: film-reconstruction-v9.md documents every shot, every source still, every audio placement, every light transition. Dedication corrected: "For SSS, thanks for the light." (was wrong in the build script). Deadline extended: April 27 confirmed. Derek generated Shot 1 in Veo 3 in 3 minutes — proved the new workflow. Pipeline shift: Derek directs in Runway browser, Claude generates candidates and assembles. Twelve days to submission.</span>
-            </div>
-            <div class="log-entry">
-                <span class="log-date">Day 7 (Apr 14)</span>
-                <span class="log-text">Narration locked. All 33 clips reviewed. Ending confirmed: one whispered line &mdash; "I just wanted to see it too" &mdash; then black, then the song. Sound design locked: storm system built from layers (rain on aluminum, golf-ball hail, lightning, howling wind), ballpark organ downloaded for the walk to the plate, thunder crack for contact, kitten purr for Shannon landing on the bat. The locked camera named as intentional. Five days to deadline.</span>
-            </div>
-            <div class="log-entry">
-                <span class="log-date">Day 6 (Apr 13)</span>
-                <span class="log-text">Anime out. Built the Derek Claude Simmons stylebook from scratch — reviewed fifty-six saved stills and twenty-three storyboard frames, yes/no/correction on every one. Core rules: photoreal but painterly, darkness is the style, two kinds of light (cold cobalt bolt / warm amber firefly), plus a third (green fluorescent hospital — the in-between). Generated two new locked stills: a firefly landing on a yellow wiffle ball bat and the moment the transformer bolt hits the field and the amber starts going dark. Song is locked. Character references locked. Six days to go.</span>
-            </div>
-            <div class="log-entry">
-                <span class="log-date">Day 5 (Apr 12)</span>
-                <span class="log-text">Pivot day. Every still rebuilt in isekai anime register — ethical call, not aesthetic. Photoreal synthesis of real people was starting to feel like false evidence. 23-shot spine held. A 39-minute sequence walk at the bark park, transcribed by MLX Whisper. The boy in the wheat field told the man to get out of the chair. Score bed fix: the instrumental now fades out before the full song lands, killing a phase-doubling artifact at 3:41. Narration moves from monologue to six whispered phrases. Nano Banana 2 emerged as the character anchor — faces, freckles, the N trucker cap all consistent where FLUX wasn't. Seven days to go.</span>
-            </div>
-            <div class="log-entry">
-                <span class="log-date">Day 4 (Apr 11)</span>
-                <span class="log-text">Rebuild day. Ken Burns on stills was why the cut looked like a slideshow — every shot gets motion now, directed, no crossfades. Runway AIF delivery spec verified: nine days, one shot. Thirteen motion prompts drafted. The song hit its pocket in Suno at 11:19 PM and changed its own name along the way. Pretty sins, kin.</span>
-            </div>
-            <div class="log-entry">
-                <span class="log-date">Day 3 (Apr 10)</span>
-                <span class="log-text">Song started. Three whispered lines recorded on a walk with the dog. Five new stills generated. Forty-five minutes of voice notes transcribed by Whisper. The film knows what it is now.</span>
-            </div>
-            <div class="log-entry">
-                <span class="log-date">Day 2 (Apr 9)</span>
-                <span class="log-text">The film found its spine. Shot list rewritten from scratch. Submission materials drafted. Eight shower vocal takes extracted and cataloged. The boy in the wheat field started talking.</span>
-            </div>
-            <div class="log-entry">
-                <span class="log-date">Day 1 (Apr 8)</span>
-                <span class="log-text">Full asset inventory. Research on nine festivals. Four overnight agents: shot list, sound design, submission materials, AI filmmaking research. Twenty-three documents in the repo by morning.</span>
-            </div>
-            <div class="log-entry">
-                <span class="log-date">Day 0 (Apr 3)</span>
-                <span class="log-text">The film changed. Less narration. More quiet. Sound design carries it. A song breaks through at the end. The boy talks to the man. The man gets one line.</span>
-            </div>
-        </div>
-    </section>
 
-    <!-- What's Human / Artificial / Both -->
-    <section>
-        <h2>What's Human / What's Artificial / What's Both</h2>
-        <div class="three-col">
-            <div class="col human">
-                <h3>Human</h3>
-                <ul>
-                    <li>The voice (31 min, unscripted, iPhone)</li>
-                    <li>Mother's voicemails (Sandra Sue Simmons)</li>
-                    <li>1983 newscast recording</li>
-                    <li>The song ("Here We Are, Kid" &mdash; Derek wrote it)</li>
-                    <li>Creative direction</li>
-                    <li>The ethical call to illustrate, not photograph</li>
-                    <li>The memory</li>
-                    <li>The dream</li>
-                </ul>
+            <div class="hero-photo">
+                <img src="/images/lightning-bug/process-IMG_7295.jpg" alt="Derek and Jordy at Andy's Bark Park — where the film gets made">
+                <p class="hero-photo-caption">April 15, 2026 &mdash; Andy&rsquo;s Bark Park, Woodbury MN. The Geordie Loop. Where most of this gets figured out.</p>
             </div>
-            <div class="col artificial">
-                <h3>Artificial</h3>
-                <ul>
-                    <li>Dream stills (Fal.ai FLUX Pro v1.1 Ultra) — Derek Claude Simmons style</li>
-                    <li>Character refs — firefly, boy at 10, wiffle bat</li>
-                    <li>Video clips (Runway Gen-4.5 + Kling 2.1 Pro)</li>
-                    <li>Voice clone (ElevenLabs &mdash; rejected)</li>
-                    <li>"Here We Are, Kid" performance (Suno via voice persona)</li>
-                    <li>Assembly pipeline (Python + ffmpeg)</li>
-                    <li>Title cards (ImageMagick)</li>
-                    <li>Ambient bed + foley (Stable Audio + ElevenLabs SFX)</li>
-                </ul>
-            </div>
-            <div class="col both">
-                <h3>Both</h3>
-                <ul>
-                    <li>Script (Claude + Derek)</li>
-                    <li>Shot list &amp; spine (walks + transcription + edit)</li>
-                    <li>Color grading (human eye, machine process)</li>
-                    <li>Sound design (real recordings + synthesis)</li>
-                    <li>"Here We Are, Kid" &mdash; Derek wrote it, gave Suno thirty seconds of voice, Suno performed it</li>
-                    <li>The decision to reject the AI voice</li>
-                    <li>The film</li>
-                </ul>
-            </div>
-        </div>
-    </section>
 
-    <!-- Festival Submissions -->
-    <section>
-        <h2>Festival Submissions</h2>
-        <div class="festivals">
-            <div class="festival-row">
-                <div>
-                    <span class="festival-name">Runway AI Festival</span><br>
-                    <span class="festival-date" data-deadline="2026-04-20T16:59:00-04:00">NYC Jun 11 + LA Jun 18 &mdash; Deadline Apr 20 4:59 PM ET</span>
-                </div>
-                <span class="festival-status status-production">In Production</span>
-            </div>
-            <div class="festival-row">
-                <div>
-                    <span class="festival-name">AI for Good Film Festival (ITU/UN)</span><br>
-                    <span class="festival-date" data-deadline="2026-05-01">Geneva Jul 7-10 &mdash; Deadline May 1</span>
-                </div>
-                <span class="festival-status status-pending">Pending</span>
-            </div>
-            <div class="festival-row">
-                <div>
-                    <span class="festival-name">Cannes AI Film Awards</span><br>
-                    <span class="festival-date" data-deadline="2026-05-21">Cannes &mdash; Deadline May 21</span>
-                </div>
-                <span class="festival-status status-pending">Pending</span>
-            </div>
-            <div class="festival-row">
-                <div>
-                    <span class="festival-name">Reply AI Film Festival</span><br>
-                    <span class="festival-date" data-deadline="2026-06-01">Venice Sep 2026 &mdash; Deadline Jun 1</span>
-                </div>
-                <span class="festival-status status-pending">Pending</span>
-            </div>
-            <div class="festival-row">
-                <div>
-                    <span class="festival-name">LifeArt AI Global Film Festival</span><br>
-                    <span class="festival-date" data-deadline="2026-06-20">Deadline Jun 20</span>
-                </div>
-                <span class="festival-status status-pending">Pending</span>
-            </div>
-        </div>
-    </section>
+            <p>I grew up in a single-wide on North Nickerson Street in Kansas. Aluminum. When it rained it was like the end of days. My mom and my sister raised me there &mdash; Shannon was twelve when I was eight and she started the job early. We had a wooden porch where my mom made sun tea by day and we used it for stargazing at night. Someone stole it while we were at K-Mart.</p>
+            <p>Back then there were lightning bugs in the summer. Thick. They&rsquo;d light up the whole sky. The mean kids would knock them down with wiffleball bats to make their bats glow. I wrote a short film about a boy and a bug in March 2025. Didn&rsquo;t know what it meant yet. A year later, at a bark park in Minnesota, the boy in the wheat field started talking. He told the man to get out of the chair. If you need two words, you know what they are.</p>
+            <p>An AI cloned my voice and I rejected it. The machines dreamed the images. My real voice sings the song at the end. My mom&rsquo;s real voicemail opens the film &mdash; her calling &ldquo;Marco,&rdquo; waiting for an answer. The film is the answer.</p>
+            <p>SSS. Sandra. Shannon. Sheri. Three women who made the absence of darkness possible. My mother, who stayed when running was the easiest thing to do. My sister, who was twelve when I was eight and started the job early. My wife, who shows up the same way, every time. The film is for them. The dedication reads: <em>For SSS, thanks for the light.</em></p>
+            <p>There are still lightning bugs in Kansas. Not as many. The transformers got some of them. But some bugs make their own light from inside &mdash; they don&rsquo;t need a bolt, they don&rsquo;t need a grid. That&rsquo;s the whole film.</p>
+            <p class="thesis">The model is the lightning. The prompt is the bug.</p>
+        </section>
 
-    <!-- Tools -->
-    <section>
-        <h2>Tools</h2>
-        <div class="tools-grid">
-            <div class="tool-group">
-                <h3>Creative Direction</h3>
-                <ul>
-                    <li><span class="tool-name">Anthropic Claude</span> (Opus 4.6 + Sonnet 4.6)</li>
-                </ul>
+    </div>
+
+    <!-- ==================== FILM TAB ==================== -->
+    <div class="tab-panel" id="tab-film" role="tabpanel">
+
+        <section>
+            <h2>Director&rsquo;s Statement</h2>
+            <p><strong>The visual register is built from what I see when I close my eyes and think about that wheat field.</strong> No named artists. No borrowed aesthetics. No anime. I spent a night reviewing every still we had &mdash; fifty-six images I&rsquo;d saved over months, twenty-three storyboard frames, real photographs of my eye, my mother, the actual wiffle ball bat. From that I built a stylebook: photoreal but painterly, darkness IS the style, two kinds of light that never mix (cold cobalt for the bolt, warm amber for the bug), silhouettes over rendered faces. The darker a frame is, the more graphic it becomes. When there&rsquo;s less light, there&rsquo;s less detail to expose &mdash; and the image becomes pure shape. I built the style from what the machine found when I described what I remembered. That&rsquo;s the only honest version.</p>
+            <p>The narration is thirty-one minutes of unscripted iPhone recordings &mdash; chopped, not scripted. The voice is the first take. I kept the contradictions. Sound design carries the rest: a storm system on aluminum, a transformer dying, crickets on the path home, the purr of a lightning bug landing on a bat, a ballpark organ as a boy walks to the plate, a thunder crack when he makes contact. Then a song called &ldquo;Here We Are, Kid&rdquo; breaks through at the end. I wrote it. My voice carries it. The performance is a collaboration with a machine I gave thirty seconds of my voice to. That part is real too.</p>
+            <p>Every shot in this film is locked. The camera does not move. This was a decision, not a default. Memories don&rsquo;t have camera operators. When you close your eyes and remember a wheat field at night, the field doesn&rsquo;t dolly. It holds. The light moves &mdash; the fireflies drift, the wheat bends, the glow travels down the bat &mdash; but the frame stays still, the way a memory stays still. The camera language in this film is expressed through illumination, not lens movement. The audience doesn&rsquo;t need the camera to move. They need to breathe.</p>
+            <p>This is painting with language. Words matter more now than they ever have. AI either taught us that or proved it. Depends on your perspective.</p>
+        </section>
+
+        <!-- Dream Stills Gallery -->
+        <div class="gallery-section">
+            <div class="gallery-label">
+                <h2>Dream Stills</h2>
             </div>
-            <div class="tool-group">
-                <h3>Image Generation</h3>
-                <ul>
-                    <li><span class="tool-name">Fal.ai FLUX Pro v1.1 Ultra</span> &mdash; 20 dream stills, Derek Claude Simmons style</li>
-                    <li><span class="tool-name">Nano Banana 2</span> &mdash; character references (boy, Jordy, older Derek)</li>
-                    <li><span class="tool-name">FLUX Kontext Pro</span> &mdash; image-to-image dial-ins (via Replicate)</li>
-                    <li><span class="tool-name">Google Imagen 4</span> &mdash; texture &amp; reference passes</li>
-                </ul>
+            <div class="scroll-gallery">
+                <img class="scroll-img" src="/images/lightning-bug/S01-spec-of-light.jpg" alt="A single amber spec of light drifting into black — the first thing that enters the frame" loading="lazy">
+                <img class="scroll-img" src="/images/lightning-bug/bug-lands-on-bat-v3.jpg" alt="A firefly lands on the tip of the yellow wiffle ball bat — the inciting moment" loading="lazy">
+                <img class="scroll-img" src="/images/lightning-bug/D26-can-in-field-v2.jpg" alt="The aluminum can trailer in the wheat field — amber inside, storm outside" loading="lazy">
+                <img class="scroll-img" src="/images/lightning-bug/D30-rain-on-can-interior.jpg" alt="Inside the aluminum trailer during a storm — porthole, bolt, amber bulb" loading="lazy">
+                <img class="scroll-img" src="/images/lightning-bug/D28-boy-exits-can.jpg" alt="Boy stepping out of the can with a bat — the poster frame" loading="lazy">
+                <img class="scroll-img" src="/images/lightning-bug/D08-porch-detaches.jpg" alt="The wooden porch lifts off — the bug is the tour guide" loading="lazy">
+                <img class="scroll-img" src="/images/lightning-bug/D41-abundance-field.jpg" alt="Boy surrounded by thousands of fireflies in the wheat field — the payoff frame" loading="lazy">
+                <img class="scroll-img" src="/images/lightning-bug/D15-curveball-ahead.jpg" alt="The curveball made visible — storm spiral over the wheat field" loading="lazy">
+                <img class="scroll-img" src="/images/lightning-bug/D17-ball-becomes-night.jpg" alt="The ball becomes the night sky — enormous amber orb over the wheat" loading="lazy">
+                <img class="scroll-img" src="/images/lightning-bug/D47-transformer-night.jpg" alt="Transformer blowing — cold cobalt electrical discharge, one pole, one field" loading="lazy">
+                <img class="scroll-img" src="/images/lightning-bug/fireflies-go-dark.jpg" alt="The bolt hits — amber field dying, cold light taking over" loading="lazy">
+                <img class="scroll-img" src="/images/lightning-bug/S15-moon-and-firefly-v2.jpg" alt="Crescent moon behind clouds — one firefly still burning in the lower right" loading="lazy">
+                <img class="scroll-img" src="/images/lightning-bug/D25-summoning-amber-flash.jpg" alt="Hallway — fluorescent light, man pacing, the door at the end" loading="lazy">
+                <img class="scroll-img" src="/images/lightning-bug/D12-doors-unlock.jpg" alt="The hallway door opens — wheat field and amber light on the other side" loading="lazy">
+                <img class="scroll-img" src="/images/lightning-bug/D23-mason-jar-final.jpg" alt="Mason jar with firefly on a nightstand — the last light before sleep" loading="lazy">
+                <img class="scroll-img" src="/images/lightning-bug/D21-man-wakes-laptop.jpg" alt="Laptop keys glowing amber in the dark — each key a firefly" loading="lazy">
             </div>
-            <div class="tool-group">
-                <h3>Video Generation</h3>
-                <ul>
-                    <li><span class="tool-name">Runway Gen-4.5</span> &mdash; motion with character ref inputs</li>
-                    <li><span class="tool-name">Fal.ai Kling 2.1 Pro</span> &mdash; directed motion</li>
-                </ul>
-            </div>
-            <div class="tool-group">
-                <h3>Upscale &amp; Finishing</h3>
-                <ul>
-                    <li><span class="tool-name">Topaz</span> &mdash; image + video upscale (via Replicate)</li>
-                    <li><span class="tool-name">Luma Reframe</span> &mdash; aspect correction (via Replicate)</li>
-                </ul>
-            </div>
-            <div class="tool-group">
-                <h3>Voice &amp; Transcription</h3>
-                <ul>
-                    <li><span class="tool-name">iPhone</span> &mdash; 31 minutes of unscripted narration</li>
-                    <li><span class="tool-name">MLX Whisper large-v3</span> &mdash; word-level transcription</li>
-                    <li><span class="tool-name">Google Voice</span> &mdash; Sandra's voicemails (archival)</li>
-                    <li><span class="tool-name">ElevenLabs</span> &mdash; voice clone (rejected)</li>
-                </ul>
-            </div>
-            <div class="tool-group">
-                <h3>Sound Design &amp; Score</h3>
-                <ul>
-                    <li><span class="tool-name">Suno</span> &mdash; "Here We Are, Kid" (voice persona + performance)</li>
-                    <li><span class="tool-name">Stable Audio 2.5</span> &mdash; ambient beds</li>
-                    <li><span class="tool-name">ElevenLabs SFX</span> &mdash; foley</li>
-                </ul>
-            </div>
-            <div class="tool-group">
-                <h3>Assembly</h3>
-                <ul>
-                    <li><span class="tool-name">ffmpeg</span> &mdash; video + audio + filter_complex mixing</li>
-                    <li><span class="tool-name">ImageMagick</span> &mdash; title cards</li>
-                    <li><span class="tool-name">Python</span> &mdash; pipeline automation</li>
-                    <li><span class="tool-name">DaVinci Resolve</span> &mdash; color grade (finishing)</li>
-                </ul>
-            </div>
+            <p class="gallery-caption">Dream stills generated with Fal.ai FLUX Pro v1.1 Ultra &mdash; Derek Claude Simmons style. Built from what he sees when he closes his eyes and thinks about that wheat field.</p>
         </div>
-    </section>
+
+        <section>
+            <h2>Production Status</h2>
+            <div class="production-log">
+                <div class="log-entry" style="border-left: 2px solid #d4a84b; padding-left: 1rem;">
+                    <span class="log-date">Day 9 &mdash; Apr 15</span>
+                    <span class="log-text"><strong>SSS confirmed.</strong> Sandra. Shannon. Sheri. The three women. Their voices are placed: Sandra opens the film (and maybe closes it &mdash; "Love you. Bye. Bye. Bye. Bye."). Shannon's voice lands on the bat with the bug. Sheri rides the firefly dance, low in the mix. 90-minute walk recording transcribed. New story statement written. Site rebuilt with Story / Film / Process tabs. <strong>Clips:</strong> 12 of 18 shots in. 2 rate-limited, generating tomorrow. 4 pending candidate picks. <strong>Next:</strong> Derek picks a/b on FLUX candidates. Claude runs remaining Runway shots. Rough cut assembles as clips land.</span>
+                </div>
+                <div class="log-entry">
+                    <span class="log-date">Day 8 &mdash; Apr 15</span>
+                    <span class="log-text">The v8 rough cut ran. Everything was wrong. Rebuilt from scratch: film-reconstruction-v9.md documents every shot, every source still, every audio placement. Dedication corrected: &ldquo;For SSS, thanks for the light.&rdquo; Analysis written: cut the hospital hallway (the transformer IS the hospital), cut the cosmic reverse (the whisper is the ending), trim the 82s walking sequence to 25s. Twelve clips generated overnight. Derek generated Shot 1 in Veo 3 in 3 minutes &mdash; proved the new workflow. April 27 confirmed deadline.</span>
+                </div>
+                <div class="log-entry">
+                    <span class="log-date">Day 7 &mdash; Apr 14</span>
+                    <span class="log-text">Narration locked. All 33 clips reviewed. Ending confirmed: one whispered line &mdash; &ldquo;I just wanted to see it too&rdquo; &mdash; then black, then the song. Sound design locked: storm system on aluminum, transformer dying, crickets on the path home, kitten purr for the bat landing, ballpark organ for the walkup, thunder crack at contact.</span>
+                </div>
+                <div class="log-entry">
+                    <span class="log-date">Day 6 &mdash; Apr 13</span>
+                    <span class="log-text">Anime out. Built the Derek Claude Simmons stylebook from scratch &mdash; fifty-six saved stills, twenty-three storyboard frames, yes/no on every one. Core rules: photoreal but painterly, darkness is the style, two kinds of light. Generated two locked stills: firefly landing on a yellow wiffle ball bat, the transformer taking out the field.</span>
+                </div>
+                <div class="log-entry">
+                    <span class="log-date">Day 5 &mdash; Apr 12</span>
+                    <span class="log-text">Pivot day. Every still rebuilt. 39-minute bark park walk transcribed. The boy in the wheat field told the man to get out of the chair. Nano Banana 2 became the character anchor &mdash; consistent faces where FLUX wasn&rsquo;t.</span>
+                </div>
+                <div class="log-entry">
+                    <span class="log-date">Days 1&ndash;4 &mdash; Apr 8&ndash;11</span>
+                    <span class="log-text">Full asset inventory. Nine festivals researched. Shot list rewritten from scratch. Song found its pocket in Suno at 11:19 PM. The film knows what it is. Seven days to go.</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Festival Submissions</h2>
+            <div class="festivals">
+                <div class="festival-row">
+                    <div>
+                        <span class="festival-name">Runway AI Festival</span><br>
+                        <span class="festival-date" data-deadline="2026-04-27T23:59:00-04:00">NYC Jun 11 + LA Jun 18 &mdash; Deadline Apr 27</span>
+                    </div>
+                    <span class="festival-status status-production">In Production</span>
+                </div>
+                <div class="festival-row">
+                    <div>
+                        <span class="festival-name">AI for Good Film Festival (ITU/UN)</span><br>
+                        <span class="festival-date" data-deadline="2026-05-01">Geneva Jul 7&ndash;10 &mdash; Deadline May 1</span>
+                    </div>
+                    <span class="festival-status status-pending">Pending</span>
+                </div>
+                <div class="festival-row">
+                    <div>
+                        <span class="festival-name">Cannes AI Film Awards</span><br>
+                        <span class="festival-date" data-deadline="2026-05-21">Cannes &mdash; Deadline May 21</span>
+                    </div>
+                    <span class="festival-status status-pending">Pending</span>
+                </div>
+                <div class="festival-row">
+                    <div>
+                        <span class="festival-name">Reply AI Film Festival</span><br>
+                        <span class="festival-date" data-deadline="2026-06-01">Venice Sep 2026 &mdash; Deadline Jun 1</span>
+                    </div>
+                    <span class="festival-status status-pending">Pending</span>
+                </div>
+                <div class="festival-row">
+                    <div>
+                        <span class="festival-name">LifeArt AI Global Film Festival</span><br>
+                        <span class="festival-date" data-deadline="2026-06-20">Deadline Jun 20</span>
+                    </div>
+                    <span class="festival-status status-pending">Pending</span>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ==================== PROCESS TAB ==================== -->
+    <div class="tab-panel" id="tab-process" role="tabpanel">
+
+        <section>
+            <h2>Language to Paint</h2>
+            <p>Every frame in this film starts as a sentence. You describe what you remember &mdash; not what you&rsquo;re inventing, what you remember. The machine searches for it. You decide if it&rsquo;s right. That&rsquo;s the whole process. Painting with language.</p>
+            <p>The workflow is two people in a room: one who lived the story and one who knows every image ever made. The first one talks. The second one looks. They argue about which image is correct. Neither of them has a camera. Neither of them can go back to Nickerson, Kansas in 1983 and shoot it. So they describe it until it looks like what the first person remembers. That&rsquo;s the film.</p>
+            <p>Every session starts with a 30&ndash;90 minute walk. iPhone in hand. Talking to no one, recording everything. The transcript goes into the system. The film moves forward. No writing, no storyboards, no shot lists done at a desk. The ideas come when the dog is ahead of me on the path and I&rsquo;m not thinking about it.</p>
+
+            <div class="process-photos">
+                <div class="process-photo">
+                    <img src="/images/lightning-bug/process-IMG_7295.jpg" alt="Derek and Jordy at Andy's Bark Park — where most of this gets figured out" loading="lazy">
+                    <p class="process-caption">Jordy at Andy&rsquo;s Bark Park. The Geordie Loop. ~40 min per loop. Most of the film was figured out here.</p>
+                </div>
+                <div class="process-photo">
+                    <img src="/images/lightning-bug/process-IMG_7293.jpg" alt="Derek at home plate on a baseball diamond" loading="lazy">
+                    <p class="process-caption">At the plate. The film turns on a single swing. Ended up here because of it.</p>
+                </div>
+                <div class="process-photo">
+                    <img src="/images/lightning-bug/process-IMG_7208.jpg" alt="Derek with a bronze statue of a man reading" loading="lazy">
+                    <p class="process-caption">The director. The process is mostly sitting with old things and asking what they mean now.</p>
+                </div>
+                <div class="process-photo">
+                    <img src="/images/lightning-bug/process-IMG_7243.jpg" alt="Split tree trunk showing layers of wood — texture from the bark park" loading="lazy">
+                    <p class="process-caption">What&rsquo;s been broken open shows its layers. Same principle applies to the edit.</p>
+                </div>
+            </div>
+
+            <div class="process-video">
+                <video autoplay muted loop playsinline>
+                    <source src="/video/process-train-window.mp4" type="video/mp4">
+                </video>
+                <p class="process-video-caption">Empire Builder &mdash; shot from the train window somewhere in Montana. The same train that runs through Nickerson. This is source material and process at once.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>What&rsquo;s Human / What&rsquo;s Artificial / What&rsquo;s Both</h2>
+            <div class="three-col">
+                <div class="col human">
+                    <h3>Human</h3>
+                    <ul>
+                        <li>The voice (31 min, unscripted, iPhone)</li>
+                        <li>Sandra&rsquo;s voicemails</li>
+                        <li>Shannon&rsquo;s voicemails</li>
+                        <li>Sheri&rsquo;s voicemail</li>
+                        <li>1983 newscast recording</li>
+                        <li>The song (&ldquo;Here We Are, Kid&rdquo;)</li>
+                        <li>The memory</li>
+                        <li>The walks with Jordy</li>
+                        <li>The ethical call to illustrate, not photograph</li>
+                    </ul>
+                </div>
+                <div class="col artificial">
+                    <h3>Artificial</h3>
+                    <ul>
+                        <li>Dream stills (Fal.ai FLUX)</li>
+                        <li>Video clips (Runway Gen-4 Turbo)</li>
+                        <li>Voice clone (ElevenLabs &mdash; rejected)</li>
+                        <li>&ldquo;Here We Are, Kid&rdquo; performance (Suno)</li>
+                        <li>Assembly pipeline (Python + ffmpeg)</li>
+                        <li>Title cards (ImageMagick)</li>
+                        <li>Ambient bed + foley (Stable Audio + ElevenLabs SFX)</li>
+                        <li>Transcription (MLX Whisper)</li>
+                    </ul>
+                </div>
+                <div class="col both">
+                    <h3>Both</h3>
+                    <ul>
+                        <li>Script (Claude + Derek)</li>
+                        <li>Shot list (walks + transcription + edit)</li>
+                        <li>Color grading (human eye, machine process)</li>
+                        <li>Sound design (real + synthesis)</li>
+                        <li>The decision to reject the AI voice</li>
+                        <li>The film</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-group">
+                    <h3>Creative Direction</h3>
+                    <ul>
+                        <li><span class="tool-name">Anthropic Claude</span> (Opus 4.6 + Sonnet 4.6)</li>
+                        <li><span class="tool-name">iPhone voice memos</span> &mdash; 31+ min narration, 90-min walks</li>
+                    </ul>
+                </div>
+                <div class="tool-group">
+                    <h3>Image Generation</h3>
+                    <ul>
+                        <li><span class="tool-name">Fal.ai FLUX Pro v1.1 Ultra</span> &mdash; dream stills, DCS style</li>
+                        <li><span class="tool-name">LTX Studio</span> &mdash; candidate stills, character consistency</li>
+                        <li><span class="tool-name">Nano Banana 2</span> &mdash; character references</li>
+                        <li><span class="tool-name">FLUX Kontext Pro</span> &mdash; image-to-image refinement</li>
+                    </ul>
+                </div>
+                <div class="tool-group">
+                    <h3>Video Generation</h3>
+                    <ul>
+                        <li><span class="tool-name">Runway Gen-4 Turbo</span> &mdash; directed motion clips</li>
+                        <li><span class="tool-name">Veo 3</span> &mdash; Shot 1 (spec of light)</li>
+                    </ul>
+                </div>
+                <div class="tool-group">
+                    <h3>Voice &amp; Transcription</h3>
+                    <ul>
+                        <li><span class="tool-name">iPhone</span> &mdash; narration + walk recordings</li>
+                        <li><span class="tool-name">MLX Whisper large-v3-turbo</span> &mdash; transcription</li>
+                        <li><span class="tool-name">Google Voice</span> &mdash; Sandra&rsquo;s voicemails (archival)</li>
+                    </ul>
+                </div>
+                <div class="tool-group">
+                    <h3>Sound Design &amp; Score</h3>
+                    <ul>
+                        <li><span class="tool-name">Suno</span> &mdash; &ldquo;Here We Are, Kid&rdquo;</li>
+                        <li><span class="tool-name">Stable Audio 2.5</span> &mdash; ambient beds</li>
+                        <li><span class="tool-name">ElevenLabs SFX</span> &mdash; foley</li>
+                    </ul>
+                </div>
+                <div class="tool-group">
+                    <h3>Assembly</h3>
+                    <ul>
+                        <li><span class="tool-name">ffmpeg</span> &mdash; video + audio mixing</li>
+                        <li><span class="tool-name">Python</span> &mdash; pipeline automation</li>
+                        <li><span class="tool-name">DaVinci Resolve</span> &mdash; color grade (finishing)</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="margin-top: 1.5rem; font-size: 0.78rem; color: var(--dim);">Monthly cost: ~$200 total &mdash; Claude Max, LTX Studio, Runway, Suno, Google Workspace. No VC. No crew. No studio.</p>
+        </section>
+
+    </div>
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -655,22 +736,31 @@
     </footer>
 
     <script>
-        // Festival countdown — reads [data-deadline] and appends "(N days)" on load
+        // Tab switching
+        var tabs = document.querySelectorAll('.tab-btn');
+        var panels = document.querySelectorAll('.tab-panel');
+        tabs.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                tabs.forEach(function(b) { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+                panels.forEach(function(p) { p.classList.remove('active'); });
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected','true');
+                document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Festival countdown
         document.querySelectorAll('.festival-date[data-deadline]').forEach(function(el) {
             var deadline = new Date(el.dataset.deadline);
             var now = new Date();
             var days = Math.ceil((deadline - now) / 86400000);
-            var suffix;
-            if (days > 1) suffix = ' (' + days + ' days)';
-            else if (days === 1) suffix = ' (1 day)';
-            else if (days === 0) suffix = ' (today)';
-            else suffix = ' (passed)';
+            var suffix = days > 1 ? ' (' + days + ' days)' : days === 1 ? ' (1 day)' : days === 0 ? ' (today)' : ' (passed)';
             el.textContent = el.textContent + suffix;
         });
     </script>
     <script src="/js/cw-link-renderer.js"></script>
     <script src="/js/porch-widget.js"></script>
     <script src="/js/shared-nav.js"></script>
-  <script src="/js/star-nav.js"></script>
+    <script src="/js/star-nav.js"></script>
 </body>
 </html>
