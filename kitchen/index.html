@@ -484,6 +484,36 @@
     .check-row .ck-code.err { color: var(--red); }
     .check-row .ck-ms { color: var(--text-dim); font-size: 0.82rem; text-align: right; }
 
+    /* ── FROM THE PORCH (hand-curated) ──────────── */
+
+    .tui-quotes-block {
+      padding: 0.75rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    .quote-row {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border-dim);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .quote-row:last-child { border-bottom: none; }
+
+    .quote-row .qr-text { color: var(--text); display: block; }
+    .quote-row .qr-attr {
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      display: block;
+      margin-top: 0.25rem;
+    }
+
+    @media (max-width: 520px) {
+      .quote-row { padding: 0.55rem 0; font-size: 14px; }
+      .quote-row .qr-attr { font-size: 11px; }
+    }
+
     /* ── QUOTE BAR ───────────────────────────────── */
 
     .tui-quote-bar {
@@ -850,6 +880,17 @@
       <span class="section-meta" id="stack-cost">~$125/month</span>
     </div>
     <div class="tui-stack-block" id="stack-block">
+      <div class="tui-loading">loading...</div>
+    </div>
+  </div>
+
+  <!-- ═══ 8. FROM THE PORCH ═══════════════════════ -->
+  <div class="tui-section" id="section-porch-quotes">
+    <div class="tui-section-header">
+      from the porch
+      <span class="section-meta">hand-picked</span>
+    </div>
+    <div class="tui-quotes-block" id="quotes-block">
       <div class="tui-loading">loading...</div>
     </div>
   </div>
@@ -1326,6 +1367,39 @@
     });
   }
 
+  /* ─── FROM THE PORCH (hand-curated) ──────────── */
+  function renderPorchQuotes(data) {
+    var block = el('quotes-block');
+    if (!block) return;
+    clearEl(block);
+
+    var quotes = (data && Array.isArray(data.quotes)) ? data.quotes : [];
+    if (!quotes.length) {
+      block.appendChild(makeEl('div', { cls: 'tui-loading', text: 'porch is quiet' }));
+      return;
+    }
+
+    quotes.forEach(function(q) {
+      if (!q || !q.text) return;
+      var row  = makeEl('div', { cls: 'quote-row' });
+      var text = makeEl('span', { cls: 'qr-text', text: '\u201c' + q.text + '\u201d' });
+      var attrParts = [];
+      attrParts.push(q.attribution || 'a visitor');
+      if (q.month) attrParts.push(q.month);
+      var attr = makeEl('span', { cls: 'qr-attr', text: '\u2014 ' + attrParts.join(', ') });
+      row.appendChild(text);
+      row.appendChild(attr);
+      block.appendChild(row);
+    });
+  }
+
+  function loadPorchQuotes() {
+    fetch('/kitchen-quotes.json?t=' + Date.now())
+      .then(function(r) { return r.json(); })
+      .then(renderPorchQuotes)
+      .catch(function() { renderPorchQuotes(null); });
+  }
+
   /* ─── QUOTE ───────────────────────────────────── */
   function renderQuote() {
     var q = QUOTES[currentQuote];
@@ -1370,6 +1444,7 @@
         setText('m-days-since', daysSinceJan1());
         setText('tui-last-updated', 'data unavailable \u2014 ' + new Date().toLocaleTimeString());
       });
+    loadPorchQuotes();
   }
 
   /* ─── LIVE DATA (Supabase via Netlify function) ── */
