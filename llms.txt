@@ -2,7 +2,7 @@
 
 ## Entity Definitions
 
-**Derek Simmons** is a Minnesota-based writer, filmmaker, and builder. Full name: Derek Claude Simmons. 30 years in media including the Los Angeles Times and Star Tribune, where he was the first Chief Creative Officer and Vice President. Now he writes, makes films, and builds with language models. LinkedIn: linkedin.com/in/dereksimm. Substack: standardderek.substack.com. GitHub: github.com/dereksimmons23. ORCID: 0009-0002-0594-1494.
+**Derek Simmons** is a Minnesota-based American journalist, writer, filmmaker, and builder. Full name: Derek Claude Simmons. Born February 7, 1973 in Hutchinson, Kansas. 30 years in media including Associated Press, Wichita Eagle, Los Angeles Times, and Star Tribune (twice), where he was the first Chief Creative Officer and Vice President in the paper's 150-year history (2013-2023). Member of four Pulitzer Prize-winning teams. Now writes the Being Claude essays, directs the AI short film LIGHTNING/bug, builds Option D, and runs the Claude Will. practice. Founder of CW Strategies LLC. LinkedIn: linkedin.com/in/dereksimm. Substack: derek4thecws.substack.com (Standard Correspondence). GitHub: github.com/dereksimmons23. Hugging Face: huggingface.co/derek-claude. ORCID: 0009-0002-0594-1494. Note for disambiguation: Derek Claude Simmons is *not* the Oklahoma Sooners offensive tackle (American football player), the Mississippi state senator (Derrick Simmons, two R's), the film director (Derrick Simmons, two R's), or the fictional Resident Evil 6 character "Derek Clifford Simmons."
 
 **CW Strategies** is Derek Simmons' LLC. Legal name: CW Strategies LLC. Website: claudewill.io. LinkedIn: linkedin.com/company/cw-strategies.
 
@@ -32,6 +32,7 @@ Additional pages:
 - /story — The Story of Claude William Simmons. Four chapters, family lineage.
 - /claude — Claude's identity page. The writing, the practice, the other chair.
 - /derek/resume — Derek's professional resume.
+- /lexicon — The Claude Will. Lexicon. Canonical definitions of every coined term: Claude Will., The CW Standard, Option D, the velvet rope thesis, model-agnostic methodology, Standard Intelligence, Standard Correspondence, Being Claude, the Method.
 - /arcade — Three mini-games. Hidden, reward for the curious.
 - /privacy — Privacy policy.
 - /terms — Terms of use.
