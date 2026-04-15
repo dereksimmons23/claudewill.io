@@ -484,34 +484,6 @@
     .check-row .ck-code.err { color: var(--red); }
     .check-row .ck-ms { color: var(--text-dim); font-size: 0.82rem; text-align: right; }
 
-    /* ── RECENT PORCH ───────────────────────────────── */
-
-    .tui-porch-block {
-      padding: 0.75rem 1rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-    }
-
-    .porch-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      padding: 0.45rem 0;
-      border-bottom: 1px solid var(--border-dim);
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    .porch-row:last-child { border-bottom: none; }
-
-    .porch-row .pr-time { color: var(--text-dim); font-size: 0.75rem; flex-shrink: 0; min-width: 5ch; padding-top: 0.15rem; }
-    .porch-row .pr-text { color: var(--text); flex: 1; }
-
-    @media (max-width: 520px) {
-      .porch-row { padding: 0.5rem 0; font-size: 14px; min-height: 44px; }
-      .porch-row .pr-time { font-size: 12px; }
-    }
-
     /* ── QUOTE BAR ───────────────────────────────── */
 
     .tui-quote-bar {
@@ -878,17 +850,6 @@
       <span class="section-meta" id="stack-cost">~$125/month</span>
     </div>
     <div class="tui-stack-block" id="stack-block">
-      <div class="tui-loading">loading...</div>
-    </div>
-  </div>
-
-  <!-- ═══ 8. RECENT PORCH ═════════════════════════ -->
-  <div class="tui-section" id="section-recent">
-    <div class="tui-section-header">
-      recent porch
-      <span class="section-meta">what people are actually saying</span>
-    </div>
-    <div class="tui-porch-block" id="porch-block">
       <div class="tui-loading">loading...</div>
     </div>
   </div>
@@ -1365,27 +1326,6 @@
     });
   }
 
-  /* ─── RECENT PORCH ───────────────────────────── */
-  function renderRecentPorch(recent) {
-    var block = el('porch-block');
-    if (!block) return;
-    clearEl(block);
-
-    if (!recent || !recent.length) {
-      block.appendChild(makeEl('div', { cls: 'tui-loading', text: 'no recent conversations' }));
-      return;
-    }
-
-    recent.forEach(function(c) {
-      var row  = makeEl('div', { cls: 'porch-row' });
-      var time = makeEl('span', { cls: 'pr-time', text: timeAgo(c.ts) });
-      var text = makeEl('span', { cls: 'pr-text', text: c.text || '—' });
-      row.appendChild(time);
-      row.appendChild(text);
-      block.appendChild(row);
-    });
-  }
-
   /* ─── QUOTE ───────────────────────────────────── */
   function renderQuote() {
     var q = QUOTES[currentQuote];
@@ -1468,9 +1408,6 @@
         if (d.sessions) {
           setText('m-sessions', String(d.sessions.week));
           flashCell('m-sessions');
-        }
-        if (d.recent) {
-          renderRecentPorch(d.recent);
         }
       })
       .catch(function() { setText('tui-refresh-timer', 'err'); });

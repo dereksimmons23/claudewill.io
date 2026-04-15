@@ -1,7 +1,5 @@
-// kitchen-live.js — Live metrics endpoint for the Kitchen dashboard
-// Called by the browser every 60 seconds to get real-time data.
-// Returns counts from Supabase: conversations, sessions, visitors, dawn day.
-// All queries run in parallel. Failed queries return 0, never break the response.
+// kitchen-live.js — Live metrics endpoint for the Kitchen dashboard.
+// Counts only. Never return conversation content from this endpoint.
 
 const { createClient } = require('@supabase/supabase-js');
 
@@ -113,7 +111,7 @@ exports.handler = async (event) => {
   const weekAgoTimestamp = getWeekAgoTimestamp();
   const weekAgoDate = getWeekAgoDate();
 
-  // Run all queries in parallel — one failed query returns 0, never breaks others
+  // Counts only. Never return conversation content from this endpoint.
   const [
     convoToday,
     convoWeek,
@@ -121,7 +119,6 @@ exports.handler = async (event) => {
     sessionsWeek,
     sessionsTotal,
     visitorsTotal,
-    recentConvos,
   ] = await Promise.all([
     safeCount(
       supabase
@@ -151,30 +148,15 @@ exports.handler = async (event) => {
         .from('session_memories')
         .select('*', { count: 'exact', head: true })
     ),
-    // visitors table: no count-exact RLS — fetch rows and count length
-    // (consistent with how daily-pulse.mjs queries this table)
     safeLength(
       supabase
         .from('visitors')
         .select('visitor_token')
     ),
-    // Recent porch conversations — last 5, trimmed to 80 chars for display
-    safeRows(
-      supabase
-        .from('conversations')
-        .select('timestamp, user_message')
-        .order('timestamp', { ascending: false })
-        .limit(5)
-    ),
   ]);
 
   const dawnDay = getDawnDay();
   const dawnRemaining = Math.max(0, DAWN_TOTAL - dawnDay);
-
-  const recent = recentConvos.map(c => ({
-    ts: c.timestamp,
-    text: (c.user_message || '').slice(0, 80),
-  }));
 
   const payload = {
     conversations: {
@@ -193,7 +175,6 @@ exports.handler = async (event) => {
       day: dawnDay,
       remaining: dawnRemaining,
     },
-    recent,
     updatedAt: new Date().toISOString(),
   };
 
