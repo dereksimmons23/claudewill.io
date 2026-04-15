@@ -1,0 +1,12 @@
+{
+  "id": "ticket-1776281924054",
+  "created": "2026-04-15T19:38:44.054Z",
+  "source": "telegram",
+  "from": "Derek",
+  "description": "Need to reword it but that’s the vibe",
+  "status": "completed",
+  "priority": "normal",
+  "started": "2026-04-15T19:39:24.413Z",
+  "result": "API Error: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"You have reached your specified workspace API usage limits. You will regain access on 2026-05-01 at 00:00 UTC.\"},\"request_id\":\"req_011Ca68ABLxYvxR61XkLVCUg\"}",
+  "completed": "2026-04-15T19:39:59.644Z"
+}
