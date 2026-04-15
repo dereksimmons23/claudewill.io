@@ -77,7 +77,7 @@
   right: 24px;
   width: 400px;
   height: 520px;
-  z-index: 9998;
+  z-index: 10001;
   background: #0a1628;
   border: 1px solid rgba(212, 168, 75, 0.15);
   border-radius: 12px;
@@ -86,10 +86,43 @@
   overflow: hidden;
   font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: height 0.2s ease, width 0.2s ease;
 }
 
 .porch-panel.open {
   display: flex;
+}
+
+/* Minimized state — collapse to header bar */
+.porch-panel.minimized {
+  height: 52px !important;
+  width: 260px;
+  cursor: pointer;
+}
+
+.porch-panel.minimized .porch-panel-messages,
+.porch-panel.minimized .porch-panel-chips,
+.porch-panel.minimized .porch-panel-input,
+.porch-panel.minimized .porch-panel-disclaimer,
+.porch-panel.minimized .porch-vernie-gate {
+  display: none !important;
+}
+
+.porch-panel.minimized .porch-panel-header {
+  border-bottom: none;
+}
+
+/* Hide site header menu + floating palette trigger while panel is open */
+body.porch-panel-open .page-header,
+body.porch-panel-open .cw-palette-trigger {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+body.porch-panel-open.porch-panel-minimized .page-header,
+body.porch-panel-open.porch-panel-minimized .cw-palette-trigger {
+  visibility: visible;
+  pointer-events: auto;
 }
 
 /* Panel Header */
@@ -108,19 +141,42 @@
   color: #d4a84b;
 }
 
+.porch-panel-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.porch-panel-min,
 .porch-panel-close {
   background: none;
   border: none;
   color: #6b7280;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   cursor: pointer;
-  padding: 4px;
+  padding: 8px 12px;
+  min-width: 44px;
+  min-height: 44px;
   line-height: 1;
-  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, background 0.2s;
+  border-radius: 6px;
+  position: relative;
+  z-index: 2;
 }
 
+.porch-panel-min:hover,
 .porch-panel-close:hover {
   color: #d4a84b;
+  background: rgba(212, 168, 75, 0.08);
+}
+
+.porch-panel-min:focus-visible,
+.porch-panel-close:focus-visible {
+  outline: 2px solid #d4a84b;
+  outline-offset: 2px;
 }
 
 /* Messages Area */
@@ -337,14 +393,20 @@
     box-shadow: none;
   }
 
+  /* Mobile minimized — pill at bottom, not full-screen */
+  .porch-panel.minimized {
+    inset: auto;
+    bottom: 16px;
+    right: 16px;
+    left: auto;
+    top: auto;
+    width: 220px;
+    height: 52px !important;
+  }
+
+  .porch-panel-min,
   .porch-panel-close {
     font-size: 1.6rem;
-    padding: 8px 12px;
-    min-height: 44px;
-    min-width: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .porch-panel-send {

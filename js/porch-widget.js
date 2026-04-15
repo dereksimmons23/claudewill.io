@@ -78,14 +78,44 @@
     title.className = 'porch-panel-title';
     title.textContent = kitchenConfig ? "kitchen" : "cw's porch";
 
+    var controls = document.createElement('div');
+    controls.className = 'porch-panel-controls';
+
+    var minBtn = document.createElement('button');
+    minBtn.className = 'porch-panel-min';
+    minBtn.setAttribute('aria-label', 'Minimize chat');
+    minBtn.setAttribute('type', 'button');
+    minBtn.textContent = '\u2013';
+    minBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMinimize();
+    });
+
     var closeBtn = document.createElement('button');
     closeBtn.className = 'porch-panel-close';
     closeBtn.setAttribute('aria-label', 'Close chat');
+    closeBtn.setAttribute('type', 'button');
     closeBtn.textContent = '\u00d7';
-    closeBtn.addEventListener('click', closePanel);
+    closeBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      closePanel();
+    });
+
+    controls.appendChild(minBtn);
+    controls.appendChild(closeBtn);
+
+    // Clicking the minimized header restores the panel
+    header.addEventListener('click', function (e) {
+      if (!panel.classList.contains('minimized')) return;
+      if (e.target === minBtn || e.target === closeBtn) return;
+      if (minBtn.contains(e.target) || closeBtn.contains(e.target)) return;
+      toggleMinimize();
+    });
 
     header.appendChild(title);
-    header.appendChild(closeBtn);
+    header.appendChild(controls);
     panel.appendChild(header);
 
     // Messages area
@@ -189,7 +219,10 @@
   function openPanel() {
     panelOpen = true;
     panel.classList.add('open');
+    panel.classList.remove('minimized');
     widget.style.display = 'none';
+    document.body.classList.add('porch-panel-open');
+    document.body.classList.remove('porch-panel-minimized');
 
     // Focus the input
     var input = document.getElementById('porch-input');
@@ -206,8 +239,21 @@
   function closePanel() {
     panelOpen = false;
     panel.classList.remove('open');
+    panel.classList.remove('minimized');
     widget.style.display = '';
+    document.body.classList.remove('porch-panel-open');
+    document.body.classList.remove('porch-panel-minimized');
     resetPanelSize();
+  }
+
+  function toggleMinimize() {
+    if (!panel.classList.contains('open')) return;
+    var wasMinimized = panel.classList.toggle('minimized');
+    document.body.classList.toggle('porch-panel-minimized', wasMinimized);
+    if (!wasMinimized) {
+      var input = document.getElementById('porch-input');
+      if (input) input.focus();
+    }
   }
 
   // ── Messages ───────────────────────────────────────
@@ -432,15 +478,32 @@
   // ── Init ───────────────────────────────────────────
 
   function init() {
+    // Guard against double-mount (e.g. script included twice)
+    if (document.querySelector('.porch-widget') && document.querySelector('.porch-panel')) {
+      return;
+    }
+
     widget = buildWidget();
     panel = buildPanel();
 
     document.body.appendChild(widget);
     document.body.appendChild(panel);
 
-    // Escape closes panel
+    // Lazy-load the email capture bar on every page (single source of truth)
+    if (!document.querySelector('script[data-cw="email-capture"]')) {
+      var ec = document.createElement('script');
+      ec.src = '/js/email-capture.js';
+      ec.defer = true;
+      ec.setAttribute('data-cw', 'email-capture');
+      document.head.appendChild(ec);
+    }
+
+    // Escape: minimized → restore, open → close
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && panelOpen) {
+      if (e.key !== 'Escape' || !panelOpen) return;
+      if (panel.classList.contains('minimized')) {
+        toggleMinimize();
+      } else {
         closePanel();
       }
     });
@@ -449,27 +512,19 @@
   // ── Mobile keyboard: resize chat panel when virtual keyboard opens ──
   // Uses visualViewport API to avoid the chat being hidden under the keyboard.
   if (window.visualViewport) {
-    window.visualViewport.addEventListener('resize', function () {
+    var applyViewport = function () {
       if (!panelOpen) return;
+      if (panel.classList.contains('minimized')) return;
       var vvh = window.visualViewport.height;
       var vvt = window.visualViewport.offsetTop;
-      // Position panel to fit within the visible viewport
       panel.style.height = vvh + 'px';
       panel.style.top = vvt + 'px';
       panel.style.bottom = 'auto';
-      // Scroll messages to latest after resize
       var messages = document.getElementById('porch-messages');
       if (messages) messages.scrollTop = messages.scrollHeight;
-    });
-
-    window.visualViewport.addEventListener('scroll', function () {
-      if (!panelOpen) return;
-      var vvh = window.visualViewport.height;
-      var vvt = window.visualViewport.offsetTop;
-      panel.style.height = vvh + 'px';
-      panel.style.top = vvt + 'px';
-      panel.style.bottom = 'auto';
-    });
+    };
+    window.visualViewport.addEventListener('resize', applyViewport);
+    window.visualViewport.addEventListener('scroll', applyViewport);
   }
 
   // Reset panel sizing when keyboard closes (viewport back to full height)
