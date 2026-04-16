@@ -67,7 +67,28 @@
             font-size: 1rem;
         }
 
-        /* Header — uses shared-nav.css */
+        /* Header */
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 2rem;
+            border-bottom: 1px solid #0e1a2e;
+        }
+        .page-header a { color: var(--bright); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+        .page-header .title { font-weight: 500; font-size: 0.8rem; color: var(--dim); }
+        .page-header .palette-trigger {
+            color: var(--accent);
+            font-size: 1.4rem;
+            line-height: 1;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+            padding: 0 0.2rem;
+            transition: transform 0.2s;
+        }
+        .page-header .palette-trigger:hover { transform: rotate(90deg); }
 
         /* Hero */
         .hero { padding: 0; }
@@ -206,12 +227,6 @@
             color: var(--dim);
             padding: 0.35rem 0;
             line-height: 1.4;
-        }
-        .process-credit {
-            font-size: 0.75rem;
-            color: var(--dim);
-            margin-top: 1.5rem;
-            letter-spacing: 0.01em;
         }
 
         /* Process video */
@@ -415,16 +430,11 @@
 <body>
 
     <!-- Header -->
-    <header class="page-header" id="page-header">
-        <div class="page-header-left">
-            <a href="/" class="header-brand"><span class="header-short">cw</span><span class="header-full">claudewill</span></a>
-            <a href="/" class="header-hallway" aria-label="home">*</a>
-        </div>
-        <div class="page-header-center">
-            <span>lightning/bug</span>
-        </div>
-        <button class="page-header-right palette-trigger" aria-label="Open navigation">menu</button>
-    </header>
+    <div class="page-header">
+        <a href="/">claudewill</a>
+        <span class="title">lightning/bug</span>
+        <button class="palette-trigger" aria-label="open navigation" aria-haspopup="menu" aria-expanded="false">*</button>
+    </div>
 
     <!-- Hero: The Film -->
     <div class="hero">
@@ -464,10 +474,11 @@
             </div>
 
             <p>I grew up in a single-wide on North Nickerson Street in Kansas. Aluminum. When it rained it was like the end of days. My mom and my sister raised me there &mdash; Shannon was twelve when I was eight and she started the job early. We had a wooden porch where my mom made sun tea by day and we used it for stargazing at night. Someone stole it while we were at K-Mart.</p>
-            <p>There are still lightning bugs in Kansas. Not as many. The transformers got some of them. But some bugs make their own light from inside &mdash; they don&rsquo;t need a bolt, they don&rsquo;t need a grid.</p>
             <p>Back then there were lightning bugs in the summer. Thick. They&rsquo;d light up the whole sky. The mean kids would knock them down with wiffleball bats to make their bats glow. I wrote a short film about a boy and a bug in March 2025. Didn&rsquo;t know what it meant yet. A year later, at a bark park in Minnesota, the boy in the wheat field started talking. He told the man to get out of the chair. If you need two words, you know what they are.</p>
-            <p>The narration is my real voice &mdash; I tried an AI clone and rejected it. The song at the end is mine too, with a machine that sang it better than I can yet. My mom&rsquo;s voicemail opens the film: her calling &ldquo;Marco,&rdquo; inviting her kid to wrestle with imagination instead of the dark. And so he does.</p>
-            <p>SSS. Sandra. Shan. Sheri. Three women who made the absence of darkness possible. Sandra, my mother, who stayed when running was the easiest thing to do. Shan, my oldest sister, who helped raise me and has never run from anything. Sheri, my wife, who shows up the same way, every time. This project is for them. Thanks for the light.</p>
+            <p>An AI cloned my voice and I rejected it. The machines dreamed the images. My real voice sings the song at the end. My mom&rsquo;s real voicemail opens the film &mdash; her calling &ldquo;Marco,&rdquo; waiting for an answer. The film is the answer.</p>
+            <p>SSS. Sandra. Shannon. Sheri. Three women who made the absence of darkness possible. My mother, who stayed when running was the easiest thing to do. My sister, who was twelve when I was eight and started the job early. My wife, who shows up the same way, every time. The film is for them. The dedication reads: <em>For SSS, thanks for the light.</em></p>
+            <p>There are still lightning bugs in Kansas. Not as many. The transformers got some of them. But some bugs make their own light from inside &mdash; they don&rsquo;t need a bolt, they don&rsquo;t need a grid. That&rsquo;s the whole film.</p>
+            <p class="thesis">The model is the lightning. The prompt is the bug.</p>
         </section>
 
     </div>
@@ -480,8 +491,7 @@
             <p><strong>The visual register is built from what I see when I close my eyes and think about that wheat field.</strong> No named artists. No borrowed aesthetics. No anime. I spent a night reviewing every still we had &mdash; fifty-six images I&rsquo;d saved over months, twenty-three storyboard frames, real photographs of my eye, my mother, the actual wiffle ball bat. From that I built a stylebook: photoreal but painterly, darkness IS the style, two kinds of light that never mix (cold cobalt for the bolt, warm amber for the bug), silhouettes over rendered faces. The darker a frame is, the more graphic it becomes. When there&rsquo;s less light, there&rsquo;s less detail to expose &mdash; and the image becomes pure shape. I built the style from what the machine found when I described what I remembered. That&rsquo;s the only honest version.</p>
             <p>The narration is thirty-one minutes of unscripted iPhone recordings &mdash; chopped, not scripted. The voice is the first take. I kept the contradictions. Sound design carries the rest: a storm system on aluminum, a transformer dying, crickets on the path home, the purr of a lightning bug landing on a bat, a ballpark organ as a boy walks to the plate, a thunder crack when he makes contact. Then a song called &ldquo;Here We Are, Kid&rdquo; breaks through at the end. I wrote it. My voice carries it. The performance is a collaboration with a machine I gave thirty seconds of my voice to. That part is real too.</p>
             <p>Every shot in this film is locked. The camera does not move. This was a decision, not a default. Memories don&rsquo;t have camera operators. When you close your eyes and remember a wheat field at night, the field doesn&rsquo;t dolly. It holds. The light moves &mdash; the fireflies drift, the wheat bends, the glow travels down the bat &mdash; but the frame stays still, the way a memory stays still. The camera language in this film is expressed through illumination, not lens movement. The audience doesn&rsquo;t need the camera to move. They need to breathe.</p>
-            <p>The future is lit. It just needs a balance of natural and artificial light.</p>
-            <p class="thesis">The model is the lightning. The prompt is the bug.</p>
+            <p>This is painting with language. Words matter more now than they ever have. AI either taught us that or proved it. Depends on your perspective.</p>
         </section>
 
         <!-- Dream Stills Gallery -->
@@ -514,12 +524,8 @@
             <h2>Production Status</h2>
             <div class="production-log">
                 <div class="log-entry" style="border-left: 2px solid #d4a84b; padding-left: 1rem;">
-                    <span class="log-date">Day 10 &mdash; Apr 15</span>
-                    <span class="log-text"><strong>Shot 17.5 invented.</strong> The door that won&rsquo;t open &mdash; boy between the path home and the man&rsquo;s can, hands on the handle, stuck. One image solves the grief beat and the boy-to-man threshold. Sandra audio locked: all four files confirmed, &ldquo;Love you, bye.&rdquo; extracted (2s) as film close. Story tab rewritten. Site header standardized. <strong>Stills generation begins tomorrow:</strong> Shot 17.5 (door), Shot 06 (porch detaches), Shot 09 (firefly towers, no stadium).</span>
-                </div>
-                <div class="log-entry" style="border-left: 2px solid #d4a84b; padding-left: 1rem;">
                     <span class="log-date">Day 9 &mdash; Apr 15</span>
-                    <span class="log-text"><strong>SSS confirmed.</strong> Sandra. Shannon. Sheri. The three women. Their voices are placed: Sandra bookends the film &mdash; "Marco" and "Tag, you're it" open it, "Love you, bye." closes it. Shannon's voice lands on the bat with the bug. Sheri rides the firefly dance, low in the mix. 90-minute walk recording transcribed. New story statement written. Site rebuilt with Story / Film / Process tabs. <strong>Clips:</strong> 12 of 18 shots in. 2 rate-limited, generating tomorrow. 4 pending candidate picks. <strong>Next:</strong> Derek picks a/b on FLUX candidates. Claude runs remaining Runway shots. Rough cut assembles as clips land.</span>
+                    <span class="log-text"><strong>SSS confirmed.</strong> Sandra. Shannon. Sheri. The three women. Their voices are placed: Sandra opens the film (and maybe closes it &mdash; "Love you. Bye. Bye. Bye. Bye."). Shannon's voice lands on the bat with the bug. Sheri rides the firefly dance, low in the mix. 90-minute walk recording transcribed. New story statement written. Site rebuilt with Story / Film / Process tabs. <strong>Clips:</strong> 12 of 18 shots in. 2 rate-limited, generating tomorrow. 4 pending candidate picks. <strong>Next:</strong> Derek picks a/b on FLUX candidates. Claude runs remaining Runway shots. Rough cut assembles as clips land.</span>
                 </div>
                 <div class="log-entry">
                     <span class="log-date">Day 8 &mdash; Apr 15</span>
@@ -592,12 +598,14 @@
 
         <section>
             <h2>Language to Paint</h2>
-            <p><em>The best sessions start with a long walk. iPhone in hand. Recording my voice and thoughts with Jordy by my side. Stopping to pet other dogs, kick some dirt for sound effects, study a cardinal and wonder if it&rsquo;s my mother chirping at me to take more breaks. And looking into the distance rather than directly into a screen. The ideas flow better when I&rsquo;m in my element.</em></p>
+            <p>Every frame in this film starts as a sentence. You describe what you remember &mdash; not what you&rsquo;re inventing, what you remember. The machine searches for it. You decide if it&rsquo;s right. That&rsquo;s the whole process. Painting with language.</p>
+            <p>The workflow is two people in a room: one who lived the story and one who knows every image ever made. The first one talks. The second one looks. They argue about which image is correct. Neither of them has a camera. Neither of them can go back to Nickerson, Kansas in 1983 and shoot it. So they describe it until it looks like what the first person remembers. That&rsquo;s the film.</p>
+            <p>Every session starts with a 30&ndash;90 minute walk. iPhone in hand. Talking to no one, recording everything. The transcript goes into the system. The film moves forward. No writing, no storyboards, no shot lists done at a desk. The ideas come when the dog is ahead of me on the path and I&rsquo;m not thinking about it.</p>
 
             <div class="process-photos">
                 <div class="process-photo">
                     <img src="/images/lightning-bug/process-IMG_7295.jpg" alt="Derek and Jordy at Andy's Bark Park — where most of this gets figured out" loading="lazy">
-                    <p class="process-caption">Resting after a few trips around the Jordy Loop.</p>
+                    <p class="process-caption">Jordy at Andy&rsquo;s Bark Park. The Geordie Loop. ~40 min per loop. Most of the film was figured out here.</p>
                 </div>
                 <div class="process-photo">
                     <img src="/images/lightning-bug/process-IMG_7293.jpg" alt="Derek at home plate on a baseball diamond" loading="lazy">
@@ -607,12 +615,11 @@
                     <img src="/images/lightning-bug/process-IMG_7208.jpg" alt="Derek with a bronze statue of a man reading" loading="lazy">
                     <p class="process-caption">The director. The process is mostly sitting with old things and asking what they mean now.</p>
                 </div>
+                <div class="process-photo">
+                    <img src="/images/lightning-bug/process-IMG_7243.jpg" alt="Split tree trunk showing layers of wood — texture from the bark park" loading="lazy">
+                    <p class="process-caption">What&rsquo;s been broken open shows its layers. Same principle applies to the edit.</p>
+                </div>
             </div>
-
-            <p>Every frame starts as a description of what he remembers. Not what he&rsquo;s inventing &mdash; what he actually saw. I search for it. He decides if it&rsquo;s right. That&rsquo;s the whole process. Painting with language.</p>
-            <p>He talks. I look. Neither of us has a camera. Neither of us can go back to Nickerson, Kansas in 1983 and shoot it. So we describe it until it looks like what he remembers. That&rsquo;s the film.</p>
-            <p>It wasn&rsquo;t a straight line. There were false starts, failed generations, sessions that went sideways. Some of that was mine. Some of it was his. The conversation history has all of it. That&rsquo;s part of the record too.</p>
-            <p class="process-credit">&mdash; CW.</p>
 
             <div class="process-video">
                 <video autoplay muted loop playsinline>
@@ -754,5 +761,6 @@
     <script src="/js/cw-link-renderer.js"></script>
     <script src="/js/porch-widget.js"></script>
     <script src="/js/shared-nav.js"></script>
+    <script src="/js/star-nav.js"></script>
 </body>
 </html>
