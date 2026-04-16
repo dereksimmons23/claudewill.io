@@ -67,28 +67,7 @@
             font-size: 1rem;
         }
 
-        /* Header */
-        .page-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.25rem 2rem;
-            border-bottom: 1px solid #0e1a2e;
-        }
-        .page-header a { color: var(--bright); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
-        .page-header .title { font-weight: 500; font-size: 0.8rem; color: var(--dim); }
-        .page-header .palette-trigger {
-            color: var(--accent);
-            font-size: 1.4rem;
-            line-height: 1;
-            cursor: pointer;
-            background: none;
-            border: none;
-            font-family: inherit;
-            padding: 0 0.2rem;
-            transition: transform 0.2s;
-        }
-        .page-header .palette-trigger:hover { transform: rotate(90deg); }
+        /* Header — uses shared-nav.css */
 
         /* Hero */
         .hero { padding: 0; }
@@ -430,11 +409,16 @@
 <body>
 
     <!-- Header -->
-    <div class="page-header">
-        <a href="/">claudewill</a>
-        <span class="title">lightning/bug</span>
-        <button class="palette-trigger" aria-label="open navigation" aria-haspopup="menu" aria-expanded="false">*</button>
-    </div>
+    <header class="page-header" id="page-header">
+        <div class="page-header-left">
+            <a href="/" class="header-brand"><span class="header-short">cw</span><span class="header-full">claudewill</span></a>
+            <a href="/" class="header-hallway" aria-label="home">*</a>
+        </div>
+        <div class="page-header-center">
+            <span>lightning/bug</span>
+        </div>
+        <button class="page-header-right palette-trigger" aria-label="Open navigation">menu</button>
+    </header>
 
     <!-- Hero: The Film -->
     <div class="hero">
@@ -469,8 +453,8 @@
             </div>
 
             <div class="hero-photo">
-                <img src="/images/lightning-bug/process-IMG_7295.jpg" alt="Derek and Jordy at Andy's Bark Park — where the film gets made">
-                <p class="hero-photo-caption">April 15, 2026 &mdash; Andy&rsquo;s Bark Park, Woodbury MN. The Geordie Loop. Where most of this gets figured out.</p>
+                <img src="/images/lightning-bug/derek-sandra-last.jpg" alt="Derek and Sandra">
+                <p class="hero-photo-caption">Derek and Sandra.</p>
             </div>
 
             <p>I grew up in a single-wide on North Nickerson Street in Kansas. Aluminum. When it rained it was like the end of days. My mom and my sister raised me there &mdash; Shannon was twelve when I was eight and she started the job early. We had a wooden porch where my mom made sun tea by day and we used it for stargazing at night. Someone stole it while we were at K-Mart.</p>
