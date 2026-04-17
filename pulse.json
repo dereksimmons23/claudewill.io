@@ -1,9 +1,9 @@
 {
-  "generated": "2026-04-15T11:26:50.091Z",
-  "date": "2026-04-15",
+  "generated": "2026-04-17T11:23:47.297Z",
+  "date": "2026-04-17",
   "porch": {
-    "total": 710,
-    "thisWeek": 28,
+    "total": 715,
+    "thisWeek": 33,
     "today": 0
   },
   "d": {
@@ -19,14 +19,12 @@
     "maxVisits": 6
   },
   "sessions": {
-    "thisWeek": 9,
-    "avgWeight": 5.6,
+    "thisWeek": 4,
+    "avgWeight": 5.8,
     "byProject": {
-      "desktop": 5,
+      "desktop": 2,
       "dawn": 1,
-      "lightning-bug": 1,
-      "ecosystem": 1,
-      "claudewill-io": 1
+      "lightning-bug": 1
     }
   },
   "dawn": {
@@ -34,12 +32,10 @@
     "dayNumber": 74,
     "raidRate": "3/6",
     "latestWeight": null,
-    "daysSinceEntry": 32
+    "daysSinceEntry": 34
   },
   "sparklines": {
     "conversations": [
-      0,
-      1,
       0,
       13,
       0,
@@ -65,11 +61,11 @@
       6,
       0,
       22,
+      5,
+      0,
       0
     ],
     "sessions": [
-      0,
-      14,
       5,
       2,
       55,
@@ -95,6 +91,8 @@
       1,
       1,
       1,
+      0,
+      0,
       0
     ]
   },
@@ -117,7 +115,7 @@
   },
   "flags": {
     "operational": [
-      "Dawn: 32 days since last entry."
+      "Dawn: 34 days since last entry."
     ],
     "internal": [
       "9 visitors in 3.5 months. Distribution is the gap.",
