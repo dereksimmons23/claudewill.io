@@ -455,8 +455,22 @@
         @keyframes sfade { from { opacity: 0; } to { opacity: 1; } }
 
         body.game-mode .simple-home {
+            animation: none;
+            pointer-events: none;
+        }
+        /* Wordmark recedes to create depth — lets constellations take over */
+        body.game-mode .simple-wordmark {
+            opacity: 0.12;
+            filter: blur(0.6px);
+            transition: opacity 0.6s ease, filter 0.6s ease;
+        }
+        body.game-mode .simple-nav,
+        body.game-mode .simple-cw-btn,
+        body.game-mode .simple-explore-btn {
             opacity: 0;
             pointer-events: none;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
         }
 
         /* Hide game layer in simple mode */
@@ -546,25 +560,26 @@
         .simple-explore-btn:hover { opacity: 0.85; }
         .back-simple-btn {
             position: fixed;
-            bottom: 3rem;
+            bottom: 2.4rem;
             left: 50%;
             transform: translateX(-50%);
             background: none;
-            border: none;
-            color: var(--dim);
+            border: 1px solid rgba(212, 168, 75, 0.3);
+            color: var(--accent);
             font-family: var(--font);
-            font-size: 0.6rem;
-            letter-spacing: 0.2em;
+            font-size: 0.75rem;
+            letter-spacing: 0.18em;
             cursor: pointer;
             opacity: 0;
             pointer-events: none;
             z-index: 20;
-            transition: opacity 0.35s;
-            padding: 0.4rem;
+            transition: opacity 0.35s, border-color 0.2s, color 0.2s;
+            padding: 0.5rem 1.4rem;
+            border-radius: 999px;
             white-space: nowrap;
         }
-        body.game-mode .back-simple-btn { opacity: 0.3; pointer-events: all; }
-        body.game-mode .back-simple-btn:hover { opacity: 0.75; }
+        body.game-mode .back-simple-btn { opacity: 0.7; pointer-events: all; }
+        body.game-mode .back-simple-btn:hover { opacity: 1; border-color: rgba(212, 168, 75, 0.7); color: var(--bright); }
 
         @media (max-width: 600px) {
             .simple-nav { gap: 0.8rem; }
@@ -577,8 +592,6 @@
 
     <div class="simple-home" id="simple-home" aria-label="claudewill home">
         <span class="simple-wordmark">Claude Will.</span>
-        <p class="simple-tagline">writer · filmmaker · builder</p>
-        <p class="simple-philosophy">fractional futures. real cooperatives. no single platform.</p>
         <nav class="simple-nav" aria-label="Navigate site">
             <a href="/being-claude">library</a>
             <a href="/lightning/bug">studio</a>
@@ -597,7 +610,6 @@
     <main class="stage" id="stage" aria-label="claudewill">
         <h1 class="sr-only">claudewill — a place to sit, something to read, and a person to talk to</h1>
         <button class="asterisk-center" id="asterisk-btn" aria-label="Open porch chat">*</button>
-        <span class="wordmark-sig" aria-hidden="true">Claude Will.</span>
     </main>
 
     <footer class="site-footer" role="contentinfo">
