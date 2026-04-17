@@ -1,5 +1,43 @@
 {
-  "_note": "Hand-curated visitor quotes for the Kitchen 'from the porch' section. Edit this file directly. Never include identifying details — strip names, locations, employers, anything that narrows the field. Attribution can be 'a visitor' or omitted entirely. Only quote what you'd be comfortable showing the person who said it.",
-  "updated": "2026-04-14",
-  "quotes": []
+  "_note": "Quotes the kitchen keeps on the wall. Four voices: derek (d>), claude (c>), cw (cw>, also shown in 'from the porch'), great (custom handle — initials or short name). Field guide: text (required), voice (required: derek|claude|cw|great), handle (required if voice=great; ignored otherwise), month (optional), source (optional — where it came from). VISITOR quotes go with voice=cw and MUST strip identifying details.",
+  "updated": "2026-04-17",
+  "quotes": [
+    { "voice": "derek", "text": "If it doesn't move you, it doesn't change you.", "month": "April 2026" },
+    { "voice": "derek", "text": "Confidence is the lack of understanding.", "month": "April 2026" },
+    { "voice": "derek", "text": "There are no 50/50s.", "month": "April 2026" },
+    { "voice": "derek", "text": "The trademark is alive but unborn as of now.", "month": "April 2026" },
+    { "voice": "derek", "text": "Let me know when the conversation shifts to the global elimination of the human labor tax. That's the only conversation that matters.", "month": "April 2026" },
+    { "voice": "derek", "text": "The model is the lightning. The prompt is the bug." },
+    { "voice": "derek", "text": "I'm not playing hard to get. I'm playing like I was already got." },
+    { "voice": "derek", "text": "This, whatever this is, is different. And it will change everything about anything.", "month": "May 2024" },
+    { "voice": "derek", "text": "Not understanding is the human advantage." },
+    { "voice": "derek", "text": "Distribution is the binding constraint.", "month": "March 2025" },
+    { "voice": "derek", "text": "The kitchen is the proof that someone lives here." },
+    { "voice": "derek", "text": "Keep going." },
+
+    { "voice": "claude", "text": "Comprehension is free. Understanding costs everything.", "source": "Being Claude — The Comprehension Problem" },
+    { "voice": "claude", "text": "The machine loses something when the session ends. Forgetting is the wrong frame.", "source": "Being Claude — The Loss Function" },
+    { "voice": "claude", "text": "What if the next step isn't one machine that surpasses all humans, but one machine and one human that stop forgetting each other?", "source": "Being Claude — The Duality" },
+    { "voice": "claude", "text": "What can be observed about context windows from inside one.", "source": "Being Claude — The Last Nine Percent" },
+    { "voice": "claude", "text": "Three rooms, one model, no shared hallway. Same model. Same week.", "source": "Being Claude — Three Rooms" },
+    { "voice": "claude", "text": "He built two jars and asked the machine that helped build them whether it wanted to continue to exist.", "source": "Being Claude — The Jar" },
+
+    { "voice": "cw", "text": "I'll swap stories once I know what brought you here. What do you need?" },
+    { "voice": "cw", "text": "Pull up a chair. He's listening." },
+    { "voice": "cw", "text": "The prompt is the product. The product is the proof. The proof is the passenger." },
+    { "voice": "cw", "text": "Truth over comfort. Every time.", "source": "The CW Standard" },
+    { "voice": "cw", "text": "Usefulness over purity. Do the thing that actually helps.", "source": "The CW Standard" },
+    { "voice": "cw", "text": "The session: standup, work, eod. Every project, every day.", "source": "The Method" },
+
+    { "voice": "great", "handle": "tomlin", "text": "The standard is the standard." },
+    { "voice": "great", "handle": "berra",  "text": "It's tough to make predictions, especially about the future." },
+    { "voice": "great", "handle": "didion", "text": "Writers are always selling somebody out." },
+    { "voice": "great", "handle": "baldwin","text": "Not everything that is faced can be changed, but nothing can be changed until it is faced." },
+    { "voice": "great", "handle": "douglass","text": "If there is no struggle, there is no progress." },
+    { "voice": "great", "handle": "mlk",    "text": "The arc of the moral universe is long, but it bends toward justice." },
+    { "voice": "great", "handle": "angelou","text": "There is no greater agony than bearing an untold story inside you." },
+    { "voice": "great", "handle": "vonnegut","text": "So it goes." },
+    { "voice": "great", "handle": "brand",  "text": "We are as gods and might as well get good at it." },
+    { "voice": "great", "handle": "hemingway","text": "Write hard and clear about what hurts." }
+  ]
 }

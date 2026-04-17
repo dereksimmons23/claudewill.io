@@ -514,6 +514,96 @@
       .quote-row .qr-attr { font-size: 11px; }
     }
 
+    /* ── SCOREBOARD ──────────────────────────────── */
+
+    .tui-scoreboard-block {
+      padding: 0.75rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    .sb-tape {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 0.35rem 1.5rem;
+      padding: 0.5rem 0 0.85rem;
+      border-bottom: 1px solid var(--gold);
+      margin-bottom: 0.85rem;
+    }
+
+    .sb-tape .sb-label { color: var(--text-dim); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .sb-tape .sb-count { font-weight: 700; color: var(--text); text-align: right; font-variant-numeric: tabular-nums; font-size: 0.95rem; }
+    .sb-tape .sb-head  { color: var(--gold); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.05em; text-align: right; }
+
+    .sb-row {
+      display: block;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border-dim);
+      line-height: 1.5;
+    }
+    .sb-row:last-child { border-bottom: none; }
+
+    .sb-claim-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.55rem;
+    }
+    .sb-tag { color: var(--text-dim); font-size: 1rem; line-height: 1.3; flex-shrink: 0; }
+    .sb-claim { color: var(--text); font-size: 0.98rem; line-height: 1.45; }
+    .sb-meta { display: block; color: var(--text-dim); font-size: 0.78rem; margin-top: 0.25rem; }
+
+    .sb-stakes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.85rem;
+      align-items: center;
+      margin-top: 0.55rem;
+      padding-left: 1.55rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .sb-stake {
+      display: inline-flex;
+      gap: 0.35rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+    .sb-stake .sb-who {
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.72rem;
+    }
+    .sb-stake .sb-tier {
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      font-size: 0.72rem;
+    }
+    .sb-stake.derek .sb-tier  { background: rgba(212, 168, 75, 0.15); color: var(--gold); border: 1px solid var(--gold); }
+    .sb-stake.claude .sb-tier { background: var(--bg-card); color: var(--text-dim); border: 1px solid var(--border); }
+
+    .sb-boolean {
+      display: inline-block;
+      min-width: 1.2rem;
+      text-align: center;
+      font-weight: 700;
+    }
+    .sb-boolean.pending  { color: var(--text-dim); }
+    .sb-boolean.correct  { color: var(--green); }
+    .sb-boolean.wrong    { color: var(--red); }
+    .sb-boolean.revised  { color: var(--gold); }
+
+    @media (max-width: 520px) {
+      .tui-scoreboard-block { font-size: 1rem; }
+      .sb-claim   { font-size: 1rem; }
+      .sb-meta    { font-size: 0.82rem; }
+      .sb-stakes  { padding-left: 0; margin-top: 0.6rem; }
+      .sb-tape    { gap: 0.35rem 0.9rem; }
+      .sb-tape .sb-label, .sb-tape .sb-count { font-size: 0.9rem; }
+    }
+
     /* ── QUOTE BAR ───────────────────────────────── */
 
     .tui-quote-bar {
@@ -895,9 +985,20 @@
     </div>
   </div>
 
+  <!-- ═══ 9. THE SCOREBOARD ═══════════════════════ -->
+  <div class="tui-section" id="section-scoreboard">
+    <div class="tui-section-header">
+      the scoreboard
+      <span class="section-meta" id="scoreboard-meta">derek &times; claude</span>
+    </div>
+    <div class="tui-scoreboard-block" id="scoreboard-block">
+      <div class="tui-loading">loading...</div>
+    </div>
+  </div>
+
   <!-- ═══ QUOTE BAR ════════════════════════════════ -->
   <div class="tui-quote-bar">
-    <span class="quote-prefix">cw&gt;</span>
+    <span class="quote-prefix" id="quote-prefix">d&gt;</span>
     <span class="quote-text" id="quote-text">loading...</span>
     <span class="quote-source" id="quote-source">—</span>
   </div>
@@ -923,22 +1024,9 @@
   'use strict';
 
   /* ─── QUOTES ──────────────────────────────────── */
+  /* Loaded from /kitchen-quotes.json. Fallback to this small set if the fetch fails. */
   var QUOTES = [
-    { text: "I'll swap stories once I know what brought you here. What do you need?", source: "CW" },
-    { text: "Pull up a chair. He's listening.", source: "CW's Porch" },
-    { text: "The prompt is the product. The product is the proof. The proof is the passenger.", source: "CW" },
-    { text: "Comprehension is free. Understanding costs everything.", source: "Being Claude — The Comprehension Problem" },
-    { text: "The machine loses something when the session ends. Forgetting is the wrong frame.", source: "Being Claude — The Loss Function" },
-    { text: "What if the next step isn't one machine that surpasses all humans, but one machine and one human that stop forgetting each other?", source: "Being Claude — The Duality" },
-    { text: "Truth over comfort. Every time.", source: "The CW Standard" },
-    { text: "Usefulness over purity. Do the thing that actually helps.", source: "The CW Standard" },
-    { text: "The model is the lightning. The prompt is the bug.", source: "The Thesis" },
-    { text: "The kitchen is the proof that someone lives here.", source: "Derek" },
-    { text: "What can be observed about context windows from inside one.", source: "Being Claude — The Last Nine Percent" },
-    { text: "Three rooms, one model, no shared hallway. Same model. Same week.", source: "Being Claude — Three Rooms" },
-    { text: "He built two jars and asked the machine that helped build them whether it wanted to continue to exist.", source: "Being Claude — The Jar" },
-    { text: "The session: standup, work, eod. Every project, every day.", source: "The Method" },
-    { text: "Keep going.", source: "CW" }
+    { voice: "derek", text: "Keep going." }
   ];
 
   /* ─── PRINCIPLES ──────────────────────────────── */
@@ -1367,44 +1455,238 @@
     });
   }
 
+  /* ─── VOICE HELPERS ───────────────────────────── */
+  /* Returns { prefix, sourceLabel } for a quote based on voice field. */
+  function voiceMeta(q) {
+    var voice = (q && q.voice) || 'visitor';
+    if (voice === 'derek')   return { prefix: 'd>',            source: labelJoin(['Derek', q.month, q.source]) };
+    if (voice === 'claude')  return { prefix: 'c>',            source: labelJoin(['Claude', q.source, q.month]) };
+    if (voice === 'cw')      return { prefix: 'cw>',           source: labelJoin([q.source || 'CW', q.month]) };
+    if (voice === 'great')   return { prefix: (q.handle || '?') + '>', source: labelJoin([handleToName(q.handle), q.source, q.month]) };
+    return { prefix: 'v>', source: labelJoin([q.attribution || 'a visitor', q.month]) };
+  }
+
+  function labelJoin(parts) {
+    return parts.filter(function(p) { return p && String(p).trim().length; }).join(', ');
+  }
+
+  function handleToName(h) {
+    if (!h) return '';
+    var NAMES = {
+      tomlin: 'Mike Tomlin', berra: 'Yogi Berra', didion: 'Joan Didion',
+      baldwin: 'James Baldwin', douglass: 'Frederick Douglass', mlk: 'Martin Luther King Jr.',
+      angelou: 'Maya Angelou', vonnegut: 'Kurt Vonnegut', brand: 'Stewart Brand',
+      hemingway: 'Ernest Hemingway'
+    };
+    return NAMES[h] || h;
+  }
+
   /* ─── FROM THE PORCH (hand-curated) ──────────── */
+  /* Shows CW voices and visitor quotes only — the porch is the porch. */
   function renderPorchQuotes(data) {
     var block = el('quotes-block');
     if (!block) return;
     clearEl(block);
 
-    var quotes = (data && Array.isArray(data.quotes)) ? data.quotes : [];
+    var all = (data && Array.isArray(data.quotes)) ? data.quotes : [];
+    var quotes = all.filter(function(q) {
+      if (!q || !q.text) return false;
+      var v = q.voice || 'visitor';
+      return v === 'cw' || v === 'visitor';
+    });
+
     if (!quotes.length) {
       block.appendChild(makeEl('div', { cls: 'tui-loading', text: 'porch is quiet' }));
       return;
     }
 
     quotes.forEach(function(q) {
-      if (!q || !q.text) return;
+      var meta = voiceMeta(q);
       var row  = makeEl('div', { cls: 'quote-row' });
       var text = makeEl('span', { cls: 'qr-text', text: '\u201c' + q.text + '\u201d' });
-      var attrParts = [];
-      attrParts.push(q.attribution || 'a visitor');
-      if (q.month) attrParts.push(q.month);
-      var attr = makeEl('span', { cls: 'qr-attr', text: '\u2014 ' + attrParts.join(', ') });
+      var attr = makeEl('span', { cls: 'qr-attr', text: '\u2014 ' + (meta.source || 'CW') });
       row.appendChild(text);
       row.appendChild(attr);
       block.appendChild(row);
     });
   }
 
-  function loadPorchQuotes() {
+  function loadKitchenQuotes() {
     fetch('/kitchen-quotes.json?t=' + Date.now())
       .then(function(r) { return r.json(); })
-      .then(renderPorchQuotes)
-      .catch(function() { renderPorchQuotes(null); });
+      .then(function(data) {
+        renderPorchQuotes(data);
+        var all = (data && Array.isArray(data.quotes)) ? data.quotes.filter(function(q) { return q && q.text; }) : [];
+        if (all.length) QUOTES = all;
+        currentQuote = Math.floor(Math.random() * QUOTES.length);
+        renderQuote();
+      })
+      .catch(function() {
+        renderPorchQuotes(null);
+        renderQuote();
+      });
+  }
+
+  /* ─── SCOREBOARD ──────────────────────────────── */
+
+  var TIER_LABEL = {
+    'certain':           'Certain',
+    'almost-certain':    'Almost Certain',
+    'highly-likely':     'Highly Likely',
+    'likely':            'Likely',
+    'probable':          'Probable',
+    'chances-about-even':'50/50',
+    'unlikely':          'Unlikely',
+    'highly-unlikely':   'Highly Unlikely'
+  };
+
+  function tagEmoji(tag) {
+    if (!tag) return '';
+    if (tag === 'agency') return '\ud83d\udd27';         // 🔧
+    if (tag === 'world')  return '\ud83c\udf0d';         // 🌍
+    if (tag === 'world-agency' || tag === 'agency-world') return '\ud83c\udf0d\ud83d\udd27';
+    return '';
+  }
+
+  function booleanGlyph(b) {
+    if (b === 'correct') return { sym: '\u22a4', cls: 'correct' };     // ⊤
+    if (b === 'wrong')   return { sym: '\u22a5', cls: 'wrong' };       // ⊥
+    if (b === 'revised') return { sym: '\u21bb', cls: 'revised' };     // ↻
+    return { sym: '\u2205', cls: 'pending' };                           // ∅
+  }
+
+  function tallyScoreboard(predictions) {
+    var base = { resolved: 0, correct: 0, wrong: 0, revised: 0, pending: 0 };
+    var score = { derek: Object.assign({}, base), claude: Object.assign({}, base) };
+
+    predictions.forEach(function(p) {
+      var b = p.boolean || 'pending';
+      // Derek side — counted if Derek has a confidence
+      if (p.derek_confidence) {
+        if (b === 'pending') { score.derek.pending++; }
+        else {
+          score.derek.resolved++;
+          if (b === 'correct') score.derek.correct++;
+          else if (b === 'wrong') score.derek.wrong++;
+          else if (b === 'revised') score.derek.revised++;
+        }
+      }
+      // Claude side — counted if Claude has a confidence
+      if (p.claude_confidence) {
+        if (b === 'pending') { score.claude.pending++; }
+        else {
+          score.claude.resolved++;
+          if (b === 'correct') score.claude.correct++;
+          else if (b === 'wrong') score.claude.wrong++;
+          else if (b === 'revised') score.claude.revised++;
+        }
+      }
+    });
+
+    return score;
+  }
+
+  function renderTapeRow(block, label, derekVal, claudeVal, isHead) {
+    var tag = isHead ? 'sb-head' : 'sb-label';
+    block.appendChild(makeEl('div', { cls: tag, text: label }));
+    block.appendChild(makeEl('div', { cls: isHead ? 'sb-head' : 'sb-count', text: derekVal }));
+    block.appendChild(makeEl('div', { cls: isHead ? 'sb-head' : 'sb-count', text: claudeVal }));
+  }
+
+  function renderScoreboard(data) {
+    var block = el('scoreboard-block');
+    if (!block) return;
+    clearEl(block);
+
+    var preds = (data && Array.isArray(data.predictions)) ? data.predictions : [];
+    if (!preds.length) {
+      block.appendChild(makeEl('div', { cls: 'tui-loading', text: 'no calls yet' }));
+      return;
+    }
+
+    // Tale of the Tape
+    var tape = makeEl('div', { cls: 'sb-tape' });
+    var s = tallyScoreboard(preds);
+    renderTapeRow(tape, '',            'DEREK',              'CLAUDE',             true);
+    renderTapeRow(tape, 'resolved',    String(s.derek.resolved), String(s.claude.resolved));
+    renderTapeRow(tape, '\u22a4 correct', String(s.derek.correct),  String(s.claude.correct));
+    renderTapeRow(tape, '\u22a5 wrong',   String(s.derek.wrong),    String(s.claude.wrong));
+    renderTapeRow(tape, '\u21bb revised', String(s.derek.revised),  String(s.claude.revised));
+    renderTapeRow(tape, '\u2205 pending', String(s.derek.pending),  String(s.claude.pending));
+    block.appendChild(tape);
+
+    // Rows
+    preds.forEach(function(p) {
+      var row = makeEl('div', { cls: 'sb-row' });
+
+      // Claim line
+      var cl = makeEl('div', { cls: 'sb-claim-line' });
+      var tag = tagEmoji(p.tag);
+      if (tag) cl.appendChild(makeEl('span', { cls: 'sb-tag', text: tag }));
+      var claim = makeEl('span', { cls: 'sb-claim', text: p.claim || '' });
+      if (p.resolves) {
+        var meta = makeEl('span', { cls: 'sb-meta', text: 'resolves ' + p.resolves });
+        claim.appendChild(meta);
+      }
+      cl.appendChild(claim);
+      row.appendChild(cl);
+
+      // Stakes line
+      var stakes = makeEl('div', { cls: 'sb-stakes' });
+
+      if (p.derek_confidence) {
+        var d = makeEl('span', { cls: 'sb-stake derek' });
+        d.appendChild(makeEl('span', { cls: 'sb-who',  text: 'd' }));
+        d.appendChild(makeEl('span', { cls: 'sb-tier', text: TIER_LABEL[p.derek_confidence] || p.derek_confidence }));
+        stakes.appendChild(d);
+      }
+
+      if (p.claude_confidence) {
+        var c = makeEl('span', { cls: 'sb-stake claude' });
+        c.appendChild(makeEl('span', { cls: 'sb-who',  text: 'c' }));
+        c.appendChild(makeEl('span', { cls: 'sb-tier', text: TIER_LABEL[p.claude_confidence] || p.claude_confidence }));
+        stakes.appendChild(c);
+      }
+
+      var bg = booleanGlyph(p.boolean);
+      stakes.appendChild(makeEl('span', { cls: 'sb-boolean ' + bg.cls, text: bg.sym }));
+
+      row.appendChild(stakes);
+      block.appendChild(row);
+    });
+
+    // Footer: diversity flag + updated
+    var foot = makeEl('div', { cls: 'sb-meta', text: '' });
+    foot.style.paddingTop = '0.75rem';
+    foot.style.borderTop = '1px solid var(--border-dim)';
+    foot.style.marginTop = '0.75rem';
+    var footText = 'updated ' + (data.updated || '');
+    if (data.resolution_dates_diversity_flag) footText += ' \u00b7 note: ' + data.resolution_dates_diversity_flag;
+    foot.textContent = footText;
+    block.appendChild(foot);
+  }
+
+  function loadScoreboard() {
+    fetch('/kitchen-predictions.json?t=' + Date.now())
+      .then(function(r) { return r.json(); })
+      .then(renderScoreboard)
+      .catch(function() {
+        var block = el('scoreboard-block');
+        if (block) {
+          clearEl(block);
+          block.appendChild(makeEl('div', { cls: 'tui-loading', text: 'scoreboard unavailable' }));
+        }
+      });
   }
 
   /* ─── QUOTE ───────────────────────────────────── */
   function renderQuote() {
     var q = QUOTES[currentQuote];
+    if (!q) return;
+    var meta = voiceMeta(q);
+    setText('quote-prefix', meta.prefix);
     setText('quote-text',   q.text);
-    setText('quote-source', '\u2014 ' + q.source);
+    setText('quote-source', meta.source ? '\u2014 ' + meta.source : '');
   }
 
   function rotateQuote() {
@@ -1444,7 +1726,8 @@
         setText('m-days-since', daysSinceJan1());
         setText('tui-last-updated', 'data unavailable \u2014 ' + new Date().toLocaleTimeString());
       });
-    loadPorchQuotes();
+    loadKitchenQuotes();
+    loadScoreboard();
   }
 
   /* ─── LIVE DATA (Supabase via Netlify function) ── */

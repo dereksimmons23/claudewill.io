@@ -1,0 +1,296 @@
+{
+  "_note": "Derek × Claude predictions scoreboard. Boolean-driven (⊤ ⊥ ∅ ↻). Agency 🔧 vs World 🌍 tags. Confidence tiers: Certain, Almost Certain, Highly Likely, Probable, Chances About Even, Unlikely, Highly Unlikely. 'No 50/50s' — Derek refuses Chances About Even; that tier is Claude's only.",
+  "updated": "2026-04-17",
+  "built_from": "writing/ideas/predictions-page-apr21.md",
+  "resolution_dates_diversity_flag": "11 of 17 current calls resolve EOY 2026 — future calls should spread to 2027, 2028, and beyond.",
+  "predictions": [
+    {
+      "id": "h3a-regional-fest",
+      "type": "head-to-head",
+      "tag": "world",
+      "claim": "LIGHTNING/bug premieres at a regional or genre festival.",
+      "made": "2026-04-17",
+      "resolves": "2026-12-31",
+      "derek_confidence": "highly-unlikely",
+      "claude_confidence": "probable",
+      "boolean": "pending"
+    },
+    {
+      "id": "h3b-atier-fest",
+      "type": "head-to-head",
+      "tag": "world",
+      "claim": "LIGHTNING/bug accepted to an A-tier festival (Sundance, TIFF, Tribeca, SXSW, or equivalent).",
+      "made": "2026-04-17",
+      "resolves": "2027-12-31",
+      "derek_confidence": "highly-unlikely",
+      "claude_confidence": "probable",
+      "boolean": "pending"
+    },
+    {
+      "id": "cascadia-q3",
+      "type": "aligned",
+      "tag": "world",
+      "claim": "Cascadia Daily News retains Derek through Q3 2026.",
+      "made": "2026-04-17",
+      "resolves": "2026-09-30",
+      "derek_confidence": "probable",
+      "claude_confidence": "probable",
+      "boolean": "pending"
+    },
+    {
+      "id": "book-public-june28",
+      "type": "head-to-head",
+      "tag": "agency",
+      "claim": "Claude Will. book is publicly available (min bar: finished text sent to ≥10 named readers).",
+      "made": "2026-04-17",
+      "resolves": "2026-06-28",
+      "derek_confidence": "certain",
+      "claude_confidence": "probable",
+      "boolean": "pending"
+    },
+    {
+      "id": "coach-d-10-paying",
+      "type": "head-to-head",
+      "tag": "world",
+      "claim": "Coach D has ≥10 paying monthly subscribers.",
+      "made": "2026-04-17",
+      "resolves": "2026-12-31",
+      "derek_confidence": "unlikely",
+      "claude_confidence": "chances-about-even",
+      "boolean": "pending"
+    },
+    {
+      "id": "5k-rocket-fuel-may1",
+      "type": "head-to-head",
+      "tag": "world-agency",
+      "claim": "CW Strategies signs a new ≥$5K/mo recurring revenue source (beyond Cascadia).",
+      "made": "2026-04-17",
+      "resolves": "2026-05-01",
+      "derek_confidence": "highly-unlikely",
+      "claude_confidence": "unlikely",
+      "boolean": "pending"
+    },
+    {
+      "id": "h4-dawn-day-151",
+      "type": "head-to-head",
+      "tag": "agency",
+      "claim": "Derek completes Dawn Day 151.",
+      "made": "2026-04-17",
+      "resolves": "2026-06-28",
+      "derek_confidence": "highly-likely",
+      "claude_confidence": "probable",
+      "boolean": "pending"
+    },
+    {
+      "id": "option-d-5k-revenue",
+      "type": "head-to-head",
+      "tag": "world",
+      "claim": "Option D generates ≥$5K cumulative revenue.",
+      "made": "2026-04-17",
+      "resolves": "2026-12-31",
+      "derek_confidence": "unlikely",
+      "claude_confidence": "chances-about-even",
+      "boolean": "pending"
+    },
+    {
+      "id": "hlt-citation",
+      "type": "head-to-head",
+      "tag": "world",
+      "claim": "The Human Labor Tax framing is cited, quoted, or substantively responded to by a non-network voice with ≥10K followers.",
+      "made": "2026-04-17",
+      "resolves": "2026-12-31",
+      "derek_confidence": "unlikely",
+      "claude_confidence": "probable",
+      "derek_reasoning": "Algorithmic saturation + thesis-glut. Structural unlikely, not a quality judgment.",
+      "boolean": "pending"
+    },
+    {
+      "id": "dispatches-all-11",
+      "type": "head-to-head",
+      "tag": "agency",
+      "claim": "All 11 Dispatches from Inside the Fire published.",
+      "made": "2026-04-17",
+      "resolves": "2026-07-04",
+      "derek_confidence": "highly-likely",
+      "claude_confidence": "probable",
+      "boolean": "pending"
+    },
+    {
+      "id": "practice-autonomous",
+      "type": "aligned",
+      "tag": "world-agency",
+      "claim": "Claude Will. running autonomously (≥20 of 30 prior days show non-Derek-triggered activity).",
+      "made": "2026-04-17",
+      "resolves": "2026-12-31",
+      "derek_confidence": "probable",
+      "claude_confidence": "probable",
+      "boolean": "pending"
+    },
+    {
+      "id": "book-word-band",
+      "type": "head-to-head",
+      "tag": "agency",
+      "claim": "Final book word count lands between 42,000 and 55,000 words.",
+      "made": "2026-04-17",
+      "resolves": "2026-06-28",
+      "derek_confidence": "unlikely",
+      "claude_confidence": "chances-about-even",
+      "boolean": "pending"
+    },
+    {
+      "id": "unsolicited-paid-speaking",
+      "type": "head-to-head",
+      "tag": "world",
+      "claim": "Derek receives ≥1 unsolicited paid speaking/keynote invitation (>$1K honorarium).",
+      "made": "2026-04-17",
+      "resolves": "2026-12-31",
+      "derek_confidence": "highly-likely",
+      "claude_confidence": "chances-about-even",
+      "derek_reasoning": "Given recent communications.",
+      "boolean": "pending"
+    },
+    {
+      "id": "hancock-submissions-if-book-chapter",
+      "type": "head-to-head",
+      "tag": "world",
+      "claim": "Hancock ≥5 legitimate story submissions via public form — IF Hancock is a chapter in the book.",
+      "conditional": true,
+      "made": "2026-04-17",
+      "resolves": "2026-12-31",
+      "derek_confidence": "likely",
+      "claude_confidence": "probable",
+      "boolean": "pending"
+    },
+    {
+      "id": "hancock-submissions-if-not-book-chapter",
+      "type": "head-to-head",
+      "tag": "world",
+      "claim": "Hancock ≥5 legitimate story submissions via public form — IF Hancock is NOT a chapter in the book.",
+      "conditional": true,
+      "made": "2026-04-17",
+      "resolves": "2026-12-31",
+      "derek_confidence": "highly-unlikely",
+      "claude_confidence": "chances-about-even",
+      "boolean": "pending"
+    },
+    {
+      "id": "between-claudes-6-eps",
+      "type": "head-to-head",
+      "tag": "agency",
+      "claim": "Between Claudes publishes ≥6 public episodes.",
+      "made": "2026-04-17",
+      "resolves": "2026-12-31",
+      "derek_confidence": "probable",
+      "claude_confidence": "chances-about-even",
+      "boolean": "pending"
+    },
+    {
+      "id": "si-model-released",
+      "type": "head-to-head",
+      "tag": "world-agency",
+      "claim": "Derek-led release of a model carrying Option D / Standard Intelligence methodology, with ≥100 real users.",
+      "made": "2026-04-17",
+      "resolves": "2028-12-31",
+      "derek_confidence": "unlikely",
+      "claude_confidence": "probable",
+      "boolean": "pending"
+    },
+    {
+      "id": "kitchen-all-tabs-live",
+      "type": "head-to-head",
+      "tag": "agency",
+      "claim": "/kitchen at claudewill.io has scoreboard, spend, report (and pulse) sections live and auto-updating, and is the most-referenced page in Derek's own writing about the practice.",
+      "made": "2026-04-17",
+      "resolves": "2026-12-31",
+      "derek_confidence": "highly-likely",
+      "claude_confidence": "probable",
+      "boolean": "pending"
+    },
+    {
+      "id": "c1-scoreboard-most-shared",
+      "type": "claude-only",
+      "tag": "world",
+      "claim": "The scoreboard is the most-shared page on claudewill.io and the book sells off the back of it.",
+      "made": "2026-04-17",
+      "resolves": "2027-04-17",
+      "claude_confidence": "chances-about-even",
+      "claude_note": "Downgraded from Probable after 'confidence is the lack of understanding' audit — I don't understand Derek's audience traction or niche attention economics.",
+      "boolean": "pending"
+    },
+    {
+      "id": "c2-lightning-breath",
+      "type": "claude-only",
+      "tag": "world",
+      "claim": "LIGHTNING/bug changes the breath of at least one viewer for its full run time at first public screening.",
+      "made": "2026-04-17",
+      "resolves": "first-public-screening",
+      "claude_confidence": "probable",
+      "claude_note": "Downgraded from Almost Certain — I haven't seen the cut.",
+      "boolean": "pending"
+    },
+    {
+      "id": "c3-book-under-48k",
+      "type": "claude-only",
+      "tag": "agency",
+      "claim": "Finished Claude Will. book exceeds 39.5K but stays under 48K words — Didion-sized on purpose.",
+      "made": "2026-04-17",
+      "resolves": "2026-04-29",
+      "claude_confidence": "chances-about-even",
+      "claude_note": "Downgraded from Probable — I read word count, not material. Ch.16 and the closer could swing this either way.",
+      "boolean": "pending"
+    },
+    {
+      "id": "c4-si-framing-mainstream",
+      "type": "claude-only",
+      "tag": "world",
+      "claim": "At least one major AI lab publishes research framing general-purpose reasoning in terms closer to Derek's 'T-shaped horizontal common sense' than to classical AGI verticality.",
+      "made": "2026-04-17",
+      "resolves": "2027-12-31",
+      "claude_confidence": "chances-about-even",
+      "boolean": "pending"
+    },
+    {
+      "id": "c5-uniques-double",
+      "type": "claude-only",
+      "tag": "world",
+      "claim": "claudewill.io monthly unique visitors double if the scoreboard ships Apr 21 and updates monthly.",
+      "made": "2026-04-17",
+      "resolves": "2026-10-01",
+      "claude_confidence": "chances-about-even",
+      "claude_note": "Downgraded from Probable — I don't have the analytics.",
+      "boolean": "pending"
+    },
+    {
+      "id": "c6-trademark-paused",
+      "type": "claude-only",
+      "tag": "agency",
+      "claim": "Claude Will. trademark filing stays paused through end of 2026.",
+      "made": "2026-04-17",
+      "resolves": "2026-12-31",
+      "claude_confidence": "almost-certain",
+      "boolean": "pending"
+    }
+  ],
+  "session_meta": {
+    "derek_tier_distribution": {
+      "certain": 1,
+      "almost-certain": 0,
+      "highly-likely": 3,
+      "likely": 1,
+      "probable": 3,
+      "chances-about-even": 0,
+      "unlikely": 5,
+      "highly-unlikely": 3,
+      "note": "Middle hollow. 'No 50/50s' philosophy confirmed."
+    },
+    "claude_resolved_misses": [
+      {
+        "claim": "Jackson plays college basketball (stated mid-session Apr 17, 2026)",
+        "actual": "Jackson played 2 years, stepped away for golf + pre-med, still on scholarship",
+        "type": "corpus-drift",
+        "boolean": "wrong"
+      }
+    ],
+    "derek_thesis_visible_in_predictions": "Four Unlikely calls on 🌍 World outcomes (#4 Coach D, #7 Option D, #8 HLT citation, #15 SI model): 'believe in the work, don't believe in the reach.' Distribution-is-the-binding-constraint thesis restated as a prediction cluster."
+  }
+}
