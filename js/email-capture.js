@@ -1,6 +1,6 @@
 /**
- * Email capture — thin footer bar on every page.
- * Forwards to Substack subscribe with the email pre-filled.
+ * Email capture — thin footer pill + inline modal with Substack embed iframe.
+ * No redirect; user subscribes without leaving claudewill.io.
  * Dismissible, remembered for 30 days via localStorage.
  */
 (function () {
@@ -10,14 +10,12 @@
 
   var STORAGE_KEY = 'cw-email-capture-dismissed';
   var SUBSCRIBED_KEY = 'cw-email-subscribed';
-  var SUBSTACK = 'https://derek4thecws.substack.com/subscribe';
+  var EMBED_URL = 'https://derek4thecws.substack.com/embed';
 
-  // Don't show again for 30 days if dismissed or subscribed
   var dismissed = localStorage.getItem(STORAGE_KEY);
   if (dismissed && Date.now() - parseInt(dismissed, 10) < 30 * 24 * 60 * 60 * 1000) return;
   if (localStorage.getItem(SUBSCRIBED_KEY)) return;
 
-  // Skip the /d gate page (it has its own email input)
   if (/^\/d\/?$/.test(window.location.pathname)) return;
 
   function build() {
@@ -25,7 +23,7 @@
     style.textContent = [
       '.cw-email-capture{',
       '  position:fixed;left:50%;bottom:24px;transform:translateX(-50%);',
-      '  z-index:9996;display:flex;align-items:center;gap:10px;',
+      '  z-index:9996;display:flex;align-items:center;gap:12px;',
       '  background:#0a1628;border:1px solid rgba(212,168,75,0.25);',
       '  border-radius:999px;padding:10px 14px 10px 18px;',
       '  font-family:"IBM Plex Mono","Courier New",Courier,monospace;',
@@ -37,13 +35,6 @@
       '}',
       '.cw-email-capture.visible{opacity:1;}',
       '.cw-email-capture-label{white-space:nowrap;color:#9ca3af;}',
-      '.cw-email-capture input{',
-      '  background:transparent;border:none;outline:none;',
-      '  font-family:inherit;font-size:0.85rem;color:#f0f0f0;',
-      '  padding:6px 8px;min-width:180px;border-radius:6px;',
-      '}',
-      '.cw-email-capture input:focus{background:rgba(255,255,255,0.04);}',
-      '.cw-email-capture input::placeholder{color:#6b7280;}',
       '.cw-email-capture button{',
       '  background:none;border:1px solid rgba(212,168,75,0.35);',
       '  color:#d4a84b;font-family:inherit;font-size:0.75rem;',
@@ -61,17 +52,53 @@
       '@media (max-width:700px){',
       '  .cw-email-capture{',
       '    left:16px;right:16px;bottom:92px;transform:none;',
-      '    border-radius:12px;padding:12px;flex-wrap:wrap;',
+      '    border-radius:12px;padding:12px;justify-content:space-between;',
       '  }',
-      '  .cw-email-capture-label{flex-basis:100%;}',
-      '  .cw-email-capture input{flex:1;min-width:0;}',
       '}',
       'body.porch-panel-open .cw-email-capture{opacity:0 !important;pointer-events:none;}',
-      '@media print{.cw-email-capture{display:none !important;}}'
+      '@media print{.cw-email-capture{display:none !important;}}',
+      '.cw-subscribe-modal{',
+      '  position:fixed;inset:0;z-index:10001;',
+      '  background:rgba(10,22,40,0.72);backdrop-filter:blur(4px);',
+      '  display:flex;align-items:center;justify-content:center;',
+      '  padding:24px;opacity:0;transition:opacity 0.2s ease;',
+      '  pointer-events:none;',
+      '}',
+      '.cw-subscribe-modal.visible{opacity:1;pointer-events:auto;}',
+      '.cw-subscribe-panel{',
+      '  background:#0a1628;border:1px solid rgba(212,168,75,0.25);',
+      '  border-radius:14px;padding:28px 24px 20px;',
+      '  max-width:440px;width:100%;',
+      '  box-shadow:0 20px 60px rgba(0,0,0,0.6);',
+      '  font-family:"IBM Plex Mono","Courier New",Courier,monospace;',
+      '  color:#e0e0e0;position:relative;',
+      '}',
+      '.cw-subscribe-panel-close{',
+      '  position:absolute;top:10px;right:14px;',
+      '  background:none;border:none;color:#6b7280;',
+      '  font-size:1.5rem;line-height:1;cursor:pointer;',
+      '  padding:4px 8px;',
+      '}',
+      '.cw-subscribe-panel-close:hover{color:#d4a84b;}',
+      '.cw-subscribe-panel h3{',
+      '  margin:0 0 6px;font-size:1rem;color:#d4a84b;font-weight:500;',
+      '}',
+      '.cw-subscribe-panel p{',
+      '  margin:0 0 16px;font-size:0.8rem;color:#9ca3af;line-height:1.5;',
+      '}',
+      '.cw-subscribe-panel iframe{',
+      '  width:100%;border:none;border-radius:8px;',
+      '  background:#fff;',
+      '  height:120px;display:block;',
+      '}',
+      '.cw-subscribe-panel-footnote{',
+      '  margin-top:12px !important;font-size:0.7rem !important;',
+      '  color:#6b7280 !important;text-align:center;',
+      '}'
     ].join('\n');
     document.head.appendChild(style);
 
-    var bar = document.createElement('form');
+    var bar = document.createElement('div');
     bar.className = 'cw-email-capture';
     bar.setAttribute('role', 'complementary');
     bar.setAttribute('aria-label', 'Subscribe to Standard Correspondence');
@@ -80,57 +107,96 @@
     label.className = 'cw-email-capture-label';
     label.textContent = 'standard correspondence';
 
-    var input = document.createElement('input');
-    input.type = 'email';
-    input.name = 'email';
-    input.placeholder = 'your email';
-    input.setAttribute('aria-label', 'Email address');
-    input.required = true;
-    input.autocomplete = 'email';
-
-    var submit = document.createElement('button');
-    submit.type = 'submit';
-    submit.textContent = 'subscribe';
+    var subscribe = document.createElement('button');
+    subscribe.type = 'button';
+    subscribe.textContent = 'subscribe';
 
     var close = document.createElement('button');
     close.type = 'button';
     close.className = 'cw-email-capture-close';
     close.setAttribute('aria-label', 'Dismiss');
     close.textContent = '\u00d7';
-    close.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
+    close.addEventListener('click', function () {
       try { localStorage.setItem(STORAGE_KEY, String(Date.now())); } catch (err) {}
       bar.classList.remove('visible');
       setTimeout(function () { if (bar.parentNode) bar.parentNode.removeChild(bar); }, 300);
     });
 
-    bar.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var email = (input.value || '').trim();
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        input.focus();
-        return;
-      }
-      try { localStorage.setItem(SUBSCRIBED_KEY, '1'); } catch (err) {}
-      var url = SUBSTACK + '?email=' + encodeURIComponent(email);
-      window.open(url, '_blank', 'noopener');
-      submit.textContent = 'opening...';
-      submit.disabled = true;
-      setTimeout(function () {
-        bar.classList.remove('visible');
-        setTimeout(function () { if (bar.parentNode) bar.parentNode.removeChild(bar); }, 300);
-      }, 800);
-    });
+    subscribe.addEventListener('click', openModal);
 
     bar.appendChild(label);
-    bar.appendChild(input);
-    bar.appendChild(submit);
+    bar.appendChild(subscribe);
     bar.appendChild(close);
     document.body.appendChild(bar);
 
-    // Fade in after a short delay so it doesn't fight page load
     setTimeout(function () { bar.classList.add('visible'); }, 1200);
+  }
+
+  function openModal() {
+    var existing = document.querySelector('.cw-subscribe-modal');
+    if (existing) {
+      existing.classList.add('visible');
+      return;
+    }
+
+    var modal = document.createElement('div');
+    modal.className = 'cw-subscribe-modal';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Subscribe to Standard Correspondence');
+
+    var panel = document.createElement('div');
+    panel.className = 'cw-subscribe-panel';
+
+    var closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'cw-subscribe-panel-close';
+    closeBtn.setAttribute('aria-label', 'Close');
+    closeBtn.textContent = '\u00d7';
+
+    var title = document.createElement('h3');
+    title.textContent = 'standard correspondence';
+
+    var desc = document.createElement('p');
+    desc.textContent = 'A letter from the sky. New writing, links home.';
+
+    var iframe = document.createElement('iframe');
+    iframe.src = EMBED_URL;
+    iframe.setAttribute('title', 'Subscribe to Standard Correspondence');
+    iframe.setAttribute('loading', 'lazy');
+
+    var foot = document.createElement('p');
+    foot.className = 'cw-subscribe-panel-footnote';
+    foot.textContent = 'You will receive a confirmation email to finish subscribing.';
+
+    panel.appendChild(closeBtn);
+    panel.appendChild(title);
+    panel.appendChild(desc);
+    panel.appendChild(iframe);
+    panel.appendChild(foot);
+    modal.appendChild(panel);
+    document.body.appendChild(modal);
+
+    requestAnimationFrame(function () { modal.classList.add('visible'); });
+
+    function close() {
+      try { localStorage.setItem(SUBSCRIBED_KEY, '1'); } catch (err) {}
+      modal.classList.remove('visible');
+      setTimeout(function () {
+        if (modal.parentNode) modal.parentNode.removeChild(modal);
+      }, 200);
+      document.removeEventListener('keydown', onKey);
+    }
+
+    function onKey(e) {
+      if (e.key === 'Escape') close();
+    }
+
+    closeBtn.addEventListener('click', close);
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) close();
+    });
+    document.addEventListener('keydown', onKey);
   }
 
   if (document.readyState === 'loading') {
