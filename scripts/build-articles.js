@@ -320,7 +320,7 @@ ${data.bodyHtml}
 
   <script>
     window.CustomSubstackWidget = {
-      substackUrl: "standardderek.substack.com",
+      substackUrl: "derek4thecws.substack.com",
       placeholder: "your email",
       buttonText: "subscribe",
       theme: "custom",

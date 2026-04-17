@@ -36,7 +36,7 @@ His grandfather was Claude William Simmons. His middle name is Claude. His son's
 
 - [Professional bio and Q&A](https://claudewill.io/derek)
 - [LinkedIn](https://www.linkedin.com/in/dereksimm/)
-- [Substack](https://standardderek.substack.com)
+- [Substack](https://derek4thecws.substack.com)
 - [GitHub](https://github.com/dereksimmons23)
 
 ---

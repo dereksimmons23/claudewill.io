@@ -10,7 +10,7 @@
 
   var STORAGE_KEY = 'cw-email-capture-dismissed';
   var SUBSCRIBED_KEY = 'cw-email-subscribed';
-  var SUBSTACK = 'https://standardderek.substack.com/subscribe';
+  var SUBSTACK = 'https://derek4thecws.substack.com/subscribe';
 
   // Don't show again for 30 days if dismissed or subscribed
   var dismissed = localStorage.getItem(STORAGE_KEY);
