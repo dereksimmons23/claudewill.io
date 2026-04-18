@@ -239,6 +239,30 @@
     }
     .gallery-caption strong { color: var(--text); font-weight: 600; }
 
+    /* Live product cards */
+    .gallery-item-live {
+      background: #fff; border: 1px solid var(--border); overflow: hidden;
+      display: block; text-decoration: none; color: inherit;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .gallery-item-live:hover { border-color: var(--accent); text-decoration: none; transform: translateY(-2px); }
+    .gallery-item-live img { width: 100%; height: auto; display: block; }
+    .gallery-caption-live {
+      font-family: var(--mono); font-size: 0.72rem; color: var(--dim);
+      padding: 0.6rem 0.8rem; letter-spacing: 0.02em; line-height: 1.5;
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem;
+    }
+    .gallery-caption-live strong { color: var(--text); font-weight: 600; }
+    .gallery-live-badge {
+      font-family: var(--mono); font-size: 0.65rem; color: var(--accent);
+      letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; padding-top: 0.1rem;
+    }
+    .coach-logo-wrap {
+      background: #0f1b2d; display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem;
+    }
+    .coach-logo-wrap img { max-height: 160px; width: auto; }
+
     /* Moss feature */
     .moss {
       display: grid;
@@ -352,7 +376,8 @@
     @media (prefers-color-scheme: dark) {
       body { --bg: #0b1a2e; --text: #e0e0e0; --dim: #8a95a5; --border: rgba(255,255,255,0.08); --link: #6ba8d4; }
       .page-header { background: #0b1a2e; }
-      .summary, .gallery-item, .moss, .cap, .quote, .betting-card { background: rgba(255,255,255,0.03); }
+      .summary, .gallery-item, .moss, .cap, .quote, .betting-card, .gallery-item-live { background: rgba(255,255,255,0.03); }
+      .coach-logo-wrap { background: #0a1628; }
     }
 
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -519,14 +544,22 @@
           <img src="/vikings/images/usbank-flyover-app.png" alt="U.S. Bank Stadium opening app">
           <div class="gallery-caption"><strong>U.S. Bank Stadium Opening</strong> — fan experience app produced for the stadium's first game.</div>
         </div>
-        <div class="gallery-item">
-          <img src="/vikings/images/coach-d-app.png" alt="Coach D basketball training app">
-          <div class="gallery-caption"><strong>Coach D</strong> — current platform. Basketball training and drill library for Minnesota athletes.</div>
-        </div>
-        <div class="gallery-item">
-          <img src="/vikings/images/bob-app.png" alt="Battle o' Brackets">
-          <div class="gallery-caption"><strong>Battle o' Brackets</strong> — March Madness party game. Product, design, creative.</div>
-        </div>
+        <a href="https://coach.claudewill.io" class="gallery-item-live" target="_blank" rel="noopener">
+          <div class="coach-logo-wrap">
+            <img src="/vikings/images/coach-d-logo.png" alt="Land of 10,000 Makes — Coach D">
+          </div>
+          <div class="gallery-caption-live">
+            <span><strong>Coach D</strong> — AI-powered athletic development. Derek's coaching methodology and cloned voice, live. 157 drills, neuroplasticity framework, multi-sport principles.</span>
+            <span class="gallery-live-badge">Live ↗</span>
+          </div>
+        </a>
+        <a href="https://bob.claudewill.io" class="gallery-item-live" target="_blank" rel="noopener">
+          <img src="/vikings/images/bob-desktop.png" alt="Battle o' Brackets — sports fan debate engine">
+          <div class="gallery-caption-live">
+            <span><strong>Battle o' Brackets</strong> — sports GOAT debate engine. Greatest NFL Quarterbacks, Best Athlete, Mount Rushmore mode. 100+ categories across all sports.</span>
+            <span class="gallery-live-badge">Live ↗</span>
+          </div>
+        </a>
       </div>
 
       <div class="moss">
