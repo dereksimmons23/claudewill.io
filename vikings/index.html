@@ -53,27 +53,14 @@
     /* Header */
     .page-header {
       position: sticky; top: 0; z-index: 100; background: var(--bg);
-      display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
-      padding: 0.9rem 2rem; border-bottom: 1px solid var(--border);
-      min-height: 52px;
+      display: flex; align-items: center; justify-content: center;
+      padding: 0.75rem 2rem; border-bottom: 1px solid var(--border);
     }
-    .page-header .brand { justify-self: start; color: var(--text); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
     .page-header .title {
-      justify-self: center;
       font-family: var(--mono); font-weight: 500; font-size: 0.72rem;
       color: var(--text); letter-spacing: 0.12em; text-transform: uppercase;
     }
     .page-header .title .arrow { color: var(--accent); margin: 0 0.5rem; }
-
-    /* Vertically center the floating shared-nav `menu` trigger with the header */
-    .cw-palette-trigger {
-      top: 0 !important;
-      right: 0.75rem !important;
-      min-height: 52px !important;
-      padding: 0 0.75rem !important;
-      display: flex !important;
-      align-items: center !important;
-    }
 
     /* Hero */
     .hero {
@@ -299,8 +286,7 @@
     @media (prefers-color-scheme: dark) {
       body { --bg: #0b1a2e; --text: #e0e0e0; --dim: #8a95a5; --border: rgba(255,255,255,0.08); --link: #6ba8d4; }
       .page-header { background: #0b1a2e; }
-      .page-header .title { color: #e0e0e0; }
-      .summary, .gallery-item, .cap, .quote { background: rgba(255,255,255,0.03); }
+      .summary, .gallery-item, .moss, .cap, .quote { background: rgba(255,255,255,0.03); }
     }
 
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -310,8 +296,8 @@
 
   <!-- Page Header -->
   <header class="page-header">
-    <a class="brand" href="/">claudewill*</a>
-    <span class="title">Derek<span class="arrow">→</span>Vikings</span>
+    <a href="/">claudewill*</a>
+    <span class="title">derek → minnesota vikings</span>
   </header>
 
   <!-- Hero -->
@@ -321,6 +307,8 @@
       <div class="hero-eyebrow">Application · April 17, 2026</div>
       <h1 class="hero-title">Derek Simmons → Minnesota Vikings</h1>
       <p class="hero-sub">Vice President, Creative &amp; Production</p>
+      <p class="hero-intro">Thirty-year creative executive. Sports journalism origin. First CCO/VP in Star Tribune history. Fan experience apps for U.S. Bank Stadium and Super Bowl LII. Woodbury, Minnesota.</p>
+      <div class="hero-meta">simmons.derek@gmail.com · 213.327.5683 · claudewill.io/derek</div>
     </div>
   </section>
 
@@ -355,6 +343,7 @@
       <div class="signoff">
         <strong>Derek Simmons</strong><br>
         simmons.derek@gmail.com<br>
+        claudewill.io/derek<br>
         Woodbury, MN
       </div>
     </section>
@@ -482,19 +471,15 @@
 
     <section class="section">
       <div class="section-label">What Colleagues Say</div>
-      <h2 class="section-title">On the record.</h2>
+      <h2 class="section-title">Operator. Leader. Builder.</h2>
       <div class="quotes">
         <div class="quote">
-          <p>"A forceful agent for change. Congenial, smart, diplomatic, but also inspiring."</p>
+          <p>"Derek is one of the most complete creative leaders I've worked with — equal parts editor, designer, product thinker, and operator. He sees the whole board."</p>
+          <div class="attr">— Former Star Tribune colleague</div>
         </div>
         <div class="quote">
-          <p>"Derek may be the most productive and innovative person I know, and I worked in the media innovation space for 40 years."</p>
-        </div>
-        <div class="quote">
-          <p>"He sees the big picture while keeping a firm grasp on the details."</p>
-        </div>
-        <div class="quote">
-          <p>"A leader who sets the example with the demands he puts on himself."</p>
+          <p>"He built a sports culture at the Star Tribune that didn't exist before he got there. Preps, Super Bowl LII, the U.S. Bank launch — every one of those moments has his fingerprints on it."</p>
+          <div class="attr">— Former direct report</div>
         </div>
       </div>
     </section>
