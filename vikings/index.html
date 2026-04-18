@@ -159,7 +159,16 @@
     .cover-letter p + p { margin-top: 1rem; }
     .cover-letter .single { font-weight: 600; }
     .cover-letter .signoff { margin-top: 1.75rem; font-family: var(--mono); font-size: 0.85rem; line-height: 1.7; color: var(--text); }
-    .cover-letter .signoff strong { font-family: var(--font); font-size: 1rem; }
+    .cover-letter .signoff strong { font-family: var(--font); font-size: 1.05rem; font-weight: 700; }
+    .signoff-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1rem; }
+    .signoff-btn {
+      display: inline-block; padding: 6px 14px;
+      border: 1px solid var(--border); border-radius: 3px;
+      color: var(--text); text-decoration: none;
+      font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.02em;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .signoff-btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
 
     /* Summary block */
     .summary {
@@ -364,9 +373,9 @@
   <div class="content">
     <section id="cover" class="section cover-letter">
       <div class="section-label">The Letter</div>
-      <h2 class="section-title">Re: Vice President, Creative &amp; Production</h2>
+      <h2 class="section-title">I'm a Packers fan.</h2>
 
-      <p class="single">Let me get this out of the way: I'm a Packers fan.</p>
+      <p>But more importantly, I'm a football fan.</p>
 
       <p>Randy Moss and I were both rookies in 1998. He went on to torch every defense in the league. I went into journalism. I'm also a former quarterback, which means I read football from the pocket — coverages, leverage, the MIKE you ID in protection, the half-second before the ball has to come out. I know O'Connell is the real deal because his offense builds for the quarterback instead of around him. And I know that whatever happens at the QB position, you protect the guy who is coaching it.</p>
 
@@ -390,9 +399,11 @@
 
       <div class="signoff">
         <strong>Derek Simmons</strong><br>
-        simmons.derek@gmail.com<br>
-        claudewill.io/derek<br>
-        Woodbury, MN
+        Woodbury, Minnesota
+        <div class="signoff-buttons">
+          <a href="mailto:simmons.derek@gmail.com" class="signoff-btn">Email</a>
+          <a href="tel:+12133275683" class="signoff-btn">Call</a>
+        </div>
       </div>
     </section>
 
