@@ -53,17 +53,20 @@
     /* Header */
     .page-header {
       position: sticky; top: 0; z-index: 100; background: var(--bg);
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex; align-items: center; justify-content: center;
       padding: 0.75rem 2rem; border-bottom: 1px solid var(--border);
     }
-    .page-header a { color: var(--text); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
-    .page-header .title { font-family: var(--mono); font-weight: 500; font-size: 0.72rem; color: var(--dim); letter-spacing: 0.08em; text-transform: uppercase; }
+    .page-header .title {
+      font-family: var(--mono); font-weight: 500; font-size: 0.72rem;
+      color: var(--text); letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .page-header .title .arrow { color: var(--accent); margin: 0 0.5rem; }
 
     /* Hero */
     .hero {
       position: relative;
       width: 100%;
-      min-height: 70vh;
+      min-height: 60vh;
       overflow: hidden;
       background: #0b1a2e;
       color: #fff;
@@ -71,7 +74,12 @@
     .hero img.hero-img {
       position: absolute; inset: 0; width: 100%; height: 100%;
       object-fit: cover; object-position: center 35%;
-      opacity: 0.55;
+      opacity: 0.45;
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to bottom, rgba(10,22,40,0.55), rgba(10,22,40,0.75));
+      pointer-events: none;
     }
     .hero-overlay {
       position: relative; z-index: 2;
@@ -165,7 +173,7 @@
     .divider-hero-overlay {
       position: absolute; inset: 0; z-index: 2;
       display: flex; align-items: flex-end; justify-content: center;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.7));
+      background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.8));
       padding: 3rem 2rem;
     }
     .divider-hero-title {
@@ -196,15 +204,16 @@
       gap: 1rem;
       margin: 2rem 0;
       padding: 2rem;
-      background: #fff;
-      border: 1px solid var(--border);
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
       text-align: center;
+      color: #0a1628;
     }
     .moss img { max-width: 100%; height: auto; margin: 0 auto; }
     .moss img.cutout { max-height: 380px; width: auto; }
     .moss img.shadow { max-height: 160px; width: auto; opacity: 0.9; }
     .moss-caption {
-      font-family: var(--mono); font-size: 0.78rem; color: var(--dim);
+      font-family: var(--mono); font-size: 0.78rem; color: #6b7280;
       max-width: 520px; margin: 0 auto; line-height: 1.6;
     }
 
@@ -277,7 +286,8 @@
     @media (prefers-color-scheme: dark) {
       body { --bg: #0b1a2e; --text: #e0e0e0; --dim: #8a95a5; --border: rgba(255,255,255,0.08); --link: #6ba8d4; }
       .page-header { background: #0b1a2e; }
-      .summary, .gallery-item, .moss, .cap, .quote { background: rgba(255,255,255,0.03); }
+      .page-header .title { color: #e0e0e0; }
+      .summary, .gallery-item, .cap, .quote { background: rgba(255,255,255,0.03); }
     }
 
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -287,8 +297,7 @@
 
   <!-- Page Header -->
   <header class="page-header">
-    <a href="/">claudewill*</a>
-    <span class="title">derek → minnesota vikings</span>
+    <span class="title">Derek<span class="arrow">→</span>Vikings</span>
   </header>
 
   <!-- Hero -->
@@ -298,8 +307,6 @@
       <div class="hero-eyebrow">Application · April 17, 2026</div>
       <h1 class="hero-title">Derek Simmons → Minnesota Vikings</h1>
       <p class="hero-sub">Vice President, Creative &amp; Production</p>
-      <p class="hero-intro">Thirty-year creative executive. Sports journalism origin. First CCO/VP in Star Tribune history. Fan experience apps for U.S. Bank Stadium and Super Bowl LII. Woodbury, Minnesota.</p>
-      <div class="hero-meta">simmons.derek@gmail.com · 213.327.5683 · claudewill.io/derek</div>
     </div>
   </section>
 
@@ -334,7 +341,6 @@
       <div class="signoff">
         <strong>Derek Simmons</strong><br>
         simmons.derek@gmail.com<br>
-        claudewill.io/derek<br>
         Woodbury, MN
       </div>
     </section>
