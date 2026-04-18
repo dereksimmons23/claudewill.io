@@ -295,13 +295,18 @@
       font-family: var(--mono); font-size: 0.7rem; color: var(--dim);
       text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.85rem;
     }
-    .betting-card p { font-size: 1rem; line-height: 1.7; margin-bottom: 0.85rem; }
-    .betting-card p:last-of-type { margin-bottom: 1rem; }
+    .betting-inner { display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: start; }
+    .betting-text p { font-size: 1rem; line-height: 1.7; margin-bottom: 0.85rem; }
+    .betting-text p:last-of-type { margin-bottom: 1rem; }
+    .betting-proof { flex-shrink: 0; }
+    .betting-proof img { width: 140px; height: auto; display: block; border: 1px solid var(--border); }
+    .betting-proof-caption { font-family: var(--mono); font-size: 0.62rem; color: var(--dim); margin-top: 0.4rem; line-height: 1.4; max-width: 140px; }
     .betting-link {
       font-family: var(--mono); font-size: 0.78rem; color: var(--accent);
       letter-spacing: 0.02em; text-decoration: none;
     }
     .betting-link:hover { text-decoration: underline; }
+    @media (max-width: 640px) { .betting-inner { grid-template-columns: 1fr; } .betting-proof { display: none; } }
 
     /* Capabilities */
     .caps { display: grid; grid-template-columns: 1fr; gap: 0.85rem; margin-top: 1rem; }
@@ -574,9 +579,19 @@
       <h2 class="section-title">Before most publishers had a strategy.</h2>
       <div class="betting-card">
         <div class="betting-meta">Sports Betting Hub · Star Tribune · XLMedia / Sportradar</div>
-        <p>Identified sports betting as an audience and revenue opportunity early — when most newsrooms were still debating whether to touch the topic. Negotiated the Star Tribune's branded content partnership with XLMedia, launched the hub at <a href="https://www.startribune.com/sports-betting" target="_blank" rel="noopener">startribune.com/sports-betting</a>, and wrote the editorial policy formally separating commercial sports betting content from the newsroom's own coverage. Knowing where the line is — and putting it in writing — is what makes a content monetization strategy credible.</p>
-        <p>XLMedia was later acquired by Sportradar, the NFL's official data partner, with an office in downtown Minneapolis.</p>
-        <a href="https://www.startribune.com/sports-betting" class="betting-link" target="_blank" rel="noopener">startribune.com/sports-betting →</a>
+        <div class="betting-inner">
+          <div class="betting-text">
+            <p>Identified sports betting as an audience and revenue opportunity early — when most newsrooms were still debating whether to touch the topic. Negotiated the Star Tribune's branded content partnership with XLMedia, launched the hub at <a href="https://www.startribune.com/sports-betting" target="_blank" rel="noopener">startribune.com/sports-betting</a>, and wrote the editorial policy formally separating commercial sports betting content from the newsroom's own coverage. Knowing where the line is — and putting it in writing — is what makes a content monetization strategy credible.</p>
+            <p>XLMedia was later acquired by Sportradar, the NFL's official data partner, with an office in downtown Minneapolis.</p>
+            <a href="https://www.startribune.com/sports-betting" class="betting-link" target="_blank" rel="noopener">startribune.com/sports-betting →</a>
+          </div>
+          <div class="betting-proof">
+            <a href="https://www.startribune.com/sports-betting" target="_blank" rel="noopener">
+              <img src="/vikings/images/sports-betting-hub.png" alt="Star Tribune sports betting hub — XLMedia commercial content, byline visible">
+            </a>
+            <div class="betting-proof-caption">Byline reads "XLMedia" — the commercial separation in practice.</div>
+          </div>
+        </div>
       </div>
     </section>
 
