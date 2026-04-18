@@ -259,6 +259,26 @@
       max-width: 520px; margin: 0 auto; line-height: 1.6;
     }
 
+    /* Sports betting card */
+    .betting-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: 1.5rem 1.75rem;
+      margin-top: 1rem;
+    }
+    .betting-meta {
+      font-family: var(--mono); font-size: 0.7rem; color: var(--dim);
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.85rem;
+    }
+    .betting-card p { font-size: 1rem; line-height: 1.7; margin-bottom: 0.85rem; }
+    .betting-card p:last-of-type { margin-bottom: 1rem; }
+    .betting-link {
+      font-family: var(--mono); font-size: 0.78rem; color: var(--accent);
+      letter-spacing: 0.02em; text-decoration: none;
+    }
+    .betting-link:hover { text-decoration: underline; }
+
     /* Capabilities */
     .caps { display: grid; grid-template-columns: 1fr; gap: 0.85rem; margin-top: 1rem; }
     .cap {
@@ -332,7 +352,7 @@
     @media (prefers-color-scheme: dark) {
       body { --bg: #0b1a2e; --text: #e0e0e0; --dim: #8a95a5; --border: rgba(255,255,255,0.08); --link: #6ba8d4; }
       .page-header { background: #0b1a2e; }
-      .summary, .gallery-item, .moss, .cap, .quote { background: rgba(255,255,255,0.03); }
+      .summary, .gallery-item, .moss, .cap, .quote, .betting-card { background: rgba(255,255,255,0.03); }
     }
 
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -445,6 +465,7 @@
           <li>Produced fan experience app for the opening of U.S. Bank Stadium.</li>
           <li>Led creative coverage of Super Bowl LII — including fan-facing app serving as an essential guide to the Twin Cities.</li>
           <li>Created the Preps franchise — high school sports content generating unique sponsorship revenue, still active today.</li>
+          <li>Negotiated a branded content partnership with XLMedia (now Sportradar) to launch the Star Tribune's sports betting hub — and wrote the editorial policy separating commercial content from the newsroom's own coverage.</li>
           <li>Generated <strong>$20M in new revenue</strong> during the pandemic by rebuilding workflows around audience, not legacy.</li>
           <li>First CCO/VP in the company's 150-year history — 55-person team across editorial, design, video, and product.</li>
         </ul>
@@ -512,6 +533,17 @@
         <img class="cutout" src="/vikings/images/moss-cutout.png" alt="Randy Moss cutout illustration">
         <div class="moss-caption">Randy Moss and I were both rookies in 1998. Sports journalism has been the through-line since — cover design, photo direction, data-driven storytelling, live-event coverage across two major markets and every major championship.</div>
         <img class="shadow" src="/vikings/images/moss-shadow.png" alt="Randy Moss shadow">
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Content Monetization</div>
+      <h2 class="section-title">Before most publishers had a strategy.</h2>
+      <div class="betting-card">
+        <div class="betting-meta">Sports Betting Hub · Star Tribune · XLMedia / Sportradar</div>
+        <p>Identified sports betting as an audience and revenue opportunity early — when most newsrooms were still debating whether to touch the topic. Negotiated the Star Tribune's branded content partnership with XLMedia, launched the hub at <a href="https://www.startribune.com/sports-betting" target="_blank" rel="noopener">startribune.com/sports-betting</a>, and wrote the editorial policy formally separating commercial sports betting content from the newsroom's own coverage. Knowing where the line is — and putting it in writing — is what makes a content monetization strategy credible.</p>
+        <p>XLMedia was later acquired by Sportradar, the NFL's official data partner, with an office in downtown Minneapolis.</p>
+        <a href="https://www.startribune.com/sports-betting" class="betting-link" target="_blank" rel="noopener">startribune.com/sports-betting →</a>
       </div>
     </section>
 
