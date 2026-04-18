@@ -83,6 +83,8 @@
       overflow: hidden;
       background: #0b1a2e;
       color: #fff;
+      display: flex;
+      flex-direction: column;
     }
     .hero img.hero-img {
       position: absolute; inset: 0; width: 100%; height: 100%;
@@ -91,13 +93,14 @@
     }
     .hero::after {
       content: ""; position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(to bottom, rgba(10,22,40,0.55), rgba(10,22,40,0.75));
+      background: linear-gradient(to bottom, rgba(10,22,40,0.3), rgba(10,22,40,0.85));
       pointer-events: none;
     }
     .hero-overlay {
       position: relative; z-index: 2;
-      max-width: 960px; margin: 0 auto;
-      padding: 6rem 2rem 4rem;
+      max-width: 960px; margin: auto auto 0;
+      width: 100%;
+      padding: 2.5rem 2rem 3rem;
       text-align: left;
     }
     .hero-eyebrow {
@@ -106,20 +109,37 @@
     }
     .hero-title {
       font-size: 2.6rem; font-weight: 700; letter-spacing: -0.02em;
-      line-height: 1.1; margin-bottom: 0.5rem;
+      line-height: 1.1; margin-bottom: 0.75rem;
     }
-    .hero-sub {
-      font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.04em;
-      color: rgba(255,255,255,0.72); margin-bottom: 1.5rem;
+    .hero-title-org {
+      display: block; font-size: 1.6rem; font-weight: 600;
+      color: rgba(255,255,255,0.82); margin-top: 0.3rem;
     }
+    .hero-title-org .arrow { color: var(--vikings-gold); margin-right: 0.35rem; }
     .hero-intro {
-      font-size: 1.05rem; line-height: 1.6; color: rgba(255,255,255,0.9);
-      max-width: 620px; margin-bottom: 1.75rem;
+      font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.88);
+      max-width: 600px; margin-bottom: 1.5rem;
     }
-    .hero-meta {
-      font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.05em;
-      color: rgba(255,255,255,0.55);
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+    .hero-btn {
+      display: inline-block; padding: 7px 16px;
+      border: 1px solid rgba(255,255,255,0.25); border-radius: 3px;
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      font-family: var(--mono); font-size: 0.75rem;
+      letter-spacing: 0.02em; transition: border-color 0.2s, color 0.2s;
+      min-width: 80px; text-align: center;
     }
+    .hero-btn:hover { border-color: var(--vikings-gold); color: var(--vikings-gold); text-decoration: none; }
+
+    /* Header page nav */
+    .page-nav {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .page-nav a { color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .page-nav a:hover { color: var(--accent); text-decoration: none; }
+    .page-nav .sep { color: var(--accent); opacity: 0.5; }
 
     /* Content */
     .content { max-width: var(--content-w); margin: 0 auto; padding: 0 2rem; }
@@ -277,15 +297,19 @@
     }
     @media (min-width: 860px) {
       .hero-title { font-size: 3rem; }
-      .hero-overlay { padding: 7rem 2rem 5rem; }
+      .hero-title-org { font-size: 1.8rem; }
+      .hero-overlay { padding: 2.5rem 2rem 3.5rem; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
     }
 
     /* Mobile */
     @media (max-width: 640px) {
-      .hero-overlay { padding: 4rem 1.25rem 3rem; }
+      .hero-overlay { padding: 2rem 1.25rem 2.5rem; }
       .hero-title { font-size: 1.9rem; }
-      .hero-intro { font-size: 0.98rem; }
+      .hero-title-org { font-size: 1.25rem; }
+      .hero-intro { font-size: 0.95rem; }
+      .page-nav .sep:nth-child(6),
+      .page-nav a:nth-child(7) { display: none; }
       .content { padding: 0 1.25rem; }
       .section { padding: 2.5rem 0 2rem; }
       .page-header { padding: 0.75rem 1rem; }
@@ -310,24 +334,35 @@
   <!-- Page Header -->
   <header class="page-header">
     <a class="brand" href="/">claudewill*</a>
-    <span class="title">Derek<span class="arrow">→</span>Vikings</span>
+    <nav class="page-nav">
+      <a href="#cover">The Letter</a>
+      <span class="sep">·</span>
+      <a href="#experience">Experience</a>
+      <span class="sep">·</span>
+      <a href="#work">Work</a>
+      <span class="sep">·</span>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
   <!-- Hero -->
   <section class="hero">
     <img class="hero-img" src="/vikings/images/winner-wonderland.png" alt="Winter wonderland — championship coverage" loading="eager">
     <div class="hero-overlay">
-      <div class="hero-eyebrow">Application · April 17, 2026</div>
-      <h1 class="hero-title">Derek Simmons → Minnesota Vikings</h1>
-      <p class="hero-sub">Vice President, Creative &amp; Production</p>
-      <p class="hero-intro">Thirty-year creative executive. Sports journalism origin. First CCO/VP in Star Tribune history. Fan experience apps for U.S. Bank Stadium and Super Bowl LII. Woodbury, Minnesota.</p>
-      <div class="hero-meta">simmons.derek@gmail.com · 213.327.5683 · claudewill.io/derek</div>
+      <div class="hero-eyebrow">Application — VP, Creative &amp; Production</div>
+      <h1 class="hero-title">Derek Simmons<span class="hero-title-org"><span class="arrow">→</span>Minnesota Vikings</span></h1>
+      <p class="hero-intro">Thirty-year creative executive. First CCO/VP in Star Tribune history. Fan experience app developer. Award-winning sports writer, designer, and innovator based in Woodbury, Minnesota.</p>
+      <div class="hero-buttons">
+        <a href="mailto:simmons.derek@gmail.com" class="hero-btn">Email</a>
+        <a href="https://www.linkedin.com/in/dereksimm/" class="hero-btn" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/dereksimmons23" class="hero-btn" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </div>
   </section>
 
   <!-- Cover Letter -->
   <div class="content">
-    <section class="section cover-letter">
+    <section id="cover" class="section cover-letter">
       <div class="section-label">The Letter</div>
       <h2 class="section-title">Re: Vice President, Creative &amp; Production</h2>
 
@@ -362,7 +397,7 @@
     </section>
 
     <!-- Summary -->
-    <section class="section">
+    <section id="summary" class="section">
       <div class="section-label">The Short Version</div>
       <h2 class="section-title">Creative Executive · Sports Design &amp; Production · Multi-Platform Content Leader</h2>
       <div class="summary">
@@ -371,7 +406,7 @@
     </section>
 
     <!-- Experience -->
-    <section class="section">
+    <section id="experience" class="section">
       <div class="section-label">Experience</div>
       <h2 class="section-title">Where the work has been done</h2>
 
