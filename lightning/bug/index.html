@@ -420,6 +420,64 @@
             .tab-btn { padding-left: 1rem; padding-right: 1rem; }
         }
 
+        /* Color progression — figures with captions */
+        .scroll-figure {
+            flex: 0 0 auto;
+            width: 320px;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+        }
+        .scroll-figure .scroll-img {
+            width: 100%;
+            flex: none;
+        }
+        .scroll-fig-caption {
+            font-size: 0.65rem;
+            color: var(--accent);
+            padding: 0.35rem 0 0;
+            line-height: 1.4;
+            letter-spacing: 0.02em;
+        }
+
+        /* On Deck / Overnight Todo */
+        .on-deck-block {
+            border-left: 2px solid #5ab55a;
+            padding: 0.9rem 1rem 0.9rem 1.2rem;
+            background: #060f06;
+            border-radius: 0 4px 4px 0;
+        }
+        .on-deck-block .log-date { color: #5ab55a !important; }
+
+        /* Color swatches */
+        .color-row {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+            align-items: center;
+        }
+        .swatch {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.7rem;
+            color: var(--text);
+            background: var(--card-bg);
+            padding: 0.3rem 0.65rem;
+            border-radius: 3px;
+        }
+        .swatch-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 700px) {
+            .scroll-figure { width: 280px; }
+        }
+
         @media print {
             .video-wrap, .scroll-gallery { display: none; }
             body { background: white; color: black; }
@@ -560,7 +618,15 @@
         <section>
             <h2>Production Status</h2>
             <div class="production-log">
+                <div class="log-entry on-deck-block">
+                    <span class="log-date">On Deck &mdash; Day 14</span>
+                    <span class="log-text"><strong>Video:</strong> Shot 7.5 hospital hallway (cold cobalt, updated color grammar). Shot 13 transformer clip (Runway Gen-4.5, ref: shot-13-sunset.jpg). &mdash; <strong>Stills:</strong> Gap map review vs. shadow pivot decisions. &mdash; <strong>Assembly:</strong> Rough cut checkpoint &mdash; all locked stills into timeline order. &mdash; <strong>Audio:</strong> Sync transformer death sound to Shot 13 extinction moment. &mdash; <strong>Ref:</strong> <code>docs/gap-map-day12.md</code>, <code>docs/shadow-pivot-greenlight-v1.md</code>, <code>SHOT-MANIFEST.md</code>.</span>
+                </div>
                 <div class="log-entry" style="border-left: 2px solid #d4a84b; padding-left: 1rem;">
+                    <span class="log-date">Day 13 &mdash; Apr 18</span>
+                    <span class="log-text">Shadow pivot greenlighted. ICU fluorescent green dropped &mdash; the hospital is the transformer&rsquo;s house, cold cobalt throughout, no exceptions. Color grammar locked: amber family (Sandra, life, warmth) + cobalt family (machine, extinction) only. Film date and coordinates confirmed: June 28, 1983, Nickerson Kansas, 37.564&deg;N, 98.121&deg;W. Astronomical precision layer: sunset 8:50 PM CDT, Shot 13 in civil twilight window. Ecological record documented &mdash; 30&ndash;50% firefly decline since 1990s; neonicotinoids, light pollution, western-edge Kansas populations. The Twain line placed. Eight Shot 13 generations traced the correct register &mdash; <strong>shot-13-sunset.jpg</strong> is the keeper: cobalt sky, amber horizon, 9:10 PM CDT. Nine days to deadline.</span>
+                </div>
+                <div class="log-entry">
                     <span class="log-date">Day 12 &mdash; Apr 17</span>
                     <span class="log-text">Style pivoted. Anime pop stripped back to painterly illustration in the lineage of Persepolis, Waltz with Bashir, and Ghibli&rsquo;s autobiographical work. Darkness IS the style. Photoreal synthesis of the people I love would have been false witness &mdash; illustration signals interpretation, not record. Studio named: <strong>sssstudios</strong>. Dedication card and studio card collapse into one thing &mdash; the film ends with &ldquo;For SSS, thanks for the light.&rdquo; The studio name is the same three letters. Ten days to the Runway AIF deadline. Submission doc rewritten to match the current form. The opening shot encodes the ICU fluorescent; research notes live in the studio, the Story tab is where the key sits.</span>
                 </div>
@@ -648,7 +714,7 @@
         <section>
             <div class="statement">
                 <p>A soundtrack is a second film. This one runs underneath the first &mdash; a song, four hums, a room full of crickets, a mother on the phone.</p>
-                <p>The song is mine. The hums are the machine&rsquo;s. The room is Kansas. What you hear is as honest as what you see.</p>
+                <p>The song is mine. The hums are the machine&rsquo;s. The room is Kansas. What you hear is as real as what you see.</p>
             </div>
         </section>
 
@@ -822,6 +888,71 @@
                 </video>
                 <p class="process-video-caption">Empire Builder &mdash; shot from the train window somewhere in Montana. The same train that runs through Nickerson. This is source material and process at once.</p>
             </div>
+        </section>
+
+        <section>
+            <h2>Shot 13 &mdash; The Color Progression</h2>
+            <p>Shot 13 is the transformer pole at the west edge of the wheat field &mdash; silhouetted against the sunset at <strong>37.564&deg;N, 98.121&deg;W</strong>, June 28, 1983. This is the extinction shot. The transformer kills the fireflies. The amber world goes cold cobalt.</p>
+            <p>Civil twilight runs <strong>8:50&ndash;9:22 PM CDT</strong>. That&rsquo;s the window. The astronomical math doesn&rsquo;t change on 40-year timescales &mdash; the same light that governed June 28, 1983 governs June 28, 2025. Coordinates feed the prompt. The prompt feeds the image.</p>
+            <p>The workflow: <strong>FLUX</strong> for base architecture (cloud volume, composition, depth). <strong>Kontext</strong> for time-of-day pass (darken, pull toward the correct hour). Generate bright first to show cloud shape. Then extinguish. You can&rsquo;t add volume to a dark image &mdash; you build it in light and then kill it.</p>
+            <p>Eight generations across one session. The keeper is image six: cobalt taking the sky, amber burning at the horizon over N Nickerson Rd, the transformer pole in the seam. <strong>9:10 PM CDT.</strong></p>
+        </section>
+
+        <div class="gallery-section">
+            <div class="scroll-gallery" style="align-items: flex-start;">
+                <figure class="scroll-figure">
+                    <img class="scroll-img" src="/images/lightning-bug/shot-13-transformer-extinction.jpg" alt="Shot 13 baseline — FLUX default, polished anime register" loading="lazy">
+                    <figcaption class="scroll-fig-caption">Gen 1: raw FLUX &mdash; wrong register, too polished</figcaption>
+                </figure>
+                <figure class="scroll-figure">
+                    <img class="scroll-img" src="/images/lightning-bug/shot-13-cobalt-volumetric.jpg" alt="Shot 13 volumetric cloud attempt — daytime blue sky" loading="lazy">
+                    <figcaption class="scroll-fig-caption">Gen 2: ~3 PM &mdash; volumetric clouds, daytime blue</figcaption>
+                </figure>
+                <figure class="scroll-figure">
+                    <img class="scroll-img" src="/images/lightning-bug/shot-13-transformer-inverted.jpg" alt="Shot 13 color inverted — amber sky, cobalt ground" loading="lazy">
+                    <figcaption class="scroll-fig-caption">Gen 3: color inversion &mdash; amber sky, cobalt world</figcaption>
+                </figure>
+                <figure class="scroll-figure">
+                    <img class="scroll-img" src="/images/lightning-bug/shot-13-inverted-volumetric.jpg" alt="Shot 13 inverted with volumetric clouds — amber storm sky" loading="lazy">
+                    <figcaption class="scroll-fig-caption">Gen 4: ~5 PM storm &mdash; inverted + volumetric (first WOW)</figcaption>
+                </figure>
+                <figure class="scroll-figure">
+                    <img class="scroll-img" src="/images/lightning-bug/shot-13-inverted-lightning.jpg" alt="Shot 13 both registers firing — amber and cobalt lightning" loading="lazy">
+                    <figcaption class="scroll-fig-caption">Gen 5: ~5:30 PM &mdash; both registers firing</figcaption>
+                </figure>
+                <figure class="scroll-figure">
+                    <img class="scroll-img" src="/images/lightning-bug/shot-13-sunset.jpg" alt="Shot 13 keeper — cobalt top, amber horizon, 9:10 PM CDT civil twilight" loading="lazy">
+                    <figcaption class="scroll-fig-caption">Gen 6: 9:10 PM CDT &mdash; civil twilight (keeper)</figcaption>
+                </figure>
+                <figure class="scroll-figure">
+                    <img class="scroll-img" src="/images/lightning-bug/shot-13-10pm.jpg" alt="Shot 13 at 10 PM — nautical twilight, cloud mass reduced" loading="lazy">
+                    <figcaption class="scroll-fig-caption">Gen 7: 10:00 PM CDT &mdash; nautical twilight</figcaption>
+                </figure>
+                <figure class="scroll-figure">
+                    <img class="scroll-img" src="/images/lightning-bug/shot-13-cobalt-night.jpg" alt="Shot 13 Kontext night pass — too dark, cloud mass lost" loading="lazy">
+                    <figcaption class="scroll-fig-caption">Gen 8: 10:30 PM CDT &mdash; too dark, cloud mass gone</figcaption>
+                </figure>
+            </div>
+            <p class="gallery-caption" style="margin-top: 0.75rem;">Shot 13 &mdash; 37.564&deg;N, 98.121&deg;W &mdash; June 28, 1983. Eight generations. Civil twilight: 8:50&ndash;9:22 PM CDT. The astronomy is in the frame whether the viewer knows it or not.</p>
+        </div>
+
+        <section>
+            <h2>The Color Grammar</h2>
+            <p>Two light families. They never mix. Every pixel in this film is one or the other &mdash; a shade, a tone, or a shadow of its family color.</p>
+            <div class="color-row">
+                <span class="swatch"><span class="swatch-dot" style="background:#ffb347;"></span> amber base #ffb347</span>
+                <span class="swatch"><span class="swatch-dot" style="background:#d4882a;"></span> amber deep #d4882a</span>
+                <span class="swatch"><span class="swatch-dot" style="background:#c8671a;"></span> amber char #c8671a</span>
+                <span class="swatch"><span class="swatch-dot" style="background:#1a0a02;"></span> amber shadow #1a0a02</span>
+            </div>
+            <div class="color-row">
+                <span class="swatch"><span class="swatch-dot" style="background:#6b9fd4;"></span> cobalt light #6b9fd4</span>
+                <span class="swatch"><span class="swatch-dot" style="background:#1e4a8a;"></span> cobalt mid #1e4a8a</span>
+                <span class="swatch"><span class="swatch-dot" style="background:#0a1a2f;"></span> cobalt deep #0a1a2f</span>
+                <span class="swatch"><span class="swatch-dot" style="background:#040810;"></span> cobalt shadow #040810</span>
+            </div>
+            <p style="margin-top: 1.25rem;"><strong>Amber</strong> = Sandra, life, warmth, fireflies, Kansas sun, the amber flash, the bug. <strong>Cobalt</strong> = the transformer, the machine, extinction, the hospital, artificial light. No pure black (#000000). No pure white. Shadows are shades of their register color. Humans are silhouettes. Sound is specific (names, dates, one family). Visual is universal (anyone&rsquo;s story).</p>
+            <p>The model is the lightning. The prompt is the bug.</p>
         </section>
 
         <section>
