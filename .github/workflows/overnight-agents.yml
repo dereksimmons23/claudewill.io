@@ -212,7 +212,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add kitchen-data.json cw-current.json pulse.json spend-data.json reports/morning-edition.md
+          git add kitchen-data.json cw-current.json pulse.json spend-data.json reports/morning-edition.md reports/housekeeping.md reports/pipeline-scan.md
           git diff --cached --quiet || git commit -m "chore: morning edition + spend audit + kitchen-data from overnight agents"
           git push
 
