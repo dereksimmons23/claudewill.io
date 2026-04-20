@@ -173,7 +173,7 @@ async function main() {
     operational: [],
     internal: [],
   }
-  if (pulse.dawn.daysSinceEntry > 7) pulse.flags.operational.push(`Dawn: ${pulse.dawn.daysSinceEntry} days since last entry.`)
+  // Dawn writes to local markdown, not Supabase — dawn_entries table is stale by design
   if (pulse.visitors.total < 10) pulse.flags.internal.push(`${pulse.visitors.total} visitors in 3.5 months. Distribution is the gap.`)
   if (pulse.d.total < 5) pulse.flags.internal.push('D has zero real users. Paywall is built. Stripe is not.')
   if (pulse.revenue.d.subscribers === 0) pulse.flags.internal.push('$0 from D. $0 from the practice. Cascadia is the only income.')
