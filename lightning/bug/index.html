@@ -6,9 +6,9 @@
     <meta name="color-scheme" content="dark">
     <meta name="theme-color" content="#070d1a">
     <title>lightning/bug | claudewill</title>
-    <meta name="description" content="An AI-generated short film about two kinds of light. ~8 minutes. Directed by Derek Claude Simmons. Assembled from terminal.">
+    <meta name="description" content="lightning/bug — a 7:17 AI-generated short film rendered from Nickerson, Kansas. The land is mostly flat. The names matter. Directed by Derek Claude Simmons.">
     <meta property="og:title" content="lightning/bug — a short film">
-    <meta property="og:description" content="The absence of darkness. ~8 minutes. Directed by Derek Claude Simmons.">
+    <meta property="og:description" content="The land is mostly flat. The names matter. 7:17. Directed by Derek Claude Simmons.">
     <meta property="og:type" content="video.movie">
     <meta property="og:url" content="https://claudewill.io/lightning/bug">
     <meta property="og:image" content="https://claudewill.io/images/lightning-bug/og-poster.jpg">
@@ -479,9 +479,181 @@
         }
 
         @media print {
-            .video-wrap, .scroll-gallery { display: none; }
+            .video-wrap, .scroll-gallery, .press-kit { display: none; }
             body { background: white; color: black; }
             .film-title, h2, h3 { color: black; }
+        }
+
+        /* ==================== Press Kit Scroll (Apr 21 redesign) ==================== */
+        .press-kit {
+            border-top: 1px solid var(--border);
+            background: linear-gradient(180deg, #070d1a 0%, #0a1424 50%, #070d1a 100%);
+        }
+        .press-kit .press-block {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 3.5rem 24px;
+            border-bottom: 1px solid var(--border);
+        }
+        .press-kit .press-block:last-child { border-bottom: none; }
+        .press-label {
+            font-size: 0.7rem;
+            color: var(--dim);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        .press-kit blockquote.thesis-quote {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--bright);
+            line-height: 1.4;
+            border: none;
+            padding: 0;
+            margin: 0 0 1.5rem;
+            letter-spacing: -0.01em;
+        }
+        .press-kit blockquote.thesis-quote em {
+            color: var(--accent);
+            font-style: normal;
+        }
+        .press-byline {
+            font-size: 0.75rem;
+            color: var(--dim);
+            letter-spacing: 0.04em;
+        }
+        .numbers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem 1rem;
+            margin-top: 0.5rem;
+        }
+        .numbers-grid .num {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 1rem 1rem 1rem 0;
+            border-left: 2px solid var(--accent);
+            padding-left: 1rem;
+        }
+        .numbers-grid .num .n {
+            font-size: 1.8rem;
+            color: var(--bright);
+            line-height: 1;
+            margin-bottom: 0.35rem;
+        }
+        .numbers-grid .num .l {
+            font-size: 0.7rem;
+            color: var(--dim);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .slipper-video {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            margin-bottom: 1.2rem;
+            background: #000;
+            border: 1px solid var(--border);
+        }
+        .slipper-video video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .press-caption {
+            font-size: 0.88rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+        .press-caption em { color: var(--accent); font-style: italic; }
+        .press-caption-small {
+            font-size: 0.78rem;
+            color: var(--dim);
+            margin-top: 0.8rem;
+            line-height: 1.7;
+        }
+        .places-topo {
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--border);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .places-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0 0;
+            counter-reset: place;
+        }
+        .places-list li {
+            counter-increment: place;
+            padding: 0.8rem 0 0.8rem 2.4rem;
+            font-size: 0.88rem;
+            color: var(--text);
+            line-height: 1.7;
+            position: relative;
+            border-top: 1px solid var(--border);
+        }
+        .places-list li:last-child { border-bottom: 1px solid var(--border); }
+        .places-list li::before {
+            content: counter(place, decimal-leading-zero);
+            position: absolute;
+            left: 0;
+            top: 0.9rem;
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+        }
+        .places-list strong { color: var(--bright); font-weight: 500; }
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 0.5rem;
+        }
+        .split-col h4 {
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+        .split-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .split-col ul li {
+            font-size: 0.82rem;
+            color: var(--text);
+            padding: 0.4rem 0;
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border);
+        }
+        .split-col ul li:last-child { border-bottom: none; }
+        .press-cta {
+            text-align: center;
+            padding: 2.5rem 24px !important;
+        }
+        .press-cta .down-arrow {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.2em;
+        }
+        .press-cta p {
+            font-size: 0.82rem;
+            color: var(--dim);
+            margin: 0;
+        }
+        @media (max-width: 700px) {
+            .press-kit blockquote.thesis-quote { font-size: 1.3rem; }
+            .numbers-grid { grid-template-columns: 1fr 1fr; }
+            .split-grid { grid-template-columns: 1fr; gap: 1.5rem; }
         }
     </style>
 </head>
@@ -504,10 +676,108 @@
         </div>
         <div class="hero-text">
             <h1 class="film-title">lightning/bug<span class="cursor" aria-hidden="true"></span></h1>
-            <p class="tagline">the absence of darkness &mdash; ~8 minutes</p>
+            <p class="tagline">the absence of darkness &mdash; 7:17</p>
             <p class="credit">Derek Claude Simmons &mdash; March 2025 / April 2026</p>
         </div>
     </div>
+
+    <!-- ==================== PRESS KIT SCROLL (Apr 21 redesign) ==================== -->
+    <section class="press-kit" aria-label="press kit">
+
+        <!-- Thesis -->
+        <div class="press-block">
+            <p class="press-label">thesis &mdash; day 19 of production, april 21, 2026</p>
+            <blockquote class="thesis-quote">
+                The land is mostly flat.<br>
+                The <em>names</em> matter.
+            </blockquote>
+            <p class="press-caption">Hyper-specific over pretty-but-generic. This film is rendered from a real place &mdash; Nickerson, Reno County, Kansas &mdash; a boyhood grid of dirt roads, grain elevators, wheat, and one ATSF rail line. The AI tools did not invent it. They rendered the memory of it. That is why the frames hold.</p>
+            <p class="press-byline">&mdash; Derek Claude Simmons, director</p>
+        </div>
+
+        <!-- By the numbers -->
+        <div class="press-block">
+            <p class="press-label">the film in numbers</p>
+            <div class="numbers-grid">
+                <div class="num"><span class="n">7:17</span><span class="l">runtime</span></div>
+                <div class="num"><span class="n">35</span><span class="l">slots</span></div>
+                <div class="num"><span class="n">4</span><span class="l">acts</span></div>
+                <div class="num"><span class="n">9</span><span class="l">AI tools</span></div>
+                <div class="num"><span class="n">100+</span><span class="l">stills</span></div>
+                <div class="num"><span class="n">6</span><span class="l">days to deadline</span></div>
+            </div>
+            <p class="press-caption-small">Four acts: Black Open (000&ndash;005), Can Lifts and Wheat (006&ndash;011.5), Ballgame and Transformer (012&ndash;019), Return and Cosmos and Credits (020&ndash;031). Submission: Runway AIF, April 27, 2026, 4:59 PM ET.</p>
+        </div>
+
+        <!-- Slipper -->
+        <div class="press-block">
+            <p class="press-label">meet slipper</p>
+            <div class="slipper-video">
+                <video autoplay muted loop playsinline>
+                    <source src="/video/lightning-bug-firebird-slipper.mp4" type="video/mp4">
+                </video>
+            </div>
+            <p class="press-caption">
+                <em>Slipper</em> &mdash; a 1982 gunmetal gray Pontiac Firebird, dark tinted windows, running the Jeep Trail south of Nickerson. A second Firebird overtakes her in the clip. Still &rarr; Veo 3 for the first 5 seconds. Kling 3.0 Pro to expand to 15. Score underneath is <em>06-slipper</em> &mdash; same name as the car. These are the dirt roads Derek drove as a teenager. Slipper opens slot 022 of the film &mdash; the path home.
+            </p>
+        </div>
+
+        <!-- Places -->
+        <div class="press-block">
+            <p class="press-label">the places &mdash; nickerson, reno county, kansas</p>
+            <img class="places-topo" src="/images/lightning-bug/nickerson-topo.jpg" alt="Satellite view of Nickerson, Kansas, with the ATSF rail line cutting northeast to southwest, Arkansas River to the south, Bull Creek to the north.">
+            <p class="press-caption-small">The ATSF rail line cuts northeast-to-southwest through town. Arkansas River runs along the south. Bull Creek to the north. Six places from Derek's life sit on this sheet. Each appears &mdash; directly or by register &mdash; in the film.</p>
+            <ol class="places-list">
+                <li><strong>The double-wide</strong> &mdash; south end of town. Where Derek grew up. The porch the boy stands on (slot 004, bat to sky) is this porch.</li>
+                <li><strong>The white shed</strong> &mdash; hugs the dirt road south of town. Visible from the double-wide's porch. The one streetlight above the can (slot 002) is the register echo of its landmark-distance.</li>
+                <li><strong>The T-intersection</strong> &mdash; where the boy's world ends and the wheat field's begins. The film's structural T is slot 010.9 &mdash; an overhead cut through wheat that reads like the T from above.</li>
+                <li><strong>The wheat field</strong> &mdash; across the T, southwest of the white shed, tree line cutting across. Derek explored it as a kid. Appears in slot 009 (wheat-as-stadium) and throughout the at-bat sequence.</li>
+                <li><strong>The sandpit</strong> &mdash; south of town, kidney-shaped dark water. Summer fishing water. The cosmic reverse in slot 026 is the sandpit inverted: dark body of space instead of dark body of water.</li>
+                <li><strong>The football field</strong> &mdash; north of the sandpit. Derek played QB there. The chalk geometry in slot 011.5 is a field, not a diamond. The at-bat sequence reads as a dusk football game that happens to be baseball.</li>
+            </ol>
+        </div>
+
+        <!-- What's AI / What's Human -->
+        <div class="press-block">
+            <p class="press-label">what's AI &mdash; what's human</p>
+            <div class="split-grid">
+                <div class="split-col">
+                    <h4>Artificial</h4>
+                    <ul>
+                        <li>Every still (~100 frames) &mdash; FLUX, Imagen 4, FLUX Kontext Pro</li>
+                        <li>Every video clip &mdash; Kling 3.0 Pro, Runway Gen-4.5, Veo 3</li>
+                        <li>Score &mdash; AIVA Pro</li>
+                        <li>Foley &mdash; ElevenLabs SFX</li>
+                        <li>Ambient beds &mdash; Stable Audio 2.5</li>
+                        <li>Upscale &mdash; Topaz (image + video)</li>
+                        <li>Assembly &mdash; ffmpeg, ImageMagick, Python, Audacity</li>
+                        <li>Direction &mdash; Claude Opus 4.7, Sonnet 4.6, Haiku 4.5</li>
+                    </ul>
+                </div>
+                <div class="split-col">
+                    <h4>Human</h4>
+                    <ul>
+                        <li>The voice &mdash; 31 minutes, iPhone, unscripted</li>
+                        <li>Sandra's voicemails</li>
+                        <li>1983 Channel 9 Wichita newscast</li>
+                        <li>The memory &mdash; Nickerson 1983, Lawrence 2025</li>
+                        <li>The script &mdash; written March 2025</li>
+                        <li>The decision to reject the AI voice</li>
+                        <li>The color grading</li>
+                        <li>The sound design</li>
+                        <li>The film</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="press-block press-cta">
+            <p class="down-arrow">&darr;</p>
+            <p>Story &middot; Film &middot; Song &middot; Process &middot; Places &middot; Research &middot; Inspo</p>
+        </div>
+
+    </section>
 
     <!-- Tab Navigation -->
     <nav class="tab-nav" role="tablist" aria-label="Film sections">
@@ -515,6 +785,7 @@
         <button class="tab-btn" role="tab" aria-selected="false" data-tab="film">film</button>
         <button class="tab-btn" role="tab" aria-selected="false" data-tab="song">song</button>
         <button class="tab-btn" role="tab" aria-selected="false" data-tab="process">process</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="places">places</button>
         <button class="tab-btn" role="tab" aria-selected="false" data-tab="research">research</button>
         <button class="tab-btn" role="tab" aria-selected="false" data-tab="inspo">inspo</button>
     </nav>
@@ -1051,6 +1322,59 @@
                 </div>
             </div>
             <p style="margin-top: 1.5rem; font-size: 0.78rem; color: var(--dim);">Monthly cost: ~$200 total &mdash; Claude Max, LTX Studio, Runway, Suno, Google Workspace. No VC. No crew. No studio.</p>
+        </section>
+
+    </div>
+
+    <!-- ==================== PLACES TAB (new Apr 21) ==================== -->
+    <div class="tab-panel" id="tab-places" role="tabpanel">
+
+        <section>
+            <div class="statement">
+                <p>The land is mostly flat. The names matter.</p>
+            </div>
+
+            <p>The thesis of this film &mdash; the line that separates it from the pretty-but-generic generation of AI filmmaking &mdash; is hyper-specific. When Slipper runs south on the aerial, those are the dirt roads Derek drove the 1982 Pontiac Firebird on. When the wheat field appears with the tree line cutting across it, that is the wheat field Derek explored as a kid. When the boy walks out the screen door and looks up at one streetlight, he is standing where a double-wide used to sit, looking at a white shed down the road.</p>
+
+            <p>The AI tools &mdash; Veo 3, Kling 3.0 Pro, Runway, FLUX &mdash; did not invent Nickerson. They rendered the memory of it. The prompts named real grain elevators, real dirt-road geometry, real Kansas wheat, real ATSF rail alignment. That is why the frames hold. Specificity beat stylization.</p>
+
+            <img class="places-topo" src="/images/lightning-bug/nickerson-topo.jpg" alt="Satellite view of Nickerson, Kansas">
+            <p class="press-caption-small" style="margin-top: 0.5rem; margin-bottom: 2.5rem;">Nickerson, Reno County, Kansas. ATSF rail line cuts NE-SW. Arkansas River south. Bull Creek north. Source: TopoZone.</p>
+
+            <h2 style="margin-top: 2.5rem;">The Six Places</h2>
+
+            <h3 style="color: var(--bright); font-size: 1rem; margin-top: 1.5rem;">1. The Double-Wide</h3>
+            <p>Where Derek grew up. Not on the map anymore, but the sight lines from the door are. Standing on the porch you could see the top of the white shed down the road. That is the vantage point of the boy on the porch &mdash; slot 004, bat to sky, calling his shot.</p>
+            <p class="press-caption-small">In the film: slot 003 (boy inside the can, looking out), slot 004 (porch), slot 005 (screen door), slot 024 (man wakes &mdash; the adult returning to the childhood vantage).</p>
+
+            <h3 style="color: var(--bright); font-size: 1rem; margin-top: 2rem;">2. The White Shed</h3>
+            <p>Hugs the dirt road south of town. Visible from the double-wide's porch. The shed is white now; it was probably another color once. It sits at a landmark distance &mdash; close enough to mark the horizon, far enough to read as a beacon. The one streetlight above the can in slot 002 is the register echo of that landmark-distance relationship.</p>
+            <p class="press-caption-small">In the film: implied throughout Act I. The single light in the landscape.</p>
+
+            <h3 style="color: var(--bright); font-size: 1rem; margin-top: 2rem;">3. The T-Intersection</h3>
+            <p>The dirt road from the double-wide comes down and meets another dirt road in a T. This is where the boy's world ended and the wheat field's world began. The T is the threshold. The film's structural T is slot 010.9 (combine swath) &mdash; an overhead cut through wheat that reads like the T from above.</p>
+            <p class="press-caption-small">In the film: slot 010.9. The bridge between the hallway beat and the wheat-as-stadium beat.</p>
+
+            <h3 style="color: var(--bright); font-size: 1rem; margin-top: 2rem;">4. The Wheat Field with the Tree Line</h3>
+            <p>Across the T-intersection, southwest of the white shed, is a wheat field with a tree line that cuts across it. Derek explored it as a kid. The tree line is the boundary; the wheat is the interior. This is the wheat that shows up as abundance in slot 009 (wheat-as-firefly-stadium) and as background in the at-bat sequence (slots 013&ndash;017). It is not generic wheat. It is that wheat. The amber color in slot 009 is the amber of late July in Reno County.</p>
+            <p class="press-caption-small">In the film: slot 009, slots 013&ndash;017 backgrounds, slot 010.9 aerial.</p>
+
+            <h3 style="color: var(--bright); font-size: 1rem; margin-top: 2rem;">5. The Sandpit</h3>
+            <p>South of town, southwest of the grain elevators. Kidney-shaped dark water on the satellite view. Derek fished there in the summer. A place where kids went when the dirt roads gave out. The sandpit shows up implicitly in the film's water-and-silence register &mdash; the dark body of water in the landscape that the boy can feel but cannot see from the porch. The cosmic reverse in slot 026 is the sandpit inverted: the dark body of space instead of the dark body of water.</p>
+            <p class="press-caption-small">In the film: register reference only. Not a literal frame, but the sandpit's logic &mdash; held water, held silence &mdash; sits under Act III.</p>
+
+            <h3 style="color: var(--bright); font-size: 1rem; margin-top: 2rem;">6. The Football Field</h3>
+            <p>North of the sandpit. Derek played quarterback there. A QB reads a field by its geometry &mdash; yard lines, hash marks, the ladder of the sideline. That geometry carries into the ballpark slots: slot 011.5 (lightning-bug chalk drawing), slots 012&ndash;017 (the at-bat sequence). The chalk composite is a QB's-eye view of a hitter's box. The grid of small-town sports at dusk.</p>
+            <p class="press-caption-small">In the film: chalk geometry in slot 011.5 is a field, not a diamond. Slots 012&ndash;017 read as a dusk football game that happens to be baseball.</p>
+
+            <h2 style="margin-top: 3rem;">Slipper</h2>
+            <p>Slipper is the first 1982 gunmetal gray Pontiac Firebird, tinted windows. She ran the Jeep Trail south of Nickerson &mdash; the dirt road that comes to the T, then goes past the sandpit. In the 15-second hero clip on this page, a second Firebird overtakes her in aerial view. The score underneath is <em>06-slipper</em> &mdash; the track shares her name.</p>
+            <p>Slipper enters the film at slot 022 &mdash; the path home. The boy becomes the adult. The adult is driving.</p>
+
+            <h2 style="margin-top: 3rem;">What Is Not On This Map</h2>
+            <p><strong>Union Station Los Angeles</strong> &mdash; the exit terminus. Where the film ends. Not Kansas. The door out.</p>
+            <p><strong>Wichita</strong> &mdash; the 1983 Channel 9 newscast came from a Wichita signal that reached Nickerson at night. The antagonist's voice in the film.</p>
+            <p><strong>The ICU</strong> &mdash; Sandra's final room. Hallway beat 3. Wichita hospital, 2025.</p>
         </section>
 
     </div>
