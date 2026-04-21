@@ -1028,7 +1028,7 @@
             <div class="production-log">
                 <div class="log-entry">
                     <span class="log-date">Sandra</span>
-                    <span class="log-text"><strong>&ldquo;Marco&hellip;&rdquo;</strong> &mdash; mom&rsquo;s actual voicemail opens the film. Followed by &ldquo;Tag, you&rsquo;re it.&rdquo; Her last words in the film: &ldquo;Love you, bye.&rdquo; Real recordings, archival from Google Voice.</span>
+                    <span class="log-text"><strong>&ldquo;Marco&hellip;&rdquo;</strong> &mdash; mom&rsquo;s actual voicemail opens the film. Followed by &ldquo;Tag, you&rsquo;re it.&rdquo; Her last words in the film: &ldquo;Love you, bye.&rdquo; Real recordings, archival from iPhone Voicemail.</span>
                 </div>
                 <div class="log-entry">
                     <span class="log-date">Shannon</span>
@@ -1078,7 +1078,7 @@
             <h2>Score &amp; Credits</h2>
             <p style="font-size: 0.85rem;"><strong>Song:</strong> &ldquo;Here We Are, Kid&rdquo; &mdash; words by Derek Claude Simmons, performance by Suno v4.5, voice reference by Derek. Instrumental stem used as score bed for the final minute.</p>
             <p style="font-size: 0.85rem;"><strong>AIVA score sections:</strong> pending &mdash; low strings under the walk home, nothing over the song.</p>
-            <p style="font-size: 0.85rem;"><strong>Archival voice:</strong> Sandra Sue Simmons (voicemails, Google Voice). Shannon Dawn (voicemail). Sheri Simmons (voicemail). Channel 9 Wichita newscast, 1983.</p>
+            <p style="font-size: 0.85rem;"><strong>Archival voice:</strong> Sandra Sue Simmons (voicemails, iPhone). Shannon Dawn (voicemail). Sheri Simmons (voicemail). Channel 9 Wichita newscast, 1983.</p>
             <p style="font-size: 0.85rem;"><strong>Narration:</strong> Derek Claude Simmons, iPhone, unscripted, first take. Transcription by MLX Whisper large-v3-turbo.</p>
             <p style="font-size: 0.85rem;"><strong>Assembly:</strong> ffmpeg + Python. Mixed in stems, not stereo.</p>
         </section>
@@ -1276,7 +1276,8 @@
                 <div class="tool-group">
                     <h3>Creative Direction</h3>
                     <ul>
-                        <li><span class="tool-name">Anthropic Claude</span> (Opus 4.6 + Sonnet 4.6)</li>
+                        <li><span class="tool-name">Anthropic Claude</span> (Opus 4.7 + Sonnet 4.6 + Haiku 4.5) &mdash; direction, coding, pipeline</li>
+                        <li><span class="tool-name">Google Gemini</span> &mdash; visual research, prompt engineering, cinematic reference</li>
                         <li><span class="tool-name">iPhone voice memos</span> &mdash; 31+ min narration, 90-min walks</li>
                     </ul>
                 </div>
@@ -1301,7 +1302,7 @@
                     <ul>
                         <li><span class="tool-name">iPhone</span> &mdash; narration + walk recordings</li>
                         <li><span class="tool-name">MLX Whisper large-v3-turbo</span> &mdash; transcription</li>
-                        <li><span class="tool-name">Google Voice</span> &mdash; Sandra&rsquo;s voicemails (archival)</li>
+                        <li><span class="tool-name">iPhone Voicemail</span> &mdash; Sandra&rsquo;s voicemails (archival)</li>
                     </ul>
                 </div>
                 <div class="tool-group">
@@ -1588,8 +1589,12 @@
 
                 <div>
                     <p style="color: var(--accent); font-weight: 600;">Road to Perdition (2002)</p>
-                    <p style="color: var(--dim); font-size: 0.85rem; margin-bottom: 0.5rem;">Cinematography: Conrad Hall, ASC</p>
+                    <p style="color: var(--dim); font-size: 0.85rem; margin-bottom: 0.5rem;">Cinematography: Conrad L. Hall, ASC &mdash; posthumous Academy Award, 2003</p>
                     <p>The primary reference. Hall&rsquo;s last film. Rain-soaked nights, amber lamp light pooling in cobalt-dark. Figures as silhouettes in doorways. No pure black in any shadow &mdash; always cobalt, always slate, always depth. He said he wanted it to look like an Edward Hopper painting that got wet. This film lives inside that same sentence, in a wheat field instead of a diner.</p>
+                    <p style="font-size: 0.82rem; color: var(--dim); margin-top: 1rem; line-height: 1.8;"><strong style="color: var(--text);">How Hall got the look.</strong> Black silk over daylight exteriors instead of white &mdash; dims the light, moodier than flat diffusion. &ldquo;Room tone&rdquo; lighting: bounce off ceiling and wall, never direct fill, add pockets of motivated shadow. Backlit rain (rain glistens). Frontlit snow (texture shows). Underlit faces in emotional scenes &mdash; character separates from background, moral ambiguity enters. The climactic shootout has no dialogue: only high-contrast light and the rhythm of muzzle flashes against a rain-soaked street. Conrad Hall called it &ldquo;Magical Naturalism&rdquo; &mdash; emotional truth over literal logic.</p>
+                    <p style="font-size: 0.82rem; color: var(--dim); margin-top: 0.8rem; line-height: 1.8;"><strong style="color: var(--text);">The Hopper connection.</strong> Hall and Sam Mendes drew directly from Edward Hopper &mdash; specifically <em>Nighthawks</em> (1942), <em>New York Movie</em> (1939), and Hopper&rsquo;s lakeside houses. Hopper&rsquo;s device: composition always guides the eye <em>off-frame</em>, toward what isn&rsquo;t shown. The unspoken. This is the locked-off camera rule. This is why the figures in this film face away.</p>
+                    <p style="font-size: 0.82rem; color: var(--dim); margin-top: 0.8rem; line-height: 1.8;"><strong style="color: var(--text);">The optical layer.</strong> Hall shot almost everything in 2.39:1 anamorphic &mdash; Panavision C-Series lenses, 40&ndash;50mm, producing oval bokeh and edge distortion distinctive to that glass. Film stock: Kodak Vision3 500T (5279) for night scenes &mdash; creamy grain, tungsten-balanced, handles warm amber against cool blue shadow exactly the way this film needs. Exposure: underexposed by one stop, shadows crushed at T2.8, no fill. In AI prompts this translates to: <em>&ldquo;2.39:1 anamorphic, oval bokeh, 35mm Kodak Vision 500T grain, crushed blacks, tungsten-balanced warm interior against cool blue exterior.&rdquo;</em></p>
+                    <p style="font-size: 0.82rem; color: var(--dim); margin-top: 0.8rem; line-height: 1.8;"><strong style="color: var(--text);">The prompt vocabulary.</strong> &ldquo;Conrad L. Hall,&rdquo; &ldquo;magical naturalism,&rdquo; &ldquo;backlit rain,&rdquo; &ldquo;in-shade exterior,&rdquo; &ldquo;single motivated key source,&rdquo; &ldquo;room tone bounce,&rdquo; &ldquo;muted earth tones,&rdquo; &ldquo;eye guided off-frame,&rdquo; &ldquo;40mm anamorphic,&rdquo; &ldquo;Kodak Vision 500T.&rdquo; The full diagnostic vocabulary and paste-ready master prompts are in <code>docs/hall-prompt-vocabulary.md</code> in the production repo.</p>
                 </div>
 
                 <div>
