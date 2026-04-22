@@ -104,7 +104,7 @@ async function generateBrief(env) {
 
   // Get last published date from KV
   const lastLinkedIn = await env.CW_STATE.get('lastLinkedInPost');
-  const lastSubstack = await env.CW_STATE.get('lastSubstackPost');
+  const lastBeehiiv = await env.CW_STATE.get('lastSubstackPost');
 
   if (lastLinkedIn) {
     const daysSince = Math.floor((now - new Date(lastLinkedIn)) / (1000 * 60 * 60 * 24));
@@ -113,11 +113,11 @@ async function generateBrief(env) {
     lines.push('- LinkedIn: no posts tracked yet (log with POST /content/linkedin)');
   }
 
-  if (lastSubstack) {
-    const daysSince = Math.floor((now - new Date(lastSubstack)) / (1000 * 60 * 60 * 24));
-    lines.push(`- Substack: last post ${daysSince} day${daysSince !== 1 ? 's' : ''} ago${daysSince >= 7 ? ' (overdue — 1x/week cadence)' : ''}`);
+  if (lastBeehiiv) {
+    const daysSince = Math.floor((now - new Date(lastBeehiiv)) / (1000 * 60 * 60 * 24));
+    lines.push(`- Beehiiv: last post ${daysSince} day${daysSince !== 1 ? 's' : ''} ago${daysSince >= 7 ? ' (overdue — 1x/week cadence)' : ''}`);
   } else {
-    lines.push('- Substack: no posts tracked yet (log with POST /content/substack)');
+    lines.push('- Beehiiv: no posts tracked yet (log with POST /content/substack)');
   }
 
   // LinkedIn follower milestone
