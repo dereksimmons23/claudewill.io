@@ -1,9 +1,9 @@
 {
-  "generated": "2026-04-20T14:31:02.793Z",
-  "date": "2026-04-20",
+  "generated": "2026-04-22T11:28:55.686Z",
+  "date": "2026-04-22",
   "porch": {
-    "total": 715,
-    "thisWeek": 27,
+    "total": 722,
+    "thisWeek": 12,
     "today": 0
   },
   "d": {
@@ -13,18 +13,16 @@
     "modes": {}
   },
   "visitors": {
-    "total": 9,
+    "total": 10,
     "returning": 3,
     "named": 2,
     "maxVisits": 6
   },
   "sessions": {
-    "thisWeek": 3,
+    "thisWeek": 1,
     "avgWeight": 5,
     "byProject": {
-      "claudewill.io": 1,
-      "desktop": 1,
-      "dawn": 1
+      "claudewill.io": 1
     }
   },
   "dawn": {
@@ -32,12 +30,10 @@
     "dayNumber": 74,
     "raidRate": "3/6",
     "latestWeight": null,
-    "daysSinceEntry": 37
+    "daysSinceEntry": 39
   },
   "sparklines": {
     "conversations": [
-      8,
-      0,
       1,
       0,
       0,
@@ -63,11 +59,11 @@
       0,
       0,
       0,
+      0,
+      7,
       0
     ],
     "sessions": [
-      3,
-      1,
       2,
       4,
       4,
@@ -93,6 +89,8 @@
       0,
       1,
       0,
+      0,
+      0,
       0
     ]
   },
@@ -114,17 +112,13 @@
     "note": "Stripe not yet connected. D has zero paying users."
   },
   "flags": {
-    "operational": [
-      "Dawn: 37 days since last entry."
-    ],
+    "operational": [],
     "internal": [
-      "9 visitors in 3.5 months. Distribution is the gap.",
       "D has zero real users. Paywall is built. Stripe is not.",
       "$0 from D. $0 from the practice. Cascadia is the only income."
     ]
   },
   "bottomLine": [
-    "9 visitors in 3.5 months. Distribution is the gap.",
     "D has zero real users. Paywall is built. Stripe is not.",
     "$0 from D. $0 from the practice. Cascadia is the only income."
   ]
