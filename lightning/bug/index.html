@@ -177,8 +177,6 @@
         }
 
         /* ===== 2. THE POSTER ===== */
-        /* Hall's lens: Panavision C-Series anamorphic 2.39:1 — applied on desktop only. */
-        /* Mobile keeps full-bleed 16:9 so the poster doesn't become an anemic band. */
         .scene-poster {
             position: relative;
             width: 100%;
@@ -186,15 +184,6 @@
             height: 100dvh;
             overflow: hidden;
             background: var(--cobalt-deep);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .poster-frame {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
         }
         .scene-poster img {
             position: absolute;
@@ -202,27 +191,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center center;
             opacity: 0;
             transition: opacity 1.8s ease-in;
-            /* Patina grade — desaturate highlights, raise contrast a hair. */
-            /* From color-theory.md: "amber loses its sharpness, gains patina" */
-            filter: saturate(0.94) contrast(1.03);
         }
         .scene-poster img.loaded { opacity: 1; }
-        /* Kodak Vision 500T grain, layered via overlay blend. */
-        .poster-frame::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.10'/%3E%3C/svg%3E");
-            background-size: 240px 240px;
-            mix-blend-mode: overlay;
-            z-index: 2;
-        }
-        /* Cobalt vignette — preserves the existing bottom-weight. */
-        .poster-frame::after {
+        .scene-poster::after {
             content: '';
             position: absolute;
             inset: 0;
@@ -234,7 +207,6 @@
                 rgba(7, 13, 26, 0.55) 100%
             );
             pointer-events: none;
-            z-index: 3;
         }
 
         /* ===== 3. THE BREATH ===== */
@@ -267,8 +239,6 @@
         }
 
         /* ===== 4. THE FIELD ===== */
-        /* Texture stack (style-guide.md v3): */
-        /*   grain (Kodak Vision 500T) · patina grade · atmospheric haze between depth planes */
         .scene-field {
             padding: 0;
             background: var(--cobalt-deep);
@@ -283,30 +253,6 @@
             background-repeat: no-repeat;
             position: relative;
             overflow: hidden;
-            /* Patina — mutes amber toward "light has been here a while," lifts cobalt toward "a place, not a color." */
-            filter: saturate(0.94) contrast(1.03);
-        }
-        /* Grain + cobalt haze at the seam (top and bottom) — "atmospheric perspective: depth via haze between planes" */
-        .field-still::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            z-index: 1;
-            background:
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.09'/%3E%3C/svg%3E"),
-                linear-gradient(
-                    180deg,
-                    rgba(7, 13, 26, 0.55) 0%,
-                    rgba(7, 13, 26, 0.10) 8%,
-                    rgba(7, 13, 26, 0) 14%,
-                    rgba(7, 13, 26, 0) 86%,
-                    rgba(7, 13, 26, 0.14) 92%,
-                    rgba(7, 13, 26, 0.60) 100%
-                );
-            background-size: 240px 240px, 100% 100%;
-            background-repeat: repeat, no-repeat;
-            background-blend-mode: overlay, normal;
         }
         .field-still::after {
             content: attr(data-caption);
@@ -322,7 +268,6 @@
             opacity: 0;
             transition: opacity 1s ease;
             text-align: left;
-            z-index: 2;
         }
         .field-still.visible::after { opacity: 1; }
 
@@ -372,132 +317,6 @@
             font-style: italic;
         }
         .seq-list .bookend .num { visibility: hidden; }
-
-        /* ===== 6a. THE CLOSER (one-sheet) ===== */
-        /* A real theater poster — image fills the frame, title + billing overlay the lower field. */
-        .scene-closer {
-            width: 100%;
-            padding: 3rem 0.75rem 3rem;
-            background: var(--cobalt-deep);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .closer-frame {
-            width: 100%;
-            max-width: 480px;
-            aspect-ratio: 9 / 19.5;
-            max-height: 95vh;
-            max-height: 95dvh;
-            position: relative;
-            overflow: hidden;
-            background: var(--cobalt-deep);
-            box-shadow:
-                0 2rem 5rem rgba(0, 0, 0, 0.6),
-                0 0 0 1px rgba(212, 168, 75, 0.04);
-        }
-        /* Image fills the whole poster. */
-        .closer-image {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-        }
-        .closer-image img,
-        .closer-image video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center center;
-            display: block;
-            filter: saturate(0.98) contrast(1.04);
-        }
-        /* Cobalt fade from lower third — floor for typography legibility. */
-        .closer-fade {
-            position: absolute;
-            inset: 0;
-            z-index: 2;
-            pointer-events: none;
-            background: linear-gradient(
-                180deg,
-                rgba(7, 13, 26, 0) 0%,
-                rgba(7, 13, 26, 0) 48%,
-                rgba(7, 13, 26, 0.35) 62%,
-                rgba(7, 13, 26, 0.82) 82%,
-                rgba(7, 13, 26, 0.96) 100%
-            );
-        }
-        /* Typography stack sits on the lower field. */
-        .closer-type {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            padding: 0 8% 7%;
-            z-index: 4;
-            text-align: center;
-        }
-        .closer-title {
-            font-family: var(--mono);
-            color: var(--amber);
-            font-weight: 400;
-            font-size: clamp(1.85rem, 8.5vw, 2.6rem);
-            letter-spacing: -0.015em;
-            line-height: 1;
-            margin: 0;
-            text-shadow: 0 2px 18px rgba(0, 0, 0, 0.7);
-        }
-        .closer-rule {
-            width: 44px;
-            height: 1px;
-            background: var(--amber-dim);
-            margin: 1rem auto 0.9rem;
-            display: block;
-            border: 0;
-            opacity: 0.9;
-        }
-        .closer-tagline {
-            font-family: var(--serif);
-            font-style: italic;
-            color: var(--text);
-            font-size: clamp(0.88rem, 3.4vw, 1.08rem);
-            font-weight: 300;
-            line-height: 1.4;
-            margin: 0;
-            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
-        }
-        .closer-billing {
-            font-family: var(--mono);
-            color: var(--amber-dim);
-            font-size: clamp(0.54rem, 1.75vw, 0.62rem);
-            letter-spacing: 0.28em;
-            text-transform: uppercase;
-            line-height: 1.9;
-            margin-top: 1.5rem;
-            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
-        }
-        .closer-billing .director {
-            color: var(--amber);
-            letter-spacing: 0.32em;
-            display: block;
-            margin-bottom: 0.3rem;
-            font-size: clamp(0.58rem, 1.9vw, 0.66rem);
-        }
-        .closer-billing .mark {
-            color: var(--text-dim);
-            letter-spacing: 0.32em;
-            display: block;
-        }
-        /* Grain across the whole poster — film + paper unified. */
-        .closer-frame::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            z-index: 3;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
-            background-size: 240px 240px;
-            mix-blend-mode: overlay;
-        }
 
         /* ===== 6. THE CREW ===== */
         .scene-crew {
@@ -597,27 +416,10 @@
             .scene-footer { padding: 3.5rem 1.25rem 3rem; }
             .scene-footer .links a { padding: 0.3rem 0.5rem; }
             .scene-footer .dots { display: inline-block; padding: 0 0.1rem; }
-
-            .scene-closer { padding: 2rem 0.5rem; }
-            .closer-type { padding: 0 7% 6%; }
-            .closer-rule { margin: 0.9rem auto 0.8rem; }
-            .closer-billing { margin-top: 1.25rem; }
         }
 
         @media (min-width: 1200px) {
             .field-still { height: 90vh; }
-        }
-
-        /* Desktop: constrain poster to 2.39:1 anamorphic — Hall's lens. */
-        /* Letterbox bars appear as cobalt-deep above/below the frame. */
-        @media (min-width: 900px) {
-            .poster-frame {
-                width: 100%;
-                max-width: 1600px;
-                height: auto;
-                aspect-ratio: 2.39 / 1;
-                max-height: 90vh;
-            }
         }
     </style>
 </head>
@@ -636,12 +438,10 @@
 
     <!-- 2. THE POSTER -->
     <section class="scene-poster" aria-label="poster">
-        <div class="poster-frame">
-            <img src="/images/lightning-bug/D28-boy-exits-can.jpg"
-                 alt="A boy stands in a wheat field at dusk, silhouetted against cobalt sky."
-                 loading="eager"
-                 id="poster">
-        </div>
+        <img src="/images/lightning-bug/D28-boy-exits-can.jpg"
+             alt="A boy stands in a wheat field at dusk, silhouetted against cobalt sky."
+             loading="eager"
+             id="poster">
     </section>
 
     <!-- 3. THE BREATH -->
@@ -682,31 +482,6 @@
             <li><span class="num">10</span><span class="name">shooting stars</span></li>
             <li class="bookend"><span class="num"></span><span class="name">polo</span></li>
         </ol>
-    </section>
-
-    <!-- 5b. THE CLOSER (one-sheet) -->
-    <section class="scene-closer" aria-label="one-sheet">
-        <article class="closer-frame">
-            <div class="closer-image">
-                <video autoplay muted loop playsinline preload="auto"
-                       poster="/images/lightning-bug/poster-still.jpg"
-                       aria-label="Animated one-sheet: voluminous clouds with pole, lightning flash, meteor shower, and pulsing asterisks.">
-                    <source src="/video/lightning-bug-poster.mp4" type="video/mp4">
-                    <img src="/images/lightning-bug/poster-still.jpg"
-                         alt="lightning/bug one-sheet — cumulonimbus clouds, pole, starfield.">
-                </video>
-            </div>
-            <div class="closer-fade" aria-hidden="true"></div>
-            <div class="closer-type">
-                <h2 class="closer-title">lightning/bug</h2>
-                <hr class="closer-rule" aria-hidden="true">
-                <p class="closer-tagline">the absence of darkness</p>
-                <div class="closer-billing">
-                    <span class="director">Directed by Derek Claude Simmons</span>
-                    <span class="mark">sssstudios &middot; 2026</span>
-                </div>
-            </div>
-        </article>
     </section>
 
     <!-- 6. THE CREW -->

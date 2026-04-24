@@ -12,34 +12,25 @@
 
 ### What shipped
 
-Commit `0de5d6f0` on `main`, deployed to Netlify. Subsequent commits:
-- `d1174c49` — README + OPUS
-- `e1c1e792` — Sandra's birth year fix (1944)
-- (next) — texture stack: grain + patina + inter-still cobalt haze + 2.39:1 poster
+Commit `0de5d6f0` on `main`, deployed to Netlify.
 
-- **New page** at `/lightning/bug/` — seven-scene scroll, ~26KB (was 116,175).
+- **New page** at `/lightning/bug/` — seven-scene scroll, ~22KB (was 116,175).
 - **Archive** at `/lightning/bug/notes/` — complete original page preserved, linked from new footer.
 - **README.md** + **OPUS.md** added to `/lightning/bug/`.
 
-### Texture stack (Apr 24, post-first-ship)
+Follow-ups:
+- `d1174c49` — README + OPUS docs.
+- `e1c1e792` — Sandra's birth year corrected to 1944.
 
-Four levers, each traced directly to project docs:
+### Rolled back (Apr 24) — everything between `e1c1e792` and the rollback
 
-1. **Kodak Vision 500T grain** — inline SVG `feTurbulence` fractal noise, grayscale, opacity 0.09, overlay blend-mode. Layered via `::before` on `.field-still` and `.poster-frame`. Data URI ~350 bytes, reusable tile 240×240. Source: style-guide.md texture stack + color-theory.md "the grain itself is gray particles across both registers."
-2. **Patina grade** — `filter: saturate(0.94) contrast(1.03)` on field stills and poster img. Source: color-theory.md post pass — "desaturate highlights 10-15% (amber loses its sharpness, gains patina)."
-3. **Inter-still cobalt haze** — vertical gradient on `::before` of `.field-still`, cobalt at top (55% → 0 over 14%) and bottom (0 → 60% over last 8%). Source: style-guide.md composition rule 5 — "atmospheric perspective: depth via haze between planes."
-4. **2.39:1 anamorphic poster frame (desktop ≥900px only)** — `aspect-ratio: 2.39/1` on `.poster-frame`, cobalt-deep letterbox bars on `.scene-poster` via flex-center. Mobile keeps full-bleed. Source: hall-prompt-vocabulary.md — "Panavision C-Series anamorphic."
+Tried: Kodak 500T grain overlay, patina filter (saturate/contrast), inter-still cobalt haze gradient, 2.39:1 anamorphic poster frame, a designed closing one-sheet (first as static still, then as an MP4 composite of seq-018a + synthetic lightning + meteor shower + asterisks).
 
-### The one-sheet (Apr 24, commit `083e8668`)
+Derek's call: **all of it was CSS / graphic decoration competing with the film's own aesthetic.** The stills carry their own grain, palette, atmospheric perspective, and texture from generation. Stacking web treatments on top muddies instead of amplifies. The MP4 poster — hand-drawn amber meteors + synthetic flash over a real film still — was the clearest case: graphic design school on top of a film with its own look.
 
-Designed closing card between crew and footer — a real movie poster, not just a cropped still.
+**Rule going forward:** no filters, no grain overlays, no synthetic motion, no fake anamorphic letterboxes. The page shows the film's images as the film's images. Typography, layout, and restraint are the only intervention surfaces.
 
-- **Image:** `seq-031` (shooting star), pulled from master PNG at `~/Desktop/lightning-bug/film/stills/seq-031.png` (2752×1536, 4.7MB), converted to optimized JPEG at `/images/lightning-bug/seq-031-shooting-stars.jpg` (1600×893, 74KB, q88). Original master untouched.
-- **Why this frame:** the film ends on the shooting star. Amber burning through cobalt = two-kinds-of-light thesis in one object. Diagonal composition with clean cobalt quadrant for typography. Closer matches film closer.
-- **Layout:** 9:19.5 poster frame. Image panel (16:9) at top, typography column below: title (mono amber) · em-rule · tagline (serif italic) · billing block (tiny mono, "Directed by Derek Claude Simmons / sssstudios · 2026"). Saul Bass / Criterion register.
-- **Treatment:** grain overlay across whole frame (film + paper), patina filter on image only. Drop shadow on frame reads as printed artifact. Cobalt-deep letterbox outside the frame on desktop.
-- **Mobile:** frame fills phone in portrait. **Desktop:** centered max-width 480px with cobalt field around it.
-- **Bookending:** top of page = 2.39:1 landscape anamorphic poster (Hall's lens). Bottom of page = 9:19.5 portrait one-sheet (theater-lobby register). Cinema above, phone below.
+Deleted: `seq-031-shooting-stars.jpg` (web derivative), `poster-still.jpg`, `lightning-bug-poster.mp4`. Reverted `index.html` to `e1c1e792`.
 
 ### Design decisions (locked)
 
