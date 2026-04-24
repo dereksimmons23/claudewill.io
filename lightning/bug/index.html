@@ -137,15 +137,15 @@
             pointer-events: none;
             z-index: 1;
         }
-        /* Type-sync to storm — 7s loop, lightning strikes at 2.0s (28.6%) and 5.0s (71.4%). */
+        /* Type-sync to storm — 10s loop, lightning strikes at 2.0s (20%) and 5.0s (50%). */
         @keyframes weather-pulse {
-            0%, 24%  { filter: brightness(0.78); }
-            28%      { filter: brightness(1.32); }
-            36%      { filter: brightness(0.96); }
-            42%, 67% { filter: brightness(0.78); }
-            71%      { filter: brightness(1.32); }
-            79%      { filter: brightness(0.96); }
-            85%, 100%{ filter: brightness(0.78); }
+            0%, 16%  { filter: brightness(0.78); }
+            20%      { filter: brightness(1.32); }
+            26%      { filter: brightness(0.96); }
+            32%, 46% { filter: brightness(0.78); }
+            50%      { filter: brightness(1.32); }
+            56%      { filter: brightness(0.96); }
+            62%, 100%{ filter: brightness(0.78); }
         }
 
         .type-wrap {
@@ -156,7 +156,7 @@
             max-width: 100%;
             position: relative;
             z-index: 2;
-            animation: weather-pulse 7s infinite;
+            animation: weather-pulse 10s infinite;
         }
 
         .type-line {
