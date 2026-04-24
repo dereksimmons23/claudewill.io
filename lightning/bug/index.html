@@ -2,24 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="color-scheme" content="dark">
-    <meta name="theme-color" content="#070d1a">
-    <title>lightning/bug | claudewill</title>
-    <meta name="description" content="lightning/bug — a short film rendered from Nickerson, Kansas. The land is mostly flat. The names matter. Directed by Derek Claude Simmons.">
-    <meta property="og:title" content="lightning/bug — a short film">
-    <meta property="og:description" content="The land is mostly flat. The names matter. Directed by Derek Claude Simmons.">
+    <meta name="theme-color" content="#0a1628">
+    <title>lightning/bug</title>
+    <meta name="description" content="A short film. Two kinds of light. A boy in a can. A bug on a bat. The land is mostly flat. The names matter.">
+    <meta property="og:title" content="lightning/bug">
+    <meta property="og:description" content="The absence of darkness. A short film by Derek Claude Simmons.">
     <meta property="og:type" content="video.movie">
     <meta property="og:url" content="https://claudewill.io/lightning/bug">
     <meta property="og:image" content="https://claudewill.io/images/lightning-bug/og-poster.jpg">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="lightning/bug">
+    <meta name="twitter:description" content="The absence of darkness.">
+    <meta name="twitter:image" content="https://claudewill.io/images/lightning-bug/og-poster.jpg">
     <link rel="canonical" href="https://claudewill.io/lightning/bug">
     <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
-    <link rel="stylesheet" href="/css/shared-nav.css">
-    <link rel="stylesheet" href="/css/porch-widget.css">
+    <link rel="preload" as="image" href="/images/lightning-bug/D28-boy-exits-can.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/shared-nav.css">
+    <link rel="stylesheet" href="/css/porch-widget.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7R5X5SJDVT"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7R5X5SJDVT');</script>
 
@@ -28,9 +32,9 @@
         "@context": "https://schema.org",
         "@type": "VideoObject",
         "name": "lightning/bug",
-        "description": "A short film about two kinds of light. A boy in a can. A bug on a bat. Directed by Derek Claude Simmons.",
-        "duration": "PT7M14S",
-        "uploadDate": "2026-03-28",
+        "description": "A short film about two kinds of light. A boy in a can. A bug on a bat. A mother on a June night in Kansas.",
+        "duration": "PT7M35S",
+        "uploadDate": "2026-04-27",
         "director": {
             "@type": "Person",
             "name": "Derek Claude Simmons",
@@ -38,1679 +42,567 @@
         },
         "productionCompany": {
             "@type": "Organization",
-            "name": "CW Strategies LLC"
+            "name": "sssstudios"
         },
-        "genre": ["Short Film", "AI-Generated", "Experimental"],
+        "genre": ["Short Film", "AI-Generated", "Experimental", "Elegy"],
         "thumbnailUrl": "https://claudewill.io/images/lightning-bug/og-poster.jpg"
     }
     </script>
 
     <style>
         :root {
-            --bg: #070d1a;
+            --cobalt-deep: #070d1a;
+            --cobalt: #0a1628;
+            --cobalt-light: #13233b;
+            --amber: #d4a84b;
+            --amber-bright: #f0c870;
+            --amber-dim: #8a6a2a;
+            --amber-faint: rgba(212, 168, 75, 0.08);
             --text: #c8d0dc;
-            --bright: #e5e9f0;
-            --accent: #d4a84b;
-            --dim: #4a5a70;
-            --border: rgba(255, 255, 255, 0.06);
-            --card-bg: #0c1829;
-            --font: 'IBM Plex Mono', monospace;
+            --text-dim: #6b7a92;
+            --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+            --serif: 'IBM Plex Serif', Georgia, serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html {
+            scroll-behavior: smooth;
+            background: var(--cobalt-deep);
+        }
+
         body {
-            font-family: var(--font);
-            background: var(--bg);
+            background: var(--cobalt);
             color: var(--text);
-            line-height: 1.8;
-            font-size: 1rem;
+            font-family: var(--serif);
+            font-weight: 300;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Header */
-        .page-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.25rem 2rem;
-            border-bottom: 1px solid #0e1a2e;
-        }
-        .page-header a { color: var(--bright); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
-        .page-header .title { font-weight: 500; font-size: 0.8rem; color: var(--dim); }
-        .page-header .palette-trigger {
-            color: var(--accent);
-            font-size: 1.4rem;
-            line-height: 1;
-            cursor: pointer;
-            background: none;
-            border: none;
-            font-family: inherit;
-            padding: 0 0.2rem;
-            transition: transform 0.2s;
-        }
-        .page-header .palette-trigger:hover { transform: rotate(90deg); }
+        ::selection { background: var(--amber); color: var(--cobalt-deep); }
 
-        /* Hero */
-        .hero { padding: 0; }
-        .video-wrap {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-        }
-        .video-wrap video, .video-wrap iframe {
+        img { display: block; max-width: 100%; }
+
+        .sr-only {
             position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border: none;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
-        .hero-text {
+
+        /* ===== 1. THE CURSOR ===== */
+        .scene-cursor {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
             text-align: center;
-            padding: 2.5rem 2rem 1rem;
+            position: relative;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 45%, var(--cobalt-light) 0%, var(--cobalt) 60%, var(--cobalt-deep) 100%);
         }
-        .film-title {
-            font-size: 2.8rem;
+
+        .type-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.25rem;
+            max-width: 100%;
+        }
+
+        .type-line {
+            font-family: var(--mono);
+            color: var(--amber);
             font-weight: 400;
-            color: var(--bright);
-            letter-spacing: -0.01em;
-            line-height: 1;
+            font-size: clamp(1.75rem, 8vw, 4.25rem);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            min-height: 1.1em;
         }
-        .film-title .cursor {
+
+        .type-sub {
+            font-family: var(--mono);
+            color: var(--text-dim);
+            font-size: clamp(0.82rem, 2.2vw, 1.05rem);
+            letter-spacing: 0.05em;
+            min-height: 1.2em;
+            font-weight: 400;
+        }
+
+        .cursor-block {
             display: inline-block;
-            width: 0.55em;
-            height: 1.8rem;
-            background: var(--accent);
-            vertical-align: text-bottom;
-            margin-left: 0.05em;
+            width: 0.5em;
+            height: 1em;
+            background: var(--amber);
+            vertical-align: -0.12em;
+            margin-left: 0.08em;
             animation: blink 1.1s step-end infinite;
         }
+
         @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        .tagline {
-            font-size: 0.8rem;
-            color: var(--dim);
-            margin-top: 1rem;
-            letter-spacing: 0.04em;
-        }
-        .credit {
-            font-size: 0.75rem;
-            color: var(--accent);
-            margin-top: 0.5rem;
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
 
-        /* Tab nav */
-        .tab-nav {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 1.5rem 24px 0;
-            display: flex;
-            gap: 0;
-            border-bottom: 1px solid var(--border);
-        }
-        .tab-btn {
-            background: none;
-            border: none;
-            border-bottom: 2px solid transparent;
-            color: var(--dim);
-            font-family: var(--font);
-            font-size: 0.75rem;
-            letter-spacing: 0.12em;
+        .scroll-hint {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            letter-spacing: 0.3em;
             text-transform: lowercase;
-            padding: 0.4rem 1.5rem 0.75rem;
-            cursor: pointer;
-            transition: color 0.2s, border-color 0.2s;
-            margin-bottom: -1px;
-        }
-        .tab-btn:first-child { padding-left: 0; }
-        .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
-        .tab-btn:hover:not(.active) { color: var(--bright); }
-        .tab-panel { display: none; }
-        .tab-panel.active { display: block; }
-
-        /* Sections */
-        section {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 3rem 24px;
-        }
-        section + section { border-top: 1px solid var(--border); }
-
-        h2 {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--dim);
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
-        p { font-size: 0.9rem; margin-bottom: 1.2rem; }
-        p:last-child { margin-bottom: 0; }
-
-        .statement {
-            font-size: 1.05rem;
-            color: var(--bright);
-            font-style: italic;
-            margin-bottom: 2rem;
-            line-height: 2;
-        }
-        .statement p { font-size: 1.05rem; color: var(--bright); }
-
-        .thesis {
-            font-size: 0.85rem;
-            color: var(--accent);
-            margin-top: 2rem;
-            letter-spacing: 0.02em;
+            opacity: 0;
+            animation: fade-in 1.6s ease-in 5.2s forwards;
+            pointer-events: none;
         }
 
-        /* Process photos */
-        .process-photos {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin: 2rem 0 1rem;
-        }
-        .process-photo { border-radius: 4px; overflow: hidden; }
-        .process-photo img {
-            width: 100%;
-            aspect-ratio: 3/4;
-            object-fit: cover;
-            display: block;
-            opacity: 0.85;
-            transition: opacity 0.3s;
-        }
-        .process-photo img:hover { opacity: 1; }
-        .process-caption {
-            font-size: 0.68rem;
-            color: var(--dim);
-            padding: 0.35rem 0;
-            line-height: 1.4;
+        @keyframes fade-in {
+            from { opacity: 0; transform: translate(-50%, 6px); }
+            to { opacity: 0.7; transform: translate(-50%, 0); }
         }
 
-        /* Process video */
-        .process-video {
-            margin: 2rem 0;
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
-            background: #000;
-        }
-        .process-video video {
-            width: 100%;
-            max-height: 420px;
-            object-fit: cover;
-            display: block;
-        }
-        .process-video-caption {
-            font-size: 0.68rem;
-            color: var(--dim);
-            padding: 0.5rem 0;
-        }
-
-        /* Hero photo — single portrait */
-        .hero-photo {
-            margin: 2rem 0;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        .hero-photo img {
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            object-position: center top;
-            display: block;
-            opacity: 0.9;
-        }
-        .hero-photo-caption {
-            font-size: 0.68rem;
-            color: var(--dim);
-            padding: 0.4rem 0;
-        }
-
-        /* Gallery */
-        .gallery-section {
-            max-width: none;
-            padding: 3rem 0;
-        }
-        .gallery-section + section { border-top: 1px solid var(--border); }
-        .gallery-label {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        .scroll-gallery {
-            display: flex;
-            gap: 12px;
-            overflow-x: auto;
-            padding: 1rem 24px 1.5rem;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-        }
-        .scroll-gallery::-webkit-scrollbar { height: 4px; }
-        .scroll-gallery::-webkit-scrollbar-track { background: transparent; }
-        .scroll-gallery::-webkit-scrollbar-thumb { background: var(--dim); border-radius: 2px; }
-        .scroll-img {
-            flex: 0 0 auto;
-            width: 320px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 4px;
-            scroll-snap-align: start;
-            opacity: 0.85;
-            transition: opacity 0.3s;
-        }
-        .scroll-img:hover { opacity: 1; }
-        .gallery-caption {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 0 24px;
-            font-size: 0.7rem;
-            color: var(--dim);
-        }
-
-        /* Three columns */
-        .three-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 2rem;
-            margin-top: 1rem;
-        }
-        .col h3 {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 0.75rem;
-        }
-        .col.human h3 { color: var(--accent); }
-        .col.artificial h3 { color: #6b9fd4; }
-        .col.both h3 { color: var(--bright); }
-        .col ul { list-style: none; font-size: 0.8rem; line-height: 2; }
-
-        /* Production Log */
-        .production-log {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-            margin-top: 1rem;
-        }
-        .log-entry { display: flex; gap: 1.5rem; font-size: 0.85rem; line-height: 1.7; }
-        .log-date {
-            flex: 0 0 auto;
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 0.75rem;
-            white-space: nowrap;
-            padding-top: 0.15rem;
-        }
-        .log-text { color: var(--text); }
-
-        /* Festival status */
-        .festivals {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        .festival-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 1rem;
-            background: var(--card-bg);
-            border-radius: 4px;
-            font-size: 0.8rem;
-        }
-        .festival-name { color: var(--bright); font-weight: 500; }
-        .festival-date { color: var(--dim); font-size: 0.75rem; }
-        .festival-status {
-            font-size: 0.65rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-weight: 600;
-        }
-        .status-pending { background: #1a2a3a; color: var(--dim); }
-        .status-production { background: #2a2a1a; color: var(--accent); }
-        .status-submitted { background: #1a2a20; color: #6bc46b; }
-
-        /* Tools */
-        .tools-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        .tool-group h3 {
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: var(--accent);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-        .tool-group ul { list-style: none; font-size: 0.78rem; line-height: 2; color: var(--text); }
-        .tool-name { color: var(--bright); }
-
-        /* Footer */
-        .site-footer {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 3rem 24px;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            font-size: 0.7rem;
-            color: var(--dim);
-        }
-        .site-footer a { color: var(--dim); text-decoration: none; }
-        .site-footer a:hover { color: var(--accent); }
-
-        /* Mobile */
-        @media (max-width: 700px) {
-            .film-title { font-size: 2rem; }
-            .three-col { grid-template-columns: 1fr; gap: 1.5rem; }
-            .tools-grid { grid-template-columns: 1fr; }
-            .scroll-img { width: 280px; height: 157px; }
-            .festival-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-            .log-entry { flex-direction: column; gap: 0.25rem; }
-            .process-photos { grid-template-columns: 1fr; }
-            .tab-btn { padding-left: 1rem; padding-right: 1rem; }
-        }
-
-        /* Color progression — figures with captions */
-        .scroll-figure {
-            flex: 0 0 auto;
-            width: 320px;
-            scroll-snap-align: start;
-            display: flex;
-            flex-direction: column;
-        }
-        .scroll-figure .scroll-img {
-            width: 100%;
-            flex: none;
-        }
-        .scroll-fig-caption {
-            font-size: 0.65rem;
-            color: var(--accent);
-            padding: 0.35rem 0 0;
-            line-height: 1.4;
-            letter-spacing: 0.02em;
-        }
-
-        /* Production log accent */
-
-        /* Color swatches */
-        .color-row {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin: 1rem 0;
-            align-items: center;
-        }
-        .swatch {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.7rem;
-            color: var(--text);
-            background: var(--card-bg);
-            padding: 0.3rem 0.65rem;
-            border-radius: 3px;
-        }
-        .swatch-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        @media (max-width: 700px) {
-            .scroll-figure { width: 280px; }
-        }
-
-        @media print {
-            .video-wrap, .scroll-gallery, .press-kit { display: none; }
-            body { background: white; color: black; }
-            .film-title, h2, h3 { color: black; }
-        }
-
-        /* ==================== Press Kit Scroll (Apr 21 redesign) ==================== */
-        .press-kit {
-            border-top: 1px solid var(--border);
-            background: linear-gradient(180deg, #070d1a 0%, #0a1424 50%, #070d1a 100%);
-        }
-        .press-kit .press-block {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 3.5rem 24px;
-            border-bottom: 1px solid var(--border);
-        }
-        .press-kit .press-block:last-child { border-bottom: none; }
-        .press-label {
-            font-size: 0.7rem;
-            color: var(--dim);
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
-        .press-kit blockquote.thesis-quote {
-            font-size: 1.8rem;
-            font-weight: 400;
-            color: var(--bright);
-            line-height: 1.4;
-            border: none;
-            padding: 0;
-            margin: 0 0 1.5rem;
-            letter-spacing: -0.01em;
-        }
-        .press-kit blockquote.thesis-quote em {
-            color: var(--accent);
-            font-style: normal;
-        }
-        .press-byline {
-            font-size: 0.75rem;
-            color: var(--dim);
-            letter-spacing: 0.04em;
-        }
-        .numbers-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem 1rem;
-            margin-top: 0.5rem;
-        }
-        .numbers-grid .num {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 1rem 1rem 1rem 0;
-            border-left: 2px solid var(--accent);
-            padding-left: 1rem;
-        }
-        .numbers-grid .num .n {
-            font-size: 1.8rem;
-            color: var(--bright);
-            line-height: 1;
-            margin-bottom: 0.35rem;
-        }
-        .numbers-grid .num .l {
-            font-size: 0.7rem;
-            color: var(--dim);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-        .slipper-video {
+        /* ===== 2. THE POSTER ===== */
+        .scene-poster {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%;
-            margin-bottom: 1.2rem;
-            background: #000;
-            border: 1px solid var(--border);
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+            background: var(--cobalt-deep);
         }
-        .slipper-video video {
+        .scene-poster img {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.8s ease-in;
         }
-        .press-caption {
-            font-size: 0.88rem;
-            color: var(--text);
-            line-height: 1.8;
-        }
-        .press-caption em { color: var(--accent); font-style: italic; }
-        .press-caption-small {
-            font-size: 0.78rem;
-            color: var(--dim);
-            margin-top: 0.8rem;
-            line-height: 1.7;
-        }
-        .places-topo {
-            width: 100%;
-            height: auto;
-            border: 1px solid var(--border);
-            margin-bottom: 1rem;
-            display: block;
-        }
-        .places-list {
-            list-style: none;
-            padding: 0;
-            margin: 1.5rem 0 0;
-            counter-reset: place;
-        }
-        .places-list li {
-            counter-increment: place;
-            padding: 0.8rem 0 0.8rem 2.4rem;
-            font-size: 0.88rem;
-            color: var(--text);
-            line-height: 1.7;
-            position: relative;
-            border-top: 1px solid var(--border);
-        }
-        .places-list li:last-child { border-bottom: 1px solid var(--border); }
-        .places-list li::before {
-            content: counter(place, decimal-leading-zero);
+        .scene-poster img.loaded { opacity: 1; }
+        .scene-poster::after {
+            content: '';
             position: absolute;
-            left: 0;
-            top: 0.9rem;
-            font-size: 0.7rem;
-            color: var(--accent);
-            letter-spacing: 0.1em;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(7, 13, 26, 0.35) 0%,
+                rgba(7, 13, 26, 0) 25%,
+                rgba(7, 13, 26, 0) 70%,
+                rgba(7, 13, 26, 0.55) 100%
+            );
+            pointer-events: none;
         }
-        .places-list strong { color: var(--bright); font-weight: 500; }
-        .split-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 0.5rem;
+
+        /* ===== 3. THE BREATH ===== */
+        .scene-breath {
+            padding: 22vh 2rem 18vh;
+            max-width: 34rem;
+            margin: 0 auto;
+            text-align: center;
         }
-        .split-col h4 {
-            font-size: 0.75rem;
-            color: var(--accent);
+        .scene-breath .logline {
+            font-family: var(--serif);
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            line-height: 1.65;
+            color: var(--text);
+            font-style: italic;
+            font-weight: 300;
+        }
+        .scene-breath .logline + .logline {
+            margin-top: 2rem;
+            font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+            color: var(--text-dim);
+        }
+        .scene-breath .meta {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            color: var(--amber-dim);
+            margin-top: 3.5rem;
+            letter-spacing: 0.3em;
+            text-transform: lowercase;
+        }
+
+        /* ===== 4. THE FIELD ===== */
+        .scene-field {
+            padding: 0;
+            background: var(--cobalt-deep);
+        }
+        .field-still {
+            width: 100%;
+            height: 85vh;
+            height: 85dvh;
+            min-height: 420px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+        .field-still::after {
+            content: attr(data-caption);
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            right: 2rem;
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            color: rgba(212, 168, 75, 0.55);
+            letter-spacing: 0.25em;
+            text-transform: lowercase;
+            opacity: 0;
+            transition: opacity 1s ease;
+            text-align: left;
+        }
+        .field-still.visible::after { opacity: 1; }
+
+        /* ===== 5. THE SEQUENCE ===== */
+        .scene-sequence {
+            padding: 18vh 2rem;
+            max-width: 38rem;
+            margin: 0 auto;
+        }
+        .scene-sequence h2 {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            color: var(--amber-dim);
+            letter-spacing: 0.35em;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
-            margin-bottom: 0.8rem;
+            margin-bottom: 3.5rem;
+            text-align: center;
             font-weight: 500;
         }
-        .split-col ul {
+        .seq-list {
             list-style: none;
-            padding: 0;
-            margin: 0;
         }
-        .split-col ul li {
-            font-size: 0.82rem;
-            color: var(--text);
-            padding: 0.4rem 0;
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border);
+        .seq-list li {
+            font-family: var(--mono);
+            padding: 0.9rem 0;
+            border-bottom: 1px solid var(--amber-faint);
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+            font-size: clamp(0.88rem, 2.2vw, 1rem);
+            transition: color 0.3s;
         }
-        .split-col ul li:last-child { border-bottom: none; }
-        .press-cta {
+        .seq-list li:hover { color: var(--amber-bright); }
+        .seq-list .num {
+            color: var(--amber-dim);
+            font-size: 0.7rem;
+            flex-shrink: 0;
+            width: 2.25rem;
+            letter-spacing: 0.08em;
+        }
+        .seq-list .name {
+            color: var(--amber);
+            letter-spacing: 0.02em;
+        }
+        .seq-list .bookend .name {
+            color: var(--text-dim);
+            font-style: italic;
+        }
+        .seq-list .bookend .num { visibility: hidden; }
+
+        /* ===== 6. THE CREW ===== */
+        .scene-crew {
+            padding: 18vh 2rem 6vh;
             text-align: center;
-            padding: 2.5rem 24px !important;
+            max-width: 40rem;
+            margin: 0 auto;
         }
-        .press-cta .down-arrow {
-            color: var(--accent);
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
+        .crew-line {
+            font-family: var(--mono);
+            font-size: 0.9rem;
+            color: var(--text);
+            margin: 1.5rem 0;
+            letter-spacing: 0.04em;
+        }
+        .crew-line .label {
+            color: var(--amber-dim);
+            font-size: 0.64rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .crew-line .val {
+            color: var(--amber);
+            font-weight: 400;
+        }
+        .crew-line a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid var(--amber-faint);
+            transition: border-color 0.2s;
+        }
+        .crew-line a:hover { border-color: var(--amber); }
+
+        /* ===== 7. FOOTER ===== */
+        .scene-footer {
+            padding: 5rem 2rem 4rem;
+            border-top: 1px solid var(--amber-faint);
+            text-align: center;
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            color: var(--text-dim);
+            letter-spacing: 0.15em;
+            background: var(--cobalt-deep);
+        }
+        .scene-footer .links a {
+            color: var(--amber-dim);
+            text-decoration: none;
+            padding: 0.3rem 0.75rem;
+            transition: color 0.2s;
+            display: inline-block;
+        }
+        .scene-footer .links a:hover { color: var(--amber-bright); }
+        .scene-footer .dots {
+            color: var(--text-dim);
+            opacity: 0.4;
+        }
+        .scene-footer .colophon {
+            margin-top: 2.5rem;
+            font-size: 0.62rem;
+            color: var(--text-dim);
+            opacity: 0.7;
             letter-spacing: 0.2em;
         }
-        .press-cta p {
-            font-size: 0.82rem;
-            color: var(--dim);
-            margin: 0;
+
+        /* ===== MOTION / A11Y ===== */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .cursor-block { animation: none; opacity: 0.9; }
+            .scroll-hint { animation: none; opacity: 0.7; }
+            .field-still.visible::after { transition: none; }
+            .scene-poster img { transition: none; opacity: 1; }
         }
-        @media (max-width: 700px) {
-            .press-kit blockquote.thesis-quote { font-size: 1.3rem; }
-            .numbers-grid { grid-template-columns: 1fr 1fr; }
-            .split-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 640px) {
+            .scene-cursor { padding: 1.5rem 1rem; }
+            .type-line { font-size: 2.1rem; letter-spacing: -0.015em; }
+            .type-sub { font-size: 0.78rem; }
+            .scroll-hint { font-size: 0.6rem; bottom: 2rem; }
+
+            .scene-poster { height: 70vh; height: 70dvh; }
+            .scene-breath { padding: 16vh 1.25rem 12vh; }
+            .scene-breath .meta { margin-top: 2.5rem; }
+
+            .field-still { height: 72vh; height: 72dvh; min-height: 360px; }
+            .field-still::after { bottom: 1.25rem; left: 1.25rem; right: 1.25rem; font-size: 0.62rem; }
+
+            .scene-sequence { padding: 14vh 1.25rem; }
+            .scene-sequence h2 { margin-bottom: 2.5rem; }
+            .seq-list li { gap: 1rem; padding: 0.75rem 0; }
+            .seq-list .num { width: 1.75rem; font-size: 0.62rem; }
+
+            .scene-crew { padding: 14vh 1.25rem 4vh; }
+            .scene-footer { padding: 3.5rem 1.25rem 3rem; }
+            .scene-footer .links a { padding: 0.3rem 0.5rem; }
+            .scene-footer .dots { display: inline-block; padding: 0 0.1rem; }
+        }
+
+        @media (min-width: 1200px) {
+            .field-still { height: 90vh; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <div class="page-header">
-        <a href="/">claudewill</a>
-        <span class="title">lightning/bug</span>
-        <button class="palette-trigger" aria-label="open navigation" aria-haspopup="menu" aria-expanded="false">*</button>
-    </div>
-
-    <!-- Hero: The Film -->
-    <div class="hero">
-        <div class="video-wrap">
-            <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-                <source src="/video/lightning-bug-hero.mp4" type="video/mp4">
-                <img src="/images/lightning-bug/D41-abundance-field.jpg" alt="lightning/bug — a boy in a field of fireflies">
-            </video>
+    <!-- 1. THE CURSOR -->
+    <section class="scene-cursor" aria-label="title">
+        <div class="type-wrap">
+            <h1 class="type-line" id="title" aria-live="polite">
+                <span class="sr-only">lightning/bug</span>
+            </h1>
+            <div class="type-sub" id="subtitle" aria-hidden="true"></div>
         </div>
-        <div class="hero-text">
-            <h1 class="film-title">lightning/bug<span class="cursor" aria-hidden="true"></span></h1>
-            <p class="tagline">the absence of darkness</p>
-            <p class="credit">Derek Claude Simmons &mdash; 2025 / 2026</p>
-        </div>
-    </div>
-
-    <!-- ==================== PRESS KIT SCROLL (Apr 21 redesign) ==================== -->
-    <section class="press-kit" aria-label="press kit">
-
-        <!-- Thesis -->
-        <div class="press-block">
-            <p class="press-label">thesis</p>
-            <blockquote class="thesis-quote">
-                The land is mostly flat.<br>
-                The <em>names</em> matter.
-            </blockquote>
-            <p class="press-caption">Hyper-specific over pretty-but-generic. This film is rendered from a real place &mdash; Nickerson, Reno County, Kansas &mdash; a boyhood grid of dirt roads, grain elevators, wheat, and one ATSF rail line. The AI tools did not invent it. They rendered the memory of it. That is why the frames hold.</p>
-            <p class="press-byline">&mdash; Derek Claude Simmons, director</p>
-        </div>
-
-        <!-- By the numbers -->
-        <div class="press-block">
-            <p class="press-label">the film in numbers</p>
-            <div class="numbers-grid">
-                <div class="num"><span class="n">7:14</span><span class="l">runtime</span></div>
-                <div class="num"><span class="n">36</span><span class="l">shots</span></div>
-                <div class="num"><span class="n">4</span><span class="l">acts</span></div>
-                <div class="num"><span class="n">9</span><span class="l">AI tools</span></div>
-                <div class="num"><span class="n">100+</span><span class="l">stills generated</span></div>
-                <div class="num"><span class="n">21</span><span class="l">production days</span></div>
-            </div>
-            <p class="press-caption-small">Four acts. Black open &rarr; dusk &rarr; night &rarr; cobalt slit. The film opens and closes the same way: <code>lightning/bug</code> types in on cobalt. Sandra speaks. The cursor blinks.</p>
-        </div>
-
-        <!-- Slipper -->
-        <div class="press-block">
-            <p class="press-label">meet slipper</p>
-            <div class="slipper-video">
-                <video autoplay muted loop playsinline controls preload="metadata">
-                    <source src="/video/lightning-bug-firebird-slipper.mp4" type="video/mp4">
-                </video>
-            </div>
-            <p class="press-caption">
-                <em>Slipper</em> &mdash; a 1982 gunmetal gray Pontiac Firebird, dark tinted windows, running the Jeep Trail south of Nickerson. A second Firebird overtakes her in the clip. Still &rarr; Veo 3 for the first 5 seconds. Kling 3.0 Pro to expand to 15. Score underneath is <em>06-slipper</em> &mdash; same name as the car. These are the dirt roads Derek drove as a teenager. Slipper opens the path-home sequence.
-            </p>
-        </div>
-
-        <!-- Places -->
-        <div class="press-block">
-            <p class="press-label">the places &mdash; nickerson, reno county, kansas</p>
-            <img class="places-topo" src="/images/lightning-bug/nickerson-topo.jpg" alt="Satellite view of Nickerson, Kansas, with the ATSF rail line cutting northeast to southwest, Arkansas River to the south, Bull Creek to the north.">
-            <p class="press-caption-small">The ATSF rail line cuts northeast-to-southwest through town. Arkansas River runs along the south. Bull Creek to the north. Six places from Derek's life sit on this sheet. Each appears &mdash; directly or by register &mdash; in the film.</p>
-            <ol class="places-list">
-                <li><strong>The double-wide</strong> &mdash; south end of town. Where Derek grew up. The porch the boy stands on with the bat to the sky is this porch.</li>
-                <li><strong>The white shed</strong> &mdash; hugs the dirt road south of town. Visible from the double-wide's porch. The one streetlight above the can is the register echo of its landmark-distance.</li>
-                <li><strong>The T-intersection</strong> &mdash; where the boy's world ends and the wheat field's begins. The overhead combine swath in the film reads like the T from above.</li>
-                <li><strong>The wheat field</strong> &mdash; across the T, southwest of the white shed, tree line cutting across. Derek explored it as a kid. Appears as the wheat-as-stadium and throughout the at-bat sequence.</li>
-                <li><strong>The sandpit</strong> &mdash; south of town, kidney-shaped dark water. Summer fishing water. A dark body of earth that holds whatever light falls on it.</li>
-                <li><strong>The football field</strong> &mdash; north of the sandpit. Derek played QB there. The chalk geometry in the film is a field, not a diamond. The at-bat sequence reads as a dusk football game that happens to be baseball.</li>
-            </ol>
-        </div>
-
-        <!-- What's AI / What's Human -->
-        <div class="press-block">
-            <p class="press-label">what's AI &mdash; what's human</p>
-            <div class="split-grid">
-                <div class="split-col">
-                    <h4>Artificial</h4>
-                    <ul>
-                        <li>Every still (~100 frames) &mdash; FLUX, Imagen 4, FLUX Kontext Pro</li>
-                        <li>Every video clip &mdash; Kling 3.0 Pro, Runway Gen-4.5, Veo 3</li>
-                        <li>Score &mdash; AIVA Pro</li>
-                        <li>Foley &mdash; ElevenLabs SFX</li>
-                        <li>Ambient beds &mdash; Stable Audio 2.5</li>
-                        <li>Upscale &mdash; Topaz (image + video)</li>
-                        <li>Assembly &mdash; ffmpeg, ImageMagick, Python, Audacity</li>
-                        <li>Direction &mdash; Claude Opus 4.7, Sonnet 4.6, Haiku 4.5</li>
-                    </ul>
-                </div>
-                <div class="split-col">
-                    <h4>Human</h4>
-                    <ul>
-                        <li>The voice &mdash; 31 minutes, iPhone, unscripted</li>
-                        <li>Sandra's voicemails</li>
-                        <li>1983 Channel 9 Wichita newscast</li>
-                        <li>The memory &mdash; Nickerson 1983, Lawrence 2025</li>
-                        <li>The script &mdash; written March 2025</li>
-                        <li>The decision to reject the AI voice</li>
-                        <li>The color grading</li>
-                        <li>The sound design</li>
-                        <li>The film</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="press-block press-cta">
-            <p class="down-arrow">&darr;</p>
-            <p>Story &middot; Film &middot; Song &middot; Process &middot; Places &middot; Research &middot; Inspo</p>
-        </div>
-
+        <div class="scroll-hint" aria-hidden="true">scroll</div>
     </section>
 
-    <!-- Tab Navigation -->
-    <nav class="tab-nav" role="tablist" aria-label="Film sections">
-        <button class="tab-btn active" role="tab" aria-selected="true" data-tab="story">story</button>
-        <button class="tab-btn" role="tab" aria-selected="false" data-tab="film">film</button>
-        <button class="tab-btn" role="tab" aria-selected="false" data-tab="song">song</button>
-        <button class="tab-btn" role="tab" aria-selected="false" data-tab="process">process</button>
-        <button class="tab-btn" role="tab" aria-selected="false" data-tab="places">places</button>
-        <button class="tab-btn" role="tab" aria-selected="false" data-tab="research">research</button>
-        <button class="tab-btn" role="tab" aria-selected="false" data-tab="inspo">inspo</button>
-    </nav>
+    <!-- 2. THE POSTER -->
+    <section class="scene-poster" aria-label="poster">
+        <img src="/images/lightning-bug/D28-boy-exits-can.jpg"
+             alt="A boy stands in a wheat field at dusk, silhouetted against cobalt sky."
+             loading="eager"
+             id="poster">
+    </section>
 
-    <!-- ==================== STORY TAB ==================== -->
-    <div class="tab-panel active" id="tab-story" role="tabpanel">
+    <!-- 3. THE BREATH -->
+    <section class="scene-breath" aria-label="logline">
+        <p class="logline">Two kinds of light. A boy in a can. A bug on a bat. A mother on a June night in Kansas.</p>
+        <p class="logline">The land is mostly flat. The names matter.</p>
+        <div class="meta">a short film · 7:35 · 2026</div>
+    </section>
 
-        <section>
-            <div class="statement">
-                <p>Here we are, kid.</p>
-            </div>
+    <!-- 4. THE FIELD -->
+    <section class="scene-field" aria-label="stills">
+        <div class="field-still" style="background-image: url('/images/lightning-bug/003-alt-can-interior-v2.jpg');" data-caption="inside the can"></div>
+        <div class="field-still" style="background-image: url('/images/lightning-bug/006-porch-detaches.jpg');" data-caption="the porch detaches"></div>
+        <div class="field-still" style="background-image: url('/images/lightning-bug/011-badlands-firefly-dark-wheat.jpg');" data-caption="dark wheat, first bloom"></div>
+        <div class="field-still" style="background-image: url('/images/lightning-bug/011-flag-abundance-v2.jpg');" data-caption="amber waves"></div>
+        <div class="field-still" style="background-image: url('/images/lightning-bug/018-flag-transformer-inverted.jpg');" data-caption="the transformer"></div>
+        <div class="field-still" style="background-image: url('/images/lightning-bug/017-alt-contact-flash-v2.jpg');" data-caption="contact"></div>
+        <div class="field-still" style="background-image: url('/images/lightning-bug/010e-darkness-hospital.jpg');" data-caption="cobalt blues"></div>
+        <div class="field-still" style="background-image: url('/images/lightning-bug/010f-union-station-hall.jpg');" data-caption="hell's hallway"></div>
+        <div class="field-still" style="background-image: url('/images/lightning-bug/012-firefly-towers-v3.jpg');" data-caption="shooting stars"></div>
+        <div class="field-still" style="background-image: url('/images/lightning-bug/020-badlands-moon-flat.jpg');" data-caption="path home"></div>
+    </section>
 
-            <div class="hero-photo">
-                <img src="/images/lightning-bug/derek-sandra-last.jpg" alt="Derek and Sandra">
-                <p class="hero-photo-caption">Derek and Sandra.</p>
-            </div>
+    <!-- 5. THE SEQUENCE -->
+    <section class="scene-sequence" aria-label="sequence">
+        <h2>the sequence</h2>
+        <ol class="seq-list">
+            <li class="bookend"><span class="num"></span><span class="name">marco</span></li>
+            <li><span class="num">01</span><span class="name">inside</span></li>
+            <li><span class="num">02</span><span class="name">outside</span></li>
+            <li><span class="num">03</span><span class="name">porch ride</span></li>
+            <li><span class="num">04</span><span class="name">hell's hallway</span></li>
+            <li><span class="num">05</span><span class="name">amber waves</span></li>
+            <li><span class="num">06</span><span class="name">three pitches</span></li>
+            <li><span class="num">07</span><span class="name">contact</span></li>
+            <li><span class="num">08</span><span class="name">cobalt blues :53</span></li>
+            <li><span class="num">09</span><span class="name">path home</span></li>
+            <li><span class="num">10</span><span class="name">shooting stars</span></li>
+            <li class="bookend"><span class="num"></span><span class="name">polo</span></li>
+        </ol>
+    </section>
 
-            <p>My mom used to call people kid. Not family. And not actual kids. Friends. Adults. Mostly on the phone with them. It was part of what made Sandra so special. I&rsquo;d hear her say that word at the end of a sentence and not think much of it. Until now.</p>
-            <p>She used to call me Deekers. I had this ability to make her laugh so hard she would start crying, and then she&rsquo;d say Derrrrrr-ek, stop. But I wouldn&rsquo;t. I miss those moments.</p>
-            <p>I grew up in a single-wide on North Nickerson Street in Kansas. Aluminum. When it rained it was like the end of days &mdash; like a giant Dr. Pepper can with wheels. My mom and my sister raised me there. Shannon was twelve when I was eight and she started the job early. We had a wooden porch where mom made sun tea by day and we used it for stargazing at night. Someone stole it while we were at K-Mart.</p>
-            <p>When I was 10, mom found a double-wide on the south end of town with a better porch. We all got our own rooms. We had this yellow rotary phone on the wall by the kitchen with a cord so long you could walk and talk from one end of the trailer to the other. It would be home for the next 10 years, and it was a good one.</p>
-            <p>Back then there were lightning bugs in the summer. Thick. They&rsquo;d light up the sky. Kids would knock them down with wiffleball bats to make their bats glow. I wrote a short film about a boy and a bug in March 2025. Didn&rsquo;t know what it meant yet.</p>
-            <p>I thought April 2024 was the hardest month. Then came October. Then November. Then every month after that, up to June 28, 2025. Each one had a floor I thought I&rsquo;d found. None of them did.</p>
-            <p>My mom passed away at 9 am that Saturday morning. I hopped in my Jeep the Friday night before around 7 pm and started an 8-hour drive south down the I-35 corridor from Duluth to Dallas. Shan called right before I left &mdash; mom was in an ambulance headed back to the ICU at Lawrence Memorial Hospital. Given what she&rsquo;d been through, I knew if I didn&rsquo;t leave soon there was a chance I&rsquo;d never see her again. It wasn&rsquo;t a chance I was willing to take. I arrived in Lawrence around 3 am.</p>
-            <p>By 4 am, Shan and I were crossing through her door in room 235. When I saw her I knew it was over. Septic shock. Tubes in her neck. Her eyes were looking up and darting back and forth at the fluorescent light on the wall above her bed. She was gasping for air.</p>
-            <p>The nurse sat with us and ran through the whole spiel. I picked up a few words but mostly I was focused on Sandra. I held her hand and felt her ever-so-slightly holding it back. Shan and I spent the next two hours seeing how the odds played out.</p>
-            <p>By 6 am we made the call &mdash; critical care to comfort care. Tubes removed. Basket of cookies and pot of coffee delivered. She closed her eyes. She stopped gasping. The nurses said it could be a few hours or longer. It was about three. Shan and I said our goodbyes the best we could.</p>
-            <p>She was finally at peace. She didn&rsquo;t want to be here. I wanted her to keep fighting because I wasn&rsquo;t ready. So she did her best to do what she had done for more than 50 years: make her kids happy. I kissed her forehead and told her how proud I was to be her son &mdash; that she&rsquo;d had a helluva run without ever running from anything. And that it was okay to let go and finally run.</p>
-            <p>I saw her final breath. On the left side of her throat. It wasn&rsquo;t deep. It wasn&rsquo;t shallow. It was just the last one. <em>Is she really gone?</em> Yes, she&rsquo;s gone, sis.</p>
-            <p>It was a tornado of anger and relief. So pissed at the way she had to die under artificial light instead of from her recliner in the sun. So thankful she was finally at peace after years spent worrying.</p>
-            <p>The machines think this film is an elegy. That it needs a shelf. The old kind with jackets worn by Tennyson, Didion, C.S. Lewis, Malick &mdash; where grief wears a voice that can be borrowed like a garment. Grief doesn&rsquo;t work that way. Never has. Never will. The robots know about these stories. But they do not understand them. Not like we do.</p>
-            <p>The film isn&rsquo;t about where I grew up. It&rsquo;s about how I grew up and who raised me. The elements. The odds. The stargazing. The voices and the light in spite of the bleak. June 28, 1983. A Tuesday. Four hours in the evening when I was 10, my sister was 14, and my mom was 39 and working three jobs to keep a tin can and two kids running. Four hours, 42 years later.</p>
-            <p>It&rsquo;s also about Sheri. My wife of 23 years I met because the Moncton Times &amp; Transcript printed my email address instead of a reunion committee&rsquo;s in 2001. That typo became an email, a phone call, a flight from New Brunswick to Minneapolis. And boom, here we are, with kids.</p>
-            <p>If you&rsquo;re keeping track: SSS. Sandra Sue Simmons. Sandra, Shan, Sheri. The film is for them. Thanks for the light. Means a lot.</p>
-            <p>There are still lightning bugs in Kansas. Not as many. The transformers got some of them. But if you close your eyes and listen, you&rsquo;ll hear her voice through hard rain on metal from whatever container you&rsquo;re in. Smell the cookies and coffee. Doesn&rsquo;t require a lightning bolt or a bug. Just your senses.</p>
-            <p>Here we are, kid.</p>
-            <p class="thesis">I see you.</p>
-        </section>
-
-    </div>
-
-    <!-- ==================== FILM TAB ==================== -->
-    <div class="tab-panel" id="tab-film" role="tabpanel">
-
-        <section>
-            <p style="text-align: center; color: var(--accent); font-size: 0.8rem; letter-spacing: 0.08em; margin-bottom: 1.25rem; font-style: italic;">An American Elegy</p>
-            <p class="statement" style="text-align: center; max-width: 620px; margin: 0 auto 2.5rem;">In the same year his mother dies and his career ends, a man returns to a Kansas wheat field on June 28, 1983 &mdash; 37.564&deg;N, 98.121&deg;W, civil twilight, the last summer the fireflies were everywhere &mdash; to meet the light still waiting there to say <span style="font-style: normal;">here we are, kid</span>.</p>
-
-            <h2>Director&rsquo;s Statement</h2>
-            <p><strong>The visual register is built from what I see when I close my eyes and think about that wheat field.</strong> Photoreal-cinematic. Conrad Hall &mdash; Road to Perdition, not Ghibli. Darkness as the dominant compositional value, one light source per frame, silhouettes over rendered faces. Two kinds of light that almost never mix: cold cobalt for the transformer and the hospital, warm amber for the bug and the life. Lightning is the exception &mdash; cobalt core, amber bloom, both registers in the same frame. The one moment of collision. The darker a frame is, the more the remaining light means. No pure black, no pure white &mdash; shadows are cobalt-tinted (#030608), never absent. The people are shadow and shape. The boy reads as a sports kid &mdash; bowl cut with scraggly bangs, mid-neck hair in back, baseball cap. Not clearly a boy, not clearly a girl. The kind of kid who shows up. No AI-generated human face appears anywhere in this film. Sandra is present through real photographs in the credits. That&rsquo;s the ethics answer and the aesthetic one.</p>
-            <p>I recorded thirty-one minutes of unscripted iPhone narration and chopped it into labeled segments. Then I stripped the spine. One voice-over survived the edit &mdash; the shooting-stars passage, sixty-five seconds, entering at 6:10 and running to the end. Everything else is Sandra, Shannon, Sheri, and the room. Sound design carries the rest: a storm system on aluminum, a transformer dying, crickets on the path home, the purr of a lightning bug landing on a bat, a ballpark organ as a boy walks to the plate, a thunder crack when he makes contact. Then a song called &ldquo;Here We Are, Kid&rdquo; breaks through at the end. I wrote it. My voice carries it. The performance is a collaboration with a machine I gave thirty seconds of my voice to. That part is real too.</p>
-            <p>Every shot in this film is locked. The camera does not move. This was a decision, not a default. Memories don&rsquo;t have camera operators. When you close your eyes and remember a wheat field at night, the field doesn&rsquo;t dolly. It holds. The light moves &mdash; the fireflies drift, the wheat bends, the glow travels down the bat &mdash; but the frame stays still, the way a memory stays still. The camera language in this film is expressed through illumination, not lens movement. The audience doesn&rsquo;t need the camera to move. They need to breathe.</p>
-            <p>This is painting with language. Words matter more now than they ever have. AI either taught us that or proved it. Depends on your perspective.</p>
-        </section>
-
-        <!-- Dream Stills Gallery — ten frames, the whole arc -->
-        <div class="gallery-section">
-            <div class="gallery-label">
-                <h2>Ten frames &mdash; the arc in a row</h2>
-                <p style="font-size: 0.8rem; color: var(--text); margin-bottom: 0;">Black open &rarr; dream interior &rarr; departure &rarr; world &rarr; abundance &rarr; curveball &rarr; contact &rarr; the bolt &rarr; extinction &rarr; return. Scroll left to right. Four acts in one breath.</p>
-            </div>
-            <div class="scroll-gallery" style="margin-top: 1.5rem;">
-                <img class="scroll-img" src="/images/lightning-bug/003-alt-can-interior-v2.jpg" alt="The can from inside. Boy silhouetted in the cylinder, cobalt sky through the opening." loading="lazy">
-                <img class="scroll-img" src="/images/lightning-bug/003-rain-on-can-interior.jpg" alt="Rain on the can interior. Porthole, amber bulb, cobalt dark." loading="lazy">
-                <img class="scroll-img" src="/images/lightning-bug/006-porch-detaches.jpg" alt="The porch detaches. Boy on a plank above the can, firefly in hand, cobalt sky." loading="lazy">
-                <img class="scroll-img" src="/images/lightning-bug/008-hall-v1.jpg" alt="Supercell over the water tower. Nickerson establishing. The sky dwarfs everything." loading="lazy">
-                <img class="scroll-img" src="/images/lightning-bug/011-flag-abundance-v2.jpg" alt="Abundance. The boy surrounded by fireflies, cobalt sky, amber bokeh." loading="lazy">
-                <img class="scroll-img" src="/images/lightning-bug/011-badlands-firefly-dark-wheat.jpg" alt="Dark wheat at night. Fireflies in the field, amber cloud on the horizon." loading="lazy">
-                <img class="scroll-img" src="/images/lightning-bug/010e-darkness-hospital.jpg" alt="The hospital road. One cold streetlight, figure silhouetted, amber point in the distance." loading="lazy">
-                <img class="scroll-img" src="/images/lightning-bug/010f-union-station-hall.jpg" alt="Union Station. Rectangles become arches. The architecture forgives him." loading="lazy">
-                <img class="scroll-img" src="/images/lightning-bug/017-contact-ball-becomes-night.jpg" alt="Contact. The ball becomes the sun of this world. The boy walks toward what his swing created." loading="lazy">
-                <img class="scroll-img" src="/images/lightning-bug/018-flag-sunset.jpg" alt="The transformer. Storm arriving, amber clouds stacking, cobalt lightning in the distance." loading="lazy">
-                <img class="scroll-img" src="/images/lightning-bug/018-flag-transformer-inverted.jpg" alt="The strike. Full amber sky, bolt through the transformer. Both registers fire." loading="lazy">
-                <img class="scroll-img" src="/images/lightning-bug/018-flag-inverted-volumetric.jpg" alt="Aftermath. The big amber cumulus. The pole took the hit. The light is leaving." loading="lazy">
-                <img class="scroll-img" src="/images/lightning-bug/012-firefly-towers-v3.jpg" alt="Firefly towers. Four amber columns in the wheat. The stadium is not a building." loading="lazy">
-                <img class="scroll-img" src="/images/lightning-bug/020-badlands-moon-flat.jpg" alt="Return. Amber moon over flat cobalt field. The benchmark." loading="lazy">
-                <img class="scroll-img" src="/images/lightning-bug/017-alt-contact-flash-v2.jpg" alt="Lightning strike. Cold cobalt bolt, the field lit for one frame." loading="lazy">
-            </div>
-            <p class="gallery-caption" style="margin-top: 1.5rem;">Fifteen frames. FLUX Pro v1.1 Ultra, Hall&rsquo;s shadow depth in Malick&rsquo;s flat-landscape composition. Shadow floor #0a1628 &mdash; every shadow is cobalt, never void. The bolt is the only frame where both kinds of light touch.</p>
+    <!-- 6. THE CREW -->
+    <section class="scene-crew" aria-label="crew">
+        <div class="crew-line">
+            <span class="label">directed by</span>
+            <span class="val"><a href="/derek">Derek Claude Simmons</a></span>
         </div>
-
-        <section>
-            <h2>Production Status</h2>
-            <div class="production-log" style="margin-bottom: 2rem; padding: 1rem 1.25rem; border-left: 3px solid #6bc46b; background: rgba(107, 196, 107, 0.04);">
-                <div class="log-entry">
-                    <span class="log-date" style="color: #6bc46b;">On Deck</span>
-                    <span class="log-text">
-                        <strong>Day 23 &mdash; next session checklist.</strong>
-                        <ul style="margin: 0.5rem 0 0 1rem; padding: 0; line-height: 1.8;">
-                            <li>Review 12 regen stills (<code>regen-XXX.png</code>) &mdash; swap approved to <code>seq-XXX.png</code></li>
-                            <li>Review 3 tin-can flicker clips (<code>film/clips/tin-can/</code>)</li>
-                            <li>Add slot 003.5 (Outside / threshold) to <code>sequence.json</code></li>
-                            <li>Audio assembly pass on <code>rough-v2.wav</code></li>
-                            <li>Vimeo upload + submission form &mdash; deadline April 27, 4:59 PM ET</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
-            <div class="production-log">
-                <div class="log-entry">
-                    <span class="log-date">Day 21</span>
-                    <span class="log-text"><strong>The opening and closing lock.</strong> <code>lightning/bug</code> types in on cobalt at the start. Sandra&rsquo;s voicemail plays: &ldquo;Marco&hellip; tag, you&rsquo;re it.&rdquo; At the end, it types in again. Sandra: &ldquo;Love you, bye.&rdquo; The cursor blinks. The film ends mid-blink. The cursor is the bug.</span>
-                </div>
-                <div class="log-entry">
-                    <span class="log-date">Day 19</span>
-                    <span class="log-text"><strong>The narration comes off.</strong> Listened to the rough cut and pulled five voice-over tracks &mdash; growing up, baseball, AI, Kansas summers. The explanatory spine was killing it. What stays: Sandra opens the film. Shannon and Sheri appear as evidence, not narration. One passage survives &mdash; the shooting stars, entering at 6:10, talking to Sandra, to the boy on the porch, to everyone watching. &ldquo;I hope that you say thank you.&rdquo; That&rsquo;s the film&rsquo;s ending.</span>
-                </div>
-                <div class="log-entry">
-                    <span class="log-date">Day 11</span>
-                    <span class="log-text"><strong>The face rule.</strong> Walked the film from a chair at 10 PM. The moon is mom. The porch light is mom. The home plate is mom. The mason jar on the desk is mom. Four scales of the same amber. Only Sandra gets a face in this film, and it&rsquo;s a real photograph in the credits. Shannon and Sheri are light and voice. The ones still here don&rsquo;t need the film to give them a face. They have one in life.</span>
-                </div>
-                <div class="log-entry">
-                    <span class="log-date">Days 1&ndash;5</span>
-                    <span class="log-text">Full asset inventory. Shot list rewritten from scratch. Anime register abandoned &mdash; built a stylebook from fifty-six saved stills, yes or no on every one. Core rules locked: darkness is the style, two kinds of light, silhouettes over rendered faces. Song found its pocket at 11:19 PM. Walked the bark park and the boy in the wheat field told the man to get out of the chair.</span>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Festival Submissions</h2>
-            <div class="festivals">
-                <div class="festival-row">
-                    <div>
-                        <span class="festival-name">Runway AI Festival</span><br>
-                        <span class="festival-date" data-deadline="2026-04-27T23:59:00-04:00">NYC Jun 11 + LA Jun 18 &mdash; Deadline Apr 27</span>
-                    </div>
-                    <span class="festival-status status-production">In Production</span>
-                </div>
-                <div class="festival-row">
-                    <div>
-                        <span class="festival-name">AI for Good Film Festival (ITU/UN)</span><br>
-                        <span class="festival-date" data-deadline="2026-05-01">Geneva Jul 7&ndash;10 &mdash; Deadline May 1</span>
-                    </div>
-                    <span class="festival-status status-pending">Pending</span>
-                </div>
-                <div class="festival-row">
-                    <div>
-                        <span class="festival-name">Cannes AI Film Awards</span><br>
-                        <span class="festival-date" data-deadline="2026-05-21">Cannes &mdash; Deadline May 21</span>
-                    </div>
-                    <span class="festival-status status-pending">Pending</span>
-                </div>
-                <div class="festival-row">
-                    <div>
-                        <span class="festival-name">Reply AI Film Festival</span><br>
-                        <span class="festival-date" data-deadline="2026-06-01">Venice Sep 2026 &mdash; Deadline Jun 1</span>
-                    </div>
-                    <span class="festival-status status-pending">Pending</span>
-                </div>
-                <div class="festival-row">
-                    <div>
-                        <span class="festival-name">LifeArt AI Global Film Festival</span><br>
-                        <span class="festival-date" data-deadline="2026-06-20">Deadline Jun 20</span>
-                    </div>
-                    <span class="festival-status status-pending">Pending</span>
-                </div>
-            </div>
-        </section>
-
-    </div>
-
-    <!-- ==================== SONG TAB ==================== -->
-    <div class="tab-panel" id="tab-song" role="tabpanel">
-
-        <section>
-            <div class="statement">
-                <p>A soundtrack is a second film. This one runs underneath the first &mdash; a song, four hums, a room full of crickets, a mother on the phone.</p>
-                <p>The song is mine. The hums are the machine&rsquo;s. The room is Kansas. What you hear is as real as what you see.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>&ldquo;Here We Are, Kid&rdquo;</h2>
-            <p style="font-size: 0.78rem; color: var(--dim); letter-spacing: 0.04em; margin-bottom: 1.5rem;">Written by Derek Claude Simmons &middot; Performance: Suno v4.5 &middot; 4:49 full &middot; 1:24 film cut &middot; 69 BPM &middot; Americana, red-dirt country, open-tuned guitar, no reverb.</p>
-
-            <p>My mother called everyone &ldquo;kid.&rdquo; Not a pet name &mdash; a position. <em>You&rsquo;re here. I see you.</em> She said it the way other people say &ldquo;you know.&rdquo; Constantly. All her life.</p>
-
-            <p>She went to high school in Alva, Oklahoma. Home of the Alva High Goldbugs. A goldbug is a beetle; in this film it&rsquo;s a firefly &mdash; the kind that glows, the kind you chase. That was her.</p>
-
-            <p>&ldquo;Bolts chasin da wheat, or is it da cheat?&rdquo; Cheatgrass is a weed that invades wheat fields and mimics wheat so well the combine can&rsquo;t always tell. Lightning chases both. I used to think I was better at telling the difference.</p>
-
-            <p>The tin man is real. I made this film with an AI sitting in an aluminum can on my desk. It doesn&rsquo;t have a heart. I&rsquo;m not sure it needed one. We both just wanted to see it.</p>
-
-            <p>&ldquo;With all the pretty sins&rdquo; is the line that forgives the whole thing. Sandra earned it. Shannon earned it. So did the bug.</p>
-
-            <p>The music is Suno. The voice is mine. The words belong to Nickerson, Kansas, 1983. I just wrote them down.</p>
-
-            <p class="thesis" style="margin-top: 2rem;">You won, kid.</p>
-        </section>
-
-        <section>
-            <h2>The Four Hums</h2>
-            <p style="font-size: 0.85rem; margin-bottom: 1.5rem;">Four tones run under the film, one per register. They come in alone, they layer at contact, they drop out when the boy gets home. The film&rsquo;s real score isn&rsquo;t melody &mdash; it&rsquo;s <em>hum</em>.</p>
-            <div class="three-col" style="grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                <div class="col">
-                    <h3 style="color: var(--accent);">Thunder</h3>
-                    <ul style="font-size: 0.8rem;"><li>The bolt&rsquo;s register. Weather you can feel in the chest.</li></ul>
-                </div>
-                <div class="col">
-                    <h3 style="color: var(--accent);">Kitten Purr</h3>
-                    <ul style="font-size: 0.8rem;"><li>The bug&rsquo;s register. The firefly lands on the bat and the whole room resonates.</li></ul>
-                </div>
-                <div class="col">
-                    <h3 style="color: #6b9fd4;">Transformer Drone</h3>
-                    <ul style="font-size: 0.8rem;"><li>The grid&rsquo;s register. A single pole in a single field, dying.</li></ul>
-                </div>
-                <div class="col">
-                    <h3 style="color: #6b9fd4;">Fluorescent Hum</h3>
-                    <ul style="font-size: 0.8rem;"><li>The hallway&rsquo;s register. Waiting-room light. The sound of time not moving.</li></ul>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Voices in the Film</h2>
-            <div class="production-log">
-                <div class="log-entry">
-                    <span class="log-date">Sandra</span>
-                    <span class="log-text"><strong>&ldquo;Marco&hellip;&rdquo;</strong> &mdash; mom&rsquo;s actual voicemail opens the film. Followed by &ldquo;Tag, you&rsquo;re it.&rdquo; Her last words in the film: &ldquo;Love you, bye.&rdquo; Real recordings, archival from iPhone Voicemail.</span>
-                </div>
-                <div class="log-entry">
-                    <span class="log-date">Shannon</span>
-                    <span class="log-text"><strong>&ldquo;Hey, brother.&rdquo;</strong> &mdash; the bug lands on the bat the moment her voice does. Real voicemail from the day Sandra went into the hospital.</span>
-                </div>
-                <div class="log-entry">
-                    <span class="log-date">Sheri</span>
-                    <span class="log-text"><strong>&ldquo;Love you, love you, love you, love you.&rdquo;</strong> &mdash; rides the firefly dance, low in the mix. The way she shows up in the world is the way she shows up in the film.</span>
-                </div>
-                <div class="log-entry">
-                    <span class="log-date">Derek</span>
-                    <span class="log-text">31 minutes of unscripted iPhone narration, chopped into 33 labeled segments. Then the spine came off. One voice-over survived the edit &mdash; the shooting-stars passage, entering at 6:10 and running to the end. Everything else is Sandra, Shannon, Sheri, and the room. An AI cloned my voice; I rejected the clone. The voice you hear is the one Sandra heard.</span>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Sound Design &amp; Ambient</h2>
-            <div class="tools-grid">
-                <div class="tool-group">
-                    <h3>Ambient Beds</h3>
-                    <ul>
-                        <li><span class="tool-name">Storm system on aluminum</span> &mdash; rain on the can, end-of-days</li>
-                        <li><span class="tool-name">Wind through wheat</span> &mdash; the field breathing</li>
-                        <li><span class="tool-name">Crickets on the path home</span> &mdash; the walk out of the field</li>
-                        <li><span class="tool-name">Transformer drone</span> &mdash; one pole, one pasture</li>
-                        <li><span class="tool-name">Field room tone</span> &mdash; the silence after</li>
-                        <li style="font-size: 0.7rem; color: var(--dim); margin-top: 0.5rem;">Stable Audio 2.5</li>
-                    </ul>
-                </div>
-                <div class="tool-group">
-                    <h3>Foley</h3>
-                    <ul>
-                        <li><span class="tool-name">Bat crack</span> &mdash; contact, the ball becomes the sky</li>
-                        <li><span class="tool-name">Screen door</span> &mdash; the latch that meant home</li>
-                        <li><span class="tool-name">Mason jar clink</span> &mdash; the last light before sleep</li>
-                        <li><span class="tool-name">Footsteps</span> &mdash; ballpark dirt, dirt path, linoleum</li>
-                        <li><span class="tool-name">Ballpark organ</span> &mdash; the walk-up, &ldquo;Charge&rdquo;</li>
-                        <li><span class="tool-name">Kitten purr</span> &mdash; the firefly landing (actual cat)</li>
-                        <li style="font-size: 0.7rem; color: var(--dim); margin-top: 0.5rem;">ElevenLabs SFX &middot; Stable Audio &middot; actual cats</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Score &amp; Credits</h2>
-            <p style="font-size: 0.85rem;"><strong>Song:</strong> &ldquo;Here We Are, Kid&rdquo; &mdash; words by Derek Claude Simmons, performance by Suno v4.5, voice reference by Derek. Plays over the credits photographs.</p>
-            <p style="font-size: 0.85rem;"><strong>AIVA score sections:</strong> pending &mdash; low strings under the walk home, nothing over the song.</p>
-            <p style="font-size: 0.85rem;"><strong>Archival voice:</strong> Sandra Sue Simmons (voicemails, iPhone). Shannon Dawn (voicemail). Sheri Simmons (voicemail). Channel 9 Wichita newscast, 1983.</p>
-            <p style="font-size: 0.85rem;"><strong>Narration:</strong> Derek Claude Simmons, iPhone, unscripted, first take. Transcription by MLX Whisper large-v3-turbo.</p>
-            <p style="font-size: 0.85rem;"><strong>Assembly:</strong> ffmpeg + Python. Mixed in stems, not stereo.</p>
-        </section>
-
-        <section>
-            <h2>What&rsquo;s Human / What&rsquo;s Artificial (per track)</h2>
-            <div class="production-log">
-                <div class="log-entry">
-                    <span class="log-date">The Song</span>
-                    <span class="log-text"><strong>Both.</strong> Words and voice reference: human. Performance, arrangement, final voice: AI. I sang a take. Suno sang it back in a register closer to my father than to me. I kept it.</span>
-                </div>
-                <div class="log-entry">
-                    <span class="log-date">The Hums</span>
-                    <span class="log-text"><strong>Artificial.</strong> Four tones generated and layered in Stable Audio and ElevenLabs. The kitten purr is the exception &mdash; an actual cat, recorded.</span>
-                </div>
-                <div class="log-entry">
-                    <span class="log-date">The Voices</span>
-                    <span class="log-text"><strong>Human.</strong> Every voice in this film belongs to a person who said the thing into a phone. An AI offered to clone mine. I said no.</span>
-                </div>
-                <div class="log-entry">
-                    <span class="log-date">The Ambient</span>
-                    <span class="log-text"><strong>Artificial.</strong> The storm, the wind, the crickets, the room tone &mdash; all synthesized. They sound like Nickerson because I described Nickerson until they did.</span>
-                </div>
-                <div class="log-entry">
-                    <span class="log-date">The Foley</span>
-                    <span class="log-text"><strong>Both.</strong> Most clips are AI-generated. The footsteps are real &mdash; I recorded them on the dirt path behind the dog park, because the AI versions sounded like someone walking through a studio.</span>
-                </div>
-                <div class="log-entry">
-                    <span class="log-date">The Archival</span>
-                    <span class="log-text"><strong>Human.</strong> Sandra. Shannon. Sheri. Channel 9. These are real recordings of real people in real years. The film does not re-create them. They are the ground.</span>
-                </div>
-            </div>
-        </section>
-
-    </div>
-
-    <!-- ==================== PROCESS TAB ==================== -->
-    <div class="tab-panel" id="tab-process" role="tabpanel">
-
-        <section>
-            <h2>Painting with Language</h2>
-            <p>Every frame in this film starts as a sentence. You describe what you remember &mdash; not what you&rsquo;re inventing, what you remember. The machine searches for it. You decide if it&rsquo;s right. That&rsquo;s the whole process. Painting with language.</p>
-            <p>The workflow is two people in a room: one who lived the story and one who knows every image ever made. The first one talks. The second one looks. They argue about which image is correct. Neither of them has a camera. Neither of them can go back to Nickerson, Kansas in 1983 and shoot it. So they describe it until it looks like what the first person remembers. That&rsquo;s the film.</p>
-            <p>The elegy is traditionally the most solitary form &mdash; one voice, one loss, one speaker. This film is something else: a co-elegy. Two kinds of intelligence mourning three kinds of loss simultaneously. Sandra. The fireflies. The distance between what was and what can be reconstructed. The human carries the memory. The machine carries the coordinates. Neither has the complete picture alone.</p>
-            <p>Every session starts with a 30&ndash;90 minute walk. iPhone in hand. Talking to no one, recording everything. The transcript goes into the system. The film moves forward. No writing, no storyboards, no shot lists done at a desk. The ideas come when the dog is ahead of me on the path and I&rsquo;m not thinking about it.</p>
-
-            <p>The film&rsquo;s syntax is match cuts. Every transition holds a single light source that carries across the seam. An amber speck in black becomes a water tower at dusk. A firefly filling a porthole becomes a boy stepping out with a glowing bat. A crescent moon becomes a porch light on the horizon. The dance of fireflies becomes the dance of keyboard keys. A crack of light under a door becomes the crack between eyelids opening. The camera doesn&rsquo;t move. The light does.</p>
-
-            <div class="process-photos">
-                <div class="process-photo">
-                    <img src="/images/lightning-bug/process-IMG_7295.jpg" alt="Derek and Jordy at Andy's Bark Park — where most of this gets figured out" loading="lazy">
-                    <p class="process-caption">Jordy at Andy&rsquo;s Bark Park. The Geordie Loop. ~40 min per loop. Most of the film was figured out here.</p>
-                </div>
-                <div class="process-photo">
-                    <img src="/images/lightning-bug/process-IMG_7293.jpg" alt="Derek at home plate on a baseball diamond" loading="lazy">
-                    <p class="process-caption">At the plate. The film turns on a single swing. Ended up here because of it.</p>
-                </div>
-                <div class="process-photo">
-                    <img src="/images/lightning-bug/process-IMG_7208.jpg" alt="Derek with a bronze statue of a man reading" loading="lazy">
-                    <p class="process-caption">The director. The process is mostly sitting with old things and asking what they mean now.</p>
-                </div>
-                <div class="process-photo">
-                    <img src="/images/lightning-bug/process-IMG_7243.jpg" alt="Split tree trunk showing layers of wood — texture from the bark park" loading="lazy">
-                    <p class="process-caption">What&rsquo;s been broken open shows its layers. Same principle applies to the edit.</p>
-                </div>
-            </div>
-
-            <div class="process-video">
-                <video autoplay muted loop playsinline controls preload="metadata">
-                    <source src="/video/lightning-bug-firebird-slipper.mp4" type="video/mp4">
-                </video>
-                <p class="process-video-caption">Slipper &mdash; a 1982 gunmetal gray Pontiac Firebird, tinted windows, running the Jeep Trail south of Nickerson. Another Firebird overtakes her in the clip. The land is mostly flat; the names matter. Still &rarr; Veo 3 for the first 5 seconds, Kling 3.0 Pro to expand to 15. Score underneath is <em>06-slipper</em> &mdash; same name as the car. Hyper-specific over pretty-but-generic.</p>
-            </div>
-
-            <div class="process-video">
-                <video autoplay muted loop playsinline>
-                    <source src="/video/process-train-window.mp4" type="video/mp4">
-                </video>
-                <p class="process-video-caption">Empire Builder &mdash; shot from the train window somewhere in Montana. The same train that runs through Nickerson. This is source material and process at once.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Motion Language</h2>
-            <p><strong>Locked center, breathing periphery.</strong> The light source is fixed. Everything around it is alive. Camera locked. No movement. The world breathes around the one thing that doesn&rsquo;t.</p>
-            <p>Horizontal: wheat and wind breathe left-to-right or right-to-left &mdash; direction carries emotional meaning. Rightward is forward, toward home. Leftward is backward, into memory. Depth: atmosphere and fireflies drift toward or away from camera. Toward is the dream pulling you in. Away is the world receding into waking.</p>
-            <p>Every shot inherits one point of light from the previous cut. The bolt is the exception. The bug is the rule.</p>
-        </section>
-
-        <section>
-            <h2>The Transformer &mdash; Color Progression</h2>
-            <p>The transformer pole at the west edge of the wheat field &mdash; silhouetted against the sunset at <strong>37.564&deg;N, 98.121&deg;W</strong>, June 28, 1983. This is the extinction shot. The transformer kills the fireflies. The amber world goes cold cobalt.</p>
-            <p>Civil twilight runs <strong>8:50&ndash;9:22 PM CDT</strong>. That&rsquo;s the window. The astronomical math doesn&rsquo;t change on 40-year timescales &mdash; the same light that governed June 28, 1983 governs June 28, 2025. Coordinates feed the prompt. The prompt feeds the image.</p>
-            <p>The workflow: <strong>FLUX</strong> for base architecture (cloud volume, composition, depth). <strong>Kontext</strong> for time-of-day pass (darken, pull toward the correct hour). Generate bright first to show cloud shape. Then extinguish. You can&rsquo;t add volume to a dark image &mdash; you build it in light and then kill it.</p>
-            <p>Eight generations across one session. The keeper is image six: cobalt taking the sky, amber burning at the horizon over N Nickerson Rd, the transformer pole in the seam. <strong>9:10 PM CDT.</strong></p>
-        </section>
-
-        <div class="gallery-section">
-            <div class="scroll-gallery" style="align-items: flex-start;">
-                <figure class="scroll-figure">
-                    <img class="scroll-img" src="/images/lightning-bug/shot-13-transformer-extinction.jpg" alt="Shot 13 baseline — FLUX default, polished anime register" loading="lazy">
-                    <figcaption class="scroll-fig-caption">Gen 1: raw FLUX &mdash; wrong register, too polished</figcaption>
-                </figure>
-                <figure class="scroll-figure">
-                    <img class="scroll-img" src="/images/lightning-bug/shot-13-cobalt-volumetric.jpg" alt="Shot 13 volumetric cloud attempt — daytime blue sky" loading="lazy">
-                    <figcaption class="scroll-fig-caption">Gen 2: ~3 PM &mdash; volumetric clouds, daytime blue</figcaption>
-                </figure>
-                <figure class="scroll-figure">
-                    <img class="scroll-img" src="/images/lightning-bug/shot-13-transformer-inverted.jpg" alt="Shot 13 color inverted — amber sky, cobalt ground" loading="lazy">
-                    <figcaption class="scroll-fig-caption">Gen 3: color inversion &mdash; amber sky, cobalt world</figcaption>
-                </figure>
-                <figure class="scroll-figure">
-                    <img class="scroll-img" src="/images/lightning-bug/shot-13-inverted-volumetric.jpg" alt="Shot 13 inverted with volumetric clouds — amber storm sky" loading="lazy">
-                    <figcaption class="scroll-fig-caption">Gen 4: ~5 PM storm &mdash; inverted + volumetric (first WOW)</figcaption>
-                </figure>
-                <figure class="scroll-figure">
-                    <img class="scroll-img" src="/images/lightning-bug/shot-13-inverted-lightning.jpg" alt="Shot 13 both registers firing — amber and cobalt lightning" loading="lazy">
-                    <figcaption class="scroll-fig-caption">Gen 5: ~5:30 PM &mdash; both registers firing</figcaption>
-                </figure>
-                <figure class="scroll-figure">
-                    <img class="scroll-img" src="/images/lightning-bug/shot-13-sunset.jpg" alt="Shot 13 keeper — cobalt top, amber horizon, 9:10 PM CDT civil twilight" loading="lazy">
-                    <figcaption class="scroll-fig-caption">Gen 6: 9:10 PM CDT &mdash; civil twilight (keeper)</figcaption>
-                </figure>
-                <figure class="scroll-figure">
-                    <img class="scroll-img" src="/images/lightning-bug/shot-13-10pm.jpg" alt="Shot 13 at 10 PM — nautical twilight, cloud mass reduced" loading="lazy">
-                    <figcaption class="scroll-fig-caption">Gen 7: 10:00 PM CDT &mdash; nautical twilight</figcaption>
-                </figure>
-                <figure class="scroll-figure">
-                    <img class="scroll-img" src="/images/lightning-bug/shot-13-cobalt-night.jpg" alt="Shot 13 Kontext night pass — too dark, cloud mass lost" loading="lazy">
-                    <figcaption class="scroll-fig-caption">Gen 8: 10:30 PM CDT &mdash; too dark, cloud mass gone</figcaption>
-                </figure>
-            </div>
-            <p class="gallery-caption" style="margin-top: 0.75rem;">The transformer &mdash; 37.564&deg;N, 98.121&deg;W &mdash; June 28, 1983. Eight generations across one session. Civil twilight: 8:50&ndash;9:22 PM CDT. The astronomy is in the frame whether the viewer knows it or not.</p>
+        <div class="crew-line">
+            <span class="label">studio</span>
+            <span class="val">sssstudios</span>
         </div>
+        <div class="crew-line">
+            <span class="label">in memory of</span>
+            <span class="val">Sandra Sue Simmons · 1945–2025</span>
+        </div>
+    </section>
 
-        <section>
-            <h2>The Color Grammar</h2>
-            <p>Two light families. They almost never mix. Every pixel in this film is one or the other &mdash; a shade, a tone, or a shadow of its family color. Lightning is the exception: cobalt core, amber bloom. The one moment both registers collide.</p>
-            <div class="color-row">
-                <span class="swatch"><span class="swatch-dot" style="background:#ffb347;"></span> amber base #ffb347</span>
-                <span class="swatch"><span class="swatch-dot" style="background:#d4882a;"></span> amber deep #d4882a</span>
-                <span class="swatch"><span class="swatch-dot" style="background:#c8671a;"></span> amber char #c8671a</span>
-                <span class="swatch"><span class="swatch-dot" style="background:#2a1a08;"></span> amber shadow #2a1a08</span>
-            </div>
-            <div class="color-row">
-                <span class="swatch"><span class="swatch-dot" style="background:#6b9fd4;"></span> cobalt light #6b9fd4</span>
-                <span class="swatch"><span class="swatch-dot" style="background:#1e4a8a;"></span> cobalt mid #1e4a8a</span>
-                <span class="swatch"><span class="swatch-dot" style="background:#0a1628;"></span> cobalt floor #0a1628</span>
-                <span class="swatch"><span class="swatch-dot" style="background:#0a1a2f;"></span> cobalt deep #0a1a2f</span>
-            </div>
-            <p style="margin-top: 1.25rem;"><strong>Amber</strong> = Sandra, life, warmth, fireflies, Kansas sun, the bug. <strong>Cobalt</strong> = the transformer, the machine, extinction, the hospital, artificial light. Shadow floor is #0a1628 &mdash; no pixel darker. Every shadow you see in this film is cobalt-blue, not void. You can see into all of them. That&rsquo;s Conrad Hall. Humans are silhouettes. Sound is specific (names, dates, one family). Visual is universal (anyone&rsquo;s story).</p>
-            <p>The model is the lightning. The prompt is the bug.</p>
-        </section>
-
-        <section>
-            <h2>What&rsquo;s Human / What&rsquo;s Artificial / What&rsquo;s Both</h2>
-            <div class="three-col">
-                <div class="col human">
-                    <h3>Human</h3>
-                    <ul>
-                        <li>The voice (31 min, unscripted, iPhone)</li>
-                        <li>Sandra&rsquo;s voicemails</li>
-                        <li>Shannon&rsquo;s voicemails</li>
-                        <li>Sheri&rsquo;s voicemail</li>
-                        <li>1983 newscast recording</li>
-                        <li>The song (&ldquo;Here We Are, Kid&rdquo;)</li>
-                        <li>The memory</li>
-                        <li>The walks with Jordy</li>
-                        <li>The ethical call to illustrate, not photograph</li>
-                    </ul>
-                </div>
-                <div class="col artificial">
-                    <h3>Artificial</h3>
-                    <ul>
-                        <li>Dream stills (Fal.ai FLUX)</li>
-                        <li>Video clips (Kling 3.0 Pro, Runway Gen-4.5, Veo 3)</li>
-                        <li>Voice clone (ElevenLabs &mdash; rejected)</li>
-                        <li>&ldquo;Here We Are, Kid&rdquo; performance (Suno)</li>
-                        <li>Assembly pipeline (Python + ffmpeg)</li>
-                        <li>Title cards (ImageMagick)</li>
-                        <li>Ambient bed + foley (Stable Audio + ElevenLabs SFX)</li>
-                        <li>Transcription (MLX Whisper)</li>
-                    </ul>
-                </div>
-                <div class="col both">
-                    <h3>Both</h3>
-                    <ul>
-                        <li>Script (Claude + Derek)</li>
-                        <li>Shot list (walks + transcription + edit)</li>
-                        <li>Color grading (human eye, machine process)</li>
-                        <li>Sound design (real + synthesis)</li>
-                        <li>The decision to reject the AI voice</li>
-                        <li>The film</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>The Crew</h2>
-            <p style="font-size: 0.9rem; margin-bottom: 1rem;">The Boy (Derek Simmons). The Bug (Sonnet 4.6). The Bolt (Opus 4.7). The Bot (Haiku 4.5). Four voices. 125 hours on the shot clock.</p>
-        </section>
-
-        <section>
-            <h2>Tools</h2>
-            <div class="tools-grid">
-                <div class="tool-group">
-                    <h3>Creative Direction</h3>
-                    <ul>
-                        <li><span class="tool-name">Anthropic Claude</span> (Opus 4.7 + Sonnet 4.6 + Haiku 4.5) &mdash; direction, coding, pipeline</li>
-                        <li><span class="tool-name">Google Gemini</span> &mdash; visual research, prompt engineering, cinematic reference</li>
-                        <li><span class="tool-name">iPhone voice memos</span> &mdash; 31+ min narration, 90-min walks</li>
-                    </ul>
-                </div>
-                <div class="tool-group">
-                    <h3>Image Generation</h3>
-                    <ul>
-                        <li><span class="tool-name">Fal.ai FLUX Pro v1.1 Ultra</span> &mdash; dream stills, photoreal-cinematic register</li>
-                        <li><span class="tool-name">Google Imagen 4</span> &mdash; register work, Hall vocabulary</li>
-                        <li><span class="tool-name">FLUX Kontext Pro</span> &mdash; image-to-image refinement, face darken, character continuity</li>
-                        <li style="font-size: 0.7rem; color: var(--dim); margin-top: 0.5rem;">Retired along the way: LTX Studio, Nano Banana 2 (candidate stills; no keepers in the final cut).</li>
-                    </ul>
-                </div>
-                <div class="tool-group">
-                    <h3>Video Generation</h3>
-                    <ul>
-                        <li><span class="tool-name">Kling 3.0 Pro</span> &mdash; 15-second motion extensions, Slipper, hallway morph</li>
-                        <li><span class="tool-name">Runway Gen-4.5</span> &mdash; directed motion clips</li>
-                        <li><span class="tool-name">Veo 3</span> &mdash; Shot 1 (spec of light) + first 5s of Slipper</li>
-                    </ul>
-                </div>
-                <div class="tool-group">
-                    <h3>Voice &amp; Transcription</h3>
-                    <ul>
-                        <li><span class="tool-name">iPhone</span> &mdash; narration + walk recordings</li>
-                        <li><span class="tool-name">MLX Whisper large-v3-turbo</span> &mdash; transcription</li>
-                        <li><span class="tool-name">iPhone Voicemail</span> &mdash; Sandra&rsquo;s voicemails (archival)</li>
-                    </ul>
-                </div>
-                <div class="tool-group">
-                    <h3>Sound Design &amp; Score</h3>
-                    <ul>
-                        <li><span class="tool-name">Suno</span> &mdash; &ldquo;Here We Are, Kid&rdquo;</li>
-                        <li><span class="tool-name">Stable Audio 2.5</span> &mdash; ambient beds</li>
-                        <li><span class="tool-name">ElevenLabs SFX</span> &mdash; foley</li>
-                    </ul>
-                </div>
-                <div class="tool-group">
-                    <h3>Assembly</h3>
-                    <ul>
-                        <li><span class="tool-name">ffmpeg</span> &mdash; video + audio mixing</li>
-                        <li><span class="tool-name">Python</span> &mdash; pipeline automation</li>
-                        <li><span class="tool-name">DaVinci Resolve</span> &mdash; color grade (finishing)</li>
-                    </ul>
-                </div>
-            </div>
-            <p style="margin-top: 1.5rem; font-size: 0.78rem; color: var(--dim);">Monthly cost: ~$200 total &mdash; Claude Max, Fal.ai, Runway, Suno, AIVA Pro, ElevenLabs, Google Workspace. No VC. No crew. No studio.</p>
-        </section>
-
-    </div>
-
-    <!-- ==================== PLACES TAB (new Apr 21) ==================== -->
-    <div class="tab-panel" id="tab-places" role="tabpanel">
-
-        <section>
-            <div class="statement">
-                <p>The land is mostly flat. The names matter.</p>
-            </div>
-
-            <p>The thesis of this film &mdash; the line that separates it from the pretty-but-generic generation of AI filmmaking &mdash; is hyper-specific. When Slipper runs south on the aerial, those are the dirt roads Derek drove the 1982 Pontiac Firebird on. When the wheat field appears with the tree line cutting across it, that is the wheat field Derek explored as a kid. When the boy walks out the screen door and looks up at one streetlight, he is standing where a double-wide used to sit, looking at a white shed down the road.</p>
-
-            <p>The AI tools &mdash; Veo 3, Kling 3.0 Pro, Runway, FLUX &mdash; did not invent Nickerson. They rendered the memory of it. The prompts named real grain elevators, real dirt-road geometry, real Kansas wheat, real ATSF rail alignment. That is why the frames hold. Specificity beat stylization.</p>
-
-            <img class="places-topo" src="/images/lightning-bug/nickerson-topo.jpg" alt="Satellite view of Nickerson, Kansas">
-            <p class="press-caption-small" style="margin-top: 0.5rem; margin-bottom: 2.5rem;">Nickerson, Reno County, Kansas. ATSF rail line cuts NE-SW. Arkansas River south. Bull Creek north. Source: TopoZone.</p>
-
-            <h2 style="margin-top: 2.5rem;">The Six Places</h2>
-
-            <h3 style="color: var(--bright); font-size: 1rem; margin-top: 1.5rem;">1. The Double-Wide</h3>
-            <p>Where Derek grew up. Not on the map anymore, but the sight lines from the door are. Standing on the porch you could see the top of the white shed down the road. That is the vantage point of the boy on the porch &mdash; bat to sky, calling his shot.</p>
-            <p class="press-caption-small">In the film: the boy inside the can, the porch, the screen door, and the man waking &mdash; the adult returning to the childhood vantage.</p>
-
-            <h3 style="color: var(--bright); font-size: 1rem; margin-top: 2rem;">2. The White Shed</h3>
-            <p>Hugs the dirt road south of town. Visible from the double-wide's porch. The shed is white now; it was probably another color once. It sits at a landmark distance &mdash; close enough to mark the horizon, far enough to read as a beacon. The one streetlight above the can is the register echo of that landmark-distance relationship.</p>
-            <p class="press-caption-small">In the film: implied throughout Act I. The single light in the landscape.</p>
-
-            <h3 style="color: var(--bright); font-size: 1rem; margin-top: 2rem;">3. The T-Intersection</h3>
-            <p>The dirt road from the double-wide comes down and meets another dirt road in a T. This is where the boy's world ended and the wheat field's world began. The T is the threshold. The overhead combine swath in the film reads like the T from above.</p>
-            <p class="press-caption-small">In the film: the bridge between the hallway and the wheat-as-stadium.</p>
-
-            <h3 style="color: var(--bright); font-size: 1rem; margin-top: 2rem;">4. The Wheat Field with the Tree Line</h3>
-            <p>Across the T-intersection, southwest of the white shed, is a wheat field with a tree line that cuts across it. Derek explored it as a kid. The tree line is the boundary; the wheat is the interior. This is the wheat that shows up as the firefly stadium and as background in the at-bat sequence. It is not generic wheat. It is that wheat. The amber is the amber of late June in Reno County.</p>
-            <p class="press-caption-small">In the film: the wheat-as-stadium, the at-bat backgrounds, the overhead aerial.</p>
-
-            <h3 style="color: var(--bright); font-size: 1rem; margin-top: 2rem;">5. The Sandpit</h3>
-            <p>South of town, southwest of the grain elevators. Kidney-shaped dark water on the satellite view. Derek fished there in the summer. A place where kids went when the dirt roads gave out. The sandpit shows up implicitly in the film's water-and-silence register &mdash; the dark body of water in the landscape that the boy can feel but cannot see from the porch.</p>
-            <p class="press-caption-small">In the film: register reference only. Not a literal frame, but the sandpit's logic &mdash; held water, held silence &mdash; sits under the extinction act.</p>
-
-            <h3 style="color: var(--bright); font-size: 1rem; margin-top: 2rem;">6. The Football Field</h3>
-            <p>North of the sandpit. Derek played quarterback there. A QB reads a field by its geometry &mdash; yard lines, hash marks, the ladder of the sideline. That geometry carries into the at-bat sequence. The chalk drawn by fireflies is a QB's-eye view of a hitter's box. The grid of small-town sports at dusk.</p>
-            <p class="press-caption-small">In the film: the chalk geometry is a field, not a diamond. The at-bat sequence reads as a dusk football game that happens to be baseball.</p>
-
-            <h2 style="margin-top: 3rem;">Slipper</h2>
-            <p>Slipper is the first 1982 gunmetal gray Pontiac Firebird, tinted windows. She ran the Jeep Trail south of Nickerson &mdash; the dirt road that comes to the T, then goes past the sandpit. In the 15-second hero clip on this page, a second Firebird overtakes her in aerial view. The score underneath is <em>06-slipper</em> &mdash; the track shares her name.</p>
-            <p>Slipper enters the film on the path home. The boy becomes the adult. The adult is driving.</p>
-
-            <h2 style="margin-top: 3rem;">What Is Not On This Map</h2>
-            <p><strong>Union Station Los Angeles</strong> &mdash; the exit terminus. Where the film ends. Not Kansas. The door out.</p>
-            <p><strong>Wichita</strong> &mdash; the 1983 Channel 9 newscast came from a Wichita signal that reached Nickerson at night. The antagonist's voice in the film.</p>
-            <p><strong>The ICU</strong> &mdash; Sandra's final room. Hallway beat 3. Wichita hospital, 2025.</p>
-        </section>
-
-    </div>
-
-    <!-- ==================== RESEARCH TAB ==================== -->
-    <div class="tab-panel" id="tab-research" role="tabpanel">
-
-        <section>
-            <div class="statement">
-                <p>The film knows where it is and when. Coordinates feed the prompt. The prompt feeds the image. The astronomy is in the frame whether the viewer knows it or not.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>The Coordinates</h2>
-            <p><strong>June 28, 1983. Nickerson, Kansas.</strong></p>
-            <p>The wheat field southeast of the family home. Bounded by Ave J (north), N Nickerson Rd (west — where the transformer pole runs), and Holiday St (south and east). The field at <strong>37.564&deg;N, 98.121&deg;W</strong>.</p>
-            <p>Sandra&rsquo;s death was June 28, 2025. The boy&rsquo;s story is June 28, 1983 &mdash; forty-two years earlier, same date, same field, same light. The astronomical math is identical for both dates. The sky the boy stood under and the sky above Sandra&rsquo;s death date are the same sky. What changed is the darkness around it.</p>
-        </section>
-
-        <section>
-            <h2>The Light &mdash; June 28, 1983</h2>
-            <p style="font-size: 0.78rem; color: var(--dim); margin-bottom: 1.25rem;">All times CDT. These numbers are identical for June 28, 2025. Astronomy doesn&rsquo;t change on 40-year timescales.</p>
-            <div style="overflow-x: auto;">
-                <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem;">
-                    <thead>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <th style="text-align: left; color: var(--dim); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.68rem; padding: 0.4rem 0.75rem 0.6rem 0;">Time</th>
-                            <th style="text-align: left; color: var(--dim); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.68rem; padding: 0.4rem 0.75rem 0.6rem;">Event</th>
-                            <th style="text-align: left; color: var(--dim); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.68rem; padding: 0.4rem 0 0.6rem;">Register</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.55rem 0.75rem 0.55rem 0; color: var(--accent); white-space: nowrap;">~8:50 PM</td>
-                            <td style="padding: 0.55rem 0.75rem; color: var(--bright);">Sunset</td>
-                            <td style="padding: 0.55rem 0; color: var(--text);">Amber at horizon, azimuth ~286&deg; (just north of due west)</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.55rem 0.75rem 0.55rem 0; color: var(--accent); white-space: nowrap;">8:50&ndash;9:22 PM</td>
-                            <td style="padding: 0.55rem 0.75rem; color: var(--bright);">Civil twilight</td>
-                            <td style="padding: 0.55rem 0; color: var(--text);">Amber on horizon, cobalt taking the upper sky &mdash; Shot 13 lives here</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.55rem 0.75rem 0.55rem 0; color: var(--accent); white-space: nowrap;">~9:22 PM</td>
-                            <td style="padding: 0.55rem 0.75rem; color: var(--bright);">Civil twilight ends</td>
-                            <td style="padding: 0.55rem 0; color: var(--text);">Cobalt dominant, amber rim only</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.55rem 0.75rem 0.55rem 0; color: var(--accent); white-space: nowrap;">~10:04 PM</td>
-                            <td style="padding: 0.55rem 0.75rem; color: var(--bright);">Nautical twilight ends</td>
-                            <td style="padding: 0.55rem 0; color: var(--text);">Deep cobalt, horizon still faintly warm</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.55rem 0.75rem 0.55rem 0; color: var(--accent); white-space: nowrap;">~10:50 PM</td>
-                            <td style="padding: 0.55rem 0.75rem; color: var(--bright);">Astronomical dark</td>
-                            <td style="padding: 0.55rem 0; color: var(--text);">True night. Maximum cobalt. Milky Way overhead.</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 0.55rem 0.75rem 0.55rem 0; color: var(--accent); white-space: nowrap;">~3:20 AM</td>
-                            <td style="padding: 0.55rem 0.75rem; color: var(--bright);">First light</td>
-                            <td style="padding: 0.55rem 0; color: var(--text);">Faint cobalt glow, eastern horizon</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p style="margin-top: 1.5rem; font-size: 0.82rem;"><strong>The amber register sets over N Nickerson Rd.</strong> The transformer pole on the west edge of the field is silhouetted against the amber at 8:50&ndash;9:22 PM. That&rsquo;s the Shot 13 window.</p>
-        </section>
-
-        <section>
-            <h2>The Night Sky</h2>
-            <p><strong>1983, 11 PM:</strong> Reno County was Bortle 2&ndash;3 &mdash; rural sky, excellent. Hutchinson&rsquo;s light dome minimal. The Milky Way was a structure, not a smear. Sagittarius rising south-southeast. From those coordinates on June 28 at midnight, you were looking directly toward the center of the galaxy. 2,500&ndash;3,000 stars visible to the naked eye.</p>
-            <p><strong>2025, same date, same time:</strong> Hutchinson grown. Wichita&rsquo;s dome (45 miles southeast) expanded. Agricultural floods, grain elevator lighting, US-96 corridor. Bortle 4&ndash;5. ~1,500 visible stars. The Milky Way still there but degraded &mdash; narrower, the core less defined.</p>
-            <p>The cold light crept in from the edges. Not one transformer &mdash; 42 years of sodium vapor, LED floods, interstate exchanges. The same sky got dimmer on the same date from the same field while the family was still living there.</p>
-            <p class="thesis">The boy in 1983 could see the center of the galaxy from his backyard. That&rsquo;s not a metaphor. That&rsquo;s the coordinates.</p>
-        </section>
-
-        <section>
-            <h2>The Bug</h2>
-            <p><strong>Why &ldquo;lightning bug&rdquo; and not &ldquo;firefly&rdquo;?</strong> The Harvard Dialect Survey mapped a precise regional split. <em>Lightning bug</em>: Kansas, Missouri, Iowa, Illinois, Indiana, Ohio, Appalachia. Vernacular. Rural. What you call it when you grew up catching them. <em>Firefly</em>: New England, Mid-Atlantic, Deep South coast, the West. Formal. The scientific term. The film uses &ldquo;lightning bug&rdquo; because the boy is from Kansas.</p>
-
-            <p><strong>The Twain line:</strong> Mark Twain was born in Florida, Missouri, 1835. Grew up in Hannibal on the Mississippi. Lightning bug territory. <em>&ldquo;The difference between the right word and the almost right word is the difference between lightning and the lightning bug.&rdquo;</em> &mdash; 1888. The film lives inside that distinction. The transformer is the lightning. The firefly is the bug.</p>
-
-            <p><strong>What the light is for:</strong></p>
-            <ul style="list-style: none; font-size: 0.85rem; line-height: 2.2; margin-top: 0.5rem;">
-                <li><strong>Mating</strong> &mdash; Males flash species-specific patterns. Females respond from perches. Every species has a different code. The flash means: <em>I&rsquo;m here. Are you there?</em></li>
-                <li><strong>Warning</strong> &mdash; Many species contain lucibufagins, bitter toxic compounds. The glow says: don&rsquo;t eat me.</li>
-                <li><strong>Predatory mimicry</strong> &mdash; <em>Photuris</em> females mimic other species&rsquo; flash responses. A <em>Photinus</em> male approaches expecting a mate. She eats him and steals his chemical defense. The light becomes a trap.</li>
-                <li><strong>Larval glow</strong> &mdash; Firefly larvae glow underground before they&rsquo;ve ever flashed as adults. The light precedes the language.</li>
-            </ul>
-
-            <p style="margin-top: 1.25rem;">Sandra opens the film: <em>&ldquo;Marco&hellip; Polo. Call me back if you want to.&rdquo;</em> The firefly is doing the same thing &mdash; flashing into the dark, waiting for an answer. Shannon landing on the bat is the answer. The transformer extinguishes it. The communication channel goes dark.</p>
-        </section>
-
-        <section>
-            <h2>The Decline</h2>
-            <p>Primary Kansas species: <em>Photinus pyralis</em>. Reno County is near the western edge of the core firefly range &mdash; drier than Missouri, wetter than Colorado. Western-edge populations hit harder than the eastern heartland.</p>
-
-            <div style="overflow-x: auto; margin: 1.5rem 0;">
-                <table style="width: 100%; border-collapse: collapse; font-size: 0.78rem;">
-                    <thead>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <th style="text-align: left; color: var(--dim); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.65rem; padding: 0.4rem 0.75rem 0.6rem 0;">What</th>
-                            <th style="text-align: left; color: var(--dim); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.65rem; padding: 0.4rem 0.75rem 0.6rem;">Change</th>
-                            <th style="text-align: left; color: var(--dim); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.65rem; padding: 0.4rem 0 0.6rem;">Source</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.5rem 0.75rem 0.5rem 0; color: var(--bright); white-space: nowrap;">Fireflies (N. America)</td>
-                            <td style="padding: 0.5rem 0.75rem; color: var(--text);">~30&ndash;50% decline since 1990s</td>
-                            <td style="padding: 0.5rem 0; color: var(--dim); font-size: 0.72rem;"><em>BioScience</em>, 2020</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.5rem 0.75rem 0.5rem 0; color: var(--bright); white-space: nowrap;">Flying insects (global)</td>
-                            <td style="padding: 0.5rem 0.75rem; color: var(--text);">~27% decline over 30 years</td>
-                            <td style="padding: 0.5rem 0; color: var(--dim); font-size: 0.72rem;">Meta-study, 2019</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.5rem 0.75rem 0.5rem 0; color: var(--bright); white-space: nowrap;">N. American birds</td>
-                            <td style="padding: 0.5rem 0.75rem; color: var(--text);">3 billion lost &mdash; ~10B &rarr; ~7B</td>
-                            <td style="padding: 0.5rem 0; color: var(--dim); font-size: 0.72rem;">Cornell Lab, 2019</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.5rem 0.75rem 0.5rem 0; color: var(--bright); white-space: nowrap;">Monarch butterflies</td>
-                            <td style="padding: 0.5rem 0.75rem; color: var(--text);">~80% since 1980s (~1B &rarr; ~200M)</td>
-                            <td style="padding: 0.5rem 0; color: var(--dim); font-size: 0.72rem;">&nbsp;</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.5rem 0.75rem 0.5rem 0; color: var(--bright); white-space: nowrap;">Kansas tallgrass prairie</td>
-                            <td style="padding: 0.5rem 0.75rem; color: var(--text);">97% gone before 1983; erosion continues</td>
-                            <td style="padding: 0.5rem 0; color: var(--dim); font-size: 0.72rem;">&nbsp;</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.5rem 0.75rem 0.5rem 0; color: var(--bright); white-space: nowrap;">Night sky (Nickerson)</td>
-                            <td style="padding: 0.5rem 0.75rem; color: var(--text);">Bortle 2&ndash;3 &rarr; Bortle 4&ndash;5</td>
-                            <td style="padding: 0.5rem 0; color: var(--dim); font-size: 0.72rem;">42 years of encroachment</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 0.5rem 0.75rem 0.5rem 0; color: var(--bright); white-space: nowrap;">Milky Way visibility (US)</td>
-                            <td style="padding: 0.5rem 0.75rem; color: var(--text);">~70% could see it &rarr; ~33% can</td>
-                            <td style="padding: 0.5rem 0; color: var(--dim); font-size: 0.72rem;">Light pollution atlas</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <p>The transformer in Shot 13 is not doing this alone. It represents a 42-year process running across every living system in that field. The fireflies were already losing before the boy grew up. He just didn&rsquo;t know yet.</p>
-
-            <p style="margin-top: 1.5rem; font-size: 0.78rem; color: var(--dim);">Other bioluminescent losses: synchronous <em>Pteroptyx</em> fireflies (Southeast Asia, mangrove destruction). New Zealand glowworms &mdash; cave tourism, managed like a museum exhibit. Sea fireflies (<em>Vargula hilgendorfii</em>) &mdash; Japanese military harvested them in WWII for dim map-reading light, nearly wiped out. Bioluminescent bays in Puerto Rico and Jamaica &mdash; dinoflagellates functionally extinct in multiple locations that had them 40 years ago. Foxfire fungi &mdash; bioluminescent wood decay fungi, broadly reduced as old-growth disappeared. Confirmed extinctions are poorly documented because many species were never catalogued before they went dark.</p>
-        </section>
-
-        <section>
-            <h2>The Firefly Timeline</h2>
-            <div style="overflow-x: auto;">
-                <table style="width: 100%; border-collapse: collapse; font-size: 0.78rem;">
-                    <thead>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <th style="text-align: left; color: var(--dim); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.65rem; padding: 0.4rem 0.75rem 0.6rem 0; white-space: nowrap;">Period</th>
-                            <th style="text-align: left; color: var(--dim); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.65rem; padding: 0.4rem 0 0.6rem;">What&rsquo;s happening</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.55rem 0.75rem 0.55rem 0; color: var(--accent); white-space: nowrap; font-weight: 600;">1983</td>
-                            <td style="padding: 0.55rem 0; color: var(--text);">Healthy western-range populations. Pre-neonicotinoid. Reno County dark. The display in the field at 37.564&deg;N is real.</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.55rem 0.75rem 0.55rem 0; color: var(--text); white-space: nowrap;">1990s</td>
-                            <td style="padding: 0.55rem 0; color: var(--text);">Neonicotinoids enter widespread agricultural use. Soil invertebrate populations declining silently. Firefly larvae losing their food supply underground.</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.55rem 0.75rem 0.55rem 0; color: var(--text); white-space: nowrap;">2000s</td>
-                            <td style="padding: 0.55rem 0; color: var(--text);">Light pollution reaches critical mass in formerly rural areas. Adult flash patterns disrupted.</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.55rem 0.75rem 0.55rem 0; color: var(--text); white-space: nowrap;">2010s</td>
-                            <td style="padding: 0.55rem 0; color: var(--text);">30&ndash;50% decline documented. Western-edge populations &mdash; Kansas &mdash; hit harder than eastern heartland.</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.55rem 0.75rem 0.55rem 0; color: var(--text); white-space: nowrap;">2020</td>
-                            <td style="padding: 0.55rem 0; color: var(--text);"><em>BioScience</em> paper formalizes crisis. 2 species endangered globally.</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.55rem 0.75rem 0.55rem 0; color: #6b9fd4; white-space: nowrap;">2030s</td>
-                            <td style="padding: 0.55rem 0; color: var(--text);">Western edge agricultural landscapes potentially reach functional extirpation &mdash; too sparse for meaningful displays.</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 0.55rem 0.75rem 0.55rem 0; color: var(--dim); white-space: nowrap;">2050&ndash;2070</td>
-                            <td style="padding: 0.55rem 0; color: var(--dim);">Without intervention, significant portions of range may reach point of no recovery.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p style="margin-top: 1.5rem;">The film captured something before it was gone. That&rsquo;s not a metaphor either. lightning/bug is a record of bioluminescence as a living phenomenon at a specific place and time. In 40 years it may be the only evidence that it looked like this.</p>
-        </section>
-
-    </div><!-- /tab-research -->
-
-    <div class="tab-panel" id="tab-inspo" role="tabpanel">
-
-        <section>
-            <div class="statement">
-                <p>The films this film wants to be in conversation with. The writers and musicians it owes something to. The tools it was built with. Every frame carries all of it.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Cinematography</h2>
-            <div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 1.5rem;">
-
-                <div>
-                    <p style="color: var(--accent); font-weight: 600;">Road to Perdition (2002)</p>
-                    <p style="color: var(--dim); font-size: 0.85rem; margin-bottom: 0.5rem;">Cinematography: Conrad L. Hall, ASC &mdash; posthumous Academy Award, 2003</p>
-                    <p>The primary reference. Hall&rsquo;s last film. Rain-soaked nights, amber lamp light pooling in cobalt-dark. Figures as silhouettes in doorways. No pure black in any shadow &mdash; always cobalt, always slate, always depth. He said he wanted it to look like an Edward Hopper painting that got wet. This film lives inside that same sentence, in a wheat field instead of a diner.</p>
-                    <p style="font-size: 0.82rem; color: var(--dim); margin-top: 1rem; line-height: 1.8;"><strong style="color: var(--text);">How Hall got the look.</strong> Black silk over daylight exteriors instead of white &mdash; dims the light, moodier than flat diffusion. &ldquo;Room tone&rdquo; lighting: bounce off ceiling and wall, never direct fill, add pockets of motivated shadow. Backlit rain (rain glistens). Frontlit snow (texture shows). Underlit faces in emotional scenes &mdash; character separates from background, moral ambiguity enters. The climactic shootout has no dialogue: only high-contrast light and the rhythm of muzzle flashes against a rain-soaked street. Conrad Hall called it &ldquo;Magical Naturalism&rdquo; &mdash; emotional truth over literal logic.</p>
-                    <p style="font-size: 0.82rem; color: var(--dim); margin-top: 0.8rem; line-height: 1.8;"><strong style="color: var(--text);">The Hopper connection.</strong> Hall and Sam Mendes drew directly from Edward Hopper &mdash; specifically <em>Nighthawks</em> (1942), <em>New York Movie</em> (1939), and Hopper&rsquo;s lakeside houses. Hopper&rsquo;s device: composition always guides the eye <em>off-frame</em>, toward what isn&rsquo;t shown. The unspoken. This is the locked-off camera rule. This is why the figures in this film face away.</p>
-                    <p style="font-size: 0.82rem; color: var(--dim); margin-top: 0.8rem; line-height: 1.8;"><strong style="color: var(--text);">The optical layer.</strong> Hall shot almost everything in 2.39:1 anamorphic &mdash; Panavision C-Series lenses, 40&ndash;50mm, producing oval bokeh and edge distortion distinctive to that glass. Film stock: Kodak Vision3 500T (5279) for night scenes &mdash; creamy grain, tungsten-balanced, handles warm amber against cool blue shadow exactly the way this film needs. Exposure: underexposed by one stop, shadows crushed at T2.8, no fill. In AI prompts this translates to: <em>&ldquo;2.39:1 anamorphic, oval bokeh, 35mm Kodak Vision 500T grain, crushed blacks, tungsten-balanced warm interior against cool blue exterior.&rdquo;</em></p>
-                    <p style="font-size: 0.82rem; color: var(--dim); margin-top: 0.8rem; line-height: 1.8;"><strong style="color: var(--text);">The prompt vocabulary.</strong> &ldquo;Conrad L. Hall,&rdquo; &ldquo;magical naturalism,&rdquo; &ldquo;backlit rain,&rdquo; &ldquo;in-shade exterior,&rdquo; &ldquo;single motivated key source,&rdquo; &ldquo;room tone bounce,&rdquo; &ldquo;muted earth tones,&rdquo; &ldquo;eye guided off-frame,&rdquo; &ldquo;40mm anamorphic,&rdquo; &ldquo;Kodak Vision 500T.&rdquo;</p>
-                </div>
-
-                <div>
-                    <p style="color: var(--accent); font-weight: 600;">Days of Heaven (1978)</p>
-                    <p style="color: var(--dim); font-size: 0.85rem; margin-bottom: 0.5rem;">Cinematography: N&eacute;stor Almendros / Haskell Wexler &mdash; Director: Terrence Malick</p>
-                    <p>Kansas wheat fields at the magic hour. Almendros shot almost entirely in the 20-minute window when everything is amber and the sky goes cobalt. The field is alive. The people are small. This film&rsquo;s dusk act lives here.</p>
-                </div>
-
-                <div>
-                    <p style="color: var(--accent); font-weight: 600;">Badlands (1973)</p>
-                    <p style="color: var(--dim); font-size: 0.85rem; margin-bottom: 0.5rem;">Cinematography: Brian Probyn / Tak Fujimoto &mdash; Director: Terrence Malick</p>
-                    <p>Flat Midwest landscape. Small figures against enormous sky. The indifference of the land to the size of a human life.</p>
-                </div>
-
-                <div>
-                    <p style="color: var(--accent); font-weight: 600;">Moonlight (2016)</p>
-                    <p style="color: var(--dim); font-size: 0.85rem; margin-bottom: 0.5rem;">Cinematography: James Laxton &mdash; Director: Barry Jenkins</p>
-                    <p>Deep cobalt shadows that are never black. Color as emotional state. A single light source doing all the heavy lifting. No wasted light.</p>
-                </div>
-
-                <div>
-                    <p style="color: var(--accent); font-weight: 600;">Nomadland (2020)</p>
-                    <p style="color: var(--dim); font-size: 0.85rem; margin-bottom: 0.5rem;">Cinematography: Joshua James Richards &mdash; Director: Chlo&eacute; Zhao</p>
-                    <p>The American West as elegy. Amber light on old faces. The sky as the main character. Humans small and silhouetted at the edge of enormous landscapes.</p>
-                </div>
-
-            </div>
-        </section>
-
-        <section>
-            <h2>Literature</h2>
-            <div style="margin-top: 1.5rem;">
-                <p style="color: var(--accent); font-weight: 600;">Mark Twain (1888)</p>
-                <p style="margin-top: 0.5rem; font-style: italic; color: var(--bright); border-left: 2px solid var(--accent); padding-left: 1.25rem;">&ldquo;The difference between the almost right word and the right word is really a large matter &mdash; &lsquo;tis the difference between the lightning bug and the lightning.&rdquo;</p>
-                <p style="margin-top: 1rem;">He meant lightning was the powerful one &mdash; the right word. This film is the inversion. The model is the lightning. The prompt is the bug. The small, practiced, bioluminescent thing wins.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Music</h2>
-            <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.5rem;">
-
-                <div>
-                    <p style="color: var(--accent); font-weight: 600;">&ldquo;Here We Are, Kid&rdquo;</p>
-                    <p style="color: var(--dim); font-size: 0.85rem; margin-bottom: 0.5rem;">Lyrics, melody, and voice: Derek Simmons &mdash; Backing track: Suno</p>
-                    <p>The film&rsquo;s only composed music, over the credits. Derek&rsquo;s real voice, recorded on iPhone, no pitch correction. An AI voice clone was generated and rejected &mdash; the film is about what&rsquo;s real surviving what&rsquo;s artificial, and a cloned voice would have undermined the thesis at the molecular level.</p>
-                </div>
-
-                <div>
-                    <p style="color: var(--accent); font-weight: 600;">Ballpark organ</p>
-                    <p style="color: var(--dim); font-size: 0.85rem; margin-bottom: 0.5rem;">AshFox &mdash; <a href="https://freesound.org" style="color: var(--dim);">freesound.org</a> &mdash; CC-BY 3.0</p>
-                    <p>The 3-second charge loop that bleeds through during the stadium formation. A memory that won&rsquo;t stay put.</p>
-                </div>
-
-            </div>
-        </section>
-
-        <section>
-            <h2>Production Tools</h2>
-            <div style="margin-top: 1.5rem;">
-                <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
-                    <tbody>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.6rem 1rem 0.6rem 0; color: var(--accent); white-space: nowrap; width: 40%;">Stills</td>
-                            <td style="padding: 0.6rem 0; color: var(--text);">Fal.ai FLUX Pro v1.1 Ultra + FLUX Kontext Pro</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.6rem 1rem 0.6rem 0; color: var(--accent);">Motion</td>
-                            <td style="padding: 0.6rem 0; color: var(--text);">Kling 3.0 Pro + Runway Gen-4.5 + Veo 3</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.6rem 1rem 0.6rem 0; color: var(--accent);">Ambient score</td>
-                            <td style="padding: 0.6rem 0; color: var(--text);">Stable Audio 2.5 &mdash; thunder, crickets, transformer drone, rain on tin, fluorescent hum, firefly purr</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.6rem 1rem 0.6rem 0; color: var(--accent);">Foley / SFX</td>
-                            <td style="padding: 0.6rem 0; color: var(--text);">ElevenLabs SFX &mdash; bat crack, screen door, footsteps, mason jar clink, train horn</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.6rem 1rem 0.6rem 0; color: var(--accent);">Backing track</td>
-                            <td style="padding: 0.6rem 0; color: var(--text);">Suno</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.6rem 1rem 0.6rem 0; color: var(--accent);">Direction</td>
-                            <td style="padding: 0.6rem 0; color: var(--text);">Anthropic Claude (Opus 4.7 + Sonnet 4.6 + Haiku 4.5) &mdash; co-director on script, prompts, assembly</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 0.6rem 1rem 0.6rem 0; color: var(--accent);">Transcription</td>
-                            <td style="padding: 0.6rem 0; color: var(--text);">MLX Whisper large-v3-turbo</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 0.6rem 1rem 0.6rem 0; color: var(--accent);">Assembly</td>
-                            <td style="padding: 0.6rem 0; color: var(--text);">ffmpeg + ImageMagick + Python &mdash; no editing software</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p style="margin-top: 1.5rem; color: var(--dim); font-size: 0.85rem;">The pipeline is part of the work. Every frame is code. Every cut is a function call.</p>
-            </div>
-        </section>
-
-    </div><!-- /tab-inspo -->
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <p>&copy; 2026 CW Strategies LLC. Built by Derek<span style="color: var(--accent);">*</span>Claude.</p>
-        <p style="margin-top: 0.5rem;"><a href="/">claudewill.io</a> &middot; <a href="/derek">derek</a> &middot; <a href="/book">the book</a> &middot; <a href="https://derek4thecws.substack.com">substack</a></p>
+    <!-- 7. FOOTER -->
+    <footer class="scene-footer">
+        <div class="links">
+            <a href="/">claudewill</a>
+            <span class="dots">·</span>
+            <a href="/lightning/bug/notes/">notes</a>
+            <span class="dots">·</span>
+            <a href="/derek">derek</a>
+        </div>
+        <div class="colophon">the absence of darkness</div>
     </footer>
 
     <script>
-        // Tab switching
-        var tabs = document.querySelectorAll('.tab-btn');
-        var panels = document.querySelectorAll('.tab-panel');
-        tabs.forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                tabs.forEach(function(b) { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
-                panels.forEach(function(p) { p.classList.remove('active'); });
-                btn.classList.add('active');
-                btn.setAttribute('aria-selected','true');
-                document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
-            });
-        });
+        // ===== TYPING ANIMATION =====
+        (function() {
+            const titleEl = document.getElementById('title');
+            const subEl = document.getElementById('subtitle');
+            const titleText = 'lightning/bug';
+            const subText = '— the absence of darkness';
 
-        // Festival countdown
-        document.querySelectorAll('.festival-date[data-deadline]').forEach(function(el) {
-            var deadline = new Date(el.dataset.deadline);
-            var now = new Date();
-            var days = Math.ceil((deadline - now) / 86400000);
-            var suffix = days > 1 ? ' (' + days + ' days)' : days === 1 ? ' (1 day)' : days === 0 ? ' (today)' : ' (passed)';
-            el.textContent = el.textContent + suffix;
-        });
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            function clearEl(el) {
+                while (el.firstChild) el.removeChild(el.firstChild);
+            }
+
+            function makeCursor() {
+                const c = document.createElement('span');
+                c.className = 'cursor-block';
+                c.setAttribute('aria-hidden', 'true');
+                return c;
+            }
+
+            function typeInto(el, text, speed) {
+                return new Promise(resolve => {
+                    clearEl(el);
+                    const cursor = makeCursor();
+                    el.appendChild(cursor);
+                    let i = 0;
+                    function step() {
+                        if (i < text.length) {
+                            const ch = document.createTextNode(text.charAt(i));
+                            el.insertBefore(ch, cursor);
+                            i++;
+                            setTimeout(step, speed);
+                        } else {
+                            resolve(cursor);
+                        }
+                    }
+                    setTimeout(step, speed);
+                });
+            }
+
+            if (reducedMotion) {
+                clearEl(titleEl);
+                titleEl.appendChild(document.createTextNode(titleText));
+                titleEl.appendChild(makeCursor());
+                clearEl(subEl);
+                subEl.appendChild(document.createTextNode(subText));
+            } else {
+                setTimeout(() => {
+                    typeInto(titleEl, titleText, 110).then(firstCursor => {
+                        setTimeout(() => {
+                            firstCursor.remove();
+                            typeInto(subEl, subText, 42);
+                        }, 650);
+                    });
+                }, 500);
+            }
+        })();
+
+        // ===== POSTER FADE-IN =====
+        (function() {
+            const img = document.getElementById('poster');
+            if (!img) return;
+            if (img.complete) {
+                img.classList.add('loaded');
+            } else {
+                img.addEventListener('load', () => img.classList.add('loaded'));
+            }
+        })();
+
+        // ===== FIELD STILL CAPTIONS (reveal on enter) =====
+        (function() {
+            if (!('IntersectionObserver' in window)) {
+                document.querySelectorAll('.field-still').forEach(el => el.classList.add('visible'));
+                return;
+            }
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, { threshold: 0.55 });
+            document.querySelectorAll('.field-still').forEach(el => io.observe(el));
+        })();
     </script>
-    <script src="/js/cw-link-renderer.js"></script>
-    <script src="/js/porch-widget.js"></script>
-    <script src="/js/shared-nav.js"></script>
-    <script src="/js/star-nav.js"></script>
+
+    <!-- Shared chrome (porch widget) -->
+    <script src="/js/cw-link-renderer.js" defer></script>
+    <script src="/js/porch-widget.js" defer></script>
 </body>
 </html>
