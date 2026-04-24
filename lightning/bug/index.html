@@ -18,7 +18,8 @@
     <meta name="twitter:image" content="https://claudewill.io/images/lightning-bug/og-poster.jpg">
     <link rel="canonical" href="https://claudewill.io/lightning/bug">
     <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
-    <link rel="preload" as="image" href="/images/lightning-bug/D28-boy-exits-can.jpg">
+    <link rel="preload" as="image" href="/images/lightning-bug/hero-poster-storm.jpg">
+    <link rel="preload" as="video" href="/video/lightning-bug-hero-storm.mp4" type="video/mp4">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
@@ -99,7 +100,7 @@
             border: 0;
         }
 
-        /* ===== 1. THE CURSOR ===== */
+        /* ===== 1. THE CURSOR (hero) ===== */
         .scene-cursor {
             min-height: 100vh;
             min-height: 100dvh;
@@ -110,8 +111,41 @@
             padding: 2rem 1.5rem;
             text-align: center;
             position: relative;
-            background:
-                radial-gradient(ellipse 80% 60% at 50% 45%, var(--cobalt-light) 0%, var(--cobalt) 60%, var(--cobalt-deep) 100%);
+            overflow: hidden;
+            background: var(--cobalt-deep);
+        }
+        .hero-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            z-index: 0;
+        }
+        /* Gentle vignette for type legibility — no grain, no filter, just a soft darkening at the corners. */
+        .scene-cursor::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(7, 13, 26, 0) 0%,
+                rgba(7, 13, 26, 0) 42%,
+                rgba(7, 13, 26, 0.42) 100%
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+        /* Type-sync to storm — 7s loop, lightning strikes at 2.0s (28.6%) and 5.0s (71.4%). */
+        @keyframes weather-pulse {
+            0%, 24%  { filter: brightness(0.78); }
+            28%      { filter: brightness(1.32); }
+            36%      { filter: brightness(0.96); }
+            42%, 67% { filter: brightness(0.78); }
+            71%      { filter: brightness(1.32); }
+            79%      { filter: brightness(0.96); }
+            85%, 100%{ filter: brightness(0.78); }
         }
 
         .type-wrap {
@@ -120,6 +154,9 @@
             align-items: center;
             gap: 1.25rem;
             max-width: 100%;
+            position: relative;
+            z-index: 2;
+            animation: weather-pulse 7s infinite;
         }
 
         .type-line {
@@ -176,40 +213,7 @@
             to { opacity: 0.7; transform: translate(-50%, 0); }
         }
 
-        /* ===== 2. THE POSTER ===== */
-        .scene-poster {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            height: 100dvh;
-            overflow: hidden;
-            background: var(--cobalt-deep);
-        }
-        .scene-poster img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 1.8s ease-in;
-        }
-        .scene-poster img.loaded { opacity: 1; }
-        .scene-poster::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                180deg,
-                rgba(7, 13, 26, 0.35) 0%,
-                rgba(7, 13, 26, 0) 25%,
-                rgba(7, 13, 26, 0) 70%,
-                rgba(7, 13, 26, 0.55) 100%
-            );
-            pointer-events: none;
-        }
-
-        /* ===== 3. THE BREATH ===== */
+        /* ===== 2. THE BREATH ===== */
         .scene-breath {
             padding: 22vh 2rem 18vh;
             max-width: 34rem;
@@ -390,7 +394,11 @@
             .cursor-block { animation: none; opacity: 0.9; }
             .scroll-hint { animation: none; opacity: 0.7; }
             .field-still.visible::after { transition: none; }
-            .scene-poster img { transition: none; opacity: 1; }
+            .type-wrap { animation: none; }
+            .hero-video { display: none; }
+            .scene-cursor {
+                background: radial-gradient(ellipse 80% 60% at 50% 45%, var(--cobalt-light) 0%, var(--cobalt) 60%, var(--cobalt-deep) 100%);
+            }
         }
 
         /* ===== MOBILE ===== */
@@ -425,8 +433,14 @@
 </head>
 <body>
 
-    <!-- 1. THE CURSOR -->
+    <!-- 1. THE CURSOR (hero — storm + type sync) -->
     <section class="scene-cursor" aria-label="title">
+        <video class="hero-video"
+               autoplay muted loop playsinline preload="auto"
+               poster="/images/lightning-bug/hero-poster-storm.jpg"
+               aria-hidden="true">
+            <source src="/video/lightning-bug-hero-storm.mp4" type="video/mp4">
+        </video>
         <div class="type-wrap">
             <h1 class="type-line" id="title" aria-live="polite">
                 <span class="sr-only">lightning/bug</span>
@@ -434,14 +448,6 @@
             <div class="type-sub" id="subtitle" aria-hidden="true"></div>
         </div>
         <div class="scroll-hint" aria-hidden="true">scroll</div>
-    </section>
-
-    <!-- 2. THE POSTER -->
-    <section class="scene-poster" aria-label="poster">
-        <img src="/images/lightning-bug/D28-boy-exits-can.jpg"
-             alt="A boy stands in a wheat field at dusk, silhouetted against cobalt sky."
-             loading="eager"
-             id="poster">
     </section>
 
     <!-- 3. THE BREATH -->
