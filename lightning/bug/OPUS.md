@@ -24,7 +24,7 @@ Commit `0de5d6f0` on `main`, deployed to Netlify.
 - Typing animation on the title — mirrors the film's own opening/closing (`lightning/bug` types at start + end; cursor is the bug).
 - Ten field stills trace the film's light arc: inside the can → porch → amber waves → transformer → contact → cobalt blues → hallway → shooting stars → path home.
 - The 12 names of the sequence (Marco/Polo + 10 acts) rendered as an `<ol>`, bookends italic-dim, acts amber.
-- Crew block ends with "in memory of Sandra Sue Simmons · 1945–2025."
+- Crew block ends with "in memory of Sandra Sue Simmons · 1944–2025."
 - Footer: `claudewill · notes · derek` + colophon "the absence of darkness."
 
 ### Deliberately excluded
