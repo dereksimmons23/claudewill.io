@@ -30,6 +30,17 @@ Four levers, each traced directly to project docs:
 3. **Inter-still cobalt haze** — vertical gradient on `::before` of `.field-still`, cobalt at top (55% → 0 over 14%) and bottom (0 → 60% over last 8%). Source: style-guide.md composition rule 5 — "atmospheric perspective: depth via haze between planes."
 4. **2.39:1 anamorphic poster frame (desktop ≥900px only)** — `aspect-ratio: 2.39/1` on `.poster-frame`, cobalt-deep letterbox bars on `.scene-poster` via flex-center. Mobile keeps full-bleed. Source: hall-prompt-vocabulary.md — "Panavision C-Series anamorphic."
 
+### The one-sheet (Apr 24, commit `083e8668`)
+
+Designed closing card between crew and footer — a real movie poster, not just a cropped still.
+
+- **Image:** `seq-031` (shooting star), pulled from master PNG at `~/Desktop/lightning-bug/film/stills/seq-031.png` (2752×1536, 4.7MB), converted to optimized JPEG at `/images/lightning-bug/seq-031-shooting-stars.jpg` (1600×893, 74KB, q88). Original master untouched.
+- **Why this frame:** the film ends on the shooting star. Amber burning through cobalt = two-kinds-of-light thesis in one object. Diagonal composition with clean cobalt quadrant for typography. Closer matches film closer.
+- **Layout:** 9:19.5 poster frame. Image panel (16:9) at top, typography column below: title (mono amber) · em-rule · tagline (serif italic) · billing block (tiny mono, "Directed by Derek Claude Simmons / sssstudios · 2026"). Saul Bass / Criterion register.
+- **Treatment:** grain overlay across whole frame (film + paper), patina filter on image only. Drop shadow on frame reads as printed artifact. Cobalt-deep letterbox outside the frame on desktop.
+- **Mobile:** frame fills phone in portrait. **Desktop:** centered max-width 480px with cobalt field around it.
+- **Bookending:** top of page = 2.39:1 landscape anamorphic poster (Hall's lens). Bottom of page = 9:19.5 portrait one-sheet (theater-lobby register). Cinema above, phone below.
+
 ### Design decisions (locked)
 
 - Cobalt-first palette, amber accent. No black.
