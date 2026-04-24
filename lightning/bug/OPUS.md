@@ -32,6 +32,47 @@ Derek's call: **all of it was CSS / graphic decoration competing with the film's
 
 Deleted: `seq-031-shooting-stars.jpg` (web derivative), `poster-still.jpg`, `lightning-bug-poster.mp4`. Reverted `index.html` to `e1c1e792`.
 
+---
+
+### The hero — wheat-storm MP4 (Apr 24, late afternoon)
+
+After the rollback, Derek redirected to a new ask: a **looping animated hero** at the top of the page, replacing the static D28 poster. Spec: ground-level wheat field, voluminous cobalt cumulonimbus, wind through wheat (hard sway), slow cloud drift, central lightning bolt. Type stays centered and dims/brightens with the weather.
+
+This was generated through the actual film pipeline — FLUX Pro v1.1 Ultra still + Runway Gen-4.5 motion via fal.ai — using the same scripts and `.env` keys as the film repo. NOT CSS-composited or PIL-rendered. The rule from the rollback held: pipeline output, baked grade, no decoration on top.
+
+**Live state** (commit `450b244f`):
+
+- `/video/lightning-bug-hero-storm.mp4` — 616 KB, 960×540, 10 s seamless loop. Built from a Runway Gen-4.5 image-to-video pass on a FLUX still (seed 914514896, prompt: bug's-eye low angle, voluminous cobalt cumulonimbus, head-high amber wheat, no pole, open central axis).
+- `/images/lightning-bug/hero-poster-storm.jpg` — 66 KB, frame 0 of the graded MP4. Used as `poster=` and as preload hint.
+- ffmpeg pipeline (one pass, all baked into the MP4):
+  - `scale 960×540` (lanczos)
+  - `eq` brightness −0.06, contrast 1.06, saturation 0.92
+  - `curves` to tame the hot whites without crushing the lows
+  - `colorbalance` cool bias in mids and highs (−red, +blue)
+  - extend with 3 s of ambient ping-pong (first 1.5 s reversed + first 1.5 s forward) so bolts don't repeat every 7 s
+  - `xfade` 0.6 s crossfade at the loop boundary for a seamless seam
+
+CSS (`@keyframes weather-pulse`, 10 s infinite, on `.type-wrap`): baseline `filter: brightness(0.78)`, peaks at 20% (t=2 s, bolt 1) and 50% (t=5 s, bolt 2) of the loop at `brightness(1.32)`. Title and tagline dim when the world's quiet, brighten when the sky flashes. `prefers-reduced-motion` returns the original cobalt radial gradient with no animation.
+
+The hero replaces the prior `.scene-poster` section entirely. D28 still serves as the OG/social card image (`og:image` meta).
+
+### Parked — wheat sway + bolt register tradeoff
+
+By 3 PM, Derek correctly clocked that the wheat in the live hero is essentially static — Runway Gen-4.5 resists animating dense vegetation. Tried Kling 2.1 Pro on fal as a regen.
+
+Result, honestly assessed:
+- **Runway clip (live):** clean cobalt sky, decent center-ish bolt, wheat barely moves.
+- **Kling clip (parked at `/tmp/hero-kling.mp4`):** real wheat sway, gorgeous cobalt ambient frames — but the strike moments push the sky into magenta/lavender and the bolts come out as cartoon flame-yellow, two parallel instead of one centered. Aggressive grade pulled the calm frames into perfect register but couldn't fix the strike frames.
+
+Three paths considered, **none taken** (Derek parked):
+- A. Re-fire Kling with brutal lightning negative prompt
+- B. Composite — Kling wheat under Runway sky (seam from same FLUX seed)
+- C. Accept graded Kling as-is and live with off-register bolts
+
+If we revisit, B is the cheapest swing (no new credits — both clips already exist in `/tmp/`).
+
+**Status as of EOD Apr 24:** Runway-based hero shipped and live. Wheat motion deferred. Kling master kept at `/tmp/hero-kling.mp4` (14.6 MB), FLUX seed at `/tmp/hero-flux-still.png` (5.9 MB), generator scripts at `/tmp/hero-{flux,runway,kling}.py`.
+
 ### Design decisions (locked)
 
 - Cobalt-first palette, amber accent. No black.
