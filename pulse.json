@@ -1,9 +1,9 @@
 {
-  "generated": "2026-04-22T11:28:55.686Z",
-  "date": "2026-04-22",
+  "generated": "2026-04-24T11:29:28.475Z",
+  "date": "2026-04-24",
   "porch": {
     "total": 722,
-    "thisWeek": 12,
+    "thisWeek": 7,
     "today": 0
   },
   "d": {
@@ -19,9 +19,12 @@
     "maxVisits": 6
   },
   "sessions": {
-    "thisWeek": 1,
-    "avgWeight": 5,
+    "thisWeek": 5,
+    "avgWeight": 4.2,
     "byProject": {
+      "desktop": 1,
+      "ecosystem": 1,
+      "lightning-bug": 2,
       "claudewill.io": 1
     }
   },
@@ -30,12 +33,10 @@
     "dayNumber": 74,
     "raidRate": "3/6",
     "latestWeight": null,
-    "daysSinceEntry": 39
+    "daysSinceEntry": 41
   },
   "sparklines": {
     "conversations": [
-      1,
-      0,
       0,
       0,
       0,
@@ -61,11 +62,11 @@
       0,
       0,
       7,
+      0,
+      0,
       0
     ],
     "sessions": [
-      2,
-      4,
       4,
       7,
       21,
@@ -90,6 +91,8 @@
       1,
       0,
       0,
+      0,
+      4,
       0,
       0
     ]
