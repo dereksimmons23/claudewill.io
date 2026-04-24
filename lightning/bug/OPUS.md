@@ -12,11 +12,23 @@
 
 ### What shipped
 
-Commit `0de5d6f0` on `main`, deployed to Netlify.
+Commit `0de5d6f0` on `main`, deployed to Netlify. Subsequent commits:
+- `d1174c49` — README + OPUS
+- `e1c1e792` — Sandra's birth year fix (1944)
+- (next) — texture stack: grain + patina + inter-still cobalt haze + 2.39:1 poster
 
-- **New page** at `/lightning/bug/` — seven-scene scroll, 22,858 bytes (was 116,175).
+- **New page** at `/lightning/bug/` — seven-scene scroll, ~26KB (was 116,175).
 - **Archive** at `/lightning/bug/notes/` — complete original page preserved, linked from new footer.
 - **README.md** + **OPUS.md** added to `/lightning/bug/`.
+
+### Texture stack (Apr 24, post-first-ship)
+
+Four levers, each traced directly to project docs:
+
+1. **Kodak Vision 500T grain** — inline SVG `feTurbulence` fractal noise, grayscale, opacity 0.09, overlay blend-mode. Layered via `::before` on `.field-still` and `.poster-frame`. Data URI ~350 bytes, reusable tile 240×240. Source: style-guide.md texture stack + color-theory.md "the grain itself is gray particles across both registers."
+2. **Patina grade** — `filter: saturate(0.94) contrast(1.03)` on field stills and poster img. Source: color-theory.md post pass — "desaturate highlights 10-15% (amber loses its sharpness, gains patina)."
+3. **Inter-still cobalt haze** — vertical gradient on `::before` of `.field-still`, cobalt at top (55% → 0 over 14%) and bottom (0 → 60% over last 8%). Source: style-guide.md composition rule 5 — "atmospheric perspective: depth via haze between planes."
+4. **2.39:1 anamorphic poster frame (desktop ≥900px only)** — `aspect-ratio: 2.39/1` on `.poster-frame`, cobalt-deep letterbox bars on `.scene-poster` via flex-center. Mobile keeps full-bleed. Source: hall-prompt-vocabulary.md — "Panavision C-Series anamorphic."
 
 ### Design decisions (locked)
 
