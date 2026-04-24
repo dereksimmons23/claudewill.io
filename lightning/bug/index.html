@@ -373,9 +373,8 @@
         }
         .seq-list .bookend .num { visibility: hidden; }
 
-        /* ===== 6a. THE CLOSER (poster) ===== */
-        /* The film ends mid-blink; the page ends on a designed one-sheet. */
-        /* Image panel + title + rule + tagline + billing — Saul Bass / Criterion layout. */
+        /* ===== 6a. THE CLOSER (one-sheet) ===== */
+        /* A real theater poster — image fills the frame, title + billing overlay the lower field. */
         .scene-closer {
             width: 100%;
             padding: 3rem 0.75rem 3rem;
@@ -390,94 +389,113 @@
             aspect-ratio: 9 / 19.5;
             max-height: 95vh;
             max-height: 95dvh;
-            background: var(--cobalt);
             position: relative;
-            display: flex;
-            flex-direction: column;
-            padding: 7% 7% 5%;
             overflow: hidden;
-            box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.55);
+            background: var(--cobalt-deep);
+            box-shadow:
+                0 2rem 5rem rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(212, 168, 75, 0.04);
         }
-        /* Grain over the whole poster — film + paper in one pass. */
-        .closer-frame::before {
-            content: '';
+        /* Image fills the whole poster. */
+        .closer-image {
             position: absolute;
             inset: 0;
-            pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
-            background-size: 240px 240px;
-            mix-blend-mode: overlay;
-            z-index: 3;
-        }
-        .closer-image {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            overflow: hidden;
-            position: relative;
-            flex-shrink: 0;
+            z-index: 1;
         }
         .closer-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center center;
+            object-position: 62% center;
             display: block;
             filter: saturate(0.94) contrast(1.03);
         }
+        /* Cobalt fade from lower third — floor for typography legibility. */
+        .closer-fade {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            background: linear-gradient(
+                180deg,
+                rgba(7, 13, 26, 0) 0%,
+                rgba(7, 13, 26, 0) 48%,
+                rgba(7, 13, 26, 0.35) 62%,
+                rgba(7, 13, 26, 0.82) 82%,
+                rgba(7, 13, 26, 0.96) 100%
+            );
+        }
+        /* Typography stack sits on the lower field. */
         .closer-type {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding-top: 14%;
-            padding-bottom: 2%;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0 8% 7%;
+            z-index: 4;
             text-align: center;
-            min-height: 0;
         }
         .closer-title {
             font-family: var(--mono);
             color: var(--amber);
             font-weight: 400;
-            font-size: clamp(1.5rem, 7.5vw, 2.25rem);
+            font-size: clamp(1.85rem, 8.5vw, 2.6rem);
             letter-spacing: -0.015em;
             line-height: 1;
             margin: 0;
+            text-shadow: 0 2px 18px rgba(0, 0, 0, 0.7);
         }
         .closer-rule {
-            width: 48px;
+            width: 44px;
             height: 1px;
             background: var(--amber-dim);
-            margin: 1.25rem auto 1rem;
+            margin: 1rem auto 0.9rem;
             display: block;
             border: 0;
+            opacity: 0.9;
         }
         .closer-tagline {
             font-family: var(--serif);
             font-style: italic;
-            color: var(--text-dim);
-            font-size: clamp(0.82rem, 3.2vw, 1rem);
+            color: var(--text);
+            font-size: clamp(0.88rem, 3.4vw, 1.08rem);
             font-weight: 300;
-            line-height: 1.5;
+            line-height: 1.4;
             margin: 0;
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
         }
         .closer-billing {
             font-family: var(--mono);
             color: var(--amber-dim);
-            font-size: clamp(0.56rem, 1.8vw, 0.64rem);
+            font-size: clamp(0.54rem, 1.75vw, 0.62rem);
             letter-spacing: 0.28em;
             text-transform: uppercase;
-            line-height: 2.1;
+            line-height: 1.9;
+            margin-top: 1.5rem;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
         }
         .closer-billing .director {
             color: var(--amber);
             letter-spacing: 0.32em;
             display: block;
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.3rem;
+            font-size: clamp(0.58rem, 1.9vw, 0.66rem);
         }
         .closer-billing .mark {
             color: var(--text-dim);
             letter-spacing: 0.32em;
             display: block;
+        }
+        /* Grain across the whole poster — film + paper unified. */
+        .closer-frame::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 3;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+            background-size: 240px 240px;
+            mix-blend-mode: overlay;
         }
 
         /* ===== 6. THE CREW ===== */
@@ -579,10 +597,10 @@
             .scene-footer .links a { padding: 0.3rem 0.5rem; }
             .scene-footer .dots { display: inline-block; padding: 0 0.1rem; }
 
-            .scene-closer { padding: 2rem 0.75rem; }
-            .closer-frame { padding: 6% 6% 5%; }
-            .closer-type { padding-top: 10%; }
-            .closer-rule { margin: 1rem auto 0.85rem; }
+            .scene-closer { padding: 2rem 0.5rem; }
+            .closer-type { padding: 0 7% 6%; }
+            .closer-rule { margin: 0.9rem auto 0.8rem; }
+            .closer-billing { margin-top: 1.25rem; }
         }
 
         @media (min-width: 1200px) {
@@ -665,21 +683,20 @@
         </ol>
     </section>
 
-    <!-- 5b. THE CLOSER (poster) -->
+    <!-- 5b. THE CLOSER (one-sheet) -->
     <section class="scene-closer" aria-label="one-sheet">
         <article class="closer-frame">
             <div class="closer-image">
                 <img src="/images/lightning-bug/seq-031-shooting-stars.jpg"
-                     alt="A shooting star arcs across a starfield above a silhouetted porch."
+                     alt="A shooting star arcs across a starfield."
                      loading="lazy"
                      decoding="async">
             </div>
+            <div class="closer-fade" aria-hidden="true"></div>
             <div class="closer-type">
-                <div>
-                    <h2 class="closer-title">lightning/bug</h2>
-                    <hr class="closer-rule" aria-hidden="true">
-                    <p class="closer-tagline">the absence of darkness</p>
-                </div>
+                <h2 class="closer-title">lightning/bug</h2>
+                <hr class="closer-rule" aria-hidden="true">
+                <p class="closer-tagline">the absence of darkness</p>
                 <div class="closer-billing">
                     <span class="director">Directed by Derek Claude Simmons</span>
                     <span class="mark">sssstudios &middot; 2026</span>
