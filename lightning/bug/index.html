@@ -7,11 +7,17 @@
     <meta name="theme-color" content="#0a1628">
     <title>lightning/bug</title>
     <meta name="description" content="A short film. Two kinds of light. A boy in a can. A bug on a bat. The land is mostly flat. The names matter.">
+    <meta name="author" content="Derek Claude Simmons">
     <meta property="og:title" content="lightning/bug">
     <meta property="og:description" content="The absence of darkness. A short film by Derek Claude Simmons.">
     <meta property="og:type" content="video.movie">
     <meta property="og:url" content="https://claudewill.io/lightning/bug">
     <meta property="og:image" content="https://claudewill.io/images/lightning-bug/og-poster.jpg">
+    <meta property="og:video" content="https://claudewill.io/video/lightning-bug-hero-storm.mp4">
+    <meta property="og:video:secure_url" content="https://claudewill.io/video/lightning-bug-hero-storm.mp4">
+    <meta property="og:video:type" content="video/mp4">
+    <meta property="og:video:width" content="960">
+    <meta property="og:video:height" content="540">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="lightning/bug">
     <meta name="twitter:description" content="The absence of darkness.">
@@ -19,7 +25,6 @@
     <link rel="canonical" href="https://claudewill.io/lightning/bug">
     <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
     <link rel="preload" as="image" href="/images/lightning-bug/hero-poster-storm.jpg">
-    <link rel="preload" as="video" href="/video/lightning-bug-hero-storm.mp4" type="video/mp4">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
@@ -440,12 +445,13 @@
     <section class="scene-cursor" aria-label="title">
         <video class="hero-video"
                autoplay muted loop playsinline preload="auto"
+               width="960" height="540"
                poster="/images/lightning-bug/hero-poster-storm.jpg"
                aria-hidden="true">
             <source src="/video/lightning-bug-hero-storm.mp4" type="video/mp4">
         </video>
         <div class="type-wrap">
-            <h1 class="type-line" id="title" aria-live="polite">
+            <h1 class="type-line" id="title">
                 <span class="sr-only">lightning/bug</span>
             </h1>
             <div class="type-sub" id="subtitle" aria-hidden="true"></div>

@@ -4,6 +4,53 @@
 
 ---
 
+## Session · 2026-04-25 (Sat, Day 115) — model: Opus 4.7
+
+**Window:** 9:50 AM CDT open. Derek explicit: "you can reach into the film repo, just make sure you are copying files into the site repo and not editing or deleting anything in film."
+**Festival:** Runway AIFF, Apr 27 4:59 PM ET. ~51 hours from session close.
+**Directive:** dial in "the sequence" list, then audit docs vs site, surface what's next.
+
+### What shipped
+
+- **Sequence list rebuilt to canon.** Collapsed `inside` + `outside` into `the can` per acts.md (003.5 outside-beat is now part of The Can act, not its own line). Numbered the bookends `00 marco` / `99 polo`. Added per-act runtimes pulled from `~/Desktop/lightning-bug/film/sequence.json`. Total runtime updated: breath section + JSON-LD now read **8:27** (was 8:12).
+- Live list:
+
+```
+00 marco          :21
+01 the can        :63
+02 porch ride     :40
+03 hell's hallway :51
+04 amber waves    :56
+05 three pitches  :18
+06 contact        :04
+07 cobalt blues   :53
+08 path home      :56
+09 shooting stars :51
+99 polo           :94
+```
+
+- New CSS: `.seq-list .dur` block with `tabular-nums` + `margin-left: auto` for right-rail runtime alignment. Removed the now-unused `.bookend` rules.
+- Commits: `69405c1c` (sequence + runtimes + 8:27), `8e495493` (the can :63 — colon-prefix to match polo).
+
+### Site audit written
+
+`SITE-AUDIT-APR25.md` (this directory) — full read of the lightning-bug repo (HANDOFF, MORNING-BRIEF, DIRECTOR-LOG, sequence.json, acts.md, style-guide.md, color-theory.md, light-grammar-thesis.md, ignition-thesis.md, runway-aif-submission.md, here-we-are-kid.md, nickerson-places.md, decisions-apr21-pm.md, breath-note.md, research/8-second-hug.md, light-arc-v1.md, logline.md, directors-statement.md) compared against the active page + the notes archive. Code review of `index.html` included.
+
+**TL;DR of the audit:**
+- Add the locked press logline + "An American Elegy · 8:27" tag above the field section
+- Reorder + relabel field stills — three captions are wrong vs the new sequence
+- Sync notes archive runtime (PT7M14S → PT8M27S, "36 shots, 4 acts" → 8:27)
+- Mobile QA on a real iPhone (still owed from yesterday)
+- og:video tags + author meta — small Open Graph polish
+
+Three questions need Derek's call before the audit's edits get executed. See SITE-AUDIT-APR25.md final section.
+
+### Lane discipline
+
+Sonnet on film assembly, Haiku on audio, Opus on site. Per Derek's permission today: I can READ the film repo (and copy files INTO the site repo), but cannot edit or delete anything in `~/Desktop/lightning-bug/`.
+
+---
+
 ## Session · 2026-04-24 (Fri, Day 114)
 
 **Window:** 9:06 AM CDT open. Opus 4.7. Full creative control granted.
