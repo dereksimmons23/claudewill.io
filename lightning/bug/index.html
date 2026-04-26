@@ -30,8 +30,6 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/shared-nav.css">
     <link rel="stylesheet" href="/css/porch-widget.css">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7R5X5SJDVT"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7R5X5SJDVT');</script>
 
     <script type="application/ld+json">
     {
@@ -59,13 +57,11 @@
         :root {
             --cobalt-deep: #070d1a;
             --cobalt: #0a1628;
-            --cobalt-light: #13233b;
-            --amber: #d4a84b;
-            --amber-bright: #f0c870;
-            --amber-dim: #8a6a2a;
-            --amber-faint: rgba(212, 168, 75, 0.08);
-            --text: #c8d0dc;
-            --text-dim: #6b7a92;
+            --amber: #d4a84b;          /* primary amber — emphasis */
+            --amber-soft: #b89346;     /* labels, captions — AA pass at small sizes */
+            --amber-faint: rgba(212, 168, 75, 0.08);  /* borders, dividers */
+            --text: #c8d0dc;           /* body */
+            --text-soft: #97a3b7;      /* secondary text — AA pass at small sizes */
             --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
             --serif: 'IBM Plex Serif', Georgia, serif;
         }
@@ -92,6 +88,19 @@
         ::selection { background: var(--amber); color: var(--cobalt-deep); }
 
         img { display: block; max-width: 100%; }
+
+        /* Section divider — single centered amber glyph, breathing room between dense text sections */
+        .section-mark {
+            text-align: center;
+            color: var(--amber-soft);
+            font-family: var(--mono);
+            font-size: 1rem;
+            margin: 0;
+            padding: 4vh 0;
+            letter-spacing: 0;
+            opacity: 0.5;
+            line-height: 1;
+        }
 
         .sr-only {
             position: absolute;
@@ -176,7 +185,7 @@
 
         .type-sub {
             font-family: var(--mono);
-            color: var(--text-dim);
+            color: var(--text-soft);
             font-size: clamp(0.82rem, 2.2vw, 1.05rem);
             letter-spacing: 0.05em;
             min-height: 1.2em;
@@ -205,7 +214,7 @@
             transform: translateX(-50%);
             font-family: var(--mono);
             font-size: 0.65rem;
-            color: var(--text-dim);
+            color: var(--text-soft);
             letter-spacing: 0.3em;
             text-transform: lowercase;
             opacity: 0;
@@ -236,12 +245,12 @@
         .scene-breath .logline + .logline {
             margin-top: 2rem;
             font-size: clamp(1.05rem, 2.5vw, 1.3rem);
-            color: var(--text-dim);
+            color: var(--text-soft);
         }
         .scene-breath .meta {
             font-family: var(--mono);
             font-size: 0.68rem;
-            color: var(--amber-dim);
+            color: var(--amber-soft);
             margin-top: 3.5rem;
             letter-spacing: 0.3em;
             text-transform: lowercase;
@@ -260,7 +269,7 @@
             font-weight: 300;
             font-size: clamp(0.95rem, 2.2vw, 1.15rem);
             line-height: 1.65;
-            color: var(--text-dim);
+            color: var(--text-soft);
             border-left: 1px solid var(--amber-faint);
             padding-left: 1.25rem;
             text-align: left;
@@ -273,7 +282,7 @@
             font-style: normal;
             font-family: var(--mono);
             font-size: 0.7rem;
-            color: var(--amber-dim);
+            color: var(--amber-soft);
             letter-spacing: 0.1em;
         }
         .scene-thesis .twain-flip {
@@ -299,7 +308,7 @@
         .scene-thesis .genre {
             font-family: var(--mono);
             font-size: 0.68rem;
-            color: var(--amber-dim);
+            color: var(--amber-soft);
             margin-top: 2.5rem;
             letter-spacing: 0.3em;
             text-transform: lowercase;
@@ -347,7 +356,7 @@
         .scene-sequence h2 {
             font-family: var(--mono);
             font-size: 0.68rem;
-            color: var(--amber-dim);
+            color: var(--amber-soft);
             letter-spacing: 0.35em;
             text-transform: uppercase;
             margin-bottom: 3.5rem;
@@ -367,9 +376,9 @@
             font-size: clamp(0.88rem, 2.2vw, 1rem);
             transition: color 0.3s;
         }
-        .seq-list li:hover { color: var(--amber-bright); }
+        .seq-list li:hover { color: var(--amber); }
         .seq-list .num {
-            color: var(--amber-dim);
+            color: var(--amber-soft);
             font-size: 0.7rem;
             flex-shrink: 0;
             width: 2.25rem;
@@ -380,7 +389,7 @@
             letter-spacing: 0.02em;
         }
         .seq-list .dur {
-            color: var(--amber-dim);
+            color: var(--amber-soft);
             font-size: 0.78rem;
             margin-left: auto;
             letter-spacing: 0.05em;
@@ -398,7 +407,7 @@
         .scene-hums h2 {
             font-family: var(--mono);
             font-size: 0.68rem;
-            color: var(--amber-dim);
+            color: var(--amber-soft);
             letter-spacing: 0.35em;
             text-transform: uppercase;
             margin-bottom: 2.5rem;
@@ -425,14 +434,14 @@
             min-width: 11rem;
         }
         .hums-list .meaning {
-            color: var(--text-dim);
+            color: var(--text-soft);
             text-align: left;
             min-width: 11rem;
         }
 
         /* ===== 5.7 DIRECTOR'S NOTE ===== */
         .scene-note {
-            padding: 14vh 2rem 4vh;
+            padding: 8vh 2rem 8vh;
             max-width: 36rem;
             margin: 0 auto;
             text-align: left;
@@ -455,7 +464,7 @@
         }
         .scene-note .note-pivot {
             font-style: italic;
-            color: var(--text-dim);
+            color: var(--text-soft);
             text-align: center;
             margin: 2rem 0 2.5rem;
         }
@@ -467,7 +476,7 @@
             letter-spacing: 0.08em;
         }
         .scene-note .note-link a {
-            color: var(--amber-dim);
+            color: var(--amber-soft);
             text-decoration: none;
             border-bottom: 1px solid var(--amber-faint);
             padding-bottom: 0.2rem;
@@ -480,7 +489,7 @@
 
         /* ===== 6. THE CREW ===== */
         .scene-crew {
-            padding: 14vh 2rem 6vh;
+            padding: 8vh 2rem 6vh;
             text-align: center;
             max-width: 40rem;
             margin: 0 auto;
@@ -493,7 +502,7 @@
             letter-spacing: 0.04em;
         }
         .crew-line .label {
-            color: var(--amber-dim);
+            color: var(--amber-soft);
             font-size: 0.64rem;
             letter-spacing: 0.3em;
             text-transform: uppercase;
@@ -507,7 +516,7 @@
         }
         .crew-line .val em {
             font-style: italic;
-            color: var(--amber-dim);
+            color: var(--amber-soft);
         }
         .crew-line .dedication {
             display: block;
@@ -534,26 +543,26 @@
             text-align: center;
             font-family: var(--mono);
             font-size: 0.68rem;
-            color: var(--text-dim);
+            color: var(--text-soft);
             letter-spacing: 0.15em;
             background: var(--cobalt-deep);
         }
         .scene-footer .links a {
-            color: var(--amber-dim);
+            color: var(--amber-soft);
             text-decoration: none;
             padding: 0.3rem 0.75rem;
             transition: color 0.2s;
             display: inline-block;
         }
-        .scene-footer .links a:hover { color: var(--amber-bright); }
+        .scene-footer .links a:hover { color: var(--amber); }
         .scene-footer .dots {
-            color: var(--text-dim);
+            color: var(--text-soft);
             opacity: 0.4;
         }
         .scene-footer .colophon {
             margin-top: 2.5rem;
             font-size: 0.62rem;
-            color: var(--text-dim);
+            color: var(--text-soft);
             opacity: 0.7;
             letter-spacing: 0.2em;
         }
@@ -576,7 +585,7 @@
             .type-wrap { animation: none; }
             .hero-video { display: none; }
             .scene-cursor {
-                background: radial-gradient(ellipse 80% 60% at 50% 45%, var(--cobalt-light) 0%, var(--cobalt) 60%, var(--cobalt-deep) 100%);
+                background: radial-gradient(ellipse 80% 60% at 50% 45%, #13233b 0%, var(--cobalt) 60%, var(--cobalt-deep) 100%);
             }
         }
 
@@ -706,6 +715,8 @@
         </ul>
     </section>
 
+    <div class="section-mark" aria-hidden="true">·</div>
+
     <!-- 5.7 DIRECTOR'S NOTE — short -->
     <section class="scene-note" aria-label="director's note">
         <p class="note-lede">I had a dream about a summer evening in Kansas in 1983.</p>
@@ -713,6 +724,8 @@
         <p class="note-body note-pivot">The film became all three.</p>
         <p class="note-link"><a href="/lightning/bug/statement/">read the full director's statement &rarr;</a></p>
     </section>
+
+    <div class="section-mark" aria-hidden="true">·</div>
 
     <!-- 6. THE CREW -->
     <section class="scene-crew" aria-label="crew">
@@ -725,9 +738,8 @@
             <span class="val">sssstudios</span>
         </div>
         <div class="crew-line">
-            <span class="label">cinematography</span>
-            <span class="val">Conrad Hall, <em>Road to Perdition</em> &middot; Terrence Malick, <em>Badlands</em></span>
-            <span class="dedication">the light has been here a while.</span>
+            <span class="label">in the lineage of</span>
+            <span class="val">cinema that lets the dark do the work</span>
         </div>
         <div class="crew-line">
             <span class="label">color</span>

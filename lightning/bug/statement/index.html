@@ -24,20 +24,44 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/shared-nav.css">
     <link rel="stylesheet" href="/css/porch-widget.css">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7R5X5SJDVT"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7R5X5SJDVT');</script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Director's Statement — lightning/bug",
+        "name": "Director's Statement — lightning/bug",
+        "description": "A small crack of light. Natural. Artificial. Virtual. Reality. It doesn't change the fact that it is a little bit of hope.",
+        "author": {
+            "@type": "Person",
+            "name": "Derek Claude Simmons",
+            "url": "https://claudewill.io/derek"
+        },
+        "datePublished": "2026-04-26",
+        "dateModified": "2026-04-26",
+        "publisher": {
+            "@type": "Organization",
+            "name": "sssstudios"
+        },
+        "mainEntityOfPage": "https://claudewill.io/lightning/bug/statement",
+        "image": "https://claudewill.io/images/lightning-bug/og-poster.jpg",
+        "isPartOf": {
+            "@type": "VideoObject",
+            "name": "lightning/bug",
+            "url": "https://claudewill.io/lightning/bug"
+        }
+    }
+    </script>
 
     <style>
         :root {
             --cobalt-deep: #070d1a;
             --cobalt: #0a1628;
-            --cobalt-light: #13233b;
             --amber: #d4a84b;
-            --amber-bright: #f0c870;
-            --amber-dim: #8a6a2a;
+            --amber-soft: #b89346;
             --amber-faint: rgba(212, 168, 75, 0.08);
             --text: #c8d0dc;
-            --text-dim: #6b7a92;
+            --text-soft: #97a3b7;
             --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
             --serif: 'IBM Plex Serif', Georgia, serif;
         }
@@ -71,7 +95,7 @@
         .page-header .crumb {
             font-family: var(--mono);
             font-size: 0.66rem;
-            color: var(--amber-dim);
+            color: var(--amber-soft);
             letter-spacing: 0.3em;
             text-transform: lowercase;
         }
@@ -93,7 +117,7 @@
         .statement h1 {
             font-family: var(--mono);
             font-size: 0.7rem;
-            color: var(--amber-dim);
+            color: var(--amber-soft);
             letter-spacing: 0.35em;
             text-transform: uppercase;
             font-weight: 500;
@@ -115,7 +139,7 @@
         }
         .statement p.pivot {
             font-style: italic;
-            color: var(--text-dim);
+            color: var(--text-soft);
             text-align: center;
             margin: 2.5rem 0;
         }
@@ -127,13 +151,13 @@
             margin-top: 4rem;
             font-family: var(--mono);
             font-size: 0.78rem;
-            color: var(--amber-dim);
+            color: var(--amber-soft);
             letter-spacing: 0.05em;
             line-height: 1.7;
             text-align: left;
         }
         .statement .signoff .name { color: var(--amber); }
-        .statement .signoff .where { color: var(--text-dim); }
+        .statement .signoff .where { color: var(--text-soft); }
 
         /* ===== FOOTER ===== */
         .scene-footer {
@@ -142,26 +166,26 @@
             text-align: center;
             font-family: var(--mono);
             font-size: 0.68rem;
-            color: var(--text-dim);
+            color: var(--text-soft);
             letter-spacing: 0.15em;
             background: var(--cobalt-deep);
         }
         .scene-footer .links a {
-            color: var(--amber-dim);
+            color: var(--amber-soft);
             text-decoration: none;
             padding: 0.3rem 0.75rem;
             transition: color 0.2s;
             display: inline-block;
         }
-        .scene-footer .links a:hover { color: var(--amber-bright); }
+        .scene-footer .links a:hover { color: var(--amber); }
         .scene-footer .dots {
-            color: var(--text-dim);
+            color: var(--text-soft);
             opacity: 0.4;
         }
         .scene-footer .colophon {
             margin-top: 2.5rem;
             font-size: 0.62rem;
-            color: var(--text-dim);
+            color: var(--text-soft);
             opacity: 0.7;
             letter-spacing: 0.2em;
         }
