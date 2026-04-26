@@ -430,6 +430,54 @@
             min-width: 11rem;
         }
 
+        /* ===== 5.7 DIRECTOR'S NOTE ===== */
+        .scene-note {
+            padding: 14vh 2rem 4vh;
+            max-width: 36rem;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .scene-note .note-lede {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            line-height: 1.65;
+            color: var(--amber);
+            margin-bottom: 1.5em;
+        }
+        .scene-note .note-body {
+            font-family: var(--serif);
+            font-size: clamp(1rem, 2.3vw, 1.15rem);
+            line-height: 1.75;
+            color: var(--text);
+            font-weight: 300;
+            margin-bottom: 1.4em;
+        }
+        .scene-note .note-pivot {
+            font-style: italic;
+            color: var(--text-dim);
+            text-align: center;
+            margin: 2rem 0 2.5rem;
+        }
+        .scene-note .note-link {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+        }
+        .scene-note .note-link a {
+            color: var(--amber-dim);
+            text-decoration: none;
+            border-bottom: 1px solid var(--amber-faint);
+            padding-bottom: 0.2rem;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .scene-note .note-link a:hover {
+            color: var(--amber);
+            border-bottom-color: var(--amber);
+        }
+
         /* ===== 6. THE CREW ===== */
         .scene-crew {
             padding: 14vh 2rem 6vh;
@@ -561,6 +609,10 @@
             .hums-list .hum { min-width: 8.5rem; }
             .hums-list .meaning { min-width: 7.5rem; }
 
+            .scene-note { padding: 10vh 1.25rem 3vh; }
+            .scene-note .note-lede { font-size: 1.08rem; }
+            .scene-note .note-body { font-size: 1rem; }
+
             .scene-crew { padding: 12vh 1.25rem 4vh; }
             .crew-line .dedication { font-size: 0.88rem; }
 
@@ -654,6 +706,14 @@
         </ul>
     </section>
 
+    <!-- 5.7 DIRECTOR'S NOTE — short -->
+    <section class="scene-note" aria-label="director's note">
+        <p class="note-lede">I had a dream about a summer evening in Kansas in 1983.</p>
+        <p class="note-body">It started on a Mark Twain quote about choosing the right word. I thought the film was about that. Then I thought it was about a ten-year-old kid in a wheat field, taking three pitches and making contact on the third one. Then my mom passed away on June 28, 2025, on a Saturday morning, in ICU Room 235.</p>
+        <p class="note-body note-pivot">The film became all three.</p>
+        <p class="note-link"><a href="/lightning/bug/statement/">read the full director's statement &rarr;</a></p>
+    </section>
+
     <!-- 6. THE CREW -->
     <section class="scene-crew" aria-label="crew">
         <div class="crew-line">
@@ -684,6 +744,8 @@
     <footer class="scene-footer">
         <div class="links">
             <a href="/">claudewill</a>
+            <span class="dots">·</span>
+            <a href="/lightning/bug/statement/">statement</a>
             <span class="dots">·</span>
             <a href="/lightning/bug/notes/">notes</a>
             <span class="dots">·</span>
