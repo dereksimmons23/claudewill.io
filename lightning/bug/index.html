@@ -220,7 +220,7 @@
 
         /* ===== 2. THE BREATH ===== */
         .scene-breath {
-            padding: 22vh 2rem 18vh;
+            padding: 22vh 2rem 12vh;
             max-width: 34rem;
             margin: 0 auto;
             text-align: center;
@@ -243,6 +243,64 @@
             font-size: 0.68rem;
             color: var(--amber-dim);
             margin-top: 3.5rem;
+            letter-spacing: 0.3em;
+            text-transform: lowercase;
+        }
+
+        /* ===== 3.5 THE THESIS ===== */
+        .scene-thesis {
+            padding: 6vh 2rem 18vh;
+            max-width: 38rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .scene-thesis .twain {
+            font-family: var(--serif);
+            font-style: italic;
+            font-weight: 300;
+            font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+            line-height: 1.65;
+            color: var(--text-dim);
+            border-left: 1px solid var(--amber-faint);
+            padding-left: 1.25rem;
+            text-align: left;
+            max-width: 30rem;
+            margin: 0 auto;
+        }
+        .scene-thesis .twain cite {
+            display: block;
+            margin-top: 0.6rem;
+            font-style: normal;
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--amber-dim);
+            letter-spacing: 0.1em;
+        }
+        .scene-thesis .twain-flip {
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            color: var(--amber);
+            margin-top: 2rem;
+            letter-spacing: 0.02em;
+            line-height: 1.6;
+        }
+        .scene-thesis .press-logline {
+            font-family: var(--serif);
+            font-size: clamp(1.0rem, 2.4vw, 1.2rem);
+            line-height: 1.7;
+            color: var(--text);
+            margin-top: 3.5rem;
+            text-align: left;
+        }
+        .scene-thesis .press-logline em {
+            color: var(--amber);
+            font-style: italic;
+        }
+        .scene-thesis .genre {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            color: var(--amber-dim);
+            margin-top: 2.5rem;
             letter-spacing: 0.3em;
             text-transform: lowercase;
         }
@@ -330,9 +388,51 @@
             font-variant-numeric: tabular-nums;
         }
 
+        /* ===== 5.5 THE FOUR HUMS ===== */
+        .scene-hums {
+            padding: 12vh 2rem 12vh;
+            max-width: 32rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .scene-hums h2 {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            color: var(--amber-dim);
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+        }
+        .hums-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.6rem;
+        }
+        .hums-list li {
+            font-family: var(--mono);
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.4rem 0;
+        }
+        .hums-list .hum {
+            color: var(--amber);
+            text-align: right;
+            min-width: 11rem;
+        }
+        .hums-list .meaning {
+            color: var(--text-dim);
+            text-align: left;
+            min-width: 11rem;
+        }
+
         /* ===== 6. THE CREW ===== */
         .scene-crew {
-            padding: 18vh 2rem 6vh;
+            padding: 14vh 2rem 6vh;
             text-align: center;
             max-width: 40rem;
             margin: 0 auto;
@@ -341,7 +441,7 @@
             font-family: var(--mono);
             font-size: 0.9rem;
             color: var(--text);
-            margin: 1.5rem 0;
+            margin: 1.75rem 0;
             letter-spacing: 0.04em;
         }
         .crew-line .label {
@@ -356,6 +456,20 @@
         .crew-line .val {
             color: var(--amber);
             font-weight: 400;
+        }
+        .crew-line .val em {
+            font-style: italic;
+            color: var(--amber-dim);
+        }
+        .crew-line .dedication {
+            display: block;
+            margin-top: 0.85rem;
+            font-family: var(--serif);
+            font-style: italic;
+            font-weight: 300;
+            font-size: 0.95rem;
+            color: var(--text);
+            letter-spacing: 0;
         }
         .crew-line a {
             color: inherit;
@@ -417,8 +531,13 @@
             .scroll-hint { font-size: 0.6rem; bottom: 2rem; }
 
             .scene-poster { height: 70vh; height: 70dvh; }
-            .scene-breath { padding: 16vh 1.25rem 12vh; }
+            .scene-breath { padding: 16vh 1.25rem 8vh; }
             .scene-breath .meta { margin-top: 2.5rem; }
+
+            .scene-thesis { padding: 4vh 1.25rem 12vh; }
+            .scene-thesis .twain { padding-left: 1rem; font-size: 0.92rem; }
+            .scene-thesis .press-logline { font-size: 1rem; margin-top: 2.5rem; }
+            .scene-thesis .genre { letter-spacing: 0.2em; }
 
             .field-still { height: 72vh; height: 72dvh; min-height: 360px; }
             .field-still::after { bottom: 1.25rem; left: 1.25rem; right: 1.25rem; font-size: 0.62rem; }
@@ -428,7 +547,14 @@
             .seq-list li { gap: 1rem; padding: 0.75rem 0; }
             .seq-list .num { width: 1.75rem; font-size: 0.62rem; }
 
-            .scene-crew { padding: 14vh 1.25rem 4vh; }
+            .scene-hums { padding: 9vh 1.25rem 9vh; }
+            .scene-hums h2 { margin-bottom: 2rem; }
+            .hums-list .hum { min-width: 8.5rem; }
+            .hums-list .meaning { min-width: 7.5rem; }
+
+            .scene-crew { padding: 12vh 1.25rem 4vh; }
+            .crew-line .dedication { font-size: 0.88rem; }
+
             .scene-footer { padding: 3.5rem 1.25rem 3rem; }
             .scene-footer .links a { padding: 0.3rem 0.5rem; }
             .scene-footer .dots { display: inline-block; padding: 0 0.1rem; }
@@ -466,17 +592,27 @@
         <div class="meta">a short film · 8:27 · 2026</div>
     </section>
 
+    <!-- 3.5 THE THESIS -->
+    <section class="scene-thesis" aria-label="thesis">
+        <blockquote class="twain">
+            "The difference between the almost right word and the right word is the difference between the lightning bug and the lightning."
+            <cite>— Mark Twain</cite>
+        </blockquote>
+        <p class="twain-flip">Twain meant lightning. He was wrong. The bug is the title. The bug is the film.</p>
+        <p class="press-logline">In the same year his mother dies and his career ends, a middle-aged man returns to a Kansas wheat field on June 28, 1983 &mdash; 37.564&deg;N, 98.121&deg;W, civil twilight, the last summer the fireflies were everywhere &mdash; to meet the light still waiting there to say <em>here we are, kid</em>.</p>
+        <div class="genre">an american elegy &middot; 8:27 &middot; reno county, kansas</div>
+    </section>
+
     <!-- 4. THE FIELD -->
     <section class="scene-field" aria-label="stills">
-        <div class="field-still" style="background-image: url('/images/lightning-bug/003-alt-can-interior-v2.jpg');" data-caption="inside the can"></div>
-        <div class="field-still" style="background-image: url('/images/lightning-bug/006-porch-detaches.jpg');" data-caption="the porch detaches"></div>
-        <div class="field-still" style="background-image: url('/images/lightning-bug/011-badlands-firefly-dark-wheat.jpg');" data-caption="dark wheat, first bloom"></div>
-        <div class="field-still" style="background-image: url('/images/lightning-bug/011-flag-abundance-v2.jpg');" data-caption="amber waves"></div>
-        <div class="field-still" style="background-image: url('/images/lightning-bug/018-flag-transformer-inverted.jpg');" data-caption="the transformer"></div>
+        <div class="field-still" style="background-image: url('/images/lightning-bug/003-alt-can-interior-v2.jpg');" data-caption="the can"></div>
+        <div class="field-still" style="background-image: url('/images/lightning-bug/006-porch-detaches.jpg');" data-caption="porch ride"></div>
+        <div class="field-still" style="background-image: url('/images/lightning-bug/010e-darkness-hospital.jpg');" data-caption="hell's hallway — narrow"></div>
+        <div class="field-still" style="background-image: url('/images/lightning-bug/010f-union-station-hall.jpg');" data-caption="hell's hallway — wide"></div>
+        <div class="field-still" style="background-image: url('/images/lightning-bug/011-badlands-firefly-dark-wheat.jpg');" data-caption="amber waves"></div>
+        <div class="field-still" style="background-image: url('/images/lightning-bug/011-flag-abundance-v2.jpg');" data-caption="amber waves — abundance"></div>
         <div class="field-still" style="background-image: url('/images/lightning-bug/017-alt-contact-flash-v2.jpg');" data-caption="contact"></div>
-        <div class="field-still" style="background-image: url('/images/lightning-bug/010e-darkness-hospital.jpg');" data-caption="cobalt blues"></div>
-        <div class="field-still" style="background-image: url('/images/lightning-bug/010f-union-station-hall.jpg');" data-caption="hell's hallway"></div>
-        <div class="field-still" style="background-image: url('/images/lightning-bug/012-firefly-towers-v3.jpg');" data-caption="shooting stars"></div>
+        <div class="field-still" style="background-image: url('/images/lightning-bug/018-flag-transformer-inverted.jpg');" data-caption="cobalt blues"></div>
         <div class="field-still" style="background-image: url('/images/lightning-bug/020-badlands-moon-flat.jpg');" data-caption="path home"></div>
     </section>
 
@@ -498,6 +634,17 @@
         </ol>
     </section>
 
+    <!-- 5.5 THE FOUR HUMS -->
+    <section class="scene-hums" aria-label="sound design">
+        <h2>the four hums</h2>
+        <ul class="hums-list">
+            <li><span class="hum">thunder</span><span class="meaning">— the bolt</span></li>
+            <li><span class="hum">kitten purr</span><span class="meaning">— the bug</span></li>
+            <li><span class="hum">transformer drone</span><span class="meaning">— the grid</span></li>
+            <li><span class="hum">fluorescent hum</span><span class="meaning">— the waiting room</span></li>
+        </ul>
+    </section>
+
     <!-- 6. THE CREW -->
     <section class="scene-crew" aria-label="crew">
         <div class="crew-line">
@@ -509,8 +656,13 @@
             <span class="val">sssstudios</span>
         </div>
         <div class="crew-line">
+            <span class="label">cinematography</span>
+            <span class="val">Conrad Hall, <em>Road to Perdition</em> &middot; Terrence Malick, <em>Badlands</em></span>
+        </div>
+        <div class="crew-line">
             <span class="label">in memory of</span>
-            <span class="val">Sandra Sue Simmons · 1944–2025</span>
+            <span class="val">Sandra Sue Simmons &middot; 1944–2025</span>
+            <span class="dedication">for sandra, and every small light that stays on.</span>
         </div>
     </section>
 

@@ -4,6 +4,36 @@
 
 ---
 
+## Session · 2026-04-26 (Sun, Day 116) — model: Opus 4.7
+
+**Window:** ~3 AM CDT open. Derek green-lit the Tier 1 list from `SITE-AUDIT-APR26.md` and the three open audit questions from yesterday.
+
+### What shipped (one commit)
+
+**Index page — new sections + reordered field stills + crew expansion:**
+
+- **NEW: `.scene-thesis`** between breath and field. Carries the Mark Twain inversion ("the bug is the title, the bug is the film"), the locked press logline (`docs/logline.md`), and the genre tag (`an american elegy · 8:27 · reno county, kansas`). This was the single biggest missing thing — the festival/programmer-facing positioning. Now on the page.
+- **Field stills reordered + relabeled.** 9 stills (was 10), one per act, in act sequence order. Two of Hell's Hallway (narrow→wide arc, honoring Derek's locked thesis) and two of Amber Waves (the longest non-polo act). Skipped Three Pitches and Shooting Stars — no in-register stills available. Caption typos fixed: "the transformer" no longer mislabeled before "contact"; "cobalt blues" no longer pointing at a hallway-register still; "shooting stars" no longer pointing at the firefly-towers Amber Waves still.
+- **NEW: `.scene-hums`** between sequence and crew. Four-line block: thunder/bug/grid/waiting room. Mono type. Tells anyone who reads it the sound design has a thesis.
+- **Crew expanded.** Cinematography reference line added — `Conrad Hall, Road to Perdition · Terrence Malick, Badlands`. The fuller dedication line `for sandra, and every small light that stays on.` added under the Sandra dates.
+- **Mobile styles** added for both new sections.
+
+**Notes archive — runtime sync:**
+
+- JSON-LD duration: `PT7M14S` → `PT8M27S`. uploadDate: `2026-03-28` → `2026-04-27`.
+- Numbers grid: `7:14 runtime / 36 shots / 4 acts` → `8:27 runtime / 11 acts / 46 slots`.
+- Killed the stale "On Deck" Day 23 production-log block. Replaced with a single one-line status: "Production complete. Final assembly and audio sync underway. Submission to Runway AI Film Festival on Monday, April 27 by 4:59 PM ET."
+
+### Method note
+
+Derek had asked: should I be buying CPU time on Replicate? Answered no — pay-per-prediction is the right tier at his volume; Replicate isn't his bottleneck (Runway Gen-4.5 is); Replicate-specific work in next 36 hrs totals ~$6 (one Topaz upscale + one Kontext bridge fix); reserved compute pays off at thousands of predictions/day, not tens. Save the money.
+
+### Lane discipline holding
+
+Sonnet on film assembly, Haiku on audio, Opus on site. I touched the film repo only to read; all writes landed in the site repo. The 010e-darkness-hospital.jpg image swap from yesterday is the only file I copied in, and that was an explicit Derek green-light.
+
+---
+
 ## Session · 2026-04-25 (Sat, Day 115) — model: Opus 4.7
 
 **Window:** 9:50 AM CDT open. Derek explicit: "you can reach into the film repo, just make sure you are copying files into the site repo and not editing or deleting anything in film."
