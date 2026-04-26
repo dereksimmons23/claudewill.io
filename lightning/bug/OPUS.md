@@ -4,6 +4,43 @@
 
 ---
 
+## Session · 2026-04-26 (Sun, Day 116) — model: Opus 4.7 [continued, AM batches]
+
+### 8 AM batch — site hardening (commit 1e6192ae)
+
+**Triggered by Derek's home-stretch ask:** what other free terminal tools, what audits remain (copyright/IP/accessibility/sensitivity), and what's the next list. Plus three personal observations: (a) too many color shifts, (b) type bunched without visual support, (c) crew implies attribution to people who were inspirations + list too long to enumerate.
+
+**What shipped (one commit, 5 files changed):**
+
+- **Sitemap** — added `/lightning/bug/statement/` and `/lightning/bug/notes/`. Bumped `/lightning/bug/` priority to 0.9 + lastmod 2026-04-26.
+- **Lighthouse + pa11y baseline run** — captured 16+ contrast errors on `--amber-dim` and `--text-dim`. Both used widely across small-text UI.
+- **Color contrast fix** — bumped `--amber-dim` (#8a6a2a, 3.6:1) → `--amber-soft` (#b89346, 5.5:1, AA pass). Bumped `--text-dim` (#6b7a92, 4.16:1) → `--text-soft` (#97a3b7, 5.5:1, AA pass). Migrated all references via sed across `index.html` + `statement/index.html`.
+- **Palette consolidation** (Derek observation a) — dropped `--amber-bright` (only used in hover, now base `--amber` on hover) and `--cobalt-light` (only used once in reduced-motion fallback, inlined). 9 active colors → 6.
+- **Section dividers** (Derek observation b) — new `.section-mark` HTML element (single centered amber-soft `·`, 4vh padding) inserted between hums→note and note→crew. Note section padding rebalanced from asymmetric 14vh/4vh to symmetric 8vh/8vh. Crew top padding 14vh → 8vh to compensate for the added section-mark above.
+- **Crew language reframe** (Derek observation c) — replaced `cinematography Conrad Hall · Terrence Malick` with `in the lineage of cinema that lets the dark do the work`. No specific names — gestures at the long list of influences without slighting anyone. Italic patina line dropped from this crew-line slot (already lives in footer colophon).
+- **Privacy** — removed gtag from `/lightning/bug/`, `/lightning/bug/statement/`, `/lightning/bug/notes/`. EU consent exposure cleared during deadline window.
+- **Article JSON-LD** — added schema.org `Article` block to `/statement/` with author, publisher, mainEntityOfPage, isPartOf VideoObject. Festival-aggregator scrapeable.
+
+**Verification post-deploy:**
+
+- Lighthouse main page: performance 52–70 (variance — Google Fonts + hero MP4 LCP, not deadline-critical), accessibility 96, best-practices 100, SEO 100.
+- Pa11y main page: 5 errors total — ALL from `/js/porch-widget.js` (global widget), ZERO from film-page CSS.
+- Pa11y statement page: 8 errors — also dominated by porch widget. Page CSS clean.
+- All three URLs return 200, security headers solid, both new sitemap entries registered.
+
+**Method note on Replicate CPU pricing question:** answered no — pay-per-prediction is right at this volume; reserved compute pays off at thousands of predictions/day, not tens.
+
+### Open / deferred
+
+- Porch widget accessibility (5 pa11y errors) — global scope, post-deadline cleanup commit
+- Self-hosted IBM Plex fonts — perf lift to ~85+, post-deadline
+- Film completion track — porch ride opera finish, full assembly, Vimeo upload, submit Mon by 12 PM CDT (4-hr cushion vs 4:59 PM ET)
+- Tier A legal/operational checks — Derek-action: Suno tier, Shannon/Sheri voicemail consent, Channel 9 attribution, Runway/FAL/Replicate paid-tier verification
+
+Full deltas in `SITE-AUDIT-APR26.md` (initial home-stretch audit) and `HOME-STRETCH-AUDIT.md` (post-execution status).
+
+---
+
 ## Session · 2026-04-26 (Sun, Day 116) — model: Opus 4.7
 
 **Window:** ~3 AM CDT open. Derek green-lit the Tier 1 list from `SITE-AUDIT-APR26.md` and the three open audit questions from yesterday.
