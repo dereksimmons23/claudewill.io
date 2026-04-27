@@ -57,6 +57,25 @@ GTAG — removed from all three lightning/bug pages ✅
 
 ---
 
+## TIER A + B BATCH — CLEARED (Apr 26, 9 AM – 1 PM CDT)
+
+| Item | Status | Receipts |
+|------|--------|----------|
+| A1 Suno commercial tier | ✅ Pro Plan, Apr 14 invoice + plan screenshot, redacted | `rights/suno-pro-invoice-apr14.pdf`, `rights/suno-pro-plan.png` |
+| A2 Shannon + Sheri voicemail consent | ✅ Confirmed verbal/text | logged in `rights/RIGHTS.md` |
+| A3 Channel 9 1983 newscast | ✅ Confirmed NOT in cut, no action | logged in `rights/RIGHTS.md` |
+| A4 AI tool paid-tier verification | ✅ All 7 receipts archived + redacted | Suno, Runway, Fal.ai, Replicate, Eleven Labs, Hugging Face, LTX Studio |
+| B4 Spell-check site copy | ✅ Automated via pyspellchecker — 0 real issues across all 3 pages | — |
+
+Surprises: Hugging Face Pro ($9/mo) and LTX Studio ($35/mo) weren't on my A4 radar — both showed up in receipt batch and are now logged in RIGHTS.md.
+
+**Genre tag parking lot** (DIRECTOR-LOG.md):
+- 1st: `tallgrass opera` (post-deadline leader)
+- 2nd: `kansas badlands opera`
+- 3rd: `an american elegy` (current locked tag, stays through submission)
+
+---
+
 ## STILL OPEN (the actual home-stretch list)
 
 Reorganized after the morning batch. Items removed = done. Items added = surfaced by the audits.

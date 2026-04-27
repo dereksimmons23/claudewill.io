@@ -6,6 +6,31 @@
 
 ## Session · 2026-04-26 (Sun, Day 116) — model: Opus 4.7 [continued, AM batches]
 
+### Midday batch — Tier A + B clearances (commits 1e6192ae through current)
+
+**Tier A (rights / consent / licensing) — all four cleared:**
+
+- **A1 Suno** — Pro Plan invoice (Apr 14, 2026 renewal) + plan management screenshot. True PDF redaction of home address (PyMuPDF). Pro covers Apr 11–13 generation dates of "Here We Are, Kid."
+- **A2 Voicemail consent** — Shannon + Sheri confirmed (Apr 26 verbal/text). Sandra covered as surviving family under Kansas right-of-publicity (KSA 65-3-303).
+- **A3 Channel 9 1983 Wichita newscast** — confirmed NOT in v9 locked cut. No attribution needed. Asset stays archived but unused.
+- **A4 AI tool tiers** — six receipts, six providers, all paid-tier verified, all redacted: Suno, Runway, Fal.ai, Replicate, Eleven Labs, Hugging Face, LTX Studio.
+
+All seven receipts archived to `~/Desktop/lightning-bug/docs/press-kit/rights/` with redacted home addresses (PyMuPDF true text-layer redaction, verified via pdftotext post-redaction). RIGHTS.md log written as the durable single-source-of-truth.
+
+**Tier B (pre-deadline polish):**
+
+- **B4 Spell-check** — automated pass via pyspellchecker on all 3 lightning/bug HTML pages. Active page: 0 real issues. Statement page: 0 real issues. Notes archive: 92 flagged, 100% proper nouns / tools / scientific terms / acronyms / contractions — zero actual misspellings.
+- **B1 Mobile QA** — still owed (Derek action, needs iPhone in hand).
+
+**Genre tag parking-lot (DIRECTOR-LOG.md, 12:36–12:43 PM):**
+
+Three candidates floated. Current state:
+1. **tallgrass opera** — leading post-deadline candidate. Geographically true, original, Kansas-anchored, lyric weight, free positioning to Tallgrass Film Festival (Wichita).
+2. **kansas badlands opera** — alt; spicier, Malick lineage but slight geography friction.
+3. **an american elegy** — current locked tag for festival forms. Stays through submission.
+
+No site change before deadline.
+
 ### 8 AM batch — site hardening (commit 1e6192ae)
 
 **Triggered by Derek's home-stretch ask:** what other free terminal tools, what audits remain (copyright/IP/accessibility/sensitivity), and what's the next list. Plus three personal observations: (a) too many color shifts, (b) type bunched without visual support, (c) crew implies attribution to people who were inspirations + list too long to enumerate.
