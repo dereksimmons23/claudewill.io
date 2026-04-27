@@ -37,7 +37,7 @@
         "@type": "VideoObject",
         "name": "lightning/bug",
         "description": "A short film about two kinds of light. A boy in a can. A bug on a bat. A mother on a June night in Kansas.",
-        "duration": "PT8M27S",
+        "duration": "PT8M42S",
         "uploadDate": "2026-04-27",
         "director": {
             "@type": "Person",
@@ -396,6 +396,12 @@
             flex-shrink: 0;
             font-variant-numeric: tabular-nums;
         }
+        .seq-list .silence {
+            opacity: 0.5;
+            font-style: italic;
+        }
+        .seq-list .silence .name { color: var(--text-soft); }
+        .seq-list .silence .num { color: var(--text-soft); opacity: 0.5; }
 
         /* ===== 5.5 THE FOUR HUMS ===== */
         .scene-hums {
@@ -659,7 +665,7 @@
     <section class="scene-breath" aria-label="logline">
         <p class="logline">Two kinds of light. A boy in a can. A bug on a bat. A mother on a June night in Kansas.</p>
         <p class="logline">The land is mostly flat. The names matter.</p>
-        <div class="meta">a short film · 8:27 · 2026</div>
+        <div class="meta">a short film · 8:42 · 2026</div>
     </section>
 
     <!-- 3.5 THE THESIS -->
@@ -691,16 +697,17 @@
         <h2>the sequence</h2>
         <ol class="seq-list">
             <li><span class="num">00</span><span class="name">marco</span><span class="dur">:21</span></li>
-            <li><span class="num">01</span><span class="name">the can</span><span class="dur">:63</span></li>
-            <li><span class="num">02</span><span class="name">porch ride</span><span class="dur">:40</span></li>
-            <li><span class="num">03</span><span class="name">hell's hallway</span><span class="dur">:51</span></li>
-            <li><span class="num">04</span><span class="name">amber waves</span><span class="dur">:56</span></li>
-            <li><span class="num">05</span><span class="name">three pitches</span><span class="dur">:18</span></li>
-            <li><span class="num">06</span><span class="name">contact</span><span class="dur">:04</span></li>
-            <li><span class="num">07</span><span class="name">cobalt blues</span><span class="dur">:53</span></li>
+            <li><span class="num">01</span><span class="name">the can</span><span class="dur">1:10</span></li>
+            <li><span class="num">02</span><span class="name">porch ride</span><span class="dur">:47</span></li>
+            <li><span class="num">03</span><span class="name">hell's hallway</span><span class="dur">1:00</span></li>
+            <li><span class="num">04</span><span class="name">amber waves</span><span class="dur">1:16</span></li>
+            <li><span class="num">05</span><span class="name">three pitches</span><span class="dur">:27</span></li>
+            <li><span class="num">06</span><span class="name">contact</span><span class="dur">:29</span></li>
+            <li><span class="num">07</span><span class="name">cobalt blues</span><span class="dur">:47</span></li>
+            <li class="silence"><span class="num">—</span><span class="name">silence</span><span class="dur">:11</span></li>
             <li><span class="num">08</span><span class="name">path home</span><span class="dur">:56</span></li>
-            <li><span class="num">09</span><span class="name">shooting stars</span><span class="dur">:51</span></li>
-            <li><span class="num">99</span><span class="name">polo</span><span class="dur">:94</span></li>
+            <li><span class="num">09</span><span class="name">shooting stars</span><span class="dur">1:07</span></li>
+            <li><span class="num">99</span><span class="name">polo</span><span class="dur">:21</span></li>
         </ol>
     </section>
 
