@@ -1,9 +1,9 @@
 {
-  "generated": "2026-04-24T11:29:28.475Z",
-  "date": "2026-04-24",
+  "generated": "2026-04-27T10:36:54.753Z",
+  "date": "2026-04-27",
   "porch": {
-    "total": 722,
-    "thisWeek": 7,
+    "total": 723,
+    "thisWeek": 8,
     "today": 0
   },
   "d": {
@@ -13,19 +13,18 @@
     "modes": {}
   },
   "visitors": {
-    "total": 10,
+    "total": 11,
     "returning": 3,
     "named": 2,
     "maxVisits": 6
   },
   "sessions": {
-    "thisWeek": 5,
-    "avgWeight": 4.2,
+    "thisWeek": 4,
+    "avgWeight": 4,
     "byProject": {
       "desktop": 1,
       "ecosystem": 1,
-      "lightning-bug": 2,
-      "claudewill.io": 1
+      "lightning-bug": 2
     }
   },
   "dawn": {
@@ -33,13 +32,10 @@
     "dayNumber": 74,
     "raidRate": "3/6",
     "latestWeight": null,
-    "daysSinceEntry": 41
+    "daysSinceEntry": 44
   },
   "sparklines": {
     "conversations": [
-      0,
-      0,
-      0,
       0,
       1,
       2,
@@ -64,12 +60,12 @@
       7,
       0,
       0,
+      1,
+      0,
+      0,
       0
     ],
     "sessions": [
-      4,
-      7,
-      21,
       5,
       1,
       0,
@@ -93,6 +89,9 @@
       0,
       0,
       4,
+      0,
+      0,
+      0,
       0,
       0
     ]
