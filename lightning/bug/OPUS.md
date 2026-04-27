@@ -4,6 +4,63 @@
 
 ---
 
+## Session · 2026-04-27 (Mon, Day 117) — Submission Day [Opus 4.7]
+
+**🟢 SHIPPED. Runway AI Film Festival 2026 submitted at 1:59 PM CDT.** 2-hour cushion before the 4 PM CDT deadline. Confirmation email from `no-reply@comms.runwayml.com`. Screenshot at `~/Desktop/lightning-bug/docs/press-kit/aif-submission-confirmation.png`. Logged in `RIGHTS.md` Submissions table.
+
+### Submission day batch (8 AM – 6:30 PM CDT)
+
+**Site (claudewill.io/lightning/bug):**
+- Runtime: 8:27 → 8:42 → 8:48 (final, matches Vimeo MP4 with 5s front cushion)
+- Sequence list rebuilt with new section runtimes + silence row
+- 9 new field stills (one per opera, lifted from Apr 26-27 anchor frame manifest)
+- New `/lightning/bug/song/` sub-page with embedded MP3, full lyrics, liner notes, MusicRecording JSON-LD
+- `/statement/` page synced with Derek's italic edit on "had" + new closing dedication paragraph (three-women: Sandra + Shannon Dawn + Sheri Smith Simmons + Moncton Times typo origin)
+- Footer adds `song` link
+- Notes archive synced to 8:48 + "42 shots" + killed stale "On Deck" block
+- Sitemap entries for /statement/ + /notes/ + /song/
+
+**Press kit (`~/Desktop/lightning-bug/docs/press-kit/`):**
+- `aif-form-paste-apr27.md` — paste-ready Runway AIF (Film Summary 184 words with three-women dedication, AI Incorporation ~370 words with all corrections from Derek's edit pass)
+- `aigood-form-paste-may01.md` — paste-ready AI for Good (May 1 deadline) with humanitarian posture
+- `vimeo.md` — `vimeo.com/sssstudios/bug` (unlisted, embed-allowed, video ID 1187003933)
+- `directors-statement-final.md` — Derek-edited longform with italic "had"
+- `rights/RIGHTS.md` — all 7 paid-tier receipts redacted (PyMuPDF), submission table updated
+- `aif-submission-confirmation.png` — Runway confirmation email screenshot
+
+**Captions (`~/Desktop/lightning-bug/film/audio/captions/`):**
+- `lightning-bug-final.srt/.vtt` — hand-curated 77-cue version with +5s MP4 offset, Phooey corrected, speaker tags (Sandra/Shannon/Sheri/Derek), SFX section markers with ♪ for music, song lyrics matched to `here-we-are-kid.md`. Ready for Vimeo CC upload AFTER Derek's pending glitch-edit pass.
+
+**Drafts (`~/Desktop/writing/drafts/`):**
+- `lightning-bug-submission-substack.md` — Marco. Polo. ~700-word Substack draft (8:48 corrected)
+- `lightning-bug-submission-linkedin.md` — three drafts (A/B/C, short to long)
+
+### Genre tag parking-lot (DIRECTOR-LOG.md)
+
+1. **tallgrass opera** — leading post-deadline candidate (geographically true, original, lyric)
+2. **kansas badlands opera** — alt (Malick lineage, slight geography friction)
+3. **an american elegy** — current locked tag for festival forms
+
+Park through festival decisions. Genre tag is not a deadline item.
+
+### Open at session end (Apr 27, 6:30 PM CDT) — pick up here
+
+- **Caption hand-edit pass:** Derek flagged "a few glitches" in `~/Desktop/lightning-bug/film/audio/captions/lightning-bug-final.vtt`, was about to send the list when context cleared. **Next session pick-up: ask Derek for the glitches, edit the file directly.** After his fixes, upload to Vimeo Captions tab as English CC.
+- **Derek's preference: NOT promoting Runway submission.** May 1 (AI for Good) is the share moment. Substack + LinkedIn drafts hold until then.
+- **Plan for the week:** Tue rest. Wed hand-edit captions + upload to Vimeo. Thu light-touch the May 1 drafts (swap "Runway" → "AI for Good"). Fri AM submit + post.
+
+### Method notes for future-me (preserve across context clears)
+
+- **Don't mythologize what's pragmatic.** Derek corrected me twice in the AI Incorporation block: (1) "no AI-generated faces" was too binary — softened to "features never legible" rule + Sandra real-photos exception; (2) "ElevenLabs voice clone rejected" was dramatized — actual is "Derek has a clone for other projects, chose real voice for this film." Match the truth, not the narrative.
+- **The film uses instrumental + vocal stems separately, NOT the full Suno song.** Important for the song-on-site decision (no spoiler concern).
+- **8:42 vs 8:48 spread:** Audio master is 8:42, MP4 has 5s FRONT_CUSHION = 8:48. Caption SRT needs +5s offset to align with MP4.
+- **Sheri Smith Simmons** — full name. SSS pattern (Smith + Simmons) is the dedication.
+- **Shannon Dawn** — Derek's older sister, started co-raising him at 12.
+- **Vimeo:** `vimeo.com/sssstudios/bug`, video ID 1187003933, unlisted (not password). Embed code in `vimeo.md`.
+- **All Rights Reserved on Vimeo** through festival window. Don't switch to CC BY-NC.
+
+---
+
 ## Session · 2026-04-26 (Sun, Day 116) — model: Opus 4.7 [continued, AM batches]
 
 ### Late-night batch — overnight parallel work (Apr 27, 12:40–1:35 AM CDT)
