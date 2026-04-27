@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-04-27T10:37:45.325Z",
+  "lastUpdated": "2026-04-27T11:38:19.975Z",
   "agents": {
     "morningEdition": {
       "name": "Morning Edition",
-      "lastRun": "2026-04-27T10:37:45.324Z",
+      "lastRun": "2026-04-27T11:38:19.974Z",
       "status": "ok",
       "summary": "If I Had $5,000 to Invest in Artificial Intelligence (AI) Right Now, I'd Buy These 2 Stocks Before They Rebound",
       "flags": [],
@@ -33,32 +33,32 @@
     },
     "housekeeping": {
       "name": "Housekeeping",
-      "lastRun": "2026-04-27T10:37:45.325Z",
+      "lastRun": "2026-04-27T11:38:19.974Z",
       "status": "ok",
-      "summary": "All 14 pages + 2 subdomains responding. Avg 358ms.",
+      "summary": "All 14 pages + 2 subdomains responding. Avg 456ms.",
       "flags": [],
       "details": [
-        "https://claudewill.io/ — 200 32ms",
-        "https://claudewill.io/derek — 200 130ms",
-        "https://claudewill.io/claude — 200 344ms",
-        "https://claudewill.io/book — 200 18ms",
-        "https://claudewill.io/story — 200 476ms",
-        "https://claudewill.io/standard — 200 19ms",
-        "https://claudewill.io/writing — 200 85ms",
-        "https://claudewill.io/privacy — 200 156ms",
-        "https://claudewill.io/terms — 200 431ms",
-        "https://claudewill.io/kitchen — 200 628ms",
-        "https://claudewill.io/arcade — 200 836ms",
-        "https://claudewill.io/being-claude — 200 599ms",
-        "https://claudewill.io/lightning/bug — 200 662ms",
-        "https://claudewill.io/d — 200 590ms",
-        "Coach D (https://coach.claudewill.io) — 200 1211ms",
-        "BOB (https://bob.claudewill.io) — 200 1384ms"
+        "https://claudewill.io/ — 200 12ms",
+        "https://claudewill.io/derek — 200 180ms",
+        "https://claudewill.io/claude — 200 176ms",
+        "https://claudewill.io/book — 200 182ms",
+        "https://claudewill.io/story — 200 224ms",
+        "https://claudewill.io/standard — 200 687ms",
+        "https://claudewill.io/writing — 200 256ms",
+        "https://claudewill.io/privacy — 200 700ms",
+        "https://claudewill.io/terms — 200 723ms",
+        "https://claudewill.io/kitchen — 200 148ms",
+        "https://claudewill.io/arcade — 200 685ms",
+        "https://claudewill.io/being-claude — 200 786ms",
+        "https://claudewill.io/lightning/bug — 200 785ms",
+        "https://claudewill.io/d — 200 838ms",
+        "Coach D (https://coach.claudewill.io) — 200 13ms",
+        "BOB (https://bob.claudewill.io) — 200 1307ms"
       ]
     },
     "pulse": {
       "name": "Daily Pulse",
-      "lastRun": "2026-04-27T10:36:54.753Z",
+      "lastRun": "2026-04-27T11:37:26.638Z",
       "status": "ok",
       "summary": "723 conversations, 11 visitors, 0 D sessions",
       "flags": [],
@@ -96,7 +96,7 @@
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-04-27T10:37:45.325Z",
+      "lastRun": "2026-04-27T11:38:19.975Z",
       "status": "flags",
       "summary": "**Pipeline:** 7 items (3 draft, 2 planned, 1 idea, 1 in-progress)",
       "flags": [
