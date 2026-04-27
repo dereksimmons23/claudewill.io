@@ -6,6 +6,48 @@
 
 ## Session · 2026-04-26 (Sun, Day 116) — model: Opus 4.7 [continued, AM batches]
 
+### Late-night batch — overnight parallel work (Apr 27, 12:40–1:35 AM CDT)
+
+**Triggered by Derek's "do it" on the parallel-hours plan.** While Opus's other terminal session works the film completion track (Plans A+C from `docs/execution-plan-apr27.md`), this session executes 4 parallel non-conflicting items.
+
+**1. Site flip staged on branch `pending/post-submission-flip` (NOT pushed to main):**
+
+- Sequence list rebuilt with new section runtimes from the locked master audio (`lightning-bug-master-v2.wav`, 8:42 EBU R128). Per-act shifts captured in commit message of `4f854096`.
+- New `.silence` row (italic, dim, em-dash slot, `:11`) inserted between Cobalt Blues and Path Home — the structural exception per `docs/style-guide.md` transition rule.
+- Breath section + JSON-LD: 8:27 → 8:42 (both `index.html` and `notes/index.html`).
+- Notes archive numbers grid: 8:27 → 8:42, "46 slots" → "42 shots."
+- Will deploy after Derek submits to Runway: `git checkout main && git merge pending/post-submission-flip && git push origin main`.
+
+**2. SRT/VTT captions for May 1 (and beyond):**
+
+- Whisper medium ran on the master audio. 87 segments captured.
+- Output to `~/Desktop/lightning-bug/film/audio/captions/`:
+  - `lightning-bug-master-v2.srt` (4 KB) — festival-form ready
+  - `lightning-bug-master-v2.vtt` (3 KB) — Vimeo + browser native track
+  - `lightning-bug-master-v2.json` (35 KB) — full whisper output
+  - `lightning-bug-master-v2-transcript.md` (3 KB) — readable
+- Note: `film/audio/` is gitignored, so these sit on disk only. Two known hand-edits before festival use: `fooey` → `Phooey`, add SFX/music tags `[thunder]` `[firefly hum]` for full CC.
+
+**3. Press prep drafts (untracked, on disk):**
+
+- `~/Desktop/writing/drafts/lightning-bug-submission-linkedin.md` — three drafts (A/B/C, short to long), Derek picks one
+- `~/Desktop/writing/drafts/lightning-bug-submission-substack.md` — one ~700-word "Marco. Polo." draft + edit notes
+- Both untracked — Derek edits and decides when to post.
+
+**4. /song/ sub-page STAGED on branch (commit `acea415e`):**
+
+Derek's call after I recommended Substack-first / sub-page-next-week. Built it now so it's ready to ship.
+- Audio: `claudewill.io/audio/here-we-are-kid.mp3` (6.6 MB, 192 kbps stereo, ffmpeg from `here-we-are-kid-take-final.mp4`)
+- Page: `/lightning/bug/song/index.html` — held-breath register matches `/statement/`
+- Native `<audio controls>` player, no third-party tracking
+- Full lyrics + liner notes from `docs/here-we-are-kid.md`
+- MusicRecording JSON-LD + og:audio meta tags
+- Footer link `song` added alongside statement/notes (only visible after merge)
+
+**Important framing correction from Derek:** the film uses *only* the instrumental + vocal stems separately, NOT the full vocals+instrumental together. So the standalone song-as-whole on the sub-page is a companion piece, not a film preview. Doesn't spoil the credits beat.
+
+**Method note:** Plan B (separate-repo competing build) was floated and declined as high-cost insurance against an A+C path that's likely to succeed. The smarter parallel work was post-deadline prep (above) plus standby for crash-recovery.
+
 ### Midday batch — Tier A + B clearances (commits 1e6192ae through current)
 
 **Tier A (rights / consent / licensing) — all four cleared:**
