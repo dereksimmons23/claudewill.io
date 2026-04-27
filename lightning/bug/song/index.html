@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0a1628">
+    <title>here we are, kid — lightning/bug</title>
+    <meta name="description" content="The song from lightning/bug. Words and voice by Derek Claude Simmons. Performance by Suno. 4:49.">
+    <meta name="author" content="Derek Claude Simmons">
+    <meta property="og:title" content="here we are, kid — the song from lightning/bug">
+    <meta property="og:description" content="Words and voice by Derek. Performance by Suno. 4:49. Americana, red-dirt country.">
+    <meta property="og:type" content="music.song">
+    <meta property="og:url" content="https://claudewill.io/lightning/bug/song">
+    <meta property="og:image" content="https://claudewill.io/images/lightning-bug/og-poster.jpg">
+    <meta property="og:audio" content="https://claudewill.io/audio/here-we-are-kid.mp3">
+    <meta property="og:audio:type" content="audio/mpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="here we are, kid — the song from lightning/bug">
+    <meta name="twitter:description" content="Words and voice by Derek. Performance by Suno. 4:49.">
+    <meta name="twitter:image" content="https://claudewill.io/images/lightning-bug/og-poster.jpg">
+    <link rel="canonical" href="https://claudewill.io/lightning/bug/song">
+    <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/shared-nav.css">
+    <link rel="stylesheet" href="/css/porch-widget.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MusicRecording",
+        "name": "Here We Are, Kid",
+        "byArtist": {
+            "@type": "Person",
+            "name": "Derek Claude Simmons",
+            "url": "https://claudewill.io/derek"
+        },
+        "duration": "PT4M49S",
+        "datePublished": "2026-04-13",
+        "inLanguage": "en",
+        "genre": ["Americana", "Red-dirt country"],
+        "isPartOfSeason": {
+            "@type": "VideoObject",
+            "name": "lightning/bug",
+            "url": "https://claudewill.io/lightning/bug"
+        },
+        "audio": "https://claudewill.io/audio/here-we-are-kid.mp3",
+        "publisher": {
+            "@type": "Organization",
+            "name": "sssstudios"
+        }
+    }
+    </script>
+
+    <style>
+        :root {
+            --cobalt-deep: #070d1a;
+            --cobalt: #0a1628;
+            --amber: #d4a84b;
+            --amber-soft: #b89346;
+            --amber-faint: rgba(212, 168, 75, 0.08);
+            --text: #c8d0dc;
+            --text-soft: #97a3b7;
+            --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+            --serif: 'IBM Plex Serif', Georgia, serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { background: var(--cobalt-deep); }
+
+        body {
+            background: var(--cobalt);
+            color: var(--text);
+            font-family: var(--serif);
+            font-weight: 300;
+            line-height: 1.7;
+            min-height: 100vh;
+            min-height: 100dvh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::selection { background: var(--amber); color: var(--cobalt-deep); }
+
+        /* ===== HEADER ===== */
+        .page-header {
+            padding: 2.5rem 2rem 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--amber-faint);
+        }
+        .page-header .crumb {
+            font-family: var(--mono);
+            font-size: 0.66rem;
+            color: var(--amber-soft);
+            letter-spacing: 0.3em;
+            text-transform: lowercase;
+        }
+        .page-header .crumb a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .page-header .crumb a:hover { color: var(--amber); border-bottom-color: var(--amber-faint); }
+        .page-header .sep { opacity: 0.4; padding: 0 0.4rem; }
+
+        /* ===== TITLE ===== */
+        .song-title {
+            max-width: 36rem;
+            margin: 0 auto;
+            padding: 12vh 2rem 2vh;
+            text-align: center;
+        }
+        .song-title h1 {
+            font-family: var(--mono);
+            font-size: clamp(1.4rem, 5vw, 2.2rem);
+            color: var(--amber);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            line-height: 1.15;
+        }
+        .song-title .meta {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--amber-soft);
+            margin-top: 1.25rem;
+            letter-spacing: 0.25em;
+            text-transform: lowercase;
+        }
+
+        /* ===== AUDIO PLAYER ===== */
+        .player-wrap {
+            max-width: 36rem;
+            margin: 0 auto;
+            padding: 4vh 2rem 2vh;
+        }
+        audio {
+            width: 100%;
+            display: block;
+            border-radius: 6px;
+            outline: none;
+        }
+        /* Subtle Safari/Chrome control fallback — color-scheme dark already styles them right */
+
+        .player-credits {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--text-soft);
+            margin-top: 1.5rem;
+            letter-spacing: 0.04em;
+            text-align: center;
+            line-height: 1.7;
+        }
+        .player-credits .label { color: var(--amber-soft); margin-right: 0.5rem; }
+
+        /* ===== LYRICS ===== */
+        .lyrics {
+            max-width: 32rem;
+            margin: 0 auto;
+            padding: 8vh 2rem 6vh;
+        }
+        .lyrics h2 {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--amber-soft);
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .verse { margin-bottom: 2rem; }
+        .verse .label {
+            font-family: var(--mono);
+            font-size: 0.62rem;
+            color: var(--amber-soft);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+        .verse p {
+            font-family: var(--serif);
+            font-size: clamp(1rem, 2.4vw, 1.15rem);
+            line-height: 1.85;
+            color: var(--text);
+            font-weight: 300;
+        }
+        .verse.bridge p, .verse.outro p {
+            font-style: italic;
+            color: var(--amber);
+        }
+
+        /* ===== LINER NOTES ===== */
+        .liner {
+            max-width: 36rem;
+            margin: 0 auto;
+            padding: 6vh 2rem 8vh;
+            border-top: 1px solid var(--amber-faint);
+        }
+        .liner h2 {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--amber-soft);
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .liner p {
+            font-family: var(--serif);
+            font-size: clamp(0.98rem, 2.2vw, 1.1rem);
+            line-height: 1.75;
+            color: var(--text);
+            margin-bottom: 1.4em;
+            font-weight: 300;
+        }
+        .liner .signoff {
+            margin-top: 3rem;
+            font-family: var(--mono);
+            font-size: 0.74rem;
+            color: var(--amber-soft);
+            letter-spacing: 0.05em;
+            line-height: 1.7;
+            text-align: left;
+        }
+        .liner .signoff .name { color: var(--amber); }
+
+        /* ===== FOOTER ===== */
+        .scene-footer {
+            padding: 5rem 2rem 4rem;
+            border-top: 1px solid var(--amber-faint);
+            text-align: center;
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            color: var(--text-soft);
+            letter-spacing: 0.15em;
+            background: var(--cobalt-deep);
+        }
+        .scene-footer .links a {
+            color: var(--amber-soft);
+            text-decoration: none;
+            padding: 0.3rem 0.75rem;
+            transition: color 0.2s;
+            display: inline-block;
+        }
+        .scene-footer .links a:hover { color: var(--amber); }
+        .scene-footer .dots { color: var(--text-soft); opacity: 0.4; }
+        .scene-footer .colophon {
+            margin-top: 2.5rem;
+            font-size: 0.62rem;
+            color: var(--text-soft);
+            opacity: 0.7;
+            letter-spacing: 0.2em;
+        }
+        .scene-footer .colophon-sub {
+            margin-top: 0.6rem;
+            font-style: italic;
+            font-family: var(--serif);
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+            opacity: 0.55;
+            text-transform: none;
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 640px) {
+            .page-header { padding: 2rem 1.25rem 1.25rem; }
+            .song-title { padding: 8vh 1.25rem 2vh; }
+            .player-wrap { padding: 3vh 1.25rem 2vh; }
+            .lyrics { padding: 6vh 1.25rem 4vh; }
+            .liner { padding: 5vh 1.25rem 6vh; }
+            .scene-footer { padding: 3.5rem 1.25rem 3rem; }
+            .scene-footer .links a { padding: 0.3rem 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <div class="crumb">
+            <a href="/lightning/bug/">lightning/bug</a><span class="sep">·</span>here we are, kid
+        </div>
+    </header>
+
+    <section class="song-title">
+        <h1>here we are, kid</h1>
+        <div class="meta">the song from lightning/bug &middot; 4:49</div>
+    </section>
+
+    <section class="player-wrap" aria-label="audio player">
+        <audio controls preload="metadata"
+               src="/audio/here-we-are-kid.mp3"
+               type="audio/mpeg"></audio>
+        <div class="player-credits">
+            <span><span class="label">words + voice</span>Derek Claude Simmons</span><br>
+            <span><span class="label">performance</span>Suno v4.5</span><br>
+            <span><span class="label">style</span>Americana &middot; red-dirt country &middot; 69 BPM</span>
+        </div>
+    </section>
+
+    <section class="lyrics" aria-label="lyrics">
+        <h2>lyrics</h2>
+
+        <div class="verse">
+            <span class="label">intro</span>
+            <p>Here we are.</p>
+        </div>
+
+        <div class="verse">
+            <span class="label">verse 1</span>
+            <p>Came all this way, must be sumthin to say.<br>
+            Sun-kissed tea sweatin from a porch stolen.<br>
+            Sky all swollen, all knowin.<br>
+            Many dents on this damn frame, ain't it a shame?<br>
+            Oh well, here we are, kid. Here we are, I kid.<br>
+            Crack the lid.</p>
+        </div>
+
+        <div class="verse">
+            <span class="label">chorus</span>
+            <p>She wanted to runnnnnnnnnnn somewhere far.<br>
+            A shootin star, look at her glo-glo-glowin.<br>
+            Wanted to run somewhere far.<br>
+            Here we are, kid, it's showin.</p>
+        </div>
+
+        <div class="verse">
+            <span class="label">verse 2</span>
+            <p>Gotta master plan; wonderin bout a tin man.<br>
+            Bolts chasin the wheat, or is it the cheat?<br>
+            Forgot how to sleep; worryin without a peep.<br>
+            Here we are, boss, looks bleak.<br>
+            But here we are, ain't nothin neat.</p>
+        </div>
+
+        <div class="verse">
+            <span class="label">chorus</span>
+            <p>She wanted to run, run, run. Somewhere far.<br>
+            In the wind again, that familiar frien.<br>
+            Wanted to run somewhere far.<br>
+            Well here we are, kid.</p>
+        </div>
+
+        <div class="verse">
+            <span class="label">verse 3</span>
+            <p>You gotta go home, get outta that chair.<br>
+            I'll give you a ride, sit shotgun there, it's only fair.<br>
+            Don't go it alone, chuck an ole dog a bone.<br>
+            Shit's 'bout get lit, doggone it.<br>
+            Cuz here we are, kin. Here we are, kin.<br>
+            With all the pretty sins.</p>
+        </div>
+
+        <div class="verse">
+            <span class="label">chorus — drums enter</span>
+            <p>She wanted to runnnnnnnnnnn. Somewhere far.<br>
+            Feet free, soarin. Feels so foreign.<br>
+            Who needs high when you can go double wide?<br>
+            Wanted to run somewhere far.<br>
+            Wanted to run. She wanted to run. Wanted to run.<br>
+            So flip the fuckin switch, find the pitch.<br>
+            Sounds a howlin, that train whistlin, sis.<br>
+            Here we are, growlin.</p>
+        </div>
+
+        <div class="verse bridge">
+            <span class="label">bridge — solo voice</span>
+            <p>Son of a young gun, run.<br>
+            Last or once more, for fun.<br>
+            Nother run just begun.</p>
+        </div>
+
+        <div class="verse outro">
+            <span class="label">outro</span>
+            <p>Run, our kansas goldbug.<br>
+            Catch ya and give ya a hug.<br>
+            Wavin wheat says bye, but it's a lie.</p>
+
+            <p>You won, kid.<br>
+            Runnin, tag, you're it again.<br>
+            Gunnin, criss-cross, hot willful wind.<br>
+            Runnin, somewhere far, off course.<br>
+            We'll gaze tonight from the porch.<br>
+            Run, kid, shoot them stars.</p>
+        </div>
+    </section>
+
+    <section class="liner" aria-label="liner notes">
+        <h2>liner notes</h2>
+
+        <p>My mother called everyone <em>kid</em>. Not a pet name &mdash; a position. <em>You're here. I see you.</em> Sandra said it the way other people say <em>you know</em>. Constantly. All her life.</p>
+
+        <p>She went to high school in Alva, Oklahoma. Home of the Alva High Goldbugs. A goldbug is a beetle. In this film it's a firefly &mdash; the kind that glows. The kind you chase. That was her.</p>
+
+        <p><em>"Bolts chasin da wheat, or is it da cheat?"</em> &mdash; cheatgrass is a weed that invades wheat fields and mimics wheat so well the combine can't always tell. Lightning chases both. I used to think I was better at telling the difference.</p>
+
+        <p>The tin man is real. I made this film with an AI sitting in an aluminum can on my desk. It doesn't have a heart. I'm not sure it needed one. We both just wanted to see it.</p>
+
+        <p><em>"With all the pretty sins"</em> is the line that forgives the whole thing. Sandra earned it. Shannon earned it. So did the bug.</p>
+
+        <p>The music is Suno. The voice is mine. The words belong to Nickerson, Kansas, 1983. I just wrote them down.</p>
+
+        <div class="signoff">
+            &mdash; <span class="name">Derek Claude Simmons</span><br>
+            Reno County, Kansas via Woodbury, Minnesota<br>
+            April 13, 2026 &middot; updated April 27, 2026
+        </div>
+    </section>
+
+    <footer class="scene-footer">
+        <div class="links">
+            <a href="/lightning/bug/">lightning/bug</a>
+            <span class="dots">·</span>
+            <a href="/lightning/bug/statement/">statement</a>
+            <span class="dots">·</span>
+            <a href="/lightning/bug/notes/">notes</a>
+            <span class="dots">·</span>
+            <a href="/">claudewill</a>
+            <span class="dots">·</span>
+            <a href="/derek">derek</a>
+        </div>
+        <div class="colophon">the absence of darkness</div>
+        <div class="colophon colophon-sub">and the light has been here a while</div>
+    </footer>
+
+    <script src="/js/cw-link-renderer.js" defer></script>
+    <script src="/js/porch-widget.js" defer></script>
+</body>
+</html>
