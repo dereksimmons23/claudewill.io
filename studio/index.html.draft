@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<!--
+  DRAFT — claudewill.io/studio/
+  Created Apr 28, 2026 by Opus, on Derek's Apr 27 ask to formalize sssstudios.
+  Status: not deployed, not in nav. Phase 1 spec from /lightning/bug/OPUS.md plan.
+  Lifted prose: ignition-thesis.md (verbatim Apr 20), style-guide.md v3, color-theory.md.
+  Composer's note: the 8 methodology bullets are synthesized from your locked rules,
+  not invented. The ignition thesis is your verbatim words, trimmed for public voice.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0a1628">
+    <title>sssstudios</title>
+    <meta name="description" content="A studio. A practice. A method. Films about light, made with AI, written by hand, dedicated to three women.">
+    <meta name="author" content="Derek Claude Simmons">
+    <meta property="og:title" content="sssstudios">
+    <meta property="og:description" content="A studio. A practice. A method.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://claudewill.io/studio">
+    <meta property="og:image" content="https://claudewill.io/images/lightning-bug/og-poster.jpg">
+    <link rel="canonical" href="https://claudewill.io/studio">
+    <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/shared-nav.css">
+    <link rel="stylesheet" href="/css/porch-widget.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "sssstudios",
+        "url": "https://claudewill.io/studio",
+        "founder": {
+            "@type": "Person",
+            "name": "Derek Claude Simmons",
+            "url": "https://claudewill.io/derek"
+        },
+        "description": "A studio. A practice. A method. Films about light, made with AI, written by hand."
+    }
+    </script>
+
+    <style>
+        :root {
+            --cobalt-deep: #070d1a;
+            --cobalt: #0a1628;
+            --amber: #d4a84b;
+            --amber-soft: #b89346;
+            --amber-faint: rgba(212, 168, 75, 0.08);
+            --text: #c8d0dc;
+            --text-soft: #97a3b7;
+            --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+            --serif: 'IBM Plex Serif', Georgia, serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { background: var(--cobalt-deep); scroll-behavior: smooth; }
+
+        body {
+            background: var(--cobalt);
+            color: var(--text);
+            font-family: var(--serif);
+            font-weight: 300;
+            line-height: 1.7;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection { background: var(--amber); color: var(--cobalt-deep); }
+
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 14vh 6vw 14vh;
+        }
+
+        .section-mark {
+            text-align: center;
+            color: var(--amber-soft);
+            font-family: var(--mono);
+            font-size: 1rem;
+            margin: 0;
+            padding: 6vh 0;
+            opacity: 0.5;
+        }
+
+        /* ── header ───────────────────────────────────────────────────────── */
+
+        .studio-name {
+            font-family: var(--mono);
+            font-size: clamp(2.4rem, 6vw, 3.6rem);
+            font-weight: 500;
+            color: var(--amber);
+            letter-spacing: -0.02em;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .studio-tagline {
+            font-family: var(--mono);
+            font-size: 0.95rem;
+            color: var(--text-soft);
+            margin-bottom: 4rem;
+        }
+
+        .dedication {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--amber-soft);
+            border-left: 1px solid var(--amber-faint);
+            padding-left: 1.4rem;
+            margin: 4rem 0 2rem;
+            line-height: 1.6;
+        }
+
+        /* ── thesis ───────────────────────────────────────────────────────── */
+
+        h2 {
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: lowercase;
+            letter-spacing: 0.1em;
+            color: var(--amber);
+            margin: 0 0 1.6rem;
+        }
+
+        .thesis p {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            line-height: 1.65;
+            margin-bottom: 1.4rem;
+            color: var(--text);
+        }
+
+        .thesis em {
+            font-style: italic;
+            color: var(--amber-soft);
+        }
+
+        /* ── methodology ─────────────────────────────────────────────────── */
+
+        .method {
+            list-style: none;
+            counter-reset: method;
+        }
+
+        .method li {
+            counter-increment: method;
+            position: relative;
+            padding-left: 3.2rem;
+            margin-bottom: 1.6rem;
+            font-family: var(--serif);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .method li::before {
+            content: counter(method, decimal-leading-zero);
+            position: absolute;
+            left: 0;
+            top: 0.05em;
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            color: var(--amber-soft);
+            font-weight: 500;
+        }
+
+        .method li strong {
+            font-family: var(--mono);
+            font-weight: 500;
+            color: var(--amber);
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.02em;
+        }
+
+        /* ── films ────────────────────────────────────────────────────────── */
+
+        .film {
+            border-top: 1px solid var(--amber-faint);
+            padding: 2rem 0;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 1.5rem;
+            align-items: baseline;
+        }
+
+        .film-num {
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            color: var(--amber-soft);
+        }
+
+        .film-title {
+            font-family: var(--mono);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .film-title a {
+            color: var(--amber);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .film-title a:hover { border-bottom-color: var(--amber); }
+
+        .film-meta {
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            color: var(--text-soft);
+            text-align: right;
+        }
+
+        .film-pending {
+            color: var(--text-soft);
+            font-style: italic;
+            font-family: var(--serif);
+        }
+
+        /* ── credits philosophy ──────────────────────────────────────────── */
+
+        .credits {
+            font-family: var(--mono);
+            font-size: 0.9rem;
+            line-height: 1.85;
+            color: var(--text);
+            background: var(--amber-faint);
+            padding: 2rem 1.6rem;
+            margin: 1rem 0;
+        }
+
+        .credits .row {
+            display: grid;
+            grid-template-columns: 12rem 1fr;
+            gap: 1.2rem;
+        }
+
+        .credits .label {
+            color: var(--amber-soft);
+            font-size: 0.78rem;
+            text-transform: lowercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ── footer ──────────────────────────────────────────────────────── */
+
+        footer {
+            border-top: 1px solid var(--amber-faint);
+            margin-top: 6vh;
+            padding-top: 4vh;
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            color: var(--text-soft);
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--amber-soft);
+            text-decoration: none;
+        }
+
+        footer a:hover { color: var(--amber); }
+
+        @media (max-width: 600px) {
+            main { padding: 10vh 5vw; }
+            .credits .row { grid-template-columns: 1fr; gap: 0.2rem; }
+            .credits .row .label { margin-top: 0.6rem; }
+            .film { grid-template-columns: 1fr; gap: 0.4rem; }
+            .film-meta { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+
+        <!-- ===== 1. STUDIO NAME + DEDICATION ===== -->
+        <section>
+            <h1 class="studio-name">sssstudios</h1>
+            <p class="studio-tagline">a studio · a practice · a method</p>
+
+            <p class="dedication">
+                For Sandra. For Shannon. For Sheri.<br>
+                The three women whose initials make the name.<br>
+                Sandra Sue Simmons (1944&ndash;2025), the first.
+            </p>
+        </section>
+
+        <p class="section-mark">·</p>
+
+        <!-- ===== 2. THE THESIS (lifted from ignition-thesis.md, public voice) ===== -->
+        <section class="thesis">
+            <h2>the thesis</h2>
+
+            <p>Conrad Hall lit Road to Perdition with very little. Hall dared to crush the picture into shadow and trust the eye to follow. We carry that discipline. We crush to cobalt, never to black.</p>
+
+            <p>But the road is different. Perdition ends a soul. <em>sssstudios films are washboard dirt roads to igniting one.</em> Same genre &mdash; father and son, rural America, weather as character, darkness as register. Opposite direction of travel.</p>
+
+            <p>Perdition is male-dominated. These films are not. Sandra raised a boy with her sister and her teachers and her coaches. The studio name is the lineage. The films inherit it.</p>
+
+            <p>Period: not 1931 teal-and-corn. <em>1983 cobalt-and-amber-and-wheat.</em> Real time, a real night, a real Kansas county. Specificity is the only antidote to AI-generated genericism. The work earns its register by being faithful to the exact details &mdash; one cafe, one gas station, one IGA where groceries went on credit when the money was short.</p>
+        </section>
+
+        <p class="section-mark">·</p>
+
+        <!-- ===== 3. THE METHODOLOGY (8 locked rules from style-guide v3 + color-theory + light-grammar) ===== -->
+        <section>
+            <h2>the methodology</h2>
+
+            <ol class="method">
+                <li>
+                    <strong>three-register light grammar</strong>
+                    Cobalt is the antagonist; amber is the protagonist. Roughly seventy percent of any film is cobalt-dominant. Twenty percent is the hand-off, where both registers are visibly present for one beat. Ten percent is amber resolution. The two colors never blend. They relay.
+                </li>
+                <li>
+                    <strong>shadow floor &mdash; #0a1628</strong>
+                    No pixel goes darker. Every shadow is visible as cobalt-blue. No voids. The eye stays in the frame because the frame never gives it nothing.
+                </li>
+                <li>
+                    <strong>the face rule</strong>
+                    Features never legible. Subjects are silhouettes, back-lit, atmospherically dispersed, or so small the eye reads gesture not face. Hopper, Hido, Crewdson move &mdash; not posed-away portrait.
+                </li>
+                <li>
+                    <strong>three cameras for three lives</strong>
+                    The boy is shot at twenty-four millimeters, low angle, ground level. The man is shot at forty millimeters, anamorphic, eye level. The mother is shot from above &mdash; thirty-five millimeter drone, looking down with grace, never with judgment.
+                </li>
+                <li>
+                    <strong>the light-source bridge</strong>
+                    Every act transition holds one continuous light source from outgoing shot into incoming shot. Firefly tip becomes porch bulb becomes mason jar becomes moon. Transformer arc becomes lightning core becomes hospital fluorescent becomes streetlamp. The film is one continuous field of light, not sixty cuts.
+                </li>
+                <li>
+                    <strong>the breath rule</strong>
+                    Choppy anxious breathing in tension &mdash; transformers, pitches, contact flashes, rain-slash cuts, one to three seconds per shot. Box breathing in resolution &mdash; fireflies, abundance, moon holds, six to fifteen seconds per shot. The alternation is the breath of the film.
+                </li>
+                <li>
+                    <strong>the eight-second hug</strong>
+                    Final beat is at least eight seconds. Single-source amber. No cut, no music swell, no voiceover. Paul Zak's oxytocin threshold &mdash; the audience's own arms want to move. Catharsis by embodiment, not by tears. Make everyone glow a little more.
+                </li>
+                <li>
+                    <strong>opera-first workflow</strong>
+                    Audio first, visuals second. Lock the master, transcribe via Whisper, name the arc, map the visual beats, generate stills, run Kontext, render Runway clips one at a time. Nothing publishes until every clip is approved.
+                </li>
+            </ol>
+        </section>
+
+        <p class="section-mark">·</p>
+
+        <!-- ===== 4. THE FILMS ===== -->
+        <section>
+            <h2>the films</h2>
+
+            <div class="film">
+                <span class="film-num">001</span>
+                <span class="film-title"><a href="/lightning/bug">lightning/bug</a></span>
+                <span class="film-meta">2026 · 8:48 · Reno County, KS</span>
+            </div>
+
+            <div class="film">
+                <span class="film-num">002</span>
+                <span class="film-pending">lightning/stargazing &mdash; in production</span>
+                <span class="film-meta">Shannon Dawn</span>
+            </div>
+        </section>
+
+        <p class="section-mark">·</p>
+
+        <!-- ===== 5. CREDITS PHILOSOPHY ===== -->
+        <section>
+            <h2>the credits</h2>
+
+            <p style="margin-bottom: 1.5rem;">
+                Hundreds of names roll at the end of a Hollywood film. We can't and shouldn't fake that scale. But the credits can still do the same work. Name the labor. Name the collaborators. Refuse the &ldquo;AI wrote it&rdquo; shortcut.
+            </p>
+
+            <div class="credits">
+                <div class="row"><span class="label">written</span><span>Derek Simmons</span></div>
+                <div class="row"><span class="label">directed</span><span>Derek Simmons</span></div>
+                <div class="row"><span class="label">cinematography</span><span>FLUX (Fal.ai) · Imagen 4 (Google) · Kontext Pro (Replicate)</span></div>
+                <div class="row"><span class="label">motion</span><span>Runway Gen-4.5 · Kling 2.1 Pro (Fal.ai)</span></div>
+                <div class="row"><span class="label">voice</span><span>Derek Simmons, iPhone</span></div>
+                <div class="row"><span class="label">voice memory</span><span>Sandra Sue Simmons</span></div>
+                <div class="row"><span class="label">song</span><span>&ldquo;Here We Are, Kid&rdquo; &mdash; Derek Simmons (Suno)</span></div>
+                <div class="row"><span class="label">ambient</span><span>Stable Audio 2.5</span></div>
+                <div class="row"><span class="label">foley</span><span>ElevenLabs SFX</span></div>
+                <div class="row"><span class="label">transcription</span><span>Whisper (MLX)</span></div>
+                <div class="row"><span class="label">color science</span><span>Topaz · Luma Reframe</span></div>
+                <div class="row"><span class="label">assembly</span><span>ffmpeg · ImageMagick · Python</span></div>
+                <div class="row"><span class="label">creative direction</span><span>Claude (Opus 4.7 · Sonnet 4.6 · Haiku 4.5)</span></div>
+            </div>
+
+            <p style="margin-top: 1.5rem; color: var(--text-soft); font-style: italic;">
+                Human names for the human work. Tool names for the tool work. The collaboration is real, the direction matters, the credits say so.
+            </p>
+        </section>
+
+        <footer>
+            sssstudios &middot; <a href="/">claudewill</a> &middot; <a href="/lightning/bug">lightning/bug</a> &middot; <a href="/derek">derek</a>
+            <br><br>
+            <span style="opacity: 0.6;">the absence of darkness</span>
+        </footer>
+
+    </main>
+
+    <script src="/js/cw-link-renderer.js"></script>
+    <script src="/js/porch-widget.js"></script>
+</body>
+</html>
