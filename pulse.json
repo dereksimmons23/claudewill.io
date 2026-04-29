@@ -1,9 +1,9 @@
 {
-  "generated": "2026-04-27T11:37:26.638Z",
-  "date": "2026-04-27",
+  "generated": "2026-04-29T11:35:12.005Z",
+  "date": "2026-04-29",
   "porch": {
     "total": 723,
-    "thisWeek": 8,
+    "thisWeek": 1,
     "today": 0
   },
   "d": {
@@ -32,12 +32,10 @@
     "dayNumber": 74,
     "raidRate": "3/6",
     "latestWeight": null,
-    "daysSinceEntry": 44
+    "daysSinceEntry": 46
   },
   "sparklines": {
     "conversations": [
-      0,
-      1,
       2,
       6,
       11,
@@ -63,11 +61,11 @@
       1,
       0,
       0,
+      0,
+      0,
       0
     ],
     "sessions": [
-      5,
-      1,
       0,
       3,
       0,
@@ -89,6 +87,8 @@
       0,
       0,
       4,
+      0,
+      0,
       0,
       0,
       0,
