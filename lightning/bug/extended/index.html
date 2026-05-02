@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0a1628">
+    <title>lightning/bug — extended cut</title>
+    <meta name="description" content="The dream I never had. A long-form note on the making of lightning/bug.">
+    <meta name="author" content="Derek Claude Simmons">
+    <link rel="canonical" href="https://claudewill.io/lightning/bug/extended">
+    <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/shared-nav.css">
+
+    <style>
+        :root {
+            --cobalt-deep: #070d1a;
+            --cobalt: #0a1628;
+            --amber: #d4a84b;
+            --amber-soft: #b89346;
+            --amber-faint: rgba(212, 168, 75, 0.08);
+            --text: #c8d0dc;
+            --text-soft: #97a3b7;
+            --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+            --serif: 'IBM Plex Serif', Georgia, serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; background: var(--cobalt-deep); }
+        body {
+            background: var(--cobalt);
+            color: var(--text);
+            font-family: var(--serif);
+            font-weight: 300;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::selection { background: var(--amber); color: var(--cobalt-deep); }
+        a { color: var(--amber-soft); text-decoration: none; border-bottom: 1px solid var(--amber-faint); transition: color 0.2s, border-color 0.2s; }
+        a:hover { color: var(--amber); border-bottom-color: var(--amber); }
+
+        .essay {
+            max-width: 36rem;
+            margin: 0 auto;
+            padding: 8vh 1.5rem 12vh;
+        }
+        .essay-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+        .essay-kicker {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: var(--amber-soft);
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        .essay-title {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+            color: var(--amber);
+            font-weight: 300;
+            line-height: 1.25;
+            margin-bottom: 1.25rem;
+        }
+        .essay-byline {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--text-soft);
+            letter-spacing: 0.18em;
+        }
+
+        .essay h2 {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--amber-soft);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin: 5rem 0 1.75rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--amber-faint);
+        }
+        .essay h2:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+
+        .essay p {
+            font-size: clamp(1.0rem, 2.4vw, 1.1rem);
+            line-height: 1.8;
+            margin-bottom: 1.4em;
+            color: var(--text);
+        }
+        .essay p.lede {
+            font-size: clamp(1.1rem, 2.7vw, 1.25rem);
+            font-style: italic;
+            color: var(--amber);
+        }
+        .essay blockquote {
+            margin: 2rem 0 2rem;
+            padding-left: 1.25rem;
+            border-left: 1px solid var(--amber-faint);
+            font-style: italic;
+            color: var(--text-soft);
+            font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+        }
+        .essay blockquote cite {
+            display: block;
+            margin-top: 0.6rem;
+            font-style: normal;
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            color: var(--amber-soft);
+        }
+        .essay em { color: var(--amber); font-style: italic; }
+        .essay strong { color: var(--text); font-weight: 500; }
+
+        .section-mark {
+            text-align: center;
+            color: var(--amber-soft);
+            font-family: var(--mono);
+            font-size: 1rem;
+            margin: 0;
+            padding: 4vh 0;
+            opacity: 0.5;
+        }
+
+        .essay-footer {
+            text-align: center;
+            margin-top: 6rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--amber-faint);
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--text-soft);
+            letter-spacing: 0.15em;
+        }
+        .essay-footer .links a { padding: 0.3rem 0.75rem; }
+        .essay-footer .dedication {
+            display: block;
+            font-family: var(--serif);
+            font-style: italic;
+            font-weight: 300;
+            font-size: 0.92rem;
+            color: var(--text);
+            margin-top: 2rem;
+            letter-spacing: 0;
+        }
+
+        @media (max-width: 640px) {
+            .essay { padding: 6vh 1.25rem 8vh; }
+            .essay-header { margin-bottom: 4rem; }
+            .essay h2 { margin: 4rem 0 1.5rem; padding-top: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <article class="essay">
+
+        <header class="essay-header">
+            <div class="essay-kicker">extended cut · the making</div>
+            <h1 class="essay-title">the dream I never had</h1>
+            <div class="essay-byline">notes on lightning/bug · sssstudios · 2026</div>
+        </header>
+
+        <p class="lede">A boy in a wheat field in Kansas. A bug on a bat. A man who finally goes home. This film is a dream I never had on the night I should have. It took forty-two years to dream it, and I needed help.</p>
+
+        <h2>the dream I never had</h2>
+
+        <p>I did not have this dream on June 28, 1983, about a small wheat field in Nickerson, which is in Reno County. I didn't need to have it then. I needed it in 2024, 2025, and in particular the night of June 28, 2025 — the night my mother died. Sandra Sue Simmons was 80 years old. She was the small light I was always trying to walk back toward.</p>
+
+        <p>Thinking about this dream I still haven't had has resurfaced fond memories and an appreciation for growing up in what looked like a broken home to outsiders. Even at 10 years of age, I wanted a lot of things but didn't need much beyond a ball and a field. As I got older, I never grew out of that spirit. Still very much true in 2026.</p>
+
+        <p>What you're about to watch is the dream made operational. The wheat field isn't a memory. It's what memory should have been able to give me on the night that ended. It couldn't, so I built it. The film generates the dream so it can be available — to me, and to anyone else who ever needed a dream they couldn't quite reach.</p>
+
+        <h2>two kinds of light</h2>
+
+        <p>The whole film is built on a sensory map.</p>
+
+        <p>I have been persistently abrasive to light, whether it's artificial or natural. But not outdoors. I'm not sure what mental health diagnosis that is or whether it's a prescription for wellbeing or whatnot. It's just an observation after working on this film in some form or fashion for more than a year, right down to the cobalt and amber color palette.</p>
+
+        <p>Cobalt is the night sky and the cold lights — lightning, transformers, server farms, the killing kind. Amber is reserved for the small lights — fireflies, porch lamps, my mother's voicemails, the bug on the bat. The shadow floor of every frame is locked at <code style="font-family: var(--mono); color: var(--amber-soft); font-size: 0.85em;">#0a1628</code>, a color so blue-dark that no shadow ever goes pure black. The brightness ceiling is <code style="font-family: var(--mono); color: var(--amber-soft); font-size: 0.85em;">#ffd57a</code>, the color of harvest moon. Between those two values is the only register I can hold.</p>
+
+        <p>This isn't a metaphor. It's a sensory map. The film is built for someone who can't take big light. That happens to be me, and it might happen to be you, depending on the year.</p>
+
+        <h2>the bioluminescent creature</h2>
+
+        <p>The lightning bug is a bioluminescent creature now sparse in Kansas. Its entire mode of being is making light to be seen by others. It is going extinct in the place where I grew up.</p>
+
+        <p>That's the film.</p>
+
+        <p>Twain said the difference between the almost right word and the right word is the difference between the lightning bug and the lightning. He meant lightning. He was wrong. The bug is the title. The bug is the film. The bug is the small thing that refused to go.</p>
+
+        <p>I called this an American elegy and a heartland opera and I'll keep doing it. American because what is more American than a wheat field in Kansas in 1983, baseball, dogs, twangy country music, growing up in a tiny aluminum can on wheels, intense summer days and nights of heat followed by storms. We are more connected in 2026 than at any other point in human history in terms of technology, screens, devices. And at the same time we are more divided, overwhelmed and disconnected than ever, with very little hope on the horizon. AI is the inflection point of both. If it were fire, it can warm or burn you. If it were water, it can refresh or drown you. If you have a good porch light, hopefully you can see and feel that hope on the horizon. It's there. And it's scientifically proven that looking into the distance is good for your eyes that are more times than not focused on a screen in front of your face.</p>
+
+        <h2>what's human · what's artificial</h2>
+
+        <p>The film is honest about what it is.</p>
+
+        <p><strong>Human:</strong> the voice. Sandra's voicemails. The 1983 newscast. The memory. The dream.</p>
+
+        <p><strong>Artificial:</strong> the stills. The video clips. The assembly pipeline. The four hums (thunder, kitten purr, transformer drone, fluorescent hum).</p>
+
+        <p><strong>Both:</strong> the script. The color grading. The sound design. The decision to reject the AI voice. The film.</p>
+
+        <p>The voice you hear is mine. Sandra's voicemails are hers — recorded on phones across thirty years, uncoached, ordinary. The newscast is from June 28, 1983, Channel 9 in Wichita. Everything else was generated by machines and shaped by hand. Both halves of the work are real. Neither one would be enough without the other.</p>
+
+        <h2>the tools, terminal-first</h2>
+
+        <p>Every frame in this film is code. There is no editor in the loop. No browser. No GUI editing software. The pipeline is part of the work.</p>
+
+        <p>Stills come from FLUX (via fal.ai), Google Imagen 4, GPT Image 2, Nano Banana 2, and FLUX Kontext Pro for surgical edits. Video clips come from Kling 2.1 Pro on fal.ai and Runway Gen-4. The original song <em>Here We Are, Kid</em> was generated on Suno (<a href="https://suno.com/@deekers" target="_blank" rel="noopener">@deekers</a>). Ambient sound is Stable Audio 2.5. Foley is ElevenLabs SFX. Voice was recorded on an iPhone and transcribed with Whisper. Assembly is ffmpeg, ImageMagick, and Python with PIL. Direction is Claude (Opus and Sonnet) inside a terminal.</p>
+
+        <p>The studio is sssstudios — Sandra, Shannon, Sheri. Three S's for three women whose lights I can hold. The studio name is the dedication, hidden in plain sight.</p>
+
+        <p>None of these tools could make this film by itself. None of them tried. What the tools did is move the friction down to where the human hand could still do the work that mattered — what to keep, what to cut, what to mean.</p>
+
+        <h2>what the film resolves</h2>
+
+        <p>Three lines carry the work.</p>
+
+        <blockquote>"Marco?"<br>"...Polo."<br>"You won, kid."</blockquote>
+
+        <p>Mother calls. Son answers, late. Permission given. Marco-Polo across the line that ended.</p>
+
+        <p>The film doesn't resolve in the usual way. It doesn't solve grief. It doesn't redeem AI. It doesn't tie a bow on June 28, 1983, or June 28, 2025. The film just ends with a man who got home — to a porch light he chose to leave on, in a wheat field that had been waiting for him, with a small amber speck of a creature that should have been gone but wasn't.</p>
+
+        <p>The dedication is the simplest line in the film:</p>
+
+        <blockquote><em>For my mom, Sandra. And the small lights that stay.</em></blockquote>
+
+        <p>If you're watching, you're one of the small lights. Thanks for staying.</p>
+
+        <footer class="essay-footer">
+            <div class="links">
+                <a href="/lightning/bug">← back to the film</a>
+                <span style="opacity: 0.4;">·</span>
+                <a href="/lightning/bug/statement/">director's statement</a>
+                <span style="opacity: 0.4;">·</span>
+                <a href="/derek">derek</a>
+            </div>
+            <span class="dedication">for sandra, and every small light that stays on.</span>
+        </footer>
+
+    </article>
+
+</body>
+</html>
