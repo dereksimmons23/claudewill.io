@@ -514,6 +514,18 @@
             transition: color 0.2s, border-color 0.2s;
         }
         .song-link a:hover { color: var(--amber); border-bottom-color: var(--amber); }
+        .song-embed {
+            margin: 0 auto 2rem;
+            max-width: 760px;
+            width: 100%;
+        }
+        .song-embed iframe {
+            width: 100%;
+            max-width: 760px;
+            height: 240px;
+            border: 0;
+            display: block;
+        }
 
         /* ===== 5.6 WHAT'S HUMAN · WHAT'S ARTIFICIAL ===== */
         .scene-craft {
@@ -864,9 +876,19 @@ an american elegy · 7:15 · reno county, kansas
     <section class="scene-song" aria-label="the song">
         <h2><!-- AUTO:song-title:start -->here we are, kid<!-- AUTO:song-title:end --></h2>
         <p class="song-credit">music · <a href="https://suno.com/@deekers" target="_blank" rel="noopener">@deekers on suno</a></p>
+        <div class="song-embed">
+            <!-- AUTO:song-embed:start -->
+            <iframe src="https://suno.com/embed/b9f74079-2c06-4604-9c46-9a10a56be631"
+                    allow="autoplay; encrypted-media; fullscreen"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Here We Are, Kid — @deekers on Suno"></iframe>
+            <!-- AUTO:song-embed:end -->
+        </div>
         <div class="song-link">
             <!-- AUTO:song-link:start -->
-            <a href="https://suno.com/@deekers" target="_blank" rel="noopener">listen on suno &rarr;</a>
+            <a href="https://suno.com/song/b9f74079-2c06-4604-9c46-9a10a56be631" target="_blank" rel="noopener">listen on suno &rarr;</a>
             <!-- AUTO:song-link:end -->
         </div>
     </section>
