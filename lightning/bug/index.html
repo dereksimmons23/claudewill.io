@@ -445,6 +445,76 @@
             min-width: 11rem;
         }
 
+        /* ===== 3.0 THE FILM (Vimeo embed) ===== */
+        .scene-film {
+            padding: 6vh 2rem 2vh;
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+        .film-frame {
+            aspect-ratio: 16 / 9;
+            background: var(--cobalt-deep);
+            border: 1px solid var(--amber-faint);
+            overflow: hidden;
+            position: relative;
+        }
+        .film-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+        .film-meta-line {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--text-soft);
+            letter-spacing: 0.2em;
+            text-align: center;
+            margin-top: 1rem;
+            text-transform: lowercase;
+        }
+
+        /* ===== 5.5b THE SONG ===== */
+        .scene-song {
+            padding: 10vh 2rem 8vh;
+            max-width: 38rem;
+            margin: 0 auto;
+        }
+        .scene-song h2 {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+            color: var(--amber);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+        .song-credit {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--text-soft);
+            text-align: center;
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.18em;
+        }
+        .song-credit a {
+            color: var(--amber-soft);
+            text-decoration: none;
+            border-bottom: 1px solid var(--amber-faint);
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .song-credit a:hover { color: var(--amber); border-color: var(--amber); }
+        .song-link {
+            text-align: center;
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            margin-top: 1.5rem;
+        }
+        .song-link a {
+            color: var(--amber-soft);
+            text-decoration: none;
+            border-bottom: 1px solid var(--amber-faint);
+            padding-bottom: 0.2rem;
+            letter-spacing: 0.08em;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .song-link a:hover { color: var(--amber); border-bottom-color: var(--amber); }
+
         /* ===== 5.6 WHAT'S HUMAN · WHAT'S ARTIFICIAL ===== */
         .scene-craft {
             padding: 8vh 2rem 10vh;
@@ -716,6 +786,21 @@ a short film · 7:15 · 2026
             <!-- AUTO:meta-duration:end --></div>
     </section>
 
+    <!-- 3.0 THE FILM -->
+    <section class="scene-film" aria-label="watch the film">
+        <div class="film-frame">
+            <!-- AUTO:film-embed:start -->
+            <!-- TODO: replace with Vimeo embed code from https://vimeo.com/sssstudios/bug
+                 Vimeo dashboard → video → Embed → copy iframe code → paste here. -->
+            <a href="https://vimeo.com/sssstudios/bug" target="_blank" rel="noopener" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;gap:0.5rem;">
+                <span style="font-family:var(--mono);color:var(--amber);font-size:clamp(0.85rem,2vw,1rem);letter-spacing:0.25em;text-transform:lowercase;">▸ watch on vimeo</span>
+                <span style="font-family:var(--mono);color:var(--text-soft);font-size:0.7rem;letter-spacing:0.2em;">password-gated · festival window</span>
+            </a>
+            <!-- AUTO:film-embed:end -->
+        </div>
+        <p class="film-meta-line">7:15 · sssstudios · 2026</p>
+    </section>
+
     <!-- 3.5 THE THESIS -->
     <section class="scene-thesis" aria-label="thesis">
         <blockquote class="twain">
@@ -774,6 +859,19 @@ an american elegy · 7:15 · reno county, kansas
             <li><span class="hum">fluorescent hum</span><span class="meaning">— the waiting room</span></li>
         </ul>
     </section>
+
+    <!-- 5.5b THE SONG -->
+    <section class="scene-song" aria-label="the song">
+        <h2><!-- AUTO:song-title:start -->here we are, kid<!-- AUTO:song-title:end --></h2>
+        <p class="song-credit">music · <a href="https://suno.com/@deekers" target="_blank" rel="noopener">@deekers on suno</a></p>
+        <div class="song-link">
+            <!-- AUTO:song-link:start -->
+            <a href="https://suno.com/@deekers" target="_blank" rel="noopener">listen on suno &rarr;</a>
+            <!-- AUTO:song-link:end -->
+        </div>
+    </section>
+
+    <div class="section-mark" aria-hidden="true">·</div>
 
     <!-- 5.6 WHAT'S HUMAN · WHAT'S ARTIFICIAL -->
     <section class="scene-craft" aria-label="craft">
