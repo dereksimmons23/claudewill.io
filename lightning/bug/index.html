@@ -445,6 +445,50 @@
             min-width: 11rem;
         }
 
+        /* ===== 5.6 WHAT'S HUMAN · WHAT'S ARTIFICIAL ===== */
+        .scene-craft {
+            padding: 8vh 2rem 10vh;
+            max-width: 38rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .scene-craft h2 {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            color: var(--amber-soft);
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+        }
+        .craft-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+            text-align: left;
+            max-width: 32rem;
+            margin: 0 auto;
+        }
+        .craft-list li {
+            font-family: var(--mono);
+            font-size: clamp(0.82rem, 2vw, 0.92rem);
+            line-height: 1.7;
+        }
+        .craft-list .label {
+            color: var(--amber);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-size: 0.62rem;
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+        }
+        .craft-list .items {
+            color: var(--text-soft);
+            letter-spacing: 0.02em;
+        }
+
         /* ===== 5.7 DIRECTOR'S NOTE ===== */
         .scene-note {
             padding: 8vh 2rem 8vh;
@@ -624,6 +668,8 @@
             .hums-list .hum { min-width: 8.5rem; }
             .hums-list .meaning { min-width: 7.5rem; }
 
+            .scene-craft { padding: 6vh 1.25rem 8vh; }
+            .scene-craft h2 { margin-bottom: 2rem; }
             .scene-note { padding: 10vh 1.25rem 3vh; }
             .scene-note .note-lede { font-size: 1.08rem; }
             .scene-note .note-body { font-size: 1rem; }
@@ -726,6 +772,27 @@ an american elegy · 7:15 · reno county, kansas
             <li><span class="hum">kitten purr</span><span class="meaning">— the bug</span></li>
             <li><span class="hum">transformer drone</span><span class="meaning">— the grid</span></li>
             <li><span class="hum">fluorescent hum</span><span class="meaning">— the waiting room</span></li>
+        </ul>
+    </section>
+
+    <!-- 5.6 WHAT'S HUMAN · WHAT'S ARTIFICIAL -->
+    <section class="scene-craft" aria-label="craft">
+        <h2>what's human · what's artificial</h2>
+        <ul class="craft-list">
+            <!-- AUTO:craft:start -->
+            <li>
+                <span class="label">human</span>
+                <span class="items">the voice · sandra's voicemails · the 1983 newscast · the memory · the dream</span>
+            </li>
+            <li>
+                <span class="label">artificial</span>
+                <span class="items">the stills · the video clips · the assembly pipeline · the four hums</span>
+            </li>
+            <li>
+                <span class="label">both</span>
+                <span class="items">the script · the color grading · the sound design · the decision to reject the AI voice · the film</span>
+            </li>
+            <!-- AUTO:craft:end -->
         </ul>
     </section>
 
