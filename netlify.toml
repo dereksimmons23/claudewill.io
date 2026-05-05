@@ -18,6 +18,36 @@
   status = 301
 
 [[redirects]]
+  from = "/lightning/bug/statement"
+  to = "/lightning/bug"
+  status = 301
+
+[[redirects]]
+  from = "/lightning/bug/statement/"
+  to = "/lightning/bug"
+  status = 301
+
+[[redirects]]
+  from = "/lightning/bug/notes"
+  to = "/lightning/bug"
+  status = 301
+
+[[redirects]]
+  from = "/lightning/bug/notes/"
+  to = "/lightning/bug"
+  status = 301
+
+[[redirects]]
+  from = "/lightning/bug/extended"
+  to = "/lightning/bug"
+  status = 301
+
+[[redirects]]
+  from = "/lightning/bug/extended/"
+  to = "/lightning/bug"
+  status = 301
+
+[[redirects]]
   from = "/about"
   to = "/derek"
   status = 301

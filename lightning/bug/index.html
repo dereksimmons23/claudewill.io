@@ -655,6 +655,13 @@
             color: var(--amber);
             border-bottom-color: var(--amber);
         }
+        .scene-note .note-credit {
+            margin-top: 2.5rem;
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: var(--amber-soft);
+            letter-spacing: 0.08em;
+        }
 
         /* ===== 6. THE CREW ===== */
         .scene-crew {
@@ -828,7 +835,7 @@
 
     <!-- 3. THE BREATH -->
     <section class="scene-breath" aria-label="logline">
-        <p class="logline">Two kinds of light. A boy in a can. A bug on a bat. A mother on a June night in Kansas.</p>
+        <p class="logline">Two kinds of light. A boy in a can. A bug on a bat.</p>
         <p class="logline">The land is mostly flat. The names matter.</p>
         <div class="meta"><!-- AUTO:meta-duration:start -->
 a short film · 7:15 · 2026
@@ -856,7 +863,7 @@ a short film · 7:15 · 2026
             <cite>— Mark Twain</cite>
         </blockquote>
         <p class="twain-flip">Twain meant lightning. He was wrong. The bug is the title. The bug is the film.</p>
-        <p class="press-logline">In the same year his mother dies and his career ends, a middle-aged man returns to a Kansas wheat field on June 28, 1983 &mdash; 37.564&deg;N, 98.121&deg;W, civil twilight, the last summer the fireflies were everywhere &mdash; to meet the light still waiting there to say <em>here we are, kid</em>.</p>
+        <p class="press-logline">Firefly populations have declined 30&ndash;50% in recent decades. We know why. We keep the lights on. <em>lightning/bug</em> is a 7-minute American elegy for small lights dying because of larger ones &mdash; and for the divided will that watches it happen and can&rsquo;t stop. <em>&ldquo;For what I would, that do I not; but what I hate, that I do.&rdquo;</em> &mdash; Romans 7:15</p>
         <div class="genre"><!-- AUTO:genre-line:start -->
 an american elegy · 7:15 · reno county, kansas
             <!-- AUTO:genre-line:end --></div>
@@ -875,39 +882,6 @@ an american elegy · 7:15 · reno county, kansas
         <div class="field-still" style="background-image: url('/images/lightning-bug/09-stars-fisheye.jpg');" data-caption="shooting stars"></div>
     </section>
 
-    <!-- 5. THE SEQUENCE -->
-    <section class="scene-sequence" aria-label="sequence">
-        <h2>the sequence</h2>
-        <ol class="seq-list">
-            <!-- AUTO:sequence:start -->
-            <li><span class="num">00</span><span class="name">title</span><span class="dur">:15</span></li>
-            <li><span class="num">01</span><span class="name">marco</span><span class="dur">:21</span></li>
-            <li><span class="num">02</span><span class="name">porch ext</span><span class="dur">:03</span></li>
-            <li><span class="num">03</span><span class="name">firefly arrives</span><span class="dur">:15</span></li>
-            <li><span class="num">04</span><span class="name">porch separates</span><span class="dur">:15</span></li>
-            <li><span class="num">05</span><span class="name">porch ride</span><span class="dur">:34</span></li>
-            <li><span class="num">06</span><span class="name">hell's hallway</span><span class="dur">:40</span></li>
-            <li><span class="num">07</span><span class="name">amber waves</span><span class="dur">:54</span></li>
-            <li><span class="num">08</span><span class="name">three pitches + contact</span><span class="dur">:45</span></li>
-            <li><span class="num">09</span><span class="name">path home</span><span class="dur">:45</span></li>
-            <li><span class="num">10</span><span class="name">dedication</span><span class="dur">1:00</span></li>
-            <li><span class="num">99</span><span class="name">polo</span><span class="dur">:18</span></li>
-            <li><span class="num">--</span><span class="name">credits</span><span class="dur">1:10</span></li>
-            <!-- AUTO:sequence:end -->
-        </ol>
-    </section>
-
-    <!-- 5.5 THE FOUR HUMS -->
-    <section class="scene-hums" aria-label="sound design">
-        <h2>the four hums</h2>
-        <ul class="hums-list">
-            <li><span class="hum">thunder</span><span class="meaning">— the bolt</span></li>
-            <li><span class="hum">kitten purr</span><span class="meaning">— the bug</span></li>
-            <li><span class="hum">transformer drone</span><span class="meaning">— the grid</span></li>
-            <li><span class="hum">fluorescent hum</span><span class="meaning">— the waiting room</span></li>
-        </ul>
-    </section>
-
     <!-- 5.5b THE SONG -->
     <section class="scene-song" aria-label="the song">
         <h2><!-- AUTO:song-title:start -->here we are, kid<!-- AUTO:song-title:end --></h2>
@@ -924,20 +898,8 @@ an american elegy · 7:15 · reno county, kansas
         </div>
         <div class="song-link">
             <!-- AUTO:song-link:start -->
-            <a href="https://suno.com/song/b9f74079-2c06-4604-9c46-9a10a56be631" target="_blank" rel="noopener">listen on suno &rarr;</a>
+            <a href="/lightning/bug/song/">lyrics &amp; liner notes &rarr;</a>
             <!-- AUTO:song-link:end -->
-        </div>
-        <div class="song-lyrics">
-            <h3>lyrics</h3>
-            <pre class="lyrics-block"><!-- AUTO:song-lyrics:start -->
-<span class="placeholder-note">[lyrics — paste verbatim from Suno here]</span>
-<!-- AUTO:song-lyrics:end --></pre>
-        </div>
-        <div class="song-liner">
-            <h3>liner notes</h3>
-            <!-- AUTO:song-liner:start -->
-            <p class="placeholder-note">[1–3 paragraphs about what the song is doing — Derek-written or Claude-drafted from director's notes, Derek edits]</p>
-            <!-- AUTO:song-liner:end -->
         </div>
     </section>
 
@@ -969,13 +931,10 @@ an american elegy · 7:15 · reno county, kansas
     <!-- 5.7 DIRECTOR'S NOTE — short -->
     <section class="scene-note" aria-label="director's note">
         <p class="note-lede">I had a dream about a summer evening in Kansas in 1983.</p>
-        <p class="note-body">It started on a Mark Twain quote about choosing the right word. I thought the film was about that. Then I thought it was about a ten-year-old kid in a wheat field, taking three pitches and making contact on the third one. Then my mom passed away on June 28, 2025, on a Saturday morning, in ICU Room 235.</p>
-        <p class="note-body note-pivot">The film became all three.</p>
-        <p class="note-link">
-            <a href="/lightning/bug/extended/">the extended cut &rarr;</a>
-            &nbsp;&middot;&nbsp;
-            <a href="/lightning/bug/statement/">director's statement &rarr;</a>
-        </p>
+        <p class="note-body">It started on a Mark Twain quote about choosing the right word. Then I thought it was about a ten-year-old kid in a wheat field. Then my mom passed away on June 28, 2025, on a Saturday morning, in ICU Room 235. The film became all three.</p>
+        <p class="note-body">Here's the thing I keep coming back to: the mean kids used to hit lightning bugs with wiffle ball bats to make them glow a little. I was one of those mean kids. Still am at 53. This isn't a confession. It's just a fact.</p>
+        <p class="note-body note-pivot">The film is named for the bug. The bug is the film. Everything else is a strand.</p>
+        <p class="note-credit">— Derek Claude Simmons · sssstudios · May 2026</p>
     </section>
 
     <div class="section-mark" aria-hidden="true">·</div>
@@ -1001,7 +960,7 @@ an american elegy · 7:15 · reno county, kansas
         <div class="crew-line">
             <span class="label">in memory of</span>
             <span class="val">Sandra Sue Simmons &middot; 1944–2025</span>
-            <span class="dedication">for sandra, and every small light that stays on.</span>
+            <span class="dedication">dedicated to moms and the light they share.</span>
         </div>
     </section>
 
@@ -1010,9 +969,7 @@ an american elegy · 7:15 · reno county, kansas
         <div class="links">
             <a href="/">claudewill</a>
             <span class="dots">·</span>
-            <a href="/lightning/bug/statement/">statement</a>
-            <span class="dots">·</span>
-            <a href="/lightning/bug/notes/">notes</a>
+            <a href="/lightning/bug/song/">the song</a>
             <span class="dots">·</span>
             <a href="/derek">derek</a>
         </div>
