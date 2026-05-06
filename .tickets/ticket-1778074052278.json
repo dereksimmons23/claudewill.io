@@ -4,7 +4,9 @@
   "source": "telegram",
   "from": "Derek",
   "description": "Dawn",
-  "status": "in-progress",
+  "status": "failed",
   "priority": "normal",
-  "started": "2026-05-06T13:27:33.239Z"
+  "started": "2026-05-06T13:27:33.239Z",
+  "error": "spawnSync /Users/dereksimmons/.local/bin/claude ETIMEDOUT",
+  "completed": "2026-05-06T13:29:37.795Z"
 }
