@@ -463,9 +463,17 @@
   }
 
   // ── Session Close ────────────────────────────────────
+  //
+  // beforeunload is unreliable on mobile (esp. iOS Safari). pagehide and
+  // visibilitychange fire reliably across mobile and desktop. Dedup flag
+  // keeps us from sending the close-session beacon more than once per visit.
 
-  window.addEventListener('beforeunload', function () {
+  var sessionClosed = false;
+
+  function closeSession() {
+    if (sessionClosed) return;
     if (conversationHistory.length < 2) return;
+    sessionClosed = true;
     var blob = new Blob([JSON.stringify({
       action: 'close-session',
       visitorToken: visitorToken,
@@ -473,7 +481,18 @@
       messages: conversationHistory
     })], { type: 'application/json' });
     navigator.sendBeacon('/.netlify/functions/cw', blob);
+  }
+
+  // pagehide — reliable on mobile and desktop, fires on tab close + nav away
+  window.addEventListener('pagehide', closeSession);
+
+  // visibilitychange — fires when tab is backgrounded (mobile-friendly safety net)
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'hidden') closeSession();
   });
+
+  // beforeunload — desktop fallback (kept for redundancy; dedup flag prevents duplicate sends)
+  window.addEventListener('beforeunload', closeSession);
 
   // ── Init ───────────────────────────────────────────
 
