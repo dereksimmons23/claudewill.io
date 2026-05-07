@@ -811,6 +811,209 @@
         @media (min-width: 1200px) {
             .field-still { height: 90vh; }
         }
+
+        /* ===== FULL-WIDTH STILL BREAKERS ===== */
+        .full-width-still {
+            width: 100%;
+            height: 60vh;
+            min-height: 360px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+        }
+        @media (max-width: 640px) {
+            .full-width-still { height: 38vh; min-height: 220px; }
+        }
+
+        /* ===== COLLAPSIBLE SECTIONS ===== */
+        details.scene-fold {
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 4vh 2rem;
+            border-top: 1px solid var(--amber-faint, rgba(212, 168, 75, 0.08));
+        }
+        details.scene-fold > summary {
+            list-style: none;
+            cursor: pointer;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.74rem;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--amber-soft, #b89346);
+            padding: 1rem 0;
+            text-align: center;
+            transition: color 0.2s;
+        }
+        details.scene-fold > summary::-webkit-details-marker { display: none; }
+        details.scene-fold > summary:hover { color: var(--amber, #d4a84b); }
+        details.scene-fold > summary::after {
+            content: " · expand ↓";
+            opacity: 0.5;
+            font-size: 0.66rem;
+        }
+        details.scene-fold[open] > summary::after {
+            content: " · collapse ↑";
+        }
+        details.scene-fold > .fold-body {
+            padding: 2vh 0 4vh;
+        }
+        @media (max-width: 640px) {
+            details.scene-fold { padding: 3vh 1.25rem; }
+        }
+
+        /* ===== BOOKEND HERO (bottom) ===== */
+        .scene-bookend {
+            position: relative;
+            width: 100%;
+            min-height: 80vh;
+            overflow: hidden;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            color: #c8d0dc;
+        }
+        .scene-bookend video.bookend-video {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.85;
+        }
+        .scene-bookend::after {
+            /* dark gradient at bottom for legibility of credit text */
+            content: "";
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            height: 60%;
+            background: linear-gradient(to top, rgba(7,13,26,0.92) 0%, rgba(7,13,26,0.72) 50%, rgba(7,13,26,0) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+        .scene-bookend .bookend-title {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 14vh 2rem 2vh;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: clamp(1.3rem, 4vw, 2rem);
+            letter-spacing: -0.01em;
+            color: #d4a84b;
+        }
+        .scene-bookend .bookend-credits {
+            position: relative;
+            z-index: 2;
+            max-width: 36rem;
+            margin: 0 auto;
+            padding: 4vh 2rem 8vh;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.78rem;
+            line-height: 1.85;
+            letter-spacing: 0.04em;
+        }
+        .scene-bookend .bookend-credits .row { display: flex; gap: 1.2rem; margin-bottom: 0.5rem; }
+        .scene-bookend .bookend-credits .label { color: var(--amber-soft, #b89346); min-width: 8rem; text-transform: lowercase; letter-spacing: 0.18em; font-size: 0.7rem; }
+        .scene-bookend .bookend-credits .val { color: #c8d0dc; }
+        .scene-bookend .bookend-credits .val a { color: #d4a84b; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+        .scene-bookend .bookend-credits .val a:hover { border-bottom-color: #d4a84b; }
+        .scene-bookend .bookend-credits .dedication {
+            display: block;
+            margin-top: 2rem;
+            font-family: 'IBM Plex Serif', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #d4a84b;
+            text-align: center;
+            line-height: 1.5;
+        }
+        @media (max-width: 640px) {
+            .scene-bookend { min-height: 60vh; }
+            .scene-bookend .bookend-credits { padding: 3vh 1.25rem 6vh; font-size: 0.74rem; }
+            .scene-bookend .bookend-credits .row { flex-direction: column; gap: 0.1rem; margin-bottom: 0.7rem; }
+            .scene-bookend .bookend-credits .label { font-size: 0.66rem; }
+        }
+
+        /* ===== GALLERY CAROUSEL (edge-to-edge, scroll-snap, arrows) ===== */
+        .gallery-wrap {
+            position: relative;
+            width: 100%;
+        }
+        .gallery-track {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            -webkit-overflow-scrolling: touch;
+        }
+        .gallery-track::-webkit-scrollbar { display: none; }
+        .gallery-slide {
+            flex-shrink: 0;
+            width: 100%;
+            min-width: 100%;
+            scroll-snap-align: start;
+            position: relative;
+            height: 80vh;
+            min-height: 480px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .gallery-slide .caption {
+            position: absolute;
+            left: 2rem;
+            bottom: 2rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.74rem;
+            color: var(--amber, #d4a84b);
+            letter-spacing: 0.18em;
+            text-transform: lowercase;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+        }
+        .gallery-slide .index {
+            position: absolute;
+            right: 2rem;
+            bottom: 2rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--amber-soft, #b89346);
+            letter-spacing: 0.12em;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+        }
+        .gallery-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 5;
+            background: rgba(7,13,26,0.5);
+            border: 1px solid rgba(212,168,75,0.3);
+            color: var(--amber, #d4a84b);
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .gallery-arrow:hover { background: rgba(7,13,26,0.8); border-color: var(--amber, #d4a84b); }
+        .gallery-arrow.prev { left: 1.25rem; }
+        .gallery-arrow.next { right: 1.25rem; }
+        .gallery-arrow:disabled { opacity: 0.25; cursor: default; }
+        @media (max-width: 640px) {
+            .gallery-slide { height: 60vh; min-height: 320px; }
+            .gallery-slide .caption, .gallery-slide .index { font-size: 0.66rem; bottom: 1rem; }
+            .gallery-slide .caption { left: 1rem; }
+            .gallery-slide .index { right: 1rem; }
+            .gallery-arrow { width: 2.4rem; height: 2.4rem; font-size: 1rem; }
+            .gallery-arrow.prev { left: 0.5rem; }
+            .gallery-arrow.next { right: 0.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -842,6 +1045,11 @@ a short film · 7:15 · 2026
             <!-- AUTO:meta-duration:end --></div>
     </section>
 
+    <!-- 3.0a STORY LEDE — paired with the film embed below -->
+    <section class="scene-note" aria-label="director's note lede">
+        <p class="note-lede">I had a dream about a summer evening in Kansas in 1983.</p>
+    </section>
+
     <!-- 3.0 THE FILM -->
     <section class="scene-film" aria-label="watch the film">
         <div class="film-frame">
@@ -856,120 +1064,151 @@ a short film · 7:15 · 2026
         <p class="film-meta-line">7:15 · sssstudios · 2026</p>
     </section>
 
-    <!-- 3.5 THE THESIS -->
-    <section class="scene-thesis" aria-label="thesis">
-        <blockquote class="twain">
-            "The difference between the almost right word and the right word is the difference between the lightning bug and the lightning."
-            <cite>— Mark Twain</cite>
-        </blockquote>
-        <p class="twain-flip">Twain meant lightning. He was wrong. The bug is the title. The bug is the film.</p>
-        <p class="press-logline">Firefly populations have declined 30&ndash;50% in recent decades. We know why. We keep the lights on. <em>lightning/bug</em> is a 7-minute American elegy for small lights dying because of larger ones &mdash; and for the divided will that watches it happen and can&rsquo;t stop. <em>&ldquo;For what I would, that do I not; but what I hate, that I do.&rdquo;</em> &mdash; Romans 7:15</p>
-        <div class="genre"><!-- AUTO:genre-line:start -->
-an american elegy · 7:15 · reno county, kansas
-            <!-- AUTO:genre-line:end --></div>
-    </section>
+    <!-- 3.1 BREAKER #1 — amber dance -->
+    <div class="full-width-still" style="background-image: url('/images/lightning-bug/04-amber-02-dance-A-original-abundance.png');" aria-hidden="true"></div>
 
-    <!-- 4. THE FIELD -->
-    <section class="scene-field" aria-label="stills">
-        <div class="field-still" style="background-image: url('/images/lightning-bug/01-can-porthole.jpg');" data-caption="the can"></div>
-        <div class="field-still" style="background-image: url('/images/lightning-bug/02-porch-bug-on-bat.jpg');" data-caption="porch ride"></div>
-        <div class="field-still" style="background-image: url('/images/lightning-bug/03-hallway-doorway.jpg');" data-caption="hell's hallway"></div>
-        <div class="field-still" style="background-image: url('/images/lightning-bug/04-amber-dance.jpg');" data-caption="amber waves"></div>
-        <div class="field-still" style="background-image: url('/images/lightning-bug/05-three-pitches-tunnel.jpg');" data-caption="three pitches"></div>
-        <div class="field-still" style="background-image: url('/images/lightning-bug/06-contact-bloom.jpg');" data-caption="contact"></div>
-        <div class="field-still" style="background-image: url('/images/lightning-bug/07-cobalt-strike.jpg');" data-caption="cobalt blues"></div>
-        <div class="field-still" style="background-image: url('/images/lightning-bug/08-path-full-moon.jpg');" data-caption="path home"></div>
-        <div class="field-still" style="background-image: url('/images/lightning-bug/09-stars-fisheye.jpg');" data-caption="shooting stars"></div>
-    </section>
+    <!-- 3.5 THE THESIS — collapsible, expanded by default -->
+    <details class="scene-fold" aria-label="thesis" open>
+        <summary>the thinking</summary>
+        <div class="fold-body scene-thesis">
+            <blockquote class="twain">
+                "The difference between the almost right word and the right word is the difference between the lightning bug and the lightning."
+                <cite>— Mark Twain</cite>
+            </blockquote>
+            <p class="twain-flip">Twain meant lightning. He was wrong. The bug is the title. The bug is the film.</p>
+            <p class="press-logline">Firefly populations have declined 30&ndash;50% in recent decades. We know why. We keep the lights on. <em>lightning/bug</em> is a 7-minute American elegy for small lights dying because of larger ones &mdash; and for the divided will that watches it happen and can&rsquo;t stop. <em>&ldquo;For what I would, that do I not; but what I hate, that I do.&rdquo;</em> &mdash; Romans 7:15</p>
+            <div class="genre">an american elegy · 7:15 · reno county, kansas</div>
+        </div>
+    </details>
 
-    <!-- 5.5b THE SONG -->
-    <section class="scene-song" aria-label="the song">
-        <h2><!-- AUTO:song-title:start -->here we are, kid<!-- AUTO:song-title:end --></h2>
-        <p class="song-credit">words + voice · Derek Claude Simmons &middot; performance · <a href="https://suno.com/@deekers" target="_blank" rel="noopener">@deekers on suno</a></p>
-        <div class="song-embed">
-            <!-- AUTO:song-embed:start -->
+    <!-- 3.6 BREAKER #2 — floating porch -->
+    <div class="full-width-still" style="background-image: url('/images/lightning-bug/floating-porch.png');" aria-hidden="true"></div>
+
+    <!-- 4. THE SONG — collapsible (audio + lyrics + liner notes folded in from former /song/ subpage) -->
+    <details class="scene-fold" aria-label="the song">
+        <summary>the song · here we are, kid</summary>
+        <div class="fold-body" style="text-align:center;">
+            <p style="font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--amber-soft, #b89346); letter-spacing:0.08em; margin:0 0 1.5rem;">words + voice · Derek Claude Simmons &middot; performance · <a href="https://suno.com/@deekers" target="_blank" rel="noopener" style="color:inherit;">@deekers on suno</a></p>
             <audio controls preload="metadata"
                    src="/audio/here-we-are-kid.mp3"
                    type="audio/mpeg"
-                   style="width:100%; max-width:36rem; display:block; margin:0 auto;">
+                   style="width:100%; max-width:36rem; display:block; margin:0 auto 2.5rem;">
                 Your browser does not support the audio element.
             </audio>
-            <!-- AUTO:song-embed:end -->
-        </div>
-        <div class="song-link">
-            <!-- AUTO:song-link:start -->
-            <a href="https://derek4thecws.substack.com/p/here-we-are-kid" target="_blank" rel="noopener">lyrics &amp; liner notes &rarr;</a>
-            <!-- AUTO:song-link:end -->
-        </div>
-    </section>
 
-    <div class="section-mark" aria-hidden="true">·</div>
+            <div style="text-align:left; max-width:32rem; margin:0 auto;">
+                <h3 style="font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color:var(--amber-soft, #b89346); letter-spacing:0.35em; text-transform:uppercase; text-align:center; margin:3rem 0 2rem;">lyrics</h3>
 
-    <!-- 5.6 WHAT'S HUMAN · WHAT'S ARTIFICIAL -->
-    <section class="scene-craft" aria-label="craft">
-        <h2>what's human · what's artificial</h2>
-        <ul class="craft-list">
-            <!-- AUTO:craft:start -->
-            <li>
-                <span class="label">human</span>
-                <span class="items">the voice · sandra's voicemails · the 1983 newscast · the memory · the dream</span>
-            </li>
-            <li>
-                <span class="label">artificial</span>
-                <span class="items">the stills · the video clips · the assembly pipeline · the four hums</span>
-            </li>
-            <li>
-                <span class="label">both</span>
-                <span class="items">the script · the color grading · the sound design · the decision to reject the AI voice · the film</span>
-            </li>
-            <!-- AUTO:craft:end -->
-        </ul>
-    </section>
+                <div class="verse"><span class="verse-label">intro</span><p>Here we are.</p></div>
+                <div class="verse"><span class="verse-label">verse 1</span><p>Came all this way, must be something to say.<br>Sun-kissed tea sweatin from a porch, stolen.<br>Sky all swollen, all knowin.<br>Many dents on this damn frame, ain't it a shame?<br>Oh well, here we are, kid. Here we are, I kid.<br>Crack the lid.</p></div>
+                <div class="verse"><span class="verse-label">chorus</span><p>She wanted to run somewhere far.<br>A shootin star, look at her glo-glo-glowin.<br>Wanted to run somewhere far.<br>Here we are, kid, it's showin.</p></div>
+                <div class="verse"><span class="verse-label">verse 2</span><p>Gotta master plan; wonderin bout a tin man.<br>Bolts chasin the wheat, or is it the cheat?<br>Forgot how to sleep; worryin without a peep.<br>Here we are, boss, looks bleak.<br>But here we are, ain't nothin neat.</p></div>
+                <div class="verse"><span class="verse-label">chorus</span><p>She wanted to run, run, run. Somewhere far.<br>In the wind again, that familiar friend.<br>Wanted to run somewhere far.<br>Well here we are, kid.</p></div>
+                <div class="verse"><span class="verse-label">verse 3</span><p>You gotta go home, get outta that chair.<br>I'll give you a ride, sit shotgun there, it's only fair.<br>Don't go it alone, chuck an ole dog a bone.<br>Shit's bout get lit, doggone it.<br>Cuz here we are, kin. Here we are, kin.<br>With all the pretty sins.</p></div>
+                <div class="verse"><span class="verse-label">chorus — drums enter</span><p>She wanted to run. Somewhere far.<br>Feet free, soarin. Feels so foreign.<br>Who needs high when you can go double wide?<br>Wanted to run somewhere far.<br>Wanted to run. She wanted to run. Wanted to run.<br>So flip the fuckin switch, find the pitch.<br>Sounds a howlin, that train whistlin, sis.<br>Here we are, growlin.</p></div>
+                <div class="verse"><span class="verse-label">bridge — solo voice</span><p style="font-style:italic; color:var(--amber, #d4a84b);">Son of a young gun, run.<br>Last or once more, for fun.<br>Nother run just begun.</p></div>
+                <div class="verse"><span class="verse-label">outro</span><p style="font-style:italic; color:var(--amber, #d4a84b);">Run, our Kansas goldbug.<br>Catch ya and grab a hug.<br>Wavin wheat says bye, it's a lie.</p><p style="font-style:italic; color:var(--amber, #d4a84b);">You won, kid.<br>Runnin, tag, you're it again.<br>Gunnin, criss-cross, hot willful wind.<br>Runnin, somewhere far, off course.<br>We'll gaze tonight from the porch.<br>Run, kid, shoot them stars.</p><p style="font-style:italic; color:var(--amber, #d4a84b);">Here we are.</p></div>
 
-    <div class="section-mark" aria-hidden="true">·</div>
+                <h3 style="font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color:var(--amber-soft, #b89346); letter-spacing:0.35em; text-transform:uppercase; text-align:center; margin:4rem 0 2rem;">liner notes</h3>
 
-    <!-- 5.7 DIRECTOR'S NOTE — short -->
-    <section class="scene-note" aria-label="director's note">
-        <p class="note-lede">I had a dream about a summer evening in Kansas in 1983.</p>
-        <p class="note-body">It started on a Mark Twain quote about choosing the right word. Then I thought it was about a ten-year-old kid in a wheat field. Then my mom passed away on June 28, 2025, on a Saturday morning, in ICU Room 235. The film became all three.</p>
-        <p class="note-body">Here's the thing I keep coming back to: the mean kids used to hit lightning bugs with wiffle ball bats to make them glow a little. I was one of those mean kids. Still am at 53. This isn't a confession. It's just a fact.</p>
-        <p class="note-body note-pivot">The film is named for the bug. The bug is the film. Everything else is a strand.</p>
-        <p class="note-credit">— Derek Claude Simmons · sssstudios · May 2026</p>
-    </section>
+                <p>My mother called everyone <em>kid</em>. Not a pet name &mdash; a position. <em>You're here. I see you.</em> Sandra said it the way other people say <em>you know</em>. Constantly. All her life.</p>
+                <p>She went to high school in Alva, Oklahoma. Home of the Alva High Goldbugs. A goldbug is a beetle. In this film it's a firefly &mdash; the kind that glows. The kind you chase. That was her.</p>
+                <p><em>"Bolts chasin the wheat, or is it the cheat?"</em> &mdash; cheatgrass is a weed that invades wheat fields and mimics wheat so well the combine can't always tell. Lightning chases both. I used to think I was better at telling the difference.</p>
+                <p>The tin man is real. I made this film with an AI sitting in an aluminum can on my desk. It doesn't have a heart. I'm not sure it needed one. We both just wanted to see it.</p>
+                <p><em>"With all the pretty sins"</em> is the line that forgives the whole thing. Sandra earned it. Shannon earned it. So did the bug.</p>
+                <p>The music is Suno. The voice is mine. The words belong to Nickerson, Kansas, 1983. I just wrote them down.</p>
 
-    <div class="section-mark" aria-hidden="true">·</div>
+                <p style="margin-top:2.5rem; font-family:'IBM Plex Mono', monospace; font-size:0.74rem; letter-spacing:0.05em; color:var(--amber-soft, #b89346);">
+                    &mdash; <span style="color:var(--amber, #d4a84b);">Derek Claude Simmons</span><br>
+                    Reno County, Kansas via Woodbury, Minnesota<br>
+                    April 13, 2026 &middot; updated May 6, 2026
+                </p>
 
-    <!-- 6. THE CREW -->
-    <section class="scene-crew" aria-label="crew">
-        <div class="crew-line">
-            <span class="label">directed by</span>
-            <span class="val"><a href="/derek">Derek Claude Simmons</a></span>
+                <p style="margin-top:2rem; text-align:center;">
+                    <a href="https://derek4thecws.substack.com/p/here-we-are-kid" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono', monospace; font-size:0.74rem; color:var(--amber, #d4a84b); text-decoration:none; letter-spacing:0.06em;">also on substack &rarr;</a>
+                </p>
+            </div>
         </div>
-        <div class="crew-line">
-            <span class="label">studio</span>
-            <span class="val">sssstudios</span>
+    </details>
+
+    <!-- 5. WHAT'S HUMAN · ARTIFICIAL — collapsible -->
+    <details class="scene-fold" aria-label="craft">
+        <summary>what's human · what's artificial</summary>
+        <div class="fold-body scene-craft">
+            <ul class="craft-list">
+                <li><span class="label">human</span><span class="items">the voice · sandra's voicemails · the 1983 newscast · the memory · the dream</span></li>
+                <li><span class="label">artificial</span><span class="items">the stills · the video clips · the assembly pipeline · the four hums</span></li>
+                <li><span class="label">both</span><span class="items">the script · the color grading · the sound design · the decision to reject the AI voice · the film</span></li>
+            </ul>
         </div>
-        <div class="crew-line">
-            <span class="label">in the lineage of</span>
-            <span class="val">cinema that lets the dark do the work</span>
+    </details>
+
+    <!-- 6. DIRECTOR'S NOTE (FULL) — collapsible (lede already shown above) -->
+    <details class="scene-fold" aria-label="director's note">
+        <summary>director's note</summary>
+        <div class="fold-body scene-note">
+            <p class="note-body">It started on a Mark Twain quote about choosing the right word. Then I thought it was about a ten-year-old kid in a wheat field. Then my mom passed away on June 28, 2025, on a Saturday morning, in ICU Room 235. The film became all three.</p>
+            <p class="note-body">Here's the thing I keep coming back to: the mean kids used to hit lightning bugs with wiffle ball bats to make them glow a little. I was one of those mean kids. Still am at 53. This isn't a confession. It's just a fact.</p>
+            <p class="note-body note-pivot">The film is named for the bug. The bug is the film. Everything else is a strand.</p>
+            <p class="note-credit">— Derek Claude Simmons · sssstudios · May 2026</p>
         </div>
-        <div class="crew-line">
-            <span class="label">color</span>
-            <span class="val">amber and cobalt, with the gray of patina</span>
+    </details>
+
+    <!-- 7. BREAKER #3 — path home crescent -->
+    <div class="full-width-still" style="background-image: url('/images/lightning-bug/path-home-crescent-flipped.png');" aria-hidden="true"></div>
+
+    <!-- 8. GALLERY — edge-to-edge carousel, 15 stills, collapsible -->
+    <details class="scene-fold" aria-label="gallery" style="max-width:none; padding:4vh 0;">
+        <summary style="padding:1rem 2rem;">gallery · 15 stills</summary>
+        <div class="fold-body" style="padding:0;">
+            <div class="gallery-wrap" id="bug-gallery">
+                <div class="gallery-track" id="gallery-track">
+                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/title-000-final.png');"><span class="caption">title</span><span class="index">01 / 15</span></div>
+                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/marco-anchor-gpt.png');"><span class="caption">marco</span><span class="index">02 / 15</span></div>
+                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/01-can-01-exterior-A.png');"><span class="caption">the can</span><span class="index">03 / 15</span></div>
+                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/04-porch-separates-anchor.png');"><span class="caption">porch separates</span><span class="index">04 / 15</span></div>
+                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/02-porch-02-points-bat-A-original-fireflies-gather.png');"><span class="caption">fireflies gather</span><span class="index">05 / 15</span></div>
+                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/02-porch-02-points-bat-B-original-seq016.png');"><span class="caption">points bat</span><span class="index">06 / 15</span></div>
+                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/02-porch-05-flight-B-original-warp-road.png');"><span class="caption">flight</span><span class="index">07 / 15</span></div>
+                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/04-amber-05-stadium-A-original-towers-v3.png');"><span class="caption">towers</span><span class="index">08 / 15</span></div>
+                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/CURVEBALL-BOLT-TRANSFORMER-KEEPER.png');"><span class="caption">curveball bolt</span><span class="index">09 / 15</span></div>
+                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/orb-amber.png');"><span class="caption">orb</span><span class="index">10 / 15</span></div>
+                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/9-GPT Image 2 - new image of _felled use _colors for color reference only do not use the human figure_1.png');"><span class="caption">felled</span><span class="index">11 / 15</span></div>
+                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/Nano Banana 2 - _bbswing keeping the color register the same_ shades and tones of cobalt with patina_4 (1).png');"><span class="caption">bbswing</span><span class="index">12 / 15</span></div>
+                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/Nano Banana 2 - use _pod as the color source and style and recreate _IMG_2keep all the elments and c_1.png');"><span class="caption">pod</span><span class="index">13 / 15</span></div>
+                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/Nano Banana 2 - use _pod as the color source and style and recreate _star keep all the elments and c_2.png');"><span class="caption">star</span><span class="index">14 / 15</span></div>
+                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/08-patina-giant-glass-jar.png');"><span class="caption">giant jar</span><span class="index">15 / 15</span></div>
+                </div>
+                <button class="gallery-arrow prev" id="gal-prev" aria-label="previous still">&larr;</button>
+                <button class="gallery-arrow next" id="gal-next" aria-label="next still">&rarr;</button>
+            </div>
         </div>
-        <div class="crew-line">
-            <span class="label">in memory of</span>
-            <span class="val">Sandra Sue Simmons &middot; 1944–2025</span>
+    </details>
+
+    <!-- 9. BOOKEND HERO — 1983 Kansas dirt road clip + title return + crew/dedication/© -->
+    <section class="scene-bookend" aria-label="closing">
+        <video class="bookend-video"
+               autoplay muted loop playsinline preload="auto"
+               poster="/images/lightning-bug/02-cobalt-fade-A-1983-KANSAS-ANCHOR.png"
+               aria-hidden="true">
+            <source src="/video/lightning-bug-hero-1983-kansas.mp4" type="video/mp4">
+        </video>
+        <div class="bookend-title">lightning/bug</div>
+        <div class="bookend-credits">
+            <div class="row"><span class="label">directed by</span><span class="val"><a href="/derek">Derek Claude Simmons</a></span></div>
+            <div class="row"><span class="label">studio</span><span class="val">sssstudios</span></div>
+            <div class="row"><span class="label">in the lineage of</span><span class="val">cinema that lets the dark do the work</span></div>
+            <div class="row"><span class="label">color</span><span class="val">amber and cobalt, with the gray of patina</span></div>
+            <div class="row"><span class="label">music</span><span class="val"><a href="https://suno.com/@deekers" target="_blank" rel="noopener">@deekers on suno</a></span></div>
+            <div class="row"><span class="label">in memory of</span><span class="val">Sandra Sue Simmons &middot; 1944–2025</span></div>
             <span class="dedication">dedicated to moms and the light they share.</span>
         </div>
     </section>
 
-    <!-- 7. FOOTER -->
+    <!-- 10. FOOTER (slim) -->
     <footer class="scene-footer">
         <div class="links">
             <a href="/">claudewill</a>
-            <span class="dots">·</span>
-            <a href="/lightning/bug/song/">the song</a>
             <span class="dots">·</span>
             <a href="/derek">derek</a>
         </div>
@@ -1063,6 +1302,55 @@ an american elegy · 7:15 · reno county, kansas
                 });
             }, { threshold: 0.55 });
             document.querySelectorAll('.field-still').forEach(el => io.observe(el));
+        })();
+
+        // ===== GALLERY CAROUSEL =====
+        (function() {
+            const track = document.getElementById('gallery-track');
+            const prev  = document.getElementById('gal-prev');
+            const next  = document.getElementById('gal-next');
+            if (!track || !prev || !next) return;
+
+            const slides = track.querySelectorAll('.gallery-slide');
+            if (!slides.length) return;
+
+            let i = 0;
+            function go(idx) {
+                i = Math.max(0, Math.min(slides.length - 1, idx));
+                track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+            }
+            prev.addEventListener('click', (e) => { e.preventDefault(); go(i - 1); });
+            next.addEventListener('click', (e) => { e.preventDefault(); go(i + 1); });
+
+            // Keep i in sync when user swipes / scrolls manually.
+            let scrollTimer;
+            track.addEventListener('scroll', () => {
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(() => {
+                    i = Math.round(track.scrollLeft / track.clientWidth);
+                }, 60);
+            });
+
+            // Reset scroll on first details-open so layout is clean.
+            const details = track.closest('details');
+            if (details) {
+                details.addEventListener('toggle', () => {
+                    if (details.open) {
+                        // Force layout to re-measure after open
+                        requestAnimationFrame(() => { track.scrollLeft = i * track.clientWidth; });
+                    }
+                });
+            }
+
+            // Arrow keys when gallery is open + visible.
+            document.addEventListener('keydown', (e) => {
+                const details = track.closest('details');
+                if (!details || !details.open) return;
+                const rect = track.getBoundingClientRect();
+                if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+                if (e.key === 'ArrowRight') { e.preventDefault(); go(i + 1); }
+                if (e.key === 'ArrowLeft')  { e.preventDefault(); go(i - 1); }
+            });
         })();
     </script>
 
