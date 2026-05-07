@@ -24,7 +24,7 @@
     },
     {
       label: 'studio',
-      href: '/lightning/bug',
+      href: '/lightning-bug',
       description: 'the studio — the film, the making'
     },
     {

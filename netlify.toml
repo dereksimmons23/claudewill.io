@@ -7,44 +7,31 @@
   node_bundler = "esbuild"
 
 # Redirects
+
+# Migrated /lightning/bug → /lightning-bug (May 7 2026 — there is no /lightning parent).
+# /lightning-bug is the canonical URL. The catch-all below covers /lightning/bug,
+# /lightning/bug/song, /lightning/bug/statement, /lightning/bug/notes, /lightning/bug/extended,
+# and any other legacy subpath.
 [[redirects]]
-  from = "/lightning-bug"
-  to = "/lightning/bug"
+  from = "/lightning/bug"
+  to = "/lightning-bug"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lightning/bug/*"
+  to = "/lightning-bug"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lightning"
+  to = "/lightning-bug"
   status = 301
 
 [[redirects]]
   from = "/lightningbug"
-  to = "/lightning/bug"
-  status = 301
-
-[[redirects]]
-  from = "/lightning/bug/statement"
-  to = "/lightning/bug"
-  status = 301
-
-[[redirects]]
-  from = "/lightning/bug/statement/"
-  to = "/lightning/bug"
-  status = 301
-
-[[redirects]]
-  from = "/lightning/bug/notes"
-  to = "/lightning/bug"
-  status = 301
-
-[[redirects]]
-  from = "/lightning/bug/notes/"
-  to = "/lightning/bug"
-  status = 301
-
-[[redirects]]
-  from = "/lightning/bug/extended"
-  to = "/lightning/bug"
-  status = 301
-
-[[redirects]]
-  from = "/lightning/bug/extended/"
-  to = "/lightning/bug"
+  to = "/lightning-bug"
   status = 301
 
 [[redirects]]
