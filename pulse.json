@@ -1,6 +1,6 @@
 {
-  "generated": "2026-05-06T11:37:59.857Z",
-  "date": "2026-05-06",
+  "generated": "2026-05-08T11:34:52.065Z",
+  "date": "2026-05-08",
   "porch": {
     "total": 736,
     "thisWeek": 13,
@@ -19,11 +19,11 @@
     "maxVisits": 6
   },
   "sessions": {
-    "thisWeek": 39,
-    "avgWeight": 6.3,
+    "thisWeek": 61,
+    "avgWeight": 6.6,
     "byProject": {
-      "desktop": 37,
-      "writing": 2
+      "writing": 3,
+      "desktop": 58
     }
   },
   "dawn": {
@@ -31,12 +31,10 @@
     "dayNumber": 74,
     "raidRate": "3/6",
     "latestWeight": null,
-    "daysSinceEntry": 53
+    "daysSinceEntry": 55
   },
   "sparklines": {
     "conversations": [
-      0,
-      0,
       0,
       6,
       0,
@@ -62,11 +60,11 @@
       0,
       0,
       13,
+      0,
+      0,
       0
     ],
     "sessions": [
-      0,
-      0,
       1,
       1,
       1,
@@ -87,11 +85,13 @@
       1,
       4,
       5,
-      14,
+      15,
       0,
       8,
       0,
-      8,
+      30,
+      4,
+      4,
       0
     ]
   },

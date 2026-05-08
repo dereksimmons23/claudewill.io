@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-05-06T11:38:58.575Z",
+  "lastUpdated": "2026-05-08T11:35:55.764Z",
   "agents": {
     "morningEdition": {
       "name": "Morning Edition",
-      "lastRun": "2026-05-06T11:38:58.574Z",
+      "lastRun": "2026-05-08T11:35:55.763Z",
       "status": "ok",
       "summary": "If I Had $5,000 to Invest in Artificial Intelligence (AI) Right Now, I'd Buy These 2 Stocks Before They Rebound",
       "flags": [],
@@ -33,32 +33,32 @@
     },
     "housekeeping": {
       "name": "Housekeeping",
-      "lastRun": "2026-05-06T11:38:58.574Z",
+      "lastRun": "2026-05-08T11:35:55.763Z",
       "status": "ok",
-      "summary": "All 14 pages + 2 subdomains responding. Avg 609ms.",
+      "summary": "All 14 pages + 2 subdomains responding. Avg 363ms.",
       "flags": [],
       "details": [
-        "https://claudewill.io/ — 200 30ms",
-        "https://claudewill.io/derek — 200 222ms",
-        "https://claudewill.io/claude — 200 460ms",
-        "https://claudewill.io/book — 200 464ms",
-        "https://claudewill.io/story — 200 768ms",
-        "https://claudewill.io/standard — 200 176ms",
-        "https://claudewill.io/writing — 200 766ms",
-        "https://claudewill.io/privacy — 200 695ms",
-        "https://claudewill.io/terms — 200 946ms",
-        "https://claudewill.io/kitchen — 200 299ms",
-        "https://claudewill.io/arcade — 200 1211ms",
-        "https://claudewill.io/being-claude — 200 990ms",
-        "https://claudewill.io/lightning/bug — 200 518ms",
-        "https://claudewill.io/d — 200 984ms",
-        "Coach D (https://coach.claudewill.io) — 200 1488ms",
-        "BOB (https://bob.claudewill.io) — 200 1596ms"
+        "https://claudewill.io/ — 200 64ms",
+        "https://claudewill.io/derek — 200 286ms",
+        "https://claudewill.io/claude — 200 349ms",
+        "https://claudewill.io/book — 200 344ms",
+        "https://claudewill.io/story — 200 242ms",
+        "https://claudewill.io/standard — 200 185ms",
+        "https://claudewill.io/writing — 200 254ms",
+        "https://claudewill.io/privacy — 200 274ms",
+        "https://claudewill.io/terms — 200 318ms",
+        "https://claudewill.io/kitchen — 200 746ms",
+        "https://claudewill.io/arcade — 200 453ms",
+        "https://claudewill.io/being-claude — 200 551ms",
+        "https://claudewill.io/lightning/bug — 200 392ms",
+        "https://claudewill.io/d — 200 630ms",
+        "Coach D (https://coach.claudewill.io) — 200 2079ms",
+        "BOB (https://bob.claudewill.io) — 200 1515ms"
       ]
     },
     "pulse": {
       "name": "Daily Pulse",
-      "lastRun": "2026-05-06T11:37:59.857Z",
+      "lastRun": "2026-05-08T11:34:52.065Z",
       "status": "ok",
       "summary": "736 conversations, 12 visitors, 0 D sessions",
       "flags": [],
@@ -79,29 +79,29 @@
           "named": 2
         },
         "sessions": {
-          "thisWeek": 39,
-          "avgWeight": 6.3,
+          "thisWeek": 61,
+          "avgWeight": 6.6,
           "byProject": {
-            "desktop": 37,
-            "writing": 2
+            "writing": 3,
+            "desktop": 58
           }
         },
         "dawn": {
           "dayNumber": 74,
           "raidRate": "3/6",
-          "daysSinceEntry": 53
+          "daysSinceEntry": 55
         }
       }
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-05-06T11:38:58.575Z",
+      "lastRun": "2026-05-08T11:35:55.763Z",
       "status": "flags",
       "summary": "**Pipeline:** 7 items (3 draft, 2 planned, 1 idea, 1 in-progress)",
       "flags": [
-        "Being Claude #11: The Manual: draft for 55 days — review or reject",
-        "Being Claude: The Scoreboard: draft for 63 days — review or reject",
-        "Being Claude: The Brightness (warm/hot/cold): draft for 63 days — review or reject"
+        "Being Claude #11: The Manual: draft for 57 days — review or reject",
+        "Being Claude: The Scoreboard: draft for 65 days — review or reject",
+        "Being Claude: The Brightness (warm/hot/cold): draft for 65 days — review or reject"
       ]
     }
   },
