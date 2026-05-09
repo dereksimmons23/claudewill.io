@@ -6,25 +6,19 @@
     <meta name="color-scheme" content="dark">
     <meta name="theme-color" content="#0a1628">
     <title>lightning/bug</title>
-    <meta name="description" content="A short film. Two kinds of light. A boy in a can. A bug on a bat. The land is mostly flat. The names matter.">
+    <meta name="description" content="A short film. A son builds a memorial in a terminal. Voicemails from his mother. Lightning bugs are mostly gone. Lightning increasingly fierce. Stars still fall.">
     <meta name="author" content="Derek Claude Simmons">
     <meta property="og:title" content="lightning/bug">
-    <meta property="og:description" content="The absence of darkness. A short film by Derek Claude Simmons.">
+    <meta property="og:description" content="A son builds a memorial in a terminal. Dedicated to moms and the light they share.">
     <meta property="og:type" content="video.movie">
     <meta property="og:url" content="https://claudewill.io/lightning-bug">
-    <meta property="og:image" content="https://claudewill.io/images/lightning-bug/og-poster.jpg">
-    <meta property="og:video" content="https://claudewill.io/video/lightning-bug-hero-storm.mp4">
-    <meta property="og:video:secure_url" content="https://claudewill.io/video/lightning-bug-hero-storm.mp4">
-    <meta property="og:video:type" content="video/mp4">
-    <meta property="og:video:width" content="960">
-    <meta property="og:video:height" content="540">
+    <meta property="og:image" content="https://claudewill.io/images/lightning-bug/og-poster-v11.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="lightning/bug">
-    <meta name="twitter:description" content="The absence of darkness.">
-    <meta name="twitter:image" content="https://claudewill.io/images/lightning-bug/og-poster.jpg">
+    <meta name="twitter:description" content="Dedicated to moms and the light they share.">
+    <meta name="twitter:image" content="https://claudewill.io/images/lightning-bug/og-poster-v11.jpg">
     <link rel="canonical" href="https://claudewill.io/lightning-bug">
     <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
-    <link rel="preload" as="image" href="/images/lightning-bug/hero-poster-storm.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
@@ -36,9 +30,9 @@
         "@context": "https://schema.org",
         "@type": "VideoObject",
         "name": "lightning/bug",
-        "description": "A short film about two kinds of light. A boy in a can. A bug on a bat. A mother on a June night in Kansas.",
-        "duration": "PT7M15S",
-        "uploadDate": "2026-04-27",
+        "description": "A short film. A son builds a memorial in a terminal. Voicemails from his mother, a song called Here We Are, Kid, and a thesis: lightning bugs are mostly gone, lightning increasingly fierce, stars still fall. Dedicated to moms and the light they share.",
+        "duration": "PT5M47S",
+        "uploadDate": "2026-05-10",
         "director": {
             "@type": "Person",
             "name": "Derek Claude Simmons",
@@ -46,10 +40,11 @@
         },
         "productionCompany": {
             "@type": "Organization",
-            "name": "sssstudios"
+            "name": "sssstudios",
+            "url": "https://claudewill.io/sss"
         },
-        "genre": ["Short Film", "AI-Generated", "Experimental", "Elegy"],
-        "thumbnailUrl": "https://claudewill.io/images/lightning-bug/og-poster.jpg"
+        "genre": ["Short Film", "AI-Generated", "Experimental", "Memoir"],
+        "thumbnailUrl": "https://claudewill.io/images/lightning-bug/og-poster-v11.jpg"
     }
     </script>
 
@@ -57,22 +52,19 @@
         :root {
             --cobalt-deep: #070d1a;
             --cobalt: #0a1628;
-            --amber: #d4a84b;          /* primary amber — emphasis */
-            --amber-soft: #b89346;     /* labels, captions — AA pass at small sizes */
-            --amber-faint: rgba(212, 168, 75, 0.08);  /* borders, dividers */
-            --text: #c8d0dc;           /* body */
-            --text-soft: #97a3b7;      /* secondary text — AA pass at small sizes */
+            --amber: #d4a84b;
+            --amber-deep: #cc6600;
+            --amber-soft: #b89346;
+            --amber-faint: rgba(212, 168, 75, 0.08);
+            --text: #c8d0dc;
+            --text-soft: #97a3b7;
             --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
             --serif: 'IBM Plex Serif', Georgia, serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth;
-            background: var(--cobalt-deep);
-        }
-
+        html { scroll-behavior: smooth; background: var(--cobalt-deep); }
         body {
             background: var(--cobalt);
             color: var(--text);
@@ -84,12 +76,13 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
         ::selection { background: var(--amber); color: var(--cobalt-deep); }
-
         img { display: block; max-width: 100%; }
 
-        /* Section divider — single centered amber glyph, breathing room between dense text sections */
+        a { color: var(--amber); text-decoration: none; border-bottom: 1px solid var(--amber-faint); transition: border-color 180ms ease; }
+        a:hover { border-bottom-color: var(--amber); }
+
+        /* Section divider */
         .section-mark {
             text-align: center;
             color: var(--amber-soft);
@@ -98,997 +91,301 @@
             margin: 0;
             padding: 4vh 0;
             letter-spacing: 0;
-            opacity: 0.5;
-            line-height: 1;
         }
 
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* ===== 1. THE CURSOR (hero) ===== */
-        .scene-cursor {
-            min-height: 100vh;
-            min-height: 100dvh;
+        /* HERO */
+        .scene-hero {
+            min-height: 80vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 2rem 1.5rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            background: var(--cobalt-deep);
+            padding: 8vh 1.5rem 6vh;
+            background: linear-gradient(180deg, var(--cobalt-deep) 0%, var(--cobalt) 100%);
         }
-        .hero-video {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center center;
-            z-index: 0;
-        }
-        /* Gentle vignette for type legibility — no grain, no filter, just a soft darkening at the corners. */
-        .scene-cursor::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(
-                ellipse at center,
-                rgba(7, 13, 26, 0) 0%,
-                rgba(7, 13, 26, 0) 42%,
-                rgba(7, 13, 26, 0.42) 100%
-            );
-            pointer-events: none;
-            z-index: 1;
-        }
-        /* Type-sync to storm — 10s loop, lightning strikes at 2.0s (20%) and 5.0s (50%). */
-        @keyframes weather-pulse {
-            0%, 16%  { filter: brightness(0.78); }
-            20%      { filter: brightness(1.32); }
-            26%      { filter: brightness(0.96); }
-            32%, 46% { filter: brightness(0.78); }
-            50%      { filter: brightness(1.32); }
-            56%      { filter: brightness(0.96); }
-            62%, 100%{ filter: brightness(0.78); }
-        }
-
-        .type-wrap {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.25rem;
-            max-width: 100%;
-            position: relative;
-            z-index: 2;
-            animation: weather-pulse 10s infinite;
-        }
-
-        .type-line {
+        .hero-title {
             font-family: var(--mono);
-            color: var(--amber);
             font-weight: 400;
-            font-size: clamp(1.75rem, 8vw, 4.25rem);
+            font-size: clamp(2.4rem, 8vw, 5rem);
+            color: var(--text);
             letter-spacing: -0.02em;
-            line-height: 1.1;
-            min-height: 1.1em;
+            line-height: 1.05;
         }
-
-        .type-sub {
+        .hero-dedication {
             font-family: var(--mono);
-            color: var(--text-soft);
-            font-size: clamp(0.82rem, 2.2vw, 1.05rem);
-            letter-spacing: 0.05em;
-            min-height: 1.2em;
-            font-weight: 400;
-        }
-
-        .cursor-block {
-            display: inline-block;
-            width: 0.5em;
-            height: 1em;
-            background: var(--amber);
-            vertical-align: -0.12em;
-            margin-left: 0.08em;
-            animation: blink 1.1s step-end infinite;
-        }
-
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-
-        .scroll-hint {
-            position: absolute;
-            bottom: 2.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: var(--mono);
-            font-size: 0.65rem;
-            color: var(--text-soft);
-            letter-spacing: 0.3em;
-            text-transform: lowercase;
-            opacity: 0;
-            animation: fade-in 1.6s ease-in 5.2s forwards;
-            pointer-events: none;
-        }
-
-        @keyframes fade-in {
-            from { opacity: 0; transform: translate(-50%, 6px); }
-            to { opacity: 0.7; transform: translate(-50%, 0); }
-        }
-
-        /* ===== 2. THE BREATH ===== */
-        .scene-breath {
-            padding: 22vh 2rem 12vh;
-            max-width: 34rem;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .scene-breath .logline {
-            font-family: var(--serif);
-            font-size: clamp(1.2rem, 3vw, 1.6rem);
-            line-height: 1.65;
-            color: var(--text);
-            font-style: italic;
-            font-weight: 300;
-        }
-        .scene-breath .logline + .logline {
-            margin-top: 2rem;
-            font-size: clamp(1.05rem, 2.5vw, 1.3rem);
-            color: var(--text-soft);
-        }
-        .scene-breath .meta {
-            font-family: var(--mono);
-            font-size: 0.68rem;
+            font-size: clamp(0.78rem, 1.6vw, 0.94rem);
             color: var(--amber-soft);
-            margin-top: 3.5rem;
-            letter-spacing: 0.3em;
-            text-transform: lowercase;
+            margin-top: 2.4rem;
+            letter-spacing: 0.06em;
         }
-
-        /* ===== 3.5 THE THESIS ===== */
-        .scene-thesis {
-            padding: 6vh 2rem 18vh;
-            max-width: 38rem;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .scene-thesis .twain {
-            font-family: var(--serif);
-            font-style: italic;
-            font-weight: 300;
-            font-size: clamp(0.95rem, 2.2vw, 1.15rem);
-            line-height: 1.65;
+        .hero-meta {
+            font-family: var(--mono);
+            font-size: 0.74rem;
             color: var(--text-soft);
-            border-left: 1px solid var(--amber-faint);
-            padding-left: 1.25rem;
-            text-align: left;
-            max-width: 30rem;
-            margin: 0 auto;
-        }
-        .scene-thesis .twain cite {
-            display: block;
-            margin-top: 0.6rem;
-            font-style: normal;
-            font-family: var(--mono);
-            font-size: 0.7rem;
-            color: var(--amber-soft);
-            letter-spacing: 0.1em;
-        }
-        .scene-thesis .twain-flip {
-            font-family: var(--mono);
-            font-size: 0.85rem;
-            color: var(--amber);
-            margin-top: 2rem;
-            letter-spacing: 0.02em;
-            line-height: 1.6;
-        }
-        .scene-thesis .press-logline {
-            font-family: var(--serif);
-            font-size: clamp(1.0rem, 2.4vw, 1.2rem);
-            line-height: 1.7;
-            color: var(--text);
-            margin-top: 3.5rem;
-            text-align: left;
-        }
-        .scene-thesis .press-logline em {
-            color: var(--amber);
-            font-style: italic;
-        }
-        .scene-thesis .genre {
-            font-family: var(--mono);
-            font-size: 0.68rem;
-            color: var(--amber-soft);
-            margin-top: 2.5rem;
-            letter-spacing: 0.3em;
-            text-transform: lowercase;
-        }
-
-        /* ===== 4. THE FIELD ===== */
-        .scene-field {
-            padding: 0;
-            background: var(--cobalt-deep);
-        }
-        .field-still {
-            width: 100%;
-            height: 85vh;
-            height: 85dvh;
-            min-height: 420px;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-            overflow: hidden;
-        }
-        .field-still::after {
-            content: attr(data-caption);
-            position: absolute;
-            bottom: 2rem;
-            left: 2rem;
-            right: 2rem;
-            font-family: var(--mono);
-            font-size: 0.68rem;
-            color: rgba(212, 168, 75, 0.55);
-            letter-spacing: 0.25em;
-            text-transform: lowercase;
-            opacity: 0;
-            transition: opacity 1s ease;
-            text-align: left;
-        }
-        .field-still.visible::after { opacity: 1; }
-
-        /* ===== 5. THE SEQUENCE ===== */
-        .scene-sequence {
-            padding: 18vh 2rem;
-            max-width: 38rem;
-            margin: 0 auto;
-        }
-        .scene-sequence h2 {
-            font-family: var(--mono);
-            font-size: 0.68rem;
-            color: var(--amber-soft);
-            letter-spacing: 0.35em;
+            margin-top: 1.2rem;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            margin-bottom: 3.5rem;
-            text-align: center;
-            font-weight: 500;
-        }
-        .seq-list {
-            list-style: none;
-        }
-        .seq-list li {
-            font-family: var(--mono);
-            padding: 0.9rem 0;
-            border-bottom: 1px solid var(--amber-faint);
-            display: flex;
-            align-items: baseline;
-            gap: 1.5rem;
-            font-size: clamp(0.88rem, 2.2vw, 1rem);
-            transition: color 0.3s;
-        }
-        .seq-list li:hover { color: var(--amber); }
-        .seq-list .num {
-            color: var(--amber-soft);
-            font-size: 0.7rem;
-            flex-shrink: 0;
-            width: 2.25rem;
-            letter-spacing: 0.08em;
-        }
-        .seq-list .name {
-            color: var(--amber);
-            letter-spacing: 0.02em;
-        }
-        .seq-list .dur {
-            color: var(--amber-soft);
-            font-size: 0.78rem;
-            margin-left: auto;
-            letter-spacing: 0.05em;
-            flex-shrink: 0;
-            font-variant-numeric: tabular-nums;
-        }
-        .seq-list .silence {
-            opacity: 0.5;
-            font-style: italic;
-        }
-        .seq-list .silence .name { color: var(--text-soft); }
-        .seq-list .silence .num { color: var(--text-soft); opacity: 0.5; }
-
-        /* ===== 5.5 THE FOUR HUMS ===== */
-        .scene-hums {
-            padding: 12vh 2rem 12vh;
-            max-width: 32rem;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .scene-hums h2 {
-            font-family: var(--mono);
-            font-size: 0.68rem;
-            color: var(--amber-soft);
-            letter-spacing: 0.35em;
-            text-transform: uppercase;
-            margin-bottom: 2.5rem;
-            font-weight: 500;
-        }
-        .hums-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 0.6rem;
-        }
-        .hums-list li {
-            font-family: var(--mono);
-            font-size: clamp(0.85rem, 2vw, 0.95rem);
-            display: flex;
-            align-items: baseline;
-            justify-content: center;
-            gap: 0.6rem;
-            padding: 0.4rem 0;
-        }
-        .hums-list .hum {
-            color: var(--amber);
-            text-align: right;
-            min-width: 11rem;
-        }
-        .hums-list .meaning {
-            color: var(--text-soft);
-            text-align: left;
-            min-width: 11rem;
         }
 
-        /* ===== 3.0 THE FILM (Vimeo embed) ===== */
+        /* FILM EMBED */
         .scene-film {
-            padding: 6vh 2rem 2vh;
-            max-width: 64rem;
+            padding: 4vh 1rem 4vh;
+            max-width: 60rem;
             margin: 0 auto;
         }
         .film-frame {
-            aspect-ratio: 16 / 9;
-            background: var(--cobalt-deep);
-            border: 1px solid var(--amber-faint);
-            overflow: hidden;
-            position: relative;
-        }
-        .film-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-        .film-meta-line {
-            font-family: var(--mono);
-            font-size: 0.7rem;
-            color: var(--text-soft);
-            letter-spacing: 0.2em;
-            text-align: center;
-            margin-top: 1rem;
-            text-transform: lowercase;
-        }
-
-        /* ===== 5.5b THE SONG ===== */
-        .scene-song {
-            padding: 10vh 2rem 8vh;
-            max-width: 38rem;
-            margin: 0 auto;
-        }
-        .scene-song h2 {
-            font-family: var(--serif);
-            font-style: italic;
-            font-size: clamp(1.4rem, 3.5vw, 1.9rem);
-            color: var(--amber);
-            text-align: center;
-            margin-bottom: 0.5rem;
-            font-weight: 300;
-        }
-        .song-credit {
-            font-family: var(--mono);
-            font-size: 0.7rem;
-            color: var(--text-soft);
-            text-align: center;
-            margin-bottom: 2.5rem;
-            letter-spacing: 0.18em;
-        }
-        .song-credit a {
-            color: var(--amber-soft);
-            text-decoration: none;
-            border-bottom: 1px solid var(--amber-faint);
-            transition: color 0.2s, border-color 0.2s;
-        }
-        .song-credit a:hover { color: var(--amber); border-color: var(--amber); }
-        .song-link {
-            text-align: center;
-            font-family: var(--mono);
-            font-size: 0.78rem;
-            margin-top: 1.5rem;
-        }
-        .song-link a {
-            color: var(--amber-soft);
-            text-decoration: none;
-            border-bottom: 1px solid var(--amber-faint);
-            padding-bottom: 0.2rem;
-            letter-spacing: 0.08em;
-            transition: color 0.2s, border-color 0.2s;
-        }
-        .song-link a:hover { color: var(--amber); border-bottom-color: var(--amber); }
-        .song-embed {
-            margin: 0 auto 2rem;
-            max-width: 760px;
-            width: 100%;
-        }
-        .song-embed iframe {
-            width: 100%;
-            max-width: 760px;
-            height: 240px;
-            border: 0;
-            display: block;
-        }
-        .song-lyrics, .song-liner { margin-top: 2.5rem; }
-        .song-lyrics h3, .song-liner h3 {
-            font-family: var(--mono);
-            font-size: 0.62rem;
-            color: var(--amber-soft);
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            margin-bottom: 1.2rem;
-            font-weight: 500;
-        }
-        .lyrics-block {
-            font-family: var(--serif);
-            font-style: italic;
-            font-size: clamp(0.95rem, 2vw, 1.05rem);
-            line-height: 1.7;
-            color: var(--text);
-            white-space: pre-wrap;
-            background: transparent;
-            padding-left: 1.25rem;
-            border-left: 1px solid var(--amber-faint);
-            margin: 0;
-        }
-        .song-liner p {
-            font-family: var(--serif);
-            font-size: clamp(0.95rem, 2vw, 1.05rem);
-            line-height: 1.75;
-            color: var(--text);
-            margin-bottom: 1.2em;
-            font-weight: 300;
-        }
-        .placeholder-note {
-            font-family: var(--mono);
-            font-size: 0.7rem;
-            color: var(--text-soft);
-            opacity: 0.5;
-            font-style: italic;
-        }
-
-        /* ===== 5.6 WHAT'S HUMAN · WHAT'S ARTIFICIAL ===== */
-        .scene-craft {
-            padding: 8vh 2rem 10vh;
-            max-width: 38rem;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .scene-craft h2 {
-            font-family: var(--mono);
-            font-size: 0.68rem;
-            color: var(--amber-soft);
-            letter-spacing: 0.35em;
-            text-transform: uppercase;
-            margin-bottom: 2.5rem;
-            font-weight: 500;
-        }
-        .craft-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1.4rem;
-            text-align: left;
-            max-width: 32rem;
-            margin: 0 auto;
-        }
-        .craft-list li {
-            font-family: var(--mono);
-            font-size: clamp(0.82rem, 2vw, 0.92rem);
-            line-height: 1.7;
-        }
-        .craft-list .label {
-            color: var(--amber);
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            font-size: 0.62rem;
-            display: block;
-            margin-bottom: 0.4rem;
-            font-weight: 500;
-        }
-        .craft-list .items {
-            color: var(--text-soft);
-            letter-spacing: 0.02em;
-        }
-
-        /* ===== 5.7 DIRECTOR'S NOTE ===== */
-        .scene-note {
-            padding: 8vh 2rem 8vh;
-            max-width: 36rem;
-            margin: 0 auto;
-            text-align: left;
-        }
-        .scene-note .note-lede {
-            font-family: var(--serif);
-            font-style: italic;
-            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-            line-height: 1.65;
-            color: var(--amber);
-            margin-bottom: 1.5em;
-        }
-        .scene-note .note-body {
-            font-family: var(--serif);
-            font-size: clamp(1rem, 2.3vw, 1.15rem);
-            line-height: 1.75;
-            color: var(--text);
-            font-weight: 300;
-            margin-bottom: 1.4em;
-        }
-        .scene-note .note-pivot {
-            font-style: italic;
-            color: var(--text-soft);
-            text-align: center;
-            margin: 2rem 0 2.5rem;
-        }
-        .scene-note .note-link {
-            text-align: center;
-            margin-top: 2.5rem;
-            font-family: var(--mono);
-            font-size: 0.78rem;
-            letter-spacing: 0.08em;
-        }
-        .scene-note .note-link a {
-            color: var(--amber-soft);
-            text-decoration: none;
-            border-bottom: 1px solid var(--amber-faint);
-            padding-bottom: 0.2rem;
-            transition: color 0.2s, border-color 0.2s;
-        }
-        .scene-note .note-link a:hover {
-            color: var(--amber);
-            border-bottom-color: var(--amber);
-        }
-        .scene-note .note-credit {
-            margin-top: 2.5rem;
-            font-family: var(--mono);
-            font-size: 0.72rem;
-            color: var(--amber-soft);
-            letter-spacing: 0.08em;
-        }
-
-        /* ===== 6. THE CREW ===== */
-        .scene-crew {
-            padding: 8vh 2rem 6vh;
-            text-align: center;
-            max-width: 40rem;
-            margin: 0 auto;
-        }
-        .crew-line {
-            font-family: var(--mono);
-            font-size: 0.9rem;
-            color: var(--text);
-            margin: 1.75rem 0;
-            letter-spacing: 0.04em;
-        }
-        .crew-line .label {
-            color: var(--amber-soft);
-            font-size: 0.64rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        .crew-line .val {
-            color: var(--amber);
-            font-weight: 400;
-        }
-        .crew-line .val em {
-            font-style: italic;
-            color: var(--amber-soft);
-        }
-        .crew-line .dedication {
-            display: block;
-            margin-top: 0.85rem;
-            font-family: var(--serif);
-            font-style: italic;
-            font-weight: 300;
-            font-size: 0.95rem;
-            color: var(--text);
-            letter-spacing: 0;
-        }
-        .crew-line a {
-            color: inherit;
-            text-decoration: none;
-            border-bottom: 1px solid var(--amber-faint);
-            transition: border-color 0.2s;
-        }
-        .crew-line a:hover { border-color: var(--amber); }
-
-        /* ===== 7. FOOTER ===== */
-        .scene-footer {
-            padding: 5rem 2rem 4rem;
-            border-top: 1px solid var(--amber-faint);
-            text-align: center;
-            font-family: var(--mono);
-            font-size: 0.68rem;
-            color: var(--text-soft);
-            letter-spacing: 0.15em;
-            background: var(--cobalt-deep);
-        }
-        .scene-footer .links a {
-            color: var(--amber-soft);
-            text-decoration: none;
-            padding: 0.3rem 0.75rem;
-            transition: color 0.2s;
-            display: inline-block;
-        }
-        .scene-footer .links a:hover { color: var(--amber); }
-        .scene-footer .dots {
-            color: var(--text-soft);
-            opacity: 0.4;
-        }
-        .scene-footer .colophon {
-            margin-top: 2.5rem;
-            font-size: 0.62rem;
-            color: var(--text-soft);
-            opacity: 0.7;
-            letter-spacing: 0.2em;
-        }
-        .scene-footer .colophon-sub {
-            margin-top: 0.6rem;
-            font-style: italic;
-            font-family: var(--serif);
-            font-size: 0.7rem;
-            letter-spacing: 0.05em;
-            opacity: 0.55;
-            text-transform: none;
-        }
-
-        /* ===== MOTION / A11Y ===== */
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-            .cursor-block { animation: none; opacity: 0.9; }
-            .scroll-hint { animation: none; opacity: 0.7; }
-            .field-still.visible::after { transition: none; }
-            .type-wrap { animation: none; }
-            .hero-video { display: none; }
-            .scene-cursor {
-                background: radial-gradient(ellipse 80% 60% at 50% 45%, #13233b 0%, var(--cobalt) 60%, var(--cobalt-deep) 100%);
-            }
-        }
-
-        /* ===== MOBILE ===== */
-        @media (max-width: 640px) {
-            .scene-cursor { padding: 1.5rem 1rem; }
-            .type-line { font-size: 2.1rem; letter-spacing: -0.015em; }
-            .type-sub { font-size: 0.78rem; }
-            .scroll-hint { font-size: 0.6rem; bottom: 2rem; }
-
-            .scene-poster { height: 70vh; height: 70dvh; }
-            .scene-breath { padding: 16vh 1.25rem 8vh; }
-            .scene-breath .meta { margin-top: 2.5rem; }
-
-            .scene-thesis { padding: 4vh 1.25rem 12vh; }
-            .scene-thesis .twain { padding-left: 1rem; font-size: 0.92rem; }
-            .scene-thesis .press-logline { font-size: 1rem; margin-top: 2.5rem; }
-            .scene-thesis .genre { letter-spacing: 0.2em; }
-
-            .field-still { height: 72vh; height: 72dvh; min-height: 360px; }
-            .field-still::after { bottom: 1.25rem; left: 1.25rem; right: 1.25rem; font-size: 0.62rem; }
-
-            .scene-sequence { padding: 14vh 1.25rem; }
-            .scene-sequence h2 { margin-bottom: 2.5rem; }
-            .seq-list li { gap: 1rem; padding: 0.75rem 0; }
-            .seq-list .num { width: 1.75rem; font-size: 0.62rem; }
-
-            .scene-hums { padding: 9vh 1.25rem 9vh; }
-            .scene-hums h2 { margin-bottom: 2rem; }
-            .hums-list .hum { min-width: 8.5rem; }
-            .hums-list .meaning { min-width: 7.5rem; }
-
-            .scene-craft { padding: 6vh 1.25rem 8vh; }
-            .scene-craft h2 { margin-bottom: 2rem; }
-            .scene-note { padding: 10vh 1.25rem 3vh; }
-            .scene-note .note-lede { font-size: 1.08rem; }
-            .scene-note .note-body { font-size: 1rem; }
-
-            .scene-crew { padding: 12vh 1.25rem 4vh; }
-            .crew-line .dedication { font-size: 0.88rem; }
-
-            .scene-footer { padding: 3.5rem 1.25rem 3rem; }
-            .scene-footer .links a { padding: 0.3rem 0.5rem; }
-            .scene-footer .dots { display: inline-block; padding: 0 0.1rem; }
-        }
-
-        @media (min-width: 1200px) {
-            .field-still { height: 90vh; }
-        }
-
-        /* ===== FULL-WIDTH STILL BREAKERS ===== */
-        .full-width-still {
-            width: 100%;
-            height: 60vh;
-            min-height: 360px;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            margin: 0;
-        }
-        @media (max-width: 640px) {
-            .full-width-still { height: 38vh; min-height: 220px; }
-        }
-
-        /* ===== COLLAPSIBLE SECTIONS ===== */
-        details.scene-fold {
-            max-width: 48rem;
-            margin: 0 auto;
-            padding: 4vh 2rem;
-            border-top: 1px solid var(--amber-faint, rgba(212, 168, 75, 0.08));
-        }
-        details.scene-fold > summary {
-            list-style: none;
-            cursor: pointer;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.74rem;
-            letter-spacing: 0.32em;
-            text-transform: uppercase;
-            color: var(--amber-soft, #b89346);
-            padding: 1rem 0;
-            text-align: center;
-            transition: color 0.2s;
-        }
-        details.scene-fold > summary::-webkit-details-marker { display: none; }
-        details.scene-fold > summary:hover { color: var(--amber, #d4a84b); }
-        details.scene-fold > summary::after {
-            content: " · expand ↓";
-            opacity: 0.5;
-            font-size: 0.66rem;
-        }
-        details.scene-fold[open] > summary::after {
-            content: " · collapse ↑";
-        }
-        details.scene-fold > .fold-body {
-            padding: 2vh 0 4vh;
-        }
-        @media (max-width: 640px) {
-            details.scene-fold { padding: 3vh 1.25rem; }
-        }
-
-        /* ===== BOOKEND HERO (bottom) ===== */
-        .scene-bookend {
             position: relative;
             width: 100%;
-            min-height: 80vh;
-            overflow: hidden;
+            padding-top: 56.25%; /* 16:9 */
             background: #000;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            color: #c8d0dc;
+            border: 1px solid var(--amber-faint);
         }
-        .scene-bookend video.bookend-video {
+        .film-frame iframe {
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            z-index: 0;
-            opacity: 0.85;
+            border: 0;
         }
-        .scene-bookend::after {
-            /* dark gradient at bottom for legibility of credit text */
-            content: "";
-            position: absolute;
-            left: 0; right: 0; bottom: 0;
-            height: 60%;
-            background: linear-gradient(to top, rgba(7,13,26,0.92) 0%, rgba(7,13,26,0.72) 50%, rgba(7,13,26,0) 100%);
-            z-index: 1;
-            pointer-events: none;
-        }
-        .scene-bookend .bookend-title {
-            position: relative;
-            z-index: 2;
+        .film-meta {
+            font-family: var(--mono);
+            font-size: 0.74rem;
+            color: var(--text-soft);
             text-align: center;
-            padding: 14vh 2rem 2vh;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: clamp(1.3rem, 4vw, 2rem);
-            letter-spacing: -0.01em;
-            color: #d4a84b;
-        }
-        .scene-bookend .bookend-credits {
-            position: relative;
-            z-index: 2;
-            max-width: 36rem;
-            margin: 0 auto;
-            padding: 4vh 2rem 8vh;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.78rem;
-            line-height: 1.85;
-            letter-spacing: 0.04em;
-        }
-        .scene-bookend .bookend-credits .row { display: flex; gap: 1.2rem; margin-bottom: 0.5rem; }
-        .scene-bookend .bookend-credits .label { color: var(--amber-soft, #b89346); min-width: 8rem; text-transform: lowercase; letter-spacing: 0.18em; font-size: 0.7rem; }
-        .scene-bookend .bookend-credits .val { color: #c8d0dc; }
-        .scene-bookend .bookend-credits .val a { color: #d4a84b; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
-        .scene-bookend .bookend-credits .val a:hover { border-bottom-color: #d4a84b; }
-        .scene-bookend .bookend-credits .dedication {
-            display: block;
-            margin-top: 2rem;
-            font-family: 'IBM Plex Serif', serif;
-            font-style: italic;
-            font-size: 0.95rem;
-            color: #d4a84b;
-            text-align: center;
-            line-height: 1.5;
-        }
-        @media (max-width: 640px) {
-            .scene-bookend { min-height: 60vh; }
-            .scene-bookend .bookend-credits { padding: 3vh 1.25rem 6vh; font-size: 0.74rem; }
-            .scene-bookend .bookend-credits .row { flex-direction: column; gap: 0.1rem; margin-bottom: 0.7rem; }
-            .scene-bookend .bookend-credits .label { font-size: 0.66rem; }
+            margin-top: 1.4rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
         }
 
-        /* ===== GALLERY CAROUSEL (edge-to-edge, scroll-snap, arrows) ===== */
-        .gallery-wrap {
-            position: relative;
-            width: 100%;
+        /* CONTENT SECTIONS */
+        .scene-text {
+            max-width: 36rem;
+            margin: 0 auto;
+            padding: 4vh 1.5rem;
         }
-        .gallery-track {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            -webkit-overflow-scrolling: touch;
-        }
-        .gallery-track::-webkit-scrollbar { display: none; }
-        .gallery-slide {
-            flex-shrink: 0;
-            width: 100%;
-            min-width: 100%;
-            scroll-snap-align: start;
-            position: relative;
-            height: 80vh;
-            min-height: 480px;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        .gallery-slide .caption {
-            position: absolute;
-            left: 2rem;
-            bottom: 2rem;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.74rem;
-            color: var(--amber, #d4a84b);
-            letter-spacing: 0.18em;
-            text-transform: lowercase;
-            text-shadow: 0 1px 8px rgba(0,0,0,0.7);
-        }
-        .gallery-slide .index {
-            position: absolute;
-            right: 2rem;
-            bottom: 2rem;
-            font-family: 'IBM Plex Mono', monospace;
+        .scene-text p { margin-bottom: 1.4rem; }
+        .scene-text p:last-child { margin-bottom: 0; }
+
+        .label {
+            font-family: var(--mono);
             font-size: 0.7rem;
-            color: var(--amber-soft, #b89346);
-            letter-spacing: 0.12em;
-            text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+            color: var(--amber-soft);
+            letter-spacing: 0.36em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            text-align: center;
         }
-        .gallery-arrow {
+
+        /* THESIS — three lines, big, breathing */
+        .scene-thesis {
+            max-width: 40rem;
+            margin: 4vh auto;
+            padding: 4vh 1.5rem;
+            text-align: center;
+        }
+        .thesis-line {
+            font-family: var(--mono);
+            font-weight: 300;
+            font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+            color: var(--text);
+            margin: 0 0 1.5rem;
+            letter-spacing: 0.02em;
+            line-height: 1.45;
+        }
+        .thesis-line:last-child { margin-bottom: 0; }
+        .thesis-line em {
+            color: var(--amber);
+            font-style: normal;
+        }
+
+        /* DETAILS / FOLDS */
+        details.fold {
+            border-top: 1px solid var(--amber-faint);
+            border-bottom: 1px solid var(--amber-faint);
+            margin: 2vh 0;
+        }
+        details.fold > summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 1.6rem 1.5rem;
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            color: var(--amber-soft);
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            text-align: center;
+            position: relative;
+        }
+        details.fold > summary::-webkit-details-marker { display: none; }
+        details.fold > summary::after {
+            content: "+";
             position: absolute;
+            right: 1.5rem;
             top: 50%;
             transform: translateY(-50%);
-            z-index: 5;
-            background: rgba(7,13,26,0.5);
-            border: 1px solid rgba(212,168,75,0.3);
-            color: var(--amber, #d4a84b);
-            width: 3rem;
-            height: 3rem;
-            border-radius: 50%;
-            cursor: pointer;
+            color: var(--amber-soft);
             font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s, border-color 0.2s;
+            font-weight: 400;
         }
-        .gallery-arrow:hover { background: rgba(7,13,26,0.8); border-color: var(--amber, #d4a84b); }
-        .gallery-arrow.prev { left: 1.25rem; }
-        .gallery-arrow.next { right: 1.25rem; }
-        .gallery-arrow:disabled { opacity: 0.25; cursor: default; }
-        @media (max-width: 640px) {
-            .gallery-slide { height: 60vh; min-height: 320px; }
-            .gallery-slide .caption, .gallery-slide .index { font-size: 0.66rem; bottom: 1rem; }
-            .gallery-slide .caption { left: 1rem; }
-            .gallery-slide .index { right: 1rem; }
-            .gallery-arrow { width: 2.4rem; height: 2.4rem; font-size: 1rem; }
-            .gallery-arrow.prev { left: 0.5rem; }
-            .gallery-arrow.next { right: 0.5rem; }
+        details.fold[open] > summary::after { content: "−"; }
+        details.fold > summary:hover { color: var(--amber); }
+        .fold-body {
+            padding: 1rem 1.5rem 4rem;
+        }
+
+        /* CREDITS BLOCK */
+        .credits {
+            font-family: var(--mono);
+            font-size: 0.82rem;
+            color: var(--text-soft);
+            line-height: 1.9;
+            text-align: center;
+            padding: 6vh 1.5rem;
+            max-width: 36rem;
+            margin: 0 auto;
+        }
+        .credits .credit-line { margin-bottom: 0.4rem; }
+        .credits .credit-label {
+            color: var(--amber-soft);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-right: 0.8em;
+        }
+
+        /* MADE WITH — technical breakdown */
+        .made-with {
+            font-family: var(--mono);
+            font-size: 0.82rem;
+            color: var(--text-soft);
+            line-height: 1.7;
+            text-align: left;
+            max-width: 36rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .made-with li {
+            list-style: none;
+            margin-bottom: 0.6rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .made-with li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: var(--amber-soft);
+        }
+        .made-with strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* FOOTER */
+        .colophon {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--amber-soft);
+            text-align: center;
+            padding: 6vh 1.5rem 4vh;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+        .colophon-links {
+            margin-top: 1.4rem;
+            font-size: 0.74rem;
+            letter-spacing: 0.1em;
+            text-transform: none;
+        }
+        .colophon-links a { margin: 0 0.6rem; }
+
+        /* SONG section uses existing styling from old page — keep verses tight */
+        .verse {
+            margin-bottom: 1.6rem;
+            padding-left: 1rem;
+            border-left: 1px solid var(--amber-faint);
+        }
+        .verse-label {
+            display: block;
+            font-family: var(--mono);
+            font-size: 0.66rem;
+            color: var(--amber-soft);
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+        }
+        .verse p {
+            font-family: var(--serif);
+            font-style: italic;
+            font-weight: 300;
+            color: var(--text);
+            line-height: 1.7;
+            margin: 0;
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. THE CURSOR (hero — storm + type sync) -->
-    <section class="scene-cursor" aria-label="title">
-        <video class="hero-video"
-               autoplay muted loop playsinline preload="auto"
-               width="960" height="540"
-               poster="/images/lightning-bug/hero-poster-storm.jpg"
-               aria-hidden="true">
-            <source src="/video/lightning-bug-hero-storm.mp4" type="video/mp4">
-        </video>
-        <div class="type-wrap">
-            <h1 class="type-line" id="title">
-                <span class="sr-only">lightning/bug</span>
-            </h1>
-            <div class="type-sub" id="subtitle" aria-hidden="true"></div>
+    <!-- HERO -->
+    <section class="scene-hero" aria-label="title">
+        <div>
+            <h1 class="hero-title">lightning/bug</h1>
+            <p class="hero-dedication">dedicated to moms and the light they share</p>
+            <p class="hero-meta">a short film · 5:47 · 2026</p>
         </div>
-        <div class="scroll-hint" aria-hidden="true">scroll</div>
     </section>
 
-    <!-- 3. THE BREATH -->
-    <section class="scene-breath" aria-label="logline">
-        <p class="logline">Two kinds of light. A boy in a can. A bug on a bat.</p>
-        <p class="logline">The land is mostly flat. The names matter.</p>
-        <div class="meta"><!-- AUTO:meta-duration:start -->
-a short film · 7:15 · 2026
-            <!-- AUTO:meta-duration:end --></div>
-    </section>
+    <p class="section-mark">·</p>
 
-    <!-- 3.0a STORY LEDE — paired with the film embed below -->
-    <section class="scene-note" aria-label="director's note lede">
-        <p class="note-lede">I had a dream about a summer evening in Kansas in 1983.</p>
-    </section>
-
-    <!-- 3.0 THE FILM -->
+    <!-- FILM EMBED — v11 -->
     <section class="scene-film" aria-label="watch the film">
         <div class="film-frame">
-            <!-- AUTO:film-embed:start -->
-            <iframe src="https://player.vimeo.com/video/1187003933?h=e5eb888a50&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;loop=1"
+            <iframe src="https://player.vimeo.com/video/1190814115?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                     frameborder="0"
                     allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"
                     title="lightning/bug"></iframe>
-            <!-- AUTO:film-embed:end -->
         </div>
-        <p class="film-meta-line">7:15 · sssstudios · 2026</p>
+        <p class="film-meta">5:47 · sssstudios · 2026 · for sandra</p>
     </section>
 
-    <!-- 3.1 BREAKER #1 — amber dance -->
-    <div class="full-width-still" style="background-image: url('/images/lightning-bug/04-amber-02-dance-A-original-abundance.png');" aria-hidden="true"></div>
+    <p class="section-mark">·</p>
 
-    <!-- 3.5 THE THESIS — collapsible, expanded by default -->
-    <details class="scene-fold" aria-label="thesis" open>
-        <summary>the thinking</summary>
-        <div class="fold-body scene-thesis">
-            <blockquote class="twain">
-                "The difference between the almost right word and the right word is the difference between the lightning bug and the lightning."
-                <cite>— Mark Twain</cite>
-            </blockquote>
-            <p class="twain-flip">Twain meant lightning. He was wrong. The bug is the title. The bug is the film.</p>
-            <p class="press-logline">Firefly populations have declined 30&ndash;50% in recent decades. We know why. We keep the lights on. <em>lightning/bug</em> is a 7-minute American elegy for small lights dying because of larger ones &mdash; and for the divided will that watches it happen and can&rsquo;t stop. <em>&ldquo;For what I would, that do I not; but what I hate, that I do.&rdquo;</em> &mdash; Romans 7:15</p>
-            <div class="genre">an american elegy · 7:15 · reno county, kansas</div>
+    <!-- THESIS -->
+    <section class="scene-thesis" aria-label="thesis">
+        <p class="thesis-line">lightning bugs are mostly gone.</p>
+        <p class="thesis-line">lightning increasingly fierce.</p>
+        <p class="thesis-line"><em>stars still fall.</em></p>
+    </section>
+
+    <p class="section-mark">·</p>
+
+    <!-- LEDE: who Sandra was -->
+    <section class="scene-text" aria-label="for sandra">
+        <p class="label">for sandra</p>
+        <p>Sandra Sue Simmons (1944&ndash;2025) loved seeing the byline. Thirty years in the newspaper, her son's name above the line. The byline was the constant; what was written underneath changed shape constantly &mdash; but Sandra always saw the name first.</p>
+        <p>She passed on June 28, 2025. She was 80.</p>
+        <p>This film is for her, and for every mother who watched her kid&rsquo;s small light, never doubting it would catch.</p>
+    </section>
+
+    <!-- DIRECTOR'S STATEMENT -->
+    <details class="fold" aria-label="director's statement">
+        <summary>director&rsquo;s statement</summary>
+        <div class="fold-body scene-text">
+            <p>I lost my mother on June 28, 2025. She was 80. She had loved seeing my byline in the newspaper for 30 years &mdash; the byline was the constant; what I wrote underneath it changed shape constantly, but Sandra always saw the name first.</p>
+            <p>When I lost the byline two months before I lost her, I lost both at once. <em>lightning/bug</em> is what came back.</p>
+            <p>The film was made entirely in a terminal &mdash; text editor, ffmpeg, AI image and video models, and Claude Code as collaborator. No traditional editing suite. No camera. Voicemails I had saved on my phone became the only direct recordings of family voices in the film. Everything else was generated, composited, or constructed from those voicemails outward.</p>
+            <p>The thesis of the film: lightning bugs are mostly gone. Lightning is increasingly fierce. Stars still fall. We built these tools to remember.</p>
+            <p style="margin-top:2rem; font-family:var(--mono); font-size:0.78rem; color:var(--amber-soft); letter-spacing:0.05em;">&mdash; Derek Simmons, sssstudios</p>
         </div>
     </details>
 
-    <!-- 3.6 BREAKER #2 — floating porch -->
-    <div class="full-width-still" style="background-image: url('/images/lightning-bug/floating-porch.png');" aria-hidden="true"></div>
-
-    <!-- 4. THE SONG — collapsible (audio + lyrics + liner notes folded in from former /song/ subpage) -->
-    <details class="scene-fold" aria-label="the song">
+    <!-- THE SONG -->
+    <details class="fold" aria-label="the song">
         <summary>the song · here we are, kid</summary>
-        <div class="fold-body" style="text-align:center;">
-            <p style="font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--amber-soft, #b89346); letter-spacing:0.08em; margin:0 0 1.5rem;">words + voice · Derek Claude Simmons &middot; performance · <a href="https://suno.com/@deekers" target="_blank" rel="noopener" style="color:inherit;">@deekers on suno</a></p>
+        <div class="fold-body scene-text">
+            <p style="font-family:var(--mono); font-size:0.78rem; color:var(--amber-soft); letter-spacing:0.08em; text-align:center; margin-bottom:2rem;">words + voice · Derek Claude Simmons &middot; performance · <a href="https://suno.com/@deekers" target="_blank" rel="noopener">@deekers on suno</a></p>
+
             <audio controls preload="metadata"
                    src="/audio/here-we-are-kid.mp3"
                    type="audio/mpeg"
@@ -1096,266 +393,83 @@ a short film · 7:15 · 2026
                 Your browser does not support the audio element.
             </audio>
 
-            <div style="text-align:left; max-width:32rem; margin:0 auto;">
-                <h3 style="font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color:var(--amber-soft, #b89346); letter-spacing:0.35em; text-transform:uppercase; text-align:center; margin:3rem 0 2rem;">lyrics</h3>
+            <p class="label">lyrics</p>
 
-                <div class="verse"><span class="verse-label">intro</span><p>Here we are.</p></div>
-                <div class="verse"><span class="verse-label">verse 1</span><p>Came all this way, must be something to say.<br>Sun-kissed tea sweatin from a porch, stolen.<br>Sky all swollen, all knowin.<br>Many dents on this damn frame, ain't it a shame?<br>Oh well, here we are, kid. Here we are, I kid.<br>Crack the lid.</p></div>
-                <div class="verse"><span class="verse-label">chorus</span><p>She wanted to run somewhere far.<br>A shootin star, look at her glo-glo-glowin.<br>Wanted to run somewhere far.<br>Here we are, kid, it's showin.</p></div>
-                <div class="verse"><span class="verse-label">verse 2</span><p>Gotta master plan; wonderin bout a tin man.<br>Bolts chasin the wheat, or is it the cheat?<br>Forgot how to sleep; worryin without a peep.<br>Here we are, boss, looks bleak.<br>But here we are, ain't nothin neat.</p></div>
-                <div class="verse"><span class="verse-label">chorus</span><p>She wanted to run, run, run. Somewhere far.<br>In the wind again, that familiar friend.<br>Wanted to run somewhere far.<br>Well here we are, kid.</p></div>
-                <div class="verse"><span class="verse-label">verse 3</span><p>You gotta go home, get outta that chair.<br>I'll give you a ride, sit shotgun there, it's only fair.<br>Don't go it alone, chuck an ole dog a bone.<br>Shit's bout get lit, doggone it.<br>Cuz here we are, kin. Here we are, kin.<br>With all the pretty sins.</p></div>
-                <div class="verse"><span class="verse-label">chorus — drums enter</span><p>She wanted to run. Somewhere far.<br>Feet free, soarin. Feels so foreign.<br>Who needs high when you can go double wide?<br>Wanted to run somewhere far.<br>Wanted to run. She wanted to run. Wanted to run.<br>So flip the fuckin switch, find the pitch.<br>Sounds a howlin, that train whistlin, sis.<br>Here we are, growlin.</p></div>
-                <div class="verse"><span class="verse-label">bridge — solo voice</span><p style="font-style:italic; color:var(--amber, #d4a84b);">Son of a young gun, run.<br>Last or once more, for fun.<br>Nother run just begun.</p></div>
-                <div class="verse"><span class="verse-label">outro</span><p style="font-style:italic; color:var(--amber, #d4a84b);">Run, our Kansas goldbug.<br>Catch ya and grab a hug.<br>Wavin wheat says bye, it's a lie.</p><p style="font-style:italic; color:var(--amber, #d4a84b);">You won, kid.<br>Runnin, tag, you're it again.<br>Gunnin, criss-cross, hot willful wind.<br>Runnin, somewhere far, off course.<br>We'll gaze tonight from the porch.<br>Run, kid, shoot them stars.</p><p style="font-style:italic; color:var(--amber, #d4a84b);">Here we are.</p></div>
+            <div class="verse"><span class="verse-label">intro</span><p>Here we are.</p></div>
+            <div class="verse"><span class="verse-label">verse 1</span><p>Came all this way, must be something to say.<br>Sun-kissed tea sweatin from a porch, stolen.<br>Sky all swollen, all knowin.<br>Many dents on this damn frame, ain&rsquo;t it a shame?<br>Oh well, here we are, kid. Here we are, I kid.<br>Crack the lid.</p></div>
+            <div class="verse"><span class="verse-label">chorus</span><p>She wanted to run somewhere far.<br>A shootin star, look at her glo-glo-glowin.<br>Wanted to run somewhere far.<br>Here we are, kid, it&rsquo;s showin.</p></div>
+            <div class="verse"><span class="verse-label">verse 2</span><p>Gotta master plan; wonderin bout a tin man.<br>Bolts chasin the wheat, or is it the cheat?<br>Forgot how to sleep; worryin without a peep.<br>Here we are, boss, looks bleak.<br>But here we are, ain&rsquo;t nothin neat.</p></div>
+            <div class="verse"><span class="verse-label">chorus</span><p>She wanted to run, run, run. Somewhere far.<br>In the wind again, that familiar friend.<br>Wanted to run somewhere far.<br>Well here we are, kid.</p></div>
+            <div class="verse"><span class="verse-label">verse 3</span><p>You gotta go home, get outta that chair.<br>I&rsquo;ll give you a ride, sit shotgun there, it&rsquo;s only fair.<br>Don&rsquo;t go it alone, chuck an ole dog a bone.<br>Shit&rsquo;s bout get lit, doggone it.<br>Cuz here we are, kin. Here we are, kin.<br>With all the pretty sins.</p></div>
+            <div class="verse"><span class="verse-label">chorus — drums enter</span><p>She wanted to run. Somewhere far.<br>Feet free, soarin. Feels so foreign.<br>Who needs high when you can go double wide?<br>Wanted to run somewhere far.<br>Wanted to run. She wanted to run. Wanted to run.<br>So flip the fuckin switch, find the pitch.<br>Sounds a howlin, that train whistlin, sis.<br>Here we are, growlin.</p></div>
+            <div class="verse"><span class="verse-label">bridge — solo voice</span><p style="color:var(--amber);">Son of a young gun, run.<br>Last or once more, for fun.<br>Nother run just begun.</p></div>
+            <div class="verse"><span class="verse-label">outro</span><p style="color:var(--amber);">Run, our Kansas goldbug.<br>Catch ya and grab a hug.<br>Wavin wheat says bye, it&rsquo;s a lie.</p><p style="color:var(--amber);">You won, kid.<br>Runnin, tag, you&rsquo;re it again.<br>Gunnin, criss-cross, hot willful wind.<br>Runnin, somewhere far, off course.<br>We&rsquo;ll gaze tonight from the porch.<br>Run, kid, shoot them stars.</p><p style="color:var(--amber);">Here we are.</p></div>
 
-                <h3 style="font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color:var(--amber-soft, #b89346); letter-spacing:0.35em; text-transform:uppercase; text-align:center; margin:4rem 0 2rem;">liner notes</h3>
+            <p class="label" style="margin-top:4rem;">liner notes</p>
 
-                <p>My mother called everyone <em>kid</em>. Not a pet name &mdash; a position. <em>You're here. I see you.</em> Sandra said it the way other people say <em>you know</em>. Constantly. All her life.</p>
-                <p>She went to high school in Alva, Oklahoma. Home of the Alva High Goldbugs. A goldbug is a beetle. In this film it's a firefly &mdash; the kind that glows. The kind you chase. That was her.</p>
-                <p><em>"Bolts chasin the wheat, or is it the cheat?"</em> &mdash; cheatgrass is a weed that invades wheat fields and mimics wheat so well the combine can't always tell. Lightning chases both. I used to think I was better at telling the difference.</p>
-                <p>The tin man is real. I made this film with an AI sitting in an aluminum can on my desk. It doesn't have a heart. I'm not sure it needed one. We both just wanted to see it.</p>
-                <p><em>"With all the pretty sins"</em> is the line that forgives the whole thing. Sandra earned it. Shannon earned it. So did the bug.</p>
-                <p>The music is Suno. The voice is mine. The words belong to Nickerson, Kansas, 1983. I just wrote them down.</p>
+            <p>My mother called everyone <em>kid</em>. Not a pet name &mdash; a position. <em>You&rsquo;re here. I see you.</em> Sandra said it the way other people say <em>you know</em>. Constantly. All her life.</p>
+            <p>She went to high school in Alva, Oklahoma. Home of the Alva High Goldbugs. A goldbug is a beetle. In this film it&rsquo;s a firefly &mdash; the kind that glows. The kind you chase. That was her.</p>
+            <p><em>&ldquo;Bolts chasin the wheat, or is it the cheat?&rdquo;</em> &mdash; cheatgrass is a weed that invades wheat fields and mimics wheat so well the combine can&rsquo;t always tell. Lightning chases both. I used to think I was better at telling the difference.</p>
+            <p>The tin man is real. I made this film with an AI sitting in an aluminum can on my desk. It doesn&rsquo;t have a heart. I&rsquo;m not sure it needed one. We both just wanted to see it.</p>
+            <p><em>&ldquo;With all the pretty sins&rdquo;</em> is the line that forgives the whole thing. Sandra earned it. Shannon earned it. So did the bug.</p>
+            <p>The music is Suno. The voice is mine. The words belong to Nickerson, Kansas, 1983. I just wrote them down.</p>
 
-                <p style="margin-top:2.5rem; font-family:'IBM Plex Mono', monospace; font-size:0.74rem; letter-spacing:0.05em; color:var(--amber-soft, #b89346);">
-                    &mdash; <span style="color:var(--amber, #d4a84b);">Derek Claude Simmons</span><br>
-                    Reno County, Kansas via Woodbury, Minnesota<br>
-                    April 13, 2026 &middot; updated May 6, 2026
-                </p>
-
-                <p style="margin-top:2rem; text-align:center;">
-                    <a href="https://derek4thecws.substack.com/p/here-we-are-kid" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono', monospace; font-size:0.74rem; color:var(--amber, #d4a84b); text-decoration:none; letter-spacing:0.06em;">also on substack &rarr;</a>
-                </p>
-            </div>
+            <p style="margin-top:2.5rem; font-family:var(--mono); font-size:0.74rem; color:var(--amber-soft); letter-spacing:0.05em;">
+                &mdash; <span style="color:var(--amber);">Derek Claude Simmons</span><br>
+                Reno County, Kansas via Woodbury, Minnesota<br>
+                April 13, 2026 &middot; updated for v11 May 9, 2026
+            </p>
         </div>
     </details>
 
-    <!-- 5. WHAT'S HUMAN · ARTIFICIAL — collapsible -->
-    <details class="scene-fold" aria-label="craft">
-        <summary>what's human · what's artificial</summary>
-        <div class="fold-body scene-craft">
-            <ul class="craft-list">
-                <li><span class="label">human</span><span class="items">the voice · sandra's voicemails · the 1983 newscast · the memory · the dream</span></li>
-                <li><span class="label">artificial</span><span class="items">the stills · the video clips · the assembly pipeline · the four hums</span></li>
-                <li><span class="label">both</span><span class="items">the script · the color grading · the sound design · the decision to reject the AI voice · the film</span></li>
+    <!-- MADE WITH -->
+    <details class="fold" aria-label="how it was made">
+        <summary>how it was made</summary>
+        <div class="fold-body">
+            <p class="label" style="margin-bottom:1.4rem;">no camera. no editing suite. one terminal.</p>
+            <ul class="made-with">
+                <li><strong>Claude Code</strong> &mdash; collaborator across every session. Shaped the film by hand, in terminal.</li>
+                <li><strong>ffmpeg</strong> &mdash; every cut, every transition, every render.</li>
+                <li><strong>Runway Gen-4.5</strong> &mdash; image and video generation.</li>
+                <li><strong>Kling</strong> &mdash; motion sequences and visual continuity.</li>
+                <li><strong>Suno</strong> &mdash; <em>Here We Are, Kid</em> performance (words + voice by Derek; performance by @deekers).</li>
+                <li><strong>OpenAI Whisper</strong> &mdash; voicemail transcription, caption verification.</li>
+                <li><strong>PIL / Pillow</strong> &mdash; photo composites, Sandra dedication frame.</li>
+                <li><strong>libx264 (tune=grain)</strong> &mdash; final encode, BT.709 limited range.</li>
+                <li><strong>Voicemails</strong> &mdash; the only direct recordings. Sandra, Shannon, Sheri.</li>
             </ul>
+            <p style="margin-top:2.4rem; text-align:center; font-family:var(--mono); font-size:0.74rem; color:var(--amber-soft); letter-spacing:0.05em;">
+                Built across April&ndash;May 2026.
+            </p>
         </div>
     </details>
 
-    <!-- 6. DIRECTOR'S NOTE (FULL) — collapsible (lede already shown above) -->
-    <details class="scene-fold" aria-label="director's note">
-        <summary>director's note</summary>
-        <div class="fold-body scene-note">
-            <p class="note-body">It started on a Mark Twain quote about choosing the right word. Then I thought it was about a ten-year-old kid in a wheat field. Then my mom passed away on June 28, 2025, on a Saturday morning, in ICU Room 235. The film became all three.</p>
-            <p class="note-body">Here's the thing I keep coming back to: the mean kids used to hit lightning bugs with wiffle ball bats to make them glow a little. I was one of those mean kids. Still am at 53. This isn't a confession. It's just a fact.</p>
-            <p class="note-body note-pivot">The film is named for the bug. The bug is the film. Everything else is a strand.</p>
-            <p class="note-credit">— Derek Claude Simmons · sssstudios · May 2026</p>
-        </div>
-    </details>
-
-    <!-- 7. BREAKER #3 — path home crescent -->
-    <div class="full-width-still" style="background-image: url('/images/lightning-bug/path-home-crescent-flipped.png');" aria-hidden="true"></div>
-
-    <!-- 8. GALLERY — edge-to-edge carousel, 15 stills, collapsible -->
-    <details class="scene-fold" aria-label="gallery" style="max-width:none; padding:4vh 0;">
-        <summary style="padding:1rem 2rem;">gallery · 15 stills</summary>
-        <div class="fold-body" style="padding:0;">
-            <div class="gallery-wrap" id="bug-gallery">
-                <div class="gallery-track" id="gallery-track">
-                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/title-000-final.png');"><span class="caption">title</span><span class="index">01 / 15</span></div>
-                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/marco-anchor-gpt.png');"><span class="caption">marco</span><span class="index">02 / 15</span></div>
-                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/01-can-01-exterior-A.png');"><span class="caption">the can</span><span class="index">03 / 15</span></div>
-                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/04-porch-separates-anchor.png');"><span class="caption">porch separates</span><span class="index">04 / 15</span></div>
-                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/02-porch-02-points-bat-A-original-fireflies-gather.png');"><span class="caption">fireflies gather</span><span class="index">05 / 15</span></div>
-                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/02-porch-02-points-bat-B-original-seq016.png');"><span class="caption">points bat</span><span class="index">06 / 15</span></div>
-                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/02-porch-05-flight-B-original-warp-road.png');"><span class="caption">flight</span><span class="index">07 / 15</span></div>
-                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/04-amber-05-stadium-A-original-towers-v3.png');"><span class="caption">towers</span><span class="index">08 / 15</span></div>
-                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/CURVEBALL-BOLT-TRANSFORMER-KEEPER.png');"><span class="caption">curveball bolt</span><span class="index">09 / 15</span></div>
-                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/orb-amber.png');"><span class="caption">orb</span><span class="index">10 / 15</span></div>
-                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/9-GPT Image 2 - new image of _felled use _colors for color reference only do not use the human figure_1.png');"><span class="caption">felled</span><span class="index">11 / 15</span></div>
-                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/Nano Banana 2 - _bbswing keeping the color register the same_ shades and tones of cobalt with patina_4 (1).png');"><span class="caption">bbswing</span><span class="index">12 / 15</span></div>
-                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/Nano Banana 2 - use _pod as the color source and style and recreate _IMG_2keep all the elments and c_1.png');"><span class="caption">pod</span><span class="index">13 / 15</span></div>
-                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/Nano Banana 2 - use _pod as the color source and style and recreate _star keep all the elments and c_2.png');"><span class="caption">star</span><span class="index">14 / 15</span></div>
-                    <div class="gallery-slide" style="background-image: url('/images/lightning-bug/08-patina-giant-glass-jar.png');"><span class="caption">giant jar</span><span class="index">15 / 15</span></div>
-                </div>
-                <button class="gallery-arrow prev" id="gal-prev" aria-label="previous still">&larr;</button>
-                <button class="gallery-arrow next" id="gal-next" aria-label="next still">&rarr;</button>
-            </div>
-        </div>
-    </details>
-
-    <!-- 9. BOOKEND HERO — 1983 Kansas dirt road clip + title return + crew/dedication/© -->
-    <section class="scene-bookend" aria-label="closing">
-        <video class="bookend-video"
-               autoplay muted loop playsinline preload="auto"
-               poster="/images/lightning-bug/02-cobalt-fade-A-1983-KANSAS-ANCHOR.png"
-               aria-hidden="true">
-            <source src="/video/lightning-bug-hero-1983-kansas.mp4" type="video/mp4">
-        </video>
-        <div class="bookend-title">lightning/bug</div>
-        <div class="bookend-credits">
-            <div class="row"><span class="label">directed by</span><span class="val"><a href="/derek">Derek Claude Simmons</a></span></div>
-            <div class="row"><span class="label">studio</span><span class="val">sssstudios</span></div>
-            <div class="row"><span class="label">in the lineage of</span><span class="val">cinema that lets the dark do the work</span></div>
-            <div class="row"><span class="label">color</span><span class="val">amber and cobalt, with the gray of patina</span></div>
-            <div class="row"><span class="label">music</span><span class="val"><a href="https://suno.com/@deekers" target="_blank" rel="noopener">@deekers on suno</a></span></div>
-            <div class="row"><span class="label">in memory of</span><span class="val">Sandra Sue Simmons &middot; 1944–2025</span></div>
-            <span class="dedication">dedicated to moms and the light they share.</span>
+    <!-- CREDITS -->
+    <section class="credits" aria-label="credits">
+        <p class="label" style="margin-bottom:2rem;">credits</p>
+        <div class="credit-line"><span class="credit-label">by</span>Derek Claude Simmons</div>
+        <div class="credit-line"><span class="credit-label">studio</span>sssstudios</div>
+        <div class="credit-line"><span class="credit-label">music</span><a href="https://suno.com/@deekers" target="_blank" rel="noopener">Here We Are, Kid &mdash; @deekers</a></div>
+        <div class="credit-line"><span class="credit-label">voicemails</span>Sandra, Shannon, Sheri</div>
+        <div class="credit-line"><span class="credit-label">shaped</span>by hand with Claude Code in terminal</div>
+        <div class="credit-line" style="margin-top:1.6rem;">
+            <a href="https://claudewill.io/sss">claudewill.io/sss</a>
         </div>
     </section>
 
-    <!-- 10. FOOTER (slim) -->
-    <footer class="scene-footer">
-        <div class="links">
-            <a href="/">claudewill</a>
-            <span class="dots">·</span>
-            <a href="/derek">derek</a>
-        </div>
-        <div class="colophon">the absence of darkness</div>
-        <div class="colophon colophon-sub">and the light has been here a while</div>
-    </footer>
+    <!-- COLOPHON -->
+    <p class="colophon">
+        dedicated to moms and the light they share
+        <span class="colophon-links">
+            <a href="https://claudewill.io/">claudewill.io</a>
+            ·
+            <a href="https://claudewill.io/sss">sssstudios</a>
+            ·
+            <a href="https://derek4thecws.substack.com/">substack</a>
+        </span>
+    </p>
 
-    <script>
-        // ===== TYPING ANIMATION =====
-        (function() {
-            const titleEl = document.getElementById('title');
-            const subEl = document.getElementById('subtitle');
-            const titleText = 'lightning/bug';
-            const subText = '— the absence of darkness';
-
-            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-            function clearEl(el) {
-                while (el.firstChild) el.removeChild(el.firstChild);
-            }
-
-            function makeCursor() {
-                const c = document.createElement('span');
-                c.className = 'cursor-block';
-                c.setAttribute('aria-hidden', 'true');
-                return c;
-            }
-
-            function typeInto(el, text, speed) {
-                return new Promise(resolve => {
-                    clearEl(el);
-                    const cursor = makeCursor();
-                    el.appendChild(cursor);
-                    let i = 0;
-                    function step() {
-                        if (i < text.length) {
-                            const ch = document.createTextNode(text.charAt(i));
-                            el.insertBefore(ch, cursor);
-                            i++;
-                            setTimeout(step, speed);
-                        } else {
-                            resolve(cursor);
-                        }
-                    }
-                    setTimeout(step, speed);
-                });
-            }
-
-            if (reducedMotion) {
-                clearEl(titleEl);
-                titleEl.appendChild(document.createTextNode(titleText));
-                titleEl.appendChild(makeCursor());
-                clearEl(subEl);
-                subEl.appendChild(document.createTextNode(subText));
-            } else {
-                setTimeout(() => {
-                    typeInto(titleEl, titleText, 110).then(firstCursor => {
-                        setTimeout(() => {
-                            firstCursor.remove();
-                            typeInto(subEl, subText, 42);
-                        }, 650);
-                    });
-                }, 500);
-            }
-        })();
-
-        // ===== POSTER FADE-IN =====
-        (function() {
-            const img = document.getElementById('poster');
-            if (!img) return;
-            if (img.complete) {
-                img.classList.add('loaded');
-            } else {
-                img.addEventListener('load', () => img.classList.add('loaded'));
-            }
-        })();
-
-        // ===== FIELD STILL CAPTIONS (reveal on enter) =====
-        (function() {
-            if (!('IntersectionObserver' in window)) {
-                document.querySelectorAll('.field-still').forEach(el => el.classList.add('visible'));
-                return;
-            }
-            const io = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    } else {
-                        entry.target.classList.remove('visible');
-                    }
-                });
-            }, { threshold: 0.55 });
-            document.querySelectorAll('.field-still').forEach(el => io.observe(el));
-        })();
-
-        // ===== GALLERY CAROUSEL =====
-        (function() {
-            const track = document.getElementById('gallery-track');
-            const prev  = document.getElementById('gal-prev');
-            const next  = document.getElementById('gal-next');
-            if (!track || !prev || !next) return;
-
-            const slides = track.querySelectorAll('.gallery-slide');
-            if (!slides.length) return;
-
-            let i = 0;
-            function go(idx) {
-                i = Math.max(0, Math.min(slides.length - 1, idx));
-                track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
-            }
-            prev.addEventListener('click', (e) => { e.preventDefault(); go(i - 1); });
-            next.addEventListener('click', (e) => { e.preventDefault(); go(i + 1); });
-
-            // Keep i in sync when user swipes / scrolls manually.
-            let scrollTimer;
-            track.addEventListener('scroll', () => {
-                clearTimeout(scrollTimer);
-                scrollTimer = setTimeout(() => {
-                    i = Math.round(track.scrollLeft / track.clientWidth);
-                }, 60);
-            });
-
-            // Reset scroll on first details-open so layout is clean.
-            const details = track.closest('details');
-            if (details) {
-                details.addEventListener('toggle', () => {
-                    if (details.open) {
-                        // Force layout to re-measure after open
-                        requestAnimationFrame(() => { track.scrollLeft = i * track.clientWidth; });
-                    }
-                });
-            }
-
-            // Arrow keys when gallery is open + visible.
-            document.addEventListener('keydown', (e) => {
-                const details = track.closest('details');
-                if (!details || !details.open) return;
-                const rect = track.getBoundingClientRect();
-                if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-                if (e.key === 'ArrowRight') { e.preventDefault(); go(i + 1); }
-                if (e.key === 'ArrowLeft')  { e.preventDefault(); go(i - 1); }
-            });
-        })();
-    </script>
-
-    <!-- Shared chrome (porch widget) -->
-    <script src="/js/cw-link-renderer.js" defer></script>
     <script src="/js/porch-widget.js" defer></script>
+    <script src="https://player.vimeo.com/api/player.js"></script>
 </body>
 </html>
