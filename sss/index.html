@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="color-scheme" content="dark">
     <meta name="theme-color" content="#070d1a">
-    <title>sssstudios</title>
-    <meta name="description" content="A film and song studio. Sandra. Shannon. Sheri. The first film is lightning/bug.">
+    <title>sssstudios.</title>
+    <meta name="description" content="A film and song studio. The first one is lightning/bug.">
     <meta name="author" content="Derek Claude Simmons">
 
-    <meta property="og:title" content="sssstudios">
-    <meta property="og:description" content="A film and song studio. Sandra. Shannon. Sheri. The first film is lightning/bug.">
+    <meta property="og:title" content="sssstudios.">
+    <meta property="og:description" content="A film and song studio. The first one is lightning/bug.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://claudewill.io/sss">
     <meta property="og:image" content="https://claudewill.io/images/sss/og-poster.jpg">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="sssstudios">
-    <meta name="twitter:description" content="A film and song studio. Sandra. Shannon. Sheri.">
+    <meta name="twitter:title" content="sssstudios.">
+    <meta name="twitter:description" content="A film and song studio.">
     <meta name="twitter:image" content="https://claudewill.io/images/sss/og-poster.jpg">
 
     <link rel="canonical" href="https://claudewill.io/sss">
@@ -31,7 +31,7 @@
             --cobalt-deep: #070d1a;
             --cobalt: #0a1628;
             --amber: #d4a84b;
-            --amber-bright: #e8c068;
+            --amber-warm: #e8c068;
             --amber-soft: #b89346;
             --amber-faint: rgba(212, 168, 75, 0.08);
             --text: #c8d0dc;
@@ -79,15 +79,15 @@
             text-align: center;
         }
 
-        /* Soft warm glow at center, cooling outward — like a lantern in a dark field */
+        /* Soft warm glow at center, cooling outward */
         .hero::before {
             content: '';
             position: absolute;
             inset: 0;
             background: radial-gradient(
-                ellipse at 50% 48%,
-                rgba(212, 168, 75, 0.06) 0%,
-                rgba(212, 168, 75, 0.02) 30%,
+                ellipse at 50% 50%,
+                rgba(212, 168, 75, 0.07) 0%,
+                rgba(212, 168, 75, 0.02) 32%,
                 rgba(7, 13, 26, 0) 70%
             );
             pointer-events: none;
@@ -102,7 +102,7 @@
             background: radial-gradient(
                 ellipse at center,
                 rgba(7, 13, 26, 0) 50%,
-                rgba(7, 13, 26, 0.55) 100%
+                rgba(7, 13, 26, 0.6) 100%
             );
             pointer-events: none;
             z-index: 1;
@@ -114,13 +114,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         /* The brand mark — sssstudios. */
         .brand {
             font-family: var(--mono);
-            font-size: clamp(2.6rem, 11vw, 6rem);
+            font-size: clamp(2.4rem, 10vw, 5.5rem);
             font-weight: 400;
             color: var(--amber);
             letter-spacing: -0.025em;
@@ -128,51 +128,39 @@
             display: inline-flex;
             align-items: baseline;
             min-height: 1em;
+            white-space: nowrap;
         }
 
-        /* Each S starts at width 0, opacity 0. Fires reveal-pulse in sequence. */
-        .s {
-            display: inline-block;
-            overflow: hidden;
-            width: 0;
-            opacity: 0;
-            color: var(--amber);
-            white-space: pre;
-        }
-
-        .s.lit {
-            animation: s-reveal 0.6s ease-out forwards, firefly-pulse 1.4s ease-out 0.05s;
-        }
-
-        @keyframes s-reveal {
-            0% { width: 0; opacity: 0; }
-            100% { width: 0.62em; opacity: 1; }
-        }
-
-        @keyframes firefly-pulse {
-            0%   { filter: brightness(0.7); text-shadow: 0 0 0 transparent; }
-            14%  { filter: brightness(2.2); text-shadow: 0 0 32px rgba(232, 192, 104, 0.95), 0 0 8px rgba(255, 220, 140, 0.8); }
-            40%  { filter: brightness(1.1); text-shadow: 0 0 12px rgba(212, 168, 75, 0.4); }
-            100% { filter: brightness(1.0); text-shadow: 0 0 0 transparent; }
-        }
-
-        .rest {
-            display: inline-block;
-            white-space: pre;
-            color: var(--amber);
-            opacity: 0;
-            animation: rest-fade 0.001s linear 0.4s forwards;
-        }
-        @keyframes rest-fade { to { opacity: 1; } }
-
-        /* Each character of "studios." appears via per-char span, animated by JS */
-        .rest .ch {
+        /* Each character is a span. Type animates them in left-to-right. */
+        .brand .ch {
             display: inline-block;
             opacity: 0;
             transform: translateY(2px);
-            transition: opacity 0.18s ease-out, transform 0.18s ease-out;
+            transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+            color: var(--amber);
         }
-        .rest .ch.shown { opacity: 1; transform: translateY(0); }
+        .brand .ch.shown { opacity: 1; transform: translateY(0); }
+
+        /* The trailing s (Sheri — the bookend) holds a quiet residual warmth */
+        .brand .ch.bookend.lit {
+            animation: bookend-glow 1.6s ease-out forwards;
+        }
+
+        @keyframes bookend-glow {
+            0%   { text-shadow: 0 0 0 transparent; filter: brightness(1); color: var(--amber); }
+            30%  { text-shadow: 0 0 28px rgba(212, 168, 75, 0.55), 0 0 6px rgba(232, 192, 104, 0.45); filter: brightness(1.45); color: var(--amber-warm); }
+            100% { text-shadow: 0 0 16px rgba(212, 168, 75, 0.28); filter: brightness(1.04); color: var(--amber); }
+        }
+
+        /* The period is the signature — gets the final beat */
+        .brand .period {
+            display: inline-block;
+            opacity: 0;
+            transform: scale(0.6);
+            transition: opacity 0.4s ease-out, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            color: var(--amber);
+        }
+        .brand .period.shown { opacity: 1; transform: scale(1); }
 
         .cursor {
             display: inline-block;
@@ -188,35 +176,15 @@
             51%, 100% { opacity: 0; }
         }
 
-        /* Dedication row — names align under their respective S, fade in synced */
-        .dedication {
-            display: flex;
-            gap: clamp(1.5rem, 5vw, 3rem);
-            justify-content: center;
-            font-family: var(--mono);
-            font-size: clamp(0.66rem, 1.7vw, 0.8rem);
-            color: var(--amber-soft);
-            letter-spacing: 0.32em;
-            text-transform: lowercase;
-        }
-
-        .dedication .name {
-            opacity: 0;
-            transition: opacity 0.6s ease-out;
-        }
-
-        .dedication .name.shown { opacity: 0.85; }
-
         .tagline {
             font-family: var(--serif);
             font-style: italic;
-            font-size: clamp(0.95rem, 2.1vw, 1.1rem);
+            font-size: clamp(0.95rem, 2.1vw, 1.15rem);
             color: var(--text-soft);
-            max-width: 28rem;
+            max-width: 30rem;
             font-weight: 300;
             opacity: 0;
             transition: opacity 1.2s ease-out;
-            margin-top: 0.5rem;
         }
         .tagline.shown { opacity: 1; }
 
@@ -271,9 +239,7 @@
             background: var(--cobalt-deep);
         }
 
-        .hero-body {
-            padding: 2rem 1.75rem 2.25rem;
-        }
+        .hero-body { padding: 2rem 1.75rem 2.25rem; }
 
         .film-meta {
             font-family: var(--mono);
@@ -313,10 +279,7 @@
             padding-bottom: 2px;
         }
 
-        .film-cta:hover {
-            border-bottom-color: var(--amber);
-            opacity: 1;
-        }
+        .film-cta:hover { border-bottom-color: var(--amber); opacity: 1; }
 
         /* ===== In-production cards ===== */
         .section-label {
@@ -428,11 +391,9 @@
 
         /* Reduced motion: kill animations, show end state */
         @media (prefers-reduced-motion: reduce) {
-            .s, .s.lit { width: 0.62em !important; opacity: 1 !important; animation: none !important; }
-            .rest { opacity: 1 !important; animation: none !important; }
-            .rest .ch { opacity: 1 !important; transform: none !important; }
-            .dedication .name { opacity: 0.85 !important; }
-            .tagline, .scroll-hint { opacity: 1 !important; }
+            .brand .ch, .brand .period { opacity: 1 !important; transform: none !important; animation: none !important; }
+            .brand .ch.bookend { color: var(--amber-warm) !important; text-shadow: 0 0 14px rgba(212, 168, 75, 0.28); }
+            .tagline, .scroll-hint { opacity: 1 !important; transition: none !important; }
             .cursor { display: none; }
         }
     </style>
@@ -444,14 +405,10 @@
     <div class="brand-stage">
 
         <h1 id="brandmark" class="brand" aria-label="sssstudios.">
-            <span class="s s1" aria-hidden="true">s</span><span class="s s2" aria-hidden="true">s</span><span class="s s3" aria-hidden="true">s</span><span class="rest" id="rest-text" aria-hidden="true"></span><span class="cursor" id="cursor" aria-hidden="true"></span>
+            <!-- 11 chars: s s s s t u d i o s .
+                 Position 10 (zero-indexed: 9) is the trailing s — Sheri's bookend. -->
+            <span class="ch" aria-hidden="true">s</span><span class="ch" aria-hidden="true">s</span><span class="ch" aria-hidden="true">s</span><span class="ch" aria-hidden="true">s</span><span class="ch" aria-hidden="true">t</span><span class="ch" aria-hidden="true">u</span><span class="ch" aria-hidden="true">d</span><span class="ch" aria-hidden="true">i</span><span class="ch" aria-hidden="true">o</span><span class="ch bookend" aria-hidden="true">s</span><span class="ch period" aria-hidden="true">.</span><span class="cursor" id="cursor" aria-hidden="true"></span>
         </h1>
-
-        <div class="dedication" aria-label="for sandra, for shannon, for sheri">
-            <span class="name d1">sandra</span>
-            <span class="name d2">shannon</span>
-            <span class="name d3">sheri</span>
-        </div>
 
         <p class="tagline" id="tagline">A film and song studio. The first one is <em>lightning/bug</em>.</p>
 
@@ -471,7 +428,7 @@
              alt="lightning/bug — a boy in a Kansas wheat field at dusk"
              loading="eager">
         <div class="hero-body">
-            <div class="film-meta">the first one · short film · 2026</div>
+            <div class="film-meta">the first one &middot; short film &middot; 2026</div>
             <h2 id="bug-title" class="film-title">lightning/bug</h2>
             <p class="film-logline">A boy. A bug. A bolt. Two kinds of light. Kansas.</p>
             <a class="film-cta" href="/lightning-bug">Watch the film &rarr;</a>
@@ -487,21 +444,21 @@
         <div class="cards">
 
             <article class="card">
-                <div class="card-meta">chamber piece · in production · summer 2026</div>
+                <div class="card-meta">chamber piece &middot; in production &middot; summer 2026</div>
                 <h3 class="card-title">Hallway Walz in D Minor</h3>
                 <p class="card-logline">A five-minute chamber piece. Composed and performed by one diminished man, in the saddest key, in a hallway he keeps returning to.</p>
                 <p class="card-summary">Nine Latin requiem movements. No windows. Doors only. The opposite of <em>lightning/bug</em> — the inside of the same year.</p>
             </article>
 
             <article class="card">
-                <div class="card-meta">music video · in production · summer 2026</div>
+                <div class="card-meta">music video &middot; in production &middot; summer 2026</div>
                 <h3 class="card-title">Buffalo Parade</h3>
                 <p class="card-logline">A buffalo carrying an electric guitar turns into the storm — because the only way through is through.</p>
                 <p class="card-summary">Northern plains, late afternoon into storm. Empire Builder country. A parable for the moment we're in: the storms you have to walk into rather than around. Song first; the visualization serves it.</p>
             </article>
 
             <article class="card">
-                <div class="card-meta">period series · pilot stage · 2026</div>
+                <div class="card-meta">period series &middot; pilot stage &middot; 2026</div>
                 <h3 class="card-title">River Pigs</h3>
                 <p class="card-logline">He recovers bodies from the river. It's the only honest job in the logging trade.</p>
                 <p class="card-summary">A frontier noir set on the St. Croix River during the 1880s Minnesota logging boom — when lumber barons built their fortunes on the backs of the men who rode the log drives and died in them. <em>Fargo</em> meets <em>Landman</em>, set in an era when white pine was America's most valuable commodity.</p>
@@ -534,67 +491,63 @@
 (function() {
     'use strict';
 
-    // Type "studios." into .rest, then light each S with a firefly pulse,
-    // then fade in the matching name in the dedication row.
+    // Type sssstudios. straight through. The bookend (trailing s) holds a quiet
+    // glow as it lands — Sheri arriving in her position. The period is the
+    // signature — final beat with a soft pop.
 
-    var REST = 'studios.';
-    var CHAR_DELAY = 75;            // ms per character of "studios."
-    var REST_START = 400;           // ms before "studios." starts typing
-    var REST_TO_FIRST_S = 700;      // ms from end of "studios." to first S
-    var S_GAP = 720;                // ms between each S reveal
-    var TAGLINE_DELAY = 1200;       // ms after last S → tagline
-    var SCROLL_DELAY = 2200;        // ms after last S → scroll hint
+    var CHAR_DELAY = 80;         // ms per character
+    var TYPE_START = 450;        // ms before typing begins
+    var BOOKEND_LIT_DELAY = 200; // ms after bookend "shown" → glow keyframe
+    var PERIOD_DELAY = 320;      // ms after bookend → period drops in
+    var TAGLINE_DELAY = 900;     // ms after period → tagline fade in
+    var SCROLL_DELAY = 1900;     // ms after period → scroll hint
 
     function $(sel) { return document.querySelector(sel); }
-    function spanCh(c) {
-        var s = document.createElement('span');
-        s.className = 'ch';
-        s.textContent = c;
-        return s;
-    }
+    function $$(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }
 
     function init() {
-        var rest = $('#rest-text');
+        var brand = $('.brand');
         var cursor = $('#cursor');
-        if (!rest) return;
+        if (!brand) return;
 
-        // Build per-character spans for "studios."
-        for (var i = 0; i < REST.length; i++) rest.appendChild(spanCh(REST[i]));
+        var chars = $$('.brand .ch:not(.period), .brand .period');
+        // chars order matches DOM: 4 s's, t, u, d, i, o, s (bookend), .
+        // 11 elements total.
 
-        var chs = rest.querySelectorAll('.ch');
+        var lastNonPeriodIndex = chars.length - 2; // index of trailing s (bookend)
+        var periodIndex = chars.length - 1;
 
-        // Reveal each char in sequence
-        var t = REST_START;
-        chs.forEach(function(ch, i) {
-            setTimeout(function() { ch.classList.add('shown'); }, t + i * CHAR_DELAY);
-        });
-
-        var endOfRest = REST_START + chs.length * CHAR_DELAY;
-
-        // Light each S in sequence + fade in matching name
-        var sNames = [['s1', 'd1'], ['s2', 'd2'], ['s3', 'd3']];
-        sNames.forEach(function(pair, i) {
-            var fireAt = endOfRest + REST_TO_FIRST_S + i * S_GAP;
+        var t = TYPE_START;
+        chars.forEach(function(el, i) {
+            // Period waits for bookend glow to fire first
+            if (i === periodIndex) return;
             setTimeout(function() {
-                var s = document.querySelector('.' + pair[0]);
-                var d = document.querySelector('.' + pair[1]);
-                if (s) s.classList.add('lit');
-                if (d) setTimeout(function() { d.classList.add('shown'); }, 250);
-            }, fireAt);
+                el.classList.add('shown');
+                if (el.classList.contains('bookend')) {
+                    setTimeout(function() {
+                        el.classList.add('lit');
+                    }, BOOKEND_LIT_DELAY);
+                }
+            }, t + i * CHAR_DELAY);
         });
 
-        var lastS = endOfRest + REST_TO_FIRST_S + (sNames.length - 1) * S_GAP;
+        var bookendShownAt = TYPE_START + lastNonPeriodIndex * CHAR_DELAY;
+        var bookendLitAt = bookendShownAt + BOOKEND_LIT_DELAY;
+        var periodAt = bookendLitAt + PERIOD_DELAY;
 
-        // Tagline + scroll hint
+        // Period drops in after the bookend glow has begun
+        setTimeout(function() {
+            chars[periodIndex].classList.add('shown');
+        }, periodAt);
+
         setTimeout(function() {
             var tg = $('#tagline'); if (tg) tg.classList.add('shown');
-        }, lastS + TAGLINE_DELAY);
+        }, periodAt + TAGLINE_DELAY);
 
         setTimeout(function() {
             var sh = $('#scroll-hint'); if (sh) sh.classList.add('shown');
-            // hide cursor after sequence completes
             if (cursor) cursor.style.display = 'none';
-        }, lastS + SCROLL_DELAY);
+        }, periodAt + SCROLL_DELAY);
     }
 
     if (document.readyState === 'loading') {
