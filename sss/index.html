@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="color-scheme" content="dark">
-    <meta name="theme-color" content="#0a1628">
+    <meta name="theme-color" content="#070d1a">
     <title>sssstudios</title>
     <meta name="description" content="A film and song studio. Sandra. Shannon. Sheri. The first film is lightning/bug.">
     <meta name="author" content="Derek Claude Simmons">
 
     <meta property="og:title" content="sssstudios">
-    <meta property="og:description" content="A film and song studio. The first one is lightning/bug.">
+    <meta property="og:description" content="A film and song studio. Sandra. Shannon. Sheri. The first film is lightning/bug.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://claudewill.io/sss">
-    <meta property="og:image" content="https://claudewill.io/images/lightning-bug/og-poster.jpg">
+    <meta property="og:image" content="https://claudewill.io/images/sss/og-poster.jpg">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="sssstudios">
-    <meta name="twitter:description" content="A film and song studio. The first one is lightning/bug.">
-    <meta name="twitter:image" content="https://claudewill.io/images/lightning-bug/og-poster.jpg">
+    <meta name="twitter:description" content="A film and song studio. Sandra. Shannon. Sheri.">
+    <meta name="twitter:image" content="https://claudewill.io/images/sss/og-poster.jpg">
 
     <link rel="canonical" href="https://claudewill.io/sss">
     <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
@@ -31,11 +31,12 @@
             --cobalt-deep: #070d1a;
             --cobalt: #0a1628;
             --amber: #d4a84b;
+            --amber-bright: #e8c068;
             --amber-soft: #b89346;
             --amber-faint: rgba(212, 168, 75, 0.08);
             --text: #c8d0dc;
             --text-soft: #97a3b7;
-            --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+            --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
             --serif: 'IBM Plex Serif', Georgia, serif;
         }
 
@@ -55,6 +56,7 @@
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
         }
 
         ::selection { background: var(--amber); color: var(--cobalt-deep); }
@@ -62,50 +64,185 @@
         a { color: var(--amber); text-decoration: none; transition: opacity 0.2s; }
         a:hover { opacity: 0.7; }
 
-        .wrap {
-            max-width: 42rem;
-            margin: 0 auto;
-            padding: 6vh 1.75rem;
-        }
-
-        /* ===== Header ===== */
-        header {
+        /* ===== HERO — brand reveal ===== */
+        .hero {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            position: relative;
+            background: var(--cobalt-deep);
+            overflow: hidden;
             text-align: center;
-            padding-top: 4vh;
-            padding-bottom: 6vh;
         }
 
-        .wordmark {
+        /* Soft warm glow at center, cooling outward — like a lantern in a dark field */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                ellipse at 50% 48%,
+                rgba(212, 168, 75, 0.06) 0%,
+                rgba(212, 168, 75, 0.02) 30%,
+                rgba(7, 13, 26, 0) 70%
+            );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Vignette */
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(7, 13, 26, 0) 50%,
+                rgba(7, 13, 26, 0.55) 100%
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .brand-stage {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        /* The brand mark — sssstudios. */
+        .brand {
             font-family: var(--mono);
-            font-size: clamp(2rem, 8vw, 3.25rem);
+            font-size: clamp(2.6rem, 11vw, 6rem);
             font-weight: 400;
             color: var(--amber);
-            letter-spacing: -0.02em;
+            letter-spacing: -0.025em;
             line-height: 1;
+            display: inline-flex;
+            align-items: baseline;
+            min-height: 1em;
         }
 
-        .dedication {
-            font-family: var(--mono);
-            font-size: 0.7rem;
-            color: var(--text-soft);
-            letter-spacing: 0.3em;
-            text-transform: lowercase;
-            margin-top: 1.5rem;
+        /* Each S starts at width 0, opacity 0. Fires reveal-pulse in sequence. */
+        .s {
+            display: inline-block;
+            overflow: hidden;
+            width: 0;
+            opacity: 0;
+            color: var(--amber);
+            white-space: pre;
         }
+
+        .s.lit {
+            animation: s-reveal 0.6s ease-out forwards, firefly-pulse 1.4s ease-out 0.05s;
+        }
+
+        @keyframes s-reveal {
+            0% { width: 0; opacity: 0; }
+            100% { width: 0.62em; opacity: 1; }
+        }
+
+        @keyframes firefly-pulse {
+            0%   { filter: brightness(0.7); text-shadow: 0 0 0 transparent; }
+            14%  { filter: brightness(2.2); text-shadow: 0 0 32px rgba(232, 192, 104, 0.95), 0 0 8px rgba(255, 220, 140, 0.8); }
+            40%  { filter: brightness(1.1); text-shadow: 0 0 12px rgba(212, 168, 75, 0.4); }
+            100% { filter: brightness(1.0); text-shadow: 0 0 0 transparent; }
+        }
+
+        .rest {
+            display: inline-block;
+            white-space: pre;
+            color: var(--amber);
+            opacity: 0;
+            animation: rest-fade 0.001s linear 0.4s forwards;
+        }
+        @keyframes rest-fade { to { opacity: 1; } }
+
+        /* Each character of "studios." appears via per-char span, animated by JS */
+        .rest .ch {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(2px);
+            transition: opacity 0.18s ease-out, transform 0.18s ease-out;
+        }
+        .rest .ch.shown { opacity: 1; transform: translateY(0); }
+
+        .cursor {
+            display: inline-block;
+            width: 0.5em;
+            height: 0.95em;
+            background: var(--amber);
+            margin-left: 0.05em;
+            vertical-align: -0.08em;
+            animation: blink 1.05s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Dedication row — names align under their respective S, fade in synced */
+        .dedication {
+            display: flex;
+            gap: clamp(1.5rem, 5vw, 3rem);
+            justify-content: center;
+            font-family: var(--mono);
+            font-size: clamp(0.66rem, 1.7vw, 0.8rem);
+            color: var(--amber-soft);
+            letter-spacing: 0.32em;
+            text-transform: lowercase;
+        }
+
+        .dedication .name {
+            opacity: 0;
+            transition: opacity 0.6s ease-out;
+        }
+
+        .dedication .name.shown { opacity: 0.85; }
 
         .tagline {
             font-family: var(--serif);
             font-style: italic;
-            font-size: clamp(1rem, 2.4vw, 1.15rem);
-            color: var(--text);
-            margin-top: 2.5rem;
-            max-width: 30rem;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: clamp(0.95rem, 2.1vw, 1.1rem);
+            color: var(--text-soft);
+            max-width: 28rem;
             font-weight: 300;
+            opacity: 0;
+            transition: opacity 1.2s ease-out;
+            margin-top: 0.5rem;
+        }
+        .tagline.shown { opacity: 1; }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--mono);
+            font-size: 0.62rem;
+            color: var(--text-soft);
+            letter-spacing: 0.32em;
+            text-transform: lowercase;
+            opacity: 0;
+            transition: opacity 1.5s ease-out;
+            z-index: 2;
+        }
+        .scroll-hint.shown { opacity: 0.55; }
+
+        /* ===== Below the hero ===== */
+        .wrap {
+            max-width: 42rem;
+            margin: 0 auto;
+            padding: 8vh 1.75rem;
         }
 
-        /* ===== Section divider ===== */
         .section-mark {
             text-align: center;
             color: var(--amber-soft);
@@ -117,7 +254,7 @@
             line-height: 1;
         }
 
-        /* ===== Hero film (bug) ===== */
+        /* ===== Hero film card (bug) ===== */
         .hero-film {
             border: 1px solid var(--amber-faint);
             border-radius: 2px;
@@ -193,11 +330,7 @@
             font-weight: 500;
         }
 
-        .cards {
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-        }
+        .cards { display: flex; flex-direction: column; gap: 2.5rem; }
 
         .card {
             border-top: 1px solid var(--amber-faint);
@@ -270,12 +403,8 @@
             transition: opacity 0.2s, transform 0.2s;
         }
 
-        .subscribe-btn:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
-        }
+        .subscribe-btn:hover { opacity: 0.9; transform: translateY(-1px); }
 
-        /* ===== Footer ===== */
         footer {
             text-align: center;
             padding: 6vh 0 3vh;
@@ -285,16 +414,10 @@
             letter-spacing: 0.18em;
         }
 
-        footer a {
-            color: var(--text-soft);
-            border-bottom: 1px dotted var(--amber-faint);
-        }
-
+        footer a { color: var(--text-soft); border-bottom: 1px dotted var(--amber-faint); }
         footer a:hover { color: var(--amber); }
 
-        .footer-row {
-            margin-bottom: 0.85rem;
-        }
+        .footer-row { margin-bottom: 0.85rem; }
 
         .signature {
             font-family: var(--mono);
@@ -302,25 +425,50 @@
             letter-spacing: 0.3em;
             margin-top: 1.5rem;
         }
+
+        /* Reduced motion: kill animations, show end state */
+        @media (prefers-reduced-motion: reduce) {
+            .s, .s.lit { width: 0.62em !important; opacity: 1 !important; animation: none !important; }
+            .rest { opacity: 1 !important; animation: none !important; }
+            .rest .ch { opacity: 1 !important; transform: none !important; }
+            .dedication .name { opacity: 0.85 !important; }
+            .tagline, .scroll-hint { opacity: 1 !important; }
+            .cursor { display: none; }
+        }
     </style>
 </head>
 <body>
 
-<div class="wrap">
+<!-- ===== HERO: brand reveal ===== -->
+<section class="hero" aria-labelledby="brandmark">
+    <div class="brand-stage">
 
-    <header>
-        <div class="wordmark">sssstudios</div>
-        <div class="dedication">for sandra · for shannon · for sheri</div>
-        <p class="tagline">A studio for the films and songs. The first one is <em>lightning/bug</em>.</p>
-    </header>
+        <h1 id="brandmark" class="brand" aria-label="sssstudios.">
+            <span class="s s1" aria-hidden="true">s</span><span class="s s2" aria-hidden="true">s</span><span class="s s3" aria-hidden="true">s</span><span class="rest" id="rest-text" aria-hidden="true"></span><span class="cursor" id="cursor" aria-hidden="true"></span>
+        </h1>
+
+        <div class="dedication" aria-label="for sandra, for shannon, for sheri">
+            <span class="name d1">sandra</span>
+            <span class="name d2">shannon</span>
+            <span class="name d3">sheri</span>
+        </div>
+
+        <p class="tagline" id="tagline">A film and song studio. The first one is <em>lightning/bug</em>.</p>
+
+    </div>
+
+    <div class="scroll-hint" id="scroll-hint">scroll &middot; the work</div>
+</section>
+
+<div class="wrap">
 
     <div class="section-mark">*</div>
 
-    <!-- HERO: lightning/bug -->
+    <!-- HERO FILM: lightning/bug -->
     <section class="hero-film" aria-labelledby="bug-title">
         <img class="hero-still"
              src="/images/lightning-bug/og-poster.jpg"
-             alt="lightning/bug — a boy in a wheat field at dusk, the last summer the fireflies were everywhere"
+             alt="lightning/bug — a boy in a Kansas wheat field at dusk"
              loading="eager">
         <div class="hero-body">
             <div class="film-meta">the first one · short film · 2026</div>
@@ -381,6 +529,81 @@
     </footer>
 
 </div>
+
+<script>
+(function() {
+    'use strict';
+
+    // Type "studios." into .rest, then light each S with a firefly pulse,
+    // then fade in the matching name in the dedication row.
+
+    var REST = 'studios.';
+    var CHAR_DELAY = 75;            // ms per character of "studios."
+    var REST_START = 400;           // ms before "studios." starts typing
+    var REST_TO_FIRST_S = 700;      // ms from end of "studios." to first S
+    var S_GAP = 720;                // ms between each S reveal
+    var TAGLINE_DELAY = 1200;       // ms after last S → tagline
+    var SCROLL_DELAY = 2200;        // ms after last S → scroll hint
+
+    function $(sel) { return document.querySelector(sel); }
+    function spanCh(c) {
+        var s = document.createElement('span');
+        s.className = 'ch';
+        s.textContent = c;
+        return s;
+    }
+
+    function init() {
+        var rest = $('#rest-text');
+        var cursor = $('#cursor');
+        if (!rest) return;
+
+        // Build per-character spans for "studios."
+        for (var i = 0; i < REST.length; i++) rest.appendChild(spanCh(REST[i]));
+
+        var chs = rest.querySelectorAll('.ch');
+
+        // Reveal each char in sequence
+        var t = REST_START;
+        chs.forEach(function(ch, i) {
+            setTimeout(function() { ch.classList.add('shown'); }, t + i * CHAR_DELAY);
+        });
+
+        var endOfRest = REST_START + chs.length * CHAR_DELAY;
+
+        // Light each S in sequence + fade in matching name
+        var sNames = [['s1', 'd1'], ['s2', 'd2'], ['s3', 'd3']];
+        sNames.forEach(function(pair, i) {
+            var fireAt = endOfRest + REST_TO_FIRST_S + i * S_GAP;
+            setTimeout(function() {
+                var s = document.querySelector('.' + pair[0]);
+                var d = document.querySelector('.' + pair[1]);
+                if (s) s.classList.add('lit');
+                if (d) setTimeout(function() { d.classList.add('shown'); }, 250);
+            }, fireAt);
+        });
+
+        var lastS = endOfRest + REST_TO_FIRST_S + (sNames.length - 1) * S_GAP;
+
+        // Tagline + scroll hint
+        setTimeout(function() {
+            var tg = $('#tagline'); if (tg) tg.classList.add('shown');
+        }, lastS + TAGLINE_DELAY);
+
+        setTimeout(function() {
+            var sh = $('#scroll-hint'); if (sh) sh.classList.add('shown');
+            // hide cursor after sequence completes
+            if (cursor) cursor.style.display = 'none';
+        }, lastS + SCROLL_DELAY);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+</script>
 
 </body>
 </html>
