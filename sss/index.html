@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0a1628">
+    <title>sssstudios</title>
+    <meta name="description" content="A film and song studio. Sandra. Shannon. Sheri. The first film is lightning/bug.">
+    <meta name="author" content="Derek Claude Simmons">
+
+    <meta property="og:title" content="sssstudios">
+    <meta property="og:description" content="A film and song studio. The first one is lightning/bug.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://claudewill.io/sss">
+    <meta property="og:image" content="https://claudewill.io/images/lightning-bug/og-poster.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="sssstudios">
+    <meta name="twitter:description" content="A film and song studio. The first one is lightning/bug.">
+    <meta name="twitter:image" content="https://claudewill.io/images/lightning-bug/og-poster.jpg">
+
+    <link rel="canonical" href="https://claudewill.io/sss">
+    <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --cobalt-deep: #070d1a;
+            --cobalt: #0a1628;
+            --amber: #d4a84b;
+            --amber-soft: #b89346;
+            --amber-faint: rgba(212, 168, 75, 0.08);
+            --text: #c8d0dc;
+            --text-soft: #97a3b7;
+            --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+            --serif: 'IBM Plex Serif', Georgia, serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--cobalt-deep);
+        }
+
+        body {
+            background: var(--cobalt);
+            color: var(--text);
+            font-family: var(--serif);
+            font-weight: 300;
+            line-height: 1.65;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::selection { background: var(--amber); color: var(--cobalt-deep); }
+
+        a { color: var(--amber); text-decoration: none; transition: opacity 0.2s; }
+        a:hover { opacity: 0.7; }
+
+        .wrap {
+            max-width: 42rem;
+            margin: 0 auto;
+            padding: 6vh 1.75rem;
+        }
+
+        /* ===== Header ===== */
+        header {
+            text-align: center;
+            padding-top: 4vh;
+            padding-bottom: 6vh;
+        }
+
+        .wordmark {
+            font-family: var(--mono);
+            font-size: clamp(2rem, 8vw, 3.25rem);
+            font-weight: 400;
+            color: var(--amber);
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+
+        .dedication {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--text-soft);
+            letter-spacing: 0.3em;
+            text-transform: lowercase;
+            margin-top: 1.5rem;
+        }
+
+        .tagline {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(1rem, 2.4vw, 1.15rem);
+            color: var(--text);
+            margin-top: 2.5rem;
+            max-width: 30rem;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        /* ===== Section divider ===== */
+        .section-mark {
+            text-align: center;
+            color: var(--amber-soft);
+            font-family: var(--mono);
+            font-size: 1rem;
+            margin: 0;
+            padding: 5vh 0;
+            opacity: 0.5;
+            line-height: 1;
+        }
+
+        /* ===== Hero film (bug) ===== */
+        .hero-film {
+            border: 1px solid var(--amber-faint);
+            border-radius: 2px;
+            overflow: hidden;
+            background: var(--cobalt-deep);
+        }
+
+        .hero-still {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            background: var(--cobalt-deep);
+        }
+
+        .hero-body {
+            padding: 2rem 1.75rem 2.25rem;
+        }
+
+        .film-meta {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: var(--amber-soft);
+            letter-spacing: 0.3em;
+            text-transform: lowercase;
+            margin-bottom: 1rem;
+        }
+
+        .film-title {
+            font-family: var(--mono);
+            font-size: clamp(1.4rem, 4vw, 1.75rem);
+            color: var(--amber);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            margin-bottom: 1rem;
+        }
+
+        .film-logline {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(1rem, 2.3vw, 1.1rem);
+            color: var(--text);
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .film-cta {
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            color: var(--amber);
+            letter-spacing: 0.1em;
+            display: inline-block;
+            border-bottom: 1px solid var(--amber-faint);
+            padding-bottom: 2px;
+        }
+
+        .film-cta:hover {
+            border-bottom-color: var(--amber);
+            opacity: 1;
+        }
+
+        /* ===== In-production cards ===== */
+        .section-label {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: var(--amber-soft);
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 500;
+        }
+
+        .cards {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .card {
+            border-top: 1px solid var(--amber-faint);
+            padding-top: 2rem;
+        }
+
+        .card-meta {
+            font-family: var(--mono);
+            font-size: 0.62rem;
+            color: var(--amber-soft);
+            letter-spacing: 0.3em;
+            text-transform: lowercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-title {
+            font-family: var(--mono);
+            font-size: clamp(1.2rem, 3.2vw, 1.4rem);
+            color: var(--amber);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.85rem;
+        }
+
+        .card-logline {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 0.85rem;
+            font-weight: 300;
+        }
+
+        .card-summary {
+            font-family: var(--serif);
+            font-size: clamp(0.92rem, 2vw, 1rem);
+            color: var(--text-soft);
+            line-height: 1.65;
+            font-weight: 300;
+        }
+
+        /* ===== Subscribe ===== */
+        .subscribe {
+            text-align: center;
+            border-top: 1px solid var(--amber-faint);
+            padding-top: 4vh;
+            margin-top: 2vh;
+        }
+
+        .subscribe-line {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .subscribe-btn {
+            display: inline-block;
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: var(--cobalt-deep);
+            background: var(--amber);
+            padding: 0.85rem 1.75rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .subscribe-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            text-align: center;
+            padding: 6vh 0 3vh;
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: var(--text-soft);
+            letter-spacing: 0.18em;
+        }
+
+        footer a {
+            color: var(--text-soft);
+            border-bottom: 1px dotted var(--amber-faint);
+        }
+
+        footer a:hover { color: var(--amber); }
+
+        .footer-row {
+            margin-bottom: 0.85rem;
+        }
+
+        .signature {
+            font-family: var(--mono);
+            color: var(--amber-soft);
+            letter-spacing: 0.3em;
+            margin-top: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+
+    <header>
+        <div class="wordmark">sssstudios</div>
+        <div class="dedication">for sandra · for shannon · for sheri</div>
+        <p class="tagline">A studio for the films and songs. The first one is <em>lightning/bug</em>.</p>
+    </header>
+
+    <div class="section-mark">*</div>
+
+    <!-- HERO: lightning/bug -->
+    <section class="hero-film" aria-labelledby="bug-title">
+        <img class="hero-still"
+             src="/images/lightning-bug/og-poster.jpg"
+             alt="lightning/bug — a boy in a wheat field at dusk, the last summer the fireflies were everywhere"
+             loading="eager">
+        <div class="hero-body">
+            <div class="film-meta">the first one · short film · 2026</div>
+            <h2 id="bug-title" class="film-title">lightning/bug</h2>
+            <p class="film-logline">A boy. A bug. A bolt. Two kinds of light. Kansas.</p>
+            <a class="film-cta" href="/lightning-bug">Watch the film &rarr;</a>
+        </div>
+    </section>
+
+    <div class="section-mark">*</div>
+
+    <!-- IN PRODUCTION -->
+    <section aria-labelledby="in-prod">
+        <h2 id="in-prod" class="section-label">In production</h2>
+
+        <div class="cards">
+
+            <article class="card">
+                <div class="card-meta">chamber piece · in production · summer 2026</div>
+                <h3 class="card-title">Hallway Walz in D Minor</h3>
+                <p class="card-logline">A five-minute chamber piece. Composed and performed by one diminished man, in the saddest key, in a hallway he keeps returning to.</p>
+                <p class="card-summary">Nine Latin requiem movements. No windows. Doors only. The opposite of <em>lightning/bug</em> — the inside of the same year.</p>
+            </article>
+
+            <article class="card">
+                <div class="card-meta">music video · in production · summer 2026</div>
+                <h3 class="card-title">Buffalo Parade</h3>
+                <p class="card-logline">A buffalo carrying an electric guitar turns into the storm — because the only way through is through.</p>
+                <p class="card-summary">Northern plains, late afternoon into storm. Empire Builder country. A parable for the moment we're in: the storms you have to walk into rather than around. Song first; the visualization serves it.</p>
+            </article>
+
+            <article class="card">
+                <div class="card-meta">period series · pilot stage · 2026</div>
+                <h3 class="card-title">River Pigs</h3>
+                <p class="card-logline">He recovers bodies from the river. It's the only honest job in the logging trade.</p>
+                <p class="card-summary">A frontier noir set on the St. Croix River during the 1880s Minnesota logging boom — when lumber barons built their fortunes on the backs of the men who rode the log drives and died in them. <em>Fargo</em> meets <em>Landman</em>, set in an era when white pine was America's most valuable commodity.</p>
+            </article>
+
+        </div>
+    </section>
+
+    <div class="section-mark">*</div>
+
+    <!-- SUBSCRIBE -->
+    <section class="subscribe" aria-labelledby="sub-title">
+        <p id="sub-title" class="subscribe-line">Films and songs ship when they ship. Notes from the studio go out through the same door as the writing.</p>
+        <a class="subscribe-btn" href="https://derek4thecws.substack.com" target="_blank" rel="noopener">Subscribe on Substack</a>
+    </section>
+
+    <footer>
+        <div class="footer-row">
+            <a href="/">claudewill.io</a> &middot;
+            <a href="/derek">derek</a> &middot;
+            <a href="/being-claude">being claude</a> &middot;
+            <a href="/lightning-bug">lightning/bug</a>
+        </div>
+        <div class="signature">sss.</div>
+    </footer>
+
+</div>
+
+</body>
+</html>
