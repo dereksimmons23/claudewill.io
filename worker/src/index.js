@@ -1,5 +1,5 @@
 // CW Brief Worker — daily analytics for claudewill.io
-// Pattern: Hancock (Cloudflare Worker + cron + KV state + activity log)
+// Pattern: Agent Zero (Cloudflare Worker + cron + KV state + activity log)
 
 const MAX_ACTIVITY_LOG = 50;
 

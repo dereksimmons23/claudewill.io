@@ -24,15 +24,20 @@ netlify/functions/cw-prompt/compiled-prompt.js
 # Dev tools (brand workbench, etc.)
 dev/
 
-# Internal documentation and strategy (drafts + reference stay local, published is tracked)
+# Internal documentation and strategy (drafts + reference + audits stay local, published is tracked)
 docs/drafts/
 docs/reference/
+docs/audits/
 docs/plans/tzp-*
 docs/plans/venture-*
 docs/plans/secret-weapon-*
 docs/plans/reports/
 docs/plans/2026-03-31-site-rebuild-plan.md
 recalibrate/
+
+# Internal-only data dumps (Hancock anonymity / Agent Zero boundary)
+# Past leak May 10 2026 — scrubbed live, history retains; do not re-track
+report.html
 
 # Memoir / heritage drafts (do not publish)
 heritage-manuscript-archive.md

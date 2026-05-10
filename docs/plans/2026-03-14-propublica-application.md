@@ -147,7 +147,7 @@ Per Peter's advice (range) and Derek's instinct (investigative series, news proj
 **Option A: claudewill.io + the AI ecosystem**
 - Self-initiated, built in 14 months
 - HTML/CSS/JS (the posting asks for this)
-- AI-native editorial platform: CW (conversational interface), Hancock (anonymous whistleblower agent who can't be fired), D-Rock (IG voice agent), Coach D (basketball training AI)
+- AI-native editorial platform: CW (conversational interface), Agent Zero (anonymous whistleblower agent who can't be fired), D-Rock (IG voice agent), Coach D (basketball training AI)
 - Hand-rolled CMS, global ecosystem with go-bag disaster recovery
 - Shows where visual storytelling and editorial technology intersect
 - The "novel formats unbound by precedent" the posting asks for
@@ -183,7 +183,7 @@ Current categories: LA Times / Star Tribune / CW Strategies / Life (organized by
 | **Data & Interactive** | Information design for complex stories | Election data viz, weather data, 61 Seconds interactive, VR flyover |
 | **Editorial Products** | Program-building, franchises | Star Tribune Magazine, 150th anniversary, State Fair merch, coffee table book, entertainment vertical, sports betting vertical |
 | **Photography** | Photo editing, photo direction | Olympics poster series, Voyageurs aerial, magazine covers |
-| **AI & Platform** | Where it's going | claudewill.io, Hancock, CW Standard, Cascadia, Coach D |
+| **AI & Platform** | Where it's going | claudewill.io, Agent Zero, CW Standard, Cascadia, Coach D |
 | **Life** | The person | First byline, Panthers, childhood, family |
 
 **Note:** Many pieces belong in multiple categories. The gallery should allow multi-tagging (a piece can be both "Investigations" and "Commissioned Art"). Derek also has his own illustration and typographic storytelling work that should be surfaced — not just art he directed, but art he made.
@@ -201,7 +201,7 @@ Current categories: LA Times / Star Tribune / CW Strategies / Life (organized by
 - Sports betting vertical (Star Tribune)
 - Derek's own illustrations and typographic solutions
 - Derek's photo/logo/creative solution portfolio
-- Hancock, D-Rock, Coach D platforms
+- Agent Zero, D-Rock, Coach D platforms
 
 **The gallery needs to grow** — but not for this weekend. For the application, the existing gallery + a reorganization by category is enough. The deeper build happens after March 17.
 
@@ -370,7 +370,7 @@ After reorganization, the gallery shows the art direction depth Peter recommende
 
 6. **He builds programs.** The magazine. The 150th anniversary. The State Fair merch. Two paid content verticals. He creates editorial franchises, not just visual packages.
 
-7. **He codes.** HTML, CSS, JS. claudewill.io. Hancock. A hand-rolled CMS. The posting asks for this. Most visual editors can't do it.
+7. **He codes.** HTML, CSS, JS. claudewill.io. Agent Zero. A hand-rolled CMS. The posting asks for this. Most visual editors can't do it.
 
 8. **He understands the business.** $20M in revenue. At a nonprofit that runs on $59M (80% donations), a visual editor who understands institutional sustainability is valuable.
 

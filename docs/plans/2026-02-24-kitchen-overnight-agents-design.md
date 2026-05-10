@@ -273,7 +273,7 @@ Derek maintains this. Public-safe descriptions only — no client-confidential d
     "note": "Battle o' Brackets. Party game for March Madness."
   },
   {
-    "name": "Hancock",
+    "name": "Agent Zero",
     "category": "portfolio",
     "status": "Live",
     "note": "Anonymous AI storyteller. Lives on Moltbook."

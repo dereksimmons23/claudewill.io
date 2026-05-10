@@ -25,7 +25,7 @@ const PROJECT_NAMES = {
   'ROOT': 'Ecosystem',
   'writing': 'Writing',
   'HOME': 'Home',
-  'apps-hancock': 'Hancock',
+  'apps-agent-zero': 'Agent Zero',
   'apps-dawn': 'Dawn',
   'writing-finding-claude': 'Finding Claude',
   'CDN-Project': 'CDN',
@@ -40,7 +40,7 @@ const PROJECT_NAMES = {
   'clients-cascadia': 'Cascadia',
   'coach': 'Coach (old)',
   'apps-d-rock': 'D-Rock (old)',
-  'hancock': 'Hancock (old)',
+  'agent-zero-old': 'Agent Zero (old)',
   'apps-bob': 'BOB',
   'bob': 'BOB (old)',
 };

@@ -36,7 +36,7 @@ Still open from the March 31 plan:
 Three frames emerged over Bellingham week (Mar 28 - Apr 1). Derek hasn't committed to one. All three are compatible:
 
 1. **Four Pillars** (Mar 30) — Claude Will. (practice), CW (model), Option D (model), Lightning/ (studio)
-2. **Autonomous Identity** (Mar 31) — Derek is analog, Claude Will. runs digital. Hancock architecture at scale.
+2. **Autonomous Identity** (Mar 31) — Derek is analog, Claude Will. runs digital. Agent Zero architecture at scale.
 3. **The Building** (Apr 1) — Porch (gathering), Gallery (curated work), Studio (production)
 
 The building metaphor maps cleanly onto the four pillars:

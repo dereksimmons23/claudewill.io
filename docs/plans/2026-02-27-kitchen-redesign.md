@@ -112,7 +112,7 @@ Projects  8
 ├ ● coach d        live          157 drills
 ├ ● claudewill.io  live          8 pages
 ├ ● bob            live          v2.9.6
-├ ◉ hancock        autonomous
+├ ◉ agent-zero        autonomous
 ├ ◐ dawn           54/151        ██████░░░░ 36%
 ├ ● finding claude active        32 ch
 └   derek claude   live          v1.0

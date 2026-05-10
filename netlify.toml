@@ -377,5 +377,7 @@
   from = "/report.html"
   to = "/report"
   status = 301
+  force = true
 
 # /report serves live ops dashboard (report/index.html)
+# force = true ensures the redirect fires even if a /report.html file is ever re-introduced

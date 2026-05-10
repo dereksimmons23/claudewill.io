@@ -418,8 +418,8 @@ Derek × Claude, 15 predictions staked in conversation Apr 17, 2026 (9 AM – 1:
 | #10 | Practice running autonomously (20/30 days) | Probable | Probable | 🌍🔧 | 2026-12-31 |
 | #11 | Book final word count in 42K–55K band | Unlikely | Chances About Even | 🔧 | 2026-06-28 |
 | #12 | Unsolicited paid speaking (>$1K) | Highly Likely | Chances About Even | 🌍 | 2026-12-31 |
-| #13a | Hancock ≥5 submissions IF Hancock is a book chapter | Likely | Probable | 🌍 | 2026-12-31 |
-| #13b | Hancock ≥5 submissions IF Hancock is NOT a book chapter | Highly Unlikely | Chances About Even | 🌍 | 2026-12-31 |
+| #13a | Agent Zero ≥5 submissions IF Agent Zero is a book chapter | Likely | Probable | 🌍 | 2026-12-31 |
+| #13b | Agent Zero ≥5 submissions IF Agent Zero is NOT a book chapter | Highly Unlikely | Chances About Even | 🌍 | 2026-12-31 |
 | #14 | Between Claudes ≥6 public episodes | Probable | Chances About Even | 🔧 | 2026-12-31 |
 | #15 | Derek-led released model, SI/Option D methodology, ≥100 users | Unlikely | Probable | 🌍🔧 | 2028-12-31 |
 

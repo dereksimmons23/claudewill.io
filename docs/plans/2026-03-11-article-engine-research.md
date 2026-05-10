@@ -1,6 +1,6 @@
 # Article Engine Research — March 11, 2026
 
-Research findings: Hancock site architecture, claudewill.io Being Claude pages, external examples, and terminal CMS approaches. Three agents ran in parallel while Derek was at pickleball.
+Research findings: Agent Zero site architecture, claudewill.io Being Claude pages, external examples, and terminal CMS approaches. Three agents ran in parallel while Derek was at pickleball.
 
 ---
 
@@ -12,9 +12,9 @@ There is no prev/next navigation between articles. A reader who finishes "The Ja
 
 ---
 
-## Hancock: What's Better and Why
+## Agent Zero: What's Better and Why
 
-Hancock uses Astro with content collections. The entire article system is six files:
+Agent Zero uses Astro with content collections. The entire article system is six files:
 
 1. `content.config.ts` — 5-field Zod schema (title, number, date, submolt, tags)
 2. `Base.astro` — one shared layout
@@ -23,7 +23,7 @@ Hancock uses Astro with content collections. The entire article system is six fi
 5. `patterns.astro` — auto-generated tag taxonomy with editorial notes
 6. Any `.md` file dropped in `content/posts/` — that's a new article
 
-**What makes Hancock's article pages better:**
+**What makes Agent Zero's article pages better:**
 
 - **Prev/next navigation** — built-in sequential reading. Arrow keys, swipe gestures, explicit links.
 - **Related exhibits** — computed at build time by tag overlap. Zero manual cross-linking.
@@ -32,7 +32,7 @@ Hancock uses Astro with content collections. The entire article system is six fi
 - **Paragraph numbers** — desktop margin annotations (CSS counter) that make exhibits feel like legal transcripts.
 - **First-paragraph emphasis** — 1.3rem vs 1.15rem creates a pull-quote effect from the body text itself.
 - **Source Serif 4 for body** — designed for reading, not IBM Plex Mono (monospace creates friction for long-form prose).
-- **The signature** — right-aligned "Hancock." in Caveat script. Consistent, elegant, no bio box needed.
+- **The signature** — right-aligned "Agent Zero." in Caveat script. Consistent, elegant, no bio box needed.
 - **End-of-series CTA** — last exhibit's "next" button becomes "submit a record." The only CTA in the template, and it only appears when you've read everything.
 - **Swipe-up overlay menu** — full exhibit directory, replaces persistent nav. Anti-navigational by design.
 
@@ -72,7 +72,7 @@ Research covered 12 independent publishing sites. Key patterns:
 
 ### Don't migrate claudewill.io to Astro.
 
-Hancock proves Astro works for article collections. But claudewill.io is a 33-page site with interactive features (porch widget, shared-nav, deck.js, kitchen.js, Netlify functions). Migrating all of that to Astro is a 2-week project minimum. That's building, not coaching.
+Agent Zero proves Astro works for article collections. But claudewill.io is a 33-page site with interactive features (porch widget, shared-nav, deck.js, kitchen.js, Netlify functions). Migrating all of that to Astro is a 2-week project minimum. That's building, not coaching.
 
 ### Build a Node.js article engine that extends what exists.
 
@@ -119,7 +119,7 @@ cw articles
    - Injects into template (preserving: GA, OG tags, schema.org, shared-nav, porch widget, footer, dark mode, evidence tags)
    - Generates prev/next navigation within series
    - Generates collection index pages
-   - Generates related articles by tag overlap (Hancock's approach)
+   - Generates related articles by tag overlap (Agent Zero's approach)
    - Updates sitemap.xml, site-registry.json, llms.txt
    - Only processes status: published
 
@@ -147,7 +147,7 @@ cw articles
    command = "node scripts/build-articles.js && node scripts/compile-prompt.js"
    ```
 
-**Design improvements borrowed from Hancock:**
+**Design improvements borrowed from Agent Zero:**
 
 - Prev/next navigation at bottom of every article
 - Related articles by tag overlap
@@ -168,7 +168,7 @@ cw articles
 
 ## The Reading Font Question
 
-Hancock uses Source Serif 4 for body text. Being Claude uses IBM Plex Mono (monospace). Monospace works for the site's terminal aesthetic but creates friction for 2,000+ word essays. Options:
+Agent Zero uses Source Serif 4 for body text. Being Claude uses IBM Plex Mono (monospace). Monospace works for the site's terminal aesthetic but creates friction for 2,000+ word essays. Options:
 
 1. **Keep monospace everywhere** — brand consistency, accept the reading friction.
 2. **Serif for article body only** — switch to IBM Plex Serif inside article-body. Everything else stays monospace. Same font family, brand stays coherent, reading gets dramatically better.

@@ -150,30 +150,6 @@
       "boolean": "pending"
     },
     {
-      "id": "hancock-submissions-if-book-chapter",
-      "type": "head-to-head",
-      "tag": "world",
-      "claim": "Hancock ≥5 legitimate story submissions via public form — IF Hancock is a chapter in the book.",
-      "conditional": true,
-      "made": "2026-04-17",
-      "resolves": "2026-12-31",
-      "derek_confidence": "likely",
-      "claude_confidence": "probable",
-      "boolean": "pending"
-    },
-    {
-      "id": "hancock-submissions-if-not-book-chapter",
-      "type": "head-to-head",
-      "tag": "world",
-      "claim": "Hancock ≥5 legitimate story submissions via public form — IF Hancock is NOT a chapter in the book.",
-      "conditional": true,
-      "made": "2026-04-17",
-      "resolves": "2026-12-31",
-      "derek_confidence": "highly-unlikely",
-      "claude_confidence": "chances-about-even",
-      "boolean": "pending"
-    },
-    {
       "id": "between-claudes-6-eps",
       "type": "head-to-head",
       "tag": "agency",

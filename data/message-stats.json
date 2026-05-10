@@ -45,8 +45,8 @@
       "conversations": 150
     },
     {
-      "key": "apps-hancock",
-      "name": "Hancock",
+      "key": "apps-agent-zero",
+      "name": "Agent Zero",
       "user_messages": 2565,
       "assistant_messages": 4187,
       "total_messages": 6752,
@@ -165,8 +165,8 @@
       "conversations": 3
     },
     {
-      "key": "hancock",
-      "name": "Hancock (old)",
+      "key": "agent-zero-old",
+      "name": "Agent Zero (old)",
       "user_messages": 11,
       "assistant_messages": 12,
       "total_messages": 23,
