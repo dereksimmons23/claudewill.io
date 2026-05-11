@@ -584,6 +584,8 @@
         @media (max-width: 600px) {
             .simple-nav { gap: 0.8rem; }
             .simple-wordmark { font-size: 2rem; }
+            /* Constellation/game-mode is unusable below 600px — suppress entry point. */
+            .simple-explore-btn { display: none; }
         }
     </style>
 </head>
@@ -999,7 +1001,11 @@
         var exploreBtn  = document.getElementById('explore-btn');
         var backBtn     = document.getElementById('back-btn');
         var simpleCwBtn = document.getElementById('simple-cw-btn');
-        function enterGame() { document.body.classList.add('game-mode'); }
+        function enterGame() {
+            // Constellation is unusable below 600px — refuse to enter game-mode.
+            if (window.matchMedia('(max-width: 600px)').matches) return;
+            document.body.classList.add('game-mode');
+        }
         function exitGame()  { document.body.classList.remove('game-mode'); }
         if (exploreBtn)  exploreBtn.addEventListener('click', enterGame);
         if (backBtn)     backBtn.addEventListener('click', exitGame);
