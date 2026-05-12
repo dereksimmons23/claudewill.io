@@ -156,13 +156,106 @@
     .slide-tag.supervised { color: var(--gold); border-color: rgba(212, 168, 75, 0.3); }
     .slide-tag.unsupervised { color: var(--cobalt); border-color: rgba(74, 142, 194, 0.3); }
     .slide-todo {
+      display: none; /* hidden by default; visible only in ?draft=true mode */
       background: rgba(212, 168, 75, 0.07);
       border: 1px dashed rgba(212, 168, 75, 0.4);
       padding: 0.85rem 1rem; border-radius: 3px;
       font-size: 0.78rem; color: var(--dim);
       margin-top: 1.2rem; line-height: 1.55;
     }
+    body.draft .slide-todo { display: block; }
     .slide-todo b { color: var(--gold); font-weight: 600; }
+    .draft-banner {
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(212, 168, 75, 0.92); color: #0a1628;
+      text-align: center; padding: 0.3rem; font-size: 0.7rem;
+      letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;
+    }
+    body.draft .draft-banner { display: block; }
+    body.draft .deck-header { top: 24px; }
+
+    /* ── Feedback widget ────────────────────────── */
+    .fb-trigger {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 80;
+      background: var(--bg-elev); border: 1px solid rgba(212, 168, 75, 0.4);
+      color: var(--gold); font-family: var(--font); font-size: 0.75rem;
+      padding: 0.6rem 1rem; border-radius: 999px;
+      cursor: pointer; letter-spacing: 0.1em;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+      transition: all 0.18s;
+    }
+    .fb-trigger:hover {
+      border-color: var(--gold); color: var(--bright);
+      transform: translateY(-1px);
+    }
+    .fb-modal {
+      display: none;
+      position: fixed; inset: 0; z-index: 90;
+      background: rgba(10, 22, 40, 0.78);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      align-items: center; justify-content: center;
+      padding: 1rem;
+    }
+    .fb-modal.open { display: flex; }
+    .fb-modal-inner {
+      width: 100%; max-width: 460px;
+      background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+      padding: 1.5rem; position: relative;
+    }
+    .fb-modal-title {
+      font-size: 1.1rem; color: var(--bright);
+      margin-bottom: 0.3rem; letter-spacing: -0.01em;
+    }
+    .fb-modal-sub {
+      font-size: 0.72rem; color: var(--dim);
+      letter-spacing: 0.1em; text-transform: lowercase;
+      margin-bottom: 1.4rem;
+    }
+    .fb-close {
+      position: absolute; top: 0.8rem; right: 1rem;
+      background: none; border: none; color: var(--dim);
+      font-family: var(--font); font-size: 1.2rem; cursor: pointer;
+      padding: 0.2rem 0.5rem; line-height: 1;
+    }
+    .fb-close:hover { color: var(--gold); }
+    .fb-field { margin-bottom: 0.85rem; }
+    .fb-field label {
+      display: block; font-size: 0.65rem; color: var(--dim);
+      text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.3rem;
+    }
+    .fb-field input, .fb-field textarea {
+      display: block; width: 100%; padding: 0.55rem 0.75rem;
+      background: var(--bg-elev); border: 1px solid var(--border); border-radius: 3px;
+      color: var(--bright); font-family: var(--font); font-size: 0.85rem;
+    }
+    .fb-field textarea { min-height: 120px; resize: vertical; line-height: 1.55; }
+    .fb-field input:focus, .fb-field textarea:focus {
+      outline: none; border-color: var(--gold);
+    }
+    .fb-field input::placeholder, .fb-field textarea::placeholder { color: var(--dim); }
+    .fb-actions {
+      display: flex; gap: 0.6rem; justify-content: flex-end;
+      margin-top: 0.4rem;
+    }
+    .fb-btn {
+      background: none; border: 1px solid var(--gold); border-radius: 3px;
+      color: var(--gold); font-family: var(--font); font-size: 0.78rem;
+      padding: 0.55rem 1.1rem; cursor: pointer; letter-spacing: 0.05em;
+      transition: all 0.15s;
+    }
+    .fb-btn:hover { background: var(--gold); color: var(--bg); }
+    .fb-btn-secondary {
+      border-color: var(--border); color: var(--dim);
+    }
+    .fb-btn-secondary:hover { background: none; color: var(--text); border-color: var(--text); }
+    .fb-status {
+      font-size: 0.78rem; color: var(--dim);
+      margin-top: 0.6rem; min-height: 1.2em;
+    }
+    .fb-status.error { color: #e07a7a; }
+    .fb-status.success { color: var(--gold); }
 
     /* Specific slide treatments */
     .slide-title-hero {
@@ -253,7 +346,7 @@
       .principles li::before { color: #b8923a; }
       .transcript { background: #f8f8f8; border: 1px solid #ddd; }
       .deck-footer { display: none; }
-      .slide-todo { display: none; }
+      .slide-todo, .fb-trigger, .fb-modal, .draft-banner { display: none !important; }
     }
 
     /* ── Mobile ────────────────────────── */
@@ -265,6 +358,9 @@
   </style>
 </head>
 <body>
+
+  <!-- ── Draft banner (only visible with ?draft=true) ────────────────────── -->
+  <div class="draft-banner">draft mode · construction notes visible · viewer-mode is the default</div>
 
   <!-- ── Gate ────────────────────── -->
   <div class="gate" id="gate">
@@ -545,7 +641,42 @@
     <footer class="deck-footer">
       <p>derek*claude · <a href="https://claudewill.io">claudewill.io</a></p>
       <p>This deck lives on the same infrastructure it argues for. The site is the steer. This was the appetizer.</p>
+      <p style="margin-top: 1rem;">
+        <button class="fb-btn fb-btn-secondary" id="fb-footer-trigger" style="padding: 0.5rem 1.2rem;">leave a note for derek</button>
+      </p>
     </footer>
+  </div>
+
+  <!-- ── Feedback widget ────────────────────── -->
+  <button class="fb-trigger" id="fb-trigger" title="Leave a note for Derek">leave a note</button>
+
+  <div class="fb-modal" id="fb-modal" aria-hidden="true">
+    <div class="fb-modal-inner">
+      <button class="fb-close" id="fb-close" aria-label="Close">×</button>
+      <h3 class="fb-modal-title">Leave a note</h3>
+      <p class="fb-modal-sub">goes straight to derek</p>
+      <div class="fb-field">
+        <label for="fb-name">Your name <span style="color: var(--dim); text-transform: none; letter-spacing: 0;">(optional)</span></label>
+        <input type="text" id="fb-name" autocomplete="name" placeholder="who's this from">
+      </div>
+      <div class="fb-field">
+        <label for="fb-email">Email <span style="color: var(--dim); text-transform: none; letter-spacing: 0;">(optional — so Derek can reply)</span></label>
+        <input type="email" id="fb-email" autocomplete="email" placeholder="you@example.com">
+      </div>
+      <div class="fb-field">
+        <label for="fb-slide">Slide <span style="color: var(--dim); text-transform: none; letter-spacing: 0;">(if a specific one)</span></label>
+        <input type="text" id="fb-slide" placeholder="e.g. 3, 11, or whole deck">
+      </div>
+      <div class="fb-field">
+        <label for="fb-message">Your note</label>
+        <textarea id="fb-message" placeholder="What landed. What didn't. Anything." required></textarea>
+      </div>
+      <p class="fb-status" id="fb-status"></p>
+      <div class="fb-actions">
+        <button class="fb-btn fb-btn-secondary" id="fb-cancel">cancel</button>
+        <button class="fb-btn" id="fb-submit">send</button>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -615,12 +746,14 @@
     }
 
     // Section counter (current slide indicator)
+    var currentSlideIdx = 1;
     function setupCounter() {
       var slides = document.querySelectorAll('.slide');
       var io = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             var idx = Array.from(slides).indexOf(entry.target) + 1;
+            currentSlideIdx = idx;
             counterEl.textContent = String(idx).padStart(2, '0') + ' / 15';
           }
         });
@@ -629,6 +762,95 @@
     }
 
     printBtn.addEventListener('click', function() { window.print(); });
+
+    // Draft mode toggle (shows construction notes for Derek's eyes)
+    var params = new URLSearchParams(location.search);
+    if (params.get('draft') === 'true') {
+      document.body.classList.add('draft');
+      localStorage.setItem('adams-draft', 'true');
+    } else if (params.get('draft') === 'false') {
+      document.body.classList.remove('draft');
+      localStorage.removeItem('adams-draft');
+    } else if (localStorage.getItem('adams-draft') === 'true') {
+      document.body.classList.add('draft');
+    }
+
+    // Feedback widget
+    var fbTrigger = document.getElementById('fb-trigger');
+    var fbFooterTrigger = document.getElementById('fb-footer-trigger');
+    var fbModal = document.getElementById('fb-modal');
+    var fbClose = document.getElementById('fb-close');
+    var fbCancel = document.getElementById('fb-cancel');
+    var fbSubmit = document.getElementById('fb-submit');
+    var fbName = document.getElementById('fb-name');
+    var fbEmail = document.getElementById('fb-email');
+    var fbSlide = document.getElementById('fb-slide');
+    var fbMessage = document.getElementById('fb-message');
+    var fbStatus = document.getElementById('fb-status');
+
+    function openFb() {
+      fbSlide.value = String(currentSlideIdx);
+      fbStatus.textContent = '';
+      fbStatus.className = 'fb-status';
+      fbModal.classList.add('open');
+      fbModal.setAttribute('aria-hidden', 'false');
+      setTimeout(function() { fbMessage.focus(); }, 60);
+    }
+    function closeFb() {
+      fbModal.classList.remove('open');
+      fbModal.setAttribute('aria-hidden', 'true');
+    }
+    fbTrigger.addEventListener('click', openFb);
+    if (fbFooterTrigger) fbFooterTrigger.addEventListener('click', openFb);
+    fbClose.addEventListener('click', closeFb);
+    fbCancel.addEventListener('click', closeFb);
+    fbModal.addEventListener('click', function(e) {
+      if (e.target === fbModal) closeFb();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && fbModal.classList.contains('open')) closeFb();
+    });
+
+    fbSubmit.addEventListener('click', async function() {
+      var msg = fbMessage.value.trim();
+      if (!msg) {
+        fbStatus.textContent = 'A note is required.';
+        fbStatus.className = 'fb-status error';
+        return;
+      }
+      fbSubmit.disabled = true;
+      fbSubmit.textContent = 'sending...';
+      fbStatus.textContent = '';
+      fbStatus.className = 'fb-status';
+      try {
+        var res = await fetch('/.netlify/functions/adams-feedback', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: fbName.value.trim(),
+            email: fbEmail.value.trim(),
+            slide: fbSlide.value.trim(),
+            message: msg,
+          }),
+        });
+        var data = await res.json().catch(function() { return {}; });
+        if (res.ok && data.ok) {
+          fbStatus.textContent = 'Sent. Derek will see it.';
+          fbStatus.className = 'fb-status success';
+          fbMessage.value = '';
+          setTimeout(closeFb, 1400);
+        } else {
+          fbStatus.textContent = 'Could not send (' + (data.error || res.status) + '). Email derek@claudewill.io directly.';
+          fbStatus.className = 'fb-status error';
+        }
+      } catch (e) {
+        fbStatus.textContent = 'Connection error. Email derek@claudewill.io directly.';
+        fbStatus.className = 'fb-status error';
+      } finally {
+        fbSubmit.disabled = false;
+        fbSubmit.textContent = 'send';
+      }
+    });
   })();
   </script>
 </body>
