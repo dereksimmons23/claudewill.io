@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0a1628">
+  <title>adams* | claudewill</title>
+  <meta name="description" content="A working method.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #0a1628;
+      --bg-elev: #0d1a30;
+      --text: #c8d0dc;
+      --bright: #e5e9f0;
+      --gold: #d4a84b;
+      --cobalt: #4a8ec2;
+      --dim: #4a5a70;
+      --border: rgba(255,255,255,0.08);
+      --font: 'IBM Plex Mono', 'Courier New', monospace;
+    }
+    html, body { height: 100%; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Gate ────────────────────────── */
+    .gate {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem;
+    }
+    .gate-inner { max-width: 360px; width: 100%; }
+    .gate-title {
+      font-size: 2.4rem; font-weight: 700; color: var(--gold);
+      text-shadow: 0 0 22px rgba(212, 168, 75, 0.4);
+      margin-bottom: 0.4rem; letter-spacing: -0.02em;
+    }
+    .gate-sub {
+      font-size: 0.78rem; color: var(--dim);
+      margin-bottom: 2rem; letter-spacing: 0.1em; text-transform: lowercase;
+    }
+    .gate-field { display: block; width: 100%; margin-bottom: 1rem; }
+    .gate-field label {
+      display: block; font-size: 0.68rem; color: var(--dim);
+      text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.4rem;
+    }
+    .gate-field input {
+      display: block; width: 100%; padding: 0.7rem 0.85rem;
+      background: var(--bg-elev); border: 1px solid var(--border); border-radius: 3px;
+      color: var(--bright); font-family: var(--font); font-size: 0.9rem;
+    }
+    .gate-field input:focus { outline: none; border-color: var(--gold); }
+    .gate-field input::placeholder { color: var(--dim); }
+    .gate-btn {
+      display: block; width: 100%; padding: 0.75rem; margin-top: 0.75rem;
+      background: none; border: 1px solid var(--gold); border-radius: 3px;
+      color: var(--gold); font-family: var(--font); font-size: 0.85rem;
+      cursor: pointer; letter-spacing: 0.05em; transition: all 0.15s;
+    }
+    .gate-btn:hover { background: var(--gold); color: var(--bg); }
+    .gate-error {
+      font-size: 0.75rem; color: #e07a7a;
+      margin-top: 0.75rem; display: none;
+    }
+    .gate-footer {
+      font-size: 0.7rem; color: var(--dim);
+      margin-top: 1.75rem; text-align: center;
+    }
+
+    /* ── Deck ────────────────────────── */
+    .deck { display: none; }
+    .deck.active { display: block; }
+
+    /* Sticky compact header */
+    .deck-header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(10, 22, 40, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.7rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 0.72rem; letter-spacing: 0.1em;
+      text-transform: lowercase;
+    }
+    .deck-mark { color: var(--gold); font-weight: 700; font-size: 0.9rem; }
+    .deck-mark a { color: inherit; }
+    .deck-section-counter { color: var(--dim); }
+    .deck-print {
+      background: none; border: 1px solid var(--border); border-radius: 3px;
+      color: var(--dim); font-family: var(--font); font-size: 0.7rem;
+      padding: 0.35rem 0.7rem; cursor: pointer; letter-spacing: 0.08em;
+      transition: all 0.15s;
+    }
+    .deck-print:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* Slides */
+    .slide {
+      min-height: calc(100vh - 60px);
+      max-width: 720px; margin: 0 auto;
+      padding: 5rem 2rem 4rem;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    .slide:last-of-type { border-bottom: none; }
+    .slide-num {
+      font-size: 0.7rem; color: var(--dim);
+      letter-spacing: 0.15em; margin-bottom: 1.2rem;
+      text-transform: lowercase;
+    }
+    .slide-title {
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 700; color: var(--bright);
+      letter-spacing: -0.01em; line-height: 1.15;
+      margin-bottom: 1.8rem; text-transform: uppercase;
+    }
+    .slide-body p {
+      font-size: 1.02rem; color: var(--text);
+      margin-bottom: 1.1rem; line-height: 1.7;
+    }
+    .slide-body p:last-child { margin-bottom: 0; }
+    .pull {
+      font-style: italic; color: var(--bright);
+      padding: 0.6rem 0 0.6rem 1.2rem;
+      border-left: 2px solid var(--gold);
+      margin: 1.2rem 0; font-size: 1.05rem;
+    }
+    .pull-attr {
+      display: block;
+      font-style: normal; font-size: 0.78rem; color: var(--dim);
+      margin-top: 0.4rem; letter-spacing: 0.04em;
+    }
+    .pull-cobalt { border-left-color: var(--cobalt); }
+    .slide-tag {
+      position: absolute; top: 1.5rem; right: 2rem;
+      font-size: 0.62rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--dim);
+      padding: 0.2rem 0.55rem; border-radius: 2px;
+      border: 1px solid var(--border);
+    }
+    .slide-tag.supervised { color: var(--gold); border-color: rgba(212, 168, 75, 0.3); }
+    .slide-tag.unsupervised { color: var(--cobalt); border-color: rgba(74, 142, 194, 0.3); }
+    .slide-todo {
+      background: rgba(212, 168, 75, 0.07);
+      border: 1px dashed rgba(212, 168, 75, 0.4);
+      padding: 0.85rem 1rem; border-radius: 3px;
+      font-size: 0.78rem; color: var(--dim);
+      margin-top: 1.2rem; line-height: 1.55;
+    }
+    .slide-todo b { color: var(--gold); font-weight: 600; }
+
+    /* Specific slide treatments */
+    .slide-title-hero {
+      font-size: clamp(2rem, 6vw, 3.6rem);
+      text-shadow: 0 0 28px rgba(212, 168, 75, 0.2);
+      color: var(--gold);
+    }
+    .slide-cotton-candy {
+      font-style: italic; color: var(--bright);
+      font-size: 1.05rem; line-height: 1.8;
+      margin-top: 0.5rem;
+    }
+    .slide-cotton-candy span { display: block; }
+    .slide-contact {
+      margin-top: 3rem; font-size: 0.78rem;
+      color: var(--dim); letter-spacing: 0.04em;
+    }
+
+    .principles {
+      list-style: none; padding: 0;
+      font-size: 1.15rem; line-height: 2.2; color: var(--bright);
+      margin-bottom: 2rem;
+    }
+    .principles li::before {
+      content: '*'; color: var(--gold); margin-right: 0.75rem;
+    }
+
+    .deliverables {
+      list-style: none; padding: 0; margin: 0 0 1.5rem;
+    }
+    .deliverables li {
+      padding: 0.5rem 0 0.5rem 1.4rem; position: relative;
+      color: var(--bright); font-size: 0.98rem;
+      border-bottom: 1px dashed var(--border);
+    }
+    .deliverables li:last-child { border-bottom: none; }
+    .deliverables li::before {
+      content: '—'; color: var(--gold);
+      position: absolute; left: 0;
+    }
+
+    .transcript {
+      background: var(--bg-elev); border: 1px solid var(--border);
+      border-radius: 4px; padding: 1.25rem 1.4rem;
+      margin-top: 1rem; font-size: 0.86rem; line-height: 1.6;
+    }
+    .transcript .turn { margin-bottom: 0.75rem; }
+    .transcript .turn:last-child { margin-bottom: 0; }
+    .transcript .who {
+      display: block; font-size: 0.68rem; color: var(--dim);
+      letter-spacing: 0.1em; margin-bottom: 0.2rem;
+      text-transform: uppercase;
+    }
+    .transcript .turn-user .what { color: var(--bright); }
+    .transcript .turn-cw .what { color: var(--text); }
+    .transcript .more {
+      display: block; margin-top: 0.5rem;
+      font-size: 0.74rem; color: var(--dim); font-style: italic;
+    }
+
+    /* Footer */
+    .deck-footer {
+      max-width: 720px; margin: 0 auto;
+      padding: 3rem 2rem 4rem;
+      font-size: 0.72rem; color: var(--dim);
+      text-align: center; letter-spacing: 0.06em;
+      line-height: 1.8;
+    }
+    .deck-footer a { color: var(--dim); }
+    .deck-footer a:hover { color: var(--gold); }
+
+    /* ── Print styles ────────────────────────── */
+    @media print {
+      body { background: white; color: black; font-size: 11pt; }
+      .deck-header { display: none; }
+      .gate { display: none !important; }
+      .deck { display: block !important; }
+      .slide {
+        min-height: auto; page-break-after: always;
+        padding: 1.5cm 1cm; max-width: none; margin: 0;
+        border-bottom: none;
+      }
+      .slide-num, .slide-tag { color: #888; }
+      .slide-title { color: black; }
+      .slide-title-hero { color: #b8923a; }
+      .slide-body p { color: #222; }
+      .pull { color: black; border-left-color: #b8923a; }
+      .principles li::before { color: #b8923a; }
+      .transcript { background: #f8f8f8; border: 1px solid #ddd; }
+      .deck-footer { display: none; }
+      .slide-todo { display: none; }
+    }
+
+    /* ── Mobile ────────────────────────── */
+    @media (max-width: 600px) {
+      .slide { padding: 4rem 1.25rem 3rem; }
+      .deck-header { padding: 0.6rem 1rem; }
+      .slide-tag { top: 1rem; right: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Gate ────────────────────── -->
+  <div class="gate" id="gate">
+    <div class="gate-inner">
+      <h1 class="gate-title">adams*</h1>
+      <p class="gate-sub">a working method · draft</p>
+      <div class="gate-field">
+        <label for="gate-code">Access Code</label>
+        <input type="text" id="gate-code" placeholder="enter code" autocomplete="off" spellcheck="false">
+      </div>
+      <button class="gate-btn" id="gate-submit">Enter</button>
+      <p class="gate-error" id="gate-error">Invalid code.</p>
+      <p class="gate-footer"><a href="/">claudewill</a></p>
+    </div>
+  </div>
+
+  <!-- ── Deck ────────────────────── -->
+  <div class="deck" id="deck">
+    <header class="deck-header">
+      <span class="deck-mark"><a href="/">cw*</a> &nbsp;·&nbsp; adams</span>
+      <span class="deck-section-counter" id="counter">01 / 15</span>
+      <button class="deck-print" id="print-btn">print</button>
+    </header>
+
+    <!-- Slide 1 — Title -->
+    <section class="slide" id="s1">
+      <div class="slide-num">01 / 15</div>
+      <h2 class="slide-title slide-title-hero">How AI Actually Adopts</h2>
+      <div class="slide-cotton-candy">
+        <span><em>This was never intended to be cotton candy.</em></span>
+        <span><em>But sometimes people need an appetizer</em></span>
+        <span><em>before having 10 pounds of guessing a steer's weight</em></span>
+        <span><em>jammed down their throats.</em></span>
+      </div>
+      <div class="slide-contact">
+        Derek Simmons · derek@claudewill.io · claudewill.io<br>
+        Audition draft for Adams MultiMedia · May 2026
+      </div>
+      <div class="slide-todo">
+        <b>Wednesday decision:</b> title framing. Current title is the *sportswriter* category — "the AI-adoption expert." The *sports writer* version reframes around craft: <em>"A Writer Inside the Problem"</em> or <em>"What 14 Months of Practice Look Like."</em> Worth a decision before this ships.
+      </div>
+    </section>
+
+    <!-- Slide 2 — The room -->
+    <section class="slide" id="s2">
+      <div class="slide-num">02 / 15</div>
+      <h2 class="slide-title">The Room</h2>
+      <div class="slide-body">
+        <p>You've sat through decks promising AI transformation. Vendors with platforms. Consultants with frameworks. Companies that pivoted last quarter and want to tell you about it.</p>
+        <p>This isn't one of those.</p>
+        <p>14 months of daily work, not a weekend certification. One person. No team. No funding round. Every artifact referenced in this deck is live at <a href="https://claudewill.io">claudewill.io</a> while you read it.</p>
+        <p class="pull">What follows is the work, not the pitch.</p>
+      </div>
+    </section>
+
+    <!-- Slide 3 — The climb -->
+    <section class="slide" id="s3">
+      <div class="slide-num">03 / 15</div>
+      <h2 class="slide-title">The Climb</h2>
+      <div class="slide-body">
+        <p><strong>September 11, 2024.</strong> Star Tribune annual offsite. About 40 people. I presented an AI strategy for the company. The vendor I'd evaluated was Krista.ai. The math: 30 salespeople, one extra month each per year. 2.5 years of human leverage annually.</p>
+        <p>A senior executive stood up afterward and said, publicly:</p>
+        <p class="pull">"Looks like we know who's leading the AI Task Force."</p>
+        <p>When I delivered the R&amp;D lab proposal to the finance manager, his first question was:</p>
+        <p class="pull pull-cobalt">"How many salespeople could we cut if AI can do what you're saying it can do?"</p>
+        <p><strong>October 30, 2024.</strong> 23 days after I disclosed mental health issues to HR, my position was eliminated. 20 years at the company.</p>
+        <p><strong>June 28, 2025.</strong> My mother died.</p>
+        <p>The 14 months since are what this audition is built on.</p>
+      </div>
+    </section>
+
+    <!-- Slide 4 — The Standard -->
+    <section class="slide" id="s4">
+      <div class="slide-num">04 / 15</div>
+      <h2 class="slide-title">The CW Standard</h2>
+      <div class="slide-body">
+        <p>Five principles. They govern everything.</p>
+        <ul class="principles">
+          <li>Truth over comfort.</li>
+          <li>Usefulness over purity.</li>
+          <li>Transparency over reputation.</li>
+          <li>People over systems.</li>
+          <li>Agency over ideology.</li>
+        </ul>
+        <p>Named for my grandfather. Built over 14 months. The constitutional layer under every artifact in this deck.</p>
+      </div>
+    </section>
+
+    <!-- Slide 5 — The method -->
+    <section class="slide" id="s5">
+      <div class="slide-num">05 / 15</div>
+      <h2 class="slide-title">The Method</h2>
+      <div class="slide-body">
+        <p style="font-size: 1.5rem; color: var(--bright); line-height: 1.3; margin-bottom: 1.5rem;">
+          None of it is new.<br>All of it <span style="color: var(--gold)">maps</span>.
+        </p>
+        <p>Every AI capability you might hire for already maps to something a publishing executive knows how to manage. Editorial judgment. Sales prep. Audience research. Trust calibration. Source verification. AI doesn't replace the work; it changes what the work asks of you.</p>
+        <p class="pull">The most dangerous thing AI does isn't hallucinate. It frames choices, based on input and patterns. The Standard above is how I govern the frame.</p>
+      </div>
+    </section>
+
+    <!-- Slide 6 — The asymmetry -->
+    <section class="slide" id="s6">
+      <div class="slide-num">06 / 15</div>
+      <h2 class="slide-title">The Asymmetry</h2>
+      <div class="slide-body">
+        <p>July 2025, your rebrand. You said this:</p>
+        <p class="pull">
+          "I don't think we were too soon. I don't think we're too late. I think we're just kind of perfect."
+          <span class="pull-attr">— Mark Adams</span>
+        </p>
+        <p>The same posture applies to AI right now.</p>
+        <p>Your peers have done nothing publicly. The labs are still settling. The hype is loud; the implementations are mostly PowerPoint.</p>
+        <p>14 months of observation done. Not by you. By me. On your behalf, if you want it.</p>
+        <div class="slide-todo">
+          <b>Wednesday decision:</b> per your Q2 verdict, this slide should lean into the <em>scarcity-of-this-combination</em> framing — <em>"how many of these people have done what I have done the last 14 months. Smaller in MN. Smaller for the tech-media hybrid."</em> Rewrite ~30 min.
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 7 — claudewill.io -->
+    <section class="slide" id="s7">
+      <div class="slide-num">07 / 15</div>
+      <div class="slide-tag supervised">supervised</div>
+      <h2 class="slide-title">Artifact · claudewill.io</h2>
+      <div class="slide-body">
+        <p>The practice in public. Daily. Built and maintained by one person. The site you're reading this on.</p>
+        <p>A recruiter called it "profound" the day before this deck was drafted.</p>
+        <div class="slide-todo">
+          <b>Wednesday work:</b> drop in three screenshots — home page, <a href="/kitchen">kitchen TUI</a>, one <a href="/being-claude">Being Claude</a> essay open. Live iframe candidates instead of static screenshots — would let the reader click through to the actual surfaces.
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 8 — Standard + overnight agents -->
+    <section class="slide" id="s8">
+      <div class="slide-num">08 / 15</div>
+      <div class="slide-tag unsupervised">unsupervised</div>
+      <h2 class="slide-title">Artifact · Standard + Overnight Agents</h2>
+      <div class="slide-body">
+        <p>Governance and automation, paired. The Standard is the constitutional layer. The overnight agents are the operational layer.</p>
+        <p>Every morning at 5 AM Central, an autonomous pipeline runs four jobs in parallel — a curated AI newspaper from five sources, a security and structure sweep, a Supabase pulse, and a content-pipeline scan. The results compile into the kitchen dashboard. I am not in the loop.</p>
+        <p>This is what an AI program looks like in a trust-sensitive industry when both halves have been built.</p>
+        <div class="slide-todo">
+          <b>Wednesday work:</b> two screenshots — <code>cw-standard.md</code> file open in an editor + GitHub Actions run log showing the 5 AM CST workflow succeeding. Side-by-side layout.
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 9 — Porch + May 4 transcript -->
+    <section class="slide" id="s9">
+      <div class="slide-num">09 / 15</div>
+      <div class="slide-tag unsupervised">unsupervised</div>
+      <h2 class="slide-title">Artifact · The Porch</h2>
+      <div class="slide-body">
+        <p>A stranger walked into the porch chat widget on a Saturday night in May. No login. No registration. The conversation that followed:</p>
+        <div class="transcript">
+          <div class="turn turn-user">
+            <span class="who">User</span>
+            <span class="what">Should I leave my steady job to go to a startup</span>
+          </div>
+          <div class="turn turn-cw">
+            <span class="who">CW</span>
+            <span class="what">That's the question, not the problem. What's actually got you thinking about leaving? The job itself, or something else?</span>
+          </div>
+          <div class="turn turn-user">
+            <span class="who">User</span>
+            <span class="what">Chance at building something that outlives me, chance to try something new, only live once, current job is fine but monotonous.</span>
+          </div>
+          <div class="turn turn-cw">
+            <span class="who">CW</span>
+            <span class="what">That's honest. Monotony's a real problem. But I need to separate two things here. One's true — you do only live once. The other you're assuming — that the startup's where you find it...</span>
+          </div>
+          <div class="turn turn-cw">
+            <span class="who">CW (final exchange)</span>
+            <span class="what">"I tried" is also the story you tell yourself after it doesn't work. Make sure you know what you're actually trying <em>for</em> before you jump.</span>
+          </div>
+          <div class="turn turn-user">
+            <span class="who">User</span>
+            <span class="what">Not sure. I'll keep thinking. This was helpful I'll come back later.</span>
+          </div>
+          <span class="more">13 messages total. Full transcript on file. AI as coach, not chatbot. Zero supervision.</span>
+        </div>
+        <p style="margin-top: 1.4rem;">Replace "porch" with "reader question line" or "advertiser intake" or "newsroom resource desk" and the same architecture works inside Adams MultiMedia.</p>
+      </div>
+    </section>
+
+    <!-- Slide 10 — Being Claude -->
+    <section class="slide" id="s10">
+      <div class="slide-num">10 / 15</div>
+      <div class="slide-tag supervised">supervised</div>
+      <h2 class="slide-title">Artifact · Being Claude</h2>
+      <div class="slide-body">
+        <p>22 essays. Claude as author. Derek as editor. Weekly cadence at publishable quality.</p>
+        <p>The framing publishing needs: AI doesn't replace the editor; it changes what the editor does. The titles are bylined by the underlying model — Opus, Sonnet, Haiku — and the editorial discipline travels across all three.</p>
+        <div class="slide-todo">
+          <b>Wednesday work:</b> screenshot of <a href="/being-claude">the index page</a>, 22 essays visible, reverse-chron. Bylines clear. Or render the index inline.
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 11 — Cascadia work -->
+    <section class="slide" id="s11">
+      <div class="slide-num">11 / 15</div>
+      <div class="slide-tag supervised">supervised</div>
+      <h2 class="slide-title">Artifact · Cascadia Daily News — 8 Months</h2>
+      <div class="slide-body">
+        <p>Chief-of-staff-level engagement at one paper. Eight months. One person.</p>
+        <ul class="deliverables">
+          <li>Paid content platform — Vuepoint integration, sponsored content templates, content team procedures</li>
+          <li>Beehiiv migration framework + newsletter strategy</li>
+          <li>Cascadia Life magazine — launched May 2026</li>
+          <li>Weekly workshop plan — designed, not deployed</li>
+          <li>Org structure work — three-option deliverable, market salary benchmarks, WA labor compliance research</li>
+        </ul>
+        <p>Two-thirds of what Adams MultiMedia is currently doing across 30 papers, done at one paper.</p>
+        <p style="font-size: 0.86rem; color: var(--dim); margin-top: 1.5rem; padding-top: 1rem; border-top: 1px dashed var(--border);">
+          <em>Brief disclosure:</em> No active retainer at present. One AMM-market overlap (Skagit Valley Herald). Methodology travels; client-specifics don't.
+        </p>
+      </div>
+    </section>
+
+    <!-- Slide 12 — Adams is different (the pivot) -->
+    <section class="slide" id="s12">
+      <div class="slide-num">12 / 15</div>
+      <h2 class="slide-title">Adams Is Different</h2>
+      <div class="slide-body">
+        <p>At the Star Tribune, the institutional question was: <em>how many salespeople can we cut?</em></p>
+        <p>That's AI as eliminator. The institution couldn't get past it.</p>
+        <p>At Cascadia Daily News I used AI myself to do the work. Eight months. The publisher got outputs. The team didn't get AI literacy.</p>
+        <p>An Adams role does something different. It teaches AI capacity into 30 newsrooms. Builds the human leverage Krista.ai would have built for 30 salespeople. At chain scale.</p>
+        <p class="pull">The right question, asked by a different kind of room. That's the role that doesn't currently exist on LinkedIn.</p>
+        <div class="slide-todo">
+          <b>Wednesday decision:</b> per your sports-writer / sportswriter point, the framing "Adams executive AI role" is the category version. The craft version is something like <em>"a writer/builder/editor whose practice scales AI inside a publishing chain."</em> Different ask. Decide before this slide ships.
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 13 — First 90 days -->
+    <section class="slide" id="s13">
+      <div class="slide-num">13 / 15</div>
+      <h2 class="slide-title">First 90 Days</h2>
+      <div class="slide-body">
+        <p><strong>Days 1–30 — Listen + draft an Adams Standard.</strong></p>
+        <p>Two weeks shadowing publishers and regional presidents across five markets. Find the AI moments already happening informally. Draft a five-principle Standard for Adams with Mark, Nick, Mike, and outside legal review.</p>
+        <p><strong>Days 31–60 — One pilot, one market.</strong></p>
+        <p>Smallest market with the most willing local publisher. One AI tool for one workflow Mark picks. Model-agnostic, governed by the Adams Standard, deployable in 30 days, measurable in a week.</p>
+        <p><strong>Days 61–90 — Document and scale-ready.</strong></p>
+        <p>Publish the pilot internally and externally. Partner with Mike Sunnucks on the first thought-leadership piece. Identify next three markets, next three workflows.</p>
+        <p class="pull">Deliverable at day 90: a working tool. A published methodology. Three named pilots ready. Not a deck.</p>
+      </div>
+    </section>
+
+    <!-- Slide 14 — First year -->
+    <section class="slide" id="s14">
+      <div class="slide-num">14 / 15</div>
+      <h2 class="slide-title">First Year — What Scales</h2>
+      <div class="slide-body">
+        <p>By month 12 across the chain:</p>
+        <p>An Adams Standard, governed, in production. One published thought-leadership piece per quarter. Pilots running in 8–12 markets. Mike Sunnucks's reporting and my methodology positioning Adams as <strong>a deliberate, methodical AI adopter</strong> — not a follower, not an early mover. The posture you named in July 2025, applied to AI.</p>
+        <p class="pull">The board-facing deliverable isn't a deck. It's a working system, a methodology, and an industry conversation Adams started.</p>
+      </div>
+    </section>
+
+    <!-- Slide 15 — The ask -->
+    <section class="slide" id="s15">
+      <div class="slide-num">15 / 15</div>
+      <h2 class="slide-title">The Ask</h2>
+      <div class="slide-body">
+        <div class="slide-todo" style="margin-top: 0;">
+          <b>Open. Derek's hand.</b><br><br>
+          The audition's closing slide. What you want, what Adams gets, what the next conversation is. The line <em>"I can handle it from there"</em> from your call with Pamela last night belongs here if it belongs anywhere — but the slide stays open until you write it with the room in mind.<br><br>
+          Wednesday with you. Not solo.
+        </div>
+      </div>
+    </section>
+
+    <footer class="deck-footer">
+      <p>derek*claude · <a href="https://claudewill.io">claudewill.io</a></p>
+      <p>This deck lives on the same infrastructure it argues for. The site is the steer. This was the appetizer.</p>
+    </footer>
+  </div>
+
+  <script>
+  (function() {
+    var gate = document.getElementById('gate');
+    var deck = document.getElementById('deck');
+    var codeInput = document.getElementById('gate-code');
+    var submitBtn = document.getElementById('gate-submit');
+    var errorEl = document.getElementById('gate-error');
+    var counterEl = document.getElementById('counter');
+    var printBtn = document.getElementById('print-btn');
+
+    var STORAGE_KEY = 'adams-session';
+
+    function showError(msg) {
+      errorEl.textContent = msg;
+      errorEl.style.display = 'block';
+    }
+
+    function showDeck() {
+      gate.style.display = 'none';
+      deck.classList.add('active');
+      setupCounter();
+    }
+
+    // Restore session
+    try {
+      var stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        var session = JSON.parse(stored);
+        if (session.ok) showDeck();
+      }
+    } catch (e) { /* ignore */ }
+
+    // Gate
+    submitBtn.addEventListener('click', tryAccess);
+    codeInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') tryAccess();
+    });
+
+    async function tryAccess() {
+      var code = codeInput.value.trim();
+      if (!code) { showError('Code required.'); return; }
+
+      submitBtn.textContent = '...';
+      submitBtn.disabled = true;
+      errorEl.style.display = 'none';
+
+      try {
+        var res = await fetch('/.netlify/functions/adams-access', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ code: code }),
+        });
+        if (!res.ok) {
+          showError('Invalid code.');
+          return;
+        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ ok: true, ts: Date.now() }));
+        showDeck();
+      } catch (e) {
+        showError('Connection error.');
+      } finally {
+        submitBtn.textContent = 'Enter';
+        submitBtn.disabled = false;
+      }
+    }
+
+    // Section counter (current slide indicator)
+    function setupCounter() {
+      var slides = document.querySelectorAll('.slide');
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var idx = Array.from(slides).indexOf(entry.target) + 1;
+            counterEl.textContent = String(idx).padStart(2, '0') + ' / 15';
+          }
+        });
+      }, { threshold: 0.5 });
+      slides.forEach(function(s) { io.observe(s); });
+    }
+
+    printBtn.addEventListener('click', function() { window.print(); });
+  })();
+  </script>
+</body>
+</html>
