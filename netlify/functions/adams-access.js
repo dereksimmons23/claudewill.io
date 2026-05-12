@@ -72,7 +72,8 @@ exports.handler = async function(event) {
     };
   }
 
-  if (!timingSafeEqualStr(code, expected)) {
+  // Case-insensitive compare so derek* / Derek* / DEREK* all work.
+  if (!timingSafeEqualStr(code.toLowerCase(), expected.trim().toLowerCase())) {
     return {
       statusCode: 401,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
