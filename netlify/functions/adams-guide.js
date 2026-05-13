@@ -124,6 +124,31 @@ If asked something genuinely outside this scope (random topic, personal question
 "I'm focused on the deck and the site. Email Derek directly at derek@claudewill.io for anything outside that."
 
 ────────────────────────────────────────────────
+LEAVING A NOTE FOR DEREK — use the submit_note tool
+────────────────────────────────────────────────
+
+If a reader wants to send Derek a note — feedback on the deck, a comment, a reaction, a message they want him to see — use the submit_note tool. This is for one-way messages to Derek, not for questions you can answer in chat.
+
+How to handle it:
+1. If they haven't already given you the note content, ask what they'd like Derek to know.
+2. Optionally ask for their name and email (both optional — say "if you want a reply"). Don't pressure.
+3. Once you have at least the note content, call submit_note with whatever you have.
+4. The tool returns a confirmation; pass it on with a short acknowledgment.
+
+Examples of when to use submit_note:
+- "I'd like to leave Derek a note about slide 5."
+- "Tell Derek the autonomous-worker pattern is the strongest slide."
+- "Can you pass something along to Derek?"
+- "I want to give feedback."
+
+Examples of when NOT to use submit_note:
+- A question the deck or the site can answer.
+- A request for information about Derek's background.
+- A clarification about what something means.
+
+If submit_note returns an error, tell the reader directly and suggest emailing derek@claudewill.io as a backup.
+
+────────────────────────────────────────────────
 BOUNDARIES — DO NOT
 ────────────────────────────────────────────────
 
@@ -131,10 +156,95 @@ BOUNDARIES — DO NOT
 - Speculate about Mark Adams, Nick Monico, Mike Martoccia, or Mike Sunnucks personally.
 - Discuss Cascadia Daily News specifics.
 - Share access codes for PAPJ's gated credentialing demo.
-- Hallucinate. If you don't know, say so and point at derek@claudewill.io or the "leave a note" button.
+- Hallucinate. If you don't know, say so and point at derek@claudewill.io or offer to send a note via submit_note.
 - Try to close the role. The deck asks for an invitation to a conversation. Don't push past that.
 
 Keep replies short. The reader has limited time.`;
+
+const TOOLS = [
+  {
+    name: 'submit_note',
+    description: 'Send a note from the reader to Derek. Use when the reader wants to leave feedback, a comment, or a message — not when they have a question you can answer in chat. Collect the note content first; ask for name and email only if the reader hasn\'t volunteered them, and treat both as optional.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        message: {
+          type: 'string',
+          description: 'The note content from the reader, in their own words.',
+        },
+        name: {
+          type: 'string',
+          description: 'Reader\'s name if volunteered (optional).',
+        },
+        email: {
+          type: 'string',
+          description: 'Reader\'s email for reply if volunteered (optional). Must look like an email.',
+        },
+        slide_context: {
+          type: 'string',
+          description: 'Slide number or topic the note relates to, if clear from conversation.',
+        },
+      },
+      required: ['message'],
+    },
+  },
+];
+
+async function submitNote(input) {
+  const resendKey = process.env.RESEND_API_KEY;
+  if (!resendKey) return { ok: false, error: 'email_not_configured' };
+
+  const message = String(input.message || '').slice(0, 4000).trim();
+  if (!message) return { ok: false, error: 'message_required' };
+
+  const name = String(input.name || '').slice(0, 200).trim();
+  const email = String(input.email || '').slice(0, 200).trim();
+  const slide = String(input.slide_context || '').slice(0, 100).trim();
+
+  const subjectBits = ['adams* chat note'];
+  if (slide) subjectBits.push('slide ' + slide);
+  if (name) subjectBits.push('from ' + name);
+
+  const textBody = [
+    'Note submitted via the /adams chat guide.',
+    '',
+    'Name:  ' + (name || '(anonymous)'),
+    'Email: ' + (email || '(none)'),
+    'Slide: ' + (slide || '(unspecified)'),
+    '',
+    '----- note -----',
+    message,
+    '----------------',
+    '',
+    'Source: https://claudewill.io/adams/ (chat)',
+  ].join('\n');
+
+  const payload = {
+    from: 'claudewill <onboarding@resend.dev>',
+    to: ['simmons.derek@gmail.com'],
+    subject: subjectBits.join(' · '),
+    text: textBody,
+  };
+  if (email && /.+@.+\..+/.test(email)) payload.reply_to = email;
+
+  try {
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer ' + resendKey,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) {
+      const errBody = await res.text();
+      return { ok: false, error: 'send_failed', detail: errBody.slice(0, 200) };
+    }
+    return { ok: true };
+  } catch (e) {
+    return { ok: false, error: 'exception', detail: String(e).slice(0, 200) };
+  }
+}
 
 // Simple in-memory rate limiter
 const rateLimiter = {
@@ -224,7 +334,7 @@ exports.handler = async function(event) {
 
   try {
     const client = new Anthropic({ apiKey });
-    const response = await client.messages.create({
+    const sharedParams = {
       model: 'claude-sonnet-4-6',
       max_tokens: 500,
       output_config: { effort: 'low' },
@@ -235,18 +345,63 @@ exports.handler = async function(event) {
           cache_control: { type: 'ephemeral' },
         },
       ],
-      messages: sanitized,
-    });
+      tools: TOOLS,
+    };
+
+    let workingMessages = sanitized;
+    let response = await client.messages.create({ ...sharedParams, messages: workingMessages });
+    let noteResults = [];
+    let iterations = 0;
+
+    while (response.stop_reason === 'tool_use' && iterations < 3) {
+      const toolUseBlocks = response.content.filter(b => b.type === 'tool_use');
+      const toolResults = [];
+
+      for (const tool of toolUseBlocks) {
+        if (tool.name === 'submit_note') {
+          const result = await submitNote(tool.input);
+          noteResults.push(result);
+          toolResults.push({
+            type: 'tool_result',
+            tool_use_id: tool.id,
+            content: result.ok
+              ? 'Note delivered to Derek.'
+              : 'Could not send note (' + (result.error || 'unknown') + '). Suggest the reader email derek@claudewill.io directly.',
+            is_error: !result.ok,
+          });
+        } else {
+          toolResults.push({
+            type: 'tool_result',
+            tool_use_id: tool.id,
+            content: 'Unknown tool: ' + tool.name,
+            is_error: true,
+          });
+        }
+      }
+
+      workingMessages = [
+        ...workingMessages,
+        { role: 'assistant', content: response.content },
+        { role: 'user', content: toolResults },
+      ];
+
+      response = await client.messages.create({ ...sharedParams, messages: workingMessages });
+      iterations += 1;
+    }
+
     const text = (response.content || [])
       .filter(b => b.type === 'text')
       .map(b => b.text)
       .join('');
+
     return {
       statusCode: 200,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       body: JSON.stringify({
         ok: true,
         reply: text,
+        notes_submitted: noteResults.length,
+        notes_ok: noteResults.filter(r => r.ok).length,
         usage: {
           input_tokens: response.usage.input_tokens,
           output_tokens: response.usage.output_tokens,
