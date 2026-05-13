@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-05-11T12:05:38.047Z",
+  "lastUpdated": "2026-05-13T11:47:44.405Z",
   "agents": {
     "morningEdition": {
       "name": "Morning Edition",
-      "lastRun": "2026-05-11T12:05:38.047Z",
+      "lastRun": "2026-05-13T11:47:44.404Z",
       "status": "ok",
       "summary": "If I Had $5,000 to Invest in Artificial Intelligence (AI) Right Now, I'd Buy These 2 Stocks Before They Rebound",
       "flags": [],
@@ -33,39 +33,39 @@
     },
     "housekeeping": {
       "name": "Housekeeping",
-      "lastRun": "2026-05-11T12:05:38.047Z",
+      "lastRun": "2026-05-13T11:47:44.405Z",
       "status": "ok",
-      "summary": "All 14 pages + 2 subdomains responding. Avg 542ms.",
+      "summary": "All 14 pages + 2 subdomains responding. Avg 425ms.",
       "flags": [],
       "details": [
-        "https://claudewill.io/ — 200 27ms",
-        "https://claudewill.io/derek — 200 229ms",
-        "https://claudewill.io/claude — 200 873ms",
-        "https://claudewill.io/book — 200 179ms",
-        "https://claudewill.io/story — 200 185ms",
-        "https://claudewill.io/standard — 200 206ms",
-        "https://claudewill.io/writing — 200 954ms",
-        "https://claudewill.io/privacy — 200 176ms",
-        "https://claudewill.io/terms — 200 853ms",
-        "https://claudewill.io/kitchen — 200 915ms",
-        "https://claudewill.io/arcade — 200 211ms",
-        "https://claudewill.io/being-claude — 200 921ms",
-        "https://claudewill.io/lightning/bug — 200 945ms",
-        "https://claudewill.io/d — 200 919ms",
-        "Coach D (https://coach.claudewill.io) — 200 316ms",
-        "BOB (https://bob.claudewill.io) — 200 423ms"
+        "https://claudewill.io/ — 200 75ms",
+        "https://claudewill.io/derek — 200 275ms",
+        "https://claudewill.io/claude — 200 708ms",
+        "https://claudewill.io/book — 200 783ms",
+        "https://claudewill.io/story — 200 267ms",
+        "https://claudewill.io/standard — 200 231ms",
+        "https://claudewill.io/writing — 200 419ms",
+        "https://claudewill.io/privacy — 200 783ms",
+        "https://claudewill.io/terms — 200 89ms",
+        "https://claudewill.io/kitchen — 200 234ms",
+        "https://claudewill.io/arcade — 200 263ms",
+        "https://claudewill.io/being-claude — 200 882ms",
+        "https://claudewill.io/lightning/bug — 200 604ms",
+        "https://claudewill.io/d — 200 343ms",
+        "Coach D (https://coach.claudewill.io) — 200 1395ms",
+        "BOB (https://bob.claudewill.io) — 200 1262ms"
       ]
     },
     "pulse": {
       "name": "Daily Pulse",
-      "lastRun": "2026-05-11T12:04:34.898Z",
+      "lastRun": "2026-05-13T11:46:50.232Z",
       "status": "ok",
-      "summary": "742 conversations, 14 visitors, 0 D sessions",
+      "summary": "746 conversations, 15 visitors, 0 D sessions",
       "flags": [],
       "metrics": {
         "conversations": {
-          "total": 742,
-          "week": 19,
+          "total": 746,
+          "week": 10,
           "today": 0
         },
         "d": {
@@ -74,34 +74,34 @@
           "today": 0
         },
         "visitors": {
-          "total": 14,
+          "total": 15,
           "returning": 4,
-          "named": 2
+          "named": 3
         },
         "sessions": {
-          "thisWeek": 67,
-          "avgWeight": 6.5,
+          "thisWeek": 40,
+          "avgWeight": 6.6,
           "byProject": {
-            "desktop": 58,
-            "writing": 9
+            "desktop": 33,
+            "writing": 7
           }
         },
         "dawn": {
           "dayNumber": 74,
           "raidRate": "3/6",
-          "daysSinceEntry": 58
+          "daysSinceEntry": 60
         }
       }
     },
     "pipelineScan": {
       "name": "Pipeline Scan",
-      "lastRun": "2026-05-11T12:05:38.047Z",
+      "lastRun": "2026-05-13T11:47:44.405Z",
       "status": "flags",
       "summary": "**Pipeline:** 7 items (3 draft, 2 planned, 1 idea, 1 in-progress)",
       "flags": [
-        "Being Claude #11: The Manual: draft for 60 days — review or reject",
-        "Being Claude: The Scoreboard: draft for 68 days — review or reject",
-        "Being Claude: The Brightness (warm/hot/cold): draft for 68 days — review or reject"
+        "Being Claude #11: The Manual: draft for 62 days — review or reject",
+        "Being Claude: The Scoreboard: draft for 70 days — review or reject",
+        "Being Claude: The Brightness (warm/hot/cold): draft for 70 days — review or reject"
       ]
     }
   },
