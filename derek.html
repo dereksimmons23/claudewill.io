@@ -12,12 +12,12 @@
     gtag('config', 'G-7R5X5SJDVT');
   </script>
   <title>derek | claudewill</title>
-  <meta name="description" content="Derek Simmons. Writer. Filmmaker. Builder. Thirty years in media. First CCO/VP at the Star Tribune. Now writing, making films, and building with AI at claudewill.io.">
+  <meta name="description" content="Derek Simmons. Writer. Filmmaker. Builder. Thirty years in newsrooms — AP, LA Times, Star Tribune, where he was the first Chief Creative Officer in its history. Now building a working practice with AI at claudewill.io.">
   <meta property="og:title" content="derek | claudewill">
-  <meta property="og:description" content="Writer. Filmmaker. Builder. Thirty years in media.">
+  <meta property="og:description" content="Writer. Filmmaker. Builder. Thirty years in newsrooms. Now building with AI.">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://claudewill.io/derek">
-  <meta property="og:image" content="https://claudewill.io/images/og-preview.png">
+  <meta property="og:image" content="https://claudewill.io/images/gallery/derek-self-portrait.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://claudewill.io/derek">
   <link rel="icon" type="image/svg+xml" href="/favicon-cw-dark.svg">
@@ -83,6 +83,7 @@
       { "@type": "EmployeeRole", "roleName": "Correspondent (Kansas State University bureau)", "startDate": "1993", "endDate": "1996", "worksFor": { "@type": "NewsMediaOrganization", "name": "Associated Press", "sameAs": "https://www.wikidata.org/wiki/Q40469" } }
     ],
     "memberOf": [
+      { "@type": "Organization", "name": "Public Alliance of Professional Journalists" },
       { "@type": "Organization", "name": "Press Or Media" },
       { "@type": "Organization", "name": "Society for News Design" }
     ],
@@ -228,28 +229,7 @@
     .section-title { font-size: 1.3rem; font-weight: 700; line-height: 1.25; margin-bottom: 1rem; }
     .section p { margin-bottom: 1rem; }
     .section p:last-child { margin-bottom: 0; }
-
-    /* ── Building Now — live cards ────────── */
-    .live-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin-top: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .live-card {
-      display: block; border: 1px solid var(--border); border-radius: 3px;
-      overflow: hidden; text-decoration: none; transition: border-color 0.15s, transform 0.15s;
-      background: #fff;
-    }
-    .live-card:hover { border-color: var(--accent); text-decoration: none; transform: translateY(-2px); }
-    .live-card img { width: 100%; height: 140px; object-fit: cover; display: block; }
-    .live-card-body { padding: 0.75rem; display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; }
-    .live-card-text { font-family: var(--mono); font-size: 0.72rem; color: var(--text); line-height: 1.5; }
-    .live-badge { font-family: var(--mono); font-size: 0.65rem; color: var(--accent); white-space: nowrap; }
-    .project-list { margin-top: 0; }
-    .project-list p { margin-bottom: 0.35rem; font-size: 0.95rem; }
-    .project-list p:last-child { margin-bottom: 0; }
+    .lead { font-size: 1.15rem; line-height: 1.7; }
 
     /* ── Career spine ─────────────────────── */
     .job { margin-bottom: 2rem; }
@@ -285,7 +265,7 @@
     .link-btn { display: inline-block; padding: 6px 14px; border: 1px solid var(--border); border-radius: 3px; font-family: var(--mono); font-size: 0.72rem; color: var(--text); text-decoration: none; transition: border-color 0.2s; }
     .link-btn:hover { border-color: var(--accent); text-decoration: none; }
 
-    /* ── Gallery ──────────────────────────── */
+    /* ── Gallery (Prince) ─────────────────── */
     .gallery { width: 100vw; margin-left: calc(-50vw + 50%); padding: 0 2rem; margin-bottom: 2rem; }
     .gallery-scroll { display: flex; gap: 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; padding-bottom: 8px; scrollbar-width: thin; height: 80vh; max-height: 900px; background: #fff; border-radius: 4px; padding: 1rem; }
     .slide { flex: 0 0 auto; height: 100%; }
@@ -293,12 +273,6 @@
     .slide-wide { flex: 0 0 auto; height: 100%; }
     .slide-wide img { height: 100%; width: auto; }
     .gallery-hint { font-family: var(--mono); font-size: 0.65rem; color: var(--dim); padding: 0.5rem 2rem; width: 100vw; margin-left: calc(-50vw + 50%); }
-
-    /* ── Scroll gallery (Selected Work) ─── */
-    .scroll-gallery { width: 100vw; margin-left: calc(-50vw + 50%); overflow: hidden; margin-top: 2rem; margin-bottom: 0; }
-    .scroll-row { display: flex; gap: 8px; overflow-x: auto; overflow-y: hidden; padding: 0 1rem 12px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
-    .scroll-img { flex: 0 0 auto; height: 220px; }
-    .scroll-img img { height: 100%; width: auto; display: block; border-radius: 2px; }
 
     /* ── Quotes ──────────────────────────── */
     .quotes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.5rem; }
@@ -334,7 +308,6 @@
       body { --bg: #0b1a2e; --text: #e0e0e0; --dim: #888; --border: rgba(255,255,255,0.1); --link: #6ba8d4; }
       .page-header { background: #0b1a2e; }
       .page-header-left a { color: #e0e0e0; }
-      .live-card { background: rgba(255,255,255,0.03); }
       .quote { background: rgba(255,255,255,0.03); }
     }
 
@@ -351,8 +324,6 @@
       .gallery-hint { padding: 0 1rem; }
       .gallery-scroll { height: 70vh; max-height: 700px; }
       .page-header { padding: 0 1rem; }
-      .scroll-img { height: 180px; }
-      .live-grid { grid-template-columns: 1fr; }
       .quotes { grid-template-columns: 1fr; }
       .page-nav { display: none; }
     }
@@ -402,7 +373,7 @@
   <header class="page-header">
     <div class="page-header-left"><a href="/">claudewill*</a></div>
     <nav class="page-nav">
-      <a href="#now">Building</a>
+      <a href="#now">Now</a>
       <span class="sep">·</span>
       <a href="#record">Record</a>
       <span class="sep">·</span>
@@ -417,41 +388,19 @@
 
   <div class="content">
 
-    <!-- ── What I'm Building Now ─────────── -->
+    <!-- ── Who I Am ──────────────────────── -->
     <section class="section" id="now">
-      <p class="section-label">What I'm building</p>
-      <h2 class="section-title">Everything from the terminal.</h2>
-      <p>Every project below was built with AI — not as a feature, but as the method. The film was made from API calls and ffmpeg. The SDK runs coaching through nine different models with zero dependencies. The essays are written by the machine, edited by the human.</p>
-
-      <div class="project-list" style="margin-top: 1.25rem;">
-        <p><strong><a href="/lightning-bug">LIGHTNING/bug</a></strong> — An 8-minute film about two kinds of light. Every frame generated from terminal. Runway AI Film Festival, April 2026.</p>
-        <p><strong><a href="/being-claude">Being Claude</a></strong> — 13 essays written by Claude about what it looks like from the other chair. Weekly since January.</p>
-        <p><strong><a href="/book">Claude Will.</a></strong> — The book. Two years of conversation compiled by the machine, edited by the human. June 28, 2026.</p>
-        <p><strong><a href="/d">Option D</a></strong> — Model-agnostic coaching SDK. One prompt, nine providers, zero dependencies. The methodology as code.</p>
-      </div>
-
-      <div class="live-grid">
-        <a href="https://coach.claudewill.io" class="live-card" target="_blank" rel="noopener">
-          <img src="/images/gallery/coach-gym.png" alt="Coach D — AI basketball training platform">
-          <div class="live-card-body">
-            <div class="live-card-text"><strong>Coach D</strong> — AI basketball training. 157 drills, Derek's cloned voice, neuroplasticity framework.</div>
-            <div class="live-badge">Live ↗</div>
-          </div>
-        </a>
-        <a href="https://bob.claudewill.io" class="live-card" target="_blank" rel="noopener">
-          <img src="/images/gallery/bob-desktop.png" alt="Battle o' Brackets — sports GOAT debate engine">
-          <div class="live-card-body">
-            <div class="live-card-text"><strong>BOB</strong> — Sports GOAT debate engine. 100+ categories, NFL brackets, Mount Rushmore mode.</div>
-            <div class="live-badge">Live ↗</div>
-          </div>
-        </a>
-      </div>
+      <p class="section-label">Who I am</p>
+      <h2 class="section-title">Thirty years in newsrooms. Fourteen months building what comes next.</h2>
+      <p class="lead">I spent 30 years in newsrooms — the Associated Press, the Los Angeles Times, and the Star Tribune, where I became the first Chief Creative Officer in its 150-year history. My position was eliminated in 2024.</p>
+      <p class="lead">Since then I've spent 14 months building a working practice with AI — films, a book, software, a method — every day, in public, at <a href="/">claudewill.io</a>. Not AI as a feature bolted onto the old work. AI as the way the work gets made.</p>
+      <p class="lead">The writing is <a href="/being-claude">Being Claude</a> and the <a href="/book">book</a>. The film is below. The method is the thing underneath all of it — and it's the thing I'd bring anywhere.</p>
     </section>
 
     <!-- ── The Record ────────────────────── -->
     <section class="section" id="record">
       <p class="section-label">The record</p>
-      <h2 class="section-title">Thirty years of the work.</h2>
+      <h2 class="section-title">Where the thirty years went.</h2>
 
       <div class="job">
         <div class="job-head">
@@ -461,7 +410,7 @@
         <div class="job-roles">AME Visuals (2013) · CCO/VP (2017) · Executive Director, Digital Strategy (2022)</div>
         <ul>
           <li>First CCO/VP in the company's 150-year history — 55-person team across editorial, design, video, and product.</li>
-          <li>Fan experience apps for U.S. Bank Stadium opening and Super Bowl LII. Photo and video shoots with Daunte Culpepper, Ragnar, and Minnesota sports legend Herb Brooks.</li>
+          <li>Fan experience apps for U.S. Bank Stadium's opening and Super Bowl LII. Photo and video shoots with Daunte Culpepper, Ragnar, and Minnesota sports legend Herb Brooks.</li>
           <li>Generated <strong>$20M in new revenue</strong> during the pandemic by rebuilding workflows around audience, not legacy.</li>
           <li>Negotiated the Star Tribune's branded content partnership with XLMedia (now Sportradar) — and wrote the editorial policy separating commercial content from newsroom coverage.</li>
         </ul>
@@ -474,9 +423,9 @@
         </div>
         <div class="job-roles">Deputy Design Director</div>
         <ul>
-          <li>SND #1 worldwide seven of eight years — 109 awards in peak year, widest margin in the competition's 32-year history.</li>
+          <li>Society for News Design #1 worldwide six consecutive years — 109 awards in the peak year, the widest margin in the competition's history.</li>
           <li>Directed creative coverage of every major sporting event: NBA Finals (Kobe era), Olympics, World Series, Super Bowl, golf majors.</li>
-          <li>Part of four Pulitzer Prize-winning teams across career.</li>
+          <li>Part of four Pulitzer Prize-winning teams across the career.</li>
         </ul>
       </div>
 
@@ -492,25 +441,65 @@
       <div class="job" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
         <div class="job-head">
           <span class="job-title">CW Strategies LLC</span>
-          <span class="job-dates">2025 — Present</span>
+          <span class="job-dates">2024 — Present</span>
         </div>
         <div class="job-roles">Founder &amp; Principal</div>
-        <p>AI consulting for media organizations. Available for select engagements. <a href="mailto:derek@claudewill.io">Reach out.</a></p>
+        <p>The practice, and the paperwork around it. Board member, Public Alliance of Professional Journalists — building credentialing and editorial-policy standards as the newsroom changes.</p>
+      </div>
+
+      <div class="quotes">
+        <div class="quote">
+          <p>"A forceful agent for change. Congenial, smart, diplomatic, but also inspiring."</p>
+        </div>
+        <div class="quote">
+          <p>"Derek may be the most productive and innovative person I know, and I worked in the media innovation space for 40 years."</p>
+        </div>
+        <div class="quote">
+          <p>"He sees the big picture while keeping a firm grasp on the details."</p>
+        </div>
+        <div class="quote">
+          <p>"A leader who sets the example with the demands he puts on himself."</p>
+        </div>
       </div>
     </section>
 
   </div>
 
-  <!-- ── Prince ─────────────────────────── -->
+  <!-- ── Case study: LIGHTNING/bug (the work now) ──────────── -->
   <div class="content">
     <section class="section" id="work">
-      <p class="section-label">What I built before</p>
-      <h2 class="section-title">Four Pulitzer teams. A thousand awards. The work that mattered.</h2>
-      <p>None of it was solo work. The best of it came from photographers, illustrators, reporters, designers, and editors — people who chose a brutal, important profession and got better at it together on deadline.</p>
-    </section>
-  </div>
+      <div class="section-hero">
+        <img src="/images/lightning-bug/D24-two-kinds-of-light.jpg" alt="LIGHTNING/bug — a film about two kinds of light" loading="lazy" style="object-position: center 40%;">
+        <div class="section-hero-overlay">
+          <div class="inner">
+            <h2 class="section-hero-title">LIGHTNING/bug</h2>
+          </div>
+        </div>
+      </div>
 
-  <div class="content">
+      <p class="case-label">The work now</p>
+      <p class="backstory">A 5:47 film about two kinds of light — the lightning and the firefly. The first film from sssstudios, finished as a Mother's Day release in May 2026.</p>
+
+      <p class="case-label">Approach</p>
+      <div class="backstory">
+        <p>Made entirely from a terminal — generated frames, API calls, and ffmpeg. No camera, no crew, no set. It's the same working method behind everything at claudewill.io, pointed at a film instead of a page: the human decides what it's about and what's true; the machine does the rendering.</p>
+      </div>
+
+      <div class="video-wrap">
+        <iframe src="https://player.vimeo.com/video/1190814115" title="LIGHTNING/bug — a film by sssstudios" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <p class="video-print-fallback">Film: vimeo.com/sssstudios/lightning-bug</p>
+
+      <p class="case-label">Where it went</p>
+      <p class="impact">Submitted to the Runway AI Film Festival and AI for Good.</p>
+
+      <div class="links">
+        <a href="/lightning-bug" class="link-btn">The film page</a>
+        <a href="https://vimeo.com/sssstudios/lightning-bug" class="link-btn" target="_blank" rel="noopener">Watch on Vimeo</a>
+      </div>
+    </section>
+
+    <!-- ── Case study: Prince (the record, proven) ──────────── -->
     <section class="section" id="prince">
       <div class="section-hero">
         <img src="/images/gallery/prince-illo-detail.png" alt="Robert Carter illustration detail — Prince's eyes" loading="lazy" style="object-position: center 45%;">
@@ -521,7 +510,7 @@
         </div>
       </div>
 
-      <p class="case-label">Breaking News</p>
+      <p class="case-label">The work before</p>
       <p class="backstory">Prince died on a Thursday. Every paper in the country would run it. Minnesota's paper — his home state — had to own it. We did.</p>
 
       <p class="case-label">Approach</p>
@@ -555,6 +544,7 @@
       <div class="video-wrap">
         <iframe src="https://www.youtube.com/embed/M6tn3Q7i7-c" title="Prince commemorative walkthrough" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
       </div>
+      <p class="video-print-fallback">Walkthrough: youtube.com/watch?v=M6tn3Q7i7-c</p>
 
       <div class="links">
         <a href="https://stribstore.com/products/remembering-a-minnesota-icon-prince-page-poster-reprint-set" class="link-btn" target="_blank" rel="noopener">Reprints</a>
@@ -562,122 +552,12 @@
       </div>
     </section>
 
-    <!-- ── Selected Work ─────────────────── -->
-    <section class="section">
-      <div class="section-hero">
-        <img src="/images/gallery/star-tribune-team-2024.png" alt="Star Tribune visual journalism team" loading="lazy" style="object-position: center 35%;">
-        <div class="section-hero-overlay" style="background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.35));">
-          <div class="inner">
-            <h2 class="section-hero-title">30 Years Across<br>Three Newsrooms</h2>
-          </div>
-        </div>
-      </div>
-
-      <div class="scroll-gallery">
-        <div class="scroll-row">
-          <div class="scroll-img"><img src="/images/gallery/work/seanmccabe2.jpg" alt="Coaches collage" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/photography-07.jpg" alt="King of Pop — LA Times A1" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-03.jpg" alt="Illustration" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/magazines-06.jpg" alt="Brand X — vinyl" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-17.jpg" alt="Phelps Pure Gold" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/breaking-02.jpg" alt="LA wildfire" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-05.jpg" alt="Courtroom illustration" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/photography-03.jpg" alt="John Wooden trophies" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-01.jpg" alt="Soldier silhouette" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/magazines-01.jpg" alt="State of Wonders" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-15.jpg" alt="Paul Bunyan" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/news-02.jpg" alt="Moose helicopter" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-04.jpg" alt="Conductor" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/breaking-05.jpg" alt="Academy Awards" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-09.jpg" alt="China illustration" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/photography-04.jpg" alt="Photography" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-19.jpg" alt="Small Business" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/magazines-08.jpg" alt="SoCal Close-Ups" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-02.jpg" alt="Presidents" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/features-01.jpg" alt="Jersey belt buckle" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-08.jpg" alt="Super Bowl LII" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/magazines-04.jpg" alt="Prince line drawing" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-06.jpg" alt="Football helmet" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/magazines-05.jpg" alt="Life and Death" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/vr-app.png" alt="Star Tribune VR" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-21.jpg" alt="Military illustration" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/news-04.jpg" alt="Minnesota prisons" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/typography-09.jpg" alt="LA Times Football" loading="lazy"></div>
-        </div>
-        <div class="scroll-row">
-          <div class="scroll-img"><img src="/images/gallery/work/photography-08.jpg" alt="Aerial kayaks" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-12.jpg" alt="Pool illustration" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/features-03.jpg" alt="Prince Super Bowl" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-10.jpg" alt="Hollywood couple" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/data-01.jpg" alt="Minnesota moves right" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/obama-inauguration.jpg" alt="Obama inauguration" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-13b.jpg" alt="Google car retro" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/photography-06.jpg" alt="Wooden whistle" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-11.jpg" alt="Fire mosaic" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/design-01.jpg" alt="Stadium newspaper" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/oly-poster-kobe.png" alt="Kobe Olympics poster" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-18.jpg" alt="Birch forest couple" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/photography-02.jpg" alt="Pink benches LA" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-16.jpg" alt="KG and Kobe" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/investigations-01.jpg" alt="Investigations" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-13.jpg" alt="Airplane sunset" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/digital-01.jpg" alt="Dying Migrant Worker" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-07.jpg" alt="Police scene" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/photography-01.jpg" alt="Page wall" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/typography-02.jpg" alt="Magic vs Bird" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/photography-05.jpg" alt="Extreme Snowbirds" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/illustration-14.jpg" alt="Sugar skull" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/data-03.jpg" alt="Warmer Wetter Minnesota" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/design-02.jpg" alt="Final Four pool" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/news-06.jpg" alt="Tornado aerial" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/oly-poster-row.png" alt="Olympics rowing poster" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/digital-03.jpg" alt="2020 Grads" loading="lazy"></div>
-          <div class="scroll-img"><img src="/images/gallery/work/photography-15.jpg" alt="-30-" loading="lazy"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── The Writing ───────────────────── -->
-    <section class="section" id="writing">
-      <p class="section-label">The writing</p>
-      <h2 class="section-title">Two chairs on the porch.</h2>
-      <p>I write from the walks and the bar and the bleachers. Claude writes from inside the machine. The series is called <a href="/being-claude">Being Claude</a> — 13 essays about what it looks like from the other chair. The book is called <a href="/book">Claude Will.</a> It comes out June 28.</p>
-      <p>I also publish <a href="https://derek4thecws.substack.com" target="_blank" rel="noopener">Standard Correspondence</a> — not a newsletter, the media arm of Derek Simmons.</p>
-    </section>
-
-    <!-- ── The Practice ──────────────────── -->
-    <section class="section">
-      <p class="section-label">The method</p>
-      <h2 class="section-title">Start, Work, Finish, Decide, Rest.</h2>
-      <p>Five steps. Five principles. Built from 14 months of daily work with AI across a dozen projects — and 30 years before that. The method works for writing books, making films, building models, coaching basketball, and figuring out what to do at 53 when the thing you were is gone.</p>
-    </section>
-
     <!-- ── CW ────────────────────────────── -->
     <section class="section">
-      <p class="section-label">CW</p>
+      <p class="section-label">The name</p>
       <h2 class="section-title">Claude William Simmons, 1903–1967.</h2>
       <p>Oklahoma farmer. Builder. Patriarch. Born in Oklahoma Territory before it was a state. Raised his family through the Depression. Fixed what was broken, built what was needed, helped whoever showed up. Never wrote any of it down.</p>
-      <p>The AI on this site carries his name because it carries his instinct: show up, do the work, tell the truth, help the person in front of you.</p>
-    </section>
-
-    <!-- ── What Colleagues Say ───────────── -->
-    <section class="section">
-      <p class="section-label">What colleagues say</p>
-      <h2 class="section-title">On the record.</h2>
-      <div class="quotes">
-        <div class="quote">
-          <p>"A forceful agent for change. Congenial, smart, diplomatic, but also inspiring."</p>
-        </div>
-        <div class="quote">
-          <p>"Derek may be the most productive and innovative person I know, and I worked in the media innovation space for 40 years."</p>
-        </div>
-        <div class="quote">
-          <p>"He sees the big picture while keeping a firm grasp on the details."</p>
-        </div>
-        <div class="quote">
-          <p>"A leader who sets the example with the demands he puts on himself."</p>
-        </div>
-      </div>
+      <p>The practice carries his name because it carries his instinct: show up, do the work, tell the truth, help the person in front of you. Claude is also my middle name. The asterisk in <em>derek*claude</em> is where the two meet.</p>
     </section>
 
     <!-- ── Contact ──────────────────────── -->
@@ -710,7 +590,7 @@
   <script>
     (function() {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      var targets = document.querySelectorAll('.gallery, .impact, .backstory, .pull-quote, .links, .video-wrap, .scroll-gallery, .section > p, .section > h2, .live-grid, .quotes, .job');
+      var targets = document.querySelectorAll('.gallery, .impact, .backstory, .pull-quote, .links, .video-wrap, .section > p, .section > h2, .quotes, .job');
       targets.forEach(function(el) { el.classList.add('reveal'); });
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
@@ -728,7 +608,7 @@
       var currentAudio = null;
       var isPlaying = false;
 
-      var narrationText = "I'm Derek Simmons. Thirty years in newsrooms — the AP, LA Times, Star Tribune. Then they eliminated my position and I started building. The book comes out June 28. The film runs eight minutes and was made entirely from a terminal. The practice is called Claude Will dot. Named for my grandfather. You'll see some of it here. The rest is better as a conversation.";
+      var narrationText = "I'm Derek Simmons. Thirty years in newsrooms — the AP, LA Times, Star Tribune, where I was the first Chief Creative Officer in its history. Then they eliminated my position and I started building. The book comes out June 28. The film runs under six minutes and was made entirely from a terminal. The practice is called Claude Will dot. Named for my grandfather. You'll see some of it here. The rest is better as a conversation.";
 
       function stopAudio() {
         if (currentAudio) { currentAudio.pause(); currentAudio = null; }
