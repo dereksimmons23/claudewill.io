@@ -130,13 +130,28 @@
     a { color: var(--link); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
+    /* ── Page header (top, sticky) ──────── */
+    .page-header {
+      position: sticky; top: 0; z-index: 100; background: var(--bg);
+      display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+      padding: 0 2rem; height: 52px; border-bottom: 1px solid var(--border);
+    }
+    .page-header-left { font-weight: 600; font-size: 0.85rem; }
+    .page-header-left a { color: var(--text); text-decoration: none; }
+    .page-nav { display: flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.72rem; }
+    .page-nav a { color: var(--dim); text-decoration: none; transition: color 0.15s; }
+    .page-nav a:hover { color: var(--accent); }
+    .page-nav .sep { color: var(--border); }
+    .page-header-right { display: flex; justify-content: flex-end; align-items: center; height: 100%; }
+    .menu-trigger { color: var(--dim); font-size: 0.75rem; cursor: pointer; background: none; border: none; font-family: inherit; }
+
     /* ── Hero ───────────────────────────── */
     .hero {
       position: relative;
       width: 100%;
-      height: 90vh;
-      min-height: 560px;
-      max-height: 900px;
+      height: 86vh;
+      min-height: 540px;
+      max-height: 880px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -181,23 +196,12 @@
       letter-spacing: 0.1em;
       margin-bottom: 1.25rem;
     }
-    .hero-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
-    .hero-btn {
-      display: inline-block; padding: 7px 16px;
-      border: 1px solid rgba(255,255,255,0.3); border-radius: 3px;
-      color: rgba(255,255,255,0.85); text-decoration: none;
-      font-family: var(--mono); font-size: 0.75rem;
-      letter-spacing: 0.02em; transition: border-color 0.2s, color 0.2s;
-      min-width: 90px; text-align: center;
-    }
-    .hero-btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
 
-    .voice-cta { margin-bottom: 0.75rem; }
     .voice-btn {
-      display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px;
-      border: 1px solid rgba(255,255,255,0.25); border-radius: 3px;
-      color: rgba(255,255,255,0.85); background: none; cursor: pointer;
-      font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.02em; transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px;
+      border: 1px solid rgba(255,255,255,0.3); border-radius: 3px;
+      color: rgba(255,255,255,0.9); background: none; cursor: pointer;
+      font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.04em; transition: all 0.2s;
     }
     .voice-btn:hover { border-color: var(--accent); color: var(--accent); }
     .voice-btn.playing { border-color: var(--accent); color: var(--accent); }
@@ -205,21 +209,6 @@
     .voice-btn .stop-icon { display: none; }
     .voice-btn.playing .play-icon { display: none; }
     .voice-btn.playing .stop-icon { display: block; }
-
-    /* ── Page header ────────────────────── */
-    .page-header {
-      position: sticky; top: 0; z-index: 100; background: var(--bg);
-      display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
-      padding: 0 2rem; height: 52px; border-bottom: 1px solid var(--border);
-    }
-    .page-header-left { font-weight: 600; font-size: 0.85rem; }
-    .page-header-left a { color: var(--text); text-decoration: none; }
-    .page-nav { display: flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.72rem; }
-    .page-nav a { color: var(--dim); text-decoration: none; transition: color 0.15s; }
-    .page-nav a:hover { color: var(--accent); }
-    .page-nav .sep { color: var(--border); }
-    .page-header-right { display: flex; justify-content: flex-end; align-items: center; height: 100%; }
-    .menu-trigger { color: var(--dim); font-size: 0.75rem; cursor: pointer; background: none; border: none; font-family: inherit; }
 
     /* ── Content ─────────────────────────── */
     .content { max-width: var(--content-w); margin: 0 auto; padding: 0 2rem; }
@@ -230,56 +219,20 @@
     .section p { margin-bottom: 1rem; }
     .section p:last-child { margin-bottom: 0; }
     .lead { font-size: 1.15rem; line-height: 1.7; }
+    .resume-link { font-family: var(--mono); font-size: 0.78rem; }
 
-    /* ── Career spine ─────────────────────── */
-    .job { margin-bottom: 2rem; }
-    .job:last-child { margin-bottom: 0; }
-    .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.2rem; }
-    .job-title { font-weight: 700; font-size: 1rem; }
-    .job-dates { font-family: var(--mono); font-size: 0.72rem; color: var(--dim); white-space: nowrap; }
-    .job-roles { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); margin-bottom: 0.6rem; }
-    .job ul { list-style: none; padding: 0; }
-    .job ul li { padding-left: 1rem; position: relative; margin-bottom: 0.35rem; font-size: 0.95rem; }
-    .job ul li::before { content: '—'; position: absolute; left: 0; color: var(--dim); }
-    .job p { font-size: 0.95rem; margin-bottom: 0; }
-
-    /* ── Case studies ──────────────────────── */
-    .section-hero {
-      width: 100vw; margin-left: calc(-50vw + 50%); position: relative;
-      overflow: hidden; max-height: 60vh; min-height: 360px; display: flex; align-items: flex-start;
-    }
-    .section-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
-    .section-hero-overlay { position: relative; z-index: 2; width: 100%; padding: 2rem 2rem 3rem; background: linear-gradient(rgba(0,0,0,0.6), transparent); text-align: center; }
-    .section-hero-overlay .inner { max-width: 800px; margin: 0 auto; }
-    .section-hero-title { font-size: 2rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.2; }
-    .case-label { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; margin: 2rem 0 0.5rem; }
-    .backstory { margin-bottom: 1.5rem; }
-    .impact { font-weight: 600; margin-bottom: 1.5rem; }
-    .pull-quote { padding: 1.5rem 0; margin: 1rem 0; }
-    .pull-quote p { font-size: 1.05rem; line-height: 1.7; font-style: italic; }
-    .pull-quote .attr { font-style: normal; font-size: 0.8rem; color: var(--dim); margin-top: 0.5rem; }
-    .video-wrap { position: relative; width: 100%; padding-bottom: 56.25%; margin: 2rem 0; }
+    /* ── Video embed ─────────────────────── */
+    .video-wrap { position: relative; width: 100%; padding-bottom: 56.25%; margin: 1.5rem 0; }
     .video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; border-radius: 4px; }
     .video-print-fallback { display: none; }
-    .links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1.5rem; }
+
+    /* ── Inline link buttons ─────────────── */
+    .links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1.25rem; }
     .link-btn { display: inline-block; padding: 6px 14px; border: 1px solid var(--border); border-radius: 3px; font-family: var(--mono); font-size: 0.72rem; color: var(--text); text-decoration: none; transition: border-color 0.2s; }
     .link-btn:hover { border-color: var(--accent); text-decoration: none; }
+    .link-btn .note { color: var(--dim); }
 
-    /* ── Gallery (Prince) ─────────────────── */
-    .gallery { width: 100vw; margin-left: calc(-50vw + 50%); padding: 0 2rem; margin-bottom: 2rem; }
-    .gallery-scroll { display: flex; gap: 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; padding-bottom: 8px; scrollbar-width: thin; height: 80vh; max-height: 900px; background: #fff; border-radius: 4px; padding: 1rem; }
-    .slide { flex: 0 0 auto; height: 100%; }
-    .slide img { height: 100%; width: auto; border-radius: 2px; display: block; }
-    .slide-wide { flex: 0 0 auto; height: 100%; }
-    .slide-wide img { height: 100%; width: auto; }
-    .gallery-hint { font-family: var(--mono); font-size: 0.65rem; color: var(--dim); padding: 0.5rem 2rem; width: 100vw; margin-left: calc(-50vw + 50%); }
-
-    /* ── Quotes ──────────────────────────── */
-    .quotes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.5rem; }
-    .quote { background: #fff; border: 1px solid var(--border); padding: 1.25rem; border-radius: 3px; }
-    .quote p { font-size: 0.9rem; line-height: 1.65; font-style: italic; color: var(--text); margin: 0; }
-
-    /* ── Contact buttons ─────────────────── */
+    /* ── Contact ─────────────────────────── */
     .contact-name { font-family: var(--font); font-size: 1.05rem; font-weight: 700; margin-bottom: 0.25rem; }
     .signoff-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 0.75rem; }
     .signoff-btn {
@@ -308,23 +261,16 @@
       body { --bg: #0b1a2e; --text: #e0e0e0; --dim: #888; --border: rgba(255,255,255,0.1); --link: #6ba8d4; }
       .page-header { background: #0b1a2e; }
       .page-header-left a { color: #e0e0e0; }
-      .quote { background: rgba(255,255,255,0.03); }
     }
 
     /* ── Mobile ───────────────────────────── */
     @media (max-width: 640px) {
-      .hero { height: 85vh; min-height: 480px; }
+      .hero { height: 80vh; min-height: 460px; }
       .hero-overlay { padding: 2rem 1.5rem; }
       .hero-title { font-size: 2.2rem; }
       .content { padding: 0 1.25rem; }
       .section { padding: 2.5rem 0 2rem; }
-      .section-hero { min-height: 280px; max-height: 50vh; }
-      .section-hero-title { font-size: 1.8rem; }
-      .gallery { padding: 0 1rem; }
-      .gallery-hint { padding: 0 1rem; }
-      .gallery-scroll { height: 70vh; max-height: 700px; }
       .page-header { padding: 0 1rem; }
-      .quotes { grid-template-columns: 1fr; }
       .page-nav { display: none; }
     }
 
@@ -336,10 +282,6 @@
       .hero-img { position: static; height: 320px; }
       .hero::after { display: none; }
       .page-header { display: none; }
-      .section-hero { max-height: none; min-height: auto; }
-      .section-hero img { position: static; height: auto; }
-      .section-hero-overlay { background: none; }
-      .section-hero-title { color: #000; }
       .video-wrap { display: none; }
       .video-print-fallback { display: block !important; font-size: 0.85em; color: #555; margin: 1rem 0; }
     }
@@ -347,37 +289,17 @@
 </head>
 <body>
 
-  <!-- ── Hero ──────────────────────────── -->
-  <section class="hero">
-    <img class="hero-img" src="/images/gallery/derek-self-portrait.png" alt="Derek Simmons" loading="eager">
-    <div class="hero-overlay">
-      <div class="voice-cta">
-        <button class="voice-btn" id="voice-intro" aria-label="Hello — listen to Derek introduce himself">
-          <svg class="play-icon" viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
-          <svg class="stop-icon" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12"/></svg>
-          Hello
-        </button>
-      </div>
-      <h1 class="hero-title">Derek Simmons</h1>
-      <p class="hero-role">Writer. Filmmaker. Builder.</p>
-      <div class="hero-buttons">
-        <a href="mailto:derek@claudewill.io" class="hero-btn">Email</a>
-        <a href="https://www.linkedin.com/in/dereksimm/" class="hero-btn" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="/being-claude" class="hero-btn">Being Claude</a>
-        <a href="/book" class="hero-btn">Book</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Page Header ───────────────────── -->
+  <!-- ── Page Header (top, sticky) ─────── -->
   <header class="page-header">
     <div class="page-header-left"><a href="/">claudewill*</a></div>
     <nav class="page-nav">
       <a href="#now">Now</a>
       <span class="sep">·</span>
-      <a href="#record">Record</a>
-      <span class="sep">·</span>
       <a href="#work">Work</a>
+      <span class="sep">·</span>
+      <a href="#name">Name</a>
+      <span class="sep">·</span>
+      <a href="#travels">Travels</a>
       <span class="sep">·</span>
       <a href="#contact">Contact</a>
     </nav>
@@ -386,178 +308,66 @@
     </div>
   </header>
 
+  <!-- ── Hero ──────────────────────────── -->
+  <section class="hero">
+    <img class="hero-img" src="/images/gallery/derek-self-portrait.png" alt="Derek Simmons" loading="eager">
+    <div class="hero-overlay">
+      <h1 class="hero-title">Derek Simmons</h1>
+      <p class="hero-role">Writer. Filmmaker. Builder.</p>
+      <button class="voice-btn" id="voice-intro" aria-label="Hello — listen to Derek introduce the page">
+        <svg class="play-icon" viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+        <svg class="stop-icon" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12"/></svg>
+        Hello
+      </button>
+    </div>
+  </section>
+
   <div class="content">
 
     <!-- ── Who I Am ──────────────────────── -->
     <section class="section" id="now">
       <p class="section-label">Who I am</p>
       <h2 class="section-title">Thirty years in newsrooms. Fourteen months building what comes next.</h2>
-      <p class="lead">I spent 30 years in newsrooms — the Associated Press, the Los Angeles Times, and the Star Tribune, where I became the first Chief Creative Officer in its 150-year history. My position was eliminated in 2024.</p>
-      <p class="lead">Since then I've spent 14 months building a working practice with AI — films, a book, software, a method — every day, in public, at <a href="/">claudewill.io</a>. Not AI as a feature bolted onto the old work. AI as the way the work gets made.</p>
-      <p class="lead">The writing is <a href="/being-claude">Being Claude</a> and the <a href="/book">book</a>. The film is below. The method is the thing underneath all of it — and it's the thing I'd bring anywhere.</p>
+      <p class="lead">I spent thirty years in newsrooms — the Associated Press, the Los Angeles Times, the Star Tribune, where I became the first Chief Creative Officer in its 150-year history. Four Pulitzer teams, a $20 million pandemic-era turnaround, a thousand awards the rooms earned together. In 2024, the position was eliminated.</p>
+      <p class="resume-link"><a href="/derek/resume">The full résumé — thirty years, with the dates →</a></p>
+      <p class="lead" style="margin-top: 1.75rem;">Since then I've spent fourteen months building a working practice with AI — films, a book, software, a method — every day, in public, at <a href="/">claudewill.io</a>. AI as the way the work gets made, the method itself.</p>
+      <p class="lead">Here's the honest shape of it: the machine produces — drafts, builds, renders, searches. I judge — what's true, what the spine is, what to cut. Production isn't scarce anymore; judgment is, and judgment is the thirty years. The collaboration is the practice itself.</p>
     </section>
 
-    <!-- ── The Record ────────────────────── -->
-    <section class="section" id="record">
-      <p class="section-label">The record</p>
-      <h2 class="section-title">Where the thirty years went.</h2>
-
-      <div class="job">
-        <div class="job-head">
-          <span class="job-title">Star Tribune</span>
-          <span class="job-dates">1998 — 2024</span>
-        </div>
-        <div class="job-roles">AME Visuals (2013) · CCO/VP (2017) · Executive Director, Digital Strategy (2022)</div>
-        <ul>
-          <li>First CCO/VP in the company's 150-year history — 55-person team across editorial, design, video, and product.</li>
-          <li>Fan experience apps for U.S. Bank Stadium's opening and Super Bowl LII. Photo and video shoots with Daunte Culpepper, Ragnar, and Minnesota sports legend Herb Brooks.</li>
-          <li>Generated <strong>$20M in new revenue</strong> during the pandemic by rebuilding workflows around audience, not legacy.</li>
-          <li>Negotiated the Star Tribune's branded content partnership with XLMedia (now Sportradar) — and wrote the editorial policy separating commercial content from newsroom coverage.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-head">
-          <span class="job-title">Los Angeles Times</span>
-          <span class="job-dates">2007 — 2013</span>
-        </div>
-        <div class="job-roles">Deputy Design Director</div>
-        <ul>
-          <li>Society for News Design #1 worldwide six consecutive years — 109 awards in the peak year, the widest margin in the competition's history.</li>
-          <li>Directed creative coverage of every major sporting event: NBA Finals (Kobe era), Olympics, World Series, Super Bowl, golf majors.</li>
-          <li>Part of four Pulitzer Prize-winning teams across the career.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-head">
-          <span class="job-title">AP · Wichita Eagle · Kansas State Collegian</span>
-          <span class="job-dates">Prior</span>
-        </div>
-        <div class="job-roles">Sports Editor &amp; Correspondent</div>
-        <p>Six-day production weeks covering the NFL from 1998 to 2003. Covered Kansas State football from worst-in-nation to Big 12 contender. Randy Moss and I were both rookies in 1998.</p>
-      </div>
-
-      <div class="job" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
-        <div class="job-head">
-          <span class="job-title">CW Strategies LLC</span>
-          <span class="job-dates">2024 — Present</span>
-        </div>
-        <div class="job-roles">Founder &amp; Principal</div>
-        <p>The practice, and the paperwork around it. Board member, Public Alliance of Professional Journalists — building credentialing and editorial-policy standards as the newsroom changes.</p>
-      </div>
-
-      <div class="quotes">
-        <div class="quote">
-          <p>"A forceful agent for change. Congenial, smart, diplomatic, but also inspiring."</p>
-        </div>
-        <div class="quote">
-          <p>"Derek may be the most productive and innovative person I know, and I worked in the media innovation space for 40 years."</p>
-        </div>
-        <div class="quote">
-          <p>"He sees the big picture while keeping a firm grasp on the details."</p>
-        </div>
-        <div class="quote">
-          <p>"A leader who sets the example with the demands he puts on himself."</p>
-        </div>
-      </div>
-    </section>
-
-  </div>
-
-  <!-- ── Case study: LIGHTNING/bug (the work now) ──────────── -->
-  <div class="content">
+    <!-- ── The Work ──────────────────────── -->
     <section class="section" id="work">
-      <div class="section-hero">
-        <img src="/images/lightning-bug/D24-two-kinds-of-light.jpg" alt="LIGHTNING/bug — a film about two kinds of light" loading="lazy" style="object-position: center 40%;">
-        <div class="section-hero-overlay">
-          <div class="inner">
-            <h2 class="section-hero-title">LIGHTNING/bug</h2>
-          </div>
-        </div>
-      </div>
-
-      <p class="case-label">The work now</p>
-      <p class="backstory">A 5:47 film about two kinds of light — the lightning and the firefly. The first film from sssstudios, finished as a Mother's Day release in May 2026.</p>
-
-      <p class="case-label">Approach</p>
-      <div class="backstory">
-        <p>Made entirely from a terminal — generated frames, API calls, and ffmpeg. No camera, no crew, no set. It's the same working method behind everything at claudewill.io, pointed at a film instead of a page: the human decides what it's about and what's true; the machine does the rendering.</p>
-      </div>
+      <p class="section-label">The work</p>
+      <h2 class="section-title">A film made entirely from a terminal.</h2>
+      <p><strong>LIGHTNING/bug</strong> — a 5:47 film about two kinds of light, the lightning and the firefly. Generated frames, API calls, ffmpeg. No camera, no crew, no set. The first film from <a href="/sss">sssstudios</a>, finished as a Mother's Day release in 2026.</p>
 
       <div class="video-wrap">
         <iframe src="https://player.vimeo.com/video/1190814115" title="LIGHTNING/bug — a film by sssstudios" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
       </div>
       <p class="video-print-fallback">Film: vimeo.com/sssstudios/lightning-bug</p>
 
-      <p class="case-label">Where it went</p>
-      <p class="impact">Submitted to the Runway AI Film Festival and AI for Good.</p>
+      <p>It's the same working method behind everything here, pointed at a film instead of a page. Before any of that, there was print: I art directed the Star Tribune's Prince commemorative — "Purple Majesty," sixteen pages, four zoned covers, two original paintings commissioned in a week. Reprints still sell a decade later. Same instincts, different terminal.</p>
 
       <div class="links">
         <a href="/lightning-bug" class="link-btn">The film page</a>
         <a href="https://vimeo.com/sssstudios/lightning-bug" class="link-btn" target="_blank" rel="noopener">Watch on Vimeo</a>
+        <a href="https://www.startribune.com/remembering-prince-an-icon-for-minnesota-and-the-world/377316801" class="link-btn" target="_blank" rel="noopener">The Prince series</a>
       </div>
     </section>
 
-    <!-- ── Case study: Prince (the record, proven) ──────────── -->
-    <section class="section" id="prince">
-      <div class="section-hero">
-        <img src="/images/gallery/prince-illo-detail.png" alt="Robert Carter illustration detail — Prince's eyes" loading="lazy" style="object-position: center 45%;">
-        <div class="section-hero-overlay">
-          <div class="inner">
-            <h2 class="section-hero-title">Purple Majesty: Remembering a<br>Minnesota Icon</h2>
-          </div>
-        </div>
-      </div>
-
-      <p class="case-label">The work before</p>
-      <p class="backstory">Prince died on a Thursday. Every paper in the country would run it. Minnesota's paper — his home state — had to own it. We did.</p>
-
-      <p class="case-label">Approach</p>
-      <div class="backstory">
-        <p>By Friday morning we published "Purple Majesty." Over the next 10 days I art directed a 16-page commemorative section with four unique zoned covers. Commissioned two original paintings from Robert Carter in less than a week. Negotiated rights to a rarely seen 1977 photograph taken when Prince was 19.</p>
-      </div>
-
-      <div class="gallery">
-        <div class="gallery-scroll">
-          <figure class="slide"><img src="/images/gallery/prince-a1-purple-majesty.png" alt="PURPLE MAJESTY — breaking news A1" loading="lazy"></figure>
-          <figure class="slide"><img src="/images/gallery/prince-cover-1-carter-purple.png" alt="Robert Carter Purple Rain painting" loading="lazy"></figure>
-          <figure class="slide"><img src="/images/gallery/prince-cover-2-carter-blue.png" alt="Robert Carter blue painting" loading="lazy"></figure>
-          <figure class="slide"><img src="/images/gallery/prince-cover-3-whitman-1977.png" alt="Robert Whitman 1977 photograph" loading="lazy"></figure>
-          <figure class="slide"><img src="/images/gallery/prince-cover-4-staff-photo.png" alt="Staff photograph" loading="lazy"></figure>
-          <figure class="slide slide-wide"><img src="/images/gallery/prince-interior-008.png" alt="Photography spread" loading="lazy"></figure>
-          <figure class="slide"><img src="/images/gallery/prince-interior-010.png" alt="Twin Cities map" loading="lazy"></figure>
-          <figure class="slide"><img src="/images/gallery/prince-interior-013.png" alt="Discography guide" loading="lazy"></figure>
-          <figure class="slide"><img src="/images/gallery/prince-interior-015.png" alt="Fashion evolution" loading="lazy"></figure>
-        </div>
-        <p class="gallery-hint">Scroll → A1, four zoned covers, two Carter paintings, interior pages</p>
-      </div>
-
-      <p class="case-label">Impact</p>
-      <p class="impact">Reprints still sell a decade later.</p>
-
-      <div class="pull-quote">
-        <p>"Derek stands up for his artists. His clear vision and decisiveness was key. Those portraits are still one of my most sought after paintings today."</p>
-        <p class="attr">— Robert Carter, illustrator</p>
-      </div>
-
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/M6tn3Q7i7-c" title="Prince commemorative walkthrough" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <p class="video-print-fallback">Walkthrough: youtube.com/watch?v=M6tn3Q7i7-c</p>
-
-      <div class="links">
-        <a href="https://stribstore.com/products/remembering-a-minnesota-icon-prince-page-poster-reprint-set" class="link-btn" target="_blank" rel="noopener">Reprints</a>
-        <a href="https://www.startribune.com/remembering-prince-an-icon-for-minnesota-and-the-world/377316801" class="link-btn" target="_blank" rel="noopener">The full series</a>
-      </div>
-    </section>
-
-    <!-- ── CW ────────────────────────────── -->
-    <section class="section">
+    <!-- ── The Name ──────────────────────── -->
+    <section class="section" id="name">
       <p class="section-label">The name</p>
       <h2 class="section-title">Claude William Simmons, 1903–1967.</h2>
       <p>Oklahoma farmer. Builder. Patriarch. Born in Oklahoma Territory before it was a state. Raised his family through the Depression. Fixed what was broken, built what was needed, helped whoever showed up. Never wrote any of it down.</p>
       <p>The practice carries his name because it carries his instinct: show up, do the work, tell the truth, help the person in front of you. Claude is also my middle name. The asterisk in <em>derek*claude</em> is where the two meet.</p>
+    </section>
+
+    <!-- ── The Method Travels ────────────── -->
+    <section class="section" id="travels">
+      <p class="section-label">The method travels</p>
+      <h2 class="section-title">It isn't bound to this one site.</h2>
+      <p>The practice runs in more than one place. <a href="https://hancock.us.com" target="_blank" rel="noopener">Hancock</a> is an AI storyteller — one of the first of its kind — with its own domain, newsletter, and submission form, edited weekly. An institution saw it and wanted its own version; that became a <a href="https://papj-demo.netlify.app/" target="_blank" rel="noopener">working demo</a> for the Public Alliance of Professional Journalists. A regional newsroom put the method into a <a href="https://www.cascadiadaily.com/magazine/" target="_blank" rel="noopener">print magazine</a>. The writing carries too — <a href="/being-claude">Being Claude</a> and the <a href="/book">book</a>.</p>
+      <p>It travels across machines, not just sites. The coaching engine behind <a href="/d">Option D</a> is model-agnostic — one prompt, nine different AI models, the same result. The method is the methodology, and the methodology runs on whatever's underneath. That's the whole point: the practice isn't a product, and it isn't bound to one tool.</p>
     </section>
 
     <!-- ── Contact ──────────────────────── -->
@@ -571,7 +381,7 @@
         <a href="https://github.com/dereksimmons23" class="signoff-btn" target="_blank" rel="noopener">GitHub</a>
         <a href="https://derek4thecws.substack.com" class="signoff-btn" target="_blank" rel="noopener">Substack</a>
       </div>
-      <div style="margin-top: 1.25rem; font-size: 0.82rem; color: var(--dim);">References available upon request.</div>
+      <div style="margin-top: 1rem; font-size: 0.82rem; color: var(--dim);">Have a question? The porch is at the bottom of the screen — pull up a chair.</div>
     </section>
 
   </div>
@@ -590,7 +400,7 @@
   <script>
     (function() {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      var targets = document.querySelectorAll('.gallery, .impact, .backstory, .pull-quote, .links, .video-wrap, .section > p, .section > h2, .quotes, .job');
+      var targets = document.querySelectorAll('.section > p, .section > h2, .video-wrap, .links');
       targets.forEach(function(el) { el.classList.add('reveal'); });
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
@@ -608,7 +418,7 @@
       var currentAudio = null;
       var isPlaying = false;
 
-      var narrationText = "I'm Derek Simmons. Thirty years in newsrooms — the AP, LA Times, Star Tribune, where I was the first Chief Creative Officer in its history. Then they eliminated my position and I started building. The book comes out June 28. The film runs under six minutes and was made entirely from a terminal. The practice is called Claude Will dot. Named for my grandfather. You'll see some of it here. The rest is better as a conversation.";
+      var narrationText = "I'm Derek Simmons. Thirty years in newsrooms — then they eliminated my position, and I started building. This page is short on purpose. Up top is who I am and how I work, with a full résumé behind it if you want the thirty years in detail. Below that, the work: a film made entirely from a terminal. Then the name — my grandfather, Claude. And the method, which doesn't stay put. It runs at Hancock, it's moving into other newsrooms, it works across nine different AI models. If a question comes up, the porch is at the bottom of the screen. Pull up a chair.";
 
       function stopAudio() {
         if (currentAudio) { currentAudio.pause(); currentAudio = null; }
@@ -626,6 +436,7 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ text: narrationText, voice: 'derek' })
           });
+          if (!res.ok) throw new Error('speak unavailable');
           var blob = await res.blob();
           var url = URL.createObjectURL(blob);
           currentAudio = new Audio(url);
@@ -637,7 +448,5 @@
       });
     })();
   </script>
-
-  <script src="/js/star-nav.js"></script>
 </body>
 </html>
