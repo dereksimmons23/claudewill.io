@@ -199,6 +199,7 @@
 
     .voice-btn {
       display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px;
+      align-self: flex-start;
       border: 1px solid rgba(255,255,255,0.3); border-radius: 3px;
       color: rgba(255,255,255,0.9); background: none; cursor: pointer;
       font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.04em; transition: all 0.2s;
@@ -418,7 +419,7 @@
       var currentAudio = null;
       var isPlaying = false;
 
-      var narrationText = "I'm Derek Simmons. Thirty years in newsrooms — then they eliminated my position, and I started building. This page is short on purpose. Up top is who I am and how I work, with a full résumé behind it if you want the thirty years in detail. Below that, the work: a film made entirely from a terminal. Then the name — my grandfather, Claude. And the method, which doesn't stay put. It runs at Hancock, it's moving into other newsrooms, it works across nine different AI models. If a question comes up, the porch is at the bottom of the screen. Pull up a chair.";
+      var narrationText = "Hello — I'm Derek Simmons. Thanks for taking an interest in my work. Thirty years in newsrooms — I was the first Chief Creative Officer in my paper's history — until 2024, when the position was eliminated. One door closed; I opened another: my own creative practice, built with AI. This page is the short version — there's a link to the full résumé if you want the thirty years in detail, and below that, what I've built since. My middle name is Claude. I was named for a grandfather I never met — and I made most of what you see here working with Claude, the models that share his name. CW's Porch is on every page, including this one. If a question comes up, pull up a chair — and tell CW what you see. That's not a formality; it helps me make this better as I keep working in the open. Thanks again for the time.";
 
       function stopAudio() {
         if (currentAudio) { currentAudio.pause(); currentAudio = null; }
