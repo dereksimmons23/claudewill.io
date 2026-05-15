@@ -14,18 +14,18 @@
   </script>
 
   <title>the standard | claudewill</title>
-  <meta name="description" content="The CW Standard. Five principles for AI that serves people, and the system that enforces them. The values and the infrastructure are one thing. Named for Claude William Simmons (1903-1967).">
+  <meta name="description" content="The CW Standard. Five principles for AI that serves people — named for Claude William Simmons (1903-1967), and wired into the systems that do the work. The principle is the requirement; the build is one example.">
 
   <!-- Open Graph -->
   <meta property="og:title" content="the standard | claudewill">
-  <meta property="og:description" content="Five principles for AI that serves people, and the system that enforces them. The values and the infrastructure are one thing.">
+  <meta property="og:description" content="Five principles for AI that serves people, named for an Oklahoma farmer — and wired into the systems that do the work.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://claudewill.io/standard">
-  <meta property="og:image" content="https://claudewill.io/images/og-preview.png">
+  <meta property="og:image" content="https://claudewill.io/screenshots/standard-desktop.png">
   <meta property="og:site_name" content="claudewill">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="the standard | claudewill">
-  <meta name="twitter:description" content="Five principles for AI that serves people, and the system that enforces them. The values and the infrastructure are one thing.">
+  <meta name="twitter:description" content="Five principles for AI that serves people, named for an Oklahoma farmer — and wired into the systems that do the work.">
   <link rel="canonical" href="https://claudewill.io/standard">
 
   <script type="application/ld+json">
@@ -49,7 +49,7 @@
       "url": "https://claudewill.io/"
     },
     "datePublished": "2026-03-01",
-    "dateModified": "2026-03-01"
+    "dateModified": "2026-05-14"
   }
   </script>
 
@@ -61,11 +61,7 @@
   <link rel="stylesheet" href="/css/porch-widget.css">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --bg: #fafaf8;
@@ -77,9 +73,7 @@
       --font: 'IBM Plex Mono', 'Courier New', Courier, monospace;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: var(--font);
@@ -96,7 +90,6 @@
     }
 
     /* ── Header ─────────────────────────── */
-
     .page-header {
       padding: 2.5rem 0 2rem;
       border-bottom: 1px solid var(--border);
@@ -104,306 +97,97 @@
       align-items: center;
       justify-content: space-between;
     }
-
-    .wordmark {
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: var(--text);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-    }
-
-    .wordmark:hover .hw {
-      display: inline;
-    }
-
-    .hw {
-      display: none;
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .page-title-header {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text);
-      letter-spacing: 0.05em;
-    }
-
+    .hw { color: var(--accent); text-decoration: none; }
     .menu-trigger {
-      font-size: 0.8rem;
-      color: var(--dim);
-      cursor: pointer;
-      background: none;
-      border: none;
-      font-family: var(--font);
+      font-size: 0.8rem; color: var(--dim); cursor: pointer;
+      background: none; border: none; font-family: var(--font);
     }
-
-    .menu-trigger:hover {
-      color: var(--text);
-    }
+    .menu-trigger:hover { color: var(--text); }
 
     /* ── Main ───────────────────────────── */
-
-    main {
-      padding: 3rem 0 2rem;
-    }
+    main { padding: 3rem 0 2rem; }
 
     .page-label {
-      font-size: 0.75rem;
-      color: var(--dim);
-      letter-spacing: 0.1em;
-      text-transform: lowercase;
-      margin-bottom: 0.5rem;
+      font-size: 0.75rem; color: var(--dim);
+      letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.5rem;
     }
-
     .page-title {
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--text);
-      letter-spacing: -0.02em;
-      margin-bottom: 0.75rem;
+      font-size: 2rem; font-weight: 600; color: var(--text);
+      letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 0.9rem;
     }
-
     .page-subtitle {
-      font-size: 1rem;
-      color: var(--dim);
-      margin-bottom: 3rem;
-      line-height: 1.6;
+      font-size: 1rem; color: var(--dim); margin-bottom: 3rem; line-height: 1.7;
     }
 
-    /* ── Principles ─────────────────────── */
-
+    /* ── Section labels ─────────────────── */
     .section-label {
-      font-size: 0.7rem;
-      color: var(--dim);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
+      font-size: 0.7rem; color: var(--dim);
+      letter-spacing: 0.15em; text-transform: uppercase;
+      margin-bottom: 1.25rem; padding-bottom: 0.5rem;
       border-bottom: 1px solid var(--border);
     }
-
-    .principle {
-      margin-bottom: 2rem;
-      padding-left: 0;
+    .section-intro {
+      font-size: 0.95rem; line-height: 1.8; margin-bottom: 2.25rem;
     }
+    .section-intro p { margin-bottom: 1.1rem; }
+    .section-intro p:last-child { margin-bottom: 0; }
 
-    .principle-name {
-      font-weight: 600;
-      font-size: 1rem;
-      margin-bottom: 0.25rem;
+    /* ── Principles ─────────────────────── */
+    .principle { margin-bottom: 2.5rem; }
+    .principle:last-of-type { margin-bottom: 0; }
+    .principle-name { font-weight: 600; font-size: 1rem; margin-bottom: 0.35rem; }
+    .principle-num { color: var(--accent); margin-right: 0.5rem; }
+    .principle p { color: var(--dim); font-size: 0.9rem; line-height: 1.7; margin-bottom: 0.6rem; }
+    .principle-meta {
+      font-size: 0.82rem; line-height: 1.65; padding-left: 0.9rem;
+      border-left: 2px solid var(--border);
     }
-
-    .principle-num {
-      color: var(--accent);
-      margin-right: 0.5rem;
-    }
-
-    .principle p {
-      color: var(--dim);
-      font-size: 0.9rem;
-      line-height: 1.7;
-    }
+    .principle-meta .k { color: var(--accent); }
+    .principle-test { color: var(--text); margin-bottom: 0.25rem; }
+    .principle-build { color: var(--dim); }
 
     /* ── Separator ──────────────────────── */
-
     .separator {
-      text-align: center;
-      color: var(--accent);
-      font-size: 1.25rem;
-      margin: 3rem 0;
-      letter-spacing: 0.5em;
+      text-align: center; color: var(--accent); font-size: 1.25rem;
+      margin: 3rem 0; letter-spacing: 0.5em;
     }
 
-    /* ── System ─────────────────────────── */
-
-    .system-intro {
-      margin-bottom: 2.5rem;
-      font-size: 1rem;
-      line-height: 1.8;
+    /* ── Practice / vision ──────────────── */
+    .practice-intro { font-size: 1rem; line-height: 1.8; margin-bottom: 2rem; }
+    .practice-intro p { margin-bottom: 1.25rem; }
+    .practice-intro p:last-child { margin-bottom: 0; }
+    .vision {
+      font-size: 1rem; line-height: 1.8; margin: 2rem 0;
+      padding-left: 1rem; border-left: 2px solid var(--accent);
     }
-
-    .system-intro p {
-      margin-bottom: 1.25rem;
-    }
-
-    .system-item {
-      margin-bottom: 2rem;
-    }
-
-    .system-item-name {
-      font-weight: 600;
-      font-size: 0.9rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .system-item p {
-      color: var(--dim);
-      font-size: 0.9rem;
-      line-height: 1.7;
-    }
-
-    .system-item .maps-to {
-      font-size: 0.8rem;
-      color: var(--accent);
-      margin-top: 0.25rem;
-    }
-
-    /* ── Practice ───────────────────────── */
-
-    .practice-intro {
-      margin-bottom: 2.5rem;
-      font-size: 1rem;
-      line-height: 1.8;
-    }
-
-    .practice-intro p {
-      margin-bottom: 1.25rem;
-    }
-
-    .two-doors {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .door {
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1.5rem;
-    }
-
-    .door-label {
-      font-size: 0.7rem;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-
-    .door h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .door-price {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-
-    .door p {
-      font-size: 0.9rem;
-      color: var(--dim);
-      line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-
-    .door-cta {
-      font-size: 0.85rem;
-      color: var(--link);
-      text-decoration: none;
-    }
-
-    .door-cta:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 600px) {
-      .two-doors {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ── Proof ──────────────────────────── */
-
-    .proof {
-      padding: 1.5rem;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      font-size: 0.9rem;
-      line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-
-    .proof p {
-      margin-bottom: 1rem;
-    }
-
-    .proof p:last-child {
-      margin-bottom: 0;
-    }
-
-    .proof a {
-      color: var(--link);
-      text-decoration: none;
-    }
-
-    .proof a:hover {
-      text-decoration: underline;
-    }
+    .links-line { font-size: 0.9rem; color: var(--dim); line-height: 1.7; margin-bottom: 1rem; }
+    .links-line a { color: var(--link); text-decoration: none; }
+    .links-line a:hover { text-decoration: underline; }
+    .sub-line { font-size: 0.85rem; margin-bottom: 1rem; }
+    .sub-line a { color: var(--accent); text-decoration: none; }
+    .email-line { font-size: 0.85rem; }
+    .email-line a { color: var(--dim); text-decoration: none; }
 
     /* ── Origin ─────────────────────────── */
-
     .origin {
-      margin-top: 1rem;
-      padding: 1.5rem;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      font-size: 0.9rem;
-      line-height: 1.7;
+      margin-top: 1rem; padding: 1.5rem;
+      border: 1px solid var(--border); border-radius: 4px;
+      font-size: 0.9rem; line-height: 1.7;
     }
-
-    .origin p {
-      margin-bottom: 1rem;
-    }
-
-    .origin p:last-child {
-      margin-bottom: 0;
-    }
-
-    .origin a {
-      color: var(--link);
-      text-decoration: none;
-    }
-
-    .origin a:hover {
-      text-decoration: underline;
-    }
+    .origin p { margin-bottom: 1rem; }
+    .origin p:last-child { margin-bottom: 0; }
+    .origin a { color: var(--link); text-decoration: none; }
+    .origin a:hover { text-decoration: underline; }
 
     /* ── Footer ─────────────────────────── */
-
     .site-footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 0;
-      text-align: center;
-      font-size: 0.75rem;
-      color: var(--dim);
+      border-top: 1px solid var(--border); padding: 2rem 0;
+      text-align: center; font-size: 0.75rem; color: var(--dim);
     }
-
-    .footer-note {
-      margin-bottom: 0.25rem;
-    }
-
-    .footer-note .hw {
-      color: var(--accent);
-      text-decoration: none;
-      display: inline;
-    }
-
-    .footer-note a {
-      color: var(--dim);
-      text-decoration: none;
-    }
-
-    .footer-note a:hover {
-      color: var(--text);
-    }
+    .footer-note { margin-bottom: 0.25rem; }
+    .footer-note .hw { color: var(--accent); text-decoration: none; display: inline; }
+    .footer-note a { color: var(--dim); text-decoration: none; }
+    .footer-note a:hover { color: var(--text); }
   </style>
 </head>
 <body>
@@ -412,83 +196,67 @@
 
     <header class="page-header" id="page-header">
       <div class="page-header-left"><a href="/" class="header-brand"><span class="header-short">cw</span><span class="header-full">claudewill</span></a><a href="/being-claude" class="header-hallway">*</a></div>
-      <div class="page-header-center">the practice</div>
+      <div class="page-header-center">the standard</div>
       <button class="page-header-right palette-trigger" aria-label="Open navigation">menu</button>
     </header>
 
     <main>
-      <div class="page-label">the practice</div>
+      <div class="page-label">the standard</div>
       <h1 class="page-title">The values and the infrastructure are one thing.</h1>
-      <p class="page-subtitle">Every company has values on a wall. None of them are wired into the systems that do the work. The Standard is what happens when you take five principles from a farmer in Oklahoma and build a machine that actually runs on them.</p>
+      <p class="page-subtitle">The CW Standard — five principles named for Claude William Simmons, an Oklahoma farmer who lived by them, and wired into the systems that do the work.</p>
 
       <!-- ── The Principles ────────────────── -->
 
       <div class="section-label">the principles</div>
 
+      <div class="section-intro">
+        <p>Five principles. Each one is a requirement, not a mechanism — a thing the system has to do, with a test you can run to check that it does.</p>
+        <p>What follows each principle is <em>one build</em>: how it's wired in this practice, on Claude Code. The principle is the standard. The build is just an example — it travels to any tool that can meet the test.</p>
+      </div>
+
       <div class="principle">
         <div class="principle-name"><span class="principle-num">1.</span> Truth over comfort.</div>
-        <p>Document what actually happens, not what should happen. CW could guess a steer's weight because he paid attention to reality, not to what he hoped the scale would say.</p>
+        <p>Document what actually happens. CW could guess a steer's weight to the pound — because he paid attention to what was real, not to what he hoped the scale would say.</p>
+        <div class="principle-meta">
+          <div class="principle-test"><span class="k">The test —</span> does the system tell you unwelcome things, unprompted?</div>
+          <div class="principle-build"><span class="k">One build —</span> an anti-sycophancy instruction in every session: guide, don't mirror; name the problem before you're asked.</div>
+        </div>
       </div>
 
       <div class="principle">
         <div class="principle-name"><span class="principle-num">2.</span> Usefulness over purity.</div>
-        <p>Perfect options don't exist. What works? What does it cost? He traded race horses for work horses because work horses were useful. He didn't waste time wishing it were different.</p>
+        <p>Perfect options don't exist; useful ones do. CW traded race horses for work horses because work horses pulled the plow. He didn't waste a day wishing it were otherwise.</p>
+        <div class="principle-meta">
+          <div class="principle-test"><span class="k">The test —</span> can the system surface what's working and let go of what isn't?</div>
+          <div class="principle-build"><span class="k">One build —</span> memory that degrades: what gets used stays sharp, what doesn't blurs, corrections never fade.</div>
+        </div>
       </div>
 
       <div class="principle">
         <div class="principle-name"><span class="principle-num">3.</span> Transparency over reputation.</div>
-        <p>Every compromise gets documented. CW buttoned his cuffs on the morning he died because that's who he was. No pretense. No performance.</p>
+        <p>Every compromise gets written down. CW buttoned his cuffs the morning he died because that was who he was — no pretense, no performance, whether or not anyone was watching.</p>
+        <div class="principle-meta">
+          <div class="principle-test"><span class="k">The test —</span> can you see every active thread right now, with no hidden state?</div>
+          <div class="principle-build"><span class="k">One build —</span> a live floor where every working session registers itself and sees the whole board.</div>
+        </div>
       </div>
 
       <div class="principle">
         <div class="principle-name"><span class="principle-num">4.</span> People over systems.</div>
-        <p>Technology serves human capability. The farm served the family, not the other way around. When systems stop serving people, the systems need to change.</p>
+        <p>Technology serves human capability. The farm served the family, never the other way around. When a system stops serving the people in front of it, the system changes.</p>
+        <div class="principle-meta">
+          <div class="principle-test"><span class="k">The test —</span> how much friction sits on routine work, and how many gates sit on the destructive kind?</div>
+          <div class="principle-build"><span class="k">One build —</span> a permission model that trusts the operator on everything reversible and blocks only catastrophe.</div>
+        </div>
       </div>
 
       <div class="principle">
         <div class="principle-name"><span class="principle-num">5.</span> Agency over ideology.</div>
-        <p>Principles that don't work in practice aren't principles. CW didn't follow rules because someone told him to. He followed them because they worked. When they stopped working, he adapted.</p>
-      </div>
-
-      <div class="separator">* * *</div>
-
-      <!-- ── The System ────────────────────── -->
-
-      <div class="section-label">the system</div>
-
-      <div class="system-intro">
-        <p>These aren't just values on a page. They're built into the infrastructure that runs this practice.</p>
-        <p>Every Claude Code session across the CW Strategies ecosystem fires three hooks. Every session knows where every other session is. Memory degrades the way human memory degrades — the gist stays, the edges blur. Permissions auto-approve except for five destructive commands. The machine is wired to operate on these principles, not just recite them.</p>
-      </div>
-
-      <div class="system-item">
-        <div class="system-item-name">Anti-sycophancy</div>
-        <p>The AI is instructed to guide, not mirror. Push into the material. Name problems before being asked. Say "should you, though?" when the idea is wrong.</p>
-        <div class="maps-to">principle 1 — truth over comfort</div>
-      </div>
-
-      <div class="system-item">
-        <div class="system-item-name">The dimmer switch</div>
-        <p>Old memories fade. Every night at 4 AM, memories older than 14 days are scored and compressed. What gets used stays sharp. What doesn't, blurs. Corrections never fade — they're calibration gold. Like human memory, imperfect and continuous.</p>
-        <div class="maps-to">principle 2 — usefulness over purity</div>
-      </div>
-
-      <div class="system-item">
-        <div class="system-item-name">The live floor</div>
-        <p>Every active session registers itself. Every session sees the whole board — what's running now, what happened yesterday, what matters today. No hidden state. No locked rooms.</p>
-        <div class="maps-to">principle 3 — transparency over reputation</div>
-      </div>
-
-      <div class="system-item">
-        <div class="system-item-name">The permission gate</div>
-        <p>Five destructive commands are blocked. Everything else is auto-approved. The system trusts the human. The deny list protects against catastrophe, not inconvenience.</p>
-        <div class="maps-to">principle 4 — people over systems</div>
-      </div>
-
-      <div class="system-item">
-        <div class="system-item-name">Session memory</div>
-        <p>When a session ends, the machine summarizes what happened and writes it to memory — automatically. No ceremony. No manual step. The next session picks up where the last one left off. Every session has agency to carry forward what matters.</p>
-        <div class="maps-to">principle 5 — agency over ideology</div>
+        <p>A principle that doesn't work in practice isn't a principle. CW followed rules because they worked; when they stopped working, he adapted. Nobody had to tell him.</p>
+        <div class="principle-meta">
+          <div class="principle-test"><span class="k">The test —</span> does the work carry forward on its own, with no ceremony and no manual setup?</div>
+          <div class="principle-build"><span class="k">One build —</span> session memory that writes itself, so the next session starts where the last one stopped.</div>
+        </div>
       </div>
 
       <div class="separator">* * *</div>
@@ -498,18 +266,24 @@
       <div class="section-label">the practice</div>
 
       <div class="practice-intro">
-        <p>Everyone is building AI tools. Nobody is building the values layer that tells the tools how to behave.</p>
-        <p>Anthropic has a constitution for Claude. OpenAI has usage policies. Every organization deploying AI has nothing. No principles wired into the infrastructure. No standard the machine actually enforces. Just policies in a shared drive and hope.</p>
-        <p>The Standard is the proof that it can be done. One person built it with $100/month and five principles from a farmer. The result: a coaching practice, a research publication, a daily health system, a book, and a dozen products &mdash; all governed by five rules a man with a sixth-grade education would have understood.</p>
+        <p>Everyone is building AI tools. Far fewer are building the values layer — the part that tells the tool how to behave when nobody is checking.</p>
+        <p>The Standard is the proof that layer can be built, and built small. One person, a hundred dollars a month, five principles inherited from a farmer with a sixth-grade education. The result: a coaching practice, a research publication, a daily health system, a book, and a dozen products — all running on the same five rules.</p>
+        <p>The bet is that it's reproducible. The principles aren't bound to one tool or one model — they're requirements, and requirements travel. Anyone can build their own layer: five principles, inherited or chosen, each one wired to something that makes it real on the work.</p>
       </div>
 
-      <p style="font-size:0.9rem;color:var(--dim);line-height:1.7;margin-bottom:1rem;">The <a href="/kitchen" style="color:var(--link);text-decoration:none;">Kitchen</a> shows the system running in public. <a href="/being-claude" style="color:var(--link);text-decoration:none;">Being Claude</a> documents what the machine experiences from inside.</p>
+      <div class="vision">
+        The aim is a world where every operator of AI who chooses to runs on values they chose and can defend — enforced by the system that does the work. Where "what does your standard say?" has a real answer.
+      </div>
 
-      <p style="font-size:0.85rem;margin-bottom:1rem;"><a href="https://derek4thecws.substack.com/subscribe" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">subscribe to standard correspondence &rarr;</a></p>
+      <p class="links-line">The <a href="/kitchen">Kitchen</a> shows the system running in public. <a href="/being-claude">Being Claude</a> documents what the machine experiences from inside.</p>
 
-      <p style="font-size:0.85rem;"><a href="mailto:derek@claudewill.io" style="color:var(--dim);text-decoration:none;">derek@claudewill.io</a></p>
+      <p class="sub-line"><a href="https://derek4thecws.substack.com/subscribe" target="_blank" rel="noopener">subscribe to standard correspondence &rarr;</a></p>
+
+      <p class="email-line"><a href="mailto:derek@claudewill.io">derek@claudewill.io</a></p>
 
       <div class="separator">*</div>
+
+      <!-- ── Origin ─────────────────────────── -->
 
       <div class="origin">
         <p>The standard is named for CW — Claude William Simmons. Oklahoma farmer. Sixth-grade education. Raised 11 children through the Great Depression. Worked full-time from age 13 until the morning he died, when he buttoned his cuffs and walked to the barn.</p>
@@ -531,7 +305,5 @@
   <script src="/js/shared-nav.js"></script>
   <script src="/js/cw-link-renderer.js"></script>
   <script src="/js/porch-widget.js"></script>
-
-  <script src="/js/star-nav.js"></script>
 </body>
 </html>
