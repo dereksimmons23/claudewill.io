@@ -333,6 +333,83 @@ function detectIdenticalLoop(messages) {
   );
 }
 
+// ── Per-IP rate guard ──────────────────────────────────
+//
+// Catches the session-rotation pattern: one IP spinning up many short
+// sessions in a small window. Existing in-memory rate limit only counts
+// requests per IP; an attacker who opens fresh tabs sidesteps it because
+// the per-session loop guard resets too. This is the cross-session layer.
+//
+// Threshold rationale: 8 new sessions per 60 min, throttle for 60 min.
+// A shared NAT can plausibly produce 3-4 fresh sessions an hour;
+// 8 leaves headroom for legit shared IPs while catching the documented
+// 2026-05-14 pattern (13 sessions in 56 min) well before the hour mark.
+
+const IP_THROTTLE_WINDOW_MIN = 60;
+const IP_THROTTLE_THRESHOLD = 8;
+const IP_THROTTLE_DURATION_MIN = 60;
+
+async function checkIpThrottle(ipHash, isNewSession) {
+  if (!supabase || !ipHash) return { throttled: false };
+
+  try {
+    const { data } = await supabase
+      .from('ip_state')
+      .select('*')
+      .eq('ip_hash', ipHash)
+      .maybeSingle();
+
+    const now = new Date();
+
+    // Already throttled — short-circuit before any model call.
+    if (data && data.throttled_until && new Date(data.throttled_until) > now) {
+      return { throttled: true, reason: data.throttle_reason || 'rate_limit' };
+    }
+
+    // Only new-session requests update the counter. Mid-session messages
+    // just check the throttle gate and move on — they're already accounted
+    // for by the session that started them.
+    if (!isNewSession) return { throttled: false };
+
+    let count = 1;
+    let windowStart = now.toISOString();
+
+    if (data) {
+      const windowAge = (now - new Date(data.window_start)) / 60000;
+      if (windowAge < IP_THROTTLE_WINDOW_MIN) {
+        count = (data.new_session_count || 0) + 1;
+        windowStart = data.window_start;
+      }
+      // else: window expired, reset counter
+    }
+
+    const update = {
+      ip_hash: ipHash,
+      new_session_count: count,
+      window_start: windowStart,
+      last_seen: now.toISOString()
+    };
+
+    let throttled = false;
+    if (count > IP_THROTTLE_THRESHOLD) {
+      update.throttled_until = new Date(
+        now.getTime() + IP_THROTTLE_DURATION_MIN * 60000
+      ).toISOString();
+      update.throttle_reason = `session_rotation_${count}_in_${IP_THROTTLE_WINDOW_MIN}min`;
+      throttled = true;
+    }
+
+    await supabase
+      .from('ip_state')
+      .upsert(update, { onConflict: 'ip_hash' });
+
+    return { throttled, reason: update.throttle_reason };
+  } catch (error) {
+    console.error('ip_state check failed:', error.message);
+    return { throttled: false }; // fail open
+  }
+}
+
 // SYSTEM_PROMPT is now imported from ./cw-prompt/index.js
 // Edit prompt content in cw-prompt/*.md files
 
@@ -492,6 +569,27 @@ exports.handler = async (event, context) => {
         userMessage: currentUserMsg,
         cwResponse: '[blocked: session closed]',
         condition: 'blocked',
+        sessionId,
+        ipHash,
+        tokenUsage: { input: 0, output: 0 }
+      });
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({ response: TERMINAL_RESPONSE, terminated: true })
+      };
+    }
+
+    // Abuse defense: per-IP session-rotation guard.
+    // messages.length === 1 means this is the first user message of a fresh
+    // session — that's what we count toward the per-IP threshold.
+    const isNewSession = messages.length === 1;
+    const ipCheck = await checkIpThrottle(ipHash, isNewSession);
+    if (ipCheck.throttled) {
+      await logConversation({
+        userMessage: currentUserMsg,
+        cwResponse: '[blocked: ip throttled]',
+        condition: 'ip_throttled',
         sessionId,
         ipHash,
         tokenUsage: { input: 0, output: 0 }
