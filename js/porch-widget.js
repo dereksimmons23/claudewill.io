@@ -13,6 +13,7 @@
   var isVernieMode = false;
   var panelOpen = false;
   var sending = false;
+  var sessionTerminated = false;
 
   // ── Visitor Identity ────────────────────────────────
 
@@ -389,7 +390,7 @@
   function sendMessage() {
     var input = document.getElementById('porch-input');
     var sendBtn = document.getElementById('porch-send');
-    if (!input || sending) return;
+    if (!input || sending || sessionTerminated) return;
 
     var text = input.value.trim();
     if (!text) return;
@@ -447,6 +448,18 @@
       // Hide chips after first exchange
       var chips = document.getElementById('porch-chips');
       if (chips) chips.style.display = 'none';
+
+      // Server signaled session is terminated — lock the UI.
+      if (data.terminated) {
+        sessionTerminated = true;
+        if (input) {
+          input.disabled = true;
+          input.value = '';
+          input.placeholder = 'Porch closed.';
+          input.blur();
+        }
+        if (sendBtn) sendBtn.disabled = true;
+      }
     })
     .catch(function () {
       removeTyping();
@@ -454,6 +467,8 @@
     })
     .finally(function () {
       sending = false;
+      // Don't re-enable controls if the server closed the session.
+      if (sessionTerminated) return;
       if (sendBtn) sendBtn.disabled = false;
       if (input) {
         input.disabled = false;
