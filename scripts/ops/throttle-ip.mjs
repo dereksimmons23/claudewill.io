@@ -48,16 +48,24 @@ const clear = rest.includes('--clear');
 const supabase = createClient(SUPABASE_URL, KEY);
 
 if (clear) {
+  // Clean-slate: lift the throttle AND reset the counter/window. Otherwise
+  // the old session_count stays high and the next new-session request would
+  // re-trip the threshold immediately — which defeats the point of clearing.
   const { error } = await supabase
     .from('ip_state')
-    .update({ throttled_until: null, throttle_reason: null })
+    .update({
+      throttled_until: null,
+      throttle_reason: null,
+      new_session_count: 0,
+      window_start: new Date().toISOString()
+    })
     .eq('ip_hash', ipHash);
 
   if (error) {
     console.error('Clear failed:', error.message);
     process.exit(1);
   }
-  console.log(`Cleared throttle: ${ipHash}`);
+  console.log(`Cleared throttle + reset counter: ${ipHash}`);
 } else {
   const args = rest.filter((r) => !r.startsWith('--'));
   const durationMin = Number.parseInt(args[0], 10) || 60;
