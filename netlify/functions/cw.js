@@ -274,6 +274,65 @@ async function logConversation(data) {
   }
 }
 
+// ── Server-side abuse defense ──────────────────────────
+// Closed sessions return a canned line without spending tokens.
+// Triggered by loop detection or (future) explicit operator close.
+
+const TERMINAL_RESPONSE = 'The porch is closed for tonight. Come back later.';
+
+async function isSessionClosed(sessionId) {
+  if (!supabase || !sessionId || sessionId === 'unknown') return false;
+  try {
+    const { data } = await supabase
+      .from('session_state')
+      .select('state')
+      .eq('session_id', sessionId)
+      .maybeSingle();
+    return data && data.state === 'closed';
+  } catch (error) {
+    console.error('session_state read failed:', error.message);
+    return false; // fail open — don't block real users on infra hiccups
+  }
+}
+
+async function closeSession(sessionId, ipHash, reason, triggerMessage) {
+  if (!supabase || !sessionId || sessionId === 'unknown') return;
+  try {
+    await supabase
+      .from('session_state')
+      .upsert(
+        {
+          session_id: sessionId,
+          state: 'closed',
+          closed_at: new Date().toISOString(),
+          closed_reason: reason,
+          ip_hash: ipHash,
+          trigger_message: (triggerMessage || '').slice(0, 200)
+        },
+        { onConflict: 'session_id' }
+      );
+  } catch (error) {
+    console.error('session_state write failed:', error.message);
+  }
+}
+
+// Detect 3 identical user messages in a row (case-folded, trimmed).
+// Catches "I am a fish" x5 class. Edge case: legit "more more more" gets
+// the same treatment, which is acceptable — short repeated tokens don't
+// merit a thoughtful response after the second pass.
+function detectIdenticalLoop(messages) {
+  const userMsgs = messages
+    .filter((m) => m && m.role === 'user')
+    .map((m) => (m.content || '').trim().toLowerCase());
+  if (userMsgs.length < 3) return false;
+  const last3 = userMsgs.slice(-3);
+  return (
+    last3[0].length > 0 &&
+    last3[0] === last3[1] &&
+    last3[1] === last3[2]
+  );
+}
+
 // SYSTEM_PROMPT is now imported from ./cw-prompt/index.js
 // Edit prompt content in cw-prompt/*.md files
 
@@ -422,6 +481,46 @@ exports.handler = async (event, context) => {
       }
     }
 
+    // Session identity (needed for abuse defense + logging)
+    const sessionId = event.headers['x-session-id'] || 'unknown';
+    const ipHash = createSimpleHash(ip);
+    const currentUserMsg = messages[messages.length - 1]?.content || '';
+
+    // Abuse defense: short-circuit closed sessions before any model call.
+    if (await isSessionClosed(sessionId)) {
+      await logConversation({
+        userMessage: currentUserMsg,
+        cwResponse: '[blocked: session closed]',
+        condition: 'blocked',
+        sessionId,
+        ipHash,
+        tokenUsage: { input: 0, output: 0 }
+      });
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({ response: TERMINAL_RESPONSE, terminated: true })
+      };
+    }
+
+    // Abuse defense: 3 identical user messages → close session.
+    if (detectIdenticalLoop(messages)) {
+      await closeSession(sessionId, ipHash, 'loop_3_identical', currentUserMsg);
+      await logConversation({
+        userMessage: currentUserMsg,
+        cwResponse: TERMINAL_RESPONSE,
+        condition: 'terminated',
+        sessionId,
+        ipHash,
+        tokenUsage: { input: 0, output: 0 }
+      });
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({ response: TERMINAL_RESPONSE, terminated: true })
+      };
+    }
+
     const client = new Anthropic({
       apiKey: process.env.ANTHROPIC_API_KEY
     });
@@ -490,15 +589,10 @@ exports.handler = async (event, context) => {
 
     const cwResponse = response.content[0].text;
 
-    // Log conversation (non-blocking) — skip if healthCheck flag is set
-    const userMessage = messages[messages.length - 1]?.content || '';
-    const sessionId = event.headers['x-session-id'] || 'unknown';
-    const ipHash = createSimpleHash(ip);
-
     // Await logging — Netlify kills function after return, fire-and-forget is unreliable
     // healthCheck: true skips logging so autonomous health pings don't pollute conversation tables
     if (!healthCheck) await logConversation({
-      userMessage,
+      userMessage: currentUserMsg,
       cwResponse,
       condition: isKitchenMode ? 'kitchen' : (condition || 'clear'),
       sessionId,
